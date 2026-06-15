@@ -177,6 +177,14 @@ a {
   align-items: center;
 }
 
+.hero__banner-img {
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .hero__graphic-inner {
   position: relative;
   width: 420px;

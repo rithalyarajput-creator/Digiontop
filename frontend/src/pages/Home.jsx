@@ -115,34 +115,13 @@ const HeroSection = () => (
         </div>
       </div>
 
-      {/* Right graphic placeholder */}
+      {/* Right graphic */}
       <div className="hero__graphic" data-aos="fade-left">
-        <div className="hero__graphic-inner">
-          <div className="hero__graphic-badge hero__graphic-badge--1">
-            <FaSearch />
-            <span>#1 on Google</span>
-          </div>
-          <div className="hero__graphic-badge hero__graphic-badge--2">
-            <FaBullhorn />
-            <span>10x Reach</span>
-          </div>
-          <div className="hero__graphic-badge hero__graphic-badge--3">
-            <FaShoppingCart />
-            <span>Marketplace Growth</span>
-          </div>
-          <div className="hero__graphic-screen">
-            <div className="hero__graphic-line"></div>
-            <div className="hero__graphic-line hero__graphic-line--short"></div>
-            <div className="hero__graphic-line"></div>
-            <div className="hero__graphic-bar-group">
-              <div className="hero__graphic-bar" style={{ height: "40%" }}></div>
-              <div className="hero__graphic-bar" style={{ height: "65%" }}></div>
-              <div className="hero__graphic-bar" style={{ height: "50%" }}></div>
-              <div className="hero__graphic-bar" style={{ height: "80%" }}></div>
-              <div className="hero__graphic-bar hero__graphic-bar--accent" style={{ height: "95%" }}></div>
-            </div>
-          </div>
-        </div>
+        <img
+          src="/images/hero-banner.png"
+          alt="DigionTop — Business Growth"
+          className="hero__banner-img"
+        />
       </div>
     </div>
 
