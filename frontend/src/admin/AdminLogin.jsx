@@ -31,7 +31,7 @@ export default function AdminLogin({ onLogin }) {
     <div className="admin-login">
       <form className="admin-login__card" onSubmit={handleSubmit}>
         <div className="admin-login__brand">
-          <span className="admin-login__logo">Digion<span>Top</span></span>
+          <img src="/images/logo-header.png" alt="DigionTop" style={{ height: '60px', width: 'auto', display: 'block', margin: '0 auto 8px' }} />
           <p className="admin-login__subtitle">Admin Panel</p>
         </div>
 

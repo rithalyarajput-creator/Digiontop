@@ -38,7 +38,7 @@ export default function AdminApp() {
     <div className="admin-shell">
       <aside className={`admin-sidebar${sidebarOpen ? ' admin-sidebar--open' : ''}`}>
         <div className="admin-sidebar__brand">
-          Digion<span>Top</span>
+          <img src="/images/logo-footer.png" alt="DigionTop" style={{ height: '44px', width: 'auto', display: 'block' }} />
         </div>
         <nav className="admin-sidebar__nav">
           {navItems.map((item) => (
