@@ -28,6 +28,7 @@
 .navbar__wrapper {
   max-width: 1280px;
   margin: 0 auto;
+  position: relative;
 }
 
 .navbar__container {
@@ -254,6 +255,83 @@
 
 .navbar__cta:hover .navbar__cta-arrow {
   background: rgba(0,0,0,0.2);
+}
+
+/* ---------- Mega Menu ---------- */
+.navbar__item--mega {
+  position: static;
+}
+
+.navbar__mega {
+  display: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1.5px solid #ebebeb;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.13);
+  padding: 24px 28px;
+  z-index: 300;
+  min-width: 560px;
+  display: none;
+  gap: 32px;
+}
+
+.navbar__mega--open {
+  display: flex !important;
+  animation: fadeDropdown 0.18s ease;
+}
+
+.navbar__mega-col {
+  flex: 1;
+  min-width: 160px;
+}
+
+.navbar__mega-heading {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #F5A800;
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.navbar__mega-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navbar__mega-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.navbar__mega-link:hover {
+  background: #fdf6e7;
+  color: #000;
+}
+
+.navbar__mega-arrow {
+  color: #F5A800;
+  font-size: 1.1rem;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 /* ---------- Hamburger ---------- */

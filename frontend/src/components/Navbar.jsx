@@ -2,17 +2,47 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 
-const servicesLinks = [
-  { label: 'Website Development', path: '/services/website-development' },
-  { label: 'SEO Services', path: '/services/seo-services' },
-  { label: 'Social Media Marketing', path: '/services/social-media-marketing' },
-  { label: 'E-Commerce Solutions', path: '/services/ecommerce-solutions' },
+const servicesMenu = [
+  {
+    heading: 'Web Services',
+    items: [
+      { label: 'Website Development', path: '/services/website-development' },
+      { label: 'WordPress Development', path: '/services/website-development' },
+      { label: 'Shopify Store Development', path: '/services/website-development' },
+    ],
+  },
+  {
+    heading: 'Marketing',
+    items: [
+      { label: 'SEO Services', path: '/services/seo-services' },
+      { label: 'Social Media Marketing', path: '/services/social-media-marketing' },
+      { label: 'Pay Per Click (PPC)', path: '/services/seo-services' },
+    ],
+  },
+  {
+    heading: 'E-Commerce',
+    items: [
+      { label: 'E-Commerce Solutions', path: '/services/ecommerce-solutions' },
+      { label: 'Amazon Listing', path: '/services/ecommerce-solutions' },
+      { label: 'Flipkart & Meesho', path: '/services/ecommerce-solutions' },
+    ],
+  },
+];
+
+const workMenu = [
+  { label: 'Website Mockups', path: '/work' },
+  { label: 'Reels & Videos', path: '/work' },
+  { label: 'Social Media Posts', path: '/work' },
+  { label: 'Logo & Branding', path: '/work' },
+  { label: 'SEO Case Studies', path: '/work' },
+  { label: 'All Projects', path: '/work' },
 ];
 
 const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services', dropdown: true },
+  { label: 'Services', path: '/services', mega: true },
+  { label: 'Work', path: '/work', dropdown: true },
   { label: 'Why Us', path: '/why-us' },
   { label: 'Industries', path: '/industries' },
   { label: 'Blog', path: '/blog' },
@@ -22,9 +52,8 @@ const navLinks = [
 export default function Navbar() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
-  const dropdownRef = useRef(null);
   const hoverTimeout = useRef(null);
 
   useEffect(() => {
@@ -35,7 +64,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false);
-    setDropdownOpen(false);
+    setActiveDropdown(null);
   }, [location.pathname]);
 
   const isActive = (path) => {
@@ -43,17 +72,17 @@ export default function Navbar() {
     return location.pathname.startsWith(path);
   };
 
-  const isServicesActive = () =>
-    servicesLinks.some((s) => location.pathname.startsWith(s.path)) ||
-    location.pathname.startsWith('/services');
-
-  const handleDropdownEnter = () => {
+  const handleEnter = (key) => {
     clearTimeout(hoverTimeout.current);
-    setDropdownOpen(true);
+    setActiveDropdown(key);
   };
 
-  const handleDropdownLeave = () => {
-    hoverTimeout.current = setTimeout(() => setDropdownOpen(false), 150);
+  const handleLeave = () => {
+    hoverTimeout.current = setTimeout(() => setActiveDropdown(null), 150);
+  };
+
+  const handleMobileToggle = (key) => {
+    setActiveDropdown((prev) => (prev === key ? null : key));
   };
 
   return (
@@ -69,8 +98,7 @@ export default function Navbar() {
           <button
             className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--open' : ''}`}
             onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={menuOpen}
+            aria-label="Toggle menu"
           >
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
@@ -80,48 +108,79 @@ export default function Navbar() {
           {/* Nav Links */}
           <div className={`navbar__menu${menuOpen ? ' navbar__menu--open' : ''}`}>
             <ul className="navbar__list">
-              {navLinks.map((link) =>
-                link.dropdown ? (
-                  <li
-                    key={link.label}
-                    className="navbar__item navbar__item--dropdown"
-                    ref={dropdownRef}
-                    onMouseEnter={handleDropdownEnter}
-                    onMouseLeave={handleDropdownLeave}
-                  >
-                    <button
-                      className={`navbar__link navbar__dropdown-toggle${
-                        isServicesActive() ? ' navbar__link--active' : ''
-                      }`}
-                      onClick={() => setDropdownOpen((prev) => !prev)}
-                      aria-haspopup="true"
-                      aria-expanded={dropdownOpen}
+              {navLinks.map((link) => {
+                if (link.mega) {
+                  return (
+                    <li
+                      key={link.label}
+                      className="navbar__item navbar__item--mega"
+                      onMouseEnter={() => handleEnter('services')}
+                      onMouseLeave={handleLeave}
                     >
-                      {link.label}
-                      <span className={`navbar__arrow${dropdownOpen ? ' navbar__arrow--up' : ''}`}>
-                        &#9660;
-                      </span>
-                    </button>
+                      <button
+                        className={`navbar__link${isActive(link.path) ? ' navbar__link--active' : ''}`}
+                        onClick={() => handleMobileToggle('services')}
+                      >
+                        {link.label}
+                        <span className={`navbar__arrow${activeDropdown === 'services' ? ' navbar__arrow--up' : ''}`}>&#9660;</span>
+                      </button>
+                      {/* Mega Menu */}
+                      <div
+                        className={`navbar__mega${activeDropdown === 'services' ? ' navbar__mega--open' : ''}`}
+                        onMouseEnter={() => handleEnter('services')}
+                        onMouseLeave={handleLeave}
+                      >
+                        {servicesMenu.map((col) => (
+                          <div className="navbar__mega-col" key={col.heading}>
+                            <p className="navbar__mega-heading">{col.heading}</p>
+                            <ul className="navbar__mega-list">
+                              {col.items.map((item) => (
+                                <li key={item.label}>
+                                  <Link to={item.path} className="navbar__mega-link">
+                                    <span className="navbar__mega-arrow">›</span>
+                                    {item.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </li>
+                  );
+                }
 
-                    <ul className={`navbar__dropdown${dropdownOpen ? ' navbar__dropdown--open' : ''}`}
-                      onMouseEnter={handleDropdownEnter}
-                      onMouseLeave={handleDropdownLeave}
+                if (link.dropdown) {
+                  return (
+                    <li
+                      key={link.label}
+                      className="navbar__item navbar__item--dropdown"
+                      onMouseEnter={() => handleEnter('work')}
+                      onMouseLeave={handleLeave}
                     >
-                      {servicesLinks.map((s) => (
-                        <li key={s.label} className="navbar__dropdown-item">
-                          <Link
-                            to={s.path}
-                            className={`navbar__dropdown-link${
-                              location.pathname === s.path ? ' navbar__dropdown-link--active' : ''
-                            }`}
-                          >
-                            {s.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ) : (
+                      <button
+                        className={`navbar__link${isActive(link.path) ? ' navbar__link--active' : ''}`}
+                        onClick={() => handleMobileToggle('work')}
+                      >
+                        {link.label}
+                        <span className={`navbar__arrow${activeDropdown === 'work' ? ' navbar__arrow--up' : ''}`}>&#9660;</span>
+                      </button>
+                      <ul
+                        className={`navbar__dropdown${activeDropdown === 'work' ? ' navbar__dropdown--open' : ''}`}
+                        onMouseEnter={() => handleEnter('work')}
+                        onMouseLeave={handleLeave}
+                      >
+                        {workMenu.map((item) => (
+                          <li key={item.label} className="navbar__dropdown-item">
+                            <Link to={item.path} className="navbar__dropdown-link">{item.label}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  );
+                }
+
+                return (
                   <li key={link.label} className="navbar__item">
                     <Link
                       to={link.path}
@@ -130,11 +189,10 @@ export default function Navbar() {
                       {link.label}
                     </Link>
                   </li>
-                )
-              )}
+                );
+              })}
             </ul>
 
-            {/* CTA Button */}
             <Link to="/contact" className="navbar__cta">
               <span className="navbar__cta-arrow">&#8594;</span>
               Get Free Consultation

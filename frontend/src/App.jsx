@@ -18,6 +18,7 @@ import Industries from './pages/Industries';
 import Testimonials from './pages/Testimonials';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
+import Work from './pages/Work';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -46,6 +47,7 @@ function PublicSite() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/work" element={<Work />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />

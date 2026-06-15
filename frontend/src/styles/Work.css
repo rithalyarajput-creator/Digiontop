@@ -1,0 +1,96 @@
+.work-page { min-height: 80vh; }
+
+.work-hero {
+  background: #0d0d0d;
+  padding: 80px 24px 60px;
+  text-align: center;
+}
+
+.work-hero__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #F5A800;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.work-hero__heading {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.work-hero__yellow { color: #F5A800; }
+
+.work-hero__sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 540px;
+  margin: 0 auto 20px;
+  line-height: 1.7;
+}
+
+.work-hero__breadcrumb {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.work-hero__bc-link { color: #F5A800; text-decoration: none; }
+.work-hero__bc-current { color: rgba(255,255,255,0.5); }
+
+.work-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.work-categories { padding: 32px 0 8px; background: #fff; border-bottom: 1px solid #f0f0f0; }
+
+.work-cats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.work-cat-btn {
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1.5px solid #e0e0e0;
+  background: #fff;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.work-cat-btn:hover { border-color: #F5A800; color: #000; }
+.work-cat-btn--active { background: #F5A800; border-color: #F5A800; color: #000; font-weight: 700; }
+
+.work-grid-section { padding: 80px 0; background: #fff; }
+
+.work-coming-soon {
+  text-align: center;
+  padding: 60px 24px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.work-coming-soon__icon { font-size: 3.5rem; margin-bottom: 20px; }
+.work-coming-soon__heading { font-size: 1.8rem; font-weight: 800; color: #1a1a1a; margin: 0 0 12px; }
+.work-coming-soon__text { font-size: 1rem; color: #777; line-height: 1.7; margin: 0 0 28px; }
+
+.work-coming-soon__cta {
+  display: inline-block;
+  padding: 13px 28px;
+  background: #F5A800;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.work-coming-soon__cta:hover { background: #e09700; transform: translateY(-1px); }
