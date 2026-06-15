@@ -101,12 +101,12 @@ export default function Navbar() {
   return (
     <nav className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="navbar__wrapper">
-        <div className="navbar__container">
-          {/* Logo */}
-          <Link to="/" className="navbar__logo">
-            <img src="/images/logo-header.png" alt="DigionTop Logo" />
-          </Link>
+        {/* Logo — left */}
+        <Link to="/" className="navbar__logo">
+          <img src="/images/logo-header.png" alt="DigionTop Logo" />
+        </Link>
 
+        <div className="navbar__container">
           {/* Hamburger */}
           <button
             className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--open' : ''}`}
@@ -205,13 +205,14 @@ export default function Navbar() {
                 );
               })}
             </ul>
-
-            <Link to="/contact" className="navbar__cta">
-              <span className="navbar__cta-arrow">&#8594;</span>
-              Get Free Consultation
-            </Link>
           </div>
         </div>
+
+        {/* CTA Button — right, outside pill */}
+        <Link to="/contact" className="navbar__cta">
+          <span className="navbar__cta-arrow">&#8594;</span>
+          Get Free Consultation
+        </Link>
       </div>
     </nav>
   );
