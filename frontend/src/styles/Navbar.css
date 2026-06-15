@@ -25,13 +25,30 @@
 
 /* ---------- Single pill — logo + menu together ---------- */
 .navbar__wrapper {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   position: relative;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
+/* Logo sits outside the pill */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar__logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* Pill contains only the menu */
 .navbar__container {
   display: inline-flex;
   align-items: center;
@@ -52,20 +69,6 @@
     0 4px 16px rgba(0,0,0,0.10),
     0 12px 40px rgba(0,0,0,0.07),
     inset 0 1px 0 rgba(255,255,255,0.9);
-}
-
-/* ---------- Logo ---------- */
-.navbar__logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.navbar__logo img {
-  height: 40px;
-  width: auto;
-  display: block;
 }
 
 /* ---------- Menu Wrapper ---------- */
@@ -385,7 +388,7 @@
   }
 
   .navbar__logo img {
-    height: 34px;
+    height: 38px;
   }
 
   .navbar__hamburger {
