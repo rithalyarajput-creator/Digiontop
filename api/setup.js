@@ -93,6 +93,18 @@ export default async function handler(req, res) {
       )
     `;
 
+    await sql`
+      CREATE TABLE IF NOT EXISTS faqs (
+        id SERIAL PRIMARY KEY,
+        question TEXT NOT NULL,
+        answer TEXT NOT NULL,
+        category VARCHAR(100) DEFAULT 'General',
+        sort_order INTEGER DEFAULT 0,
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+
     await sql`CREATE INDEX IF NOT EXISTS idx_blog_posts_status ON blog_posts (status)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_blog_posts_slug ON blog_posts (slug)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_contact_leads_status ON contact_leads (status)`;

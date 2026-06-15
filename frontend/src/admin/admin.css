@@ -48,6 +48,12 @@
 .admin-navlink--active { background: #2d2d2d; color: #f5a800; border-left: 3px solid #f5a800; }
 .admin-navlink--logout { margin-top: auto; color: #ff8080; }
 .admin-navlink--logout:hover { color: #ff5555; background: #2d2d2d; }
+.admin-navlink--group { justify-content: flex-start; }
+.admin-navlink__arrow { margin-left: auto; font-size: 14px; transition: transform 0.2s; }
+.admin-navlink__arrow--open { transform: rotate(180deg); }
+.admin-subnav { display: flex; flex-direction: column; padding-left: 0; background: #141414; }
+.admin-navlink--sub { padding: 10px 24px 10px 36px; font-size: 14px; }
+.admin-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 99; }
 
 /* ---- Main ---- */
 .admin-main { flex: 1; margin-left: 240px; display: flex; flex-direction: column; }
