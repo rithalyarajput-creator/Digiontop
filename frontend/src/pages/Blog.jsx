@@ -56,24 +56,19 @@ export default function Blog() {
 export function BlogCard({ post }) {
   return (
     <Link to={`/blog/${post.slug || post.id}`} className="blog-card">
-      {/* Image — full width, rounded top */}
+      {/* White image box — floats above yellow body */}
       <div className="blog-card__img-wrap">
         {post.image_url ? (
           <img src={post.image_url} alt={post.title} className="blog-card__img" />
         ) : (
-          <div className="blog-card__img-placeholder">
-            <span>📝</span>
-          </div>
-        )}
-        {post.category && (
-          <span className="blog-card__cat">{post.category}</span>
+          <div className="blog-card__img-placeholder" />
         )}
       </div>
       {/* Yellow body */}
       <div className="blog-card__body">
         <h3 className="blog-card__title">{post.title}</h3>
         {post.excerpt && <p className="blog-card__excerpt">{post.excerpt}</p>}
-        <span className="blog-card__read">Read More &nbsp;→</span>
+        <span className="blog-card__read">Read More →</span>
       </div>
     </Link>
   );
