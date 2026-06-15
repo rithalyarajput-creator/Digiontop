@@ -74,7 +74,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 8px 12px;
+  padding: 8px 16px;
   font-family: inherit;
   font-size: 15px;
   font-weight: 500;
@@ -83,17 +83,25 @@
   background: none;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 50px;
   transition: color 0.2s ease, background-color 0.2s ease;
   white-space: nowrap;
 }
 
 .navbar__link:hover {
-  color: #F5A800;
+  color: #1a1a1a;
+  background-color: #f5f5f5;
 }
 
 .navbar__link--active {
-  color: #F5A800;
+  color: #000000;
+  background-color: #F5A800;
+  font-weight: 600;
+}
+
+.navbar__link--active:hover {
+  background-color: #e09700;
+  color: #000000;
 }
 
 /* ---------- Dropdown Toggle Arrow ---------- */
@@ -182,29 +190,50 @@
 
 /* ---------- CTA Button ---------- */
 .navbar__cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin-left: 16px;
-  padding: 10px 20px;
-  background-color: #F5A800;
+  padding: 11px 22px;
+  background: linear-gradient(135deg, #F5A800 0%, #e09700 60%, #F5A800 100%);
+  background-size: 200% auto;
   color: #000000;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 50px;
   white-space: nowrap;
-  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition: background-position 0.4s ease, transform 0.15s ease, box-shadow 0.2s ease;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(245, 168, 0, 0.35), inset 0 1px 0 rgba(255,255,255,0.25);
 }
 
 .navbar__cta:hover {
-  background-color: #e09700;
+  background-position: right center;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(245, 168, 0, 0.4);
+  box-shadow: 0 6px 18px rgba(245, 168, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.25);
 }
 
 .navbar__cta:active {
   transform: translateY(0);
-  box-shadow: none;
+  box-shadow: 0 2px 6px rgba(245, 168, 0, 0.3);
+}
+
+.navbar__cta-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(0,0,0,0.12);
+  border-radius: 50%;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.navbar__cta:hover .navbar__cta-arrow {
+  background: rgba(0,0,0,0.2);
 }
 
 /* ---------- Hamburger Button ---------- */

@@ -133,6 +133,7 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <Link to="/contact" className="navbar__cta">
+            <span className="navbar__cta-arrow">&#8594;</span>
             Get Free Consultation
           </Link>
         </div>
