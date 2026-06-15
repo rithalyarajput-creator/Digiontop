@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiMessageSquare } from 'react-icons/fi';
 import '../styles/Testimonials.css';
 
 /* ─── Testimonial Data ─── */
@@ -85,18 +84,21 @@ export default function Testimonials() {
           <div className="testimonials-grid">
             {testimonials.map((t) => (
               <div key={t.name} className="testimonial-card">
-                <div className="testimonial-card__quote-icon">
-                  <FiMessageSquare size={22} />
+                {/* Dark teal header with name */}
+                <div className="testimonial-card__header">
+                  <span className="testimonial-card__name">{t.name}</span>
                 </div>
-                <p className="testimonial-card__text">{t.quote}</p>
-                <div className="testimonial-card__footer">
-                  <div className="testimonial-card__avatar" aria-hidden="true">
-                    {t.name.charAt(0)}
+                {/* White body */}
+                <div className="testimonial-card__body">
+                  {/* Stars */}
+                  <div className="testimonial-card__stars">
+                    {'★★★★★'}
                   </div>
-                  <div>
-                    <span className="testimonial-card__name">{t.name}</span>
-                    <span className="testimonial-card__role">{t.role}</span>
-                  </div>
+                  {/* Big quote icon */}
+                  <span className="testimonial-card__quote">"</span>
+                  {/* Text */}
+                  <p className="testimonial-card__text">{t.quote}</p>
+                  <span className="testimonial-card__role">{t.role}</span>
                 </div>
               </div>
             ))}
