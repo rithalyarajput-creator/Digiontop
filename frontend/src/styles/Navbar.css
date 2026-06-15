@@ -230,6 +230,7 @@
 .navbar__cta:hover {
   background-position: right center;
   transform: translateY(-1px);
+  color: #ffffff;
   box-shadow:
     0 6px 20px rgba(245,168,0,0.5),
     inset 0 1px 0 rgba(255,255,255,0.3),

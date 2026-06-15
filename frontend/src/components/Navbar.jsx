@@ -60,7 +60,6 @@ const navLinks = [
   { label: 'Why Us', path: '/why-us' },
   { label: 'Industries', path: '/industries' },
   { label: 'Blog', path: '/blog' },
-  { label: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar() {
