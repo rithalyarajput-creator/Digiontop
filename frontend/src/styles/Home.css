@@ -126,9 +126,9 @@ a {
    1. HERO SECTION
    ============================================================ */
 .hero {
-  background: linear-gradient(120deg, var(--dark) 0%, var(--dark-2) 55%, var(--dark-3) 100%);
+  background: #0d0d0d;
   color: var(--white);
-  padding: 100px 24px 0;
+  padding: 80px 24px 60px;
   overflow: hidden;
 }
 
@@ -137,9 +137,29 @@ a {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 40px;
   align-items: center;
-  padding-bottom: 80px;
+}
+
+/* ── Hero Badge ── */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.hero__badge-star {
+  color: #F5A800;
+  font-size: 0.9rem;
 }
 
 /* ── Hero Content ── */
@@ -148,26 +168,99 @@ a {
 }
 
 .hero__headline {
-  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-size: clamp(2.8rem, 6vw, 5rem);
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.05;
   color: var(--white);
-  margin-bottom: 22px;
-  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero__headline--yellow {
+  color: #F5A800;
 }
 
 .hero__subheadline {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.72);
-  line-height: 1.75;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
   margin-bottom: 36px;
   max-width: 480px;
 }
 
+.hero__subheadline--yellow {
+  color: #F5A800;
+  font-weight: 600;
+}
+
 .hero__ctas {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* CTA button icons */
+.hero__btn-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  padding: 14px 28px;
+}
+
+.hero__btn-services {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  padding: 14px 28px;
+  border-color: rgba(255,255,255,0.5);
+}
+
+.hero__btn-icon {
+  font-size: 1rem;
+}
+
+.hero__btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+/* ── Stats Row (inside hero content) ── */
+.hero__stats-row {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero__stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero__stat-icon {
+  font-size: 1rem;
+}
+
+.hero__stat-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.hero__stat-lbl {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
 }
 
 /* ── Hero Graphic ── */
@@ -273,42 +366,6 @@ a {
 }
 
 /* ── Hero Stats Bar ── */
-.hero__stats {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hero__stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 28px 16px;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-}
-
-.hero__stat:last-child {
-  border-right: none;
-}
-
-.hero__stat-value {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 900;
-  color: var(--yellow);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.hero__stat-label {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.55);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 500;
-}
 
 /* ============================================================
    2. SERVICES SECTION

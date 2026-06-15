@@ -91,27 +91,46 @@ const stats = [
 
 // ─── SUB-COMPONENTS ───────────────────────────────────────────────────────────
 
+const heroStats = [
+  { icon: "👥", value: "500+", label: "Happy Clients" },
+  { icon: "📈", value: "2X+", label: "Average Growth" },
+  { icon: "🏆", value: "#1", label: "Client Satisfaction" },
+  { icon: "🛡️", value: "Result", label: "Driven Approach" },
+];
+
 const HeroSection = () => (
   <section className="hero">
     <div className="hero__inner">
       {/* Left content */}
       <div className="hero__content" data-aos="fade-right">
+        <div className="hero__badge">
+          <span className="hero__badge-star">★</span> #1 Digital Marketing Agency
+        </div>
         <h1 className="hero__headline">
-          India's Remote-First Digital Marketing Agency That Puts Your Business
-          on Top of Google, Social Media, and Every Marketplace.
+          Stay On <span className="hero__headline--yellow">Top.</span>
         </h1>
         <p className="hero__subheadline">
-          We design stunning websites, run powerful SEO campaigns, manage your
-          social media, and optimize your presence on Amazon, Flipkart, and
-          Meesho — all from one trusted team.
+          We Help Brands Rank Higher, Grow Faster<br />
+          &amp; Generate <span className="hero__subheadline--yellow">More Revenue.</span>
         </p>
         <div className="hero__ctas">
-          <a href="/contact" className="btn btn--yellow">
-            Get a Free Strategy Call
+          <a href="/contact" className="btn btn--yellow hero__btn-call">
+            <span className="hero__btn-icon">📞</span> Get a Free Strategy Call
           </a>
-          <a href="/services" className="btn btn--outline">
-            View Our Services
+          <a href="/services" className="btn btn--outline hero__btn-services">
+            <span className="hero__btn-arrow">↗</span> View Our Services
           </a>
+        </div>
+
+        {/* Stats row */}
+        <div className="hero__stats-row">
+          {heroStats.map((s, i) => (
+            <div className="hero__stat-item" key={i}>
+              <span className="hero__stat-icon">{s.icon}</span>
+              <span className="hero__stat-val">{s.value}</span>
+              <span className="hero__stat-lbl">{s.label}</span>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -123,16 +142,6 @@ const HeroSection = () => (
           className="hero__banner-img"
         />
       </div>
-    </div>
-
-    {/* Stats bar */}
-    <div className="hero__stats">
-      {stats.map((stat, i) => (
-        <div className="hero__stat" key={i} data-aos="fade-up" data-aos-delay={i * 80}>
-          <span className="hero__stat-value">{stat.value}</span>
-          <span className="hero__stat-label">{stat.label}</span>
-        </div>
-      ))}
     </div>
   </section>
 );
