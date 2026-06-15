@@ -17,9 +17,20 @@ const servicesMenu = [
       { label: 'SEO Services', path: '/services/seo-services' },
       { label: 'Social Media Marketing', path: '/services/social-media-marketing' },
       { label: 'Pay Per Click (PPC)', path: '/services/seo-services' },
-      { label: 'Instagram Marketing', path: '/services/social-media-marketing', external: null },
-      { label: 'Facebook Marketing', path: '/services/social-media-marketing', external: null },
-      { label: 'YouTube Marketing', path: '/services/social-media-marketing', external: null },
+      { label: 'Instagram Marketing', path: '/services/social-media-marketing' },
+      { label: 'Facebook Marketing', path: '/services/social-media-marketing' },
+      { label: 'YouTube Marketing', path: '/services/social-media-marketing' },
+    ],
+  },
+  {
+    heading: 'Social Media',
+    items: [
+      { label: 'Platform Handling', path: '/services/social-media-marketing' },
+      { label: 'Reels & Video Creation', path: '/services/social-media-marketing' },
+      { label: 'Influencer Reels', path: '/services/social-media-marketing' },
+      { label: 'UGC Video Content', path: '/services/social-media-marketing' },
+      { label: 'Content Posting & Scheduling', path: '/services/social-media-marketing' },
+      { label: 'Social Media Strategy', path: '/services/social-media-marketing' },
     ],
   },
   {

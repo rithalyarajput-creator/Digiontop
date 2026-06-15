@@ -274,9 +274,9 @@
   box-shadow: 0 16px 48px rgba(0,0,0,0.13);
   padding: 24px 28px;
   z-index: 300;
-  min-width: 560px;
+  min-width: 760px;
   display: none;
-  gap: 32px;
+  gap: 28px;
 }
 
 .navbar__mega--open {
