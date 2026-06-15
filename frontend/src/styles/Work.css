@@ -94,3 +94,18 @@
 }
 
 .work-coming-soon__cta:hover { background: #e09700; transform: translateY(-1px); }
+
+@media (max-width: 768px) {
+  .work-hero { padding: 60px 16px 40px; }
+  .work-cats { gap: 8px; }
+  .work-cat-btn { padding: 7px 14px; font-size: 0.82rem; }
+  .work-grid-section { padding: 48px 0; }
+  .work-coming-soon { padding: 40px 16px; }
+  .work-coming-soon__heading { font-size: 1.4rem; }
+}
+
+@media (max-width: 480px) {
+  .work-hero__heading { font-size: 1.8rem; }
+  .work-cats { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; }
+  .work-cat-btn { white-space: nowrap; flex-shrink: 0; }
+}

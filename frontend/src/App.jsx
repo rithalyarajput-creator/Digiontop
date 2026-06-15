@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ChatBot from './components/ChatBot';
 import AdminApp from './admin/AdminApp';
 
 import Home from './pages/Home';
@@ -51,6 +52,7 @@ function PublicSite() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
+      <ChatBot />
     </>
   );
 }
