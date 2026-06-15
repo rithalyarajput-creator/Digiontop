@@ -102,11 +102,6 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="navbar__wrapper">
         <div className="navbar__container">
-          {/* Logo */}
-          <Link to="/" className="navbar__logo">
-            <img src="/images/logo-header.png" alt="DigionTop Logo" />
-          </Link>
-
           {/* Hamburger */}
           <button
             className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--open' : ''}`}

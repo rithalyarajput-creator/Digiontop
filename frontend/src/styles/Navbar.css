@@ -15,12 +15,12 @@
   z-index: 1000;
   width: 100%;
   background: transparent;
-  padding: 12px 24px;
+  padding: 10px 20px;
   transition: padding 0.3s ease;
 }
 
 .navbar--scrolled {
-  padding: 8px 24px;
+  padding: 6px 20px;
 }
 
 /* ---------- Single pill — logo + menu together ---------- */
@@ -28,21 +28,23 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar__container {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
   background: #ffffff;
   border-radius: 100px;
   border: 1.5px solid #e8e8e8;
-  padding: 6px 8px 6px 14px;
+  padding: 6px 8px;
   box-shadow:
     0 2px 8px rgba(0,0,0,0.06),
     0 8px 32px rgba(0,0,0,0.05),
     inset 0 1px 0 rgba(255,255,255,0.9);
   transition: box-shadow 0.3s ease;
+  gap: 4px;
 }
 
 .navbar--scrolled .navbar__container {
@@ -208,7 +210,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-left: 10px;
+  margin-left: 6px;
   padding: 10px 20px;
   background: linear-gradient(135deg, #F5A800 0%, #e09700 60%, #F5C200 100%);
   background-size: 200% auto;
