@@ -25,24 +25,12 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
-  const mobileDropdownRef = useRef(null);
+  const hoverTimeout = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDropdownOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -59,83 +47,99 @@ export default function Navbar() {
     servicesLinks.some((s) => location.pathname.startsWith(s.path)) ||
     location.pathname.startsWith('/services');
 
+  const handleDropdownEnter = () => {
+    clearTimeout(hoverTimeout.current);
+    setDropdownOpen(true);
+  };
+
+  const handleDropdownLeave = () => {
+    hoverTimeout.current = setTimeout(() => setDropdownOpen(false), 150);
+  };
+
   return (
     <nav className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
-      <div className="navbar__container">
-        {/* Logo */}
-        <Link to="/" className="navbar__logo">
-          <img src="/images/logo-header.png" alt="DigionTop Logo" height="48" />
-        </Link>
-
-        {/* Hamburger */}
-        <button
-          className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--open' : ''}`}
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-        >
-          <span className="navbar__hamburger-line" />
-          <span className="navbar__hamburger-line" />
-          <span className="navbar__hamburger-line" />
-        </button>
-
-        {/* Nav Links */}
-        <div className={`navbar__menu${menuOpen ? ' navbar__menu--open' : ''}`}>
-          <ul className="navbar__list">
-            {navLinks.map((link) =>
-              link.dropdown ? (
-                <li
-                  key={link.label}
-                  className="navbar__item navbar__item--dropdown"
-                  ref={dropdownRef}
-                >
-                  <button
-                    className={`navbar__link navbar__dropdown-toggle${
-                      isServicesActive() ? ' navbar__link--active' : ''
-                    }`}
-                    onClick={() => setDropdownOpen((prev) => !prev)}
-                    aria-haspopup="true"
-                    aria-expanded={dropdownOpen}
-                  >
-                    {link.label}
-                    <span className={`navbar__arrow${dropdownOpen ? ' navbar__arrow--up' : ''}`}>
-                      &#9660;
-                    </span>
-                  </button>
-
-                  <ul className={`navbar__dropdown${dropdownOpen ? ' navbar__dropdown--open' : ''}`}>
-                    {servicesLinks.map((s) => (
-                      <li key={s.label} className="navbar__dropdown-item">
-                        <Link
-                          to={s.path}
-                          className={`navbar__dropdown-link${
-                            location.pathname === s.path ? ' navbar__dropdown-link--active' : ''
-                          }`}
-                        >
-                          {s.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ) : (
-                <li key={link.label} className="navbar__item">
-                  <Link
-                    to={link.path}
-                    className={`navbar__link${isActive(link.path) ? ' navbar__link--active' : ''}`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              )
-            )}
-          </ul>
-
-          {/* CTA Button */}
-          <Link to="/contact" className="navbar__cta">
-            <span className="navbar__cta-arrow">&#8594;</span>
-            Get Free Consultation
+      <div className="navbar__wrapper">
+        <div className="navbar__container">
+          {/* Logo */}
+          <Link to="/" className="navbar__logo">
+            <img src="/images/logo-header.png" alt="DigionTop Logo" />
           </Link>
+
+          {/* Hamburger */}
+          <button
+            className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--open' : ''}`}
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+          >
+            <span className="navbar__hamburger-line" />
+            <span className="navbar__hamburger-line" />
+            <span className="navbar__hamburger-line" />
+          </button>
+
+          {/* Nav Links */}
+          <div className={`navbar__menu${menuOpen ? ' navbar__menu--open' : ''}`}>
+            <ul className="navbar__list">
+              {navLinks.map((link) =>
+                link.dropdown ? (
+                  <li
+                    key={link.label}
+                    className="navbar__item navbar__item--dropdown"
+                    ref={dropdownRef}
+                    onMouseEnter={handleDropdownEnter}
+                    onMouseLeave={handleDropdownLeave}
+                  >
+                    <button
+                      className={`navbar__link navbar__dropdown-toggle${
+                        isServicesActive() ? ' navbar__link--active' : ''
+                      }`}
+                      onClick={() => setDropdownOpen((prev) => !prev)}
+                      aria-haspopup="true"
+                      aria-expanded={dropdownOpen}
+                    >
+                      {link.label}
+                      <span className={`navbar__arrow${dropdownOpen ? ' navbar__arrow--up' : ''}`}>
+                        &#9660;
+                      </span>
+                    </button>
+
+                    <ul className={`navbar__dropdown${dropdownOpen ? ' navbar__dropdown--open' : ''}`}
+                      onMouseEnter={handleDropdownEnter}
+                      onMouseLeave={handleDropdownLeave}
+                    >
+                      {servicesLinks.map((s) => (
+                        <li key={s.label} className="navbar__dropdown-item">
+                          <Link
+                            to={s.path}
+                            className={`navbar__dropdown-link${
+                              location.pathname === s.path ? ' navbar__dropdown-link--active' : ''
+                            }`}
+                          >
+                            {s.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ) : (
+                  <li key={link.label} className="navbar__item">
+                    <Link
+                      to={link.path}
+                      className={`navbar__link${isActive(link.path) ? ' navbar__link--active' : ''}`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              )}
+            </ul>
+
+            {/* CTA Button */}
+            <Link to="/contact" className="navbar__cta">
+              <span className="navbar__cta-arrow">&#8594;</span>
+              Get Free Consultation
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
