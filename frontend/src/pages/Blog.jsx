@@ -54,36 +54,26 @@ export default function Blog() {
 }
 
 export function BlogCard({ post }) {
-  const date = new Date(post.created_at).toLocaleDateString('en-IN', {
-    day: 'numeric', month: 'short', year: 'numeric',
-  });
-
   return (
     <Link to={`/blog/${post.slug || post.id}`} className="blog-card">
-      {/* Outer wrapper — gives space above for the floating image */}
-      <div className="blog-card__img-outer">
-        {/* White rounded image box — half sticks out above yellow card */}
-        <div className="blog-card__img-wrap">
-          {post.image_url ? (
-            <img src={post.image_url} alt={post.title} className="blog-card__img" />
-          ) : (
-            <div className="blog-card__img-placeholder">
-              <span>📝</span>
-            </div>
-          )}
-        </div>
-      </div>
-      {/* Yellow content area */}
-      <div className="blog-card__body">
+      {/* Image — full width, rounded top */}
+      <div className="blog-card__img-wrap">
+        {post.image_url ? (
+          <img src={post.image_url} alt={post.title} className="blog-card__img" />
+        ) : (
+          <div className="blog-card__img-placeholder">
+            <span>📝</span>
+          </div>
+        )}
         {post.category && (
           <span className="blog-card__cat">{post.category}</span>
         )}
+      </div>
+      {/* Yellow body */}
+      <div className="blog-card__body">
         <h3 className="blog-card__title">{post.title}</h3>
-        <div className="blog-card__meta">
-          {post.author && <span className="blog-card__author">✍ {post.author}</span>}
-          <span className="blog-card__date">{date}</span>
-        </div>
-        <span className="blog-card__read">Read More →</span>
+        {post.excerpt && <p className="blog-card__excerpt">{post.excerpt}</p>}
+        <span className="blog-card__read">Read More &nbsp;→</span>
       </div>
     </Link>
   );

@@ -60,41 +60,26 @@
   flex-direction: column;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.25s ease;
-  /* NO overflow:hidden — image floats above */
-}
-
-/* Outer wrapper — transparent top gap for image overflow */
-.blog-card__img-outer {
-  position: relative;
-  z-index: 2;
-  padding: 0 14px;
-  margin-bottom: -28px;
-}
-
-/* White rectangular image box — floats above yellow card */
-.blog-card__img-wrap {
-  background: #ffffff;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
-  width: 100%;
-  height: 190px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 8px 28px rgba(0,0,0,0.18),
-    0 2px 8px rgba(0,0,0,0.10),
-    0 0 0 1px rgba(0,0,0,0.04);
-  position: relative;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.07);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  background: #F5A800;
 }
 
-.blog-card:hover .blog-card__img-wrap {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow:
-    0 18px 44px rgba(0,0,0,0.22),
-    0 4px 14px rgba(0,0,0,0.12);
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.18), 0 4px 16px rgba(245,168,0,0.25);
+}
+
+/* Image area — full width, fixed height, no side margins */
+.blog-card__img-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #1a1a1a;
 }
 
 .blog-card__img {
@@ -115,44 +100,51 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f8f8f8;
-  font-size: 3rem;
+  background: #2a2a2a;
+  font-size: 3.5rem;
 }
 
-/* Yellow content area */
+/* Category badge — overlaid on image bottom-left */
+.blog-card__cat {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255,255,255,0.92);
+  color: #1a1a1a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+}
+
+/* Yellow body */
 .blog-card__body {
-  background: #F5A800;
-  border-radius: 18px;
-  padding: 46px 20px 22px;
+  padding: 18px 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 10px;
   flex: 1;
-  box-shadow:
-    0 8px 24px rgba(0,0,0,0.13),
-    0 2px 6px rgba(0,0,0,0.07);
-  transition: box-shadow 0.25s ease;
-}
-
-.blog-card:hover .blog-card__body {
-  box-shadow:
-    0 20px 48px rgba(0,0,0,0.18),
-    0 6px 16px rgba(245,168,0,0.3);
-}
-
-.blog-card__cat {
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(0,0,0,0.5);
 }
 
 .blog-card__title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: #000;
-  line-height: 1.35;
+  line-height: 1.38;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card__excerpt {
+  font-size: 0.84rem;
+  color: rgba(0,0,0,0.65);
+  line-height: 1.6;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -160,22 +152,14 @@
   overflow: hidden;
 }
 
-.blog-card__meta {
-  display: flex;
-  gap: 10px;
-  font-size: 0.72rem;
-  color: rgba(0,0,0,0.55);
-  flex-wrap: wrap;
-}
-
 .blog-card__read {
-  margin-top: 6px;
-  font-size: 0.82rem;
+  margin-top: 4px;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #000;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 /* =============================================
