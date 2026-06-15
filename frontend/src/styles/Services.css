@@ -1,0 +1,616 @@
+/* ============================================================
+   Services.css  –  Shared styles for all DigionTop service pages
+   WebsiteDevelopment | SEOServices | SocialMedia | ECommerce
+   ============================================================ */
+
+/* ---------- Page Hero ---------- */
+.svc-hero {
+  position: relative;
+  padding: 100px 0 80px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.svc-hero--dark {
+  background: linear-gradient(160deg, #0a0f1e 0%, #0f1f40 50%, #0a1628 100%);
+}
+
+.svc-hero--blue {
+  background: linear-gradient(160deg, #EBF5FF 0%, #f0f7ff 50%, #fff 100%);
+}
+
+.svc-hero--purple {
+  background: linear-gradient(160deg, #f5f3ff 0%, #ede9fe 40%, #fff 100%);
+}
+
+.svc-hero--green {
+  background: linear-gradient(160deg, #f0fdf4 0%, #ecfdf5 40%, #fff 100%);
+}
+
+/* Glow blobs */
+.svc-hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.35;
+}
+
+.svc-hero__blob--1 {
+  width: 420px;
+  height: 420px;
+  background: #1A56DB;
+  top: -120px;
+  left: -100px;
+}
+
+.svc-hero__blob--2 {
+  width: 320px;
+  height: 320px;
+  background: #F59E0B;
+  bottom: -80px;
+  right: -80px;
+}
+
+.svc-hero__blob--purple {
+  background: #7C3AED;
+  width: 360px;
+  height: 360px;
+  top: -100px;
+  right: -100px;
+}
+
+.svc-hero__blob--teal {
+  background: #0891B2;
+  width: 280px;
+  height: 280px;
+  bottom: -60px;
+  left: -60px;
+}
+
+.svc-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.svc-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 18px;
+  background: rgba(26, 86, 219, 0.15);
+  border: 1px solid rgba(26, 86, 219, 0.3);
+  color: #60a5fa;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.svc-hero__tag--light {
+  background: #EBF2FF;
+  border-color: #BFDBFE;
+  color: #1A56DB;
+}
+
+.svc-hero__tag--purple {
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.25);
+  color: #7C3AED;
+}
+
+.svc-hero__tag--green {
+  background: rgba(5, 150, 105, 0.1);
+  border-color: rgba(5, 150, 105, 0.25);
+  color: #059669;
+}
+
+.svc-hero__title {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+}
+
+.svc-hero__title--white {
+  color: #fff;
+}
+
+.svc-hero__title--dark {
+  color: #0F172A;
+}
+
+.svc-hero__subtitle {
+  font-size: 17px;
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.svc-hero__subtitle--muted-white {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.svc-hero__subtitle--slate {
+  color: #475569;
+}
+
+.svc-hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* Stats bar inside hero */
+.svc-hero__stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.svc-hero__stats--light {
+  border-top-color: #E2E8F0;
+}
+
+.svc-hero__stat-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.svc-hero__stat-num--dark {
+  color: #1A56DB;
+}
+
+.svc-hero__stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 500;
+}
+
+.svc-hero__stat-label--dark {
+  color: #94A3B8;
+}
+
+/* ---------- Section Titles ---------- */
+.svc-section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.svc-section-header .divider {
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, #1A56DB, #F59E0B);
+  border-radius: 4px;
+  margin: 10px auto 0;
+}
+
+/* ---------- Service Cards Grid ---------- */
+.svc-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.svc-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 28px 28px;
+  border: 1.5px solid #E2E8F0;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1A56DB, #F59E0B);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.svc-card:hover::before {
+  transform: scaleX(1);
+}
+
+.svc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+}
+
+.svc-card__icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 18px;
+  transition: transform 0.25s;
+}
+
+.svc-card:hover .svc-card__icon-wrap {
+  transform: scale(1.1);
+}
+
+.svc-card__title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.svc-card__desc {
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.svc-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.svc-card__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.svc-card__feature-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ---------- Checklist Section ---------- */
+.svc-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.svc-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px 20px;
+  border: 1.5px solid #E2E8F0;
+  transition: all 0.25s;
+}
+
+.svc-checklist-item:hover {
+  border-color: #BFDBFE;
+  box-shadow: 0 8px 30px rgba(26, 86, 219, 0.08);
+  transform: translateY(-2px);
+}
+
+.svc-checklist-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #EBF2FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.svc-checklist-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 3px;
+}
+
+.svc-checklist-text span {
+  font-size: 13px;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* ---------- SEO Process Timeline ---------- */
+.svc-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.svc-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #1A56DB 0%, #F59E0B 100%);
+}
+
+.svc-timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 0 0 48px 0;
+  position: relative;
+}
+
+.svc-timeline-step:last-child {
+  padding-bottom: 0;
+}
+
+.svc-timeline__num {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #1A56DB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: #1A56DB;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(26, 86, 219, 0.18);
+  transition: all 0.25s;
+}
+
+.svc-timeline-step:hover .svc-timeline__num {
+  background: #1A56DB;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.svc-timeline__content {
+  flex: 1;
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 32px;
+  border: 1.5px solid #E2E8F0;
+  margin-top: 20px;
+  transition: all 0.25s;
+}
+
+.svc-timeline-step:hover .svc-timeline__content {
+  border-color: #BFDBFE;
+  box-shadow: 0 12px 40px rgba(26, 86, 219, 0.1);
+}
+
+.svc-timeline__label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1A56DB;
+  margin-bottom: 6px;
+}
+
+.svc-timeline__title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 10px;
+}
+
+.svc-timeline__desc {
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.svc-timeline__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.svc-timeline__tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #EBF2FF;
+  color: #1A56DB;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ---------- CTA Banner (service page variant) ---------- */
+.svc-cta {
+  padding: 96px 0;
+  background: #FFF8F0;
+}
+
+.svc-cta__inner {
+  background: linear-gradient(145deg, #0F172A 0%, #1e2a4a 55%, #1A56DB 100%);
+  border-radius: 28px;
+  padding: 72px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.35);
+}
+
+.svc-cta__blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.svc-cta__blob--1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(249, 115, 22, 0.08);
+  top: -100px;
+  right: -80px;
+}
+
+.svc-cta__blob--2 {
+  width: 250px;
+  height: 250px;
+  background: rgba(26, 86, 219, 0.15);
+  bottom: -80px;
+  left: -60px;
+}
+
+.svc-cta__content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.svc-cta__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 18px;
+  background: #F97316;
+  color: #fff;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.svc-cta__title {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.svc-cta__subtitle {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 38px;
+}
+
+.svc-cta__actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.svc-cta__trust {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- Dark section bg variant ---------- */
+.svc-section--dark {
+  background: #f8fafc;
+}
+
+.svc-section--white {
+  background: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .svc-hero {
+    padding: 72px 0 56px;
+  }
+
+  .svc-hero__stats {
+    gap: 24px;
+  }
+
+  .svc-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-checklist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-timeline::before {
+    left: 36px;
+  }
+
+  .svc-timeline__num {
+    width: 72px;
+    height: 72px;
+    font-size: 16px;
+  }
+
+  .svc-cta__inner {
+    padding: 48px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .svc-hero__title {
+    font-size: 2.1rem;
+  }
+
+  .svc-timeline {
+    padding-left: 0;
+  }
+
+  .svc-timeline::before {
+    display: none;
+  }
+
+  .svc-timeline-step {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .svc-timeline__num {
+    width: 56px;
+    height: 56px;
+    font-size: 14px;
+  }
+
+  .svc-timeline__content {
+    margin-top: 0;
+  }
+}

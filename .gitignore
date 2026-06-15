@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build output
+dist/
+frontend/dist/
+build/
+
+# Environment files (keep .env.example)
+.env
+.env.local
+.env.production
+frontend/.env
+frontend/.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# PHP admin — keep real DB credentials out of git
+admin/config/database.local.php

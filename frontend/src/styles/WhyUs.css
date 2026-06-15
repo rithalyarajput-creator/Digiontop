@@ -1,0 +1,455 @@
+/* ============================================================
+   WhyUs.css  —  DigionTop Why Choose Us page styles
+   Palette: dark backgrounds (#0d0f14, #13161d, #1a1d25)
+            accent yellow: #f5c518
+            text light: #e8eaf0 / #9ca3b0
+   ============================================================ */
+
+/* ── Root variables (scoped) ── */
+.whyus {
+  --yellow: #f5c518;
+  --yellow-dim: #c49a10;
+  --dark-0: #0d0f14;
+  --dark-1: #13161d;
+  --dark-2: #1a1d25;
+  --dark-3: #21252f;
+  --border: rgba(245, 197, 24, 0.15);
+  --text-primary: #e8eaf0;
+  --text-muted: #9ca3b0;
+  --radius: 14px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--dark-0);
+  color: var(--text-primary);
+}
+
+/* ── Shared container ── */
+.whyus__container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Shared section header ── */
+.whyus__section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.whyus__badge {
+  display: inline-block;
+  background: rgba(245, 197, 24, 0.12);
+  color: var(--yellow);
+  border: 1px solid rgba(245, 197, 24, 0.3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.whyus__section-title {
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 14px;
+  line-height: 1.2;
+}
+
+.whyus__section-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.whyus__hero {
+  position: relative;
+  background: var(--dark-1);
+  padding: 120px 24px 96px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Subtle radial glow behind hero text */
+.whyus__hero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 480px;
+  background: radial-gradient(ellipse at center, rgba(245, 197, 24, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.whyus__hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.whyus__hero-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin: 0 0 18px;
+}
+
+.whyus__hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  margin: 0 0 22px;
+  line-height: 1.15;
+}
+
+.whyus__hero-title span {
+  color: var(--yellow);
+}
+
+.whyus__hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* Bottom divider */
+.whyus__hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+  opacity: 0.35;
+}
+
+/* ============================================================
+   8 REASONS GRID
+   ============================================================ */
+.whyus__reasons {
+  padding: 96px 0;
+  background: var(--dark-0);
+}
+
+.whyus__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.whyus__card {
+  background: var(--dark-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  position: relative;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.whyus__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--yellow);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.whyus__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 197, 24, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.whyus__card:hover::before {
+  opacity: 1;
+}
+
+.whyus__card-icon {
+  font-size: 2rem;
+  color: var(--yellow);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.whyus__card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.whyus__card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   HOW WE WORK — PROCESS
+   ============================================================ */
+.whyus__process {
+  padding: 96px 0;
+  background: var(--dark-1);
+  position: relative;
+}
+
+.whyus__process::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 197, 24, 0.2), transparent);
+}
+
+.whyus__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+/* Horizontal connector line between steps */
+.whyus__steps::before {
+  content: '';
+  position: absolute;
+  top: 52px;
+  left: calc(12.5% + 24px);
+  right: calc(12.5% + 24px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--yellow), rgba(245, 197, 24, 0.2));
+  z-index: 0;
+}
+
+.whyus__step {
+  position: relative;
+  padding: 0 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+.whyus__step-number {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--yellow);
+  background: var(--dark-1);
+  color: var(--yellow);
+  font-size: 1.4rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 2;
+  transition: background 0.25s ease, color 0.25s ease;
+  box-shadow: 0 0 0 6px var(--dark-1);
+}
+
+.whyus__step:hover .whyus__step-number {
+  background: var(--yellow);
+  color: var(--dark-0);
+}
+
+.whyus__step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 10px;
+}
+
+.whyus__step-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================================
+   CTA BANNER
+   ============================================================ */
+.whyus__cta {
+  background: linear-gradient(135deg, #12150c 0%, #1a1d0e 40%, #1d1a0c 100%);
+  border-top: 1px solid rgba(245, 197, 24, 0.18);
+  border-bottom: 1px solid rgba(245, 197, 24, 0.18);
+  padding: 96px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.whyus__cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(245, 197, 24, 0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.whyus__cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.whyus__cta-title {
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 18px;
+  line-height: 1.2;
+}
+
+.whyus__cta-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 0 40px;
+}
+
+.whyus__cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.whyus__cta-btn {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 34px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.whyus__cta-btn--primary {
+  background: var(--yellow);
+  color: #0d0f14;
+  box-shadow: 0 4px 20px rgba(245, 197, 24, 0.35);
+}
+
+.whyus__cta-btn--primary:hover {
+  background: #ffd93d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(245, 197, 24, 0.5);
+}
+
+.whyus__cta-btn--outline {
+  background: transparent;
+  color: var(--yellow);
+  border: 2px solid rgba(245, 197, 24, 0.55);
+}
+
+.whyus__cta-btn--outline:hover {
+  background: rgba(245, 197, 24, 0.08);
+  border-color: var(--yellow);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet: 768px – 1023px */
+@media (max-width: 1023px) {
+  .whyus__steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 32px;
+  }
+
+  .whyus__steps::before {
+    display: none;
+  }
+}
+
+/* Mobile: ≤767px */
+@media (max-width: 767px) {
+  .whyus__hero {
+    padding: 96px 20px 72px;
+  }
+
+  .whyus__reasons,
+  .whyus__process {
+    padding: 72px 0;
+  }
+
+  .whyus__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .whyus__card {
+    padding: 28px 24px;
+  }
+
+  .whyus__steps {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .whyus__step {
+    padding: 0;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .whyus__step-number {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .whyus__step-body {
+    padding-top: 4px;
+  }
+
+  .whyus__cta {
+    padding: 72px 20px;
+  }
+
+  .whyus__cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .whyus__cta-btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+}
