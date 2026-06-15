@@ -668,3 +668,41 @@
     min-height: 220px;
   }
 }
+
+
+/* -- Social Media Links (Contact Page) -- */
+.contact-socials {
+  margin-top: 24px;
+}
+.contact-socials__label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #555;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.contact-socials__row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.contact-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.contact-social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+.contact-social-btn--ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+.contact-social-btn--fb { background: #1877f2; }
+.contact-social-btn--yt { background: #ff0000; }

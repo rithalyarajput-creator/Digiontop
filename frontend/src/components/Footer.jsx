@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
 import "../styles/Footer.css";
 
 const Footer = () => {
@@ -37,9 +37,9 @@ const Footer = () => {
             <div className="footer-follow">
               <p className="footer-follow-label">Follow Us</p>
               <div className="footer-socials">
-                <a href="https://www.instagram.com/digiontop" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Instagram"><FaInstagram /></a>
-                <a href="https://www.facebook.com/digiontop" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Facebook"><FaFacebookF /></a>
-                <a href="https://www.linkedin.com/company/digiontop" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="LinkedIn"><FaLinkedinIn /></a>
+                <a href="https://www.instagram.com/digiontop.agency?igsh=aHc1Mmo2eGN1b2dn" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Instagram"><FaInstagram /></a>
+                <a href="https://www.facebook.com/share/14eaPvHNx9A/" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Facebook"><FaFacebookF /></a>
+                <a href="https://www.youtube.com/@digiontop" target="_blank" rel="noopener noreferrer" className="footer-social-icon footer-social-icon--yt" aria-label="YouTube"><FaYoutube /></a>
               </div>
             </div>
           </div>

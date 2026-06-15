@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 
@@ -17,6 +17,9 @@ const servicesMenu = [
       { label: 'SEO Services', path: '/services/seo-services' },
       { label: 'Social Media Marketing', path: '/services/social-media-marketing' },
       { label: 'Pay Per Click (PPC)', path: '/services/seo-services' },
+      { label: 'Instagram Marketing', path: '/services/social-media-marketing', external: null },
+      { label: 'Facebook Marketing', path: '/services/social-media-marketing', external: null },
+      { label: 'YouTube Marketing', path: '/services/social-media-marketing', external: null },
     ],
   },
   {
@@ -72,14 +75,14 @@ export default function Navbar() {
     return location.pathname.startsWith(path);
   };
 
-  const handleEnter = (key) => {
+  const handleEnter = useCallback((key) => {
     clearTimeout(hoverTimeout.current);
     setActiveDropdown(key);
-  };
+  }, []);
 
-  const handleLeave = () => {
+  const handleLeave = useCallback(() => {
     hoverTimeout.current = setTimeout(() => setActiveDropdown(null), 150);
-  };
+  }, []);
 
   const handleMobileToggle = (key) => {
     setActiveDropdown((prev) => (prev === key ? null : key));

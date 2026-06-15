@@ -13,6 +13,7 @@ import {
   FiCheckCircle,
   FiSend,
 } from 'react-icons/fi';
+import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
 import '../styles/Contact.css';
 
 /* ─── Contact info data ─── */
@@ -427,6 +428,40 @@ export default function Contact() {
                 <div className="contact-map-tile contact-map-tile--static">
                   <FiClock size={20} />
                   <span>Mon–Sat · 10AM–7PM IST</span>
+                </div>
+              </div>
+
+              {/* Social Media Links */}
+              <div className="contact-socials">
+                <p className="contact-socials__label">Follow Us On</p>
+                <div className="contact-socials__row">
+                  <a
+                    href="https://www.instagram.com/digiontop.agency?igsh=aHc1Mmo2eGN1b2dn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-social-btn contact-social-btn--ig"
+                  >
+                    <FaInstagram size={18} />
+                    Instagram
+                  </a>
+                  <a
+                    href="https://www.facebook.com/share/14eaPvHNx9A/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-social-btn contact-social-btn--fb"
+                  >
+                    <FaFacebookF size={18} />
+                    Facebook
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@digiontop"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-social-btn contact-social-btn--yt"
+                  >
+                    <FaYoutube size={18} />
+                    YouTube
+                  </a>
                 </div>
               </div>
             </div>
