@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import AdminApp from './admin/AdminApp';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -28,11 +29,7 @@ function ScrollToTop() {
   return null;
 }
 
-function App() {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
-
+function PublicSite() {
   return (
     <>
       <Navbar />
@@ -54,6 +51,25 @@ function App() {
       <Footer />
     </>
   );
+}
+
+function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
+  // Admin runs standalone (no public Navbar/Footer).
+  if (pathname.startsWith('/admin')) {
+    return (
+      <Routes>
+        <Route path="/admin/*" element={<AdminApp />} />
+      </Routes>
+    );
+  }
+
+  return <PublicSite />;
 }
 
 export default App;

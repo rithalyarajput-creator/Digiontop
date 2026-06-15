@@ -69,10 +69,8 @@ export default function Contact() {
     setSubmitting(true);
 
     try {
-      // API base comes from the VITE_API_URL env var so the form can reach the
-      // PHP admin which is hosted on a separate domain from this Vercel frontend.
-      const apiBase = import.meta.env.VITE_API_URL || '/api';
-      const res = await fetch(`${apiBase}/contact.php`, {
+      // Same-origin Vercel serverless function. No external API URL needed.
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
