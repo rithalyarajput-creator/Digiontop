@@ -72,24 +72,24 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'POST') {
-      const { title, slug, excerpt, content, category, image_url, status } = req.body || {};
+      const { title, slug, author, excerpt, content, category, image_url, meta_title, meta_description, status } = req.body || {};
       if (!title) {
         return res.status(400).json({ error: 'title is required' });
       }
       const finalSlug = slug && slug.trim() ? slugify(slug) : slugify(title);
       const rows = await sql`
         INSERT INTO blog_posts
-          (title, slug, excerpt, content, category, image_url, status)
+          (title, slug, author, excerpt, content, category, image_url, meta_title, meta_description, status)
         VALUES
-          (${title}, ${finalSlug}, ${excerpt || null}, ${content || null},
-           ${category || null}, ${image_url || null}, ${status || 'draft'})
+          (${title}, ${finalSlug}, ${author || null}, ${excerpt || null}, ${content || null},
+           ${category || null}, ${image_url || null}, ${meta_title || null}, ${meta_description || null}, ${status || 'draft'})
         RETURNING *
       `;
       return res.status(201).json(rows[0]);
     }
 
     if (req.method === 'PUT') {
-      const { id, title, slug, excerpt, content, category, image_url, status } = req.body || {};
+      const { id, title, slug, author, excerpt, content, category, image_url, meta_title, meta_description, status } = req.body || {};
       if (!id) {
         return res.status(400).json({ error: 'id is required' });
       }
@@ -97,10 +97,13 @@ export default async function handler(req, res) {
         UPDATE blog_posts SET
           title = COALESCE(${title ?? null}, title),
           slug = COALESCE(${slug ?? null}, slug),
+          author = COALESCE(${author ?? null}, author),
           excerpt = COALESCE(${excerpt ?? null}, excerpt),
           content = COALESCE(${content ?? null}, content),
           category = COALESCE(${category ?? null}, category),
           image_url = COALESCE(${image_url ?? null}, image_url),
+          meta_title = COALESCE(${meta_title ?? null}, meta_title),
+          meta_description = COALESCE(${meta_description ?? null}, meta_description),
           status = COALESCE(${status ?? null}, status),
           updated_at = NOW()
         WHERE id = ${id}

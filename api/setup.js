@@ -33,15 +33,22 @@ export default async function handler(req, res) {
         id SERIAL PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
         slug VARCHAR(255) UNIQUE,
+        author VARCHAR(150),
         excerpt TEXT,
         content TEXT NOT NULL,
         category VARCHAR(100) DEFAULT 'General',
         image_url VARCHAR(500),
+        meta_title VARCHAR(255),
+        meta_description TEXT,
         status VARCHAR(20) DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
         created_at TIMESTAMPTZ DEFAULT NOW(),
         updated_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
+
+    await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS author VARCHAR(150)`;
+    await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS meta_title VARCHAR(255)`;
+    await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS meta_description TEXT`;
 
     await sql`
       CREATE TABLE IF NOT EXISTS contact_leads (
