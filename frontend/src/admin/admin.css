@@ -192,14 +192,29 @@
 /* Blog Edit Preview */
 .blogedit__preview { width: 300px; flex-shrink: 0; position: sticky; top: 20px; }
 .blogedit__preview-title { font-size: 13px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
-.blogedit__preview-card { border-radius: 14px; overflow: hidden; background: #F5A800; box-shadow: 0 6px 20px rgba(0,0,0,0.12); margin-bottom: 16px; }
-.blogedit__preview-img { background: #fff; border-radius: 10px; margin: 8px 8px 0; height: 120px; display: flex; align-items: center; justify-content: center; overflow: hidden; font-size: 2rem; }
+.blogedit__preview-card { position: relative; margin-bottom: 16px; }
+.blogedit__preview-img-outer { padding-top: 40px; position: relative; z-index: 2; }
+.blogedit__preview-img {
+  background: #fff;
+  border-radius: 14px;
+  width: 88%;
+  margin: 0 auto;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  position: relative;
+  top: 44px;
+}
 .blogedit__preview-img img { width: 100%; height: 100%; object-fit: cover; }
-.blogedit__preview-body { padding: 12px; }
+.blogedit__preview-body { background: #F5A800; border-radius: 14px; padding: 54px 14px 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
 .blogedit__preview-cat { font-size: 10px; font-weight: 800; text-transform: uppercase; color: rgba(0,0,0,0.5); }
 .blogedit__preview-body h4 { font-size: 13px; font-weight: 800; color: #000; margin: 4px 0 4px; line-height: 1.35; }
 .blogedit__preview-read { font-size: 11px; font-weight: 700; color: #000; }
-.blogedit__preview-content { background: #fff; border-radius: 10px; padding: 14px; font-size: 12px; line-height: 1.6; color: #444; border: 1px solid #e8e8e8; }
+.blogedit__preview-content { background: #fff; border-radius: 10px; padding: 14px; font-size: 12px; line-height: 1.6; color: #444; border: 1px solid #e8e8e8; margin-top: 12px; }
 .blogedit__preview-content h4 { font-size: 11px; font-weight: 700; color: #888; margin: 0 0 8px; text-transform: uppercase; }
 
 /* ---- Responsive ---- */

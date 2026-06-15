@@ -58,34 +58,42 @@
 .blog-card {
   display: flex;
   flex-direction: column;
-  border-radius: 18px;
-  overflow: hidden;
   text-decoration: none;
-  background: #F5A800;
-  box-shadow:
-    0 8px 24px rgba(0,0,0,0.13),
-    0 2px 6px rgba(0,0,0,0.07);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
+  transition: transform 0.25s ease;
 }
 
 .blog-card:hover {
   transform: translateY(-6px);
-  box-shadow:
-    0 20px 48px rgba(0,0,0,0.16),
-    0 6px 16px rgba(245,168,0,0.25);
 }
 
-/* White image area */
+.blog-card:hover .blog-card__body {
+  box-shadow:
+    0 20px 48px rgba(0,0,0,0.18),
+    0 6px 16px rgba(245,168,0,0.3);
+}
+
+/* Space above yellow card for image overflow */
+.blog-card__img-outer {
+  padding-top: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+/* White rounded image — sits half above yellow card */
 .blog-card__img-wrap {
   background: #ffffff;
-  border-radius: 14px;
-  margin: 10px 10px 0;
+  border-radius: 18px;
   overflow: hidden;
-  aspect-ratio: 16/9;
+  width: 88%;
+  margin: 0 auto;
+  aspect-ratio: 4/3;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  position: relative;
+  top: 60px;
 }
 
 .blog-card__img {
@@ -105,13 +113,19 @@
   font-size: 3rem;
 }
 
-/* Yellow content area */
+/* Yellow content area — has the card body */
 .blog-card__body {
-  padding: 16px 16px 18px;
+  background: #F5A800;
+  border-radius: 18px;
+  padding: 76px 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
   flex: 1;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.13),
+    0 2px 6px rgba(0,0,0,0.07);
+  transition: box-shadow 0.25s ease;
 }
 
 .blog-card__cat {

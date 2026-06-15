@@ -60,15 +60,18 @@ export function BlogCard({ post }) {
 
   return (
     <Link to={`/blog/${post.slug || post.id}`} className="blog-card">
-      {/* White image area */}
-      <div className="blog-card__img-wrap">
-        {post.image_url ? (
-          <img src={post.image_url} alt={post.title} className="blog-card__img" />
-        ) : (
-          <div className="blog-card__img-placeholder">
-            <span>📝</span>
-          </div>
-        )}
+      {/* Outer wrapper — gives space above for the floating image */}
+      <div className="blog-card__img-outer">
+        {/* White rounded image box — half sticks out above yellow card */}
+        <div className="blog-card__img-wrap">
+          {post.image_url ? (
+            <img src={post.image_url} alt={post.title} className="blog-card__img" />
+          ) : (
+            <div className="blog-card__img-placeholder">
+              <span>📝</span>
+            </div>
+          )}
+        </div>
       </div>
       {/* Yellow content area */}
       <div className="blog-card__body">

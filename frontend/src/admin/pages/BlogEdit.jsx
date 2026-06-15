@@ -266,8 +266,10 @@ export default function BlogEdit() {
           <div className="blogedit__preview">
             <h3 className="blogedit__preview-title">Preview</h3>
             <div className="blogedit__preview-card">
-              <div className="blogedit__preview-img">
-                {form.image_url ? <img src={form.image_url} alt="" /> : <span>📝</span>}
+              <div className="blogedit__preview-img-outer">
+                <div className="blogedit__preview-img">
+                  {form.image_url ? <img src={form.image_url} alt="" /> : <span>📝</span>}
+                </div>
               </div>
               <div className="blogedit__preview-body">
                 {form.category && <span className="blogedit__preview-cat">{form.category}</span>}
