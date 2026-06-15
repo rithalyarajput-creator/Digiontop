@@ -14,13 +14,17 @@
   top: 0;
   z-index: 1000;
   width: 100%;
-  background: transparent;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 10px 20px;
-  transition: padding 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
 }
 
 .navbar--scrolled {
   padding: 6px 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
 }
 
 /* ---------- Single pill — logo + menu together ---------- */
