@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from '../_lib/db.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { setCors } from '../_lib/auth.js';
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    const { rows } = await sql`
+    const rows = await sql`
       SELECT id, username, password
       FROM admin_users
       WHERE username = ${username}

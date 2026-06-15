@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from './_lib/db.js';
 import { setCors, requireAuth } from './_lib/auth.js';
 
 export default async function handler(req, res) {
@@ -13,54 +13,52 @@ export default async function handler(req, res) {
       const { featured } = req.query;
       let rows;
       if (featured === '1') {
-        ({ rows } = await sql`
+        rows = await sql`
           SELECT * FROM testimonials
-          WHERE featured = true
+          WHERE is_featured = true
           ORDER BY created_at DESC
-        `);
+        `;
       } else {
-        ({ rows } = await sql`
+        rows = await sql`
           SELECT * FROM testimonials
           ORDER BY created_at DESC
-        `);
+        `;
       }
       return res.status(200).json(rows);
     }
 
-    // Mutations require auth.
     const auth = requireAuth(req, res);
     if (!auth) return;
 
     if (req.method === 'POST') {
-      const { name, role, company, content, rating, image_url, featured } = req.body || {};
-      if (!name || !content) {
-        return res.status(400).json({ error: 'name and content are required' });
+      const { client_name, client_role, client_location, testimonial_text, rating, is_featured } = req.body || {};
+      if (!client_name || !testimonial_text) {
+        return res.status(400).json({ error: 'client_name and testimonial_text are required' });
       }
-      const { rows } = await sql`
+      const rows = await sql`
         INSERT INTO testimonials
-          (name, role, company, content, rating, image_url, featured)
+          (client_name, client_role, client_location, testimonial_text, rating, is_featured)
         VALUES
-          (${name}, ${role || null}, ${company || null}, ${content},
-           ${rating ?? null}, ${image_url || null}, ${featured ?? false})
+          (${client_name}, ${client_role || null}, ${client_location || null}, ${testimonial_text},
+           ${rating ?? 5}, ${is_featured ?? false})
         RETURNING *
       `;
       return res.status(201).json(rows[0]);
     }
 
     if (req.method === 'PUT') {
-      const { id, name, role, company, content, rating, image_url, featured } = req.body || {};
+      const { id, client_name, client_role, client_location, testimonial_text, rating, is_featured } = req.body || {};
       if (!id) {
         return res.status(400).json({ error: 'id is required' });
       }
-      const { rows } = await sql`
+      const rows = await sql`
         UPDATE testimonials SET
-          name = COALESCE(${name ?? null}, name),
-          role = COALESCE(${role ?? null}, role),
-          company = COALESCE(${company ?? null}, company),
-          content = COALESCE(${content ?? null}, content),
+          client_name = COALESCE(${client_name ?? null}, client_name),
+          client_role = COALESCE(${client_role ?? null}, client_role),
+          client_location = COALESCE(${client_location ?? null}, client_location),
+          testimonial_text = COALESCE(${testimonial_text ?? null}, testimonial_text),
           rating = COALESCE(${rating ?? null}, rating),
-          image_url = COALESCE(${image_url ?? null}, image_url),
-          featured = COALESCE(${featured ?? null}, featured)
+          is_featured = COALESCE(${is_featured ?? null}, is_featured)
         WHERE id = ${id}
         RETURNING *
       `;

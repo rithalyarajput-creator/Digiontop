@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from './_lib/db.js';
 import { setCors, verifyToken } from './_lib/auth.js';
 
 function slugify(text) {
@@ -31,28 +31,25 @@ export default async function handler(req, res) {
       const { slug, id, published } = req.query;
       const authed = isAuthed(req);
 
-      // Single post by slug or id.
       if (slug || id) {
         let rows;
         if (slug) {
-          ({ rows } = await sql`SELECT * FROM blog_posts WHERE slug = ${slug} LIMIT 1`);
+          rows = await sql`SELECT * FROM blog_posts WHERE slug = ${slug} LIMIT 1`;
         } else {
-          ({ rows } = await sql`SELECT * FROM blog_posts WHERE id = ${id} LIMIT 1`);
+          rows = await sql`SELECT * FROM blog_posts WHERE id = ${id} LIMIT 1`;
         }
         const post = rows[0];
         if (!post) {
           return res.status(404).json({ error: 'Post not found' });
         }
-        // Non-authed users can only see published posts.
         if (!authed && post.status !== 'published') {
           return res.status(404).json({ error: 'Post not found' });
         }
         return res.status(200).json(post);
       }
 
-      // List. Public sees published only; authed can see all or filter.
       if (!authed || published === '1') {
-        const { rows } = await sql`
+        const rows = await sql`
           SELECT * FROM blog_posts
           WHERE status = 'published'
           ORDER BY created_at DESC
@@ -60,14 +57,13 @@ export default async function handler(req, res) {
         return res.status(200).json(rows);
       }
 
-      const { rows } = await sql`
+      const rows = await sql`
         SELECT * FROM blog_posts
         ORDER BY created_at DESC
       `;
       return res.status(200).json(rows);
     }
 
-    // All mutations require auth.
     let auth;
     try {
       auth = verifyToken(req);
@@ -81,7 +77,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'title is required' });
       }
       const finalSlug = slug && slug.trim() ? slugify(slug) : slugify(title);
-      const { rows } = await sql`
+      const rows = await sql`
         INSERT INTO blog_posts
           (title, slug, excerpt, content, category, image_url, status)
         VALUES
@@ -97,7 +93,7 @@ export default async function handler(req, res) {
       if (!id) {
         return res.status(400).json({ error: 'id is required' });
       }
-      const { rows } = await sql`
+      const rows = await sql`
         UPDATE blog_posts SET
           title = COALESCE(${title ?? null}, title),
           slug = COALESCE(${slug ?? null}, slug),

@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from './_lib/db.js';
 import { setCors, requireAuth } from './_lib/auth.js';
 
 export default async function handler(req, res) {
@@ -8,7 +8,6 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // All lead operations require authentication.
   const auth = requireAuth(req, res);
   if (!auth) return;
 
@@ -17,16 +16,16 @@ export default async function handler(req, res) {
       const { status } = req.query;
       let rows;
       if (status) {
-        ({ rows } = await sql`
+        rows = await sql`
           SELECT * FROM contact_leads
           WHERE status = ${status}
           ORDER BY created_at DESC
-        `);
+        `;
       } else {
-        ({ rows } = await sql`
+        rows = await sql`
           SELECT * FROM contact_leads
           ORDER BY created_at DESC
-        `);
+        `;
       }
       return res.status(200).json(rows);
     }
@@ -36,7 +35,7 @@ export default async function handler(req, res) {
       if (!id || !status) {
         return res.status(400).json({ error: 'id and status are required' });
       }
-      const { rows } = await sql`
+      const rows = await sql`
         UPDATE contact_leads
         SET status = ${status}
         WHERE id = ${id}

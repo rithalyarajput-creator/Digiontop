@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from './_lib/db.js';
 import { setCors } from './_lib/auth.js';
 
 export default async function handler(req, res) {
