@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 INSERT IGNORE INTO `admin_users` (`username`, `password`)
 VALUES (
     'digiontop_admin',
-    '$2y$12$YQv8z1H9KpL3mN0xR4wJiOQ7bT2uV5sA6dC8eF1gH3jK4lM5nO6pQ'
+    '$2b$12$Ved1q5vCdtTRo3q1TyXoDuXiFG/xQl6mx/yjGkzHm0pdmsEDd0KwK'
 );
 
 -- ------------------------------------------------------------
