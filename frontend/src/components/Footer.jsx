@@ -100,16 +100,6 @@ const Footer = () => {
               <button className="footer-newsletter-btn" aria-label="Subscribe">&#8594;</button>
             </div>
 
-            <div className="footer-divider"></div>
-
-            <h3 className="footer-heading footer-heading--hours">Working Hours</h3>
-            <div className="footer-hours-box">
-              <span className="footer-hours-icon">⏱</span>
-              <div>
-                <p className="footer-hours-days">Mon – Sat</p>
-                <p className="footer-hours-time">10:00 AM – 7:00 PM IST</p>
-              </div>
-            </div>
           </div>
 
         </div>
