@@ -2,6 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import '../styles/Blog.css';
 
+/**
+ * Render blog content nicely.
+ * - If it already contains block HTML tags, use it as-is.
+ * - Otherwise (plain text pasted in the Simple editor), convert it:
+ *   blank-line-separated chunks become paragraphs; short lines that look
+ *   like headings become <h2>.
+ */
+function renderContent(raw) {
+  if (!raw) return '';
+  const hasHtml = /<(p|h[1-6]|ul|ol|li|blockquote|div|img|table)\b/i.test(raw);
+  if (hasHtml) return raw;
+
+  // Split into blocks by blank lines; if none, split by single newlines.
+  let blocks = raw.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean);
+  if (blocks.length <= 1) {
+    blocks = raw.split(/\n/).map((b) => b.trim()).filter(Boolean);
+  }
+
+  return blocks.map((block) => {
+    const isHeading =
+      block.length < 70 &&
+      !/[.!?:]$/.test(block) &&
+      /^[A-Z0-9]/.test(block) &&
+      block.split(' ').length <= 9;
+    if (isHeading) return `<h2>${block}</h2>`;
+    return `<p>${block.replace(/\n/g, '<br/>')}</p>`;
+  }).join('\n');
+}
+
 export default function BlogPost() {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -50,7 +79,7 @@ export default function BlogPost() {
           {post.excerpt && <p className="blogpost-excerpt">{post.excerpt}</p>}
           <div
             className="blogpost-content"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: renderContent(post.content) }}
           />
           <div className="blogpost-back">
             <Link to="/blog" className="blogpost-back-btn">← Back to Blog</Link>

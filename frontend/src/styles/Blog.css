@@ -239,8 +239,14 @@
   line-height: 1.25;
 }
 
-.blogpost-content h2 { font-size: 1.5rem; }
+.blogpost-content h2 {
+  font-size: 1.5rem;
+  padding-left: 14px;
+  border-left: 4px solid #F5A800;
+}
 .blogpost-content h3 { font-size: 1.2rem; }
+.blogpost-content h2:first-child,
+.blogpost-content h3:first-child { margin-top: 0; }
 
 .blogpost-content p { margin: 0 0 18px; }
 
