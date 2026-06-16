@@ -651,6 +651,11 @@ a {
     padding: 72px 20px 0;
   }
 
+  /* Hide hero stats row on mobile */
+  .hero__stats-row {
+    display: none;
+  }
+
   .hero__inner {
     grid-template-columns: 1fr;
     gap: 48px;
