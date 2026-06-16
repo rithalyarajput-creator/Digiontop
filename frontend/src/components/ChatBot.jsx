@@ -111,8 +111,8 @@ export default function ChatBot() {
       {/* FAB */}
       <button className={`cb-fab${open ? ' cb-fab--open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Chat with us">
         {open
-          ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          : <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          ? <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          : <img src="/ai-bot.png" alt="AI Chat" className="cb-fab__robot" />
         }
         {!open && unread > 0 && <span className="cb-badge">{unread}</span>}
       </button>
@@ -124,7 +124,7 @@ export default function ChatBot() {
         <div className="cb-header">
           <div className="cb-header__left">
             <div className="cb-header__avatar-wrap">
-              <div className="cb-header__avatar">D</div>
+              <img src="/ai-bot.png" alt="Digi" className="cb-header__avatar-img" />
               <span className="cb-header__dot" />
             </div>
             <div className="cb-header__info">
@@ -141,7 +141,7 @@ export default function ChatBot() {
         <div className="cb-messages">
           {messages.map((msg) => (
             <div key={msg.id} className={`cb-msg cb-msg--${msg.from}`}>
-              {msg.from === 'bot' && <div className="cb-msg__avatar">D</div>}
+              {msg.from === 'bot' && <img src="/ai-bot.png" alt="Digi" className="cb-msg__avatar-img" />}
               <div className="cb-msg__wrap">
                 <div className="cb-bubble">
                   {msg.text.split('\n').map((line, i) => (
@@ -158,7 +158,7 @@ export default function ChatBot() {
 
           {typing && (
             <div className="cb-msg cb-msg--bot">
-              <div className="cb-msg__avatar">D</div>
+              <img src="/ai-bot.png" alt="Digi" className="cb-msg__avatar-img" />
               <div className="cb-msg__wrap">
                 <div className="cb-bubble cb-bubble--typing">
                   <span /><span /><span />
