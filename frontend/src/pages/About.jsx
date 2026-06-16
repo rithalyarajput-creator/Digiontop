@@ -1,121 +1,93 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  FiEye,
-  FiTarget,
-  FiUsers,
-  FiTrendingUp,
-  FiShield,
-  FiBookOpen,
-} from 'react-icons/fi';
+import { FiCheck, FiUsers, FiTarget, FiTrendingUp } from 'react-icons/fi';
 import '../styles/About.css';
 
-/* ─── Stats ─── */
-const stats = [
-  { value: '200+', label: 'Clients' },
-  { value: '500+', label: 'Projects' },
-  { value: '5+',   label: 'Years' },
-  { value: '98%',  label: 'Satisfaction' },
+const teamImages = [
+  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&h=220&fit=crop',
+  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=220&fit=crop',
+  'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=300&h=220&fit=crop',
+  'https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=300&h=220&fit=crop',
 ];
 
-/* ─── Core Values ─── */
-const values = [
-  {
-    icon: <FiShield size={32} />,
-    title: 'Transparency',
-    description:
-      'We keep you in the loop — always. No hidden fees, no vague reports, no smoke and mirrors. You see exactly what we do, when we do it, and why.',
-  },
-  {
-    icon: <FiTrendingUp size={32} />,
-    title: 'Results First',
-    description:
-      'Vanity metrics don\'t pay bills. We obsess over outcomes that actually move the needle — leads, sales, visibility, and revenue growth for your business.',
-  },
+const pillars = [
+  { icon: <FiCheck size={20} />, text: 'Creative & Strategic Solutions' },
+  { icon: <FiCheck size={20} />, text: 'On-Time Project Delivery' },
+  { icon: <FiCheck size={20} />, text: '100% Client Satisfaction' },
+];
+
+const strengths = [
   {
     icon: <FiUsers size={32} />,
-    title: 'Client Partnership',
-    description:
-      'We treat your business as our own. Your goals become our goals, and your success is the only benchmark that matters to us.',
-  },
-  {
-    icon: <FiBookOpen size={32} />,
-    title: 'Continuous Learning',
-    description:
-      'Digital marketing evolves every day. Our team stays ahead of algorithm changes, platform updates, and industry trends so you never fall behind.',
+    title: 'Professional Team',
+    desc: 'Expert professionals dedicated to your success',
   },
   {
     icon: <FiTarget size={32} />,
-    title: 'Integrity',
-    description:
-      'We say what we mean and do what we say. If something won\'t work for you, we\'ll tell you — even when it\'s uncomfortable. Your trust is our most valuable asset.',
+    title: 'Target Oriented',
+    desc: 'Focused strategies for maximum growth',
+  },
+  {
+    icon: <FiTrendingUp size={32} />,
+    title: 'Success Guarantee',
+    desc: 'Proven results & 100% satisfaction',
   },
 ];
 
 export default function About() {
   return (
     <main className="about-page">
-      {/* ══════════════════════════════════════
-          1. PAGE HERO
-      ══════════════════════════════════════ */}
+
+      {/* ══ 1. HERO ══ */}
       <section className="about-hero">
-        <div className="about-hero__overlay" />
+        <div className="about-hero__deco about-hero__deco--tl" />
+        <div className="about-hero__deco about-hero__deco--br" />
         <div className="about-hero__content">
-          <h1 className="about-hero__heading">About DigionTop</h1>
-          <nav className="about-hero__breadcrumb" aria-label="Breadcrumb">
+          <h1 className="about-hero__heading">About Us</h1>
+          <p className="about-hero__sub">
+            We are a passionate team dedicated to helping businesses<br />
+            grow, innovate, and succeed in the digital world.
+          </p>
+          <nav className="about-hero__breadcrumb">
             <Link to="/" className="about-hero__breadcrumb-link">Home</Link>
-            <span className="about-hero__breadcrumb-sep" aria-hidden="true">/</span>
+            <span className="about-hero__breadcrumb-sep">/</span>
             <span className="about-hero__breadcrumb-current">About Us</span>
           </nav>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          2. OUR STORY
-      ══════════════════════════════════════ */}
-      <section className="about-story">
+      {/* ══ 2. TEAM PHOTOS ══ */}
+      <section className="about-photos">
         <div className="about-container">
-          <div className="about-story__grid">
-            {/* Text */}
-            <div className="about-story__text">
-              <span className="about-label">Our Story</span>
-              <h2 className="about-story__heading">
-                Built for Indian Businesses. Priced for Real Growth.
+          <div className="about-photos__grid">
+            {teamImages.map((src, i) => (
+              <div key={i} className="about-photos__item">
+                <img src={src} alt={`DigionTop team ${i + 1}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 3. IDEA + DELIVERY ══ */}
+      <section className="about-idea">
+        <div className="about-container">
+          <div className="about-idea__grid">
+            <div className="about-idea__left">
+              <h2 className="about-idea__heading">
+                We make sure your idea &amp; creation<br />
+                <span className="about-idea__highlight">delivered properly</span>
               </h2>
-              <p className="about-story__lead">
-                DigionTop was built for one reason: Indian businesses deserve
-                world-class digital marketing without paying world-class agency
-                prices.
-              </p>
-              <p>
-                We started as a small team of marketers, designers, and
-                developers who were frustrated watching talented business owners
-                get overcharged by bloated agencies — agencies that billed for
-                account managers, office overheads, and client lunches, not
-                actual results.
-              </p>
-              <p>
-                So we did things differently. We went fully remote, kept our
-                team lean and specialized, and passed every rupee of savings
-                directly to our clients. Since then, we have helped over 200
-                businesses — from local service providers in Tier-2 cities to
-                e-commerce brands scaling across India — grow their digital
-                presence without burning through their budgets.
-              </p>
-              <p>
-                Today, DigionTop is a trusted remote digital agency delivering
-                SEO, social media marketing, website development, and
-                e-commerce solutions that compete with anything the big agencies
-                produce — at a fraction of the cost.
+              <p className="about-idea__desc">
+                We turn your vision into reality with creativity, strategy,
+                and flawless execution.
               </p>
             </div>
-
-            {/* Stats */}
-            <div className="about-story__stats">
-              {stats.map((s) => (
-                <div key={s.label} className="about-stat-card">
-                  <span className="about-stat-card__value">{s.value}</span>
-                  <span className="about-stat-card__label">{s.label}</span>
+            <div className="about-idea__right">
+              {pillars.map((p, i) => (
+                <div key={i} className="about-idea__pillar">
+                  <span className="about-idea__pillar-check">{p.icon}</span>
+                  <span>{p.text}</span>
                 </div>
               ))}
             </div>
@@ -123,91 +95,86 @@ export default function About() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          3. MISSION & VISION
-      ══════════════════════════════════════ */}
-      <section className="about-mv">
+      {/* ══ 4. EMPOWER SECTION ══ */}
+      <section className="about-empower">
         <div className="about-container">
-          <div className="about-mv__grid">
-            {/* Mission */}
-            <div className="about-mv__card about-mv__card--mission">
-              <div className="about-mv__icon-wrap">
-                <FiTarget size={36} />
+          <div className="about-empower__grid">
+            {/* Left: image with quote overlay */}
+            <div className="about-empower__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=480&h=380&fit=crop"
+                alt="DigionTop founder"
+                className="about-empower__img"
+              />
+              <div className="about-empower__quote-box">
+                <p className="about-empower__quote-text">"Making an impact, together."</p>
+                <p className="about-empower__quote-attr">— DigionTop Founder</p>
               </div>
-              <h3 className="about-mv__card-title">Our Mission</h3>
-              <p className="about-mv__card-text">
-                Our mission is to empower every Indian business — regardless of
-                size or budget — with the digital tools, strategies, and
-                expertise they need to compete, grow, and thrive in an
-                increasingly online world. We believe great marketing should not
-                be a luxury reserved for large corporations.
-              </p>
+              <div className="about-empower__play">
+                <span className="about-empower__play-icon">▶</span>
+              </div>
             </div>
 
-            {/* Vision */}
-            <div className="about-mv__card about-mv__card--vision">
-              <div className="about-mv__icon-wrap">
-                <FiEye size={36} />
-              </div>
-              <h3 className="about-mv__card-title">Our Vision</h3>
-              <p className="about-mv__card-text">
-                To become India's most trusted remote digital agency — the
-                go-to partner for businesses that want honest advice, measurable
-                results, and a team that genuinely cares about their growth. We
-                envision a future where every Indian brand has a powerful
-                digital footprint, no matter where they are based.
+            {/* Right: text */}
+            <div className="about-empower__text">
+              <h2 className="about-empower__heading">
+                We empower small<br />business owners
+              </h2>
+              <p className="about-empower__desc">
+                DigionTop was built for Indian businesses — so that great
+                digital marketing is no longer a luxury reserved for large
+                corporations. We went fully remote, kept our team lean and
+                specialized, and pass every rupee of savings directly to our
+                clients.
               </p>
+              <blockquote className="about-empower__blockquote">
+                <span className="about-empower__blockquote-icon">"</span>
+                <p>Our mission is to support businesses with innovative ideas, measurable results, and long-term growth.</p>
+              </blockquote>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          4. CORE VALUES
-      ══════════════════════════════════════ */}
-      <section className="about-values">
+      {/* ══ 5. GROW SECTION ══ */}
+      <section className="about-grow">
         <div className="about-container">
-          <div className="about-section-header">
-            <span className="about-label">What We Stand For</span>
-            <h2 className="about-section-heading">Our Core Values</h2>
-            <p className="about-section-sub">
-              These principles guide every decision we make and every campaign
-              we run — from onboarding to reporting.
+          <div className="about-grow__header">
+            <h2 className="about-grow__heading">
+              We help businesses to grow<br />
+              <span className="about-grow__highlight">faster and bigger</span>
+            </h2>
+            <p className="about-grow__sub">
+              From startups to established brands, we deliver digital strategies that
+              drive real, measurable growth across India.
             </p>
           </div>
 
-          <div className="about-values__grid">
-            {values.map((v) => (
-              <div key={v.title} className="about-value-card">
-                <div className="about-value-card__icon">{v.icon}</div>
-                <h4 className="about-value-card__title">{v.title}</h4>
-                <p className="about-value-card__desc">{v.description}</p>
+          <div className="about-grow__grid">
+            {strengths.map((s, i) => (
+              <div key={i} className="about-grow__card">
+                <div className="about-grow__card-icon">{s.icon}</div>
+                <h4 className="about-grow__card-title">{s.title}</h4>
+                <p className="about-grow__card-desc">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          5. CTA BANNER
-      ══════════════════════════════════════ */}
+      {/* ══ 6. CTA ══ */}
       <section className="about-cta">
         <div className="about-container">
           <div className="about-cta__inner">
-            <div className="about-cta__text">
-              <h2 className="about-cta__heading">Want to Know More? Talk to Our Team</h2>
-              <p className="about-cta__sub">
-                Whether you have a quick question or want to explore a full
-                partnership, we are always happy to have a real conversation —
-                no pushy sales pitch, just honest advice.
-              </p>
+            <div>
+              <h2 className="about-cta__heading">Ready to Grow Your Business?</h2>
+              <p className="about-cta__sub">Let's have a real conversation about your goals — free, no pressure.</p>
             </div>
-            <Link to="/contact" className="about-cta__btn">
-              Get Free Consultation
-            </Link>
+            <Link to="/contact" className="about-cta__btn">Get Free Consultation</Link>
           </div>
         </div>
       </section>
+
     </main>
   );
 }
