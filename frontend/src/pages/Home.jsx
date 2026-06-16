@@ -245,6 +245,8 @@ const CtaBanner = () => (
 // ─── PAGE COMPONENT ───────────────────────────────────────────────────────────
 
 /* ── Testimonials Section ── */
+const TCOLORS = ['#F5A800', '#0d5c63', '#1a1a1a'];
+
 const TestimonialsSection = () => {
   const [items, setItems] = useState([]);
 
@@ -256,9 +258,9 @@ const TestimonialsSection = () => {
   }, []);
 
   const display = items.length > 0 ? items : [
-    { id: 1, client_name: 'Rajesh Sharma', client_role: 'E-Commerce Seller, Delhi', testimonial_text: 'DigionTop completely transformed our Amazon listings. Within three months, our products were ranking on page one and organic sales doubled. Every recommendation they made actually moved the needle.', rating: 5 },
-    { id: 2, client_name: 'Priya Mehta', client_role: 'Wellness Studio Owner, Bangalore', testimonial_text: 'DigionTop overhauled our entire SEO strategy and within four months we were ranking for every major keyword. New client enquiries went up by over 60% and we had to hire two more trainers.', rating: 5 },
-    { id: 3, client_name: 'Ankur Gupta', client_role: 'Restaurant Owner, Jaipur', testimonial_text: 'In six months we crossed 4,200 followers and customers started walking in specifically because they found us on Instagram. The ROI was real and the team truly cares about results.', rating: 5 },
+    { id: 1, client_name: 'Rajesh Sharma', client_role: 'E-Commerce Seller', client_location: 'Delhi', testimonial_text: 'DigionTop completely transformed our Amazon listings. Within three months our products were ranking on page one and organic sales doubled!', rating: 5 },
+    { id: 2, client_name: 'Priya Mehta', client_role: 'Wellness Studio Owner', client_location: 'Bangalore', testimonial_text: 'Within four months we were ranking for every major keyword. New client enquiries went up by over 60% — incredible results!', rating: 5 },
+    { id: 3, client_name: 'Ankur Gupta', client_role: 'Restaurant Owner', client_location: 'Jaipur', testimonial_text: 'In six months we crossed 4,200 Instagram followers and customers started walking in specifically because they found us online.', rating: 5 },
   ];
 
   return (
@@ -268,16 +270,23 @@ const TestimonialsSection = () => {
         <h2 className="section-title">What Our Clients Say</h2>
         <p className="section-subtitle">Real results from real Indian businesses.</p>
         <div className="home-testimonials__grid">
-          {display.map((t) => (
-            <div key={t.id} className="home-tcard">
-              <div className="home-tcard__header">
-                <span className="home-tcard__name">{t.client_name}</span>
-              </div>
-              <div className="home-tcard__body">
-                <div className="home-tcard__stars">{'★'.repeat(t.rating || 5)}</div>
-                <span className="home-tcard__quote">"</span>
-                <p className="home-tcard__text">{t.testimonial_text}</p>
-                {t.client_role && <span className="home-tcard__role">{t.client_role}</span>}
+          {display.map((t, i) => (
+            <div key={t.id} className="home-tcard" style={{ '--accent': TCOLORS[i % 3] }}>
+              {/* Top accent bar */}
+              <div className="home-tcard__bar" />
+              {/* Quote icon */}
+              <div className="home-tcard__quote-icon">"</div>
+              {/* Stars */}
+              <div className="home-tcard__stars">{'★'.repeat(t.rating || 5)}</div>
+              {/* Text */}
+              <p className="home-tcard__text">{t.testimonial_text}</p>
+              {/* Person row */}
+              <div className="home-tcard__person">
+                <div className="home-tcard__avatar">{t.client_name.charAt(0)}</div>
+                <div>
+                  <p className="home-tcard__name">{t.client_name}</p>
+                  <p className="home-tcard__role">{t.client_role}{t.client_location ? `, ${t.client_location}` : ''}</p>
+                </div>
               </div>
             </div>
           ))}

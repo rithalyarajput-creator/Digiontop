@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Testimonials.css';
 
+const TCARD_COLORS = ['#F5A800', '#1a1a1a', '#F5A800', '#1a1a1a', '#F5A800', '#1a1a1a'];
+
 /* ─── Testimonial Data ─── */
 const testimonials = [
   {
@@ -82,23 +84,21 @@ export default function Testimonials() {
           </div>
 
           <div className="testimonials-grid">
-            {testimonials.map((t) => (
-              <div key={t.name} className="testimonial-card">
-                {/* Dark teal header with name */}
-                <div className="testimonial-card__header">
-                  <span className="testimonial-card__name">{t.name}</span>
-                </div>
-                {/* White body */}
-                <div className="testimonial-card__body">
-                  {/* Stars */}
-                  <div className="testimonial-card__stars">
-                    {'★★★★★'}
+            {testimonials.map((t, i) => (
+              <div key={t.name} className="testimonial-card" style={{ '--accent': TCARD_COLORS[i % TCARD_COLORS.length] }}>
+                {/* Big opening quote */}
+                <div className="testimonial-card__quote-icon">"</div>
+                {/* Stars */}
+                <div className="testimonial-card__stars">{'★★★★★'}</div>
+                {/* Text */}
+                <p className="testimonial-card__text">{t.quote}</p>
+                {/* Person row */}
+                <div className="testimonial-card__person">
+                  <div className="testimonial-card__avatar">{t.name.charAt(0)}</div>
+                  <div>
+                    <p className="testimonial-card__name">{t.name}</p>
+                    <p className="testimonial-card__role">{t.role}</p>
                   </div>
-                  {/* Big quote icon */}
-                  <span className="testimonial-card__quote">"</span>
-                  {/* Text */}
-                  <p className="testimonial-card__text">{t.quote}</p>
-                  <span className="testimonial-card__role">{t.role}</span>
                 </div>
               </div>
             ))}
