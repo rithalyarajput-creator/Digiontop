@@ -22,6 +22,21 @@
   transition: transform 0.25s ease;
 }
 .cb-fab:hover { transform: scale(1.1) translateY(-4px); }
+
+/* Pulsing glow ring behind robot */
+.cb-fab::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,168,0,0.35) 0%, transparent 70%);
+  animation: fab-pulse 2.4s ease-in-out infinite;
+  z-index: -1;
+}
+@keyframes fab-pulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.6; }
+  50%       { transform: scale(1.35); opacity: 0; }
+}
 .cb-fab--open {
   width: 52px; height: 52px;
   background: #1a1a1a;
@@ -369,6 +384,12 @@
 .cb-footer strong { color: #999; font-weight: 700; }
 
 /* ── Mobile ── */
+@media (max-width: 768px) {
+  /* Shift FAB higher so it never overlaps footers / CTAs */
+  .cb-fab { bottom: 84px; right: 16px; }
+  .cb-fab--open { bottom: 84px; right: 16px; }
+}
+
 @media (max-width: 480px) {
   .cb-window {
     bottom: 0; right: 0; left: 0;
@@ -376,5 +397,4 @@
     height: 95dvh;
     border-radius: 20px 20px 0 0;
   }
-  .cb-fab { bottom: 20px; right: 20px; }
 }
