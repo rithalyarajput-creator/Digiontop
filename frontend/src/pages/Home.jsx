@@ -323,7 +323,7 @@ const DigitalOrbitSection = () => {
 // ─── SOCIAL REELS SECTION ────────────────────────────────────────────────────
 
 const REELS = [
-  { id: 1, label: 'Brand Reel', thumb: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=200&h=356&fit=crop', views: '12K', tag: 'Instagram' },
+  { id: 1, label: 'Brand Reel', video: '/reel2.mp4', views: '12K', tag: 'Instagram' },
   { id: 2, label: 'Product Shoot', thumb: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=200&h=356&fit=crop', views: '8.4K', tag: 'Reels' },
   { id: 3, label: 'Client Story', thumb: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=356&fit=crop', views: '21K', tag: 'YouTube' },
   { id: 4, label: 'UGC Content', thumb: 'https://images.unsplash.com/photo-1598128558393-70ff21433be0?w=200&h=356&fit=crop', views: '5.6K', tag: 'Facebook' },
@@ -377,7 +377,10 @@ const SocialReelsSection = () => (
       <div className="home-reels__grid" data-aos="fade-left">
         {REELS.map(r => (
           <div key={r.id} className="home-reels__thumb">
-            <img src={r.thumb} alt={r.label} />
+            {r.video
+              ? <video src={r.video} autoPlay loop muted playsInline className="home-reels__thumb-video" />
+              : <img src={r.thumb} alt={r.label} />
+            }
             <div className="home-reels__thumb-overlay">
               <span className="home-reels__thumb-tag">{r.tag}</span>
               <span className="home-reels__thumb-views">▶ {r.views}</span>

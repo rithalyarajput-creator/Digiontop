@@ -1149,6 +1149,14 @@ a {
 }
 .home-reels__thumb:hover img { transform: scale(1.06); }
 
+.home-reels__thumb-video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.home-reels__thumb:hover .home-reels__thumb-video { transform: scale(1.06); }
+
 .home-reels__thumb-overlay {
   position: absolute;
   inset: 0;
