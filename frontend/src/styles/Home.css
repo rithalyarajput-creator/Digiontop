@@ -782,167 +782,240 @@ a {
 
 /* ══ DIGITAL ORBIT SECTION ══ */
 .orbit-section {
-  background: #fff;
+  background: #f8f8ff;
   padding: 88px 24px 100px;
   overflow: hidden;
 }
 
 .orbit-section__inner {
-  max-width: 1100px;
+  max-width: 1160px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 64px;
   align-items: center;
-  gap: 60px;
 }
 
-.orbit-section__header {
-  text-align: center;
-  max-width: 640px;
-}
+/* LEFT text */
+.orbit-section__text {}
 
 .orbit-section__title {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-size: clamp(1.9rem, 3.5vw, 2.7rem);
   font-weight: 900;
   color: #1a1a1a;
-  line-height: 1.2;
-  margin: 8px 0 14px;
+  line-height: 1.18;
+  margin: 10px 0 16px;
 }
 .orbit-section__yellow { color: #F5A800; }
 
 .orbit-section__sub {
-  font-size: 0.95rem;
-  color: #666;
-  line-height: 1.7;
+  font-size: 0.93rem;
+  color: #555;
+  line-height: 1.75;
+  margin: 0 0 24px;
+  max-width: 420px;
 }
 
-/* ── Ring wrapper ── */
-.orbit-ring-wrap {
-  position: relative;
-  width: 520px;
-  height: 520px;
-  flex-shrink: 0;
-}
-
-/* The spinning ring */
-@keyframes orbit-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-@keyframes orbit-counter {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
-}
-
-.orbit-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 2px dashed rgba(124, 58, 237, 0.2);
-  animation: orbit-spin 22s linear infinite;
-}
-
-/* Each item is positioned on the ring circumference via JS inline style */
-.orbit-item {
-  position: absolute;
-  top: 50%; left: 50%;
-  /* margin offsets to center the item on its point */
-  margin-top: -44px;
-  margin-left: -32px;
+.orbit-section__list {
+  list-style: none;
+  padding: 0; margin: 0 0 28px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  /* counter-rotate so label & icon stay upright as ring spins */
-  animation: orbit-counter 22s linear infinite;
+  gap: 10px;
 }
-
-/* The icon circle — purple gradient */
-.orbit-item__icon {
-  width: 64px; height: 64px;
+.orbit-section__list li {
+  font-size: 0.88rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.orbit-section__tick {
+  width: 22px; height: 22px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
-  border: 3px solid rgba(99, 102, 241, 0.35);
-  box-shadow:
-    0 0 0 6px rgba(124, 58, 237, 0.08),
-    0 8px 24px rgba(124, 58, 237, 0.3);
+  background: #F5A800;
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 900;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 1.25rem;
-  transition: transform 0.3s;
   flex-shrink: 0;
 }
-.orbit-item:hover .orbit-item__icon {
-  transform: scale(1.18);
-  box-shadow: 0 0 0 8px rgba(124,58,237,0.15), 0 12px 32px rgba(124,58,237,0.45);
-}
-
-/* Label below icon */
-.orbit-item__label {
-  font-size: 0.68rem;
+.orbit-section__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: #1a1a1a;
+  color: #F5A800;
+  font-size: 0.875rem;
   font-weight: 700;
-  color: #1a1a1a;
-  text-align: center;
-  line-height: 1.35;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.18s;
+}
+.orbit-section__btn:hover { background: #F5A800; color: #000; transform: translateY(-2px); }
+
+/* RIGHT — orbit */
+.orbit-section__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Center text (static) */
+/* ── Orbit wrap ── */
+.orbit-wrap {
+  position: relative;
+  width: 460px;
+  height: 460px;
+  flex-shrink: 0;
+}
+
+/* keyframes */
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes orbit-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: translate(-50%,-50%) scale(1); }
+  50%       { opacity: 1;   transform: translate(-50%,-50%) scale(1.15); }
+}
+
+/* The outer ring that rotates */
+.orbit-ring--outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(124,58,237,0.25);
+  animation: orbit-cw 20s linear infinite;
+}
+
+/* Decorative inner rings (CSS only, no JS) */
+.orbit-wrap::before,
+.orbit-wrap::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.orbit-wrap::before {
+  width: 240px; height: 240px;
+  border: 1.5px dashed rgba(124,58,237,0.15);
+}
+.orbit-wrap::after {
+  width: 130px; height: 130px;
+  border: 1.5px solid rgba(245,168,0,0.3);
+  background: radial-gradient(circle, rgba(245,168,0,0.06) 0%, transparent 70%);
+}
+
+/*
+  CSS-only orbit: each .orbit-dot is absolutely centered,
+  then rotated by (i * 45deg) around the ring's center,
+  translated outward by the radius (200px),
+  then counter-rotated so the pill stays upright.
+*/
+.orbit-dot {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 62px; height: 62px;
+  margin: -31px 0 0 -31px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transform:
+    rotate(calc(var(--i) * (360deg / var(--total))))
+    translateY(-200px)
+    rotate(calc(-1 * var(--i) * (360deg / var(--total))));
+  animation: orbit-ccw 20s linear infinite;
+}
+
+.orbit-dot__pill {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+.orbit-dot__pill svg { display: block; }
+.orbit-dot:hover .orbit-dot__pill { transform: scale(1.2); }
+
+.orbit-dot__label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.92);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Center content */
 .orbit-center {
   position: absolute;
   top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   text-align: center;
+  z-index: 5;
   pointer-events: none;
-  z-index: 2;
 }
-.orbit-center__top {
-  font-size: 2rem;
+.orbit-center__glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+  animation: pulse-glow 3s ease-in-out infinite;
+  z-index: -1;
+}
+.orbit-center__line1 {
+  font-size: 1.4rem;
   font-weight: 900;
   color: #1a1a1a;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   line-height: 1;
   margin-bottom: 2px;
 }
-.orbit-center__bottom {
-  font-size: 2rem;
-  font-weight: 900;
-  color: #1a1a1a;
+.orbit-center__line2 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #F5A800;
   letter-spacing: 0.06em;
   line-height: 1;
 }
 
-/* Inner decorative rings */
-.orbit-ring-wrap::before,
-.orbit-ring-wrap::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.orbit-ring-wrap::before {
-  width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
-  border: 1.5px solid rgba(124,58,237,0.12);
-}
-.orbit-ring-wrap::after {
-  width: 280px; height: 280px;
-  border: 1.5px dashed rgba(124,58,237,0.1);
-}
-
 /* Responsive */
-@media (max-width: 600px) {
-  .orbit-ring-wrap { width: 360px; height: 360px; }
-  .orbit-item__icon { width: 50px; height: 50px; font-size: 1rem; }
-  .orbit-item__label { font-size: 0.6rem; }
-  .orbit-center__top,
-  .orbit-center__bottom { font-size: 1.4rem; }
+@media (max-width: 1024px) {
+  .orbit-section__inner { grid-template-columns: 1fr; gap: 48px; }
+  .orbit-section__right { justify-content: center; }
+}
+@media (max-width: 520px) {
+  .orbit-wrap { width: 340px; height: 340px; }
+  .orbit-dot {
+    transform:
+      rotate(calc(var(--i) * (360deg / var(--total))))
+      translateY(-148px)
+      rotate(calc(-1 * var(--i) * (360deg / var(--total))));
+  }
+  .orbit-dot__pill { width: 44px; height: 44px; }
+  .orbit-dot__pill svg { width: 20px; height: 20px; }
+  .orbit-dot__label { display: none; }
+  .orbit-center__line1 { font-size: 1.1rem; }
+  .orbit-center__line2 { font-size: 0.8rem; }
+  .orbit-wrap::before { width: 180px; height: 180px; }
 }
 
 /* ══ SOCIAL REELS SECTION ══ */
