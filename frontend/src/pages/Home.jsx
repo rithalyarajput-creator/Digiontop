@@ -16,6 +16,12 @@ import {
   FaGraduationCap,
   FaTshirt,
   FaBuilding,
+  FaGlobe,
+  FaVideo,
+  FaEnvelope,
+  FaUsers,
+  FaFileAlt,
+  FaMousePointer,
 } from "react-icons/fa";
 import "../styles/Home.css";
 
@@ -242,6 +248,78 @@ const CtaBanner = () => (
   </section>
 );
 
+// ─── DIGITAL ORBIT SECTION ───────────────────────────────────────────────────
+
+const ORBIT_ITEMS = [
+  { icon: <FaGlobe />,       label: 'Website\nMarketing',  color: '#7c3aed' },
+  { icon: <FaSearch />,      label: 'SEO',                 color: '#7c3aed' },
+  { icon: <FaBullhorn />,    label: 'Social Media\nMarketing', color: '#7c3aed' },
+  { icon: <FaMousePointer />,label: 'PPC\nMarketing',      color: '#7c3aed' },
+  { icon: <FaFileAlt />,     label: 'Content\nMarketing',  color: '#7c3aed' },
+  { icon: <FaEnvelope />,    label: 'Email\nMarketing',    color: '#7c3aed' },
+  { icon: <FaUsers />,       label: 'Affiliate\nMarketing', color: '#7c3aed' },
+  { icon: <FaVideo />,       label: 'Video\nMarketing',    color: '#7c3aed' },
+];
+
+const DigitalOrbitSection = () => {
+  const total = ORBIT_ITEMS.length;
+  return (
+    <section className="orbit-section">
+      <div className="orbit-section__inner">
+        {/* Heading above */}
+        <div className="orbit-section__header" data-aos="fade-up">
+          <p className="section-label">WHAT WE DO</p>
+          <h2 className="orbit-section__title">
+            Complete <span className="orbit-section__yellow">Digital Marketing</span> Solutions
+          </h2>
+          <p className="orbit-section__sub">
+            From SEO to viral reels — we cover every channel that grows your business online.
+          </p>
+        </div>
+
+        {/* Orbit ring */}
+        <div className="orbit-ring-wrap" data-aos="zoom-in" data-aos-delay="200">
+          {/* Rotating ring */}
+          <div className="orbit-ring">
+            {ORBIT_ITEMS.map((item, i) => {
+              const angleDeg = (360 / total) * i;
+              const angleRad = (angleDeg * Math.PI) / 180;
+              const r = 220; // radius in px
+              const x = Math.cos(angleRad - Math.PI / 2) * r;
+              const y = Math.sin(angleRad - Math.PI / 2) * r;
+              return (
+                <div
+                  key={i}
+                  className="orbit-item"
+                  style={{
+                    transform: `translate(${x}px, ${y}px)`,
+                    '--counter': `orbit-counter`,
+                  }}
+                >
+                  <div className="orbit-item__icon">
+                    {item.icon}
+                  </div>
+                  <span className="orbit-item__label">
+                    {item.label.split('\n').map((line, li) => (
+                      <span key={li}>{line}<br /></span>
+                    ))}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Center static text */}
+          <div className="orbit-center">
+            <p className="orbit-center__top">DIGITAL</p>
+            <p className="orbit-center__bottom">MARKETING</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ─── SOCIAL REELS SECTION ────────────────────────────────────────────────────
 
 const REELS = [
@@ -376,6 +454,7 @@ const Home = () => {
     <main className="home-page">
       <HeroSection />
       <ServicesSection />
+      <DigitalOrbitSection />
       <WhyUsSection />
       <IndustriesSection />
       <SocialReelsSection />
