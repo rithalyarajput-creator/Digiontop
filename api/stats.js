@@ -72,6 +72,6 @@ export default async function handler(req, res) {
       topBlogs,
     });
   } catch (err) {
-    return res.status(500).json({ error: 'Internal server error', detail: String(err?.message || err) });
+    return res.status(500).json({ error: 'Internal server error' });
   }
 }
