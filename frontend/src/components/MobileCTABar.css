@@ -1,0 +1,61 @@
+/* ============================================================
+   MobileCTABar.css — Sticky bottom Call / Free Audit bar (mobile)
+   ============================================================ */
+
+.mcta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mcta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9990;
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .mcta__btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 12px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    letter-spacing: 0.01em;
+  }
+  .mcta__btn:active { transform: scale(0.97); }
+
+  .mcta__icon {
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* Call — green */
+  .mcta__btn--call {
+    background: linear-gradient(135deg, #1aa84a 0%, #128a3a 100%);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(26, 168, 74, 0.4);
+  }
+  .mcta__btn--call:active { filter: brightness(0.95); }
+
+  /* Free Audit — yellow */
+  .mcta__btn--audit {
+    background: linear-gradient(135deg, #F5A800 0%, #e09700 100%);
+    color: #1a1a1a;
+    box-shadow: 0 4px 14px rgba(245, 168, 0, 0.4);
+  }
+  .mcta__btn--audit:active { filter: brightness(0.97); }
+}

@@ -370,6 +370,10 @@
   .footer-logo img {
     height: 44px;
   }
+  /* Space so sticky Call/Free Audit bar never hides footer content */
+  .footer-bottom {
+    padding-bottom: 76px;
+  }
 }
 
 @media (max-width: 540px) {

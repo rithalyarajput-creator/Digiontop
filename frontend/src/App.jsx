@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
+import MobileCTABar from './components/MobileCTABar';
 import AdminApp from './admin/AdminApp';
 
 import Home from './pages/Home';
@@ -57,6 +58,7 @@ function PublicSite() {
       </Routes>
       <Footer />
       <ChatBot />
+      <MobileCTABar />
     </>
   );
 }
