@@ -106,18 +106,8 @@ export default function Navbar() {
           <img src="/images/logo-header.png" alt="DigionTop Logo" />
         </Link>
 
+        {/* Center pill — desktop only */}
         <div className="navbar__container">
-          {/* Hamburger */}
-          <button
-            className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--open' : ''}`}
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Toggle menu"
-          >
-            <span className="navbar__hamburger-line" />
-            <span className="navbar__hamburger-line" />
-            <span className="navbar__hamburger-line" />
-          </button>
-
           {/* Nav Links */}
           <div className={`navbar__menu${menuOpen ? ' navbar__menu--open' : ''}`}>
             <ul className="navbar__list">
@@ -208,11 +198,22 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* CTA Button — right, outside pill */}
-        <Link to="/contact" className="navbar__cta">
-          <span className="navbar__cta-arrow">&#8594;</span>
-          Get Free Consultation
-        </Link>
+        {/* Right group: CTA + Hamburger (hamburger visible on mobile only) */}
+        <div className="navbar__right">
+          <Link to="/contact" className="navbar__cta">
+            <span className="navbar__cta-arrow">&#8594;</span>
+            Get Free Consultation
+          </Link>
+          <button
+            className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--open' : ''}`}
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            <span className="navbar__hamburger-line" />
+            <span className="navbar__hamburger-line" />
+            <span className="navbar__hamburger-line" />
+          </button>
+        </div>
       </div>
     </nav>
   );

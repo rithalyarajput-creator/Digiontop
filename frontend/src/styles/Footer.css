@@ -355,23 +355,56 @@
 @media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 36px;
+    gap: 32px;
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .footer-container {
+    padding: 44px 20px 36px;
+  }
+  .footer-logo img {
+    height: 44px;
+  }
+}
+
+@media (max-width: 540px) {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
-
   .footer-container {
-    padding: 40px 16px 32px;
+    padding: 36px 16px 28px;
   }
-
+  .footer-logo img {
+    height: 40px;
+  }
   .footer-bottom__inner {
     flex-direction: column;
     text-align: center;
     gap: 8px;
+    padding: 12px 16px;
+  }
+  .footer-bottom__payments {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-newsletter {
+    flex-direction: column;
+    border-radius: 10px;
+    gap: 0;
+  }
+  .footer-newsletter-input {
+    border-radius: 8px 8px 0 0;
+    padding: 12px 14px;
+  }
+  .footer-newsletter-btn {
+    border-radius: 0 0 8px 8px;
+    padding: 12px;
+    font-size: 0.85rem;
   }
 }

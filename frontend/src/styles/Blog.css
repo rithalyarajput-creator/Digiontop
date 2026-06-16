@@ -288,12 +288,18 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+@media (max-width: 768px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .blog-container { padding: 0 16px; }
+  .blog-hero { min-height: 260px; padding: 56px 16px 48px; }
 }
 
 @media (max-width: 560px) {
-  .blog-grid { grid-template-columns: 1fr; gap: 20px; }
-  .blog-section { padding: 48px 0 60px; }
-  .blogpost-hero { min-height: 280px; padding-bottom: 32px; }
-  .blogpost-body { padding: 40px 0 60px; }
+  .blog-grid { grid-template-columns: 1fr; gap: 16px; }
+  .blog-section { padding: 40px 0 56px; }
+  .blogpost-hero { min-height: 260px; padding-bottom: 28px; }
+  .blogpost-body { padding: 36px 0 56px; }
 }
