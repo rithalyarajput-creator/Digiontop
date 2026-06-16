@@ -574,6 +574,33 @@ a {
   flex-wrap: wrap;
 }
 
+/* Mobile — compact + attractive card look */
+@media (max-width: 768px) {
+  .cta-banner {
+    padding: 36px 16px;
+    background: linear-gradient(135deg, #F5A800 0%, #ffc62e 100%);
+  }
+  .cta-banner__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 20px;
+    padding: 28px 22px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .cta-banner__text { min-width: 0; }
+  .cta-banner__title { font-size: 1.5rem; margin-bottom: 8px; }
+  .cta-banner__subtitle { font-size: 0.88rem; }
+  .cta-banner .btn--black {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+  }
+}
+
 .cta-banner__text {
   flex: 1;
   min-width: 260px;
@@ -1175,9 +1202,32 @@ a {
   .home-reels__grid { display: none; }
 }
 @media (max-width: 768px) {
-  .home-reels__inner { grid-template-columns: 1fr; gap: 36px; }
-  .home-reels__phone-wrap { order: -1; }
-  .home-reels__phone { width: 200px; height: 400px; }
+  .home-reels {
+    padding: 48px 20px 56px;
+  }
+  .home-reels__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  /* Text content FIRST (upar) */
+  .home-reels__text { order: 1; text-align: center; }
+  .home-reels__heading { font-size: 1.7rem; }
+  .home-reels__sub { font-size: 0.85rem; max-width: 100%; }
+  .home-reels__list { max-width: 280px; margin: 0 auto 24px; }
+  .home-reels__list li { font-size: 0.85rem; }
+
+  /* Phone mockup REMOVED on mobile */
+  .home-reels__phone-wrap { display: none; }
+
+  /* Reel thumbnail grid SHOWS below text */
+  .home-reels__grid {
+    order: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
 }
 
 /* ── Home Testimonials Section ── */
@@ -1288,8 +1338,27 @@ a {
 }
 @media (max-width: 600px) {
   .home-testimonials { padding: 56px 0; }
-  .home-testimonials__grid { grid-template-columns: 1fr; gap: 16px; }
-  .home-tcard { padding: 20px 20px 16px; }
+
+  /* Horizontal swipe-slide instead of stacking */
+  .home-testimonials__grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 16px 16px;
+    margin-top: 28px;
+    scrollbar-width: none;
+  }
+  .home-testimonials__grid::-webkit-scrollbar { display: none; }
+
+  .home-tcard {
+    flex: 0 0 82%;
+    max-width: 82%;
+    scroll-snap-align: center;
+    padding: 20px 20px 16px;
+  }
 }
 
 /* ── Global mobile overflow fix ── */
