@@ -49,6 +49,66 @@ export default async function handler(req, res) {
     await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS author VARCHAR(150)`;
     await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS meta_title VARCHAR(255)`;
     await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS meta_description TEXT`;
+    await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS tags TEXT`;
+    await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS scheduled_at TIMESTAMPTZ`;
+    await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS views INTEGER DEFAULT 0`;
+
+    // Allow 'scheduled' status: drop old CHECK constraint then re-add with the extra value.
+    await sql`ALTER TABLE blog_posts DROP CONSTRAINT IF EXISTS blog_posts_status_check`;
+    await sql`ALTER TABLE blog_posts ADD CONSTRAINT blog_posts_status_check CHECK (status IN ('draft', 'published', 'scheduled'))`;
+
+    // Categories (proper table)
+    await sql`
+      CREATE TABLE IF NOT EXISTS categories (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(120) UNIQUE NOT NULL,
+        slug VARCHAR(150) UNIQUE,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+
+    // Authors (proper table)
+    await sql`
+      CREATE TABLE IF NOT EXISTS authors (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(150) NOT NULL,
+        email VARCHAR(255),
+        bio TEXT,
+        avatar_url VARCHAR(500),
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+
+    // Newsletter subscribers
+    await sql`
+      CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        source VARCHAR(100) DEFAULT 'website',
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+
+    // Seed default categories
+    await sql`
+      INSERT INTO categories (name, slug) VALUES
+        ('General', 'general'),
+        ('SEO', 'seo'),
+        ('Social Media', 'social-media'),
+        ('Website Development', 'website-development'),
+        ('E-Commerce', 'e-commerce'),
+        ('Digital Marketing', 'digital-marketing'),
+        ('Case Study', 'case-study')
+      ON CONFLICT (name) DO NOTHING
+    `;
+
+    // Seed a default author
+    await sql`
+      INSERT INTO authors (name, email, bio) VALUES
+        ('DigionTop Team', 'digiontop.agency@gmail.com', 'Official content team at DigionTop digital marketing agency.')
+      ON CONFLICT DO NOTHING
+    `;
 
     await sql`
       CREATE TABLE IF NOT EXISTS contact_leads (
@@ -109,6 +169,7 @@ export default async function handler(req, res) {
     await sql`CREATE INDEX IF NOT EXISTS idx_blog_posts_slug ON blog_posts (slug)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_contact_leads_status ON contact_leads (status)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_contact_leads_created_at ON contact_leads (created_at)`;
+    await sql`CREATE INDEX IF NOT EXISTS idx_newsletter_email ON newsletter_subscribers (email)`;
 
     // Seed default admin (password: DigiOnTop@2025!)
     await sql`

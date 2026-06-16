@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Routes, Route, NavLink, Navigate, useNavigate } from 'react-router-dom';
 import {
   FiGrid, FiInbox, FiFileText, FiStar, FiHelpCircle,
-  FiLogOut, FiMenu, FiChevronDown, FiUsers, FiTag, FiSettings, FiX,
+  FiLogOut, FiMenu, FiChevronDown, FiUsers, FiTag, FiSettings, FiX, FiMail,
 } from 'react-icons/fi';
 import { getToken, clearToken } from './api';
 import AdminLogin from './AdminLogin';
@@ -14,6 +14,7 @@ import TestimonialsAdmin from './pages/Testimonials';
 import FAQ from './pages/FAQ';
 import Authors from './pages/Authors';
 import Categories from './pages/Categories';
+import Newsletter from './pages/Newsletter';
 import Settings from './pages/Settings';
 import './admin.css';
 
@@ -71,8 +72,8 @@ export default function AdminApp() {
               <NavLink to="/admin/leads" className={({ isActive }) => `admin-navlink admin-navlink--sub${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
                 <FiInbox /> <span>Form Leads</span>
               </NavLink>
-              <NavLink to="/admin/leads?type=newsletter" className={({ isActive }) => `admin-navlink admin-navlink--sub`} onClick={() => setSidebarOpen(false)}>
-                <FiInbox /> <span>Newsletter</span>
+              <NavLink to="/admin/newsletter" className={({ isActive }) => `admin-navlink admin-navlink--sub${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
+                <FiMail /> <span>Newsletter</span>
               </NavLink>
             </div>
           )}
@@ -119,6 +120,7 @@ export default function AdminApp() {
             <Route path="blog/edit/:id" element={<BlogEdit />} />
             <Route path="authors" element={<Authors />} />
             <Route path="categories" element={<Categories />} />
+            <Route path="newsletter" element={<Newsletter />} />
             <Route path="testimonials" element={<TestimonialsAdmin />} />
             <Route path="faq" element={<FAQ />} />
             <Route path="settings" element={<Settings />} />

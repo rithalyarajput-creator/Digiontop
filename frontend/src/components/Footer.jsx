@@ -6,8 +6,31 @@ import "../styles/Footer.css";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [openCol, setOpenCol] = useState(null);
+  const [subMsg, setSubMsg] = useState("");
+  const [subbing, setSubbing] = useState(false);
 
   const toggleCol = (key) => setOpenCol((prev) => (prev === key ? null : key));
+
+  async function handleSubscribe(e) {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setSubbing(true);
+    setSubMsg("");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), source: "footer" }),
+      });
+      if (!res.ok) throw new Error();
+      setSubMsg("Subscribed! Thank you.");
+      setEmail("");
+    } catch {
+      setSubMsg("Could not subscribe. Try again.");
+    } finally {
+      setSubbing(false);
+    }
+  }
 
   return (
     <footer className="footer">
@@ -98,16 +121,20 @@ const Footer = () => {
 
             <h3 className="footer-heading footer-heading--newsletter">Newsletter</h3>
             <p className="footer-newsletter-text">Subscribe to get updates, tips &amp; offers in your inbox.</p>
-            <div className="footer-newsletter">
+            <form className="footer-newsletter" onSubmit={handleSubscribe}>
               <input
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="footer-newsletter-input"
+                required
               />
-              <button className="footer-newsletter-btn" aria-label="Subscribe">Subscribe</button>
-            </div>
+              <button className="footer-newsletter-btn" type="submit" aria-label="Subscribe" disabled={subbing}>
+                {subbing ? "…" : "Subscribe"}
+              </button>
+            </form>
+            {subMsg && <p className="footer-newsletter-msg">{subMsg}</p>}
 
           </div>
 

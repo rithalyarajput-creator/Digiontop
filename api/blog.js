@@ -31,6 +31,15 @@ export default async function handler(req, res) {
       const { slug, id, published } = req.query;
       const authed = isAuthed(req);
 
+      // Auto-publish any scheduled posts whose time has arrived.
+      try {
+        await sql`
+          UPDATE blog_posts
+          SET status = 'published', updated_at = NOW()
+          WHERE status = 'scheduled' AND scheduled_at IS NOT NULL AND scheduled_at <= NOW()
+        `;
+      } catch {}
+
       if (slug || id) {
         let rows;
         if (slug) {
@@ -45,6 +54,10 @@ export default async function handler(req, res) {
         if (!authed && post.status !== 'published') {
           return res.status(404).json({ error: 'Post not found' });
         }
+        // Count a view for public reads of a published post (by slug only)
+        if (!authed && slug && post.status === 'published') {
+          try { await sql`UPDATE blog_posts SET views = COALESCE(views, 0) + 1 WHERE id = ${post.id}`; } catch {}
+        }
         return res.status(200).json(post);
       }
 
@@ -57,6 +70,7 @@ export default async function handler(req, res) {
         return res.status(200).json(rows);
       }
 
+      // Admin: return everything (drafts, scheduled, published)
       const rows = await sql`
         SELECT * FROM blog_posts
         ORDER BY created_at DESC
@@ -72,24 +86,33 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'POST') {
-      const { title, slug, author, excerpt, content, category, image_url, meta_title, meta_description, status } = req.body || {};
+      const {
+        title, slug, author, excerpt, content, category, image_url,
+        meta_title, meta_description, tags, scheduled_at, status,
+      } = req.body || {};
       if (!title) {
         return res.status(400).json({ error: 'title is required' });
       }
       const finalSlug = slug && slug.trim() ? slugify(slug) : slugify(title);
+      const finalStatus = status || 'draft';
       const rows = await sql`
         INSERT INTO blog_posts
-          (title, slug, author, excerpt, content, category, image_url, meta_title, meta_description, status)
+          (title, slug, author, excerpt, content, category, image_url,
+           meta_title, meta_description, tags, scheduled_at, status)
         VALUES
           (${title}, ${finalSlug}, ${author || null}, ${excerpt || null}, ${content || null},
-           ${category || null}, ${image_url || null}, ${meta_title || null}, ${meta_description || null}, ${status || 'draft'})
+           ${category || null}, ${image_url || null}, ${meta_title || null}, ${meta_description || null},
+           ${tags || null}, ${finalStatus === 'scheduled' ? (scheduled_at || null) : null}, ${finalStatus})
         RETURNING *
       `;
       return res.status(201).json(rows[0]);
     }
 
     if (req.method === 'PUT') {
-      const { id, title, slug, author, excerpt, content, category, image_url, meta_title, meta_description, status } = req.body || {};
+      const {
+        id, title, slug, author, excerpt, content, category, image_url,
+        meta_title, meta_description, tags, scheduled_at, status,
+      } = req.body || {};
       if (!id) {
         return res.status(400).json({ error: 'id is required' });
       }
@@ -104,6 +127,8 @@ export default async function handler(req, res) {
           image_url = COALESCE(${image_url ?? null}, image_url),
           meta_title = COALESCE(${meta_title ?? null}, meta_title),
           meta_description = COALESCE(${meta_description ?? null}, meta_description),
+          tags = COALESCE(${tags ?? null}, tags),
+          scheduled_at = CASE WHEN ${scheduled_at !== undefined} THEN ${scheduled_at || null} ELSE scheduled_at END,
           status = COALESCE(${status ?? null}, status),
           updated_at = NOW()
         WHERE id = ${id}

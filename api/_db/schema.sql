@@ -12,13 +12,43 @@ CREATE TABLE IF NOT EXISTS blog_posts (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(255) UNIQUE,
+    author VARCHAR(150),
     excerpt TEXT,
     content TEXT NOT NULL,
     category VARCHAR(100) DEFAULT 'General',
     image_url VARCHAR(500),
-    status VARCHAR(20) DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
+    meta_title VARCHAR(255),
+    meta_description TEXT,
+    tags TEXT,
+    scheduled_at TIMESTAMPTZ,
+    views INTEGER DEFAULT 0,
+    status VARCHAR(20) DEFAULT 'draft' CHECK (status IN ('draft', 'published', 'scheduled')),
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(120) UNIQUE NOT NULL,
+    slug VARCHAR(150) UNIQUE,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS authors (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    email VARCHAR(255),
+    bio TEXT,
+    avatar_url VARCHAR(500),
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    source VARCHAR(100) DEFAULT 'website',
+    is_active BOOLEAN DEFAULT true,
+    created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS contact_leads (

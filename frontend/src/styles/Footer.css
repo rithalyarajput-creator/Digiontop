@@ -269,6 +269,13 @@
   background: #e09700;
 }
 
+.footer-newsletter-msg {
+  font-size: 0.78rem;
+  color: var(--footer-accent);
+  margin: 8px 0 0;
+  font-weight: 600;
+}
+
 /* ---------- Working Hours ---------- */
 .footer-hours-box {
   display: flex;
