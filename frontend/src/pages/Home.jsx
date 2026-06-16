@@ -361,14 +361,13 @@ const SocialReelsSection = () => (
         <div className="home-reels__phone">
           <div className="home-reels__phone-notch" />
           <div className="home-reels__phone-screen">
-            <iframe
-              className="home-reels__phone-iframe"
-              src="https://www.instagram.com/reel/DZog4fApUEn/embed/?cr=1&v=14&autoplay=1&muted=1"
-              frameBorder="0"
-              scrolling="no"
-              allowFullScreen
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              title="DigionTop Instagram Reel"
+            <video
+              className="home-reels__phone-video"
+              src="/reel.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
             />
           </div>
         </div>

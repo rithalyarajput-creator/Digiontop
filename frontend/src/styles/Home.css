@@ -1061,16 +1061,11 @@ a {
   display: block;
 }
 
-.home-reels__phone-iframe {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%) scale(0.58);
-  transform-origin: top center;
-  width: 400px;
-  height: 850px;
-  border: none;
-  pointer-events: none;
+.home-reels__phone-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .home-reels__phone-overlay {
