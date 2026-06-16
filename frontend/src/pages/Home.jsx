@@ -283,24 +283,15 @@ const SocialReelsSection = () => (
         <div className="home-reels__phone">
           <div className="home-reels__phone-notch" />
           <div className="home-reels__phone-screen">
-            <img
-              src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=300&h=580&fit=crop"
-              alt="Social Media Reel"
-              className="home-reels__phone-img"
+            <iframe
+              className="home-reels__phone-iframe"
+              src="https://www.instagram.com/reel/DZog4fApUEn/embed/?cr=1&v=14&autoplay=1&muted=1"
+              frameBorder="0"
+              scrolling="no"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              title="DigionTop Instagram Reel"
             />
-            {/* Overlay elements */}
-            <div className="home-reels__phone-overlay">
-              <div className="home-reels__phone-play">▶</div>
-              <div className="home-reels__phone-meta">
-                <p className="home-reels__phone-handle">@digiontop.agency</p>
-                <p className="home-reels__phone-caption">Brand growth through storytelling 🔥</p>
-              </div>
-              <div className="home-reels__phone-actions">
-                <span>❤️<br /><small>12K</small></span>
-                <span>💬<br /><small>340</small></span>
-                <span>↗️<br /><small>Share</small></span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
