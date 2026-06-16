@@ -7,40 +7,41 @@
   position: fixed;
   bottom: 28px;
   right: 28px;
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: #fff;
-  border: 3px solid #F5A800;
+  background: transparent;
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1a1a1a;
-  box-shadow: 0 6px 24px rgba(245,168,0,0.45), 0 2px 8px rgba(0,0,0,0.12);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: none;
+  transition: transform 0.25s ease;
   z-index: 9999;
   padding: 0;
   overflow: visible;
 }
 .cb-fab:hover {
-  transform: scale(1.1) translateY(-3px);
-  box-shadow: 0 12px 32px rgba(245,168,0,0.55), 0 4px 12px rgba(0,0,0,0.15);
+  transform: scale(1.12) translateY(-4px);
 }
 .cb-fab--open {
   background: #1a1a1a;
-  border-color: #1a1a1a;
-  color: #fff;
+  border-radius: 50%;
+  border: none;
+  width: 56px;
+  height: 56px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  color: #fff;
 }
 
 /* Robot image in FAB */
 .cb-fab__robot {
-  width: 68px;
-  height: 68px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 4px 12px rgba(245,168,0,0.4)) drop-shadow(0 2px 6px rgba(0,0,0,0.2));
   animation: bot-bounce 2.5s ease-in-out infinite;
 }
 
