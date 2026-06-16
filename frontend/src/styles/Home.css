@@ -1224,14 +1224,27 @@ a {
   /* Phone mockup REMOVED on mobile */
   .home-reels__phone-wrap { display: none; }
 
-  /* Reel thumbnail grid SHOWS below text */
+  /* Reels in a horizontal swipe slider — one reel at a time */
   .home-reels__grid {
     order: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    max-width: 340px;
-    margin: 0 auto;
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 16px 14px;
+    max-width: 100%;
+    margin: 0;
+    scrollbar-width: none;
+  }
+  .home-reels__grid::-webkit-scrollbar { display: none; }
+
+  .home-reels__thumb {
+    flex: 0 0 70%;
+    max-width: 70%;
+    scroll-snap-align: center;
+    aspect-ratio: 9/16;
   }
 }
 
