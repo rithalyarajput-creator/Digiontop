@@ -439,3 +439,45 @@
 @media (max-width: 520px) {
   .admin-stats--wide { grid-template-columns: 1fr; }
 }
+
+/* ── Author / Category cell with avatar ── */
+.admin-author-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.admin-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 18px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.admin-avatar--square { border-radius: 8px; }
+.admin-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Image previews in forms */
+.admin-avatar-preview img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}
+.admin-cat-img-preview img {
+  width: 140px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #eee;
+}

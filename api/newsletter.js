@@ -38,9 +38,17 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'DELETE') {
-      const { id } = req.query;
+      const { id, ids } = req.query;
+      if (ids) {
+        // Bulk delete: comma-separated id list
+        const idList = String(ids).split(',').map((x) => parseInt(x, 10)).filter(Boolean);
+        if (idList.length) {
+          await sql`DELETE FROM newsletter_subscribers WHERE id = ANY(${idList})`;
+        }
+        return res.status(200).json({ success: true, deleted: idList.length });
+      }
       if (!id) {
-        return res.status(400).json({ error: 'id query parameter is required' });
+        return res.status(400).json({ error: 'id or ids query parameter is required' });
       }
       await sql`DELETE FROM newsletter_subscribers WHERE id = ${id}`;
       return res.status(200).json({ success: true });

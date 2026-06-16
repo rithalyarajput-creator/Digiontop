@@ -19,7 +19,12 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
-      const rows = await sql`SELECT * FROM categories ORDER BY name ASC`;
+      const rows = await sql`
+        SELECT c.*,
+          (SELECT COUNT(*)::int FROM blog_posts b WHERE b.category = c.name) AS blog_count
+        FROM categories c
+        ORDER BY c.name ASC
+      `;
       return res.status(200).json(rows);
     }
 
@@ -30,37 +35,43 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'POST') {
-      const { name } = req.body || {};
+      const { name, slug, description, image_url, is_active } = req.body || {};
       if (!name || !name.trim()) {
         return res.status(400).json({ error: 'name is required' });
       }
-      const slug = slugify(name);
+      const finalSlug = slug && slug.trim() ? slugify(slug) : slugify(name);
       const rows = await sql`
-        INSERT INTO categories (name, slug)
-        VALUES (${name.trim()}, ${slug})
+        INSERT INTO categories (name, slug, description, image_url, is_active)
+        VALUES (${name.trim()}, ${finalSlug}, ${description || null}, ${image_url || null}, ${is_active ?? true})
         ON CONFLICT (name) DO NOTHING
         RETURNING *
       `;
       if (rows.length === 0) {
         return res.status(409).json({ error: 'Category already exists' });
       }
-      return res.status(201).json(rows[0]);
+      return res.status(201).json({ ...rows[0], blog_count: 0 });
     }
 
     if (req.method === 'PUT') {
-      const { id, name } = req.body || {};
-      if (!id || !name) {
-        return res.status(400).json({ error: 'id and name are required' });
+      const { id, name, slug, description, image_url, is_active } = req.body || {};
+      if (!id) {
+        return res.status(400).json({ error: 'id is required' });
       }
       const rows = await sql`
-        UPDATE categories SET name = ${name.trim()}, slug = ${slugify(name)}
+        UPDATE categories SET
+          name        = COALESCE(${name ?? null}, name),
+          slug        = COALESCE(${slug ? slugify(slug) : (name ? slugify(name) : null)}, slug),
+          description = COALESCE(${description ?? null}, description),
+          image_url   = COALESCE(${image_url ?? null}, image_url),
+          is_active   = COALESCE(${is_active ?? null}, is_active)
         WHERE id = ${id}
         RETURNING *
       `;
       if (rows.length === 0) {
         return res.status(404).json({ error: 'Category not found' });
       }
-      return res.status(200).json(rows[0]);
+      const count = await sql`SELECT COUNT(*)::int AS n FROM blog_posts WHERE category = ${rows[0].name}`;
+      return res.status(200).json({ ...rows[0], blog_count: count[0].n });
     }
 
     if (req.method === 'DELETE') {

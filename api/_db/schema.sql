@@ -31,6 +31,9 @@ CREATE TABLE IF NOT EXISTS categories (
     id SERIAL PRIMARY KEY,
     name VARCHAR(120) UNIQUE NOT NULL,
     slug VARCHAR(150) UNIQUE,
+    description TEXT,
+    image_url VARCHAR(500),
+    is_active BOOLEAN DEFAULT true,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -40,6 +43,8 @@ CREATE TABLE IF NOT EXISTS authors (
     email VARCHAR(255),
     bio TEXT,
     avatar_url VARCHAR(500),
+    social_links TEXT,
+    is_active BOOLEAN DEFAULT true,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 

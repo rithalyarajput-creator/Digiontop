@@ -63,6 +63,9 @@ export default async function handler(req, res) {
         id SERIAL PRIMARY KEY,
         name VARCHAR(120) UNIQUE NOT NULL,
         slug VARCHAR(150) UNIQUE,
+        description TEXT,
+        image_url VARCHAR(500),
+        is_active BOOLEAN DEFAULT true,
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
@@ -75,9 +78,18 @@ export default async function handler(req, res) {
         email VARCHAR(255),
         bio TEXT,
         avatar_url VARCHAR(500),
+        social_links TEXT,
+        is_active BOOLEAN DEFAULT true,
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
+    await sql`ALTER TABLE authors ADD COLUMN IF NOT EXISTS social_links TEXT`;
+    await sql`ALTER TABLE authors ADD COLUMN IF NOT EXISTS is_active BOOLEAN DEFAULT true`;
+
+    // Category extra columns
+    await sql`ALTER TABLE categories ADD COLUMN IF NOT EXISTS description TEXT`;
+    await sql`ALTER TABLE categories ADD COLUMN IF NOT EXISTS image_url VARCHAR(500)`;
+    await sql`ALTER TABLE categories ADD COLUMN IF NOT EXISTS is_active BOOLEAN DEFAULT true`;
 
     // Newsletter subscribers
     await sql`
