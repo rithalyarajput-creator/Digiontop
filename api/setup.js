@@ -102,6 +102,28 @@ export default async function handler(req, res) {
       )
     `;
 
+    // Site settings (single-row JSON store, id = 1)
+    await sql`
+      CREATE TABLE IF NOT EXISTS site_settings (
+        id INTEGER PRIMARY KEY DEFAULT 1,
+        data JSONB DEFAULT '{}'::jsonb,
+        updated_at TIMESTAMPTZ DEFAULT NOW(),
+        CONSTRAINT site_settings_singleton CHECK (id = 1)
+      )
+    `;
+    await sql`INSERT INTO site_settings (id, data) VALUES (1, '{}'::jsonb) ON CONFLICT (id) DO NOTHING`;
+
+    // Activity log
+    await sql`
+      CREATE TABLE IF NOT EXISTS activity_log (
+        id SERIAL PRIMARY KEY,
+        action VARCHAR(255) NOT NULL,
+        detail TEXT,
+        actor VARCHAR(120),
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+
     // Seed default categories
     await sql`
       INSERT INTO categories (name, slug) VALUES

@@ -56,6 +56,21 @@ CREATE TABLE IF NOT EXISTS newsletter_subscribers (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+CREATE TABLE IF NOT EXISTS site_settings (
+    id INTEGER PRIMARY KEY DEFAULT 1,
+    data JSONB DEFAULT '{}'::jsonb,
+    updated_at TIMESTAMPTZ DEFAULT NOW(),
+    CONSTRAINT site_settings_singleton CHECK (id = 1)
+);
+
+CREATE TABLE IF NOT EXISTS activity_log (
+    id SERIAL PRIMARY KEY,
+    action VARCHAR(255) NOT NULL,
+    detail TEXT,
+    actor VARCHAR(120),
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 CREATE TABLE IF NOT EXISTS contact_leads (
     id SERIAL PRIMARY KEY,
     full_name VARCHAR(255),

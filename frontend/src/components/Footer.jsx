@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { useSettings } from "../context/SettingsContext";
 import "../styles/Footer.css";
 
 const Footer = () => {
+  const { settings } = useSettings();
   const [email, setEmail] = useState("");
   const [openCol, setOpenCol] = useState(null);
   const [subMsg, setSubMsg] = useState("");
@@ -40,20 +42,20 @@ const Footer = () => {
           {/* Column 1: About */}
           <div className="footer-col footer-col--about">
             <div className="footer-logo">
-              <img src="/images/logo-footer.png" alt="DigionTop" />
+              <img src={settings.logo_footer || "/images/logo-footer.png"} alt={settings.site_name || "DigionTop"} />
             </div>
-            <p className="footer-desc">Digital Marketing Agency</p>
+            <p className="footer-desc">{settings.tagline || "Digital Marketing Agency"}</p>
             <p className="footer-about-text">
-              We help brands rank higher, grow faster and generate more revenue with result driven digital marketing strategies.
+              {settings.description || "We help brands rank higher, grow faster and generate more revenue with result driven digital marketing strategies."}
             </p>
             <div className="footer-contact-list">
               <div className="footer-contact-item">
                 <span className="footer-contact-icon">✉</span>
-                <a href="mailto:digiontop.agency@gmail.com" className="footer-link">digiontop.agency@gmail.com</a>
+                <a href={`mailto:${settings.contact_email || "digiontop.agency@gmail.com"}`} className="footer-link">{settings.contact_email || "digiontop.agency@gmail.com"}</a>
               </div>
               <div className="footer-contact-item">
                 <span className="footer-contact-icon">✆</span>
-                <span className="footer-link">+91 9217594664 &nbsp;|&nbsp; +91 7303769921</span>
+                <span className="footer-link">{settings.contact_phone || "+91 9217594664"}{settings.contact_phone2 ? <> &nbsp;|&nbsp; {settings.contact_phone2}</> : null}</span>
               </div>
               <div className="footer-contact-item">
                 <span className="footer-contact-icon">⊙</span>
@@ -63,9 +65,11 @@ const Footer = () => {
             <div className="footer-follow">
               <p className="footer-follow-label">Follow Us</p>
               <div className="footer-socials">
-                <a href="https://www.instagram.com/digiontop.agency?igsh=aHc1Mmo2eGN1b2dn" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Instagram"><FaInstagram /></a>
-                <a href="https://www.facebook.com/share/14eaPvHNx9A/" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Facebook"><FaFacebookF /></a>
-                <a href="https://www.youtube.com/@digiontop" target="_blank" rel="noopener noreferrer" className="footer-social-icon footer-social-icon--yt" aria-label="YouTube"><FaYoutube /></a>
+                {settings.social_instagram && <a href={settings.social_instagram} target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Instagram"><FaInstagram /></a>}
+                {settings.social_facebook && <a href={settings.social_facebook} target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Facebook"><FaFacebookF /></a>}
+                {settings.social_linkedin && <a href={settings.social_linkedin} target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="LinkedIn"><FaLinkedinIn /></a>}
+                {settings.social_twitter && <a href={settings.social_twitter} target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="X"><FaXTwitter /></a>}
+                {settings.social_youtube && <a href={settings.social_youtube} target="_blank" rel="noopener noreferrer" className="footer-social-icon footer-social-icon--yt" aria-label="YouTube"><FaYoutube /></a>}
               </div>
             </div>
           </div>

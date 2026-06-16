@@ -3,11 +3,13 @@ import {
   FiPhone, FiMail, FiMessageCircle, FiFacebook,
   FiInstagram, FiYoutube, FiCheckCircle,
 } from 'react-icons/fi';
+import { useSettings } from '../context/SettingsContext';
 import '../styles/Contact.css';
 
 const INITIAL = { firstName: '', lastName: '', email: '', phone: '', message: '' };
 
 export default function Contact() {
+  const { settings } = useSettings();
   const [form, setForm] = useState(INITIAL);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -151,33 +153,35 @@ export default function Contact() {
             </h3>
 
             <div className="contact-info-card__items">
-              <a href="tel:+919217594664" className="contact-info-card__item">
+              <a href={`tel:${(settings.contact_phone || '+919217594664').replace(/\s/g, '')}`} className="contact-info-card__item">
                 <span className="contact-info-card__icon">
                   <FiPhone />
                 </span>
                 <div>
                   <p className="contact-info-card__item-label">Hotline</p>
-                  <p className="contact-info-card__item-val">+91 92175 94664</p>
+                  <p className="contact-info-card__item-val">{settings.contact_phone || '+91 92175 94664'}</p>
                 </div>
               </a>
 
-              <a href="https://wa.me/917303769921" className="contact-info-card__item" target="_blank" rel="noreferrer">
-                <span className="contact-info-card__icon">
-                  <FiMessageCircle />
-                </span>
-                <div>
-                  <p className="contact-info-card__item-label">SMS / Whatsapp</p>
-                  <p className="contact-info-card__item-val">+91 73037 69921</p>
-                </div>
-              </a>
+              {settings.contact_phone2 && (
+                <a href={`https://wa.me/${settings.contact_phone2.replace(/[^0-9]/g, '')}`} className="contact-info-card__item" target="_blank" rel="noreferrer">
+                  <span className="contact-info-card__icon">
+                    <FiMessageCircle />
+                  </span>
+                  <div>
+                    <p className="contact-info-card__item-label">SMS / Whatsapp</p>
+                    <p className="contact-info-card__item-val">{settings.contact_phone2}</p>
+                  </div>
+                </a>
+              )}
 
-              <a href="mailto:digiontop.agency@gmail.com" className="contact-info-card__item">
+              <a href={`mailto:${settings.contact_email || 'digiontop.agency@gmail.com'}`} className="contact-info-card__item">
                 <span className="contact-info-card__icon">
                   <FiMail />
                 </span>
                 <div>
                   <p className="contact-info-card__item-label">Email</p>
-                  <p className="contact-info-card__item-val">digiontop.agency@gmail.com</p>
+                  <p className="contact-info-card__item-val">{settings.contact_email || 'digiontop.agency@gmail.com'}</p>
                 </div>
               </a>
             </div>
@@ -185,9 +189,9 @@ export default function Contact() {
             <div className="contact-info-card__social-section">
               <p className="contact-info-card__social-label">Connect with us</p>
               <div className="contact-info-card__socials">
-                <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><FiFacebook /></a>
-                <a href="https://instagram.com/digiontop.agency" target="_blank" rel="noreferrer" aria-label="Instagram"><FiInstagram /></a>
-                <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><FiYoutube /></a>
+                {settings.social_facebook && <a href={settings.social_facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><FiFacebook /></a>}
+                {settings.social_instagram && <a href={settings.social_instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FiInstagram /></a>}
+                {settings.social_youtube && <a href={settings.social_youtube} target="_blank" rel="noreferrer" aria-label="YouTube"><FiYoutube /></a>}
               </div>
             </div>
           </div>
