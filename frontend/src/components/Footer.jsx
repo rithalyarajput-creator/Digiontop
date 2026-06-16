@@ -97,7 +97,7 @@ const Footer = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="footer-newsletter-input"
               />
-              <button className="footer-newsletter-btn" aria-label="Subscribe">&#8594;</button>
+              <button className="footer-newsletter-btn" aria-label="Subscribe">Subscribe</button>
             </div>
 
           </div>
