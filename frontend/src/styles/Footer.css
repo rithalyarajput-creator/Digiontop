@@ -144,6 +144,14 @@
   margin-top: 4px;
 }
 
+/* Accordion arrow — hidden on desktop */
+.footer-heading-arrow {
+  display: none;
+  font-size: 0.7rem;
+  transition: transform 0.25s ease;
+  margin-left: auto;
+}
+
 /* ---------- Lists ---------- */
 .footer-list {
   list-style: none;
@@ -374,6 +382,35 @@
   /* Space so sticky Call/Free Audit bar never hides footer content */
   .footer-bottom {
     padding-bottom: 76px;
+  }
+
+  /* ── Accordion columns on mobile ── */
+  .footer-col--accordion .footer-heading {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 0;
+  }
+  .footer-col--accordion .footer-heading-arrow {
+    display: inline-block;
+  }
+  .footer-col--accordion.footer-col--open .footer-heading-arrow {
+    transform: rotate(180deg);
+  }
+  /* Collapse list by default */
+  .footer-col--accordion .footer-list {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.25s ease, margin 0.25s ease;
+    margin-top: 0;
+  }
+  .footer-col--accordion.footer-col--open .footer-list {
+    max-height: 600px;
+    opacity: 1;
+    margin-top: 12px;
   }
 }
 

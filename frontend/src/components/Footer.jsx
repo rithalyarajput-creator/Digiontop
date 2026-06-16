@@ -5,6 +5,9 @@ import "../styles/Footer.css";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [openCol, setOpenCol] = useState(null);
+
+  const toggleCol = (key) => setOpenCol((prev) => (prev === key ? null : key));
 
   return (
     <footer className="footer">
@@ -45,8 +48,11 @@ const Footer = () => {
           </div>
 
           {/* Column 2: Our Services */}
-          <div className="footer-col">
-            <h3 className="footer-heading">Our Services</h3>
+          <div className={`footer-col footer-col--accordion${openCol === 'services' ? ' footer-col--open' : ''}`}>
+            <h3 className="footer-heading" onClick={() => toggleCol('services')}>
+              Our Services
+              <span className="footer-heading-arrow">&#9660;</span>
+            </h3>
             <ul className="footer-list">
               <li><Link to="/services/website-development" className="footer-link"><span className="footer-arrow">&#8250;</span> Website Development</Link></li>
               <li><Link to="/services/website-development" className="footer-link"><span className="footer-arrow">&#8250;</span> WordPress Development</Link></li>
@@ -60,8 +66,11 @@ const Footer = () => {
           </div>
 
           {/* Column 3: Quick Links */}
-          <div className="footer-col">
-            <h3 className="footer-heading">Quick Links</h3>
+          <div className={`footer-col footer-col--accordion${openCol === 'quick' ? ' footer-col--open' : ''}`}>
+            <h3 className="footer-heading" onClick={() => toggleCol('quick')}>
+              Quick Links
+              <span className="footer-heading-arrow">&#9660;</span>
+            </h3>
             <ul className="footer-list">
               <li><Link to="/" className="footer-link"><span className="footer-arrow">&#8250;</span> Home</Link></li>
               <li><Link to="/about" className="footer-link"><span className="footer-arrow">&#8250;</span> About Us</Link></li>

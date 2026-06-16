@@ -304,8 +304,10 @@
   .contact-wrap__inner {
     grid-template-columns: 1fr;
   }
+  /* FORM first (upar), info card below */
+  .contact-form-side { order: -1; }
   .contact-info-card {
-    order: -1;
+    order: 1;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;

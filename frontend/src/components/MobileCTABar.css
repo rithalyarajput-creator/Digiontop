@@ -43,13 +43,13 @@
     flex-shrink: 0;
   }
 
-  /* Call — green */
+  /* Call — black */
   .mcta__btn--call {
-    background: linear-gradient(135deg, #1aa84a 0%, #128a3a 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
     color: #fff;
-    box-shadow: 0 4px 14px rgba(26, 168, 74, 0.4);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   }
-  .mcta__btn--call:active { filter: brightness(0.95); }
+  .mcta__btn--call:active { filter: brightness(1.2); }
 
   /* Free Audit — yellow */
   .mcta__btn--audit {

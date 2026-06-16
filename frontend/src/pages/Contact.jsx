@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import {
   FiPhone, FiMail, FiMessageCircle, FiFacebook,
-  FiInstagram, FiTwitter, FiMusic, FiCheckCircle,
+  FiInstagram, FiYoutube, FiCheckCircle,
 } from 'react-icons/fi';
-import { FaTiktok, FaSnapchatGhost } from 'react-icons/fa';
 import '../styles/Contact.css';
 
 const INITIAL = { firstName: '', lastName: '', email: '', phone: '', message: '' };
@@ -99,15 +98,16 @@ export default function Contact() {
                   />
                 </div>
                 <div className="contact-form__field">
-                  <label>Contact Details</label>
+                  <label>Phone</label>
                   <div className="contact-form__phone-wrap">
-                    <span className="contact-form__dial">+971</span>
+                    <span className="contact-form__dial">+91</span>
                     <input
                       name="phone"
                       type="tel"
-                      placeholder="Enter your contact number"
+                      placeholder="Enter your phone number"
                       value={form.phone}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
@@ -187,9 +187,7 @@ export default function Contact() {
               <div className="contact-info-card__socials">
                 <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><FiFacebook /></a>
                 <a href="https://instagram.com/digiontop.agency" target="_blank" rel="noreferrer" aria-label="Instagram"><FiInstagram /></a>
-                <a href="https://snapchat.com" target="_blank" rel="noreferrer" aria-label="Snapchat"><FaSnapchatGhost /></a>
-                <a href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok"><FaTiktok /></a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter"><FiTwitter /></a>
+                <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><FiYoutube /></a>
               </div>
             </div>
           </div>
