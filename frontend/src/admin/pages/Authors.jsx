@@ -24,7 +24,7 @@ export default function Authors() {
   async function load() {
     setLoading(true);
     try {
-      setItems(await apiGet('/authors'));
+      setItems(await apiGet('/cms?resource=authors'));
     } catch (err) {
       setError(err.message);
     } finally {
@@ -63,10 +63,10 @@ export default function Authors() {
     e.preventDefault();
     try {
       if (editId) {
-        const updated = await apiPut('/authors', { id: editId, ...buildPayload() });
+        const updated = await apiPut('/cms?resource=authors', { id: editId, ...buildPayload() });
         setItems((prev) => prev.map((x) => (x.id === editId ? updated : x)));
       } else {
-        const created = await apiPost('/authors', buildPayload());
+        const created = await apiPost('/cms?resource=authors', buildPayload());
         setItems((prev) => [...prev, created].sort((a, b) => a.name.localeCompare(b.name)));
       }
       setShowForm(false);
@@ -79,7 +79,7 @@ export default function Authors() {
 
   async function toggleStatus(a) {
     try {
-      const updated = await apiPut('/authors', { id: a.id, is_active: !a.is_active });
+      const updated = await apiPut('/cms?resource=authors', { id: a.id, is_active: !a.is_active });
       setItems((prev) => prev.map((x) => (x.id === a.id ? updated : x)));
     } catch (err) {
       alert(err.message);
@@ -89,7 +89,7 @@ export default function Authors() {
   async function remove(a) {
     if (!confirm(`Delete author "${a.name}"?`)) return;
     try {
-      await apiDelete(`/authors?id=${a.id}`);
+      await apiDelete(`/cms?resource=authors&id=${a.id}`);
       setItems((prev) => prev.filter((x) => x.id !== a.id));
     } catch (err) {
       alert(err.message);

@@ -12,7 +12,7 @@ export default function Newsletter() {
   async function load() {
     setLoading(true);
     try {
-      setSubs(await apiGet('/newsletter'));
+      setSubs(await apiGet('/cms?resource=newsletter'));
     } catch (err) {
       setError(err.message);
     } finally {
@@ -43,7 +43,7 @@ export default function Newsletter() {
   async function remove(id) {
     if (!confirm('Remove this subscriber?')) return;
     try {
-      await apiDelete(`/newsletter?id=${id}`);
+      await apiDelete(`/cms?resource=newsletter&id=${id}`);
       setSubs((prev) => prev.filter((s) => s.id !== id));
     } catch (err) {
       alert(err.message);
@@ -55,7 +55,7 @@ export default function Newsletter() {
     if (!ids.length) return;
     if (!confirm(`Delete ${ids.length} selected subscriber(s)?`)) return;
     try {
-      await apiDelete(`/newsletter?ids=${ids.join(',')}`);
+      await apiDelete(`/cms?resource=newsletter&ids=${ids.join(',')}`);
       setSubs((prev) => prev.filter((s) => !selected.has(s.id)));
       setSelected(new Set());
     } catch (err) {

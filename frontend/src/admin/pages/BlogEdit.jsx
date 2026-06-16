@@ -39,8 +39,8 @@ export default function BlogEdit() {
   const [authors, setAuthors] = useState([]);
 
   useEffect(() => {
-    apiGet('/categories').then((c) => { if (c.length) setCats(c.map((x) => x.name)); }).catch(() => {});
-    apiGet('/authors').then((a) => setAuthors(a)).catch(() => {});
+    apiGet('/cms?resource=categories').then((c) => { if (c.length) setCats(c.map((x) => x.name)); }).catch(() => {});
+    apiGet('/cms?resource=authors').then((a) => setAuthors(a)).catch(() => {});
   }, []);
 
   useEffect(() => {

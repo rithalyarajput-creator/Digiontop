@@ -2,8 +2,8 @@
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
   "rewrites": [
-    { "source": "/robots.txt", "destination": "/api/robots" },
-    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
+    { "source": "/robots.txt", "destination": "/api/seo?type=robots" },
+    { "source": "/sitemap.xml", "destination": "/api/seo?type=sitemap" },
     { "source": "/((?!api).*)", "destination": "/index.html" }
   ]
 }

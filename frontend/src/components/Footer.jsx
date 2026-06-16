@@ -19,7 +19,7 @@ const Footer = () => {
     setSubbing(true);
     setSubMsg("");
     try {
-      const res = await fetch("/api/newsletter", {
+      const res = await fetch("/api/cms?resource=newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim(), source: "footer" }),

@@ -38,8 +38,8 @@ export default function BlogList() {
     try {
       const [p, c, a] = await Promise.all([
         apiGet('/blog'),
-        apiGet('/categories').catch(() => []),
-        apiGet('/authors').catch(() => []),
+        apiGet('/cms?resource=categories').catch(() => []),
+        apiGet('/cms?resource=authors').catch(() => []),
       ]);
       setPosts(p);
       setCats(c);

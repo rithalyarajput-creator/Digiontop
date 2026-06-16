@@ -20,7 +20,7 @@ export default function Categories() {
   async function load() {
     setLoading(true);
     try {
-      setItems(await apiGet('/categories'));
+      setItems(await apiGet('/cms?resource=categories'));
     } catch (err) {
       setError(err.message);
     } finally {
@@ -49,10 +49,10 @@ export default function Categories() {
     if (!form.name.trim()) return;
     try {
       if (editId) {
-        const updated = await apiPut('/categories', { id: editId, ...form });
+        const updated = await apiPut('/cms?resource=categories', { id: editId, ...form });
         setItems((prev) => prev.map((x) => (x.id === editId ? updated : x)));
       } else {
-        const created = await apiPost('/categories', form);
+        const created = await apiPost('/cms?resource=categories', form);
         setItems((prev) => [...prev, created].sort((a, b) => a.name.localeCompare(b.name)));
       }
       setShowForm(false); setForm(EMPTY); setEditId(null);
@@ -63,7 +63,7 @@ export default function Categories() {
 
   async function toggleStatus(c) {
     try {
-      const updated = await apiPut('/categories', { id: c.id, is_active: !c.is_active });
+      const updated = await apiPut('/cms?resource=categories', { id: c.id, is_active: !c.is_active });
       setItems((prev) => prev.map((x) => (x.id === c.id ? updated : x)));
     } catch (err) {
       alert(err.message);
@@ -73,7 +73,7 @@ export default function Categories() {
   async function remove(c) {
     if (!confirm(`Delete category "${c.name}"?`)) return;
     try {
-      await apiDelete(`/categories?id=${c.id}`);
+      await apiDelete(`/cms?resource=categories&id=${c.id}`);
       setItems((prev) => prev.filter((x) => x.id !== c.id));
     } catch (err) {
       alert(err.message);
