@@ -367,18 +367,23 @@
   .contact-info-card__items { flex-direction: column; }
 }
 
-/* ══ Video banner above footer ══ */
+/* ══ Video banner below cards, above footer ══ */
 .contact-video {
   background: #1a1a1a;
-  padding: 0;
+  padding: 0 24px 64px;
   line-height: 0;
 }
 .contact-video__media {
-  width: 100%;
-  max-height: 520px;
-  object-fit: cover;
   display: block;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 768px) {
-  .contact-video__media { max-height: 320px; }
+  .contact-video { padding: 0 16px 48px; }
+  .contact-video__media { max-height: 300px; border-radius: 14px; }
 }
