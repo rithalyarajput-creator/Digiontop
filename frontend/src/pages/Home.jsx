@@ -28,6 +28,7 @@ const services = [
     description:
       "We build fast, modern, mobile-first websites and landing pages that convert visitors into customers — on every device.",
     link: "/services/website-development",
+    image: "", // add image later
   },
   {
     icon: <FaSearch />,
@@ -35,6 +36,7 @@ const services = [
     description:
       "Data-driven on-page, off-page and technical SEO that pushes your brand to the top of Google search results and keeps it there.",
     link: "/services/seo-services",
+    image: "", // add image later
   },
   {
     icon: <FaBullhorn />,
@@ -42,6 +44,7 @@ const services = [
     description:
       "Strategic content, paid ads and community management across Instagram, Facebook, LinkedIn and more — built to grow your audience.",
     link: "/services/social-media-marketing",
+    image: "/images/service-social.png",
   },
   {
     icon: <FaShoppingCart />,
@@ -49,6 +52,7 @@ const services = [
     description:
       "End-to-end marketplace management on Amazon, Flipkart and Meesho — from listing optimisation to sponsored ads and account health.",
     link: "/services/ecommerce-solutions",
+    image: "", // add image later
   },
 ];
 
@@ -159,11 +163,14 @@ const ServicesSection = () => (
       <div className="services__grid">
         {services.map((service, i) => (
           <div
-            className="service-card"
+            className={`service-card${service.image ? ' service-card--has-img' : ''}`}
             key={i}
             data-aos="fade-up"
             data-aos-delay={i * 100}
           >
+            {service.image && (
+              <img src={service.image} alt={service.title} className="service-card__float-img" />
+            )}
             <div className="service-card__icon">{service.icon}</div>
             <h3 className="service-card__title">{service.title}</h3>
             <p className="service-card__desc">{service.description}</p>
