@@ -54,6 +54,8 @@ export default function Contact() {
 
           {/* ── LEFT — Form ── */}
           <div className="contact-form-side">
+            {/* Floating astronaut rocket — top-left */}
+            <img src="/images/rocket-astronaut.png" alt="" className="contact-form-side__rocket" />
             <h2 className="contact-form-side__title">Send us a message</h2>
             <p className="contact-form-side__sub">
               Do you have a question? A complaint? Or need any help to choose the
