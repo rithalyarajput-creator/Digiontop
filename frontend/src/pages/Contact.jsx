@@ -49,6 +49,7 @@ export default function Contact() {
   return (
     <main className="contact-page">
       <section className="contact-wrap">
+        <h1 className="contact-page__heading">Contact Us</h1>
         <div className="contact-wrap__inner">
 
           {/* ── LEFT — Form ── */}

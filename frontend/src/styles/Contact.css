@@ -5,12 +5,30 @@
 .contact-page {
   font-family: 'Inter', 'Segoe UI', sans-serif;
   min-height: 100vh;
-  background: #f5f6fa;
+  background: #1a1a1a;
 }
 
 /* ══ OUTER SECTION ══ */
 .contact-wrap {
-  padding: 64px 24px 80px;
+  padding: 56px 24px 80px;
+}
+
+.contact-page__heading {
+  text-align: center;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  color: #fff;
+  margin: 0 auto 40px;
+  letter-spacing: -0.5px;
+}
+.contact-page__heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #F5A800;
+  border-radius: 4px;
+  margin: 14px auto 0;
 }
 
 .contact-wrap__inner {
