@@ -383,7 +383,7 @@ a {
   grid-template-columns: repeat(6, 1fr);
   gap: 64px 28px;
   padding-top: 64px;
-  max-width: 1080px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
@@ -399,12 +399,14 @@ a {
   position: relative;
   background: linear-gradient(160deg, #F8B81F 0%, #F5A800 100%);
   border-radius: 22px;
-  padding: 56px 26px 28px;
+  padding: 56px 26px 30px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   overflow: visible;
   text-decoration: none;
+  /* equal height across all cards */
+  min-height: 240px;
   transition: transform 0.32s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.32s ease;
   /* 3D elevated shadow */
   box-shadow:
@@ -419,7 +421,12 @@ a {
     0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* Floating 3D image — right side, half above the card */
+/* Floating 3D image — right side, half above the card.
+   Continuously floats up/down (does not stop on hover). */
+@keyframes service-img-float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%      { transform: translateY(-10px) rotate(1deg); }
+}
 .service-card__float-img {
   position: absolute;
   top: -56px;
@@ -429,26 +436,29 @@ a {
   object-fit: contain;
   pointer-events: none;
   filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.25));
-  transition: transform 0.35s ease;
+  animation: service-img-float 3s ease-in-out infinite;
 }
-.service-card:hover .service-card__float-img {
-  transform: translateY(-5px) scale(1.05);
-}
+/* Stagger each card's image so they don't bob in sync */
+.services__grid > .service-card:nth-child(2) .service-card__float-img { animation-delay: 0.4s; }
+.services__grid > .service-card:nth-child(3) .service-card__float-img { animation-delay: 0.8s; }
+.services__grid > .service-card:nth-child(4) .service-card__float-img { animation-delay: 1.2s; }
+.services__grid > .service-card:nth-child(5) .service-card__float-img { animation-delay: 1.6s; }
 
-/* White heading band — sticks out to the left */
+/* White heading band — sticks out to the left, single line */
 .service-card__title {
   position: relative;
   align-self: flex-start;
   background: #fff;
   color: #1a1a1a;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  padding: 11px 22px 11px 26px;
+  padding: 11px 24px 11px 26px;
   margin-left: -26px;
   border-radius: 0 12px 12px 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   z-index: 2;
-  max-width: 80%;
+  white-space: nowrap;
+  max-width: none;
 }
 
 .service-card__desc {
