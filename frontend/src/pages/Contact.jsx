@@ -201,18 +201,6 @@ export default function Contact() {
 
         </div>
       </section>
-
-      {/* Video banner — above footer */}
-      <section className="contact-video">
-        <video
-          className="contact-video__media"
-          src="/contact-banner.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-      </section>
     </main>
   );
 }
