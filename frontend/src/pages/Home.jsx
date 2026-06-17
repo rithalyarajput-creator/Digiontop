@@ -54,6 +54,14 @@ const services = [
     link: "/services/ecommerce-solutions",
     image: "/images/service-ecommerce.png",
   },
+  {
+    icon: <FaBullhorn />,
+    title: "Ads & Campaigns",
+    description:
+      "Run high-converting Google Ads & Meta Ads, boost your reels for maximum reach, and turn clicks into real sales with data-driven ad campaigns.",
+    link: "/contact",
+    image: "/images/service-ads.png",
+  },
 ];
 
 const whyUs = [
@@ -162,22 +170,19 @@ const ServicesSection = () => (
       </p>
       <div className="services__grid">
         {services.map((service, i) => (
-          <div
-            className={`service-card${service.image ? ' service-card--has-img' : ''}`}
+          <Link
+            to={service.link}
+            className="service-card"
             key={i}
             data-aos="fade-up"
-            data-aos-delay={i * 100}
+            data-aos-delay={i * 80}
           >
             {service.image && (
               <img src={service.image} alt={service.title} className="service-card__float-img" />
             )}
-            <div className="service-card__icon">{service.icon}</div>
             <h3 className="service-card__title">{service.title}</h3>
             <p className="service-card__desc">{service.description}</p>
-            <Link to={service.link} className="service-card__link">
-              Learn More &rarr;
-            </Link>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

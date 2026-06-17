@@ -375,89 +375,88 @@ a {
   background: var(--white);
 }
 
+/* 5 cards: 3 on top row, 2 centered below.
+   Using a 6-column grid so each card spans 2 cols;
+   the 2 bottom cards get offset to center them. */
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  /* room for the floating images that stick out above cards */
-  padding-top: 56px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 64px 28px;
+  padding-top: 64px;
+  max-width: 1080px;
+  margin: 0 auto;
 }
+
+/* Top row: 3 cards × 2 cols each */
+.services__grid > .service-card:nth-child(1) { grid-column: 1 / span 2; }
+.services__grid > .service-card:nth-child(2) { grid-column: 3 / span 2; }
+.services__grid > .service-card:nth-child(3) { grid-column: 5 / span 2; }
+/* Bottom row: 2 cards centered (cols 2-3 and 4-5) */
+.services__grid > .service-card:nth-child(4) { grid-column: 2 / span 2; }
+.services__grid > .service-card:nth-child(5) { grid-column: 4 / span 2; }
 
 .service-card {
   position: relative;
-  background: var(--white);
-  border: 1px solid #eee;
-  border-radius: 18px;
-  padding: 32px 28px;
+  background: linear-gradient(160deg, #F8B81F 0%, #F5A800 100%);
+  border-radius: 22px;
+  padding: 56px 26px 28px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   overflow: visible;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
-  /* 3D elevated card shadow */
+  text-decoration: none;
+  transition: transform 0.32s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.32s ease;
+  /* 3D elevated shadow */
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.08),
-    0 2px 6px rgba(0, 0, 0, 0.04);
+    0 16px 34px rgba(245, 168, 0, 0.32),
+    0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   box-shadow:
-    0 20px 44px rgba(0, 0, 0, 0.14),
-    0 4px 10px rgba(0, 0, 0, 0.06);
+    0 28px 54px rgba(245, 168, 0, 0.42),
+    0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 /* Floating 3D image — right side, half above the card */
 .service-card__float-img {
   position: absolute;
-  top: -52px;
-  right: 14px;
-  width: 110px;
-  height: 110px;
+  top: -56px;
+  right: 10px;
+  width: 150px;
+  height: 130px;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.22));
+  filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.25));
   transition: transform 0.35s ease;
 }
-.service-card--has-img:hover .service-card__float-img {
-  transform: translateY(-4px) scale(1.05);
-}
-/* Give the icon/title breathing room on cards that have a floating image */
-.service-card--has-img { padding-top: 36px; }
-
-.service-card__icon {
-  font-size: 2rem;
-  color: var(--yellow-dark);
-  line-height: 1;
+.service-card:hover .service-card__float-img {
+  transform: translateY(-5px) scale(1.05);
 }
 
+/* White heading band — sticks out to the left */
 .service-card__title {
-  font-size: 1.1rem;
+  position: relative;
+  align-self: flex-start;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 1.15rem;
   font-weight: 800;
-  color: var(--dark);
+  padding: 11px 22px 11px 26px;
+  margin-left: -26px;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+  max-width: 80%;
 }
 
 .service-card__desc {
-  font-size: 0.92rem;
-  color: var(--gray-text);
-  line-height: 1.65;
-  flex: 1;
-}
-
-.service-card__link {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--yellow-dark);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: gap var(--transition), color var(--transition);
-}
-
-.service-card__link:hover {
-  gap: 8px;
-  color: var(--dark);
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-top: 4px;
 }
 
 /* ============================================================
@@ -658,8 +657,17 @@ a {
     height: 280px;
   }
 
+  /* Tablet: 2 cards per row, reset spans */
   .services__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 56px 24px;
+  }
+  .services__grid > .service-card:nth-child(1),
+  .services__grid > .service-card:nth-child(2),
+  .services__grid > .service-card:nth-child(3),
+  .services__grid > .service-card:nth-child(4),
+  .services__grid > .service-card:nth-child(5) {
+    grid-column: auto;
   }
 
   .why-us__grid {
@@ -740,9 +748,11 @@ a {
 
   .services__grid {
     grid-template-columns: 1fr;
-    max-width: 480px;
+    max-width: 420px;
     margin: 0 auto;
+    gap: 64px;
   }
+  .services__grid > .service-card { grid-column: auto !important; }
 
   .why-us {
     padding: 64px 0;
