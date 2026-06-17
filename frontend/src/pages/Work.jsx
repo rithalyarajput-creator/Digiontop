@@ -1,17 +1,44 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FiExternalLink } from 'react-icons/fi';
 import '../styles/Work.css';
 
-const categories = [
-  { id: 'all', label: 'All Work' },
-  { id: 'website', label: 'Website Mockups' },
-  { id: 'reels', label: 'Reels & Videos' },
-  { id: 'social', label: 'Social Media Posts' },
-  { id: 'branding', label: 'Logo & Branding' },
-  { id: 'seo', label: 'SEO Case Studies' },
+/* ──────────────────────────────────────────────────────────────
+   PROJECTS
+   Add each website here. `image` = full-length website screenshot
+   (a tall image — it scrolls top→bottom on hover).
+   `category` is the sub-category. `link` = live website URL.
+   ────────────────────────────────────────────────────────────── */
+const PROJECTS = [
+  {
+    id: 1,
+    title: 'Stressless Learner',
+    category: 'education',
+    image: '/images/work/stressless-learner.png',
+    link: 'https://example.com', // replace with the live URL
+  },
+  // Add more like:
+  // { id: 2, title: 'My Store', category: 'ecommerce', image: '/images/work/store.png', link: 'https://...' },
+];
+
+/* Sub-categories shown as filter tabs */
+const CATEGORIES = [
+  { id: 'all', label: 'All' },
+  { id: 'website', label: 'Website' },
+  { id: 'ecommerce', label: 'E-Commerce' },
+  { id: 'informative', label: 'Informative' },
+  { id: 'education', label: 'Education' },
+  { id: 'seo', label: 'SEO' },
 ];
 
 export default function Work() {
+  const [active, setActive] = useState('all');
+
+  const filtered = useMemo(
+    () => (active === 'all' ? PROJECTS : PROJECTS.filter((p) => p.category === active)),
+    [active]
+  );
+
   return (
     <main className="work-page">
       {/* Hero */}
@@ -19,10 +46,11 @@ export default function Work() {
         <div className="work-hero__content">
           <span className="work-hero__label">Our Portfolio</span>
           <h1 className="work-hero__heading">
-            Work That <span className="work-hero__yellow">Delivers Results</span>
+            Check Out <span className="work-hero__yellow">Our Work</span>
           </h1>
           <p className="work-hero__sub">
-            Real projects. Real growth. See how we've helped brands across India rank higher, grow faster and generate more revenue.
+            Real websites we've designed & built for businesses across India.
+            Hover any project to preview the full page.
           </p>
           <nav className="work-hero__breadcrumb">
             <Link to="/" className="work-hero__bc-link">Home</Link>
@@ -32,12 +60,16 @@ export default function Work() {
         </div>
       </section>
 
-      {/* Categories */}
+      {/* Category tabs */}
       <section className="work-categories">
         <div className="work-container">
           <div className="work-cats">
-            {categories.map((cat) => (
-              <button key={cat.id} className={`work-cat-btn${cat.id === 'all' ? ' work-cat-btn--active' : ''}`}>
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                className={`work-cat-btn${active === cat.id ? ' work-cat-btn--active' : ''}`}
+                onClick={() => setActive(cat.id)}
+              >
                 {cat.label}
               </button>
             ))}
@@ -45,21 +77,54 @@ export default function Work() {
         </div>
       </section>
 
-      {/* Empty state — projects will be added later */}
+      {/* Project grid */}
       <section className="work-grid-section">
         <div className="work-container">
-          <div className="work-coming-soon">
-            <div className="work-coming-soon__icon">🚀</div>
-            <h2 className="work-coming-soon__heading">Portfolio Coming Soon</h2>
-            <p className="work-coming-soon__text">
-              We're putting together our best work. Check back soon to see websites, reels, social media posts, logos and more.
-            </p>
-            <Link to="/contact" className="work-coming-soon__cta">
-              Discuss Your Project →
-            </Link>
-          </div>
+          {filtered.length === 0 ? (
+            <div className="work-coming-soon">
+              <div className="work-coming-soon__icon">🚀</div>
+              <h2 className="work-coming-soon__heading">More Projects Coming Soon</h2>
+              <p className="work-coming-soon__text">
+                We're adding more work to this category. Check back soon.
+              </p>
+              <Link to="/contact" className="work-coming-soon__cta">Discuss Your Project →</Link>
+            </div>
+          ) : (
+            <div className="work-grid">
+              {filtered.map((p) => (
+                <a
+                  key={p.id}
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="work-card"
+                >
+                  {/* Browser-style frame */}
+                  <div className="work-card__bar">
+                    <span className="work-card__dot" />
+                    <span className="work-card__dot" />
+                    <span className="work-card__dot" />
+                    <span className="work-card__url">{prettyUrl(p.link)}</span>
+                  </div>
+                  {/* Scrolling screenshot window */}
+                  <div className="work-card__window">
+                    <img src={p.image} alt={p.title} className="work-card__shot" />
+                  </div>
+                  {/* Caption */}
+                  <div className="work-card__caption">
+                    <span className="work-card__title">{p.title}</span>
+                    <span className="work-card__visit"><FiExternalLink /> Visit</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </main>
   );
+}
+
+function prettyUrl(url) {
+  try { return new URL(url).hostname.replace('www.', ''); } catch { return url; }
 }
