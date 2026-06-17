@@ -28,7 +28,7 @@ const services = [
     description:
       "We build fast, modern, mobile-first websites and landing pages that convert visitors into customers — on every device.",
     link: "/services/website-development",
-    image: "", // add image later
+    image: "/images/service-web.png",
   },
   {
     icon: <FaSearch />,
@@ -36,7 +36,7 @@ const services = [
     description:
       "Data-driven on-page, off-page and technical SEO that pushes your brand to the top of Google search results and keeps it there.",
     link: "/services/seo-services",
-    image: "", // add image later
+    image: "/images/service-seo.png",
   },
   {
     icon: <FaBullhorn />,
@@ -52,7 +52,7 @@ const services = [
     description:
       "End-to-end marketplace management on Amazon, Flipkart and Meesho — from listing optimisation to sponsored ads and account health.",
     link: "/services/ecommerce-solutions",
-    image: "", // add image later
+    image: "/images/service-ecommerce.png",
   },
 ];
 
