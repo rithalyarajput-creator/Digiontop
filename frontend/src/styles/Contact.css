@@ -366,3 +366,19 @@
   .contact-info-card { flex-direction: column; }
   .contact-info-card__items { flex-direction: column; }
 }
+
+/* ══ Video banner above footer ══ */
+.contact-video {
+  background: #1a1a1a;
+  padding: 0;
+  line-height: 0;
+}
+.contact-video__media {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 768px) {
+  .contact-video__media { max-height: 320px; }
+}
