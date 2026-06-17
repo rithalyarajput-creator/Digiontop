@@ -13,12 +13,13 @@ const PROJECTS = [
   {
     id: 1,
     title: 'Stressless Learner',
+    subtitle: 'Education · Web Design',
     category: 'education',
     image: '/images/work/stressless-learner.png',
     link: 'https://example.com', // replace with the live URL
   },
   // Add more like:
-  // { id: 2, title: 'My Store', category: 'ecommerce', image: '/images/work/store.png', link: 'https://...' },
+  // { id: 2, title: 'My Store', subtitle: 'E-Commerce · Web Design', category: 'ecommerce', image: '/images/work/store.png', link: 'https://...' },
 ];
 
 /* Sub-categories shown as filter tabs */
@@ -112,8 +113,11 @@ export default function Work() {
                   </div>
                   {/* Caption */}
                   <div className="work-card__caption">
-                    <span className="work-card__title">{p.title}</span>
-                    <span className="work-card__visit"><FiExternalLink /> Visit</span>
+                    <div>
+                      <span className="work-card__title">{p.title}</span>
+                      {p.subtitle && <span className="work-card__sub">{p.subtitle}</span>}
+                    </div>
+                    <span className="work-card__btn"><FiExternalLink /></span>
                   </div>
                 </a>
               ))}
