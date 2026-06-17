@@ -227,22 +227,22 @@
   margin: 0;
 }
 
-/* ══ RIGHT — INFO CARD (reference: dark navy) ══ */
+/* ══ RIGHT — INFO CARD (yellow gradient) ══ */
 .contact-info-card {
-  background: linear-gradient(160deg, #21365e 0%, #1a2b4a 60%, #14223c 100%);
+  background: linear-gradient(160deg, #FFC83D 0%, #F5A800 60%, #E08E00 100%);
   border-radius: 20px;
   padding: 36px 28px 32px;
-  color: #fff;
+  color: #1a1a1a;
   display: flex;
   flex-direction: column;
   gap: 26px;
-  box-shadow: 0 16px 40px rgba(26, 43, 74, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(245, 168, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .contact-info-card__title {
   font-size: 1.05rem;
   font-weight: 800;
-  color: #fff;
+  color: #1a1a1a;
   line-height: 1.4;
   margin: 0;
 }
@@ -259,13 +259,13 @@
   align-items: center;
   gap: 14px;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 12px;
   padding: 12px 14px;
   transition: background 0.2s;
 }
-.contact-info-card__item:hover { background: rgba(255, 255, 255, 0.12); }
+.contact-info-card__item:hover { background: rgba(255, 255, 255, 0.45); }
 
 .contact-info-card__icon {
   width: 40px;
@@ -275,17 +275,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #1a1a1a;
   font-size: 1.05rem;
   flex-shrink: 0;
   margin-top: 0;
-  background: rgba(255, 255, 255, 0.12);
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info-card__item-label {
   font-size: 0.72rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(0, 0, 0, 0.55);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin: 0 0 3px;
@@ -293,21 +294,21 @@
 
 .contact-info-card__item-val {
   font-size: 0.88rem;
-  font-weight: 700;
-  color: #fff;
+  font-weight: 800;
+  color: #1a1a1a;
   margin: 0;
 }
 
 /* Social section */
 .contact-info-card__social-section {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.18);
   padding-top: 20px;
 }
 
 .contact-info-card__social-label {
   font-size: 0.75rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin: 0 0 14px;
@@ -323,20 +324,20 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.12);
+  border: 1.5px solid rgba(0, 0, 0, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #1a1a1a;
   font-size: 0.95rem;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s, color 0.2s;
 }
 .contact-info-card__socials a:hover {
-  background: #F5A800;
-  border-color: #F5A800;
-  color: #1a1a1a;
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #F5A800;
   transform: translateY(-3px);
 }
 
