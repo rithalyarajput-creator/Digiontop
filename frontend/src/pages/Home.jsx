@@ -425,24 +425,22 @@ const TestimonialsSection = () => {
         <h2 className="section-title">What Our Clients Say</h2>
         <p className="section-subtitle">Real results from real Indian businesses.</p>
         <div className="home-testimonials__grid">
-          {display.map((t, i) => (
-            <div key={t.id} className="home-tcard" style={{ '--accent': TCOLORS[i % 3] }}>
-              {/* Top accent bar */}
-              <div className="home-tcard__bar" />
-              {/* Quote icon */}
-              <div className="home-tcard__quote-icon">"</div>
-              {/* Stars */}
-              <div className="home-tcard__stars">{'★'.repeat(t.rating || 5)}</div>
-              {/* Text */}
-              <p className="home-tcard__text">{t.testimonial_text}</p>
-              {/* Person row */}
-              <div className="home-tcard__person">
-                <div className="home-tcard__avatar">{t.client_name.charAt(0)}</div>
-                <div>
-                  <p className="home-tcard__name">{t.client_name}</p>
-                  <p className="home-tcard__role">{t.client_role}{t.client_location ? `, ${t.client_location}` : ''}</p>
-                </div>
+          {display.map((t) => (
+            <div key={t.id} className="tcard">
+              {/* Blue ribbon banner with name */}
+              <div className="tcard__ribbon">
+                <span className="tcard__ribbon-name">{t.client_name}</span>
               </div>
+              {/* Quote icon */}
+              <div className="tcard__quote">”</div>
+              {/* Stars */}
+              <div className="tcard__stars">{'★'.repeat(t.rating || 5)}</div>
+              {/* Text */}
+              <p className="tcard__text">{t.testimonial_text}</p>
+              {/* Role (small, below) */}
+              {t.client_role && (
+                <p className="tcard__role">{t.client_role}{t.client_location ? `, ${t.client_location}` : ''}</p>
+              )}
             </div>
           ))}
         </div>
