@@ -6,6 +6,7 @@ import {
 } from 'react-icons/fi';
 import { getToken, clearToken } from './api';
 import AdminLogin from './AdminLogin';
+import NotificationBell from './NotificationBell';
 import Dashboard from './pages/Dashboard';
 import Leads from './pages/Leads';
 import BlogList from './pages/BlogList';
@@ -108,7 +109,10 @@ export default function AdminApp() {
             {sidebarOpen ? <FiX /> : <FiMenu />}
           </button>
           <span className="admin-topbar__title">DigionTop Admin</span>
-          <span className="admin-topbar__user">digiontop_admin</span>
+          <div className="admin-topbar__right">
+            <NotificationBell />
+            <span className="admin-topbar__user">digiontop@2026</span>
+          </div>
         </header>
 
         <main className="admin-content">

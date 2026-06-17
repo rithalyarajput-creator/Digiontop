@@ -114,5 +114,5 @@ CREATE INDEX IF NOT EXISTS idx_contact_leads_status ON contact_leads (status);
 CREATE INDEX IF NOT EXISTS idx_contact_leads_created_at ON contact_leads (created_at);
 
 INSERT INTO admin_users (username, password)
-VALUES ('digiontop_admin', '$2b$12$Ved1q5vCdtTRo3q1TyXoDuXiFG/xQl6mx/yjGkzHm0pdmsEDd0KwK')
+VALUES ('digiontop@2026', '$2a$12$nSWzOwhjlOlYM9S8xTFNIupns3Aa5SJ6S8N9qBeiutDLb.s35e.KG')
 ON CONFLICT (username) DO NOTHING;

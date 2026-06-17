@@ -205,11 +205,12 @@ export default async function handler(req, res) {
     await sql`CREATE INDEX IF NOT EXISTS idx_contact_leads_created_at ON contact_leads (created_at)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_newsletter_email ON newsletter_subscribers (email)`;
 
-    // Seed default admin (password: DigiOnTop@2025!)
+    // Remove old default admin and seed the current admin (username: digiontop@2026)
+    await sql`DELETE FROM admin_users WHERE username = 'digiontop_admin'`;
     await sql`
       INSERT INTO admin_users (username, password)
-      VALUES ('digiontop_admin', '$2b$12$Ved1q5vCdtTRo3q1TyXoDuXiFG/xQl6mx/yjGkzHm0pdmsEDd0KwK')
-      ON CONFLICT (username) DO NOTHING
+      VALUES ('digiontop@2026', '$2a$12$nSWzOwhjlOlYM9S8xTFNIupns3Aa5SJ6S8N9qBeiutDLb.s35e.KG')
+      ON CONFLICT (username) DO UPDATE SET password = EXCLUDED.password
     `;
 
     return res.status(200).json({

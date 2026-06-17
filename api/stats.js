@@ -54,6 +54,26 @@ export default async function handler(req, res) {
     const totalViews = await sql`SELECT COALESCE(SUM(views),0)::int AS n FROM blog_posts`;
     const leadsNew = await sql`SELECT COUNT(*)::int AS n FROM contact_leads WHERE status = 'new'`;
 
+    // Notifications feed: recent leads + newsletter signups merged
+    const [notifLeads, notifSubs] = await Promise.all([
+      sql`SELECT id, full_name, email, source, created_at FROM contact_leads ORDER BY created_at DESC LIMIT 15`,
+      sql`SELECT id, email, source, created_at FROM newsletter_subscribers ORDER BY created_at DESC LIMIT 15`,
+    ]);
+    const notifications = [
+      ...notifLeads.map((l) => ({
+        type: 'lead',
+        title: l.full_name || l.email || 'New lead',
+        sub: l.source === 'blog' ? 'Blog form' : 'Contact form',
+        created_at: l.created_at,
+      })),
+      ...notifSubs.map((s) => ({
+        type: 'newsletter',
+        title: s.email,
+        sub: 'Newsletter signup',
+        created_at: s.created_at,
+      })),
+    ].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 20);
+
     return res.status(200).json({
       counts: {
         blogPublished: blogPublished[0].n,
@@ -70,6 +90,7 @@ export default async function handler(req, res) {
       recentBlogs,
       recentLeads,
       topBlogs,
+      notifications,
     });
   } catch (err) {
     return res.status(500).json({ error: 'Internal server error' });
