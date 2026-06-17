@@ -57,7 +57,7 @@ const navLinks = [
   { label: 'Home',       path: '/' },
   { label: 'About',      path: '/about' },
   { label: 'Services',   path: '/services', mega: true },
-  { label: 'Work',       path: '/work',     dropdown: true },
+  { label: 'Projects',   path: '/work' },
   { label: 'Why Us',     path: '/why-us' },
   { label: 'Industries', path: '/industries' },
   { label: 'Blog',       path: '/blog' },
