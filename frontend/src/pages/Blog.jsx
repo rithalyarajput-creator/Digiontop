@@ -54,9 +54,12 @@ export default function Blog() {
 }
 
 export function BlogCard({ post }) {
+  const date = new Date(post.created_at).toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric',
+  });
   return (
     <Link to={`/blog/${post.slug || post.id}`} className="blog-card">
-      {/* White image box — floats above yellow body */}
+      {/* White image box */}
       <div className="blog-card__img-wrap">
         {post.image_url ? (
           <img src={post.image_url} alt={post.title} className="blog-card__img" />
@@ -64,11 +67,16 @@ export function BlogCard({ post }) {
           <div className="blog-card__img-placeholder" />
         )}
       </div>
-      {/* Yellow body */}
-      <div className="blog-card__body">
+
+      {/* Yellow box below image — expands on hover */}
+      <div className="blog-card__yellow">
+        {/* Title revealed on hover (always 2 lines) */}
         <h3 className="blog-card__title">{post.title}</h3>
-        {post.excerpt && <p className="blog-card__excerpt">{post.excerpt}</p>}
-        <span className="blog-card__read">Read More →</span>
+        {/* Bottom row: date + read more */}
+        <div className="blog-card__meta">
+          <span className="blog-card__date"><strong>Date -</strong> {date}</span>
+          <span className="blog-card__read">Read More</span>
+        </div>
       </div>
     </Link>
   );
