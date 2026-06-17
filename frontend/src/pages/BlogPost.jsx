@@ -39,6 +39,7 @@ export default function BlogPost() {
   const navigate = useNavigate();
   const { settings } = useSettings();
   const [post, setPost] = useState(null);
+  const [related, setRelated] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -47,6 +48,20 @@ export default function BlogPost() {
       .then((data) => { setPost(data); setLoading(false); })
       .catch(() => { setLoading(false); navigate('/blog'); });
   }, [slug]);
+
+  useEffect(() => {
+    fetch('/api/blog?published=1')
+      .then((r) => r.json())
+      .then((all) => {
+        if (!Array.isArray(all)) return;
+        const others = all.filter((p) => (p.slug || String(p.id)) !== slug);
+        // Prefer same category, then fill with latest others
+        const sameCat = post?.category ? others.filter((p) => p.category === post.category) : [];
+        const rest = others.filter((p) => !sameCat.includes(p));
+        setRelated([...sameCat, ...rest].slice(0, 3));
+      })
+      .catch(() => {});
+  }, [slug, post?.category]);
 
   if (loading) return <div className="blog-loading-page">Loading…</div>;
   if (!post) return null;
@@ -114,6 +129,29 @@ export default function BlogPost() {
         </aside>
 
       </div>
+
+      {/* ── Related posts ── */}
+      {related.length > 0 && (
+        <section className="blog-related">
+          <h2 className="blog-related__heading">You Must Also Read</h2>
+          <div className="blog-related__grid">
+            {related.map((r) => (
+              <Link key={r.id} to={`/blog/${r.slug || r.id}`} className="blog-related__card">
+                {r.image_url
+                  ? <img src={r.image_url} alt={r.title} className="blog-related__img" />
+                  : <div className="blog-related__img" />}
+                <div className="blog-related__body">
+                  {r.category && <span className="blog-related__cat">{r.category}</span>}
+                  <h3 className="blog-related__title">{r.title}</h3>
+                  <span className="blog-related__date">
+                    📅 {new Date(r.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
