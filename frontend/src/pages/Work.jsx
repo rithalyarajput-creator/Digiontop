@@ -18,8 +18,16 @@ const PROJECTS = [
     image: '/images/work/stressless-learner.png',
     link: 'https://example.com', // replace with the live URL
   },
+  {
+    id: 2,
+    title: 'Rithala Village',
+    subtitle: 'Informative · Web Design',
+    category: 'informative',
+    image: '/images/work/rithala-village.png',
+    link: 'https://example.com', // replace with the live URL
+  },
   // Add more like:
-  // { id: 2, title: 'My Store', subtitle: 'E-Commerce · Web Design', category: 'ecommerce', image: '/images/work/store.png', link: 'https://...' },
+  // { id: 3, title: 'My Store', subtitle: 'E-Commerce · Web Design', category: 'ecommerce', image: '/images/work/store.png', link: 'https://...' },
 ];
 
 /* Sub-categories shown as filter tabs */
