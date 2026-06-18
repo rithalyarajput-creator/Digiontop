@@ -404,7 +404,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  overflow: hidden;
+  overflow: visible;            /* let the floating logo stick out */
   text-decoration: none;
   /* equal height across all cards */
   min-height: 240px;
@@ -416,23 +416,27 @@ a {
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
-/* glossy sheen sweeping across the top */
+/* glossy sheen sweeping across the top — clipped to card via inset + radius */
 .service-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 45%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 22px 22px 0 0;
   pointer-events: none;
+  z-index: 0;
 }
-/* subtle radial glow bottom-right for depth */
+/* subtle radial glow bottom-right for depth — kept inside the card */
 .service-card::after {
   content: '';
   position: absolute;
-  bottom: -40px; right: -40px;
-  width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  bottom: 0; right: 0;
+  width: 150px; height: 150px;
+  background: radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.25) 0%, transparent 65%);
+  border-radius: 0 0 22px 0;
   pointer-events: none;
+  z-index: 0;
 }
 
 .service-card:hover {
