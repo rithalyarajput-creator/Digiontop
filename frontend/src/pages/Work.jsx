@@ -82,6 +82,38 @@ const PROJECTS = [
     image: '/images/work/lightboard-signage.png',
     link: '#',
   },
+  {
+    id: 10,
+    title: 'Brand Reel',
+    subtitle: 'Social Media · Reel Production',
+    category: 'reels',
+    video: '/images/work/reel-1.mp4',
+    link: '#',
+  },
+  {
+    id: 11,
+    title: 'Promo Reel',
+    subtitle: 'Social Media · Reel Production',
+    category: 'reels',
+    video: '/images/work/reel-2.mp4',
+    link: '#',
+  },
+  {
+    id: 12,
+    title: 'Sunscreen Awareness Post',
+    subtitle: 'Social Media · Creative Post',
+    category: 'posts',
+    poster: '/images/work/post-1.jpg',
+    link: '#',
+  },
+  {
+    id: 13,
+    title: 'Brand Campaign Post',
+    subtitle: 'Social Media · Creative Post',
+    category: 'posts',
+    poster: '/images/work/post-2.jpg',
+    link: '#',
+  },
 ];
 
 /* Sub-categories shown as filter tabs */
@@ -93,6 +125,8 @@ const CATEGORIES = [
   { id: 'education', label: 'Education & Learning' },
   { id: 'community', label: 'Information & Community' },
   { id: 'advertising', label: 'Advertising & Branding' },
+  { id: 'reels', label: 'Social Media Reels' },
+  { id: 'posts', label: 'Social Media Posts' },
 ];
 
 export default function Work() {
@@ -154,36 +188,56 @@ export default function Work() {
               <Link to="/contact" className="work-coming-soon__cta">Discuss Your Project →</Link>
             </div>
           ) : (
-            <div className="work-grid">
-              {filtered.map((p) => (
-                <a
-                  key={p.id}
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="work-card"
-                >
-                  {/* Browser-style frame */}
-                  <div className="work-card__bar">
-                    <span className="work-card__dot" />
-                    <span className="work-card__dot" />
-                    <span className="work-card__dot" />
-                    <span className="work-card__url">{prettyUrl(p.link)}</span>
-                  </div>
-                  {/* Scrolling screenshot window */}
-                  <div className="work-card__window">
-                    <img src={p.image} alt={p.title} className="work-card__shot" />
-                  </div>
-                  {/* Caption */}
-                  <div className="work-card__caption">
-                    <div>
-                      <span className="work-card__title">{p.title}</span>
-                      {p.subtitle && <span className="work-card__sub">{p.subtitle}</span>}
+            <div className={`work-grid${active === 'reels' ? ' work-grid--reels' : ''}${active === 'posts' ? ' work-grid--posts' : ''}`}>
+              {filtered.map((p) => {
+                const isReel = !!p.video;
+                const isPost = !!p.poster;
+                const Wrapper = p.link && p.link !== '#' ? 'a' : 'div';
+                const wrapProps = p.link && p.link !== '#'
+                  ? { href: p.link, target: '_blank', rel: 'noopener noreferrer' }
+                  : {};
+                return (
+                  <Wrapper
+                    key={p.id}
+                    {...wrapProps}
+                    className={`work-card${isReel ? ' work-card--reel' : ''}${isPost ? ' work-card--post' : ''}`}
+                  >
+                    {isReel ? (
+                      /* ── Reel: vertical autoplay video ── */
+                      <div className="work-card__reel">
+                        <video src={p.video} autoPlay loop muted playsInline />
+                        <span className="work-card__reel-badge">▶ Reel</span>
+                      </div>
+                    ) : isPost ? (
+                      /* ── Post: square creative image ── */
+                      <div className="work-card__post">
+                        <img src={p.poster} alt={p.title} />
+                      </div>
+                    ) : (
+                      /* ── Website: browser frame + scroll ── */
+                      <>
+                        <div className="work-card__bar">
+                          <span className="work-card__dot" />
+                          <span className="work-card__dot" />
+                          <span className="work-card__dot" />
+                          <span className="work-card__url">{prettyUrl(p.link)}</span>
+                        </div>
+                        <div className="work-card__window">
+                          <img src={p.image} alt={p.title} className="work-card__shot" />
+                        </div>
+                      </>
+                    )}
+                    {/* Caption */}
+                    <div className="work-card__caption">
+                      <div>
+                        <span className="work-card__title">{p.title}</span>
+                        {p.subtitle && <span className="work-card__sub">{p.subtitle}</span>}
+                      </div>
+                      <span className="work-card__btn"><FiExternalLink /></span>
                     </div>
-                    <span className="work-card__btn"><FiExternalLink /></span>
-                  </div>
-                </a>
-              ))}
+                  </Wrapper>
+                );
+              })}
             </div>
           )}
         </div>
