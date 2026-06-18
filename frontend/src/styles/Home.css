@@ -397,29 +397,57 @@ a {
 
 .service-card {
   position: relative;
-  background: linear-gradient(160deg, #F8B81F 0%, #F5A800 100%);
+  /* rich multi-stop gradient */
+  background: linear-gradient(145deg, #FFD874 0%, #FBC02D 35%, #F5A800 70%, #E89500 100%);
   border-radius: 22px;
   padding: 56px 26px 30px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  overflow: visible;
+  overflow: hidden;
   text-decoration: none;
   /* equal height across all cards */
   min-height: 240px;
   transition: transform 0.32s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.32s ease;
-  /* 3D elevated shadow */
+  /* 3D elevated shadow + soft inner top highlight */
   box-shadow:
-    0 16px 34px rgba(245, 168, 0, 0.32),
-    0 4px 10px rgba(0, 0, 0, 0.08);
+    0 18px 38px rgba(245, 168, 0, 0.35),
+    0 4px 10px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* glossy sheen sweeping across the top */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+/* subtle radial glow bottom-right for depth */
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.015);
+  background: linear-gradient(145deg, #FFE08A 0%, #FFC83D 35%, #F8AE10 70%, #EE9A00 100%);
   box-shadow:
-    0 28px 54px rgba(245, 168, 0, 0.42),
-    0 8px 18px rgba(0, 0, 0, 0.12);
+    0 30px 58px rgba(245, 168, 0, 0.45),
+    0 10px 22px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
+
+/* keep content above the sheen layers */
+.service-card__title,
+.service-card__desc,
+.service-card__float-img { position: relative; z-index: 2; }
 
 /* Floating 3D image — right side, half above the card.
    Continuously floats up/down (does not stop on hover). */

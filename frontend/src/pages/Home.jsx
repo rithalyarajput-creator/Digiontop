@@ -458,7 +458,6 @@ const Home = () => {
     <main className="home-page">
       <HeroSection />
       <ServicesSection />
-      <DigitalOrbitSection />
       <WhyUsSection />
       <IndustriesSection />
       <SocialReelsSection />
