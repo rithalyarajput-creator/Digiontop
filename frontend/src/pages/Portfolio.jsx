@@ -180,13 +180,13 @@ export default function Portfolio() {
             transition={{ delay: 0.7, duration: 0.6 }}
           >
             <p className="pf-hero__lead">
-              <strong>Digion</strong><strong className="pf-hero__gold">Top</strong> ka matlab hai —
-              aapke business ko <strong className="pf-hero__hl">digitally ON TOP</strong> le jaana.
+              <strong>Digion</strong><strong className="pf-hero__gold">Top</strong> means taking
+              your business <strong className="pf-hero__hl">digitally ON TOP</strong>.
             </p>
             <p>
-              Hum ek full-service digital marketing agency hain. Aapka business hamari
-              top priority hai — websites, reels, SEO, branding aur e-commerce ke through
-              hum aapke brand ko Google aur social media par <strong className="pf-hero__hl">#1</strong> banaate hain.
+              We're a full-service digital marketing agency. Your growth is our top priority —
+              through websites, reels, SEO, branding and e-commerce, we put your brand
+              <strong className="pf-hero__hl"> #1</strong> on Google and across social media.
             </p>
             <p className="pf-hero__tagline">“Your Business, Our Top Priority.”</p>
           </motion.div>
@@ -404,7 +404,15 @@ function Iphone({ items, active, accent, onScroll, onDot }) {
                   item.type === 'image' ? (
                     <img src={item.src} alt={item.title} className="pf-reel__media" />
                   ) : (
-                    <video className="pf-reel__media" src={item.src} autoPlay={i === active} muted loop playsInline />
+                    <video
+                      className="pf-reel__media"
+                      src={item.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
+                    />
                   )
                 ) : (
                   <div className="pf-reel__placeholder">

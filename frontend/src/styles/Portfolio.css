@@ -449,7 +449,7 @@
   position: relative;
   max-width: 1180px;
   margin: 0 auto;
-  padding: 90px 24px;
+  padding: 70px 24px;
   display: grid;
   grid-template-columns: 1fr 0.85fr;
   gap: 56px;
@@ -522,11 +522,11 @@
 .pf-iphone-wrap { position: relative; }
 .pf-iphone {
   position: relative;
-  width: 300px;
-  height: 612px;
+  width: 270px;
+  height: 552px;
   background: #1c1c1e;
-  border-radius: 54px;
-  padding: 12px;
+  border-radius: 48px;
+  padding: 11px;
   box-shadow:
     0 0 0 2px #3a3a3c,
     0 30px 70px rgba(0,0,0,0.35),
