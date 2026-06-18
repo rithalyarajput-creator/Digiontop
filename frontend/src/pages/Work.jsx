@@ -13,7 +13,7 @@ const PROJECTS = [
   {
     id: 1,
     title: 'Stressless Learner',
-    subtitle: 'Education · Web Design',
+    subtitle: 'Website Design & Development',
     category: 'education',
     image: '/images/work/stressless-learner.png',
     link: 'https://example.com', // replace with the live URL
@@ -21,15 +21,15 @@ const PROJECTS = [
   {
     id: 2,
     title: 'Rithala Village',
-    subtitle: 'Informative · Web Design',
-    category: 'informative',
+    subtitle: 'Website Design & Development',
+    category: 'community',
     image: '/images/work/rithala-village.png',
     link: 'https://example.com', // replace with the live URL
   },
   {
     id: 3,
     title: 'Blameless',
-    subtitle: 'E-Commerce · Skincare Brand',
+    subtitle: 'E-Commerce Website Development',
     category: 'ecommerce',
     image: '/images/work/blameless-skincare.png',
     link: 'https://blameless.in/',
@@ -37,15 +37,15 @@ const PROJECTS = [
   {
     id: 4,
     title: 'Smile Dental Care Centre',
-    subtitle: 'Website · Dental Clinic',
-    category: 'website',
+    subtitle: 'Healthcare Website Development',
+    category: 'healthcare',
     image: '/images/work/smile-dental.png',
     link: 'https://smiledentalcarecentre.com/',
   },
   {
     id: 5,
     title: 'Baid Stock Broking',
-    subtitle: 'Finance · Loans & Investments',
+    subtitle: 'Financial Services Website Development',
     category: 'finance',
     image: '/images/work/baid-finance.png',
     link: 'https://baidstockbroking.com/',
@@ -53,7 +53,7 @@ const PROJECTS = [
   {
     id: 6,
     title: 'Toreto',
-    subtitle: 'E-Commerce · Electronics Brand',
+    subtitle: 'E-Commerce Website Development',
     category: 'ecommerce',
     image: '/images/work/toreto.png',
     link: 'https://toreto.in/',
@@ -61,24 +61,24 @@ const PROJECTS = [
   {
     id: 7,
     title: 'Delhi Dental Implants',
-    subtitle: 'Website · Dental Clinic',
-    category: 'website',
+    subtitle: 'Dental Clinic Website Development',
+    category: 'healthcare',
     image: '/images/work/delhi-dental.png',
     link: '#',
   },
   {
     id: 8,
     title: 'Delhi Dentist',
-    subtitle: 'Website · Dental Clinic',
-    category: 'website',
+    subtitle: 'Dental Healthcare Website Development',
+    category: 'healthcare',
     image: '/images/work/delhi-dentist.png',
     link: '#',
   },
   {
     id: 9,
     title: 'Lightboard Signage',
-    subtitle: 'Advertisement · Printing & Signage',
-    category: 'advertisement',
+    subtitle: 'Business Website Development',
+    category: 'advertising',
     image: '/images/work/lightboard-signage.png',
     link: '#',
   },
@@ -87,13 +87,12 @@ const PROJECTS = [
 /* Sub-categories shown as filter tabs */
 const CATEGORIES = [
   { id: 'all', label: 'All' },
-  { id: 'website', label: 'Website' },
   { id: 'ecommerce', label: 'E-Commerce' },
-  { id: 'informative', label: 'Informative' },
-  { id: 'education', label: 'Education' },
-  { id: 'finance', label: 'Finance' },
-  { id: 'advertisement', label: 'Advertisement' },
-  { id: 'seo', label: 'SEO' },
+  { id: 'healthcare', label: 'Healthcare & Dental' },
+  { id: 'finance', label: 'Finance & Stock Market' },
+  { id: 'education', label: 'Education & Learning' },
+  { id: 'community', label: 'Information & Community' },
+  { id: 'advertising', label: 'Advertising & Branding' },
 ];
 
 export default function Work() {
