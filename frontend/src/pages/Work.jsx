@@ -50,6 +50,14 @@ const PROJECTS = [
     image: '/images/work/baid-finance.png',
     link: 'https://baidstockbroking.com/',
   },
+  {
+    id: 6,
+    title: 'Toreto',
+    subtitle: 'E-Commerce · Electronics Brand',
+    category: 'ecommerce',
+    image: '/images/work/toreto.png',
+    link: 'https://toreto.in/',
+  },
 ];
 
 /* Sub-categories shown as filter tabs */
