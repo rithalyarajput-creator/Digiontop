@@ -26,8 +26,30 @@ const PROJECTS = [
     image: '/images/work/rithala-village.png',
     link: 'https://example.com', // replace with the live URL
   },
-  // Add more like:
-  // { id: 3, title: 'My Store', subtitle: 'E-Commerce · Web Design', category: 'ecommerce', image: '/images/work/store.png', link: 'https://...' },
+  {
+    id: 3,
+    title: 'Blameless',
+    subtitle: 'E-Commerce · Skincare Brand',
+    category: 'ecommerce',
+    image: '/images/work/blameless-skincare.png',
+    link: 'https://blameless.in/',
+  },
+  {
+    id: 4,
+    title: 'Smile Dental Care Centre',
+    subtitle: 'Website · Dental Clinic',
+    category: 'website',
+    image: '/images/work/smile-dental.png',
+    link: 'https://smiledentalcarecentre.com/',
+  },
+  {
+    id: 5,
+    title: 'Baid Stock Broking',
+    subtitle: 'Finance · Loans & Investments',
+    category: 'finance',
+    image: '/images/work/baid-finance.png',
+    link: 'https://baidstockbroking.com/',
+  },
 ];
 
 /* Sub-categories shown as filter tabs */
@@ -37,6 +59,7 @@ const CATEGORIES = [
   { id: 'ecommerce', label: 'E-Commerce' },
   { id: 'informative', label: 'Informative' },
   { id: 'education', label: 'Education' },
+  { id: 'finance', label: 'Finance' },
   { id: 'seo', label: 'SEO' },
 ];
 
