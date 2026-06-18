@@ -58,6 +58,30 @@ const PROJECTS = [
     image: '/images/work/toreto.png',
     link: 'https://toreto.in/',
   },
+  {
+    id: 7,
+    title: 'Delhi Dental Implants',
+    subtitle: 'Website · Dental Clinic',
+    category: 'website',
+    image: '/images/work/delhi-dental.png',
+    link: '#',
+  },
+  {
+    id: 8,
+    title: 'Delhi Dentist',
+    subtitle: 'Website · Dental Clinic',
+    category: 'website',
+    image: '/images/work/delhi-dentist.png',
+    link: '#',
+  },
+  {
+    id: 9,
+    title: 'Lightboard Signage',
+    subtitle: 'Advertisement · Printing & Signage',
+    category: 'advertisement',
+    image: '/images/work/lightboard-signage.png',
+    link: '#',
+  },
 ];
 
 /* Sub-categories shown as filter tabs */
@@ -68,6 +92,7 @@ const CATEGORIES = [
   { id: 'informative', label: 'Informative' },
   { id: 'education', label: 'Education' },
   { id: 'finance', label: 'Finance' },
+  { id: 'advertisement', label: 'Advertisement' },
   { id: 'seo', label: 'SEO' },
 ];
 
