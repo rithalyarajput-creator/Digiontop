@@ -388,7 +388,7 @@
   }
   /* Space so sticky Call/Free Audit bar never hides footer content */
   .footer-bottom {
-    padding-bottom: 76px;
+    padding-bottom: calc(74px + env(safe-area-inset-bottom));
   }
 
   /* ── Accordion columns on mobile ── */
@@ -435,16 +435,18 @@
   .footer-bottom__inner {
     flex-direction: column;
     text-align: center;
-    gap: 10px;
-    padding: 14px 16px;
+    gap: 6px;
+    padding: 10px 16px 12px;
   }
   /* Footer bottom — each item clean & centered on its own line */
   .footer-bottom__copy,
   .footer-bottom__mission {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     white-space: nowrap;
     justify-content: center;
+    margin: 0;
   }
+  .footer-bottom__payments { margin-top: 2px; }
 
   /* "We Accept" + payment badges stay on ONE line */
   .footer-bottom__payments {

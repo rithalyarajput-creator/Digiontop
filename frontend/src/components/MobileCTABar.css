@@ -59,7 +59,4 @@
   }
   .mcta__btn--audit:active { filter: brightness(0.97); }
 
-  /* Reserve space at the very bottom of the page so the fixed CTA bar
-     never sits on top of the footer / any in-page button. */
-  .footer { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
 }
