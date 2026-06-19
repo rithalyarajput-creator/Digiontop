@@ -107,7 +107,6 @@ const heroStats = [
   { value: "500+", label: "Happy Clients" },
   { value: "2X+", label: "Average Growth" },
   { value: "#1", label: "Client Satisfaction" },
-  { value: "Result", label: "Driven Approach" },
 ];
 
 const HeroSection = () => (
