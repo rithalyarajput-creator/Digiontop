@@ -845,6 +845,23 @@
   .pf-grid--vertical { grid-template-columns: 1fr; }
 }
 
+/* ── Touch devices (phones/tablets): no hover, so the scroll-on-hover
+      preview can't work. Show a clean cropped screenshot instead — top of
+      the page, properly filled, no stretched/empty look. ── */
+@media (hover: none) {
+  .pf-card--wide .pf-card__media { aspect-ratio: 16 / 11; }
+  .pf-card--wide .pf-card__media img {
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+    object-position: top center;   /* show the website header/top */
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+  .pf-card--wide:hover .pf-card__media img { transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pf-hero__scroll, .pf-card__shine { animation: none; transition: none; }
 }
