@@ -35,6 +35,7 @@ import {
   HiOutlineSpeakerphone,
 } from 'react-icons/hi'
 import { MdOutlineAutoGraph, MdOutlineCampaign } from 'react-icons/md'
+import ServiceWork from '../components/ServiceWork'
 import '../styles/Services.css'
 
 /* ── Social Media Services ── */
@@ -337,6 +338,14 @@ export default function SocialMedia() {
           </div>
         </div>
       </section>
+
+      {/* ── Our Work (real reels + posts) ────────────────── */}
+      <ServiceWork
+        accent="#7C3AED"
+        accentSoft="#F5F3FF"
+        heading="Reels & Posts We've Created"
+        subtitle="Real short-form videos and creative posts we've produced for brands across India."
+      />
 
       {/* ── CTA Banner ───────────────────────────────────── */}
       <section className="svc-cta">

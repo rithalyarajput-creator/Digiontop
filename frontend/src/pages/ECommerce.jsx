@@ -34,6 +34,7 @@ import {
 import { RiStore2Line, RiShoppingBag3Line } from 'react-icons/ri'
 import { MdOutlineAutoGraph, MdOutlineInventory2 } from 'react-icons/md'
 import { SiShopify, SiWoocommerce } from 'react-icons/si'
+import ServiceWork from '../components/ServiceWork'
 import '../styles/Services.css'
 
 /* ── E-Commerce Service Types ── */
@@ -366,6 +367,14 @@ export default function ECommerce() {
           </div>
         </div>
       </section>
+
+      {/* ── Our Work (real reels + posts) ────────────────── */}
+      <ServiceWork
+        accent="#059669"
+        accentSoft="#F0FDF4"
+        heading="Stores & Content We've Delivered"
+        subtitle="Real reels and creative posts we've produced to drive sales for our clients."
+      />
 
       {/* ── CTA Banner ───────────────────────────────────── */}
       <section className="svc-cta">

@@ -1538,10 +1538,12 @@ a {
   display: flex;
   flex-direction: column;
   box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  height: 100%;               /* match the height of the left tabs column */
 }
 .ourwork__preview-media {
   position: relative;
-  aspect-ratio: 16 / 10;
+  flex: 1;                    /* fill remaining space so total height = tabs */
+  min-height: 240px;
   overflow: hidden;
   background: #f2f2f4;
 }

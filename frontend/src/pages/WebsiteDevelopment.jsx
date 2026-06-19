@@ -32,6 +32,7 @@ import {
 import { RiRocketLine } from 'react-icons/ri'
 import { BsSpeedometer2 } from 'react-icons/bs'
 import { MdOutlineAutoGraph } from 'react-icons/md'
+import ServiceWork from '../components/ServiceWork'
 import '../styles/Services.css'
 
 /* ── Data ── */
@@ -280,6 +281,14 @@ export default function WebsiteDevelopment() {
           </div>
         </div>
       </section>
+
+      {/* ── Our Work (real reels + posts) ────────────────── */}
+      <ServiceWork
+        accent="#1A56DB"
+        accentSoft="#EBF2FF"
+        heading="Projects We've Built"
+        subtitle="A glimpse of the content and creative work we deliver for our clients."
+      />
 
       {/* ── CTA Banner ───────────────────────────────────── */}
       <section className="svc-cta">

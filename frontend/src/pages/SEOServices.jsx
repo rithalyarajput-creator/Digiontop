@@ -29,6 +29,7 @@ import {
 import { RiSearchEyeLine } from 'react-icons/ri'
 import { MdOutlineSpeed, MdOutlineAutoGraph } from 'react-icons/md'
 import { BsGraphUpArrow } from 'react-icons/bs'
+import ServiceWork from '../components/ServiceWork'
 import '../styles/Services.css'
 
 /* ── SEO Services Data ── */
@@ -303,6 +304,14 @@ export default function SEOServices() {
           </div>
         </div>
       </section>
+
+      {/* ── Our Work (real reels + posts) ────────────────── */}
+      <ServiceWork
+        accent="#0891B2"
+        accentSoft="#ECFEFF"
+        heading="Content That Ranks & Converts"
+        subtitle="Real reels and creative posts we've produced for brands we help grow."
+      />
 
       {/* ── CTA Banner ───────────────────────────────────── */}
       <section className="svc-cta">
