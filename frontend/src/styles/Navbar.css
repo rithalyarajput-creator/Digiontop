@@ -496,9 +496,10 @@
 }
 .navbar__drawer-sub-link:hover { background: #fff3cc; color: #000; }
 
-/* Drawer footer CTA */
+/* Drawer footer CTA — extra bottom space so the button is never cut off
+   by the fixed mobile Call/Free Audit bar sitting at the screen bottom. */
 .navbar__drawer-footer {
-  padding: 20px 20px 28px;
+  padding: 18px 20px calc(86px + env(safe-area-inset-bottom));
   border-top: 1px solid #f0f0f0;
   flex-shrink: 0;
 }
