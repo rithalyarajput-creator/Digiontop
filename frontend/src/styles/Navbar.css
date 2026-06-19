@@ -360,7 +360,7 @@
 .navbar__overlay {
   display: none;
   position: fixed;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0,0,0,0.45);
   z-index: 1099;
   opacity: 0;
@@ -371,11 +371,15 @@
   opacity: 1;
 }
 
-/* ── Slide-in Drawer ── */
+/* ── Slide-in Drawer ──
+   Fixed to the viewport top->bottom. Uses its OWN height (not the page)
+   with internal scroll, so it always covers the screen on mobile even
+   when the page is scrolled down. */
 .navbar__drawer {
   position: fixed;
-  top: 0; right: 0;
+  top: 0; right: 0; bottom: 0;
   width: 300px;
+  max-width: 86vw;
   height: 100dvh;
   background: #fff;
   z-index: 1100;
@@ -383,8 +387,9 @@
   flex-direction: column;
   transform: translateX(100%);
   transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow-y: auto;
+  overflow: hidden;            /* outer drawer doesn't scroll; inner nav does */
   box-shadow: -8px 0 40px rgba(0,0,0,0.18);
+  -webkit-overflow-scrolling: touch;
 }
 .navbar__drawer--open {
   transform: translateX(0);

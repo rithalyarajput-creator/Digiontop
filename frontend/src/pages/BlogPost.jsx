@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
-import { FiCheckCircle, FiArrowRight } from 'react-icons/fi';
+import { FiCheckCircle, FiArrowRight, FiCalendar } from 'react-icons/fi';
 import { useSettings } from '../context/SettingsContext';
 import '../styles/Blog.css';
 
@@ -82,7 +82,7 @@ export default function BlogPost() {
           {/* Category + date */}
           <div className="blogpost2__top">
             {post.category && <span className="blogpost2__cat">{post.category}</span>}
-            <span className="blogpost2__date">📅 {date}</span>
+            <span className="blogpost2__date"><FiCalendar /> {date}</span>
           </div>
 
           {/* Title */}
@@ -144,7 +144,7 @@ export default function BlogPost() {
                   {r.category && <span className="blog-related__cat">{r.category}</span>}
                   <h3 className="blog-related__title">{r.title}</h3>
                   <span className="blog-related__date">
-                    📅 {new Date(r.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                    <FiCalendar /> {new Date(r.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
                   </span>
                 </div>
               </Link>
