@@ -33,6 +33,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen]           = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled]           = useState(false);
+  const [megaCat, setMegaCat]             = useState(0); // hovered category index in services mega
   const hoverTimeout = useRef(null);
 
   useEffect(() => {
@@ -82,20 +83,54 @@ export default function Navbar() {
                   </button>
                   <div className={`navbar__mega${activeDropdown === 'services' ? ' navbar__mega--open' : ''}`}
                     onMouseEnter={() => handleEnter('services')} onMouseLeave={handleLeave}>
-                    {servicesMenu.map(col => (
-                      <div className="navbar__mega-col" key={col.heading}>
-                        <p className="navbar__mega-heading">{col.heading}</p>
-                        <ul className="navbar__mega-list">
-                          {col.items.map(item => (
-                            <li key={item.label}>
-                              <Link to={item.path} className="navbar__mega-link">
-                                <span className="navbar__mega-arrow">›</span>{item.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
+
+                    {/* LEFT — category list */}
+                    <div className="navbar__mega-side">
+                      <p className="navbar__mega-side-label">Our Services</p>
+                      {servicesMenu.map((col, i) => (
+                        <button
+                          type="button"
+                          key={col.heading}
+                          className={`navbar__mega-cat${i === megaCat ? ' navbar__mega-cat--active' : ''}`}
+                          onMouseEnter={() => setMegaCat(i)}
+                          onClick={() => { window.location.href = col.link; }}
+                        >
+                          <span className="navbar__mega-cat-info">
+                            <span className="navbar__mega-cat-name">{col.heading}</span>
+                            <span className="navbar__mega-cat-count">{col.items.length} services</span>
+                          </span>
+                          <span className="navbar__mega-cat-arrow">›</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* RIGHT — selected category detail */}
+                    <div className="navbar__mega-panel" key={servicesMenu[megaCat].heading}>
+                      <div className="navbar__mega-panel-head">
+                        <img src={servicesMenu[megaCat].image} alt="" className="navbar__mega-panel-img" />
+                        <div>
+                          <Link to={servicesMenu[megaCat].link} className="navbar__mega-panel-title">
+                            {servicesMenu[megaCat].heading} <span>→</span>
+                          </Link>
+                          <p className="navbar__mega-panel-tag">{servicesMenu[megaCat].tagline}</p>
+                        </div>
                       </div>
-                    ))}
+
+                      <p className="navbar__mega-panel-label">Popular Services</p>
+                      <ul className="navbar__mega-panel-list">
+                        {servicesMenu[megaCat].items.map(item => (
+                          <li key={item.label}>
+                            <Link to={item.path} className="navbar__mega-link">
+                              <span className="navbar__mega-dot" />{item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <Link to={servicesMenu[megaCat].link} className="navbar__mega-viewall">
+                        View All {servicesMenu[megaCat].heading} <span>→</span>
+                      </Link>
+                    </div>
                   </div>
                 </li>
               );

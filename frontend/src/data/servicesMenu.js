@@ -1,9 +1,13 @@
-// Single source of truth for the 8 service categories.
+// Single source of truth for the 7 service categories.
 // Used by both the Navbar mega menu and the Footer services section.
+// Each category has: heading, tagline, image, main link, and sub-items.
 
 export const SERVICES_MENU = [
   {
     heading: 'Website & Software Development',
+    tagline: 'Custom websites, web apps & systems built to perform.',
+    image: '/images/service-web.png',
+    link: '/services/website-development',
     items: [
       { label: 'Custom Website Development', path: '/services/website-development' },
       { label: 'Business Website Development', path: '/services/website-development' },
@@ -19,6 +23,9 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'Mobile App Development',
+    tagline: 'Android, iOS & hybrid apps for your business.',
+    image: '/images/service-web.png',
+    link: '/services/website-development',
     items: [
       { label: 'Android App Development', path: '/services/website-development' },
       { label: 'iOS App Development', path: '/services/website-development' },
@@ -30,6 +37,9 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'Search Engine Optimization (SEO)',
+    tagline: 'Rank #1 on Google with data-driven SEO.',
+    image: '/images/service-seo.png',
+    link: '/services/seo-services',
     items: [
       { label: 'Website SEO', path: '/services/seo-services' },
       { label: 'Technical SEO', path: '/services/seo-services' },
@@ -45,6 +55,9 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'Social Media Marketing',
+    tagline: 'Grow & engage your audience on every platform.',
+    image: '/images/service-social.png',
+    link: '/services/social-media-marketing',
     items: [
       { label: 'Social Media Management', path: '/services/social-media-marketing' },
       { label: 'Content Strategy & Planning', path: '/services/social-media-marketing' },
@@ -60,6 +73,9 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'E-Commerce Solutions',
+    tagline: 'Sell more on Amazon, Flipkart, Meesho & Shopify.',
+    image: '/images/service-ecommerce.png',
+    link: '/services/ecommerce-solutions',
     items: [
       { label: 'Amazon Product Listing', path: '/services/ecommerce-solutions' },
       { label: 'Flipkart Product Listing', path: '/services/ecommerce-solutions' },
@@ -75,6 +91,9 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'Branding & Creative Design',
+    tagline: 'Logos, identity & creatives that get remembered.',
+    image: '/images/service-ads.png',
+    link: '/services/social-media-marketing',
     items: [
       { label: 'Logo Design', path: '/services/social-media-marketing' },
       { label: 'Brand Identity Design', path: '/services/social-media-marketing' },
@@ -88,6 +107,9 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'Performance Marketing',
+    tagline: 'Paid ads & funnels that drive real ROI.',
+    image: '/images/service-ads.png',
+    link: '/services/seo-services',
     items: [
       { label: 'Google Ads Management', path: '/services/seo-services' },
       { label: 'Meta Ads Management', path: '/services/social-media-marketing' },
