@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { useSettings } from "../context/SettingsContext";
+import { SERVICES_MENU } from "../data/servicesMenu";
 import "../styles/Footer.css";
 
 const Footer = () => {
@@ -36,6 +37,27 @@ const Footer = () => {
 
   return (
     <footer className="footer">
+      {/* ── All Services (same 8 categories as the navbar mega menu) ── */}
+      <div className="footer-services">
+        <div className="footer-services__inner">
+          <h2 className="footer-services__title">Our Services</h2>
+          <div className="footer-services__grid">
+            {SERVICES_MENU.map((cat) => (
+              <div className="footer-services__col" key={cat.heading}>
+                <h3 className="footer-services__heading">{cat.heading}</h3>
+                <ul className="footer-services__list">
+                  {cat.items.map((it) => (
+                    <li key={it.label}>
+                      <Link to={it.path} className="footer-services__link">{it.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="footer-container">
         <div className="footer-grid">
 
@@ -74,25 +96,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Our Services */}
-          <div className={`footer-col footer-col--accordion${openCol === 'services' ? ' footer-col--open' : ''}`}>
-            <h3 className="footer-heading" onClick={() => toggleCol('services')}>
-              Our Services
-              <span className="footer-heading-arrow">&#9660;</span>
-            </h3>
-            <ul className="footer-list">
-              <li><Link to="/services/website-development" className="footer-link"><span className="footer-arrow">&#8250;</span> Website Development</Link></li>
-              <li><Link to="/services/website-development" className="footer-link"><span className="footer-arrow">&#8250;</span> WordPress Development</Link></li>
-              <li><Link to="/services/website-development" className="footer-link"><span className="footer-arrow">&#8250;</span> Shopify Store Development</Link></li>
-              <li><Link to="/services/seo-services" className="footer-link"><span className="footer-arrow">&#8250;</span> SEO Services</Link></li>
-              <li><Link to="/services/social-media-marketing" className="footer-link"><span className="footer-arrow">&#8250;</span> Social Media Marketing</Link></li>
-              <li><Link to="/services/ecommerce-solutions" className="footer-link"><span className="footer-arrow">&#8250;</span> E-Commerce Solutions</Link></li>
-              <li><Link to="/services/ecommerce-solutions" className="footer-link"><span className="footer-arrow">&#8250;</span> Amazon Listing</Link></li>
-              <li><Link to="/services/ecommerce-solutions" className="footer-link"><span className="footer-arrow">&#8250;</span> Flipkart &amp; Meesho Listings</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Quick Links */}
+          {/* Column 2: Quick Links */}
           <div className={`footer-col footer-col--accordion${openCol === 'quick' ? ' footer-col--open' : ''}`}>
             <h3 className="footer-heading" onClick={() => toggleCol('quick')}>
               Quick Links

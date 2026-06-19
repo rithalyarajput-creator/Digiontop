@@ -233,36 +233,38 @@
 .navbar__item--mega { position: static; }
 
 .navbar__mega {
-  position: absolute;
-  top: calc(100% + 14px);
+  position: fixed;
+  top: 78px;
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
   border-radius: 16px;
   border: 1.5px solid #ebebeb;
   box-shadow: 0 16px 48px rgba(0,0,0,0.13);
-  padding: 24px 28px;
+  padding: 28px 30px;
   z-index: 300;
-  min-width: 760px;
+  width: min(1180px, calc(100vw - 32px));
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
   display: none;
-  gap: 28px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px 30px;
 }
 .navbar__mega--open {
-  display: flex !important;
+  display: grid !important;
   animation: fadeDropdown 0.18s ease;
 }
 
-.navbar__mega-col { flex: 1; min-width: 160px; }
+.navbar__mega-col { min-width: 0; }
 
 .navbar__mega-heading {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #F5A800;
+  letter-spacing: 0.01em;
+  color: #1a1a1a;
   margin: 0 0 10px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 9px;
+  border-bottom: 2px solid #F5A800;
 }
 
 .navbar__mega-list {

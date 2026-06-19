@@ -2,48 +2,10 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { useSettings } from '../context/SettingsContext';
+import { SERVICES_MENU } from '../data/servicesMenu';
 import '../styles/Navbar.css';
 
-const servicesMenu = [
-  {
-    heading: 'Web Services',
-    items: [
-      { label: 'Website Development', path: '/services/website-development' },
-      { label: 'WordPress Development', path: '/services/website-development' },
-      { label: 'Shopify Store Development', path: '/services/website-development' },
-    ],
-  },
-  {
-    heading: 'Marketing',
-    items: [
-      { label: 'SEO Services', path: '/services/seo-services' },
-      { label: 'Social Media Marketing', path: '/services/social-media-marketing' },
-      { label: 'Pay Per Click (PPC)', path: '/services/seo-services' },
-      { label: 'Instagram Marketing', path: '/services/social-media-marketing' },
-      { label: 'Facebook Marketing', path: '/services/social-media-marketing' },
-      { label: 'YouTube Marketing', path: '/services/social-media-marketing' },
-    ],
-  },
-  {
-    heading: 'Social Media',
-    items: [
-      { label: 'Platform Handling', path: '/services/social-media-marketing' },
-      { label: 'Reels & Video Creation', path: '/services/social-media-marketing' },
-      { label: 'Influencer Reels', path: '/services/social-media-marketing' },
-      { label: 'UGC Video Content', path: '/services/social-media-marketing' },
-      { label: 'Content Posting & Scheduling', path: '/services/social-media-marketing' },
-      { label: 'Social Media Strategy', path: '/services/social-media-marketing' },
-    ],
-  },
-  {
-    heading: 'E-Commerce',
-    items: [
-      { label: 'E-Commerce Solutions', path: '/services/ecommerce-solutions' },
-      { label: 'Amazon Listing', path: '/services/ecommerce-solutions' },
-      { label: 'Flipkart & Meesho', path: '/services/ecommerce-solutions' },
-    ],
-  },
-];
+const servicesMenu = SERVICES_MENU;
 
 const workMenu = [
   { label: 'Website Mockups', path: '/work' },
