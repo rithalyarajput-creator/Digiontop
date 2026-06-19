@@ -1,9 +1,21 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
+import { FiMonitor, FiSmartphone, FiSearch, FiShare2, FiShoppingBag, FiPenTool, FiTrendingUp } from 'react-icons/fi';
 import { useSettings } from '../context/SettingsContext';
 import { SERVICES_MENU } from '../data/servicesMenu';
 import '../styles/Navbar.css';
+
+/* icon key -> react-icon for the services mega menu */
+const CAT_ICONS = {
+  web: FiMonitor,
+  app: FiSmartphone,
+  seo: FiSearch,
+  social: FiShare2,
+  ecommerce: FiShoppingBag,
+  branding: FiPenTool,
+  ads: FiTrendingUp,
+};
 
 const servicesMenu = SERVICES_MENU;
 
@@ -87,7 +99,9 @@ export default function Navbar() {
                     {/* LEFT — category list */}
                     <div className="navbar__mega-side">
                       <p className="navbar__mega-side-label">Our Services</p>
-                      {servicesMenu.map((col, i) => (
+                      {servicesMenu.map((col, i) => {
+                        const CatIcon = CAT_ICONS[col.icon] || FiMonitor;
+                        return (
                         <button
                           type="button"
                           key={col.heading}
@@ -95,13 +109,14 @@ export default function Navbar() {
                           onMouseEnter={() => setMegaCat(i)}
                           onClick={() => { window.location.href = col.link; }}
                         >
+                          <span className="navbar__mega-cat-ico"><CatIcon /></span>
                           <span className="navbar__mega-cat-info">
                             <span className="navbar__mega-cat-name">{col.heading}</span>
                             <span className="navbar__mega-cat-count">{col.items.length} services</span>
                           </span>
                           <span className="navbar__mega-cat-arrow">›</span>
                         </button>
-                      ))}
+                      );})}
                     </div>
 
                     {/* RIGHT — selected category detail */}

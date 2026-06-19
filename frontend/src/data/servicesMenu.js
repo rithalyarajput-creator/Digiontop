@@ -4,7 +4,8 @@
 
 export const SERVICES_MENU = [
   {
-    heading: 'Website & Software Development',
+    heading: 'Website Development',
+    icon: 'web',
     tagline: 'Custom websites, web apps & systems built to perform.',
     image: '/images/service-web.png',
     link: '/services/website-development',
@@ -23,6 +24,7 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'Mobile App Development',
+    icon: 'app',
     tagline: 'Android, iOS & hybrid apps for your business.',
     image: '/images/service-web.png',
     link: '/services/website-development',
@@ -36,7 +38,8 @@ export const SERVICES_MENU = [
     ],
   },
   {
-    heading: 'Search Engine Optimization (SEO)',
+    heading: 'SEO Services',
+    icon: 'seo',
     tagline: 'Rank #1 on Google with data-driven SEO.',
     image: '/images/service-seo.png',
     link: '/services/seo-services',
@@ -55,6 +58,7 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'Social Media Marketing',
+    icon: 'social',
     tagline: 'Grow & engage your audience on every platform.',
     image: '/images/service-social.png',
     link: '/services/social-media-marketing',
@@ -73,6 +77,7 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'E-Commerce Solutions',
+    icon: 'ecommerce',
     tagline: 'Sell more on Amazon, Flipkart, Meesho & Shopify.',
     image: '/images/service-ecommerce.png',
     link: '/services/ecommerce-solutions',
@@ -90,7 +95,8 @@ export const SERVICES_MENU = [
     ],
   },
   {
-    heading: 'Branding & Creative Design',
+    heading: 'Branding & Design',
+    icon: 'branding',
     tagline: 'Logos, identity & creatives that get remembered.',
     image: '/images/service-ads.png',
     link: '/services/social-media-marketing',
@@ -107,6 +113,7 @@ export const SERVICES_MENU = [
   },
   {
     heading: 'Performance Marketing',
+    icon: 'ads',
     tagline: 'Paid ads & funnels that drive real ROI.',
     image: '/images/service-ads.png',
     link: '/services/seo-services',
