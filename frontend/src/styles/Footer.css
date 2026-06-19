@@ -517,8 +517,8 @@
 }
 .footer-services__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px 32px;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 26px 18px;
 }
 .footer-services__heading {
   font-size: 0.95rem;

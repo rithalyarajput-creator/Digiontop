@@ -99,16 +99,4 @@ export const SERVICES_MENU = [
       { label: 'WhatsApp Marketing', path: '/services/social-media-marketing' },
     ],
   },
-  {
-    heading: 'Business Growth Solutions',
-    items: [
-      { label: 'Digital Growth Consulting', path: '/services/seo-services' },
-      { label: 'Online Reputation Management', path: '/services/social-media-marketing' },
-      { label: 'Sales Funnel Development', path: '/services/website-development' },
-      { label: 'Lead Generation Strategy', path: '/services/seo-services' },
-      { label: 'Business Automation Solutions', path: '/services/website-development' },
-      { label: 'Conversion Rate Optimization', path: '/services/seo-services' },
-      { label: 'Growth Strategy & Planning', path: '/services/seo-services' },
-    ],
-  },
 ];

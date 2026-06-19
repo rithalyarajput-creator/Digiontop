@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { useSettings } from "../context/SettingsContext";
-import { SERVICES_MENU } from "../data/servicesMenu";
 import "../styles/Footer.css";
 
 const Footer = () => {
@@ -37,27 +36,6 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      {/* ── All Services (same 8 categories as the navbar mega menu) ── */}
-      <div className="footer-services">
-        <div className="footer-services__inner">
-          <h2 className="footer-services__title">Our Services</h2>
-          <div className="footer-services__grid">
-            {SERVICES_MENU.map((cat) => (
-              <div className="footer-services__col" key={cat.heading}>
-                <h3 className="footer-services__heading">{cat.heading}</h3>
-                <ul className="footer-services__list">
-                  {cat.items.map((it) => (
-                    <li key={it.label}>
-                      <Link to={it.path} className="footer-services__link">{it.label}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       <div className="footer-container">
         <div className="footer-grid">
 
