@@ -105,7 +105,10 @@
   filter: drop-shadow(0 8px 20px rgba(245,168,0,0.18));
 }
 @media (max-width: 480px) {
-  .pf-hero__logo { height: 62px; }
+  .pf-hero { padding: 48px 18px 50px; }
+  .pf-hero__logo { height: 56px; margin-bottom: 4px; }
+  .pf-hero__title { margin: 14px 0 18px; }
+  .pf-word { margin-right: 0.18em; }
 }
 
 .pf-hero__eyebrow {
@@ -131,7 +134,8 @@
   letter-spacing: -0.025em;
   margin: 20px 0 26px;
 }
-.pf-word { display: inline-block; }
+.pf-word { display: inline-block; margin-right: 0.22em; }
+.pf-word:last-child { margin-right: 0; }
 .pf-hero__ontop {
   position: relative;
   color: var(--gold);
