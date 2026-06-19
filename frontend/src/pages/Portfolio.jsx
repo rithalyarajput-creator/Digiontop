@@ -580,7 +580,7 @@ function Card({ item, section, fromLeft }) {
     >
       <div className="pf-card__media">
         {item.image ? (
-          <img src={item.image} alt={item.title} />
+          <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
         ) : (
           <Mockup type={section.mockup} item={item} accent={accent} Icon={section.Icon} />
         )}

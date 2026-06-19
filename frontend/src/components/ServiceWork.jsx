@@ -39,7 +39,7 @@ export default function ServiceWork({
           {REELS.map((r, i) => (
             <div className="swork__card swork__card--reel" key={r.src} data-aos="fade-up" data-aos-delay={i * 70}>
               <div className="swork__media">
-                <video src={r.src} autoPlay muted loop playsInline preload="auto" />
+                <video src={r.src} autoPlay muted loop playsInline preload="metadata" />
                 <span className="swork__badge"><FiPlay size={11} /> Reel</span>
                 <span className="swork__views"><FiHeart size={12} /> {r.views}</span>
               </div>
@@ -54,7 +54,7 @@ export default function ServiceWork({
           {POSTS.map((p, i) => (
             <div className="swork__card" key={p.src} data-aos="fade-up" data-aos-delay={(i + 2) * 70}>
               <div className="swork__media">
-                <img src={p.src} alt={p.title} />
+                <img src={p.src} alt={p.title} loading="lazy" decoding="async" />
                 <span className="swork__badge">Post</span>
               </div>
               <div className="swork__body">

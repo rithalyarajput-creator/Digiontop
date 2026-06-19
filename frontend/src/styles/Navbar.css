@@ -243,12 +243,19 @@
   box-shadow: 0 16px 48px rgba(0,0,0,0.13);
   padding: 28px 30px;
   z-index: 300;
-  width: min(1480px, calc(100vw - 24px));
+  left: 0;
+  right: 0;
+  transform: none;
+  width: 100%;
+  border-radius: 0 0 18px 18px;
+  border-left: none;
+  border-right: none;
+  padding: 32px clamp(24px, 5vw, 70px);
   max-height: calc(100vh - 110px);
   overflow-y: auto;
   display: none;
   grid-template-columns: repeat(7, 1fr);
-  gap: 20px 18px;
+  gap: 24px 22px;
 }
 .navbar__mega--open {
   display: grid !important;
