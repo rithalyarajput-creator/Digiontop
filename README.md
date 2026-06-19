@@ -54,21 +54,25 @@ Digiontop/
 
 | Route | Description |
 |---|---|
-| `/` | Home — Hero, Services, Why Us, Industries, Testimonials, CTA |
+| `/` | Home — Hero, Services, Why Us, **Our Work**, Industries, Reels, Testimonials, CTA |
 | `/about` | About DigionTop |
-| `/services/website-development` | Website Development |
-| `/services/seo-services` | SEO Services |
-| `/services/social-media-marketing` | Social Media Marketing |
-| `/services/ecommerce-solutions` | E-Commerce Solutions |
+| `/services/website-development` | Website Development (+ real-work showcase) |
+| `/services/seo-services` | SEO Services (+ real-work showcase) |
+| `/services/social-media-marketing` | Social Media Marketing — incl. Influencer Marketing (+ real-work showcase) |
+| `/services/ecommerce-solutions` | E-Commerce Solutions (+ real-work showcase) |
 | `/why-us` | Why Choose DigionTop |
 | `/industries` | Industries We Serve |
 | `/testimonials` | Client Testimonials |
 | `/faq` | Frequently Asked Questions |
-| `/work` | Our Work / Portfolio |
+| `/work` | Our Work (dark theme) |
+| `/portfolio` | **Projects** — white animated page: iPhone reels, e-commerce & website cards, posts slider (this is the nav "Projects" link) |
 | `/blog` | Blog listing |
-| `/blog/:slug` | Single blog post |
+| `/blog/:slug` | Single blog post (2-column editorial + lead form) |
 | `/contact` | Contact form + social links |
 | `/admin` | Admin panel (login required) |
+
+> **Navbar "Services" mega menu** shows **7 service categories** in one full-width row that slides down from the header. Categories: Website & Software Development · Mobile App Development · SEO · Social Media Marketing · E-Commerce Solutions · Branding & Creative Design · Performance Marketing.
+> The single source of truth is [`frontend/src/data/servicesMenu.js`](frontend/src/data/servicesMenu.js).
 
 ---
 
@@ -110,7 +114,14 @@ Access at `/admin` — JWT protected.
 | `/api/testimonials` | GET / POST / PUT / DELETE | GET: No, Others: JWT |
 | `/api/faq` | GET / POST / PUT / DELETE | GET: No, Others: JWT |
 | `/api/portfolio` | GET / POST / PUT / DELETE | GET: No, Others: JWT |
+| `/api/cms?resource=categories\|authors\|newsletter` | GET / POST / PUT / DELETE | GET: No, Others: JWT |
+| `/api/seo?type=robots\|sitemap` | GET | No |
+| `/api/stats` | GET | JWT (returns dashboard stats + notifications) |
 | `/api/setup?key=SETUP_KEY` | GET | Key-based |
+
+> **Note:** Vercel Hobby plan allows **max 12 serverless functions**. Related
+> endpoints are merged (`cms.js`, `seo.js`) via a `?resource=` / `?type=`
+> query param to stay within the limit. Do not split them back out.
 
 ---
 
@@ -160,14 +171,34 @@ npm run dev
 ## Features
 
 - ✅ Fully responsive — mobile, tablet, desktop
-- ✅ Floating pill navbar with 4-column Services mega menu
+- ✅ Floating pill navbar with **7-category full-width Services mega menu** (slides down from header, pill-pop hover effect on links)
+- ✅ Home **"Our Work"** section — left category tabs + right preview, "Explore More" → Projects
+- ✅ **Projects page** (`/portfolio`) — iPhone reel mockup, website/e-commerce cards, swipeable posts slider
+- ✅ Real-work showcase (2 reels + 2 posts) on every service page
 - ✅ AI Chatbot "Digi" — Intercom-style, keyword-based replies
-- ✅ Blog system — yellow card design, HTML editor, SEO fields
-- ✅ Testimonial cards — dark teal header + star ratings
-- ✅ Contact form — saves leads to database
-- ✅ Full CMS admin panel with JWT auth
-- ✅ AOS scroll animations throughout
+- ✅ Blog system — yellow card design, HTML editor, SEO fields, mobile full-width post layout
+- ✅ Testimonial cards — yellow 3D gradient + star ratings
+- ✅ Contact form — saves leads to database, floating astronaut rocket
+- ✅ Full CMS admin panel with JWT auth + notification bell (leads + newsletter)
+- ✅ Sticky mobile CTA bar (Call Now / Free Audit)
+- ✅ AOS + framer-motion animations throughout
 - ✅ Brand: #F5A800 yellow + #1A1A1A black
+
+---
+
+## Performance / Images
+
+Full-page screenshots are heavy (some were 12–18 MB each). They are
+compressed **in place** (width-capped + re-encoded) so the site stays fast.
+
+```bash
+cd frontend
+node scripts/compress-images.mjs        # /public/images/work
+node scripts/compress-main-images.mjs   # /public/images (hero, service icons, rocket)
+```
+
+Images also use `loading="lazy"` and videos use `preload="metadata"`.
+After adding new heavy images, re-run the relevant script.
 
 ---
 
@@ -181,4 +212,4 @@ npm run dev
 
 ---
 
-© 2025 DigionTop. All Rights Reserved.
+© 2026 DigionTop. All Rights Reserved.
