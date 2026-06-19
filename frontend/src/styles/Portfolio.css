@@ -670,13 +670,14 @@
   .pf-reels__left { text-align: center; }
   .pf-reels__left .pf-section__eyebrow { justify-content: center; }
   .pf-reels__text { margin: 0 auto; }
-  .pf-reels__counts, .pf-reels__nav { justify-content: center; }
+  .pf-reels__counts { justify-content: center; }
   .pf-reels__now { border-left: none; border-top: 3px solid currentColor; border-radius: 0 0 12px 12px; }
 
-  /* Nav as a clean centered pill — up/down arrows clearly visible */
+  /* Nav pill aligned to the RIGHT side — up/down arrows clearly visible */
   .pf-reels__nav {
     width: fit-content;
-    margin: 0 auto;
+    margin: 0 0 0 auto;          /* push to the right */
+    justify-content: flex-end;
     padding: 8px 10px;
     border-radius: 50px;
     background: var(--bg);
