@@ -298,11 +298,12 @@
   margin: 6px 10px 12px;
 }
 .navbar__mega-cat {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 11px;
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 12px 10px 16px;
   margin-bottom: 3px;
   border: none;
   background: transparent;
@@ -311,6 +312,19 @@
   text-align: left;
   font-family: inherit;
   transition: background 0.18s ease, color 0.18s ease;
+}
+/* left yellow accent bar (like the reference's blue line) */
+.navbar__mega-cat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 4px;
+  height: 60%;
+  border-radius: 0 4px 4px 0;
+  background: #F5A800;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
 /* icon box next to each category */
 .navbar__mega-cat-ico {
@@ -337,20 +351,23 @@
 }
 .navbar__mega-cat-count { font-size: 10.5px; color: #999; }
 .navbar__mega-cat-arrow { font-size: 18px; color: #c4c4c4; flex-shrink: 0; transition: transform 0.18s ease; }
-.navbar__mega-cat:hover { background: #f0f0f0; }
+.navbar__mega-cat:hover { background: #f1f1f3; }
 .navbar__mega-cat:hover .navbar__mega-cat-ico { color: #F5A800; border-color: #F5A800; }
+
+/* Active = soft yellow tint + left yellow bar (reference style) */
 .navbar__mega-cat--active {
-  background: linear-gradient(135deg, #F5A800, #e89500);
+  background: #FFF8E8;
 }
-.navbar__mega-cat--active .navbar__mega-cat-name,
-.navbar__mega-cat--active .navbar__mega-cat-count,
-.navbar__mega-cat--active .navbar__mega-cat-arrow { color: #1a1a1a; }
+.navbar__mega-cat--active::before {
+  transform: translateY(-50%) scaleY(1);
+}
+.navbar__mega-cat--active .navbar__mega-cat-name { color: #1a1a1a; }
+.navbar__mega-cat--active .navbar__mega-cat-arrow { color: #F5A800; transform: translateX(3px); }
 .navbar__mega-cat--active .navbar__mega-cat-ico {
-  background: rgba(255,255,255,0.35);
+  background: linear-gradient(135deg, #FFD24A, #F5A800);
   border-color: transparent;
   color: #1a1a1a;
 }
-.navbar__mega-cat--active .navbar__mega-cat-arrow { transform: translateX(3px); }
 
 /* RIGHT — detail panel */
 .navbar__mega-panel {
