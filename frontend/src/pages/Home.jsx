@@ -449,6 +449,96 @@ const TestimonialsSection = () => {
   );
 };
 
+// ─── OUR WORK ────────────────────────────────────────────────────────────────
+const workCategories = [
+  {
+    key: "websites",
+    label: "Websites & Web Apps",
+    tag: "Web Development",
+    title: "High-converting websites that sell",
+    desc: "From eCommerce to business sites — we design custom, mobile-first websites that turn visitors into customers.",
+    image: "/images/work/smile-dental.png",
+  },
+  {
+    key: "ecommerce",
+    label: "E-Commerce Stores",
+    tag: "Online Stores",
+    title: "Online stores built to grow",
+    desc: "Shopify & WooCommerce stores with high-converting product pages, optimised for sales and scale.",
+    image: "/images/work/blameless-skincare.png",
+  },
+  {
+    key: "reels",
+    label: "Reels & Video Content",
+    tag: "Social Media",
+    title: "Reels that stop the scroll",
+    desc: "Short-form video content crafted to grab attention, build trust and drive real engagement.",
+    image: "/images/work/post-1.jpg",
+  },
+  {
+    key: "branding",
+    label: "Finance & Branding",
+    tag: "Branding & Design",
+    title: "Brands people remember",
+    desc: "Strong identities, landing pages and campaigns for finance, healthcare and growing businesses.",
+    image: "/images/work/baid-finance.png",
+  },
+];
+
+const OurWorkSection = () => {
+  const [active, setActive] = useState(0);
+  const cat = workCategories[active];
+
+  return (
+    <section className="ourwork" id="our-work">
+      <div className="ourwork__inner">
+        <div className="ourwork__head" data-aos="fade-up">
+          <p className="section-label">OUR WORK</p>
+          <h2 className="section-title">Brands We've Helped Grow</h2>
+          <p className="section-subtitle">
+            Pick a category to see the kind of results we deliver for our clients.
+          </p>
+        </div>
+
+        <div className="ourwork__body">
+          {/* LEFT — category buttons */}
+          <div className="ourwork__tabs" data-aos="fade-right">
+            {workCategories.map((c, i) => (
+              <button
+                key={c.key}
+                className={`ourwork__tab${i === active ? " ourwork__tab--active" : ""}`}
+                onClick={() => setActive(i)}
+              >
+                <span>{c.label}</span>
+                <span className="ourwork__tab-arrow">→</span>
+              </button>
+            ))}
+          </div>
+
+          {/* RIGHT — preview image + content */}
+          <div className="ourwork__preview" data-aos="fade-left">
+            <div className="ourwork__preview-media">
+              <img src={cat.image} alt={cat.title} key={cat.key} />
+              <span className="ourwork__preview-tag">{cat.tag}</span>
+            </div>
+            <div className="ourwork__preview-body">
+              <h3 className="ourwork__preview-title">{cat.title}</h3>
+              <p className="ourwork__preview-desc">{cat.desc}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Explore More → portfolio */}
+        <div className="ourwork__cta" data-aos="fade-up">
+          <Link to="/portfolio" className="ourwork__explore">
+            Explore More Projects <span>→</span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Home = () => {
   useEffect(() => {
     AOS.init({ duration: 700, easing: "ease-out-cubic", once: true });
@@ -459,6 +549,7 @@ const Home = () => {
       <HeroSection />
       <ServicesSection />
       <WhyUsSection />
+      <OurWorkSection />
       <IndustriesSection />
       <SocialReelsSection />
       <TestimonialsSection />
