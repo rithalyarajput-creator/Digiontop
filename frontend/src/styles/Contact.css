@@ -365,6 +365,15 @@
   .contact-wrap { padding: 40px 16px 60px; }
   .contact-info-card { flex-direction: column; }
   .contact-info-card__items { flex-direction: column; }
+
+  /* Rocket on phone: a bit smaller, nudged right & up so it sits neatly
+     on the form corner (not off-screen / overlapping). */
+  .contact-form-side__rocket {
+    width: 84px;
+    height: 84px;
+    top: -38px;
+    left: -10px;
+  }
 }
 
 /* ══ Video banner below cards, above footer ══ */
