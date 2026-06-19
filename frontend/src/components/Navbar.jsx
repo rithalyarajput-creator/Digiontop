@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { useSettings } from '../context/SettingsContext';
 import '../styles/Navbar.css';
@@ -186,6 +187,11 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* ── Mobile drawer + overlay are rendered into <body> via a portal
+            so they escape the sticky navbar's stacking context and always
+            cover the full viewport from the very top, even when scrolled. ── */}
+      {createPortal(
+        <>
       {/* ── Mobile drawer overlay ── */}
       <div className={`navbar__overlay${menuOpen ? ' navbar__overlay--open' : ''}`}
         onClick={() => setMenuOpen(false)} />
@@ -269,6 +275,9 @@ export default function Navbar() {
           <p className="navbar__drawer-tagline">India's #1 Digital Marketing Agency</p>
         </div>
       </div>
+        </>,
+        document.body
+      )}
     </nav>
   );
 }
