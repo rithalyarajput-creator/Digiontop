@@ -668,6 +668,20 @@
   .pf-reels__text { margin: 0 auto; }
   .pf-reels__counts, .pf-reels__nav { justify-content: center; }
   .pf-reels__now { border-left: none; border-top: 3px solid currentColor; border-radius: 0 0 12px 12px; }
+
+  /* Nav as a clean centered pill — up/down arrows clearly visible */
+  .pf-reels__nav {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 8px 10px;
+    border-radius: 50px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    gap: 12px;
+  }
+  .pf-reels__navbtn { width: 46px; height: 46px; font-size: 20px; }
+  .pf-reels__scrollhint { font-size: 12.5px; }
 }
 
 /* ════════════════════════════════════════════════════════════
