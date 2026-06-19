@@ -600,11 +600,28 @@
 
 /* Responsive: stack on tablet/mobile */
 @media (max-width: 900px) {
-  .blogpost2 { grid-template-columns: 1fr; }
+  .blogpost2 { grid-template-columns: 1fr; gap: 24px; }
   .blogpost2__side { position: static; }
-  .blogpost2__main { padding: 24px 20px 32px; }
+  .blogpost2__main { padding: 24px 22px 30px; }
   .blog-related__grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Phone: let the article use the full screen width — no cramped box */
 @media (max-width: 560px) {
-  .blog-related__grid { grid-template-columns: 1fr; }
+  .blogpost-page2 { padding: 16px 12px 48px; background: #fff; }
+  .blogpost2 { gap: 18px; }
+  .blogpost2__main {
+    padding: 18px 16px 26px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  }
+  .blogpost2__top { gap: 10px; flex-wrap: wrap; }
+  .blogpost2__title { font-size: 1.45rem; margin-bottom: 16px; }
+  .blogpost2__author-row { margin-bottom: 20px; padding-bottom: 16px; }
+  .blogpost2__content { font-size: 1rem; line-height: 1.7; }
+  .blogpost2__hero-img { margin-bottom: 20px; }
+
+  .blog-leadform { padding: 22px 18px; }
+  .blog-related { padding-top: 28px; }
+  .blog-related__grid { grid-template-columns: 1fr; gap: 16px; }
 }
