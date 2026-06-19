@@ -259,7 +259,24 @@
 .pf-grid { display: grid; gap: 26px; }
 .pf-grid--vertical { grid-template-columns: repeat(5, 1fr); }
 .pf-grid--wide     { grid-template-columns: repeat(3, 1fr); }
-.pf-grid--square   { grid-template-columns: repeat(3, 1fr); }
+
+/* Creative Posts → horizontal left/right slider (swipe / scroll-snap).
+   Pure CSS: smooth, touch-friendly, no JS. */
+.pf-grid--square {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 4px 20px;
+  scrollbar-width: none;          /* Firefox */
+}
+.pf-grid--square::-webkit-scrollbar { display: none; }   /* Chrome/Safari */
+.pf-grid--square > .pf-card {
+  flex: 0 0 320px;
+  max-width: 82%;
+  scroll-snap-align: center;
+}
 
 /* ── CARD ──────────────────────────────────────────────────── */
 .pf-card {
@@ -834,15 +851,15 @@
   .pf-grid--vertical { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 760px) {
-  .pf-grid--wide,
-  .pf-grid--square { grid-template-columns: repeat(2, 1fr); }
+  .pf-grid--wide { grid-template-columns: repeat(2, 1fr); }
   .pf-grid--vertical { grid-template-columns: repeat(2, 1fr); }
   .pf-section { padding: 56px 20px; }
 }
 @media (max-width: 460px) {
   .pf-grid--wide,
-  .pf-grid--square,
   .pf-grid--vertical { grid-template-columns: 1fr; }
+  /* keep posts as a swipeable slider on phones */
+  .pf-grid--square > .pf-card { flex-basis: 280px; }
 }
 
 /* ── Touch devices (phones/tablets): no hover, so the scroll-on-hover
