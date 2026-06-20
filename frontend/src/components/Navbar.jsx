@@ -147,6 +147,17 @@ export default function Navbar() {
                         View All {servicesMenu[megaCat].heading} <span>→</span>
                       </Link>
                     </div>
+
+                    {/* Bottom yellow bar — quick links */}
+                    <div className="navbar__mega-bar">
+                      <Link to="/why-us" className="navbar__mega-bar-link">Why Choose Us</Link>
+                      <Link to="/portfolio" className="navbar__mega-bar-link">Our Projects</Link>
+                      <Link to="/blog" className="navbar__mega-bar-link">Blog</Link>
+                      <Link to="/contact" className="navbar__mega-bar-link">Get Free Consultation</Link>
+                      <Link to="/portfolio" className="navbar__mega-bar-link navbar__mega-bar-link--all">
+                        Explore All <span>→</span>
+                      </Link>
+                    </div>
                   </div>
                 </li>
               );

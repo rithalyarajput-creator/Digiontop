@@ -455,6 +455,32 @@
 .navbar__mega-viewall:hover { background: #fff8e8; border-color: #F5A800; }
 .navbar__mega-viewall:hover span { transform: translateX(4px); }
 
+/* Bottom yellow quick-links bar (spans full width) */
+.navbar__mega-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #FFD24A, #F5A800);
+}
+.navbar__mega-bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+.navbar__mega-bar-link:hover { opacity: 0.7; }
+.navbar__mega-bar-link--all { margin-left: auto; }
+.navbar__mega-bar-link--all span { transition: transform 0.18s ease; }
+.navbar__mega-bar-link--all:hover { opacity: 1; }
+.navbar__mega-bar-link--all:hover span { transform: translateX(4px); }
+
 .navbar__mega-arrow { display: none; }
 
 /* ---------- Right group (CTA + Hamburger) ---------- */
