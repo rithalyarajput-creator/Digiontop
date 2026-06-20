@@ -323,7 +323,7 @@ export default function About() {
           </div>
           <div className="about-partner__visual" data-aos="fade-left">
             <div className="about-partner__photo">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=520&h=620&fit=crop" alt="DigionTop team" loading="lazy" />
+              <img src="/images/digiontop-office.png" alt="DigionTop team at the office" loading="lazy" />
             </div>
             <span className="about-partner__chip about-partner__chip--star"><FiStar /><FiStar /><FiStar /><FiStar /><FiStar /></span>
             <span className="about-partner__chip about-partner__chip--pin"><FiMapPin /></span>
