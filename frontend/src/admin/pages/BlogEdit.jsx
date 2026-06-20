@@ -117,6 +117,12 @@ export default function BlogEdit() {
     }
     const newContent = form.content.substring(0, start) + inserted + form.content.substring(end);
     update('content', newContent);
+    // refocus so the user can keep typing right after formatting
+    setTimeout(() => {
+      ta.focus();
+      const pos = start + inserted.length;
+      ta.setSelectionRange(pos, pos);
+    }, 0);
   }
 
   const seoTitle = form.meta_title || form.title || 'Your blog post title';
@@ -215,13 +221,14 @@ export default function BlogEdit() {
               <button type="button" className={`blogedit__tab${editorMode === 'html' ? ' blogedit__tab--active' : ''}`} onClick={() => setEditorMode('html')}>HTML Editor</button>
             </div>
 
-            {editorMode === 'html' && (
-              <div className="blogedit__toolbar">
-                {[['h2','H2',true],['h3','H3',true],['p','P',true],['strong','Bold',true],['em','Italic',true],['ul','List',true],['li','List Item',true],['a','Link',true],['img','Image',false],['blockquote','Quote',true]].map(([tag, label, wrap]) => (
-                  <button key={tag} type="button" className="blogedit__tool-btn" onClick={() => insertHtml(tag, wrap)}>{label}</button>
-                ))}
-              </div>
-            )}
+            {/* Formatting toolbar — available in BOTH editors */}
+            <div className="blogedit__toolbar">
+              {[['h2','H2',true],['h3','H3',true],['strong','Bold',true],['em','Italic',true],['ul','List',true],['li','List Item',true],['a','Link',true],['img','Image',false],['blockquote','Quote',true]].map(([tag, label, wrap]) => (
+                <button key={tag} type="button" className="blogedit__tool-btn" onClick={() => insertHtml(tag, wrap)} title={`Insert ${label}`}>
+                  {label === 'Bold' ? <b>B</b> : label === 'Italic' ? <i>I</i> : label}
+                </button>
+              ))}
+            </div>
 
             <textarea
               id="blog-content"
@@ -233,9 +240,7 @@ export default function BlogEdit() {
               required
             />
             <p className="blogedit__hint">
-              {editorMode === 'simple'
-                ? 'Simple text editor — each paragraph will be wrapped automatically.'
-                : 'HTML editor — supports headings, bold/italic, lists, internal & external links, images and quotes.'}
+              Tip: select the text you want to style, then click <b>B</b> (bold), <b>H2</b> (heading), <b>List</b>, etc. to format it.
             </p>
           </div>
 

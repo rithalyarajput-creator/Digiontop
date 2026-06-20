@@ -14,7 +14,7 @@ import '../styles/Blog.css';
  */
 function renderContent(raw) {
   if (!raw) return '';
-  const hasHtml = /<(p|h[1-6]|ul|ol|li|blockquote|div|img|table)\b/i.test(raw);
+  const hasHtml = /<(p|h[1-6]|ul|ol|li|blockquote|div|img|table|strong|em|b|i|a)\b/i.test(raw);
   if (hasHtml) return raw;
 
   // Split into blocks by blank lines; if none, split by single newlines.
