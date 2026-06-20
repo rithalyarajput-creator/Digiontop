@@ -12,6 +12,32 @@ const SERVICE_OPTIONS = [
   'Performance Ads', 'Branding & Design', 'E-Commerce Solutions',
 ];
 
+const WHAT_WE_DO = [
+  { icon: <FiTrendingUp />, title: 'Website Development & Digital Solutions', desc: 'Custom websites, WordPress, Shopify stores, e-commerce platforms, web apps, landing pages, and business management systems.' },
+  { icon: <FiTarget />, title: 'Search Engine Optimization (SEO)', desc: 'Strategies that improve visibility, increase organic traffic, and help businesses rank higher on search engines.' },
+  { icon: <FiUsers />, title: 'Social Media Marketing', desc: 'Content creation, social media management, branding, reels, influencer collaborations, and audience engagement.' },
+  { icon: <FiTrendingUp />, title: 'E-Commerce Growth Solutions', desc: 'Amazon, Flipkart, Meesho & Shopify management — product listings, product SEO, catalog optimization, and growth.' },
+  { icon: <FiTarget />, title: 'Performance Marketing', desc: 'Google Ads, Meta Ads, lead generation campaigns, conversion optimization, and customer acquisition strategies.' },
+];
+
+const WHY_CHOOSE = [
+  'Customized Solutions For Every Business',
+  'Modern Design & Development Standards',
+  'Growth-Focused Marketing Strategies',
+  'Transparent Communication',
+  'Affordable & Competitive Pricing',
+  'Dedicated Support & Guidance',
+  'Long-Term Partnership Approach',
+  'Results-Driven Execution',
+];
+
+const ABOUT_STATS = [
+  { num: '250+', label: 'Projects Delivered' },
+  { num: '120+', label: 'Happy Clients' },
+  { num: '8M+', label: 'Audience Reached' },
+  { num: '5★', label: 'Client Rating' },
+];
+
 const teamImages = [
   'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&h=220&fit=crop',
   'https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=220&fit=crop',
@@ -99,126 +125,120 @@ export default function About() {
     <main className="about-page">
 
       {/* ══ 1. HERO ══ */}
-      <section className="about-hero">
-        <div className="about-hero__deco about-hero__deco--tl" />
-        <div className="about-hero__deco about-hero__deco--br" />
-        <div className="about-hero__content">
-          <h1 className="about-hero__heading">About Us</h1>
-          <p className="about-hero__sub">
-            We are a passionate team dedicated to helping businesses<br />
-            grow, innovate, and succeed in the digital world.
+      <section className="ab-hero">
+        <div className="ab-hero__bg"><span className="ab-hero__orb ab-hero__orb--1" /><span className="ab-hero__orb ab-hero__orb--2" /></div>
+        <div className="about-container ab-hero__inner">
+          <span className="ab-tag" data-aos="fade-up">About DigionTop Agency</span>
+          <h1 className="ab-hero__title" data-aos="fade-up" data-aos-delay="60">
+            Building Digital Experiences That <span>Drive Business Growth</span>
+          </h1>
+          <p className="ab-hero__sub" data-aos="fade-up" data-aos-delay="120">
+            We help businesses grow through professional websites, strategic marketing,
+            e-commerce solutions, and performance-driven digital services.
           </p>
-          <nav className="about-hero__breadcrumb">
-            <Link to="/" className="about-hero__breadcrumb-link">Home</Link>
-            <span className="about-hero__breadcrumb-sep">/</span>
-            <span className="about-hero__breadcrumb-current">About Us</span>
-          </nav>
-        </div>
-      </section>
-
-      {/* ══ 2. TEAM PHOTOS ══ */}
-      <section className="about-photos">
-        <div className="about-container">
-          <div className="about-photos__grid">
-            {teamImages.map((src, i) => (
-              <div key={i} className="about-photos__item">
-                <img src={src} alt={`DigionTop team ${i + 1}`} loading="lazy" />
-              </div>
+          <Link to="/contact" className="ab-btn ab-btn--primary" data-aos="fade-up" data-aos-delay="180">
+            Get Free Consultation <FiArrowRight />
+          </Link>
+          <div className="ab-hero__stats" data-aos="fade-up" data-aos-delay="240">
+            {ABOUT_STATS.map((s) => (
+              <div key={s.label}><b>{s.num}</b><span>{s.label}</span></div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ══ 3. IDEA + DELIVERY ══ */}
-      <section className="about-idea">
-        <div className="about-container">
-          <div className="about-idea__grid">
-            <div className="about-idea__left">
-              <h2 className="about-idea__heading">
-                We make sure your idea &amp; creation<br />
-                <span className="about-idea__highlight">delivered properly</span>
-              </h2>
-              <p className="about-idea__desc">
-                We turn your vision into reality with creativity, strategy,
-                and flawless execution.
-              </p>
-            </div>
-            <div className="about-idea__right">
-              {pillars.map((p, i) => (
-                <div key={i} className="about-idea__pillar">
-                  <span className="about-idea__pillar-check">{p.icon}</span>
-                  <span>{p.text}</span>
-                </div>
-              ))}
-            </div>
+      {/* ══ 2. INTRO ══ */}
+      <section className="ab-intro">
+        <div className="about-container ab-intro__grid">
+          <div data-aos="fade-up">
+            <span className="ab-eyebrow">Who We Are</span>
+            <h2 className="ab-h2">Helping Businesses Build, Grow &amp; Scale Online</h2>
           </div>
-        </div>
-      </section>
-
-      {/* ══ 4. EMPOWER SECTION ══ */}
-      <section className="about-empower">
-        <div className="about-container">
-          <div className="about-empower__grid">
-            {/* Left: image with quote overlay */}
-            <div className="about-empower__img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=480&h=380&fit=crop"
-                alt="DigionTop founder"
-                className="about-empower__img"
-              />
-              <div className="about-empower__quote-box">
-                <p className="about-empower__quote-text">"Making an impact, together."</p>
-                <p className="about-empower__quote-attr">— DigionTop Founder</p>
-              </div>
-              <div className="about-empower__play">
-                <span className="about-empower__play-icon">▶</span>
-              </div>
-            </div>
-
-            {/* Right: text */}
-            <div className="about-empower__text">
-              <h2 className="about-empower__heading">
-                We empower small<br />business owners
-              </h2>
-              <p className="about-empower__desc">
-                DigionTop was built for Indian businesses — so that great
-                digital marketing is no longer a luxury reserved for large
-                corporations. We went fully remote, kept our team lean and
-                specialized, and pass every rupee of savings directly to our
-                clients.
-              </p>
-              <blockquote className="about-empower__blockquote">
-                <span className="about-empower__blockquote-icon">"</span>
-                <p>Our mission is to support businesses with innovative ideas, measurable results, and long-term growth.</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 5. GROW SECTION ══ */}
-      <section className="about-grow">
-        <div className="about-container">
-          <div className="about-grow__header">
-            <h2 className="about-grow__heading">
-              We help businesses to grow<br />
-              <span className="about-grow__highlight">faster and bigger</span>
-            </h2>
-            <p className="about-grow__sub">
-              From startups to established brands, we deliver digital strategies that
-              drive real, measurable growth across India.
+          <div data-aos="fade-up" data-aos-delay="100">
+            <p>
+              DigionTop Agency is a results-driven digital growth agency based in Delhi, dedicated to
+              helping businesses establish a powerful online presence and achieve sustainable growth.
+            </p>
+            <p>
+              We combine creativity, technology, and marketing expertise to deliver solutions that not
+              only look professional but also generate measurable business results. Our approach is simple —
+              understand your business, identify growth opportunities, and build digital solutions that create real impact.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="about-grow__grid">
-            {strengths.map((s, i) => (
-              <div key={i} className="about-grow__card">
-                <div className="about-grow__card-icon">{s.icon}</div>
-                <h4 className="about-grow__card-title">{s.title}</h4>
-                <p className="about-grow__card-desc">{s.desc}</p>
+      {/* ══ 3. WHAT WE DO ══ */}
+      <section className="ab-do">
+        <div className="about-container">
+          <div className="ab-head" data-aos="fade-up">
+            <span className="ab-eyebrow">What We Do</span>
+            <h2 className="ab-h2">Complete Digital Solutions for Every Stage</h2>
+          </div>
+          <div className="ab-do__grid">
+            {WHAT_WE_DO.map((d, i) => (
+              <div className="ab-do__card" key={d.title} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
+                <span className="ab-do__icon">{d.icon}</span>
+                <h3>{d.title}</h3>
+                <p>{d.desc}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ══ 4. MISSION & VISION ══ */}
+      <section className="ab-mv">
+        <div className="about-container ab-mv__grid">
+          <div className="ab-mv__card ab-mv__card--mission" data-aos="fade-up">
+            <span className="ab-mv__icon"><FiTarget /></span>
+            <h3>Our Mission</h3>
+            <p>
+              To help businesses leverage digital technology to grow faster, reach more customers,
+              and build stronger brands. Every project is approached with a focus on performance,
+              innovation, and long-term success.
+            </p>
+          </div>
+          <div className="ab-mv__card ab-mv__card--vision" data-aos="fade-up" data-aos-delay="100">
+            <span className="ab-mv__icon"><FiTrendingUp /></span>
+            <h3>Our Vision</h3>
+            <p>
+              To become a trusted digital growth partner for businesses by delivering modern solutions
+              that drive measurable results, help brands stay ahead of competition, and achieve
+              sustainable growth in an ever-evolving digital landscape.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 5. WHY CHOOSE ══ */}
+      <section className="ab-why">
+        <div className="about-container">
+          <div className="ab-head" data-aos="fade-up">
+            <span className="ab-eyebrow ab-eyebrow--light">Why Businesses Choose DigionTop</span>
+            <h2 className="ab-h2 ab-h2--light">Built on Trust, Driven by Results</h2>
+          </div>
+          <div className="ab-why__grid">
+            {WHY_CHOOSE.map((w, i) => (
+              <div className="ab-why__item" key={w} data-aos="fade-up" data-aos-delay={(i % 4) * 50}>
+                <FiCheck /> {w}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 5b. OUR GOAL ══ */}
+      <section className="ab-goal">
+        <div className="about-container ab-goal__inner" data-aos="zoom-in">
+          <span className="ab-eyebrow">Our Goal</span>
+          <h2 className="ab-goal__title">Helping Your Business <span>Reach The Top</span></h2>
+          <p>
+            Our goal is not simply to build websites, manage social media, or run campaigns —
+            it's to help businesses create a strong digital presence, attract the right audience,
+            generate more opportunities, and achieve meaningful growth.
+          </p>
+          <p className="ab-goal__tagline">Build Better. Grow Faster. Reach The Top.</p>
         </div>
       </section>
 
