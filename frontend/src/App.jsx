@@ -11,7 +11,7 @@ import AdminApp from './admin/AdminApp';
 
 import Home from './pages/Home';
 import About from './pages/About';
-import WebsiteDevelopment from './pages/WebsiteDevelopment';
+import WebDevelopment from './pages/WebDevelopment';
 import SEOServices from './pages/SEOServices';
 import SocialMedia from './pages/SocialMedia';
 import ECommerce from './pages/ECommerce';
@@ -43,7 +43,8 @@ function PublicSite() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/services/website-development" element={<WebsiteDevelopment />} />
+        <Route path="/services/website-development" element={<WebDevelopment />} />
+        <Route path="/services/web-development" element={<WebDevelopment />} />
         <Route path="/services/seo-services" element={<SEOServices />} />
         <Route path="/services/social-media-marketing" element={<SocialMedia />} />
         <Route path="/services/ecommerce-solutions" element={<ECommerce />} />
