@@ -244,13 +244,13 @@ export default function BlogEdit() {
             <h2 className="blogedit__section-title">SEO Settings</h2>
             <label className="admin-field">
               <span>Meta Title</span>
-              <input value={form.meta_title} onChange={(e) => update('meta_title', e.target.value)} placeholder="SEO title (recommended: 50-60 chars)" maxLength={70} />
-              <small style={{color: form.meta_title.length > 60 ? '#e53935' : '#888'}}>{form.meta_title.length}/60 chars</small>
+              <input value={form.meta_title || ''} onChange={(e) => update('meta_title', e.target.value)} placeholder="SEO title (recommended: 50-60 chars)" maxLength={70} />
+              <small style={{color: (form.meta_title || '').length > 60 ? '#e53935' : '#888'}}>{(form.meta_title || '').length}/60 chars</small>
             </label>
             <label className="admin-field">
               <span>Meta Description</span>
-              <textarea rows="2" value={form.meta_description} onChange={(e) => update('meta_description', e.target.value)} placeholder="SEO description (recommended: 150-160 chars)" maxLength={170} />
-              <small style={{color: form.meta_description.length > 160 ? '#e53935' : '#888'}}>{form.meta_description.length}/160 chars</small>
+              <textarea rows="2" value={form.meta_description || ''} onChange={(e) => update('meta_description', e.target.value)} placeholder="SEO description (recommended: 150-160 chars)" maxLength={170} />
+              <small style={{color: (form.meta_description || '').length > 160 ? '#e53935' : '#888'}}>{(form.meta_description || '').length}/160 chars</small>
             </label>
 
             {/* Google SEO preview */}
