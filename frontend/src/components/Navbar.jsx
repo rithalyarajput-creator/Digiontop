@@ -95,24 +95,58 @@ export default function Navbar() {
                   </button>
                   <div className={`navbar__mega${activeDropdown === 'services' ? ' navbar__mega--open' : ''}`}
                     onMouseEnter={() => handleEnter('services')} onMouseLeave={handleLeave}>
-                    {servicesMenu.map((col) => {
-                      const CatIcon = CAT_ICONS[col.icon] || FiMonitor;
-                      return (
-                        <div className="navbar__mega-col" key={col.heading}>
-                          <Link to={col.link} className="navbar__mega-heading">
-                            <span className="navbar__mega-heading-ico"><CatIcon /></span>
-                            {col.heading}
+
+                    {/* LEFT — category list */}
+                    <div className="navbar__mega-side">
+                      <p className="navbar__mega-side-label">Our Services</p>
+                      {servicesMenu.map((col, i) => {
+                        const CatIcon = CAT_ICONS[col.icon] || FiMonitor;
+                        return (
+                          <button
+                            type="button"
+                            key={col.heading}
+                            className={`navbar__mega-cat${i === megaCat ? ' navbar__mega-cat--active' : ''}`}
+                            onMouseEnter={() => setMegaCat(i)}
+                            onClick={() => { window.location.href = col.link; }}
+                          >
+                            <span className="navbar__mega-cat-ico"><CatIcon /></span>
+                            <span className="navbar__mega-cat-info">
+                              <span className="navbar__mega-cat-name">{col.heading}</span>
+                              <span className="navbar__mega-cat-count">{col.items.length} services</span>
+                            </span>
+                            <span className="navbar__mega-cat-arrow">›</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* RIGHT — selected category detail */}
+                    <div className="navbar__mega-panel" key={servicesMenu[megaCat].heading}>
+                      <div className="navbar__mega-panel-head">
+                        <img src={servicesMenu[megaCat].image} alt="" className="navbar__mega-panel-img" />
+                        <div>
+                          <Link to={servicesMenu[megaCat].link} className="navbar__mega-panel-title">
+                            {servicesMenu[megaCat].heading} <span>→</span>
                           </Link>
-                          <ul className="navbar__mega-list">
-                            {col.items.map(item => (
-                              <li key={item.label}>
-                                <Link to={item.path} className="navbar__mega-link">{item.label}</Link>
-                              </li>
-                            ))}
-                          </ul>
+                          <p className="navbar__mega-panel-tag">{servicesMenu[megaCat].tagline}</p>
                         </div>
-                      );
-                    })}
+                      </div>
+
+                      <p className="navbar__mega-panel-label">Popular in {servicesMenu[megaCat].heading}</p>
+                      <ul className="navbar__mega-panel-list">
+                        {servicesMenu[megaCat].items.map(item => (
+                          <li key={item.label}>
+                            <Link to={item.path} className="navbar__mega-link">
+                              <span className="navbar__mega-dot" />{item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <Link to={servicesMenu[megaCat].link} className="navbar__mega-viewall">
+                        View All {servicesMenu[megaCat].heading} <span>→</span>
+                      </Link>
+                    </div>
                   </div>
                 </li>
               );
