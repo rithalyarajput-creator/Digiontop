@@ -60,7 +60,7 @@ export const SERVICES_MENU = [
       { label: 'Custom Website Development', path: '/services/website-development' },
       { label: 'Business Website Development', path: '/services/website-development' },
       { label: 'WordPress Development', path: '/services/website-development' },
-      { label: 'Shopify Development', path: '/services/website-development' },
+      { label: 'Shopify Development', path: '/services/shopify-development' },
       { label: 'Custom Web Application', path: '/services/website-development' },
       { label: 'WooCommerce Development', path: '/services/website-development' },
       { label: 'Website Redesign', path: '/services/website-development' },

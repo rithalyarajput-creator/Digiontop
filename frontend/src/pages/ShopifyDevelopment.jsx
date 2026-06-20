@@ -1,0 +1,208 @@
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import {
+  FiArrowRight, FiArrowUpRight, FiCheck,
+  FiShoppingBag, FiLayout, FiSmartphone, FiGrid, FiCreditCard, FiTruck,
+  FiTrendingUp, FiZap, FiSearch, FiActivity,
+  FiTarget, FiPenTool, FiUsers, FiMaximize, FiHeadphones,
+} from 'react-icons/fi'
+import ServiceWork from '../components/ServiceWork'
+import '../styles/ShopifyDevelopment.css'
+
+const OFFER = [
+  { icon: <FiShoppingBag />, title: 'Custom Shopify Store Development', desc: 'Professionally designed Shopify stores tailored to your brand identity and business requirements.' },
+  { icon: <FiLayout />, title: 'Premium Store Design', desc: 'Modern and visually appealing store layouts that build trust and enhance customer experience.' },
+  { icon: <FiSmartphone />, title: 'Mobile Responsive Design', desc: 'Optimized for smartphones, tablets, and desktops to ensure a seamless shopping experience.' },
+  { icon: <FiGrid />, title: 'Product & Collection Setup', desc: 'Professional organization of products, collections, categories, and navigation.' },
+  { icon: <FiCreditCard />, title: 'Payment Gateway Integration', desc: 'Secure integration of Razorpay, PayU, Cashfree, Stripe, and more.' },
+  { icon: <FiTruck />, title: 'Shipping & Delivery Setup', desc: 'Configuration of shipping rates, delivery zones, and logistics integrations.' },
+  { icon: <FiTrendingUp />, title: 'Conversion-Focused Design', desc: 'Store layouts strategically designed to increase product visibility and improve sales.' },
+  { icon: <FiActivity />, title: 'Shopify App Integration', desc: 'Reviews, chat support, email marketing, analytics, and automation apps.' },
+  { icon: <FiSearch />, title: 'SEO-Friendly Store Structure', desc: 'Optimized Shopify setup to improve search engine visibility and organic traffic.' },
+  { icon: <FiZap />, title: 'Speed Optimization', desc: 'Fast-loading Shopify stores that improve experience and reduce bounce rates.' },
+]
+
+const FEATURES = [
+  'Premium Homepage Design', 'Product Page Design', 'Collection Page Design', 'About Us Page',
+  'Contact Page', 'FAQ Page', 'Privacy Policy Setup', 'Terms & Conditions Setup',
+  'Mobile Optimization', 'WhatsApp Integration', 'Social Media Integration', 'Google Analytics Setup',
+  'Basic Shopify SEO Setup', 'Store Launch Support',
+]
+
+const WHY = [
+  { icon: <FiTarget />, title: 'Built For Sales', desc: 'Every store is designed with one goal: helping your business generate more orders and revenue.' },
+  { icon: <FiPenTool />, title: 'Custom Design Approach', desc: 'No generic templates. Every store is tailored to match your brand identity and objectives.' },
+  { icon: <FiUsers />, title: 'User-Friendly Experience', desc: 'Simple navigation, clear product presentation, and a seamless checkout process.' },
+  { icon: <FiMaximize />, title: 'Scalable Solutions', desc: 'Your Shopify store will be ready to grow as your business expands.' },
+  { icon: <FiHeadphones />, title: 'Ongoing Support', desc: 'We provide assistance, updates, and guidance even after your store goes live.' },
+]
+
+const IDEAL = [
+  'Fashion Brands', 'Beauty & Cosmetics', 'Electronics Stores', 'Home & Lifestyle',
+  'D2C Brands', 'Food & Beverage', 'Startups & New Businesses', 'Growing E-Commerce',
+]
+
+export default function ShopifyDevelopment() {
+  useEffect(() => {
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 })
+  }, [])
+
+  return (
+    <main className="sf">
+      {/* ── HERO ── */}
+      <section className="sf-hero">
+        <div className="sf-hero__glow" />
+        <div className="sf-container sf-hero__inner">
+          <div className="sf-hero__content" data-aos="fade-up">
+            <span className="sf-tag"><FiShoppingBag /> Shopify Store Development</span>
+            <h1 className="sf-hero__title">
+              Shopify Stores Designed to <span>Sell, Scale &amp; Grow</span>
+            </h1>
+            <p className="sf-hero__sub">
+              Custom Shopify websites built for brands that want a professional online presence,
+              better customer experience, and higher sales.
+            </p>
+            <div className="sf-hero__actions">
+              <Link to="/contact" className="sf-btn sf-btn--primary">Start Your Shopify Project <FiArrowRight /></Link>
+              <a href="#sf-offer" className="sf-btn sf-btn--ghost">What We Offer</a>
+            </div>
+            <div className="sf-hero__chips">
+              <span><FiZap /> Fast Loading</span>
+              <span><FiSmartphone /> Mobile First</span>
+              <span><FiTrendingUp /> Conversion Focused</span>
+            </div>
+          </div>
+
+          {/* phone store mockup */}
+          <div className="sf-hero__visual" data-aos="fade-left" data-aos-delay="150">
+            <div className="sf-phone">
+              <div className="sf-phone__notch" />
+              <div className="sf-phone__screen">
+                <div className="sf-phone__topbar"><span className="sf-phone__logo" /><span className="sf-phone__cart"><FiShoppingBag /></span></div>
+                <div className="sf-phone__banner">SALE 50% OFF</div>
+                <div className="sf-phone__grid"><span /><span /><span /><span /></div>
+                <div className="sf-phone__btn">Buy Now</div>
+              </div>
+            </div>
+            <div className="sf-float sf-float--a"><FiCreditCard /> Secure Pay</div>
+            <div className="sf-float sf-float--b"><b>+248%</b> Sales</div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INTRO ── */}
+      <section className="sf-intro">
+        <div className="sf-container">
+          <h2 className="sf-h2" data-aos="fade-up">High-Converting Shopify Stores Built for Modern Brands</h2>
+          <div className="sf-intro__grid">
+            <p data-aos="fade-up">
+              Your Shopify store is more than just a website — it's the foundation of your online business.
+              At DigionTop Agency, we design and develop professional Shopify stores that help brands create
+              a strong online presence, improve customer experience, and increase sales.
+            </p>
+            <p data-aos="fade-up" data-aos-delay="100">
+              From custom storefront design to complete store setup, we build Shopify solutions tailored to
+              your goals. Whether you're launching a new brand or upgrading an existing store, we create fast,
+              mobile-friendly, and conversion-focused Shopify websites built for growth.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHAT WE OFFER ── */}
+      <section className="sf-offer" id="sf-offer">
+        <div className="sf-container">
+          <div className="sf-head" data-aos="fade-up">
+            <span className="sf-eyebrow">What We Offer</span>
+            <h2 className="sf-h2">Complete Shopify Store Solutions</h2>
+          </div>
+          <div className="sf-offer__grid">
+            {OFFER.map((o, i) => (
+              <div className="sf-card" key={o.title} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
+                <span className="sf-card__icon">{o.icon}</span>
+                <h3>{o.title}</h3>
+                <p>{o.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURES INCLUDED ── */}
+      <section className="sf-features">
+        <div className="sf-container">
+          <div className="sf-head" data-aos="fade-up">
+            <span className="sf-eyebrow sf-eyebrow--light">Features Included</span>
+            <h2 className="sf-h2 sf-h2--light">Everything Your Store Needs to Launch</h2>
+          </div>
+          <div className="sf-features__grid">
+            {FEATURES.map((f, i) => (
+              <div className="sf-feature" key={f} data-aos="fade-up" data-aos-delay={(i % 4) * 50}>
+                <FiCheck /> {f}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE ── */}
+      <section className="sf-why">
+        <div className="sf-container">
+          <div className="sf-head" data-aos="fade-up">
+            <span className="sf-eyebrow">Why Choose DigionTop?</span>
+            <h2 className="sf-h2">Shopify Stores That Actually Sell</h2>
+          </div>
+          <div className="sf-why__grid">
+            {WHY.map((w, i) => (
+              <div className="sf-why__card" key={w.title} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
+                <span className="sf-why__icon">{w.icon}</span>
+                <h3>{w.title}</h3>
+                <p>{w.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── IDEAL FOR ── */}
+      <section className="sf-ideal">
+        <div className="sf-container">
+          <div className="sf-head" data-aos="fade-up">
+            <span className="sf-eyebrow">Ideal For</span>
+            <h2 className="sf-h2">Perfect for Every Kind of Brand</h2>
+          </div>
+          <div className="sf-ideal__grid">
+            {IDEAL.map((it, i) => (
+              <span className="sf-pill" key={it} data-aos="zoom-in" data-aos-delay={i * 40}>{it}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PORTFOLIO ── */}
+      <ServiceWork
+        accent="#5bb381"
+        accentSoft="#e8f6ee"
+        heading="Stores & Content We've Delivered"
+        subtitle="A look at the e-commerce work, reels and creatives we produce for our clients."
+      />
+
+      {/* ── GOAL + CTA ── */}
+      <section className="sf-cta">
+        <div className="sf-container">
+          <div className="sf-cta__box" data-aos="zoom-in">
+            <span className="sf-cta__rocket">🚀</span>
+            <h2>Ready to Launch Your Shopify Store?</h2>
+            <p>
+              We don't just create Shopify websites — we build e-commerce experiences that help businesses
+              attract customers, strengthen their brand image, and achieve sustainable online growth.
+            </p>
+            <Link to="/contact" className="sf-btn sf-btn--light">Start Your Shopify Project Today <FiArrowUpRight /></Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
