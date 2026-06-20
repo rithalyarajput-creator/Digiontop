@@ -213,6 +213,35 @@ export default function About() {
         </div>
       </section>
 
+      {/* ══ 2b. OFFICE / ABOUT SPLIT ══ */}
+      <section className="ab-split">
+        <div className="about-container ab-split__inner">
+          <div className="ab-split__media" data-aos="fade-right">
+            <img src="/images/digiontop-office-wall.png" alt="DigionTop office" loading="lazy" />
+            <div className="ab-split__badge">
+              <b>Since 2024</b>
+              <span>Delhi, India</span>
+            </div>
+          </div>
+          <div className="ab-split__text" data-aos="fade-left">
+            <span className="ab-eyebrow">Inside DigionTop</span>
+            <h2 className="ab-h2">A Team That Treats Your Growth Like Our Own</h2>
+            <p>
+              DigionTop is a passionate team of designers, developers, and marketers working under
+              one roof in Delhi. We're not a faceless agency — we're a dedicated growth partner that
+              understands your business and builds digital solutions that actually move the needle.
+            </p>
+            <ul className="ab-split__points">
+              <li><FiCheck /> Senior-led team on every project</li>
+              <li><FiCheck /> Transparent, honest communication</li>
+              <li><FiCheck /> Results you can measure & track</li>
+              <li><FiCheck /> Long-term partnership, not one-time work</li>
+            </ul>
+            <Link to="/contact" className="ab-btn ab-btn--primary">Work With Us <FiArrowRight /></Link>
+          </div>
+        </div>
+      </section>
+
       {/* ══ 3. WHAT WE DO ══ */}
       <section className="ab-do">
         <div className="about-container">

@@ -664,3 +664,44 @@
   .ab-story__track::before { display: none; }
   .ab-story__year { margin-top: -58px; }
 }
+
+/* ============================================================
+   About — Office / About split section
+   ============================================================ */
+.ab-split { padding: 84px 0; }
+.ab-split__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+
+.ab-split__media { position: relative; }
+.ab-split__media img {
+  width: 100%; border-radius: 22px; display: block;
+  box-shadow: 0 26px 60px rgba(20,24,43,0.18);
+  aspect-ratio: 4 / 3; object-fit: cover;
+}
+.ab-split__media::before {
+  content: ''; position: absolute; left: -18px; bottom: -18px;
+  width: 70%; height: 70%; border-radius: 22px;
+  border: 2px dashed #FFD874; z-index: -1;
+}
+.ab-split__badge {
+  position: absolute; right: -16px; top: 26px;
+  background: linear-gradient(135deg, #FFD24A, #F5A800);
+  color: #1a1a1a; border-radius: 16px; padding: 14px 22px;
+  box-shadow: 0 14px 32px rgba(245,168,0,0.4); text-align: center;
+}
+.ab-split__badge b { display: block; font-size: 1.15rem; font-weight: 900; line-height: 1; }
+.ab-split__badge span { font-size: 0.74rem; font-weight: 700; opacity: 0.75; }
+
+.ab-split__text .ab-h2 { margin-bottom: 16px; }
+.ab-split__text p { color: #5a6273; line-height: 1.8; font-size: 1.02rem; margin: 0 0 22px; }
+.ab-split__points { list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ab-split__points li { display: flex; align-items: center; gap: 9px; font-size: 0.92rem; font-weight: 600; color: #14182b; }
+.ab-split__points svg { color: #fff; background: #F5A800; border-radius: 50%; padding: 4px; width: 22px; height: 22px; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .ab-split__inner { grid-template-columns: 1fr; gap: 40px; }
+  .ab-split__media { max-width: 520px; }
+}
+@media (max-width: 560px) {
+  .ab-split__points { grid-template-columns: 1fr; }
+  .ab-split__badge { right: 10px; padding: 10px 16px; }
+}
