@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -56,6 +56,27 @@ export default function WebDevelopment() {
   }, [])
 
   const [openFaq, setOpenFaq] = useState(0)
+
+  // Sequential reveal for the process steps (step 1 -> line -> step 2 -> ...)
+  const processRef = useRef(null)
+  const [activeStep, setActiveStep] = useState(-1)
+  useEffect(() => {
+    const el = processRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          PROCESS.forEach((_, i) => {
+            setTimeout(() => setActiveStep(i), 350 * (i + 1))
+          })
+          obs.disconnect()
+        }
+      },
+      { threshold: 0.4 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
 
   return (
     <main className="wd">
@@ -182,9 +203,9 @@ export default function WebDevelopment() {
             <span className="wd-eyebrow">Our Development Process</span>
             <h2 className="wd-h2">From Idea to Live in 6 Steps</h2>
           </div>
-          <div className="wd-process__track">
+          <div className="wd-process__track" ref={processRef}>
             {PROCESS.map((p, i) => (
-              <div className="wd-step" key={p.n} data-aos="fade-up" data-aos-delay={i * 60}>
+              <div className={`wd-step${i <= activeStep ? ' is-active' : ''}${i < activeStep ? ' is-done' : ''}`} key={p.n}>
                 <span className="wd-step__num">{p.n}</span>
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
