@@ -608,3 +608,37 @@
   .ab-do__grid { grid-template-columns: 1fr; }
   .ab-mv__card { padding: 30px 24px; }
 }
+
+/* ============================================================
+   About — Team photos, Commitments, Story (yellow theme)
+   ============================================================ */
+.ab-photos { padding: 44px 0 8px; }
+.ab-photos__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.ab-photos__item { border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 10px 26px rgba(0,0,0,0.1); }
+.ab-photos__item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.ab-photos__item:hover img { transform: scale(1.06); }
+.ab-photos__caption { text-align: center; color: #8a8f9c; font-size: 0.88rem; margin: 22px 0 0; }
+
+.ab-commit { padding: 72px 0; }
+.ab-commit__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.ab-commit__card { text-align: center; background: #fff; border: 1px solid #ececf1; border-radius: 18px; padding: 36px 26px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.ab-commit__card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(245,168,0,0.14); border-color: #FFE49A; }
+.ab-commit__icon { display: grid; place-items: center; width: 60px; height: 60px; margin: 0 auto 18px; border-radius: 50%; background: linear-gradient(135deg, #FFD24A, #F5A800); color: #1a1a1a; font-size: 24px; box-shadow: 0 8px 22px rgba(245,168,0,0.3); }
+.ab-commit__card h3 { font-size: 1.08rem; font-weight: 800; color: #14182b; margin: 0 0 8px; }
+.ab-commit__card p { font-size: 0.9rem; color: #6b7280; line-height: 1.6; margin: 0; }
+
+/* Story timeline */
+.ab-story { padding: 0 0 84px; }
+.ab-story__track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; position: relative; }
+.ab-story__track::before { content: ''; position: absolute; top: 26px; left: 12%; right: 12%; height: 3px; background: repeating-linear-gradient(90deg, #FFD874 0 10px, transparent 10px 20px); z-index: 0; }
+.ab-story__item { position: relative; z-index: 1; text-align: center; background: #fff8e8; border: 1px solid #FFE49A; border-radius: 16px; padding: 40px 22px 26px; }
+.ab-story__year { display: inline-grid; place-items: center; width: 76px; height: 40px; margin: -60px auto 16px; border-radius: 50px; background: linear-gradient(135deg, #FFD24A, #F5A800); color: #1a1a1a; font-weight: 900; font-size: 1rem; box-shadow: 0 8px 20px rgba(245,168,0,0.32); }
+.ab-story__item p { font-size: 0.9rem; color: #5a4a20; line-height: 1.6; margin: 0; }
+
+@media (max-width: 900px) {
+  .ab-photos__grid { grid-template-columns: repeat(2, 1fr); }
+  .ab-commit__grid { grid-template-columns: 1fr; }
+  .ab-story__track { grid-template-columns: 1fr; gap: 40px; }
+  .ab-story__track::before { display: none; }
+  .ab-story__year { margin-top: -58px; }
+}

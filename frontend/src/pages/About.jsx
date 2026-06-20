@@ -38,6 +38,18 @@ const ABOUT_STATS = [
   { num: '5★', label: 'Client Rating' },
 ];
 
+const COMMITMENTS = [
+  { icon: <FiUsers />, title: 'A Dedicated Team On Every Project', desc: 'A senior specialist owns your project from day one — no juniors learning on your budget.' },
+  { icon: <FiTrendingUp />, title: 'Regular Progress Reports', desc: 'Clear, honest updates on what we did, what worked, and what comes next — every step.' },
+  { icon: <FiCheckCircle />, title: 'Results You Can Measure', desc: 'Every campaign is built around real KPIs — leads, traffic, and revenue you can track.' },
+];
+
+const STORY = [
+  { year: '2024', text: 'DigionTop started with a simple goal — make pro digital marketing affordable for Indian businesses.' },
+  { year: '2025', text: 'Grew into a full-service team — websites, SEO, social media, e-commerce & ads under one roof.' },
+  { year: '2026', text: 'Now a trusted growth partner for 120+ brands, delivering 250+ projects across India.' },
+];
+
 const teamImages = [
   'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&h=220&fit=crop',
   'https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=220&fit=crop',
@@ -147,6 +159,39 @@ export default function About() {
         </div>
       </section>
 
+      {/* ══ 1b. TEAM PHOTOS COLLAGE ══ */}
+      <section className="ab-photos">
+        <div className="about-container">
+          <div className="ab-photos__grid">
+            {teamImages.map((src, i) => (
+              <div className="ab-photos__item" key={i} data-aos="zoom-in" data-aos-delay={i * 60}>
+                <img src={src} alt={`DigionTop team ${i + 1}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+          <p className="ab-photos__caption">Our team in action — building digital growth for brands across India.</p>
+        </div>
+      </section>
+
+      {/* ══ 1c. COMMITMENTS ══ */}
+      <section className="ab-commit">
+        <div className="about-container">
+          <div className="ab-head" data-aos="fade-up">
+            <span className="ab-eyebrow">Three Commitments</span>
+            <h2 className="ab-h2">What Every Client Gets — In Writing</h2>
+          </div>
+          <div className="ab-commit__grid">
+            {COMMITMENTS.map((c, i) => (
+              <div className="ab-commit__card" key={c.title} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="ab-commit__icon">{c.icon}</span>
+                <h3>{c.title}</h3>
+                <p>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ══ 2. INTRO ══ */}
       <section className="ab-intro">
         <div className="about-container ab-intro__grid">
@@ -239,6 +284,24 @@ export default function About() {
             generate more opportunities, and achieve meaningful growth.
           </p>
           <p className="ab-goal__tagline">Build Better. Grow Faster. Reach The Top.</p>
+        </div>
+      </section>
+
+      {/* ══ 5c. OUR STORY TIMELINE ══ */}
+      <section className="ab-story">
+        <div className="about-container">
+          <div className="ab-head" data-aos="fade-up">
+            <span className="ab-eyebrow">Our Story</span>
+            <h2 className="ab-h2">The DigionTop Journey</h2>
+          </div>
+          <div className="ab-story__track">
+            {STORY.map((s, i) => (
+              <div className="ab-story__item" key={s.year} data-aos="fade-up" data-aos-delay={i * 90}>
+                <span className="ab-story__year">{s.year}</span>
+                <p>{s.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
