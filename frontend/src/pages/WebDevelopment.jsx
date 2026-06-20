@@ -215,12 +215,13 @@ export default function WebDevelopment() {
         </div>
       </section>
 
-      {/* ── PORTFOLIO (real work) ── */}
+      {/* ── PORTFOLIO (websites) ── */}
       <ServiceWork
+        variant="websites"
         accent="#F5A800"
         accentSoft="#FFF3CC"
-        heading="Recent Work We've Delivered"
-        subtitle="A glimpse of the websites, reels and creative work we produce for our clients."
+        heading="Recent Websites We've Delivered"
+        subtitle="A glimpse of the live websites we've designed & developed for real businesses."
       />
 
       {/* ── FAQ ── */}

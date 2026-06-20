@@ -4,7 +4,7 @@
 // `accent` lets each service page tint it to match its own theme.
 
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiPlay, FiHeart } from 'react-icons/fi'
+import { FiArrowRight, FiPlay, FiHeart, FiGlobe } from 'react-icons/fi'
 import '../styles/ServiceWork.css'
 
 const REELS = [
@@ -15,15 +15,23 @@ const POSTS = [
   { src: '/images/work/post-1.jpg', title: 'Sunscreen Awareness', tag: 'Creative Post' },
   { src: '/images/work/post-2.jpg', title: 'Brand Campaign', tag: 'Creative Post' },
 ]
+const WEBSITES = [
+  { src: '/images/work/smile-dental.png', title: 'Smile Dental Care Centre', tag: 'Healthcare Website' },
+  { src: '/images/work/baid-finance.png', title: 'Baid Stock Broking', tag: 'Finance Website' },
+  { src: '/images/work/toreto.png', title: 'Toreto', tag: 'E-Commerce Store' },
+  { src: '/images/work/stressless-learner.png', title: 'Stressless Learner', tag: 'Education Website' },
+]
 
 export default function ServiceWork({
   accent = '#F5A800',
   accentSoft = '#FFF3CC',
   heading = 'Real Work We’ve Delivered',
   subtitle = 'A look at the reels and creative posts we’ve produced for real brands.',
+  variant = 'mixed', // 'mixed' = reels+posts | 'websites' = website screenshots
 }) {
+  const isWeb = variant === 'websites'
   return (
-    <section className="section swork" style={{ '--swork-accent': accent }}>
+    <section className={`section swork${isWeb ? ' swork--web' : ''}`} style={{ '--swork-accent': accent }}>
       <div className="container">
         <div className="svc-section-header" data-aos="fade-up">
           <span className="section-tag" style={{ background: accentSoft, color: accent }}>
@@ -35,34 +43,51 @@ export default function ServiceWork({
         </div>
 
         <div className="swork__grid">
-          {/* 2 reels */}
-          {REELS.map((r, i) => (
-            <div className="swork__card swork__card--reel" key={r.src} data-aos="fade-up" data-aos-delay={i * 70}>
-              <div className="swork__media">
-                <video src={r.src} autoPlay muted loop playsInline preload="metadata" />
-                <span className="swork__badge"><FiPlay size={11} /> Reel</span>
-                <span className="swork__views"><FiHeart size={12} /> {r.views}</span>
+          {isWeb ? (
+            /* 4 website screenshots */
+            WEBSITES.map((w, i) => (
+              <div className="swork__card swork__card--web" key={w.src} data-aos="fade-up" data-aos-delay={(i % 4) * 70}>
+                <div className="swork__media swork__media--web">
+                  <img src={w.src} alt={w.title} loading="lazy" decoding="async" />
+                  <span className="swork__badge"><FiGlobe size={11} /> Website</span>
+                </div>
+                <div className="swork__body">
+                  <p className="swork__title">{w.title}</p>
+                  <p className="swork__tag" style={{ color: accent }}>{w.tag}</p>
+                </div>
               </div>
-              <div className="swork__body">
-                <p className="swork__title">{r.title}</p>
-                <p className="swork__tag" style={{ color: accent }}>{r.tag}</p>
-              </div>
-            </div>
-          ))}
-
-          {/* 2 posts */}
-          {POSTS.map((p, i) => (
-            <div className="swork__card" key={p.src} data-aos="fade-up" data-aos-delay={(i + 2) * 70}>
-              <div className="swork__media">
-                <img src={p.src} alt={p.title} loading="lazy" decoding="async" />
-                <span className="swork__badge">Post</span>
-              </div>
-              <div className="swork__body">
-                <p className="swork__title">{p.title}</p>
-                <p className="swork__tag" style={{ color: accent }}>{p.tag}</p>
-              </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <>
+              {/* 2 reels */}
+              {REELS.map((r, i) => (
+                <div className="swork__card swork__card--reel" key={r.src} data-aos="fade-up" data-aos-delay={i * 70}>
+                  <div className="swork__media">
+                    <video src={r.src} autoPlay muted loop playsInline preload="metadata" />
+                    <span className="swork__badge"><FiPlay size={11} /> Reel</span>
+                    <span className="swork__views"><FiHeart size={12} /> {r.views}</span>
+                  </div>
+                  <div className="swork__body">
+                    <p className="swork__title">{r.title}</p>
+                    <p className="swork__tag" style={{ color: accent }}>{r.tag}</p>
+                  </div>
+                </div>
+              ))}
+              {/* 2 posts */}
+              {POSTS.map((p, i) => (
+                <div className="swork__card" key={p.src} data-aos="fade-up" data-aos-delay={(i + 2) * 70}>
+                  <div className="swork__media">
+                    <img src={p.src} alt={p.title} loading="lazy" decoding="async" />
+                    <span className="swork__badge">Post</span>
+                  </div>
+                  <div className="swork__body">
+                    <p className="swork__title">{p.title}</p>
+                    <p className="swork__tag" style={{ color: accent }}>{p.tag}</p>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
         </div>
 
         <div className="swork__cta" data-aos="fade-up">

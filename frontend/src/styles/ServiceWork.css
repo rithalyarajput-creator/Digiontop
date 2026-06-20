@@ -83,6 +83,10 @@
 }
 .swork__explore:hover { transform: translateY(-3px); filter: brightness(1.06); }
 
+/* Website variant — landscape screenshots (not portrait) */
+.swork__media--web { aspect-ratio: 16 / 11; background: #f1f1f4; }
+.swork__media--web img { object-position: top center; }
+
 @media (max-width: 900px) {
   .swork__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 }
