@@ -482,7 +482,7 @@
 .about-lead__form { padding: 32px 32px; }
 .about-lead__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
 .about-lead__form label { display: flex; flex-direction: column; font-size: 0.78rem; font-weight: 700; color: #1a2b4a; gap: 6px; }
-.about-lead__form label b { color: #e11; }
+.about-lead__form label b { display: none; }
 .about-lead__full { margin-bottom: 14px; }
 .about-lead__form input,
 .about-lead__form select,
