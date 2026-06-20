@@ -349,26 +349,28 @@
 }
 .navbar__mega-cat-count { font-size: 10.5px; color: #999; }
 .navbar__mega-cat-arrow { font-size: 18px; color: #c4c4c4; flex-shrink: 0; transition: transform 0.18s ease; }
-.navbar__mega-cat:hover { background: #f1f1f3; }
+.navbar__mega-cat:hover { background: #FFF3CC; }
 .navbar__mega-cat:hover .navbar__mega-cat-ico { color: #F5A800; border-color: #F5A800; }
 
-/* Active = full dark-blue block (reference style) */
-.navbar__mega-cat--active { background: #143a5e; border-radius: 0; }
+/* Active = full yellow block */
+.navbar__mega-cat--active { background: linear-gradient(135deg, #FFD24A, #F5A800); border-radius: 0; }
 .navbar__mega-cat--active::before { display: none; }
-.navbar__mega-cat--active .navbar__mega-cat-name { color: #fff; }
-.navbar__mega-cat--active .navbar__mega-cat-count { color: rgba(255,255,255,0.7); }
-.navbar__mega-cat--active .navbar__mega-cat-arrow { color: #fff; transform: translateX(3px); }
+.navbar__mega-cat--active .navbar__mega-cat-name { color: #1a1a1a; }
+.navbar__mega-cat--active .navbar__mega-cat-count { color: rgba(0,0,0,0.6); }
+.navbar__mega-cat--active .navbar__mega-cat-arrow { color: #1a1a1a; transform: translateX(3px); }
 .navbar__mega-cat--active .navbar__mega-cat-ico {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.45);
   border-color: transparent;
-  color: #fff;
+  color: #1a1a1a;
 }
 
-/* RIGHT — detail panel */
+/* RIGHT — detail panel (fixed height so the bottom bar never jumps/resizes) */
 .navbar__mega-panel {
+  display: flex;
+  flex-direction: column;
   padding: 26px 30px 24px;
+  height: 440px;             /* fixed -> bottom bar stays put when switching */
   overflow-y: auto;
-  max-height: calc(100vh - 100px);
   animation: megaPanelFade 0.25s ease;
 }
 @keyframes megaPanelFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
@@ -416,7 +418,9 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-content: start;
   gap: 14px 24px;
+  flex: 1;                   /* push View All button to the bottom */
 }
 .navbar__mega-link {
   display: inline-flex;
