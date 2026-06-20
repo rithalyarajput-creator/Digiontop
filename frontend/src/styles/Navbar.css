@@ -260,7 +260,7 @@
   top: 72px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(1080px, calc(100vw - 32px));
+  width: min(920px, calc(100vw - 32px));
   background: #fff;
   border-radius: 18px;
   border: 1px solid #eee;
@@ -270,7 +270,7 @@
   max-height: calc(100vh - 100px);
   overflow: hidden;
   display: none;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 290px 1fr;
 }
 .navbar__mega--open {
   display: grid !important;
