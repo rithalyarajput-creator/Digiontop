@@ -159,20 +159,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ══ 1b. TEAM PHOTOS COLLAGE ══ */}
-      <section className="ab-photos">
-        <div className="about-container">
-          <div className="ab-photos__grid">
-            {teamImages.map((src, i) => (
-              <div className="ab-photos__item" key={i} data-aos="zoom-in" data-aos-delay={i * 60}>
-                <img src={src} alt={`DigionTop team ${i + 1}`} loading="lazy" />
-              </div>
-            ))}
-          </div>
-          <p className="ab-photos__caption">Our team in action — building digital growth for brands across India.</p>
-        </div>
-      </section>
-
       {/* ══ 1c. COMMITMENTS ══ */}
       <section className="ab-commit">
         <div className="about-container">
@@ -217,7 +203,7 @@ export default function About() {
       <section className="ab-split">
         <div className="about-container ab-split__inner">
           <div className="ab-split__media" data-aos="fade-right">
-            <img src="/images/digiontop-office-wall.png" alt="DigionTop office" loading="lazy" />
+            <img src="/images/digiontop-office.png" alt="DigionTop team" loading="lazy" />
             <div className="ab-split__badge">
               <b>Since 2024</b>
               <span>Delhi, India</span>
@@ -289,8 +275,8 @@ export default function About() {
       <section className="ab-why">
         <div className="about-container">
           <div className="ab-head" data-aos="fade-up">
-            <span className="ab-eyebrow ab-eyebrow--light">Why Businesses Choose DigionTop</span>
-            <h2 className="ab-h2 ab-h2--light">Built on Trust, Driven by Results</h2>
+            <span className="ab-eyebrow">Why Businesses Choose DigionTop</span>
+            <h2 className="ab-h2">Built on Trust, Driven by Results</h2>
           </div>
           <div className="ab-why__grid">
             {WHY_CHOOSE.map((w, i) => (
