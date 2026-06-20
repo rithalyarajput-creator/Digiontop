@@ -429,10 +429,10 @@
    ============================================================ */
 .about-partner { padding: 84px 0; background: #fff; }
 .about-partner__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.about-partner__eyebrow { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #6a8f3a; }
-.about-partner__heading { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 900; color: #1a2b1a; margin: 12px 0 18px; line-height: 1.15; }
-.about-partner__heading span { color: #7aa83f; }
-.about-partner__text p { color: #5a6552; line-height: 1.7; margin: 0 0 14px; font-size: 1.02rem; }
+.about-partner__eyebrow { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #c47f00; }
+.about-partner__heading { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 900; color: #14182b; margin: 12px 0 18px; line-height: 1.15; }
+.about-partner__heading span { color: #F5A800; }
+.about-partner__text p { color: #5a6273; line-height: 1.7; margin: 0 0 14px; font-size: 1.02rem; }
 .about-partner__btns { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
 .about-partner__btn { display: inline-flex; align-items: center; padding: 14px 30px; border-radius: 50px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: transform 0.18s ease, box-shadow 0.18s ease; }
 .about-partner__btn--primary { background: linear-gradient(135deg, #FFB12E, #F5A800); color: #fff; box-shadow: 0 10px 24px rgba(245,168,0,0.35); }
@@ -445,17 +445,17 @@
 .about-partner__photo img { width: 100%; display: block; }
 .about-partner__visual::before {
   content: ''; position: absolute; width: 440px; height: 440px; border-radius: 50%;
-  border: 2px dashed #c7e29a; transform: rotate(-12deg);
+  border: 2px dashed #FFE49A; transform: rotate(-12deg);
 }
 .about-partner__chip {
   position: absolute; display: grid; place-items: center; gap: 2px;
   background: #fff; border-radius: 50px; padding: 10px 14px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.12); color: #6a8f3a; font-size: 15px; z-index: 2;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12); color: #c47f00; font-size: 15px; z-index: 2;
 }
-.about-partner__chip--star { top: 8%; left: 2%; flex-direction: row; gap: 1px; color: #7aa83f; }
-.about-partner__chip--pin { top: 14%; right: 2%; width: 46px; height: 46px; border-radius: 50%; color: #fff; background: linear-gradient(135deg, #8bc34a, #689f38); }
+.about-partner__chip--star { top: 8%; left: 2%; flex-direction: row; gap: 1px; color: #F5A800; }
+.about-partner__chip--pin { top: 14%; right: 2%; width: 46px; height: 46px; border-radius: 50%; color: #1a1a1a; background: linear-gradient(135deg, #FFD24A, #F5A800); }
 .about-partner__chip--brief { bottom: 30%; left: 0; width: 46px; height: 46px; border-radius: 50%; }
-.about-partner__chip--hand { bottom: 6%; right: 16%; width: 54px; height: 54px; border-radius: 50%; color: #fff; background: linear-gradient(135deg, #8bc34a, #689f38); font-size: 20px; }
+.about-partner__chip--hand { bottom: 6%; right: 16%; width: 54px; height: 54px; border-radius: 50%; color: #1a1a1a; background: linear-gradient(135deg, #FFD24A, #F5A800); font-size: 20px; }
 
 /* ============================================================
    About — Free Proposal lead form
@@ -468,13 +468,13 @@
 }
 .about-lead__promo {
   position: relative; overflow: hidden;
-  background: linear-gradient(160deg, #7aa83f, #5d8a2c);
+  background: linear-gradient(160deg, #FFB12E, #F5A800 60%, #E08E00);
   color: #fff; padding: 44px 36px;
 }
 .about-lead__promo h2 { font-size: 1.9rem; font-weight: 900; margin: 0 0 16px; line-height: 1.15; }
 .about-lead__promo p { color: rgba(255,255,255,0.9); line-height: 1.7; font-size: 0.96rem; margin: 0; }
 .about-lead__bars { position: absolute; bottom: 26px; left: 36px; display: flex; align-items: flex-end; gap: 8px; height: 90px; }
-.about-lead__bars span { width: 26px; border-radius: 4px 4px 0 0; background: #FFB12E; }
+.about-lead__bars span { width: 26px; border-radius: 4px 4px 0 0; background: rgba(255,255,255,0.85); }
 .about-lead__bars span:nth-child(1) { height: 38px; } .about-lead__bars span:nth-child(2) { height: 60px; } .about-lead__bars span:nth-child(3) { height: 86px; }
 .about-lead__bars i { font-style: normal; color: #fff; font-size: 30px; font-weight: 900; align-self: flex-end; }
 
