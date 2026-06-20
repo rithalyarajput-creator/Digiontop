@@ -6,7 +6,12 @@ import {
 import { useSettings } from '../context/SettingsContext';
 import '../styles/Contact.css';
 
-const INITIAL = { firstName: '', lastName: '', email: '', phone: '', message: '' };
+const SERVICE_OPTIONS = [
+  'Website Development', 'Shopify Store', 'SEO Services', 'Social Media Marketing',
+  'Performance Ads', 'Branding & Design', 'E-Commerce Solutions',
+];
+
+const INITIAL = { firstName: '', lastName: '', company: '', website: '', email: '', phone: '', service: '', message: '', consent: false };
 
 export default function Contact() {
   const { settings } = useSettings();
@@ -16,24 +21,35 @@ export default function Contact() {
   const [error, setError] = useState('');
 
   function handleChange(e) {
-    const { name, value } = e.target;
-    setForm(p => ({ ...p, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    if (name === 'phone') {
+      const digits = value.replace(/\D/g, '').slice(0, 10);
+      setForm((p) => ({ ...p, phone: digits }));
+      return;
+    }
+    setForm((p) => ({ ...p, [name]: type === 'checkbox' ? checked : value }));
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
     setSubmitting(true);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          fullName: `${form.firstName} ${form.lastName}`,
+          fullName: `${form.firstName} ${form.lastName}`.trim(),
+          businessName: form.company,
           email: form.email,
-          phone: form.phone,
-          message: form.message,
-          service: '',
+          phone: form.phone ? `+91 ${form.phone}` : '',
+          service: form.service,
+          message: `${form.message}${form.website ? `\nWebsite: ${form.website}` : ''}`,
+          source: 'contact-page',
         }),
       });
       if (!res.ok) throw new Error();
@@ -52,102 +68,54 @@ export default function Contact() {
         <h1 className="contact-page__heading">Contact Us</h1>
         <div className="contact-wrap__inner">
 
-          {/* ── LEFT — Form ── */}
-          <div className="contact-form-side">
-            {/* Floating astronaut rocket — top-left */}
-            <img src="/images/rocket-astronaut.png" alt="" className="contact-form-side__rocket" />
-            <h2 className="contact-form-side__title">Send us a message</h2>
-            <p className="contact-form-side__sub">
-              Do you have a question? A complaint? Or need any help to choose the
-              right product from Zalam. Feel free to contact us.
-            </p>
-
-            <form className="contact-form" onSubmit={handleSubmit} noValidate>
-              {/* Row 1: First + Last */}
-              <div className="contact-form__row">
-                <div className="contact-form__field">
-                  <label>First Name</label>
-                  <input
-                    name="firstName"
-                    type="text"
-                    placeholder="Enter your first name"
-                    value={form.firstName}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="contact-form__field">
-                  <label>Last Name</label>
-                  <input
-                    name="lastName"
-                    type="text"
-                    placeholder="Enter your last name"
-                    value={form.lastName}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+          {/* ── LEFT — Form (same design as About "Get your free proposal") ── */}
+          <form className="about-lead__form contact-lead__form" onSubmit={handleSubmit} noValidate>
+            {submitted ? (
+              <div className="about-lead__success">
+                <FiCheckCircle size={26} />
+                <h3>Thank you!</h3>
+                <p>We've received your message and will reply within one business day.</p>
               </div>
-
-              {/* Row 2: Email + Phone */}
-              <div className="contact-form__row">
-                <div className="contact-form__field">
-                  <label>Email</label>
-                  <input
-                    name="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                  />
+            ) : (
+              <>
+                <div className="about-lead__row">
+                  <label>First Name <b>*</b><input name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name" required /></label>
+                  <label>Last Name <b>*</b><input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" required /></label>
                 </div>
-                <div className="contact-form__field">
-                  <label>Phone</label>
-                  <div className="contact-form__phone-wrap">
-                    <span className="contact-form__dial">+91</span>
-                    <input
-                      name="phone"
-                      type="tel"
-                      placeholder="Enter your phone number"
-                      value={form.phone}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+                <div className="about-lead__row">
+                  <label>Company / Organization <b>*</b><input name="company" value={form.company} onChange={handleChange} placeholder="Company / Organization" required /></label>
+                  <label>Website<input name="website" value={form.website} onChange={handleChange} placeholder="https://example.com" /></label>
                 </div>
-              </div>
-
-              {/* Row 3: Message */}
-              <div className="contact-form__field contact-form__field--full">
-                <label>Message</label>
-                <textarea
-                  name="message"
-                  placeholder="Enter your message"
-                  rows={5}
-                  value={form.message}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              {submitted ? (
-                <div className="contact-form__success">
-                  <FiCheckCircle size={20} />
-                  <span>Message sent! We'll reply within 24 hours.</span>
+                <div className="about-lead__row">
+                  <label>Email Address <b>*</b><input type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@company.com" required /></label>
+                  <label>Phone Number
+                    <span className="about-lead__phone">
+                      <span className="about-lead__cc">IN +91</span>
+                      <input name="phone" value={form.phone} onChange={handleChange} placeholder="9898989889" inputMode="numeric" />
+                    </span>
+                  </label>
                 </div>
-              ) : (
-                <button
-                  type="submit"
-                  className="contact-form__submit"
-                  disabled={submitting}
-                >
-                  {submitting ? 'Sending…' : 'Send a Message'}
+                <label className="about-lead__full">Services* (pick one)
+                  <select name="service" value={form.service} onChange={handleChange} required>
+                    <option value="">Services* (pick one or more)</option>
+                    {SERVICE_OPTIONS.map((s) => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                </label>
+                <label className="about-lead__full">Message
+                  <textarea name="message" value={form.message} onChange={handleChange} rows="4" placeholder="Tell us about your business" />
+                </label>
+                <label className="about-lead__consent">
+                  <input type="checkbox" name="consent" checked={form.consent} onChange={handleChange} required />
+                  I consent to receive notifications and promotional messages
+                </label>
+                {error && <p className="about-lead__error">{error}</p>}
+                <button type="submit" className="about-lead__btn" disabled={submitting}>
+                  {submitting ? 'Sending…' : 'Get Your Free Proposal'}
                 </button>
-              )}
-              {error && <p className="contact-form__error">{error}</p>}
-            </form>
-          </div>
+                <p className="about-lead__note">Need quick assistance? Reach us at <strong>+91 92175 94664</strong></p>
+              </>
+            )}
+          </form>
 
           {/* ── RIGHT — Dark info card ── */}
           <div className="contact-info-card">

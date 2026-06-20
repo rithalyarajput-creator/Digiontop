@@ -396,3 +396,10 @@
   .contact-video { padding: 0 16px 48px; }
   .contact-video__media { max-height: 300px; border-radius: 14px; }
 }
+
+/* Contact page uses the About "free proposal" form design */
+.contact-lead__form {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}

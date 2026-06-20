@@ -568,19 +568,23 @@
 .ab-do__card h3 { font-size: 1.05rem; font-weight: 800; margin: 0 0 8px; color: #14182b; }
 .ab-do__card p { font-size: 0.9rem; color: #6b7280; line-height: 1.6; margin: 0; }
 
-/* MISSION & VISION */
-.ab-mv { padding: 84px 0; }
-.ab-mv__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.ab-mv__card { border-radius: 20px; padding: 38px 34px; position: relative; overflow: hidden; }
-.ab-mv__card--mission { background: linear-gradient(135deg, #14182b, #232a45); color: #fff; }
-.ab-mv__card--vision { background: linear-gradient(135deg, #FFD24A, #F5A800); color: #1a1a1a; }
-.ab-mv__icon { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 14px; font-size: 24px; margin-bottom: 18px; }
-.ab-mv__card--mission .ab-mv__icon { background: rgba(245,168,0,0.2); color: #FFD874; }
-.ab-mv__card--vision .ab-mv__icon { background: rgba(255,255,255,0.4); color: #1a1a1a; }
-.ab-mv__card h3 { font-size: 1.4rem; font-weight: 900; margin: 0 0 12px; }
-.ab-mv__card p { line-height: 1.75; font-size: 0.98rem; margin: 0; }
-.ab-mv__card--mission p { color: rgba(255,255,255,0.8); }
-.ab-mv__card--vision p { color: #3a2b00; }
+/* MISSION & VISION — clean white cards with accent top strip */
+.ab-mv { padding: 84px 0; background: #fafafb; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.ab-mv__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.ab-mv__card {
+  background: #fff; border: 1px solid #ececf1; border-radius: 20px;
+  padding: 40px 36px; position: relative; overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ab-mv__card:hover { transform: translateY(-5px); box-shadow: 0 22px 50px rgba(20,24,43,0.1); }
+.ab-mv__card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; }
+.ab-mv__card--mission::before { background: linear-gradient(90deg, #14182b, #3a4470); }
+.ab-mv__card--vision::before { background: linear-gradient(90deg, #FFD24A, #F5A800); }
+.ab-mv__icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; font-size: 25px; margin-bottom: 20px; color: #fff; }
+.ab-mv__card--mission .ab-mv__icon { background: linear-gradient(135deg, #14182b, #3a4470); }
+.ab-mv__card--vision .ab-mv__icon { background: linear-gradient(135deg, #FFD24A, #F5A800); color: #1a1a1a; }
+.ab-mv__card h3 { font-size: 1.5rem; font-weight: 900; margin: 0 0 12px; color: #14182b; }
+.ab-mv__card p { line-height: 1.75; font-size: 0.98rem; margin: 0; color: #5a6273; }
 
 /* WHY CHOOSE (dark) */
 .ab-why { padding: 84px 0; background: #14182b; color: #fff; }

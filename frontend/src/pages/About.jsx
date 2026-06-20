@@ -287,24 +287,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ══ 5c. OUR STORY TIMELINE ══ */}
-      <section className="ab-story">
-        <div className="about-container">
-          <div className="ab-head" data-aos="fade-up">
-            <span className="ab-eyebrow">Our Story</span>
-            <h2 className="ab-h2">The DigionTop Journey</h2>
-          </div>
-          <div className="ab-story__track">
-            {STORY.map((s, i) => (
-              <div className="ab-story__item" key={s.year} data-aos="fade-up" data-aos-delay={i * 90}>
-                <span className="ab-story__year">{s.year}</span>
-                <p>{s.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ══ 6. READY TO PARTNER ══ */}
       <section className="about-partner">
         <div className="about-container about-partner__inner">
