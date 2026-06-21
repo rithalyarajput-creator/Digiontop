@@ -153,51 +153,51 @@ export default function SEOServices() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="svc-hero svc-hero--blue">
-        <div className="svc-hero__blob" style={{ background: '#1A56DB', width: '400px', height: '400px', top: '-120px', left: '-80px', opacity: 0.07 }} />
-        <div className="svc-hero__blob" style={{ background: '#F59E0B', width: '300px', height: '300px', bottom: '-60px', right: '-60px', opacity: 0.06 }} />
-
+      <section className="svc-hero svc-hero--split">
         <div className="container">
-          <div className="svc-hero__inner" data-aos="fade-up">
-            <div className="svc-hero__tag svc-hero__tag--light">
-              <RiSearchEyeLine size={13} /> Search Engine Optimisation
+          <div className="svc-hero__split">
+            <div className="svc-hero__left" data-aos="fade-right">
+              <div className="svc-hero__tag svc-hero__tag--light">
+                <RiSearchEyeLine size={13} /> Search Engine Optimisation
+              </div>
+
+              <h1 className="svc-hero__title svc-hero__title--dark">
+                Rank Higher.{' '}
+                <span className="gradient-text">Get Found.</span>
+                <br />Grow Faster.
+              </h1>
+
+              <p className="svc-hero__subtitle svc-hero__subtitle--slate">
+                Data-driven SEO strategies that push your website to Page 1, drive qualified
+                organic traffic, and compound your growth month after month — without paid ads.
+              </p>
+
+              <div className="svc-hero__actions">
+                <Link to="/contact" className="btn btn-blue">
+                  Get Free SEO Audit <FiArrowRight size={16} />
+                </Link>
+                <Link to="/contact" className="btn btn-outline">
+                  Talk to an SEO Expert
+                </Link>
+              </div>
+
+              <div className="svc-hero__stats svc-hero__stats--light" style={{ justifyContent: 'flex-start' }}>
+                {[
+                  { num: '500%', label: 'Avg Traffic Growth' },
+                  { num: '90 Days', label: 'First Results' },
+                  { num: '#1', label: 'Rankings Achieved' },
+                ].map((s) => (
+                  <div key={s.num} style={{ textAlign: 'center' }}>
+                    <div className="svc-hero__stat-num svc-hero__stat-num--dark">{s.num}</div>
+                    <div className="svc-hero__stat-label svc-hero__stat-label--dark">{s.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <h1 className="svc-hero__title svc-hero__title--dark">
-              Rank Higher.{' '}
-              <span className="gradient-text">Get Found.</span>
-              <br />Grow Faster.
-            </h1>
-
-            <p className="svc-hero__subtitle svc-hero__subtitle--slate">
-              Data-driven SEO strategies that push your website to Page 1, drive qualified
-              organic traffic, and compound your growth month after month — without paid ads.
-            </p>
-
-            <div className="svc-hero__actions">
-              <Link to="/contact" className="btn btn-blue">
-                Get Free SEO Audit <FiArrowRight size={16} />
-              </Link>
-              <Link to="/contact" className="btn btn-outline">
-                Talk to an SEO Expert
-              </Link>
+            <div className="svc-hero__right" data-aos="fade-left">
+              <img src="/images/seo-hero.png" alt="SEO that ranks" loading="eager" />
             </div>
-
-            <div className="svc-hero__stats svc-hero__stats--light" data-aos="fade-up" data-aos-delay="150">
-              {[
-                { num: '500%', label: 'Avg Traffic Growth' },
-                { num: '90 Days', label: 'First Results' },
-                { num: '#1', label: 'Rankings Achieved' },
-                { num: '200+', label: 'Sites Optimised' },
-              ].map((s) => (
-                <div key={s.num} style={{ textAlign: 'center' }}>
-                  <div className="svc-hero__stat-num svc-hero__stat-num--dark">{s.num}</div>
-                  <div className="svc-hero__stat-label svc-hero__stat-label--dark">{s.label}</div>
-                </div>
-              ))}
-            </div>
-
-            <img src="/images/seo-hero.png" alt="SEO that ranks" className="svc-hero__img" loading="eager" data-aos="zoom-in" data-aos-delay="200" />
           </div>
         </div>
       </section>

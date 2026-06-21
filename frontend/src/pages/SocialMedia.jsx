@@ -125,96 +125,60 @@ export default function SocialMedia() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="svc-hero svc-hero--purple">
-        <div className="svc-hero__blob svc-hero__blob--purple" />
-        <div className="svc-hero__blob svc-hero__blob--teal" />
-
+      <section className="svc-hero svc-hero--split">
         <div className="container">
-          <div className="svc-hero__inner" data-aos="fade-up">
-            <div className="svc-hero__tag svc-hero__tag--purple">
-              <HiOutlineSpeakerphone size={13} /> Social Media Marketing
-            </div>
+          <div className="svc-hero__split">
+            <div className="svc-hero__left" data-aos="fade-right">
+              <div className="svc-hero__tag svc-hero__tag--purple">
+                <HiOutlineSpeakerphone size={13} /> Social Media Marketing
+              </div>
 
-            <h1 className="svc-hero__title svc-hero__title--dark">
-              Build a Brand People{' '}
-              <span style={{
-                background: 'linear-gradient(135deg,#7C3AED,#DB2777)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>
-                Love & Follow
-              </span>
-            </h1>
+              <h1 className="svc-hero__title svc-hero__title--dark">
+                Build a Brand People{' '}
+                <span style={{
+                  background: 'linear-gradient(135deg,#7C3AED,#DB2777)',
+                  WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                }}>
+                  Love & Follow
+                </span>
+              </h1>
 
-            <p className="svc-hero__subtitle svc-hero__subtitle--slate">
-              Strategic social media management and paid campaigns that grow engaged communities,
-              amplify your message, and turn followers into loyal customers across every platform.
-            </p>
+              <p className="svc-hero__subtitle svc-hero__subtitle--slate">
+                Strategic social media management and paid campaigns that grow engaged communities,
+                amplify your message, and turn followers into loyal customers across every platform.
+              </p>
 
-            <div className="svc-hero__actions">
-              <Link
-                to="/contact"
-                style={{
+              <div className="svc-hero__actions">
+                <Link to="/contact" style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
                   padding: '13px 26px', borderRadius: '12px', background: 'linear-gradient(135deg,#7C3AED,#DB2777)',
                   color: '#fff', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
                   boxShadow: '0 6px 24px rgba(124,58,237,0.35)',
-                }}
-              >
-                Get a Free Social Audit <FiArrowRight size={16} />
-              </Link>
-              <Link to="/portfolio" className="btn btn-outline" style={{ borderColor: '#7C3AED', color: '#7C3AED' }}>
-                See Case Studies
-              </Link>
-            </div>
+                }}>
+                  Get a Free Social Audit <FiArrowRight size={16} />
+                </Link>
+                <Link to="/portfolio" className="btn btn-outline" style={{ borderColor: '#7C3AED', color: '#7C3AED' }}>
+                  See Case Studies
+                </Link>
+              </div>
 
-            {/* Platform icons */}
-            <div
-              style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginTop: '40px', paddingTop: '36px', borderTop: '1px solid #E2E8F0' }}
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              {PLATFORMS.map((p, i) => (
-                <div
-                  key={p.name}
-                  data-aos="zoom-in"
-                  data-aos-delay={i * 60}
-                  style={{
-                    width: '56px', height: '56px', borderRadius: '14px', background: '#fff',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    boxShadow: '0 4px 16px rgba(0,0,0,0.08)', color: p.color,
-                    border: '1.5px solid #F1F5F9', transition: 'transform 0.2s',
-                  }}
-                  title={p.name}
-                >
-                  {p.icon}
-                </div>
-              ))}
-            </div>
-
-            {/* Stats */}
-            <div
-              style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap', marginTop: '40px', paddingTop: '32px', borderTop: '1px solid #E2E8F0' }}
-              data-aos="fade-up"
-              data-aos-delay="180"
-            >
-              {[
-                { num: '10M+', label: 'Total Reach Generated' },
-                { num: '6 Platforms', label: 'Managed' },
-                { num: '4x', label: 'Avg Engagement Lift' },
-                { num: '150+', label: 'Brands Managed' },
-              ].map((s) => (
-                <div key={s.num} style={{ textAlign: 'center' }}>
-                  <div className="svc-hero__stat-num svc-hero__stat-num--dark" style={{ color: '#7C3AED' }}>
-                    {s.num}
+              <div className="svc-hero__stats svc-hero__stats--light" style={{ justifyContent: 'flex-start' }}>
+                {[
+                  { num: '10M+', label: 'Total Reach' },
+                  { num: '6', label: 'Platforms' },
+                  { num: '4x', label: 'Engagement Lift' },
+                ].map((s) => (
+                  <div key={s.num} style={{ textAlign: 'center' }}>
+                    <div className="svc-hero__stat-num svc-hero__stat-num--dark" style={{ color: '#7C3AED' }}>{s.num}</div>
+                    <div className="svc-hero__stat-label svc-hero__stat-label--dark">{s.label}</div>
                   </div>
-                  <div className="svc-hero__stat-label svc-hero__stat-label--dark">{s.label}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            <img src="/images/social-hero.png" alt="Social media growth" className="svc-hero__img" loading="eager" data-aos="zoom-in" data-aos-delay="200" />
+            <div className="svc-hero__right" data-aos="fade-left">
+              <img src="/images/social-hero.png" alt="Social media growth" loading="eager" />
+            </div>
           </div>
         </div>
       </section>
