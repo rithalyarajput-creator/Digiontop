@@ -41,6 +41,9 @@ export default function Dashboard() {
   return (
     <div>
       <h1 className="admin-page-title">Dashboard</h1>
+      <p className="admin-muted" style={{ marginTop: -6, marginBottom: 22 }}>
+        Welcome back 👋 Here's an overview of your website's performance.
+      </p>
       {error && <div className="admin-alert admin-alert--error">{error}</div>}
       {loading && <p className="admin-muted">Loading dashboard…</p>}
 
