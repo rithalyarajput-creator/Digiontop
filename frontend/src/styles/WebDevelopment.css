@@ -262,15 +262,19 @@
   .wd-intro__grid { grid-template-columns: 1fr; gap: 24px; }
   .wd-services__grid { grid-template-columns: repeat(2, 1fr); }
   .wd-why__grid { grid-template-columns: repeat(2, 1fr); }
-  .wd-process__track { grid-template-columns: repeat(3, 1fr); gap: 24px 14px; }
+  .wd-process__track { grid-template-columns: repeat(3, 1fr); gap: 30px 14px; }
   .wd-process__track::before { display: none; }
+  .wd-step::after { display: none; }
   .wd-faq__inner { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (max-width: 560px) {
   .wd-hero { padding: 50px 0 60px; }
   .wd-services__grid { grid-template-columns: 1fr; }
   .wd-why__grid { grid-template-columns: 1fr; }
-  .wd-process__track { grid-template-columns: repeat(2, 1fr); }
+  .wd-process__track { grid-template-columns: repeat(2, 1fr); gap: 30px 16px; }
+  .wd-step::after { display: none; }      /* no horizontal connector lines on phone */
+  .wd-step__num { width: 54px; height: 54px; }
+  .wd-step h3 { font-size: 0.95rem; }
   .wd-hero__stats { gap: 24px; }
   .wd-float { display: none; }
   .wd-cta__box { padding: 44px 22px; border-radius: 20px; }
