@@ -7,21 +7,28 @@ import '../../styles/SubService.css'
 
 /* Reusable layout for the 8 E-Commerce sub-service pages.
    Each page passes its own data — same animated structure, distinct content. */
-export default function MarketplacePage({ tag, icon, titleA, titleB, intro, intro2, services, benefits, ctaTitle, ctaText }) {
+export default function MarketplacePage({ tag, icon, titleA, titleB, intro, intro2, services, benefits, ctaTitle, ctaText, heroImg }) {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
-      {/* HERO */}
+      {/* HERO — split with image */}
       <section className="ss-hero">
         <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />
-        <div className="ss-container" style={{ position: 'relative', textAlign: 'center' }} data-aos="fade-up">
-          <span className="ss-tag">{icon} {tag}</span>
-          <h1 className="ss-hero__title" style={{ maxWidth: 860, margin: '0 auto 18px' }}>{titleA} <span>{titleB}</span></h1>
-          <p className="ss-hero__sub" style={{ margin: '0 auto 28px' }}>{intro}</p>
-          <div className="ss-hero__actions" style={{ justifyContent: 'center' }}>
-            <Link to="/contact" className="ss-btn ss-btn--primary">Get Started <FiArrowRight /></Link>
-            <Link to="/contact" className="ss-btn ss-btn--ghost">Free Consultation</Link>
+        <div className="ss-container ds-hero" style={{ position: 'relative' }}>
+          <div data-aos="fade-right">
+            <span className="ss-tag">{icon} {tag}</span>
+            <h1 className="ss-hero__title">{titleA} <span>{titleB}</span></h1>
+            <p className="ss-hero__sub">{intro}</p>
+            <div className="ss-hero__actions">
+              <Link to="/contact" className="ss-btn ss-btn--primary">Get Started <FiArrowRight /></Link>
+              <Link to="/contact" className="ss-btn ss-btn--ghost">Free Consultation</Link>
+            </div>
           </div>
+          {heroImg && (
+            <div className="ec-hero__media" data-aos="fade-left">
+              <img src={heroImg} alt={tag} loading="eager" />
+            </div>
+          )}
         </div>
       </section>
 
