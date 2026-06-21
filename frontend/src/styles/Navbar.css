@@ -385,9 +385,9 @@
 }
 .navbar__mega-panel-img {
   width: 170px; height: 120px;
-  object-fit: cover;
-  border-radius: 0;          /* sharp corners (reference look) */
-  background: #f4f4f4;
+  object-fit: contain;       /* show full illustration */
+  border-radius: 10px;
+  background: #fafafb;
   flex-shrink: 0;
 }
 .navbar__mega-panel-title {

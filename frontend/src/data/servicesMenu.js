@@ -7,7 +7,7 @@ export const SERVICES_MENU = [
     heading: 'SEO & Search Marketing',
     icon: 'seo',
     tagline: 'Rank #1 on Google with data-driven SEO.',
-    image: '/images/service-seo.png',
+    image: '/images/seo-hero.png',
     link: '/services/seo-services',
     items: [
       { label: 'Search Engine Optimization', path: '/services/seo-services' },
@@ -23,7 +23,7 @@ export const SERVICES_MENU = [
     heading: 'PPC & Paid Advertising',
     icon: 'ads',
     tagline: 'High-ROI paid campaigns across every platform.',
-    image: '/images/service-ads.png',
+    image: '/images/ppc-hero.png',
     link: '/services/ppc',
     items: [
       { label: 'PPC Management', path: '/services/ppc' },
@@ -38,7 +38,7 @@ export const SERVICES_MENU = [
     heading: 'Social Media & Content',
     icon: 'social',
     tagline: 'Grow & engage your audience on every platform.',
-    image: '/images/service-social.png',
+    image: '/images/social-hero.png',
     link: '/services/social-media-marketing',
     items: [
       { label: 'Social Media Marketing', path: '/services/social/social-media-marketing' },
@@ -54,7 +54,7 @@ export const SERVICES_MENU = [
     heading: 'Web Development',
     icon: 'web',
     tagline: 'High-converting websites & web apps.',
-    image: '/images/service-web.png',
+    image: '/images/webdev-hero.png',
     link: '/services/website-development',
     items: [
       { label: 'Custom Website Development', path: '/services/website-development' },
@@ -71,7 +71,7 @@ export const SERVICES_MENU = [
     heading: 'Mobile & Software',
     icon: 'app',
     tagline: 'Apps & software built to scale your business.',
-    image: '/images/service-web.png',
+    image: '/images/mobile-hero.png',
     link: '/services/mobile-software',
     items: [
       { label: 'Mobile App Development', path: '/services/mobile/mobile-app' },
@@ -88,7 +88,7 @@ export const SERVICES_MENU = [
     heading: 'E-Commerce Solutions',
     icon: 'ecommerce',
     tagline: 'Sell more on Amazon, Flipkart, Meesho & Shopify.',
-    image: '/images/service-ecommerce.png',
+    image: '/images/ecom-hero.png',
     link: '/services/ecommerce-solutions',
     items: [
       { label: 'Amazon Product Listing', path: '/services/ecom/amazon' },
@@ -105,7 +105,7 @@ export const SERVICES_MENU = [
     heading: 'Creative & Branding',
     icon: 'branding',
     tagline: 'Brands & creatives people remember.',
-    image: '/images/service-ads.png',
+    image: '/images/creative-hero.png',
     link: '/services/creative-branding',
     items: [
       { label: 'Branding & Identity', path: '/services/branding-identity' },
