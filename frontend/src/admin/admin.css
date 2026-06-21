@@ -685,3 +685,21 @@
   font-size: 0.6rem; font-weight: 800; color: #b8b8c2; letter-spacing: 0.05em;
 }
 .admin-blog-title__text { font-weight: 600; line-height: 1.35; }
+
+/* Leads table — fit columns so Actions never gets cut */
+.admin-table--leads { table-layout: fixed; width: 100%; min-width: 0; }
+.admin-table--leads th, .admin-table--leads td { word-break: break-word; }
+.admin-table--leads th:nth-child(1), .admin-table--leads td:nth-child(1) { width: 13%; }   /* Name */
+.admin-table--leads th:nth-child(2), .admin-table--leads td:nth-child(2) { width: 20%; }   /* Email */
+.admin-table--leads th:nth-child(3), .admin-table--leads td:nth-child(3) { width: 13%; }   /* Phone */
+.admin-table--leads th:nth-child(4), .admin-table--leads td:nth-child(4) { width: 12%; }   /* Service */
+.admin-table--leads th:nth-child(5), .admin-table--leads td:nth-child(5) { width: 16%; }   /* Message */
+.admin-table--leads th:nth-child(6), .admin-table--leads td:nth-child(6) { width: 10%; }   /* Status */
+.admin-table--leads th:nth-child(7), .admin-table--leads td:nth-child(7) { width: 9%; }    /* Date */
+.admin-table--leads th:nth-child(8), .admin-table--leads td:nth-child(8) { width: 7%; }    /* Actions */
+.admin-table--leads .admin-status-select { width: 100%; min-width: 0; }
+.admin-lead-msg {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden; line-height: 1.4;
+}
+.admin-table--leads .admin-actions { flex-wrap: wrap; gap: 6px; }

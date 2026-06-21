@@ -123,7 +123,7 @@ export default function Leads() {
       </div>
 
       <div className="admin-table-wrap">
-        <table className="admin-table">
+        <table className="admin-table admin-table--leads">
           <thead>
             <tr><th>Name</th><th>Email</th><th>Phone</th><th>Service</th><th>Message</th><th>Status</th><th>Date</th><th>Actions</th></tr>
           </thead>
@@ -138,7 +138,7 @@ export default function Leads() {
                 <td>{l.email}</td>
                 <td>{l.phone || '—'}</td>
                 <td>{l.service_interested || '—'}</td>
-                <td><div className="admin-muted" style={{ maxWidth: 220 }} title={l.message}>{l.message || '—'}</div></td>
+                <td><div className="admin-lead-msg admin-muted" title={l.message}>{l.message || '—'}</div></td>
                 <td>
                   <select
                     className={`admin-status-select admin-status-select--${l.status}`}
