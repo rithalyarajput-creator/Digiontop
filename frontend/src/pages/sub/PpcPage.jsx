@@ -34,11 +34,8 @@ export default function PpcPage() {
               <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Ad Audit</Link>
             </div>
           </div>
-          <div className="ds-stats" data-aos="fade-left">
-            <div className="ds-stat"><b>ROAS</b><span>Focused</span></div>
-            <div className="ds-stat"><b>Google</b><span>&amp; Meta Ads</span></div>
-            <div className="ds-stat"><b>+Leads</b><span>More Conversions</span></div>
-            <div className="ds-stat"><b>Data</b><span>Driven</span></div>
+          <div className="ec-hero__media" data-aos="fade-left">
+            <img src="/images/ppc-hero.png" alt="PPC & paid advertising" loading="eager" />
           </div>
         </div>
       </section>
