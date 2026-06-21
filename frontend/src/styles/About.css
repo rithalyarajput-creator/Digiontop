@@ -567,17 +567,53 @@
 .ab-intro__grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 44px; align-items: start; }
 .ab-intro p { color: #5a6273; line-height: 1.8; font-size: 1.04rem; margin: 0 0 16px; }
 
-/* WHAT WE DO */
-.ab-do { padding: 80px 0; background: #fafafb; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-.ab-do__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.ab-do__card { background: #fff; border: 1px solid #ececf1; border-radius: 18px; padding: 28px 24px; transition: transform 0.25s ease, box-shadow 0.25s ease; position: relative; overflow: hidden; }
-.ab-do__card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #FFD24A, #F5A800); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
-.ab-do__card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(20,24,43,0.1); }
-.ab-do__card:hover::before { transform: scaleX(1); }
-.ab-do__icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #FFF3CC, #FFE49A); color: #c47f00; font-size: 23px; margin-bottom: 18px; transition: all 0.25s ease; }
-.ab-do__card:hover .ab-do__icon { background: linear-gradient(135deg, #FFD24A, #F5A800); color: #1a1a1a; transform: scale(1.05) rotate(-4deg); }
-.ab-do__card h3 { font-size: 1.05rem; font-weight: 800; margin: 0 0 8px; color: #14182b; }
-.ab-do__card p { font-size: 0.9rem; color: #6b7280; line-height: 1.6; margin: 0; }
+/* WHAT WE DO — premium animated cards */
+.ab-do { padding: 84px 0; background: #fafafb; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.ab-do__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.ab-do__card {
+  position: relative; overflow: hidden;
+  background: #fff; border: 1px solid #ececf1; border-radius: 20px;
+  padding: 32px 26px 30px;
+  box-shadow: 0 8px 24px rgba(20,24,43,0.05);
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+/* big faint number watermark */
+.ab-do__num {
+  position: absolute; top: 14px; right: 20px;
+  font-size: 2.6rem; font-weight: 900; line-height: 1;
+  color: #14182b; opacity: 0.06; letter-spacing: -0.04em;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+/* gradient wash that slides up on hover */
+.ab-do__card::after {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(160deg, #FFD24A, #F5A800);
+  transform: translateY(101%); transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.ab-do__card > * { position: relative; z-index: 1; }
+.ab-do__card:hover { transform: translateY(-8px); border-color: transparent; box-shadow: 0 26px 50px rgba(245,168,0,0.28); }
+.ab-do__card:hover::after { transform: translateY(0); }
+.ab-do__card:hover .ab-do__num { opacity: 0.18; color: #1a1a1a; }
+
+.ab-do__icon {
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px;
+  background: linear-gradient(135deg, #FFF3CC, #FFE49A); color: #c47f00; font-size: 25px; margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+.ab-do__card:hover .ab-do__icon { background: #14182b; color: #FFD874; transform: scale(1.08) rotate(-6deg); }
+.ab-do__card h3 { font-size: 1.1rem; font-weight: 800; margin: 0 0 10px; color: #14182b; transition: color 0.3s ease; }
+.ab-do__card p { font-size: 0.92rem; color: #6b7280; line-height: 1.65; margin: 0; transition: color 0.3s ease; }
+.ab-do__card:hover h3 { color: #1a1a1a; }
+.ab-do__card:hover p { color: #5a4500; }
+/* arrow appears on hover */
+.ab-do__arrow {
+  display: inline-grid; place-items: center;
+  width: 36px; height: 36px; margin-top: 18px; border-radius: 50%;
+  background: rgba(20,24,43,0.08); color: #14182b; font-size: 16px;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+.ab-do__card:hover .ab-do__arrow { opacity: 1; transform: translateX(0); background: #14182b; color: #FFD874; }
 
 /* MISSION & VISION — clean white cards with accent top strip */
 .ab-mv { padding: 84px 0; background: #fafafb; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }

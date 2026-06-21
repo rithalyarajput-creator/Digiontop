@@ -221,9 +221,11 @@ export default function About() {
           <div className="ab-do__grid">
             {WHAT_WE_DO.map((d, i) => (
               <div className="ab-do__card" key={d.title} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
+                <span className="ab-do__num">0{i + 1}</span>
                 <span className="ab-do__icon">{d.icon}</span>
                 <h3>{d.title}</h3>
                 <p>{d.desc}</p>
+                <span className="ab-do__arrow"><FiArrowRight /></span>
               </div>
             ))}
           </div>
