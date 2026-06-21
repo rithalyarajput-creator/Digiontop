@@ -12,6 +12,8 @@ const GALLERY = [
   '/images/work/post-2.jpg',
   '/images/work/creative-jhumka.jpg',
   '/images/work/creative-2.jpg',
+  '/images/work/creative-hairclip.jpg',
+  '/images/work/creative-tradition.jpg',
 ]
 
 export default function GraphicDesign() {

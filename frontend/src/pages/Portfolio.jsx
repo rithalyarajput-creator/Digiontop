@@ -66,6 +66,10 @@ const SECTIONS = [
     items: [
       { id: 'po1', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/post-1.jpg' },
       { id: 'po2', title: 'Brand Campaign', tag: 'Creative Post', image: '/images/work/post-2.jpg' },
+      { id: 'po3', title: 'Jhumka Collection', tag: 'Product Creative', image: '/images/work/creative-jhumka.jpg' },
+      { id: 'po4', title: 'Microwave Bowl Set', tag: 'Product Creative', image: '/images/work/creative-2.jpg' },
+      { id: 'po5', title: 'Gold Hair Clips', tag: 'Product Creative', image: '/images/work/creative-hairclip.jpg' },
+      { id: 'po6', title: 'Traditional Jewellery', tag: 'Product Creative', image: '/images/work/creative-tradition.jpg' },
     ],
   },
   {
