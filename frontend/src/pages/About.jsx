@@ -236,6 +236,7 @@ export default function About() {
       <section className="ab-mv">
         <div className="about-container ab-mv__grid">
           <div className="ab-mv__card ab-mv__card--mission" data-aos="fade-up">
+            <img src="/images/mission-target.png" alt="" className="ab-mv__img" loading="lazy" />
             <span className="ab-mv__icon"><FiTarget /></span>
             <h3>Our Mission</h3>
             <p>
