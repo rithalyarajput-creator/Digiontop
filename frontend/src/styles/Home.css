@@ -1601,3 +1601,45 @@ a {
 @media (max-width: 480px) {
   .ourwork__tab { flex: 1 1 100%; }
 }
+
+/* ============================================================
+   Home Hero — full-width banner image with overlay content
+   ============================================================ */
+.hero--banner {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 60px 24px;
+}
+.hero__bg-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  z-index: 0;
+}
+/* dark gradient so text (on the left) is readable over the image */
+.hero__overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(8,10,18,0.92) 0%, rgba(8,10,18,0.7) 42%, rgba(8,10,18,0.25) 70%, rgba(8,10,18,0.1) 100%);
+}
+.hero__banner-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  padding-left: 8px;
+}
+.hero__banner-content .hero__headline { font-size: clamp(2.6rem, 6vw, 4.2rem); }
+.hero__banner-content .hero__stats-row { margin-top: 40px; }
+
+@media (max-width: 768px) {
+  .hero--banner { min-height: 520px; padding: 50px 18px; text-align: center; }
+  .hero__bg-img { object-position: center; }
+  .hero__overlay { background: linear-gradient(180deg, rgba(8,10,18,0.85) 0%, rgba(8,10,18,0.72) 100%); }
+  .hero__banner-content { padding-left: 0; }
+  .hero__banner-content .hero__badge,
+  .hero__banner-content .hero__ctas,
+  .hero__banner-content .hero__stats-row { justify-content: center; }
+  .hero__banner-content .hero__subheadline { margin-left: auto; margin-right: auto; }
+}
