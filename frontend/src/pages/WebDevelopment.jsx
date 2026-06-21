@@ -112,15 +112,15 @@ export default function WebDevelopment() {
 
           {/* floating browser mockup */}
           <div className="wd-hero__visual" data-aos="fade-left" data-aos-delay="150">
-            <div className="wd-mock">
-              <div className="wd-mock__bar"><span /><span /><span /><i>digiontop.com</i></div>
-              <div className="wd-mock__body">
-                <div className="wd-mock__nav"><span className="wd-mock__logo" /><span className="wd-mock__menu"><i /><i /><i /></span></div>
-                <div className="wd-mock__hero">
-                  <span className="wd-mock__h1" /><span className="wd-mock__h2" /><span className="wd-mock__cta" />
+            {/* Laptop with a real website screenshot on screen */}
+            <div className="wd-laptop">
+              <div className="wd-laptop__screen">
+                <div className="wd-laptop__bar"><span /><span /><span /><i>smiledentalcarecentre.com</i></div>
+                <div className="wd-laptop__shot">
+                  <img src="/images/work/smile-dental.png" alt="Website we built" loading="lazy" />
                 </div>
-                <div className="wd-mock__cards"><span /><span /><span /></div>
               </div>
+              <div className="wd-laptop__base" />
             </div>
             <div className="wd-float wd-float--a"><FiZap /> Fast</div>
             <div className="wd-float wd-float--b"><FiSearch /> SEO Ready</div>
@@ -179,8 +179,8 @@ export default function WebDevelopment() {
       <section className="wd-why">
         <div className="wd-container">
           <div className="wd-head" data-aos="fade-up">
-            <span className="wd-eyebrow wd-eyebrow--light">Why Choose DigionTop?</span>
-            <h2 className="wd-h2 wd-h2--light">Built for Performance. Designed for Growth.</h2>
+            <span className="wd-eyebrow">Why Choose DigionTop?</span>
+            <h2 className="wd-h2">Built for Performance. Designed for Growth.</h2>
           </div>
           <div className="wd-why__grid">
             {WHY.map((w, i) => (
