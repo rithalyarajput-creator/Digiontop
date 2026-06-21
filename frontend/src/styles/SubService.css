@@ -166,3 +166,7 @@
 
 /* pure white hero variant */
 .ss-hero--white { background: #fff; }
+
+/* ── Mobile & Software: approach number ── */
+.ms-num { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 13px; background: linear-gradient(135deg, #FFD24A, #F5A800); color: #1a1a1a; font-size: 1.05rem; font-weight: 900; box-shadow: 0 8px 20px rgba(245,168,0,0.3); }
+.uiux-card:hover .ms-num { background: #14182b; color: #FFD874; }
