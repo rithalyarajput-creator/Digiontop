@@ -34,8 +34,7 @@ export default function EcommercePage() {
   return (
     <main className="ss">
       {/* HERO */}
-      <section className="ss-hero">
-        <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />
+      <section className="ss-hero ss-hero--white">
         <div className="ss-container ds-hero" style={{ position: 'relative' }}>
           <div data-aos="fade-right">
             <span className="ss-tag"><FiShoppingBag /> E-Commerce Solutions</span>
