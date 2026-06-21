@@ -14,6 +14,14 @@ import About from './pages/About';
 import WebDevelopment from './pages/WebDevelopment';
 import ShopifyDevelopment from './pages/ShopifyDevelopment';
 import CreativeBranding from './pages/CreativeBranding';
+import BrandingIdentity from './pages/sub/BrandingIdentity';
+import UiUxDesign from './pages/sub/UiUxDesign';
+import VideoProduction from './pages/sub/VideoProduction';
+import DigitalStrategy from './pages/sub/DigitalStrategy';
+import AnalyticsInsights from './pages/sub/AnalyticsInsights';
+import LogoDesign from './pages/sub/LogoDesign';
+import GraphicDesign from './pages/sub/GraphicDesign';
+import CroServices from './pages/sub/CroServices';
 import SEOServices from './pages/SEOServices';
 import SocialMedia from './pages/SocialMedia';
 import ECommerce from './pages/ECommerce';
@@ -49,6 +57,14 @@ function PublicSite() {
         <Route path="/services/web-development" element={<WebDevelopment />} />
         <Route path="/services/shopify-development" element={<ShopifyDevelopment />} />
         <Route path="/services/creative-branding" element={<CreativeBranding />} />
+        <Route path="/services/branding-identity" element={<BrandingIdentity />} />
+        <Route path="/services/ui-ux-design" element={<UiUxDesign />} />
+        <Route path="/services/video-production" element={<VideoProduction />} />
+        <Route path="/services/digital-strategy" element={<DigitalStrategy />} />
+        <Route path="/services/analytics-insights" element={<AnalyticsInsights />} />
+        <Route path="/services/logo-design" element={<LogoDesign />} />
+        <Route path="/services/graphic-design" element={<GraphicDesign />} />
+        <Route path="/services/cro-services" element={<CroServices />} />
         <Route path="/services/seo-services" element={<SEOServices />} />
         <Route path="/services/social-media-marketing" element={<SocialMedia />} />
         <Route path="/services/ecommerce-solutions" element={<ECommerce />} />
