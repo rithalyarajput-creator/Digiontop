@@ -40,8 +40,7 @@ export default function MobileSoftware() {
   return (
     <main className="ss">
       {/* HERO */}
-      <section className="ss-hero">
-        <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />
+      <section className="ss-hero ss-hero--white">
         <div className="ss-container ds-hero" style={{ position: 'relative' }}>
           <div data-aos="fade-right">
             <span className="ss-tag"><FiSmartphone /> Mobile &amp; Software</span>
@@ -52,11 +51,8 @@ export default function MobileSoftware() {
               <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Consultation</Link>
             </div>
           </div>
-          <div className="ds-stats" data-aos="fade-left">
-            <div className="ds-stat"><b>iOS</b><span>&amp; Android</span></div>
-            <div className="ds-stat"><b>SaaS</b><span>Platforms</span></div>
-            <div className="ds-stat"><b>Cloud</b><span>Ready</span></div>
-            <div className="ds-stat"><b>API</b><span>Integrations</span></div>
+          <div className="ec-hero__media" data-aos="fade-left">
+            <img src="/images/mobile-hero.png" alt="Mobile & software solutions" loading="eager" />
           </div>
         </div>
       </section>

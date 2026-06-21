@@ -40,7 +40,7 @@
 .sf-btn--light:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
 
 /* ── HERO ── */
-.sf-hero { position: relative; overflow: hidden; background: linear-gradient(180deg, #f4fbf7, #fff); padding: 72px 0 84px; border-bottom: 1px solid var(--line); }
+.sf-hero { position: relative; overflow: hidden; background: #fff; padding: 72px 0 84px; border-bottom: 1px solid var(--line); }
 .sf-hero__glow { position: absolute; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(91,179,129,0.25), transparent 70%); top: -160px; right: -120px; filter: blur(20px); }
 .sf-hero__inner { position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 50px; align-items: center; }
 .sf-hero__title { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.08; margin: 0 0 18px; }

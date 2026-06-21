@@ -37,11 +37,9 @@
 .ss-btn--light { background: #fff; color: var(--gold-d); }
 .ss-btn--light:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
 
-/* HERO (shared) */
-.ss-hero { position: relative; overflow: hidden; padding: 92px 0 80px; background: linear-gradient(180deg, #fffdf6, #fff); }
-.ss-hero__orb { position: absolute; border-radius: 50%; filter: blur(85px); opacity: 0.55; pointer-events: none; }
-.ss-hero__orb--1 { width: 400px; height: 400px; background: radial-gradient(circle, #FFD874, transparent 70%); top: -140px; left: -70px; }
-.ss-hero__orb--2 { width: 320px; height: 320px; background: radial-gradient(circle, #FFE9A8, transparent 70%); top: -90px; right: -60px; }
+/* HERO (shared) — pure white, consistent across all service pages */
+.ss-hero { position: relative; overflow: hidden; padding: 92px 0 80px; background: #fff; }
+.ss-hero__orb { display: none; }
 .ss-hero__title { font-size: clamp(2.1rem, 4.8vw, 3.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.08; margin: 0 0 18px; }
 .ss-hero__title span { background: linear-gradient(135deg, #F5A800, #E08E00); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .ss-hero__sub { font-size: 1.1rem; color: var(--muted); line-height: 1.65; margin: 0 0 28px; max-width: 560px; }
@@ -170,3 +168,6 @@
 /* ── Mobile & Software: approach number ── */
 .ms-num { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 13px; background: linear-gradient(135deg, #FFD24A, #F5A800); color: #1a1a1a; font-size: 1.05rem; font-weight: 900; box-shadow: 0 8px 20px rgba(245,168,0,0.3); }
 .uiux-card:hover .ms-num { background: #14182b; color: #FFD874; }
+
+/* wider hero image for dense illustrations (mobile/software) */
+.ss .ec-hero__media img { max-width: 520px; }

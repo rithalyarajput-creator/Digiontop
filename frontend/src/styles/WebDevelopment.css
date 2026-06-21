@@ -48,7 +48,7 @@
 .wd-btn--dark:hover { transform: translateY(-3px); filter: brightness(1.15); }
 
 /* ── HERO ── */
-.wd-hero { position: relative; overflow: hidden; background: linear-gradient(180deg, #fffdf6, #fff); padding: 70px 0 80px; border-bottom: 1px solid var(--line); }
+.wd-hero { position: relative; overflow: hidden; background: #fff; padding: 70px 0 80px; border-bottom: 1px solid var(--line); }
 .wd-hero__bg { position: absolute; inset: 0; pointer-events: none; }
 .wd-hero__orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; }
 .wd-hero__orb--1 { width: 420px; height: 420px; background: radial-gradient(circle, #FFD874, transparent 70%); top: -120px; right: -80px; }
