@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import WebDevelopment from './pages/WebDevelopment';
 import ShopifyDevelopment from './pages/ShopifyDevelopment';
+import CreativeBranding from './pages/CreativeBranding';
 import SEOServices from './pages/SEOServices';
 import SocialMedia from './pages/SocialMedia';
 import ECommerce from './pages/ECommerce';
@@ -47,6 +48,7 @@ function PublicSite() {
         <Route path="/services/website-development" element={<WebDevelopment />} />
         <Route path="/services/web-development" element={<WebDevelopment />} />
         <Route path="/services/shopify-development" element={<ShopifyDevelopment />} />
+        <Route path="/services/creative-branding" element={<CreativeBranding />} />
         <Route path="/services/seo-services" element={<SEOServices />} />
         <Route path="/services/social-media-marketing" element={<SocialMedia />} />
         <Route path="/services/ecommerce-solutions" element={<ECommerce />} />

@@ -1,0 +1,131 @@
+/* ============================================================
+   CreativeBranding.css — Creative & Branding service page
+   Creative theme: violet/purple + brand yellow accent
+   ============================================================ */
+.cb-page {
+  --violet: #7C3AED;
+  --violet-d: #5b21b6;
+  --gold: #F5A800;
+  --ink: #1b1530;
+  --muted: #6b6580;
+  --line: #ece8f5;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: #fff;
+  overflow-x: clip;
+}
+.cb-page * { box-sizing: border-box; }
+.cbp-container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+.cbp-h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+.cbp-h2--light { color: #fff; }
+.cbp-eyebrow { display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); margin-bottom: 12px; }
+.cbp-eyebrow--light { color: #d6c2ff; }
+.cbp-head { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+.cbp-tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--violet-d); background: #f3eeff; border: 1px solid #e0d4ff;
+  padding: 7px 16px; border-radius: 50px; margin-bottom: 18px;
+}
+
+/* Buttons */
+.cbp-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 50px; font-size: 14px; font-weight: 800; text-decoration: none; transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease; }
+.cbp-btn--primary { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; box-shadow: 0 10px 26px rgba(124,58,237,0.4); }
+.cbp-btn--primary:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(124,58,237,0.5); }
+.cbp-btn--ghost { background: transparent; color: var(--violet-d); border: 1.5px solid #d6c2ff; }
+.cbp-btn--ghost:hover { background: #f3eeff; }
+.cbp-btn--light { background: #fff; color: var(--violet-d); }
+.cbp-btn--light:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,0.2); }
+.cbp-btn--outline { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.5); }
+.cbp-btn--outline:hover { background: rgba(255,255,255,0.12); }
+
+/* ── HERO ── */
+.cbp-hero { position: relative; overflow: hidden; text-align: center; background: linear-gradient(180deg, #faf7ff, #fff); padding: 96px 0 84px; }
+.cbp-hero__blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; pointer-events: none; }
+.cbp-hero__blob--1 { width: 380px; height: 380px; background: radial-gradient(circle, #c4b5fd, transparent 70%); top: -130px; left: -70px; }
+.cbp-hero__blob--2 { width: 320px; height: 320px; background: radial-gradient(circle, #FFE49A, transparent 70%); top: -90px; right: -60px; }
+.cbp-hero__blob--3 { width: 300px; height: 300px; background: radial-gradient(circle, #f0abfc, transparent 70%); bottom: -160px; left: 45%; opacity: 0.35; }
+.cbp-hero__inner { position: relative; }
+.cbp-hero__title { font-size: clamp(2.1rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.08; margin: 0 auto 18px; max-width: 880px; }
+.cbp-hero__title span { background: linear-gradient(135deg, #8b5cf6, #F5A800); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.cbp-hero__sub { font-size: 1.1rem; color: var(--muted); line-height: 1.65; max-width: 620px; margin: 0 auto 28px; }
+.cbp-hero__actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+.cbp-hero__chips { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cbp-hero__chips span { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--violet-d); background: #fff; border: 1px solid var(--line); padding: 8px 15px; border-radius: 50px; }
+
+/* ── INTRO ── */
+.cbp-intro { padding: 72px 0; }
+.cbp-intro .cbp-h2 { text-align: center; max-width: 720px; margin: 0 auto 26px; }
+.cbp-intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.cbp-intro p { color: var(--muted); line-height: 1.8; font-size: 1.02rem; margin: 0; }
+
+/* ── OFFER ── */
+.cbp-offer { padding: 80px 0; background: #faf8ff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cbp-offer__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cbp-card { position: relative; overflow: hidden; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 26px 22px; box-shadow: 0 8px 24px rgba(27,21,48,0.05); transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease; }
+.cbp-card::after { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(160deg, #8b5cf6, #6d28d9); transform: translateY(101%); transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
+.cbp-card > * { position: relative; z-index: 1; }
+.cbp-card:hover { transform: translateY(-8px); border-color: transparent; box-shadow: 0 26px 50px rgba(124,58,237,0.26); }
+.cbp-card:hover::after { transform: translateY(0); }
+.cbp-card__icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: #f3eeff; color: var(--violet-d); font-size: 23px; margin-bottom: 16px; transition: all 0.3s ease; }
+.cbp-card:hover .cbp-card__icon { background: rgba(255,255,255,0.22); color: #fff; transform: scale(1.08) rotate(-6deg); }
+.cbp-card h3 { font-size: 1.04rem; font-weight: 800; margin: 0 0 8px; color: var(--ink); transition: color 0.3s ease; }
+.cbp-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin: 0; transition: color 0.3s ease; }
+.cbp-card:hover h3 { color: #fff; }
+.cbp-card:hover p { color: rgba(255,255,255,0.88); }
+
+/* ── WHY IT MATTERS (dark violet) ── */
+.cbp-matters { padding: 84px 0; background: linear-gradient(135deg, #2a1758, #1b1037); color: #fff; }
+.cbp-matters__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cbp-matters__item { display: flex; align-items: center; gap: 14px; padding: 20px 22px; border-radius: 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); font-size: 1rem; font-weight: 700; transition: background 0.2s ease, transform 0.2s ease; }
+.cbp-matters__item:hover { background: rgba(245,168,0,0.14); transform: translateY(-4px); }
+.cbp-matters__icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #FFD24A, #F5A800); color: #1a1a1a; font-size: 19px; flex-shrink: 0; }
+.cbp-matters__note { text-align: center; max-width: 600px; margin: 32px auto 0; color: rgba(255,255,255,0.72); line-height: 1.7; font-size: 1.02rem; }
+
+/* ── APPROACH ── */
+.cbp-approach { padding: 84px 0; }
+.cbp-approach__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cbp-approach__card { position: relative; background: #faf8ff; border: 1px solid var(--line); border-radius: 18px; padding: 30px 24px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.cbp-approach__card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(124,58,237,0.12); }
+.cbp-approach__num { display: inline-grid; place-items: center; width: 50px; height: 50px; border-radius: 14px; background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; font-size: 1.1rem; font-weight: 900; margin-bottom: 16px; box-shadow: 0 8px 20px rgba(124,58,237,0.3); }
+.cbp-approach__card h3 { font-size: 1.05rem; font-weight: 800; margin: 0 0 8px; }
+.cbp-approach__card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* ── INDUSTRIES ── */
+.cbp-industries { padding: 0 0 84px; }
+.cbp-industries__grid { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+.cbp-pill { padding: 13px 26px; border-radius: 50px; background: #faf8ff; border: 1.5px solid var(--line); font-size: 0.95rem; font-weight: 700; color: var(--ink); transition: all 0.2s ease; cursor: default; }
+.cbp-pill:hover { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; border-color: transparent; transform: translateY(-3px); }
+
+/* ── WHY CHOOSE ── */
+.cbp-why { padding: 84px 0; background: #faf8ff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cbp-why__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 880px; margin: 0 auto; }
+.cbp-why__item { display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-radius: 14px; background: #fff; border: 1px solid var(--line); font-size: 1rem; font-weight: 700; box-shadow: 0 6px 18px rgba(27,21,48,0.04); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.cbp-why__item:hover { transform: translateX(6px); box-shadow: 0 14px 34px rgba(124,58,237,0.14); }
+.cbp-why__item svg { color: #fff; background: linear-gradient(135deg, #8b5cf6, #6d28d9); border-radius: 50%; padding: 7px; width: 34px; height: 34px; flex-shrink: 0; }
+
+/* ── CTA ── */
+.cbp-cta { padding: 0 0 90px; }
+.cbp-cta__box { position: relative; overflow: hidden; text-align: center; background: linear-gradient(135deg, #2a1758 0%, #4c1d95 60%, #6d28d9 100%); border-radius: 28px; padding: 64px 32px; box-shadow: 0 30px 70px rgba(27,21,48,0.32); }
+.cbp-cta__box::before { content: ''; position: absolute; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(245,168,0,0.3), transparent 70%); top: -120px; right: -80px; }
+.cbp-cta__emoji { font-size: 2.4rem; display: block; margin-bottom: 10px; position: relative; }
+.cbp-cta__box h2 { position: relative; font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 900; color: #fff; margin: 0 0 16px; }
+.cbp-cta__box p { position: relative; max-width: 640px; margin: 0 auto 28px; color: rgba(255,255,255,0.8); line-height: 1.7; }
+.cbp-cta__actions { position: relative; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 920px) {
+  .cbp-intro__grid { grid-template-columns: 1fr; gap: 20px; }
+  .cbp-offer__grid { grid-template-columns: repeat(2, 1fr); }
+  .cbp-matters__grid { grid-template-columns: repeat(2, 1fr); }
+  .cbp-approach__grid { grid-template-columns: repeat(2, 1fr); }
+  .cbp-why__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .cbp-hero { padding: 56px 0 60px; }
+  .cbp-offer__grid { grid-template-columns: 1fr; }
+  .cbp-matters__grid { grid-template-columns: 1fr; }
+  .cbp-approach__grid { grid-template-columns: 1fr; }
+  .cbp-cta__box { padding: 44px 22px; border-radius: 20px; }
+}

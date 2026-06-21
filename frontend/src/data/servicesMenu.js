@@ -106,7 +106,7 @@ export const SERVICES_MENU = [
     icon: 'branding',
     tagline: 'Brands & creatives people remember.',
     image: '/images/service-ads.png',
-    link: '/services/social-media-marketing',
+    link: '/services/creative-branding',
     items: [
       { label: 'Branding & Identity', path: '/services/social-media-marketing' },
       { label: 'UI/UX Design', path: '/services/website-development' },
