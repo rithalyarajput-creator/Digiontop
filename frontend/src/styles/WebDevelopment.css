@@ -72,7 +72,12 @@
 .wd-hero__stats span { font-size: 0.82rem; color: var(--muted); }
 
 /* browser mockup */
-.wd-hero__visual { position: relative; }
+.wd-hero__visual { position: relative; display: grid; place-items: center; }
+.wd-hero__img {
+  width: 100%; max-width: 560px; display: block;
+  filter: drop-shadow(0 30px 60px rgba(20,24,43,0.22));
+  animation: wd-bob 5s ease-in-out infinite;
+}
 
 /* Laptop mockup with real website screenshot */
 .wd-laptop { position: relative; max-width: 560px; margin: 0 auto; animation: wd-bob 5s ease-in-out infinite; }

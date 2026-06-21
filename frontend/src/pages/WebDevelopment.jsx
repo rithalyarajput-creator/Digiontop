@@ -112,16 +112,8 @@ export default function WebDevelopment() {
 
           {/* floating browser mockup */}
           <div className="wd-hero__visual" data-aos="fade-left" data-aos-delay="150">
-            {/* Laptop with a real website screenshot on screen */}
-            <div className="wd-laptop">
-              <div className="wd-laptop__screen">
-                <div className="wd-laptop__bar"><span /><span /><span /><i>smiledentalcarecentre.com</i></div>
-                <div className="wd-laptop__shot">
-                  <img src="/images/work/smile-dental.png" alt="Website we built" loading="lazy" />
-                </div>
-              </div>
-              <div className="wd-laptop__base" />
-            </div>
+            {/* Laptop + phone mockup image */}
+            <img src="/images/webdev-hero.png" alt="Websites we build" className="wd-hero__img" loading="eager" />
             <div className="wd-float wd-float--a"><FiZap /> Fast</div>
             <div className="wd-float wd-float--b"><FiSearch /> SEO Ready</div>
           </div>
