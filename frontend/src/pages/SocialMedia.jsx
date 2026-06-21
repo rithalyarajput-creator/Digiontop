@@ -90,8 +90,8 @@ const SOCIAL_SERVICES = [
   },
   {
     icon: <FiUsers size={26} />,
-    iconBg: '#F5F3FF',
-    iconColor: '#7C3AED',
+    iconBg: '#FFF3CC',
+    iconColor: '#c47f00',
     title: 'Influencer Marketing',
     desc: 'End-to-end influencer campaign management — from finding the right creators to negotiating deals, briefing, and measuring real-world ROI.',
     features: ['Micro & macro influencer outreach', 'Campaign briefing & management', 'UGC (user-generated content)', 'Performance tracking'],
@@ -136,7 +136,7 @@ export default function SocialMedia() {
               <h1 className="svc-hero__title svc-hero__title--dark">
                 Build a Brand People{' '}
                 <span style={{
-                  background: 'linear-gradient(135deg,#7C3AED,#DB2777)',
+                  background: 'linear-gradient(135deg,#FFD24A,#F5A800)',
                   WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                 }}>
                   Love & Follow
@@ -151,13 +151,13 @@ export default function SocialMedia() {
               <div className="svc-hero__actions">
                 <Link to="/contact" style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  padding: '13px 26px', borderRadius: '12px', background: 'linear-gradient(135deg,#7C3AED,#DB2777)',
+                  padding: '13px 26px', borderRadius: '12px', background: 'linear-gradient(135deg,#FFD24A,#F5A800)',
                   color: '#fff', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
-                  boxShadow: '0 6px 24px rgba(124,58,237,0.35)',
+                  boxShadow: '0 6px 24px rgba(245,168,0,0.4)',
                 }}>
                   Get a Free Social Audit <FiArrowRight size={16} />
                 </Link>
-                <Link to="/portfolio" className="btn btn-outline" style={{ borderColor: '#7C3AED', color: '#7C3AED' }}>
+                <Link to="/portfolio" className="btn btn-outline" style={{ borderColor: '#F5A800', color: '#c47f00' }}>
                   See Case Studies
                 </Link>
               </div>
@@ -169,7 +169,7 @@ export default function SocialMedia() {
                   { num: '4x', label: 'Engagement Lift' },
                 ].map((s) => (
                   <div key={s.num} style={{ textAlign: 'center' }}>
-                    <div className="svc-hero__stat-num svc-hero__stat-num--dark" style={{ color: '#7C3AED' }}>{s.num}</div>
+                    <div className="svc-hero__stat-num svc-hero__stat-num--dark" style={{ color: '#c47f00' }}>{s.num}</div>
                     <div className="svc-hero__stat-label svc-hero__stat-label--dark">{s.label}</div>
                   </div>
                 ))}
@@ -187,10 +187,10 @@ export default function SocialMedia() {
       <section className="section svc-section--white">
         <div className="container">
           <div className="svc-section-header" data-aos="fade-up">
-            <span className="section-tag" style={{ background: '#F5F3FF', color: '#7C3AED' }}>
+            <span className="section-tag" style={{ background: '#FFF3CC', color: '#c47f00' }}>
               What We Offer
             </span>
-            <div className="divider divider-center" style={{ background: 'linear-gradient(90deg,#7C3AED,#DB2777)' }} />
+            <div className="divider divider-center" style={{ background: 'linear-gradient(90deg,#FFD24A,#F5A800)' }} />
             <h2 className="h2" style={{ marginTop: '20px', marginBottom: '14px' }}>
               Every Platform. Every Format. Every Result.
             </h2>
@@ -240,10 +240,10 @@ export default function SocialMedia() {
       <section className="section svc-section--dark">
         <div className="container">
           <div className="svc-section-header" data-aos="fade-up">
-            <span className="section-tag" style={{ background: '#F5F3FF', color: '#7C3AED' }}>
+            <span className="section-tag" style={{ background: '#FFF3CC', color: '#c47f00' }}>
               Why It Works
             </span>
-            <div className="divider divider-center" style={{ background: 'linear-gradient(90deg,#7C3AED,#DB2777)' }} />
+            <div className="divider divider-center" style={{ background: 'linear-gradient(90deg,#FFD24A,#F5A800)' }} />
             <h2 className="h2" style={{ marginTop: '20px', marginBottom: '14px' }}>
               Social Media is Where Decisions Are Made
             </h2>
@@ -292,8 +292,8 @@ export default function SocialMedia() {
                 data-aos="fade-up"
                 data-aos-delay={i * 70}
               >
-                <div className="svc-checklist-icon" style={{ background: '#F5F3FF' }}>
-                  <span style={{ color: '#7C3AED' }}>{item.icon}</span>
+                <div className="svc-checklist-icon" style={{ background: '#FFF3CC' }}>
+                  <span style={{ color: '#c47f00' }}>{item.icon}</span>
                 </div>
                 <div className="svc-checklist-text">
                   <strong>{item.label}</strong>
@@ -319,12 +319,12 @@ export default function SocialMedia() {
           <div
             className="svc-cta__inner"
             data-aos="zoom-in"
-            style={{ background: 'linear-gradient(145deg,#0F172A 0%,#2d1554 55%,#7C3AED 100%)' }}
+            style={{ background: 'linear-gradient(145deg,#14182b 0%,#1f2540 100%)' }}
           >
             <div className="svc-cta__blob svc-cta__blob--1" />
             <div className="svc-cta__blob svc-cta__blob--2" />
             <div className="svc-cta__content">
-              <div className="svc-cta__badge" style={{ background: 'linear-gradient(135deg,#7C3AED,#DB2777)' }}>
+              <div className="svc-cta__badge" style={{ background: 'linear-gradient(135deg,#FFD24A,#F5A800)' }}>
                 <FiZap size={12} /> Social Growth Package
               </div>
               <h2 className="svc-cta__title">
@@ -340,9 +340,9 @@ export default function SocialMedia() {
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '8px',
                     padding: '14px 30px', borderRadius: '12px',
-                    background: 'linear-gradient(135deg,#7C3AED,#DB2777)',
+                    background: 'linear-gradient(135deg,#FFD24A,#F5A800)',
                     color: '#fff', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(124,58,237,0.45)',
+                    boxShadow: '0 6px 20px rgba(245,168,0,0.45)',
                   }}
                 >
                   Get Free Social Audit <FiArrowRight size={17} />
