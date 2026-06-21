@@ -22,9 +22,9 @@ import AnalyticsInsights from './pages/sub/AnalyticsInsights';
 import LogoDesign from './pages/sub/LogoDesign';
 import GraphicDesign from './pages/sub/GraphicDesign';
 import CroServices from './pages/sub/CroServices';
+import EcommercePage from './pages/EcommercePage';
 import SEOServices from './pages/SEOServices';
 import SocialMedia from './pages/SocialMedia';
-import ECommerce from './pages/ECommerce';
 import WhyUs from './pages/WhyUs';
 import Industries from './pages/Industries';
 import Testimonials from './pages/Testimonials';
@@ -67,7 +67,7 @@ function PublicSite() {
         <Route path="/services/cro-services" element={<CroServices />} />
         <Route path="/services/seo-services" element={<SEOServices />} />
         <Route path="/services/social-media-marketing" element={<SocialMedia />} />
-        <Route path="/services/ecommerce-solutions" element={<ECommerce />} />
+        <Route path="/services/ecommerce-solutions" element={<EcommercePage />} />
         <Route path="/why-us" element={<WhyUs />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/testimonials" element={<Testimonials />} />
