@@ -178,49 +178,32 @@ export default function About() {
         </div>
       </section>
 
-      {/* ══ 2. INTRO ══ */}
-      <section className="ab-intro">
-        <div className="about-container ab-intro__grid">
-          <div data-aos="fade-up">
-            <span className="ab-eyebrow">Who We Are</span>
-            <h2 className="ab-h2">Helping Businesses Build, Grow &amp; Scale Online</h2>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="100">
-            <p>
-              DigionTop Agency is a results-driven digital growth agency based in Delhi, dedicated to
-              helping businesses establish a powerful online presence and achieve sustainable growth.
-            </p>
-            <p>
-              We combine creativity, technology, and marketing expertise to deliver solutions that not
-              only look professional but also generate measurable business results. Our approach is simple —
-              understand your business, identify growth opportunities, and build digital solutions that create real impact.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 2b. OFFICE / ABOUT SPLIT ══ */}
+      {/* ══ 2. WHO WE ARE (image left + content right) ══ */}
       <section className="ab-split">
         <div className="about-container ab-split__inner">
           <div className="ab-split__media" data-aos="fade-right">
-            <img src="/images/digiontop-office.png" alt="DigionTop team" loading="lazy" />
+            <img src="/images/digiontop-office-wall.png" alt="DigionTop office" loading="lazy" />
             <div className="ab-split__badge">
               <b>Since 2024</b>
               <span>Delhi, India</span>
             </div>
           </div>
           <div className="ab-split__text" data-aos="fade-left">
-            <span className="ab-eyebrow">Inside DigionTop</span>
-            <h2 className="ab-h2">A Team That Treats Your Growth Like Our Own</h2>
+            <span className="ab-eyebrow">Who We Are</span>
+            <h2 className="ab-h2">Helping Businesses Build, Grow &amp; Scale Online</h2>
             <p>
-              DigionTop is a passionate team of designers, developers, and marketers working under
-              one roof in Delhi. We're not a faceless agency — we're a dedicated growth partner that
-              understands your business and builds digital solutions that actually move the needle.
+              DigionTop Agency is a results-driven digital growth agency based in Delhi, dedicated to
+              helping businesses establish a powerful online presence and achieve sustainable growth.
+            </p>
+            <p>
+              We combine creativity, technology, and marketing expertise to deliver solutions that not
+              only look professional but also generate measurable business results — understand your
+              business, identify growth opportunities, and build digital solutions that create real impact.
             </p>
             <ul className="ab-split__points">
               <li><FiCheck /> Senior-led team on every project</li>
               <li><FiCheck /> Transparent, honest communication</li>
-              <li><FiCheck /> Results you can measure & track</li>
+              <li><FiCheck /> Results you can measure &amp; track</li>
               <li><FiCheck /> Long-term partnership, not one-time work</li>
             </ul>
             <Link to="/contact" className="ab-btn ab-btn--primary">Work With Us <FiArrowRight /></Link>
