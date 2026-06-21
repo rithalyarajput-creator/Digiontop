@@ -6,7 +6,17 @@ import {
   FiArrowRight, FiArrowUpRight, FiCheck, FiSmartphone,
   FiTablet, FiCloud, FiCode, FiBox, FiLayers, FiServer, FiTrendingUp,
 } from 'react-icons/fi'
+import ServiceFaq from '../components/ServiceFaq'
+import RelatedServices from '../components/RelatedServices'
 import '../styles/SubService.css'
+
+const FAQS = [
+  { q: 'How long does it take to build an app or software?', a: 'Most mobile apps take 4–10 weeks; larger SaaS or custom systems can take longer depending on scope. We share a clear timeline upfront.' },
+  { q: 'Do you build for both iOS and Android?', a: 'Yes — native iOS, native Android, or cross-platform with Flutter for faster delivery and lower cost across both.' },
+  { q: 'Will I own the source code?', a: 'Absolutely. You get full ownership of your code, assets, and accounts — no lock-ins.' },
+  { q: 'Do you provide support after launch?', a: 'Yes, we offer ongoing maintenance, updates, monitoring, and DevOps support after deployment.' },
+  { q: 'Can you scale the app as my business grows?', a: 'Every solution is built on a scalable architecture designed to grow with your business.' },
+]
 
 const SERVICES = [
   { icon: <FiSmartphone />, t: 'Mobile App Development', d: 'Custom mobile apps that deliver seamless experiences and support business growth.' },
@@ -129,6 +139,12 @@ export default function MobileSoftware() {
           </div>
         </div>
       </section>
+
+      {/* FAQ + lead form */}
+      <ServiceFaq service="Mobile & Software" faqs={FAQS} />
+
+      {/* Related services */}
+      <RelatedServices categoryHeading="Mobile & Software" />
 
       {/* CTA */}
       <section className="ss-cta">

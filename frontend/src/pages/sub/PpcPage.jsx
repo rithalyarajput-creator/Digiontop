@@ -6,7 +6,17 @@ import {
   FiArrowRight, FiArrowUpRight, FiCheck, FiTrendingUp,
   FiTarget, FiSearch, FiShare2, FiFacebook, FiLinkedin, FiYoutube,
 } from 'react-icons/fi'
+import ServiceFaq from '../../components/ServiceFaq'
+import RelatedServices from '../../components/RelatedServices'
 import '../../styles/SubService.css'
+
+const FAQS = [
+  { q: 'How soon do paid ads deliver results?', a: 'Paid ads can drive leads from day one. We optimize over the first 2–4 weeks to maximize ROI and lower cost-per-lead.' },
+  { q: 'Which platforms do you run ads on?', a: 'Google Ads (search, display, shopping), Meta (Facebook/Instagram), LinkedIn, and YouTube.' },
+  { q: 'Is ad spend included in your pricing?', a: 'Our management fee is separate from your ad budget. We help you set a budget that fits your goals.' },
+  { q: 'Will I see where my money goes?', a: 'Yes — full transparency with clear reports on spend, leads, conversions, and ROAS.' },
+  { q: 'Do you need a long contract?', a: 'No lock-in. We earn your trust with measurable campaign performance.' },
+]
 
 const SERVICES = [
   { icon: <FiTarget />, t: 'PPC Management', d: 'Full pay-per-click campaign management built to maximize every rupee of ad spend.' },
@@ -84,6 +94,10 @@ export default function PpcPage() {
           </div>
         </div>
       </section>
+
+      <ServiceFaq service="PPC & Paid Advertising" faqs={FAQS} />
+
+      <RelatedServices categoryHeading="PPC & Paid Advertising" />
 
       <section className="ss-cta">
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">

@@ -7,7 +7,17 @@ import {
   FiShoppingCart, FiSearch, FiImage, FiGrid, FiUserCheck, FiTrendingUp, FiPackage,
 } from 'react-icons/fi'
 import ServiceWork from '../components/ServiceWork'
+import ServiceFaq from '../components/ServiceFaq'
+import RelatedServices from '../components/RelatedServices'
 import '../styles/SubService.css'
+
+const FAQS = [
+  { q: 'Which marketplaces do you manage?', a: 'Amazon, Flipkart, Meesho, Shopify, WooCommerce, and independent stores — listing, optimization, and full account management.' },
+  { q: 'Can you improve my existing product listings?', a: 'Yes — we audit and optimize titles, descriptions, keywords, images, and infographics to boost ranking and conversions.' },
+  { q: 'How soon will I see more sales?', a: 'Most sellers see improved visibility and conversions within 30–60 days of optimization, depending on category and competition.' },
+  { q: 'Do you handle product images & infographics?', a: 'Yes, we create high-quality, marketplace-compliant product images and infographics that build trust and increase sales.' },
+  { q: 'Is there a long-term contract?', a: 'No lock-in. We work flexibly and earn your trust with measurable marketplace growth.' },
+]
 
 const SERVICES = [
   { icon: <FiShoppingCart />, t: 'Amazon Product Listing', d: 'Optimized Amazon listings for visibility, engagement, and higher conversions.' },
@@ -130,6 +140,12 @@ export default function EcommercePage() {
 
       {/* PORTFOLIO */}
       <ServiceWork variant="websites" accent="#F5A800" accentSoft="#FFF3CC" heading="Stores We've Worked On" subtitle="A look at the e-commerce stores and websites we've delivered for clients." />
+
+      {/* FAQ + lead form */}
+      <ServiceFaq service="E-Commerce Solutions" faqs={FAQS} />
+
+      {/* Related services */}
+      <RelatedServices categoryHeading="E-Commerce Solutions" />
 
       {/* CTA */}
       <section className="ss-cta">

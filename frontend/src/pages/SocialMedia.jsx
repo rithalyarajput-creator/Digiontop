@@ -36,7 +36,17 @@ import {
 } from 'react-icons/hi'
 import { MdOutlineAutoGraph, MdOutlineCampaign } from 'react-icons/md'
 import ServiceWork from '../components/ServiceWork'
+import ServiceFaq from '../components/ServiceFaq'
+import RelatedServices from '../components/RelatedServices'
 import '../styles/Services.css'
+
+const SM_FAQS = [
+  { q: 'How soon will social media marketing show results?', a: 'Engagement and reach often improve within the first 30 days; consistent growth and conversions build over 60–90 days.' },
+  { q: 'Which platforms do you manage?', a: 'Instagram, Facebook, LinkedIn, YouTube, X and more — content, reels, posts, community and paid campaigns.' },
+  { q: 'Do you create the content too?', a: 'Yes — strategy, creative posts, reels, captions, and scheduling are all handled by our team.' },
+  { q: 'Do you run paid ad campaigns?', a: 'Yes, we run high-ROAS paid social campaigns alongside organic growth.' },
+  { q: 'Is there a long-term contract?', a: 'No lock-in. We work flexibly and earn your trust with real engagement and growth.' },
+]
 
 /* ── Social Media Services ── */
 const SOCIAL_SERVICES = [
@@ -312,6 +322,12 @@ export default function SocialMedia() {
         heading="Reels & Posts We've Created"
         subtitle="Real short-form videos and creative posts we've produced for brands across India."
       />
+
+      {/* FAQ + lead form */}
+      <ServiceFaq service="Social Media Marketing" faqs={SM_FAQS} />
+
+      {/* Related services */}
+      <RelatedServices categoryHeading="Social Media & Content" />
 
       {/* ── CTA Banner ───────────────────────────────────── */}
       <section className="svc-cta">

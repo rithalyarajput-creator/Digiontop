@@ -30,7 +30,17 @@ import { RiSearchEyeLine } from 'react-icons/ri'
 import { MdOutlineSpeed, MdOutlineAutoGraph } from 'react-icons/md'
 import { BsGraphUpArrow } from 'react-icons/bs'
 import ServiceWork from '../components/ServiceWork'
+import ServiceFaq from '../components/ServiceFaq'
+import RelatedServices from '../components/RelatedServices'
 import '../styles/Services.css'
+
+const SEO_FAQS = [
+  { q: 'How long before SEO shows results?', a: 'Most clients see first measurable movement in 30–90 days; full compounding growth typically lands by month 3–6 depending on competition.' },
+  { q: 'Do you guarantee #1 rankings?', a: 'No honest agency can guarantee exact positions, but our data-driven SEO consistently drives 2x+ organic traffic growth for clients.' },
+  { q: 'What does your SEO include?', a: 'On-page, technical, local & content SEO — keyword research, optimization, link building, Search Console setup, and performance tracking.' },
+  { q: 'Do you require a long-term contract?', a: 'No lock-in. SEO compounds over time, and clients stay because the results keep growing.' },
+  { q: 'Will I get reports?', a: 'Yes — clear monthly reports on rankings, traffic, and what we did to grow them.' },
+]
 
 /* ── SEO Services Data ── */
 const SEO_SERVICES = [
@@ -314,6 +324,12 @@ export default function SEOServices() {
         heading="Content That Ranks & Converts"
         subtitle="Real reels and creative posts we've produced for brands we help grow."
       />
+
+      {/* FAQ + lead form */}
+      <ServiceFaq service="SEO Services" faqs={SEO_FAQS} />
+
+      {/* Related services */}
+      <RelatedServices categoryHeading="SEO & Search Marketing" />
 
       {/* ── CTA Banner ───────────────────────────────────── */}
       <section className="svc-cta">

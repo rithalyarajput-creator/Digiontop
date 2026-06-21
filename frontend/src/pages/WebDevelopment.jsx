@@ -9,6 +9,7 @@ import {
   FiTrendingUp, FiAward, FiSearch, FiZap, FiUnlock, FiHeadphones,
 } from 'react-icons/fi'
 import ServiceWork from '../components/ServiceWork'
+import RelatedServices from '../components/RelatedServices'
 import '../styles/WebDevelopment.css'
 
 const SERVICES = [
@@ -238,6 +239,9 @@ export default function WebDevelopment() {
           </div>
         </div>
       </section>
+
+      {/* Related services */}
+      <RelatedServices categoryHeading="Web Development" />
 
       {/* ── CTA ── */}
       <section className="wd-cta">

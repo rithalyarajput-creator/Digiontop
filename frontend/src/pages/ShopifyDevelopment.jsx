@@ -9,7 +9,17 @@ import {
   FiTarget, FiPenTool, FiUsers, FiMaximize, FiHeadphones,
 } from 'react-icons/fi'
 import ServiceWork from '../components/ServiceWork'
+import ServiceFaq from '../components/ServiceFaq'
+import RelatedServices from '../components/RelatedServices'
 import '../styles/ShopifyDevelopment.css'
+
+const FAQS = [
+  { q: 'How long does a Shopify store take to build?', a: 'A complete Shopify store typically takes 2–4 weeks depending on products, features, and design needs.' },
+  { q: 'Do you set up payments and shipping?', a: 'Yes — secure payment gateways (Razorpay, Stripe & more), shipping zones, and delivery integrations are all handled.' },
+  { q: 'Will my store be mobile-friendly?', a: 'Absolutely. Every Shopify store we build is fully responsive and optimized for mobile shopping.' },
+  { q: 'Can you redesign my existing Shopify store?', a: 'Yes, we redesign and optimize existing stores to improve conversions and speed.' },
+  { q: 'Do I own the store fully?', a: 'Yes — full ownership of your Shopify store, theme, and content.' },
+]
 
 const OFFER = [
   { icon: <FiShoppingBag />, title: 'Custom Shopify Store Development', desc: 'Professionally designed Shopify stores tailored to your brand identity and business requirements.' },
@@ -188,6 +198,12 @@ export default function ShopifyDevelopment() {
         heading="Stores & Content We've Delivered"
         subtitle="A look at the e-commerce work, reels and creatives we produce for our clients."
       />
+
+      {/* FAQ + lead form */}
+      <ServiceFaq service="Shopify Store Development" faqs={FAQS} />
+
+      {/* Related services */}
+      <RelatedServices categoryHeading="Web Development" />
 
       {/* ── GOAL + CTA ── */}
       <section className="sf-cta">

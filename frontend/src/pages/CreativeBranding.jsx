@@ -8,7 +8,17 @@ import {
   FiHeart, FiEye, FiStar, FiUsers, FiTarget, FiZap,
 } from 'react-icons/fi'
 import ServiceWork from '../components/ServiceWork'
+import ServiceFaq from '../components/ServiceFaq'
+import RelatedServices from '../components/RelatedServices'
 import '../styles/CreativeBranding.css'
+
+const FAQS = [
+  { q: 'What does your branding service include?', a: 'Logo, brand identity, visual systems, guidelines, social creatives, and marketing collateral — everything to make your brand memorable.' },
+  { q: 'How long does a branding project take?', a: 'A complete brand identity typically takes 2–4 weeks depending on scope. Logos and single creatives are faster.' },
+  { q: 'Do I get editable source files?', a: 'Yes — you receive full ownership of all design files and brand assets.' },
+  { q: 'Can you redesign my existing brand?', a: 'Absolutely. We refresh and modernize existing brands while keeping what makes you recognizable.' },
+  { q: 'Why choose DigionTop for creative work?', a: 'Strategy-first, custom designs (no templates), and visuals aligned with real business goals.' },
+]
 
 const OFFER = [
   { icon: <FiAward />, title: 'Branding & Identity', desc: 'A memorable, professional brand identity that reflects your values and stands out from competitors.' },
@@ -197,6 +207,12 @@ export default function CreativeBranding() {
           </div>
         </div>
       </section>
+
+      {/* FAQ + lead form */}
+      <ServiceFaq service="Creative & Branding" faqs={FAQS} />
+
+      {/* Related services */}
+      <RelatedServices categoryHeading="Creative & Branding" />
 
       {/* ── CTA ── */}
       <section className="cbp-cta">
