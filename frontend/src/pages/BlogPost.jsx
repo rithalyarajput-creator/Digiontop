@@ -40,6 +40,7 @@ export default function BlogPost() {
   const { settings } = useSettings();
   const [post, setPost] = useState(null);
   const [related, setRelated] = useState([]);
+  const [authors, setAuthors] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -48,6 +49,13 @@ export default function BlogPost() {
       .then((data) => { setPost(data); setLoading(false); })
       .catch(() => { setLoading(false); navigate('/blog'); });
   }, [slug]);
+
+  useEffect(() => {
+    fetch('/api/cms?resource=authors')
+      .then((r) => r.json())
+      .then((a) => { if (Array.isArray(a)) setAuthors(a); })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     fetch('/api/blog?published=1')
@@ -72,6 +80,8 @@ export default function BlogPost() {
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
   const authorInitial = (post.author || 'D').charAt(0).toUpperCase();
+  const authorObj = authors.find((a) => a.name === post.author);
+  const authorAvatar = authorObj?.avatar_url;
 
   return (
     <main className="blogpost-page2">
@@ -91,7 +101,9 @@ export default function BlogPost() {
           {/* Author row: avatar + name (left), socials (right) */}
           <div className="blogpost2__author-row">
             <div className="blogpost2__author">
-              <div className="blogpost2__avatar">{authorInitial}</div>
+              <div className="blogpost2__avatar">
+                {authorAvatar ? <img src={authorAvatar} alt={post.author || 'Author'} /> : authorInitial}
+              </div>
               <div>
                 <p className="blogpost2__written">Written by</p>
                 <p className="blogpost2__author-name">{post.author || 'DigionTop Team'}</p>

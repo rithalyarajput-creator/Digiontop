@@ -99,8 +99,10 @@
   text-align: left; padding: 14px 16px; background: #fafafa;
   font-weight: 700; color: #555; border-bottom: 1px solid #e0e0e0; white-space: nowrap;
 }
-.admin-table td { padding: 14px 16px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+.admin-table td { padding: 14px 16px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
 .admin-table tr:last-child td { border-bottom: none; }
+.admin-table tbody tr { transition: background 0.18s ease; }
+.admin-table tbody tr:hover { background: #fffaf0; }
 .admin-table__empty { text-align: center; color: #999; padding: 30px; }
 .admin-actions { display: flex; gap: 8px; }
 
