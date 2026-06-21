@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { useSettings } from "../context/SettingsContext";
 import "../styles/Footer.css";
 
@@ -50,15 +51,15 @@ const Footer = () => {
             </p>
             <div className="footer-contact-list">
               <div className="footer-contact-item">
-                <span className="footer-contact-icon">✉</span>
+                <span className="footer-contact-icon"><FiMail /></span>
                 <a href={`mailto:${settings.contact_email || "digiontop.agency@gmail.com"}`} className="footer-link">{settings.contact_email || "digiontop.agency@gmail.com"}</a>
               </div>
               <div className="footer-contact-item">
-                <span className="footer-contact-icon">✆</span>
+                <span className="footer-contact-icon"><FiPhone /></span>
                 <span className="footer-link">{settings.contact_phone || "+91 9217594664"}{settings.contact_phone2 ? <> &nbsp;|&nbsp; {settings.contact_phone2}</> : null}</span>
               </div>
               <div className="footer-contact-item">
-                <span className="footer-contact-icon">⊙</span>
+                <span className="footer-contact-icon"><FiMapPin /></span>
                 <span className="footer-link">India</span>
               </div>
             </div>
