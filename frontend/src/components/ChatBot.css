@@ -6,7 +6,7 @@
 .cb-fab {
   position: fixed;
   bottom: 28px;
-  right: 28px;
+  left: 28px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -81,7 +81,7 @@
 .cb-window {
   position: fixed;
   bottom: 28px;
-  right: 28px;
+  left: 28px;
   width: 380px;
   height: min(580px, calc(100vh - 40px));
   background: #f2f4f8;
@@ -386,8 +386,8 @@
 /* ── Mobile ── */
 @media (max-width: 768px) {
   /* Shift FAB higher so it never overlaps footers / CTAs */
-  .cb-fab { bottom: 84px; right: 16px; }
-  .cb-fab--open { bottom: 84px; right: 16px; }
+  .cb-fab { bottom: 84px; left: 16px; right: auto; }
+  .cb-fab--open { bottom: 84px; left: 16px; right: auto; }
 }
 
 @media (max-width: 480px) {

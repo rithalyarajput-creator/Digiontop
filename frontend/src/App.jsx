@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
+import WhatsAppButton from './components/WhatsAppButton';
 import MobileCTABar from './components/MobileCTABar';
 import AdminApp from './admin/AdminApp';
 
@@ -91,6 +92,7 @@ function PublicSite() {
       </Routes>
       <Footer />
       <ChatBot />
+      <WhatsAppButton />
       <MobileCTABar />
     </>
   );
