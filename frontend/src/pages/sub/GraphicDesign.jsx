@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiArrowRight, FiArrowUpRight, FiImage, FiCheck } from 'react-icons/fi'
-import ServiceWork from '../../components/ServiceWork'
 import '../../styles/SubService.css'
 
 const SERVICES = ['Social Media Creatives', 'Advertising Banners', 'Brochure Design', 'Flyer Design', 'Business Cards', 'Marketing Materials', 'Presentation Design']
+
+const GALLERY = [
+  '/images/work/post-1.jpg',
+  '/images/work/post-2.jpg',
+  '/images/work/creative-jhumka.jpg',
+  '/images/work/creative-2.jpg',
+]
 
 export default function GraphicDesign() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
@@ -31,7 +37,19 @@ export default function GraphicDesign() {
         </div>
       </section>
 
-      <ServiceWork accent="#F5A800" accentSoft="#FFF3CC" heading="Creative Posts We've Designed" subtitle="A glimpse of the creative graphics and posts we produce for brands." />
+      {/* Creatives gallery */}
+      <section className="ss-sec">
+        <div className="ss-container">
+          <div className="ss-head" data-aos="fade-up"><span className="ss-eyebrow">Our Work</span><h2 className="ss-h2">Creatives We've Designed</h2></div>
+          <div className="gd-gallery">
+            {GALLERY.map((src, i) => (
+              <div className="gd-gallery__item" key={src} data-aos="zoom-in" data-aos-delay={(i % 4) * 60}>
+                <img src={src} alt="Creative design" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="ss-cta">
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">
