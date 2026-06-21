@@ -26,6 +26,7 @@ import EcommercePage from './pages/EcommercePage';
 import EcomServicePage from './pages/sub/EcomServicePage';
 import MobileSoftware from './pages/MobileSoftware';
 import MobileServicePage from './pages/sub/MobileServicePage';
+import SocialServicePage from './pages/sub/SocialServicePage';
 import SEOServices from './pages/SEOServices';
 import SocialMedia from './pages/SocialMedia';
 import WhyUs from './pages/WhyUs';
@@ -74,6 +75,7 @@ function PublicSite() {
         <Route path="/services/ecom/:slug" element={<EcomServicePage />} />
         <Route path="/services/mobile-software" element={<MobileSoftware />} />
         <Route path="/services/mobile/:slug" element={<MobileServicePage />} />
+        <Route path="/services/social/:slug" element={<SocialServicePage />} />
         <Route path="/why-us" element={<WhyUs />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/testimonials" element={<Testimonials />} />
