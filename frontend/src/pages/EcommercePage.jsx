@@ -46,11 +46,8 @@ export default function EcommercePage() {
               <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Consultation</Link>
             </div>
           </div>
-          <div className="ds-stats" data-aos="fade-left">
-            <div className="ds-stat"><b>4+</b><span>Marketplaces</span></div>
-            <div className="ds-stat"><b>SEO</b><span>Optimized</span></div>
-            <div className="ds-stat"><b>+CR</b><span>Higher Conversions</span></div>
-            <div className="ds-stat"><b>24/7</b><span>Account Support</span></div>
+          <div className="ec-hero__media" data-aos="fade-left">
+            <img src="/images/ecom-hero.png" alt="E-Commerce across marketplaces" loading="eager" />
           </div>
         </div>
       </section>
