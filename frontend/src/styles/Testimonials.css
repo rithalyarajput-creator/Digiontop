@@ -14,7 +14,7 @@
 .testimonials-label {
   display: inline-block;
   background: #fbbf24;
-  color: #1a1a2e;
+  color: #1f2540;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -34,7 +34,7 @@
 .testimonials-section-heading {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 800;
-  color: #1a1a2e;
+  color: #1f2540;
   line-height: 1.2;
   margin: 0 0 16px;
 }
@@ -55,14 +55,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0f0f23;
+  background: #14182b;
   overflow: hidden;
 }
 
 .testimonials-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  background: radial-gradient(circle at 50% 0%, #1f2540 0%, #14182b 60%, #11162a 100%);
   opacity: 0.97;
 }
 
@@ -87,7 +87,7 @@
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.10) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(245,168,0,0.10) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -247,7 +247,7 @@
    ============================================================ */
 .testimonials-cta {
   padding: 80px 0;
-  background: #1a1a2e;
+  background: #1f2540;
   position: relative;
   overflow: hidden;
 }
@@ -273,7 +273,7 @@
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(245,168,0,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -313,7 +313,7 @@
   align-items: center;
   justify-content: center;
   background: #fbbf24;
-  color: #1a1a2e;
+  color: #1f2540;
   font-size: 1rem;
   font-weight: 700;
   padding: 16px 36px;
