@@ -3,8 +3,11 @@ import {
   FiPhone, FiMail, FiMessageCircle, FiFacebook,
   FiInstagram, FiYoutube, FiCheckCircle,
 } from 'react-icons/fi';
+import { FaXTwitter } from 'react-icons/fa6';
 import { useSettings } from '../context/SettingsContext';
 import '../styles/Contact.css';
+
+const X_LINK = 'https://x.com/digiontopagency';
 
 const SERVICE_OPTIONS = [
   'Website Development', 'Shopify Store', 'SEO Services', 'Social Media Marketing',
@@ -162,6 +165,7 @@ export default function Contact() {
               <div className="contact-info-card__socials">
                 {settings.social_facebook && <a href={settings.social_facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><FiFacebook /></a>}
                 {settings.social_instagram && <a href={settings.social_instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FiInstagram /></a>}
+                <a href={settings.social_twitter || X_LINK} target="_blank" rel="noreferrer" aria-label="X (Twitter)"><FaXTwitter /></a>
                 {settings.social_youtube && <a href={settings.social_youtube} target="_blank" rel="noreferrer" aria-label="YouTube"><FiYoutube /></a>}
               </div>
             </div>
