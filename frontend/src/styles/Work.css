@@ -241,8 +241,9 @@
 }
 .work-card__shot {
   width: 100%;
+  height: auto;
   display: block;
-  transition: transform 4s ease;
+  transition: transform 3s ease-in-out;
   transform: translateY(0);
 }
 .work-card:hover .work-card__shot { transform: translateY(calc(-100% + 280px)); }
