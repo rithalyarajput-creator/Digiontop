@@ -211,7 +211,14 @@ export default function BlogList() {
                 <td>
                   <input type="checkbox" checked={selected.has(p.id)} onChange={() => toggleSelect(p.id)} />
                 </td>
-                <td>{p.title}</td>
+                <td>
+                  <div className="admin-blog-title">
+                    {p.image_url
+                      ? <img src={p.image_url} alt="" className="admin-blog-thumb" loading="lazy" />
+                      : <span className="admin-blog-thumb admin-blog-thumb--ph">IMG</span>}
+                    <span className="admin-blog-title__text">{p.title}</span>
+                  </div>
+                </td>
                 <td>{p.category || '—'}</td>
                 <td>{p.author || '—'}</td>
                 <td>

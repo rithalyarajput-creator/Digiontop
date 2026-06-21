@@ -40,8 +40,13 @@
 }
 
 /* ---------- Logo ---------- */
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
 .footer-logo img {
-  height: 52px;
+  height: 72px;
   width: auto;
   display: block;
 }
