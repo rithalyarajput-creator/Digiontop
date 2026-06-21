@@ -3,11 +3,24 @@ import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiArrowRight, FiArrowUpRight, FiCheck } from 'react-icons/fi'
+import RelatedServices from '../../components/RelatedServices'
+import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/SubService.css'
 
-/* Reusable layout for the 8 E-Commerce sub-service pages.
+/* Generic FAQs reused across service pages (SEO-friendly, conversion-focused). */
+function buildFaqs(tag) {
+  return [
+    { q: `How soon will I see results from ${tag}?`, a: `Most ${tag.toLowerCase()} projects show first measurable results within 30–90 days, depending on your starting point, scope, and goals. We focus on real, trackable outcomes.` },
+    { q: `How much does ${tag} cost?`, a: `Pricing depends on your needs and scope. After a free consultation we send a clear, custom quote — no hidden charges, no long lock-in contracts.` },
+    { q: `Do I need a long-term contract?`, a: `No. We work in flexible engagements and earn your trust with results. You stay because it works, not because of a contract.` },
+    { q: `Will I get regular updates and reports?`, a: `Yes — you get clear, honest progress reports so you always know what we did, what worked, and what's next.` },
+    { q: `Why should I choose DigionTop for ${tag}?`, a: `A senior specialist owns your project, we focus on measurable business growth, and every solution is custom-built for your goals — not templated.` },
+  ]
+}
+
+/* Reusable layout for the E-Commerce / Mobile / Social sub-service pages.
    Each page passes its own data — same animated structure, distinct content. */
-export default function MarketplacePage({ tag, icon, titleA, titleB, intro, intro2, services, benefits, ctaTitle, ctaText, heroImg }) {
+export default function MarketplacePage({ tag, icon, titleA, titleB, intro, intro2, services, benefits, ctaTitle, ctaText, heroImg, category }) {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
@@ -64,6 +77,12 @@ export default function MarketplacePage({ tag, icon, titleA, titleB, intro, intr
           </div>
         </div>
       </section>
+
+      {/* FAQs + lead form */}
+      <ServiceFaq service={tag} faqs={buildFaqs(tag)} />
+
+      {/* Related services in same category */}
+      {category && <RelatedServices categoryHeading={category} />}
 
       {/* CTA */}
       <section className="ss-cta">

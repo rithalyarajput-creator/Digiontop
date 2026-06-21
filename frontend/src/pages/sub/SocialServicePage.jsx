@@ -19,5 +19,5 @@ export default function SocialServicePage() {
   const { slug } = useParams()
   const data = SOCIAL_SERVICES[slug]
   if (!data) return <Navigate to="/services/social-media-marketing" replace />
-  return <MarketplacePage icon={ICONS[slug]} heroImg="/images/social-hero.png" {...data} />
+  return <MarketplacePage icon={ICONS[slug]} heroImg="/images/social-hero.png" category="Social Media & Content" {...data} />
 }

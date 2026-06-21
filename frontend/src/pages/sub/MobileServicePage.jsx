@@ -20,5 +20,5 @@ export default function MobileServicePage() {
   const { slug } = useParams()
   const data = MOBILE_SERVICES[slug]
   if (!data) return <Navigate to="/services/mobile-software" replace />
-  return <MarketplacePage icon={ICONS[slug]} {...data} />
+  return <MarketplacePage icon={ICONS[slug]} category="Mobile & Software" {...data} />
 }
