@@ -232,27 +232,55 @@ export default function About() {
         </div>
       </section>
 
-      {/* ══ 4. MISSION & VISION ══ */}
-      <section className="ab-mv">
-        <div className="about-container ab-mv__grid">
-          <div className="ab-mv__card ab-mv__card--mission" data-aos="fade-up">
-            <img src="/images/mission-target.png" alt="" className="ab-mv__img" loading="lazy" />
-            <span className="ab-mv__icon"><FiTarget /></span>
-            <h3>Our Mission</h3>
+      {/* ══ 4. OUR MISSION (content left + target image right) ══ */}
+      <section className="ab-mission">
+        <div className="about-container ab-mission__inner">
+          <div className="ab-mission__text" data-aos="fade-right">
+            <span className="ab-eyebrow">What Drives Us</span>
+            <h2 className="ab-mission__title">Our <span>Mission</span></h2>
             <p>
               To help businesses leverage digital technology to grow faster, reach more customers,
               and build stronger brands. Every project is approached with a focus on performance,
               innovation, and long-term success.
             </p>
+            <p>
+              We don't believe in delivering ordinary services — we aim to be the growth partner that
+              helps your business hit its targets and reach the top.
+            </p>
+            <ul className="ab-mission__points">
+              <li><FiTarget /> Performance &amp; results focused</li>
+              <li><FiTrendingUp /> Built for long-term growth</li>
+              <li><FiCheck /> Innovation in every project</li>
+            </ul>
           </div>
-          <div className="ab-mv__card ab-mv__card--vision" data-aos="fade-up" data-aos-delay="100">
-            <span className="ab-mv__icon"><FiTrendingUp /></span>
-            <h3>Our Vision</h3>
+          <div className="ab-mission__media" data-aos="fade-left">
+            <img src="/images/mission-target.png" alt="Our mission - hitting the target" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 4b. OUR VISION (image left + content right) ══ */}
+      <section className="ab-vision">
+        <div className="about-container ab-vision__inner">
+          <div className="ab-vision__media" data-aos="fade-right">
+            <img src="/images/vision.png" alt="Our vision" loading="lazy" />
+          </div>
+          <div className="ab-vision__text" data-aos="fade-left">
+            <span className="ab-eyebrow">Where We're Headed</span>
+            <h2 className="ab-vision__title">Our <span>Vision</span></h2>
             <p>
               To become a trusted digital growth partner for businesses by delivering modern solutions
               that drive measurable results, help brands stay ahead of competition, and achieve
               sustainable growth in an ever-evolving digital landscape.
             </p>
+            <p>
+              We aim to help brands establish a stronger online presence and reach the top in their market.
+            </p>
+            <ul className="ab-vision__points">
+              <li><FiTrendingUp /> A trusted long-term growth partner</li>
+              <li><FiTarget /> Helping brands stay ahead of competition</li>
+              <li><FiCheck /> Sustainable, future-ready growth</li>
+            </ul>
           </div>
         </div>
       </section>
