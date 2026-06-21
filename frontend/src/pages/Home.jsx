@@ -16,6 +16,7 @@ import {
   FaGraduationCap,
   FaTshirt,
   FaBuilding,
+  FaArrowRight,
 } from "react-icons/fa";
 import "../styles/Home.css";
 
@@ -179,23 +180,36 @@ const ServicesSection = () => (
 );
 
 const WhyUsSection = () => (
-  <section className="why-us">
-    <div className="container">
-      <p className="section-label" data-aos="fade-up">WHY CHOOSE US</p>
-      <h2 className="section-title" data-aos="fade-up" data-aos-delay="60">
-        The DigionTop Difference
-      </h2>
-      <div className="why-us__grid">
+  <section className="whyx">
+    <div className="container whyx__inner">
+      {/* LEFT — sticky intro */}
+      <div className="whyx__left" data-aos="fade-right">
+        <p className="section-label">WHY CHOOSE US</p>
+        <h2 className="whyx__title">The DigionTop Difference</h2>
+        <p className="whyx__lead">
+          We don't just run campaigns — we build a transparent, results-first
+          partnership your business can actually rely on.
+        </p>
+        <Link to="/why-us" className="whyx__cta">
+          See all 8 reasons <FaArrowRight />
+        </Link>
+        <div className="whyx__badge-row">
+          <div className="whyx__badge"><b>5.0★</b><span>Client Rating</span></div>
+          <div className="whyx__badge"><b>100+</b><span>Projects</span></div>
+        </div>
+      </div>
+
+      {/* RIGHT — numbered reason list */}
+      <div className="whyx__list">
         {whyUs.map((item, i) => (
-          <div
-            className="why-us__card"
-            key={i}
-            data-aos="fade-up"
-            data-aos-delay={i * 100}
-          >
-            <div className="why-us__icon">{item.icon}</div>
-            <h3 className="why-us__title">{item.title}</h3>
-            <p className="why-us__desc">{item.description}</p>
+          <div className="whyx__row" key={i} data-aos="fade-up" data-aos-delay={i * 90}>
+            <div className="whyx__num">{String(i + 1).padStart(2, '0')}</div>
+            <div className="whyx__icon">{item.icon}</div>
+            <div className="whyx__body">
+              <h3 className="whyx__row-title">{item.title}</h3>
+              <p className="whyx__row-desc">{item.description}</p>
+            </div>
+            <FaArrowRight className="whyx__arrow" />
           </div>
         ))}
       </div>
