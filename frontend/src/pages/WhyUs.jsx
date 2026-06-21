@@ -17,14 +17,6 @@ const reasons = [
   { icon: <FaFlask />, num: '08', title: 'Tested Strategies, Real Outcomes', description: 'Every tactic we deploy has been refined through real campaigns across diverse industries. We combine data-backed best practices with continuous testing so your campaigns improve over time.' },
 ];
 
-const CARD_COLORS = [
-  '#fff8ec', '#eef3ff', '#f0fff4', '#fff0f6',
-  '#fffbe6', '#f0f7ff', '#fff0f0', '#f5f0ff',
-];
-const ACCENT_COLORS = [
-  '#F5A800', '#4f6ef7', '#16a34a', '#db2777',
-  '#d97706', '#2563eb', '#dc2626', '#7c3aed',
-];
 
 const steps = [
   { number: '01', title: 'Discovery Call', description: 'We begin with a no-obligation consultation to understand your business, goals, target audience, and current digital footprint.' },
@@ -49,45 +41,33 @@ export default function WhyUs() {
         </div>
       </section>
 
-      {/* ── Sticky Scroll Cards ── */}
-      <section className="whyus__scroll-section">
-        <div className="whyus__scroll-inner">
-
-          {/* LEFT sticky heading */}
-          <div className="whyus__scroll-left">
-            <div className="whyus__scroll-sticky">
-              <span className="whyus__badge">8 Reasons</span>
-              <h2 className="whyus__scroll-title">What Sets<br />Us Apart</h2>
-              <p className="whyus__scroll-sub">
-                These are not talking points — they are the principles that shape every project,
-                every report, and every client relationship at DigionTop.
-              </p>
-              <Link to="/contact" className="whyus__scroll-cta">
-                Start Free Consultation →
-              </Link>
-            </div>
+      {/* ── Pinned sticky-note cards ── */}
+      <section className="whyus__notes-section">
+        <div className="whyus__container">
+          <div className="whyus__section-header">
+            <span className="whyus__badge">8 Reasons</span>
+            <h2 className="whyus__section-title">What Sets Us Apart</h2>
+            <p className="whyus__section-sub">
+              These are not talking points — they are the principles that shape every project,
+              every report, and every client relationship at DigionTop.
+            </p>
           </div>
 
-          {/* RIGHT scrolling cards */}
-          <div className="whyus__scroll-right">
+          <div className="whyus__notes">
             {reasons.map((r, i) => (
-              <div
-                key={i}
-                className="whyus__scard"
-                style={{
-                  '--bg': CARD_COLORS[i],
-                  '--accent': ACCENT_COLORS[i],
-                  '--sticky-top': `${80 + i * 18}px`,
-                }}
-              >
-                <div className="whyus__scard-num">{r.num}</div>
-                <div className="whyus__scard-icon">{r.icon}</div>
-                <h3 className="whyus__scard-title">{r.title}</h3>
-                <p className="whyus__scard-desc">{r.description}</p>
+              <div className="whyus__note" key={i} data-aos="fade-up" data-aos-delay={(i % 4) * 70}>
+                <span className="whyus__note-pin" />
+                <div className="whyus__note-inner">
+                  <div className="whyus__note-top">
+                    <span className="whyus__note-num">{r.num}</span>
+                    <span className="whyus__note-icon">{r.icon}</span>
+                  </div>
+                  <h3 className="whyus__note-title">{r.title}</h3>
+                  <p className="whyus__note-desc">{r.description}</p>
+                </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 

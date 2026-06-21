@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { FiTrash2, FiSearch, FiDownload, FiCheck } from 'react-icons/fi';
+import { FiTrash2, FiSearch, FiDownload, FiCheck, FiInbox, FiUserPlus, FiAward, FiPercent } from 'react-icons/fi';
 import { apiGet, apiPut, apiDelete } from '../api';
 
 const STATUSES = ['new', 'contacted', 'converted', 'closed'];
@@ -82,6 +82,26 @@ export default function Leads() {
       </div>
 
       {error && <div className="admin-alert admin-alert--error">{error}</div>}
+
+      {/* Analytics summary cards */}
+      <div className="admin-stats admin-stats--wide" style={{ marginBottom: 22 }}>
+        <div className="admin-stat-card">
+          <div className="admin-stat-card__icon"><FiInbox /></div>
+          <div><div className="admin-stat-card__value">{leads.length}</div><div className="admin-stat-card__label">Total Leads</div></div>
+        </div>
+        <div className="admin-stat-card">
+          <div className="admin-stat-card__icon"><FiUserPlus /></div>
+          <div><div className="admin-stat-card__value">{counts.new || 0}</div><div className="admin-stat-card__label">New Leads</div></div>
+        </div>
+        <div className="admin-stat-card">
+          <div className="admin-stat-card__icon"><FiAward /></div>
+          <div><div className="admin-stat-card__value">{counts.converted || 0}</div><div className="admin-stat-card__label">Converted</div></div>
+        </div>
+        <div className="admin-stat-card">
+          <div className="admin-stat-card__icon"><FiPercent /></div>
+          <div><div className="admin-stat-card__value">{leads.length ? Math.round((counts.converted || 0) / leads.length * 100) : 0}%</div><div className="admin-stat-card__label">Conversion Rate</div></div>
+        </div>
+      </div>
 
       {/* Status tabs */}
       <div className="admin-tabs">
