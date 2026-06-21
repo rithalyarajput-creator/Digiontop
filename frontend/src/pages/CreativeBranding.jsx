@@ -55,27 +55,29 @@ export default function CreativeBranding() {
   return (
     <main className="cb-page">
       {/* ── HERO ── */}
-      <section className="cbp-hero">
-        <div className="cbp-hero__blob cbp-hero__blob--1" />
-        <div className="cbp-hero__blob cbp-hero__blob--2" />
-        <div className="cbp-hero__blob cbp-hero__blob--3" />
-        <div className="cbp-container cbp-hero__inner">
-          <span className="cbp-tag"><FiPenTool /> Creative &amp; Branding</span>
-          <h1 className="cbp-hero__title">
-            Creative Solutions That Help <span>Brands Stand Out</span>
-          </h1>
-          <p className="cbp-hero__sub">
-            Your brand needs a strong identity, professional visuals, and a clear message that captures
-            attention and builds trust. We help you look professional and leave a lasting impression.
-          </p>
-          <div className="cbp-hero__actions">
-            <Link to="/contact" className="cbp-btn cbp-btn--primary">Start Your Branding Project <FiArrowRight /></Link>
-            <Link to="/contact" className="cbp-btn cbp-btn--ghost">Get Free Consultation</Link>
+      <section className="cbp-hero cbp-hero--split">
+        <div className="cbp-container cbp-hero__grid">
+          <div data-aos="fade-right">
+            <span className="cbp-tag"><FiPenTool /> Creative &amp; Branding</span>
+            <h1 className="cbp-hero__title">
+              Creative Solutions That Help <span>Brands Stand Out</span>
+            </h1>
+            <p className="cbp-hero__sub">
+              Your brand needs a strong identity, professional visuals, and a clear message that captures
+              attention and builds trust. We help you look professional and leave a lasting impression.
+            </p>
+            <div className="cbp-hero__actions">
+              <Link to="/contact" className="cbp-btn cbp-btn--primary">Start Your Branding Project <FiArrowRight /></Link>
+              <Link to="/contact" className="cbp-btn cbp-btn--ghost">Get Free Consultation</Link>
+            </div>
+            <div className="cbp-hero__chips">
+              <span><FiAward /> Brand Identity</span>
+              <span><FiVideo /> Video Content</span>
+              <span><FiPenTool /> Logo &amp; Design</span>
+            </div>
           </div>
-          <div className="cbp-hero__chips">
-            <span><FiAward /> Brand Identity</span>
-            <span><FiVideo /> Video Content</span>
-            <span><FiPenTool /> Logo &amp; Design</span>
+          <div className="cbp-hero__media" data-aos="fade-left">
+            <img src="/images/creative-hero.png" alt="Creative & branding" loading="eager" />
           </div>
         </div>
       </section>

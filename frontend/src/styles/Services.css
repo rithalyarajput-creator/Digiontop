@@ -621,7 +621,7 @@
   width: 100%;
   max-width: 420px;
   margin: 40px auto 0;
-  filter: drop-shadow(0 24px 50px rgba(20,24,43,0.18));
+  filter: none;
   animation: svc-hero-bob 5s ease-in-out infinite;
 }
 @keyframes svc-hero-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
@@ -638,7 +638,7 @@
 .svc-hero__right { display: grid; place-items: center; }
 .svc-hero__right img {
   width: 100%; max-width: 440px; display: block;
-  filter: drop-shadow(0 24px 50px rgba(20,24,43,0.18));
+  filter: none;
   animation: svc-hero-bob 5s ease-in-out infinite;
 }
 @media (max-width: 880px) {

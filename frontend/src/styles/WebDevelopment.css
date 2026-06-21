@@ -75,7 +75,7 @@
 .wd-hero__visual { position: relative; display: grid; place-items: center; }
 .wd-hero__img {
   width: 100%; max-width: 560px; display: block;
-  filter: drop-shadow(0 30px 60px rgba(20,24,43,0.22));
+  filter: none;
   animation: wd-bob 5s ease-in-out infinite;
 }
 

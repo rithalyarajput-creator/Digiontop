@@ -129,3 +129,20 @@
   .cbp-approach__grid { grid-template-columns: 1fr; }
   .cbp-cta__box { padding: 44px 22px; border-radius: 20px; }
 }
+
+/* split hero: left text + right image, pure white */
+.cbp-hero--split { background: #fff; padding: 80px 0 70px; }
+.cbp-hero--split .cbp-hero__blob { display: none; }
+.cbp-hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 50px; align-items: center; text-align: left; }
+.cbp-hero--split .cbp-hero__title { max-width: none; margin: 0 0 18px; }
+.cbp-hero--split .cbp-hero__sub { margin: 0 0 28px; }
+.cbp-hero--split .cbp-hero__actions { justify-content: flex-start; }
+.cbp-hero--split .cbp-hero__chips { justify-content: flex-start; }
+.cbp-hero__media { display: grid; place-items: center; }
+.cbp-hero__media img { width: 100%; max-width: 460px; display: block; animation: ss-cbp-bob 5s ease-in-out infinite; }
+@keyframes ss-cbp-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@media (max-width: 880px) {
+  .cbp-hero__grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+  .cbp-hero--split .cbp-hero__actions, .cbp-hero--split .cbp-hero__chips { justify-content: center; }
+  .cbp-hero__media { order: -1; }
+}
