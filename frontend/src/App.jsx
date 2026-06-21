@@ -25,6 +25,7 @@ import CroServices from './pages/sub/CroServices';
 import EcommercePage from './pages/EcommercePage';
 import EcomServicePage from './pages/sub/EcomServicePage';
 import MobileSoftware from './pages/MobileSoftware';
+import MobileServicePage from './pages/sub/MobileServicePage';
 import SEOServices from './pages/SEOServices';
 import SocialMedia from './pages/SocialMedia';
 import WhyUs from './pages/WhyUs';
@@ -72,6 +73,7 @@ function PublicSite() {
         <Route path="/services/ecommerce-solutions" element={<EcommercePage />} />
         <Route path="/services/ecom/:slug" element={<EcomServicePage />} />
         <Route path="/services/mobile-software" element={<MobileSoftware />} />
+        <Route path="/services/mobile/:slug" element={<MobileServicePage />} />
         <Route path="/why-us" element={<WhyUs />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/testimonials" element={<Testimonials />} />
