@@ -196,6 +196,8 @@ export default function SEOServices() {
                 </div>
               ))}
             </div>
+
+            <img src="/images/seo-hero.png" alt="SEO that ranks" className="svc-hero__img" loading="eager" data-aos="zoom-in" data-aos-delay="200" />
           </div>
         </div>
       </section>

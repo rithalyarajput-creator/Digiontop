@@ -213,6 +213,8 @@ export default function SocialMedia() {
                 </div>
               ))}
             </div>
+
+            <img src="/images/social-hero.png" alt="Social media growth" className="svc-hero__img" loading="eager" data-aos="zoom-in" data-aos-delay="200" />
           </div>
         </div>
       </section>
