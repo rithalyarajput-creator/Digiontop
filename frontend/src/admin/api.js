@@ -30,8 +30,19 @@ async function handle(res) {
     }
   }
   if (!res.ok) {
+    // Session expired or invalid token → clear it and bounce to login
+    if (res.status === 401) {
+      clearToken();
+      if (typeof window !== 'undefined' && !window.location.pathname.endsWith('/admin')) {
+        window.location.href = '/admin';
+      } else if (typeof window !== 'undefined') {
+        // already on login route — force a reload so the login screen shows
+        window.location.reload();
+      }
+    }
     const message =
-      (data && data.error) ||
+      res.status === 401 ? 'Your session expired. Please log in again.'
+      : (data && data.error) ||
       (data && data.message) ||
       (typeof data === 'string' && data) ||
       `Request failed (${res.status})`;
