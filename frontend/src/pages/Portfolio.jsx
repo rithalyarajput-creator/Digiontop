@@ -45,6 +45,7 @@ const SECTIONS = [
     Icon: FiStar,
     accent: '#e1306c',
     ratio: 'square',
+    gridClass: 'pf-grid--postgrid',
     mockup: 'post',
     items: [
       { id: 'po1', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/post-1.jpg' },
@@ -248,7 +249,7 @@ function Section({ section }) {
         <p className="pf-section__text">{section.text}</p>
       </motion.div>
 
-      <div className={`pf-grid pf-grid--${section.ratio}`}>
+      <div className={`pf-grid pf-grid--${section.ratio}${section.gridClass ? ' ' + section.gridClass : ''}`}>
         {section.items.map((item, i) => (
           <Card
             key={item.id}

@@ -282,6 +282,26 @@
   scroll-snap-align: center;
 }
 
+/* Posts → full grid (all posts visible, no slider) */
+.pf-grid--postgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  overflow: visible;
+  padding: 6px 0 0;
+}
+.pf-grid--postgrid > .pf-card {
+  flex: none;
+  max-width: none;
+  scroll-snap-align: none;
+}
+@media (max-width: 900px) {
+  .pf-grid--postgrid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+@media (max-width: 560px) {
+  .pf-grid--postgrid { grid-template-columns: 1fr; gap: 18px; }
+}
+
 /* ── CARD ──────────────────────────────────────────────────── */
 .pf-card {
   position: relative;
