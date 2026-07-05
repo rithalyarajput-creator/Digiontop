@@ -1712,13 +1712,16 @@ a {
 .hero__banner-content .hero__stats-row { display: none; }
 
 @media (max-width: 768px) {
-  /* Give the wide banner more height on phones so text fits comfortably */
-  .hero--banner { min-height: 340px; display: flex; align-items: center; padding: 0; }
+  /* Give the wide banner a fixed height; keep text vertically CENTERED over it */
+  .hero--banner { min-height: 360px; padding: 0; }
   .hero__banner-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center right; }
   .hero__overlay { background: linear-gradient(180deg, rgba(8,10,18,0.88) 0%, rgba(8,10,18,0.62) 55%, rgba(8,10,18,0.5) 100%); }
   .hero__banner-content {
-    position: relative; top: auto; left: auto; transform: none;
-    width: 100%; max-width: none; padding: 0 22px; text-align: center; align-items: center;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);   /* center vertically + horizontally */
+    width: 100%; max-width: none;
+    padding: 0 22px; text-align: center; align-items: center;
   }
   .hero__banner-content .hero__badge { font-size: 0.66rem; padding: 5px 12px; margin-bottom: 12px; }
   .hero__banner-content .hero__ctas { justify-content: center; }
@@ -1727,7 +1730,7 @@ a {
   .hero__ctas .btn { padding: 11px 20px; font-size: 0.85rem; }
 }
 @media (max-width: 420px) {
-  .hero--banner { min-height: 300px; }
+  .hero--banner { min-height: 320px; }
   .hero__banner-content .hero__subheadline { display: none; }
 }
 
