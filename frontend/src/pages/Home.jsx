@@ -536,18 +536,18 @@ const showcaseSites = [
     image: "/images/work/stressless-learner.png",
   },
   {
-    key: "blameless",
-    title: "Blameless Skincare",
-    tag: "Skincare E-Commerce",
-    url: "blamelessskincare.com",
-    image: "/images/work/blameless-skincare.png",
+    key: "toreto",
+    title: "Toreto",
+    tag: "Electronics E-Commerce",
+    url: "toreto.in",
+    image: "/images/work/toreto.png",
   },
 ];
 
 const showcasePosts = [
   { key: 'p1', image: '/images/work/post-1.jpg' },
   { key: 'p2', image: '/images/work/post-2.jpg' },
-  { key: 'p3', image: '/images/work/creative-jhumka.jpg' },
+  { key: 'p3', image: '/images/work/creative-tradition.jpg' },
 ];
 
 const showcaseReels = [
@@ -593,10 +593,6 @@ const OurWorkSection = () => {
           <div className="showcase__grid">
             {showcaseSites.map((s, i) => (
               <div className="showcase__card" key={s.key} data-aos="fade-up" data-aos-delay={(i % 3) * 90}>
-                <div className="showcase__bar">
-                  <span className="showcase__dot" /><span className="showcase__dot" /><span className="showcase__dot" />
-                  <span className="showcase__url">{s.url}</span>
-                </div>
                 <div className="showcase__window">
                   <img src={s.image} alt={s.title} className="showcase__shot" loading="lazy" />
                 </div>

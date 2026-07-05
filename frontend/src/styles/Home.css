@@ -1829,24 +1829,9 @@ a {
 }
 .showcase__card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(245,168,0,0.22); }
 
-/* slim browser bar (kept, but smaller & lighter) */
-.showcase__bar {
-  display: flex; align-items: center; gap: 7px;
-  padding: 9px 14px; background: #f1f2f6; border-bottom: 1px solid #e6e7ee;
-}
-.showcase__dot { width: 9px; height: 9px; border-radius: 50%; }
-.showcase__dot:nth-child(1) { background: #ff5f57; }
-.showcase__dot:nth-child(2) { background: #febc2e; }
-.showcase__dot:nth-child(3) { background: #28c840; }
-.showcase__url {
-  margin-left: 10px; font-size: 11.5px; color: #8890a3; font-weight: 600;
-  background: #fff; padding: 4px 14px; border-radius: 20px; border: 1px solid #e6e7ee;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-
-/* scrolling window — SLOWER scroll */
+/* scrolling window — rectangle shape (short), SLOWER scroll */
 .showcase__window {
-  height: 300px;
+  height: 240px;
   overflow: hidden;
   position: relative;
   background: #eef0f4;
@@ -1855,10 +1840,10 @@ a {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 7s ease-in-out;
+  transition: transform 12s ease-in-out;
   transform: translateY(0);
 }
-.showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 300px)); }
+.showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 240px)); }
 
 /* caption */
 .showcase__caption {
@@ -1874,9 +1859,9 @@ a {
 }
 .showcase__card:hover .showcase__arrow { background: #14182b; color: #FFD874; transform: translateX(3px); }
 
-/* ── Graphics / posts ── */
+/* ── Graphics / posts (square 1:1) ── */
 .showcase__grid--posts .showcase__post {
-  border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 5;
+  border-radius: 16px; overflow: hidden; aspect-ratio: 1 / 1;
   box-shadow: 0 18px 44px rgba(0,0,0,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1914,8 +1899,8 @@ a {
   .showcase { padding: 60px 0; }
   .showcase__grid { grid-template-columns: 1fr; gap: 22px; }
   .showcase__grid--reels { grid-template-columns: 1fr; max-width: 280px; }
-  .showcase__window { height: 260px; }
-  .showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 260px)); }
+  .showcase__window { height: 220px; }
+  .showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 220px)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .showcase__shot { transition: none; }
