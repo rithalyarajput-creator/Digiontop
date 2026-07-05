@@ -31,6 +31,11 @@ import SocialServicePage from './pages/sub/SocialServicePage';
 import PpcPage from './pages/sub/PpcPage';
 import SEOServices from './pages/SEOServices';
 import LocalSeo from './pages/sub/LocalSeo';
+import TechnicalSeo from './pages/sub/TechnicalSeo';
+import EcommerceSeo from './pages/sub/EcommerceSeo';
+import EnterpriseSeo from './pages/sub/EnterpriseSeo';
+import LinkBuilding from './pages/sub/LinkBuilding';
+import SeoAudit from './pages/sub/SeoAudit';
 import SocialMedia from './pages/SocialMedia';
 import WhyUs from './pages/WhyUs';
 import Industries from './pages/Industries';
@@ -74,6 +79,11 @@ function PublicSite() {
         <Route path="/services/cro-services" element={<CroServices />} />
         <Route path="/services/seo-services" element={<SEOServices />} />
         <Route path="/services/local-seo" element={<LocalSeo />} />
+        <Route path="/services/technical-seo" element={<TechnicalSeo />} />
+        <Route path="/services/ecommerce-seo" element={<EcommerceSeo />} />
+        <Route path="/services/enterprise-seo" element={<EnterpriseSeo />} />
+        <Route path="/services/link-building" element={<LinkBuilding />} />
+        <Route path="/services/seo-audit" element={<SeoAudit />} />
         <Route path="/services/social-media-marketing" element={<SocialMedia />} />
         <Route path="/services/ecommerce-solutions" element={<EcommercePage />} />
         <Route path="/services/ecom/:slug" element={<EcomServicePage />} />

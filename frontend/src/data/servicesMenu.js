@@ -12,11 +12,11 @@ export const SERVICES_MENU = [
     items: [
       { label: 'Search Engine Optimization', path: '/services/seo-services' },
       { label: 'Local SEO', path: '/services/local-seo' },
-      { label: 'Technical SEO', path: '/services/seo-services' },
-      { label: 'E-commerce SEO', path: '/services/seo-services' },
-      { label: 'Enterprise SEO', path: '/services/seo-services' },
-      { label: 'SEO Audit Services', path: '/services/seo-services' },
-      { label: 'Link Building', path: '/services/seo-services' },
+      { label: 'Technical SEO', path: '/services/technical-seo' },
+      { label: 'E-commerce SEO', path: '/services/ecommerce-seo' },
+      { label: 'Enterprise SEO', path: '/services/enterprise-seo' },
+      { label: 'SEO Audit Services', path: '/services/seo-audit' },
+      { label: 'Link Building', path: '/services/link-building' },
     ],
   },
   {
