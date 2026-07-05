@@ -30,6 +30,7 @@ import MobileServicePage from './pages/sub/MobileServicePage';
 import SocialServicePage from './pages/sub/SocialServicePage';
 import PpcPage from './pages/sub/PpcPage';
 import SEOServices from './pages/SEOServices';
+import LocalSeo from './pages/sub/LocalSeo';
 import SocialMedia from './pages/SocialMedia';
 import WhyUs from './pages/WhyUs';
 import Industries from './pages/Industries';
@@ -72,6 +73,7 @@ function PublicSite() {
         <Route path="/services/graphic-design" element={<GraphicDesign />} />
         <Route path="/services/cro-services" element={<CroServices />} />
         <Route path="/services/seo-services" element={<SEOServices />} />
+        <Route path="/services/local-seo" element={<LocalSeo />} />
         <Route path="/services/social-media-marketing" element={<SocialMedia />} />
         <Route path="/services/ecommerce-solutions" element={<EcommercePage />} />
         <Route path="/services/ecom/:slug" element={<EcomServicePage />} />

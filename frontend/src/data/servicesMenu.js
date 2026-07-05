@@ -11,7 +11,7 @@ export const SERVICES_MENU = [
     link: '/services/seo-services',
     items: [
       { label: 'Search Engine Optimization', path: '/services/seo-services' },
-      { label: 'Local SEO', path: '/services/seo-services' },
+      { label: 'Local SEO', path: '/services/local-seo' },
       { label: 'Technical SEO', path: '/services/seo-services' },
       { label: 'E-commerce SEO', path: '/services/seo-services' },
       { label: 'Enterprise SEO', path: '/services/seo-services' },
