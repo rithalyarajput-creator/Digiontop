@@ -6,6 +6,7 @@ import {
   FiChevronUp, FiChevronDown, FiSearch,
 } from 'react-icons/fi';
 import { motion, useInView } from 'framer-motion';
+import SocialReelsSection from '../components/SocialReelsSection';
 import '../styles/Portfolio.css';
 
 /* ──────────────────────────────────────────────────────────────
@@ -21,25 +22,6 @@ import '../styles/Portfolio.css';
    ────────────────────────────────────────────────────────────── */
 
 const SECTIONS = [
-  {
-    id: 'reels',
-    eyebrow: 'Reels & Video',
-    title: 'Reels That Stop the Scroll',
-    text: 'Short-form video content crafted to grab attention and drive engagement.',
-    Icon: FiVideo,
-    accent: '#ff5f8f',
-    ratio: 'phone', // shown inside an iPhone mockup
-    /* ── ADD YOUR REELS HERE ──────────────────────────────────
-       Put files in:  frontend/public/images/portfolio/reels/
-       For a VIDEO:  src: '/images/portfolio/reels/my-reel.mp4',  type: 'video'
-       For an IMAGE: src: '/images/portfolio/reels/my-reel.jpg',  type: 'image'
-       Leave src '' to show an animated placeholder.
-       ──────────────────────────────────────────────────────── */
-    items: [
-      { id: 'r1', title: 'Brand Reel', tag: 'Instagram', src: '/images/work/reel-1.mp4', type: 'video', views: '128K' },
-      { id: 'r2', title: 'Promo Reel', tag: 'Reels', src: '/images/work/reel-2.mp4', type: 'video', views: '94K' },
-    ],
-  },
   {
     id: 'ecommerce',
     eyebrow: 'E-Commerce',
@@ -218,6 +200,9 @@ export default function Portfolio() {
       {SECTIONS.map((sec) => (
         <Section key={sec.id} section={sec} />
       ))}
+
+      {/* ── Social / Reels (same as Home) ── */}
+      <SocialReelsSection />
 
       {/* ── CTA ── */}
       <section className="pf-cta">
