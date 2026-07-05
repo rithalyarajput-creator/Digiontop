@@ -1910,10 +1910,34 @@ a {
 }
 @media (max-width: 600px) {
   .showcase { padding: 60px 0; }
-  .showcase__grid { grid-template-columns: 1fr; gap: 22px; }
-  .showcase__grid--reels { grid-template-columns: 1fr; max-width: 280px; }
+
+  /* Horizontal left/right swipe slider instead of vertical stack */
+  .showcase__grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 4px 10px;
+    margin-left: -4px; margin-right: -4px;
+  }
+  .showcase__grid::-webkit-scrollbar { display: none; }
+  .showcase__grid > .showcase__card,
+  .showcase__grid--reels > .showcase__reel {
+    flex: 0 0 82%;
+    max-width: 82%;
+    scroll-snap-align: center;
+  }
+  .showcase__grid--reels { max-width: none; justify-content: flex-start; }
+  .showcase__grid--reels > .showcase__reel { flex: 0 0 62%; max-width: 62%; }
+
   .showcase__window { height: 220px; }
   .showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 220px)); }
+
+  /* subtle hint that content scrolls */
+  .showcase__tabs { margin-bottom: 30px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .showcase__shot { transition: none; }
