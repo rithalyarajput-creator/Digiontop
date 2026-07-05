@@ -1691,10 +1691,10 @@ a {
 }
 .hero__banner-content {
   position: absolute;
-  top: 50%;
+  top: 44%;                  /* above center so the CTA button clears the chatbot below */
   left: max(20px, calc((100% - 1200px) / 2 + 20px));
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 3;
   width: 42%;
   max-width: 480px;
   line-height: 1.4;
@@ -1703,6 +1703,8 @@ a {
   align-items: flex-start;   /* content sits on the LEFT (dark) area */
   text-align: left;
 }
+/* nudge the CTA to the right so it never sits under the bottom-left chatbot */
+.hero__banner-content .hero__ctas { margin-left: 4px; }
 .hero__banner-content .hero__badge { margin-bottom: 14px; }
 .hero__banner-content .hero__headline { font-size: clamp(1.7rem, 3.2vw, 3.2rem); margin-bottom: 12px; }
 .hero__banner-content .hero__subheadline { font-size: clamp(0.85rem, 1.3vw, 1.02rem); margin-bottom: 20px; }
