@@ -63,6 +63,14 @@ import CloudSolutions from './pages/sub/CloudSolutions';
 import ApiDevelopment from './pages/sub/ApiDevelopment';
 import SaasDevelopment from './pages/sub/SaasDevelopment';
 import DevOpsServices from './pages/sub/DevOpsServices';
+import AmazonListing from './pages/sub/AmazonListing';
+import FlipkartListing from './pages/sub/FlipkartListing';
+import MeeshoListing from './pages/sub/MeeshoListing';
+import ProductSeo from './pages/sub/ProductSeo';
+import ProductImage from './pages/sub/ProductImage';
+import CatalogManagement from './pages/sub/CatalogManagement';
+import AccountManagement from './pages/sub/AccountManagement';
+import GrowthConsulting from './pages/sub/GrowthConsulting';
 import SocialMedia from './pages/SocialMedia';
 import WhyUs from './pages/WhyUs';
 import Industries from './pages/Industries';
@@ -120,6 +128,14 @@ function PublicSite() {
         <Route path="/services/seo-audit" element={<SeoAudit />} />
         <Route path="/services/social-media-marketing" element={<SocialMedia />} />
         <Route path="/services/ecommerce-solutions" element={<EcommercePage />} />
+        <Route path="/services/ecom/amazon" element={<AmazonListing />} />
+        <Route path="/services/ecom/flipkart" element={<FlipkartListing />} />
+        <Route path="/services/ecom/meesho" element={<MeeshoListing />} />
+        <Route path="/services/ecom/product-seo" element={<ProductSeo />} />
+        <Route path="/services/ecom/product-image" element={<ProductImage />} />
+        <Route path="/services/ecom/catalog-management" element={<CatalogManagement />} />
+        <Route path="/services/ecom/account-management" element={<AccountManagement />} />
+        <Route path="/services/ecom/growth-consulting" element={<GrowthConsulting />} />
         <Route path="/services/ecom/:slug" element={<EcomServicePage />} />
         <Route path="/services/mobile-software" element={<MobileSoftware />} />
         <Route path="/services/mobile/mobile-app" element={<MobileApp />} />
