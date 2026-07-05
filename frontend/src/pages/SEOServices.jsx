@@ -46,64 +46,64 @@ const SEO_FAQS = [
 const SEO_SERVICES = [
   {
     icon: <FiSearch size={26} />,
-    iconBg: '#EBF2FF',
-    iconColor: '#1A56DB',
+    iconBg: '#FFF6E0',
+    iconColor: '#C78700',
     title: 'Technical SEO Audit & Fixes',
     desc: 'Deep crawl of your entire site to identify and fix crawl errors, broken links, duplicate content, and indexation issues that block rankings.',
     features: ['Crawlability & indexation fix', 'Site architecture review', 'Redirect chain resolution', 'Structured data implementation'],
   },
   {
     icon: <HiOutlineDocumentSearch size={26} />,
-    iconBg: '#FEF3C7',
-    iconColor: '#D97706',
+    iconBg: '#FFF6E0',
+    iconColor: '#C78700',
     title: 'Keyword Research & Mapping',
     desc: 'Data-driven keyword discovery using intent clustering to map the right terms to the right pages — driving qualified traffic that converts.',
     features: ['Competitor gap analysis', 'Long-tail keyword discovery', 'Search intent classification', 'Content cluster mapping'],
   },
   {
     icon: <FiFileText size={26} />,
-    iconBg: '#F5F3FF',
-    iconColor: '#7C3AED',
+    iconBg: '#FFF6E0',
+    iconColor: '#C78700',
     title: 'On-Page Optimisation',
     desc: 'Every meta tag, heading structure, and internal link optimised to signal relevance and authority to Google — systematically, at scale.',
     features: ['Title & meta description rewrites', 'Heading hierarchy (H1–H4)', 'Image alt text & compression', 'Internal linking strategy'],
   },
   {
     icon: <FiLink size={26} />,
-    iconBg: '#F0FDF4',
-    iconColor: '#059669',
+    iconBg: '#FFF6E0',
+    iconColor: '#C78700',
     title: 'Link Building & Digital PR',
     desc: 'White-hat authority building through guest posts, digital PR campaigns, and HARO outreach to earn links from relevant, high-DA domains.',
     features: ['Guest post outreach', 'HARO & journalist pitching', 'Broken link reclamation', 'Brand mention link building'],
   },
   {
     icon: <FiMapPin size={26} />,
-    iconBg: '#FFF0F6',
-    iconColor: '#DB2777',
+    iconBg: '#FFF6E0',
+    iconColor: '#C78700',
     title: 'Local SEO',
     desc: 'Dominate "near me" searches and Google Maps rankings with Google Business Profile optimisation, local citations, and review management.',
     features: ['Google Business Profile setup', 'NAP citation building', 'Review generation strategy', 'Local schema markup'],
   },
   {
     icon: <MdOutlineSpeed size={26} />,
-    iconBg: '#F0F9FF',
-    iconColor: '#0891B2',
+    iconBg: '#FFF6E0',
+    iconColor: '#C78700',
     title: 'Core Web Vitals & Speed SEO',
     desc: 'Page experience is a ranking factor. We optimise LCP, CLS, FID, and overall speed to give you a technical edge over competitors.',
     features: ['LCP / CLS / FID fixes', 'Image & font optimisation', 'CDN configuration', 'Server response time tuning'],
   },
   {
     icon: <FiGlobe size={26} />,
-    iconBg: '#FFF8F0',
-    iconColor: '#F97316',
+    iconBg: '#FFF6E0',
+    iconColor: '#F5A800',
     title: 'E-Commerce SEO',
     desc: 'Product and category page optimisation, faceted navigation handling, and schema markup to drive high-intent buyers straight to your listings.',
     features: ['Product schema & rich snippets', 'Category page optimisation', 'Faceted URL management', 'Review schema integration'],
   },
   {
     icon: <BsGraphUpArrow size={26} />,
-    iconBg: '#F0FDF9',
-    iconColor: '#0D9488',
+    iconBg: '#FFF6E0',
+    iconColor: '#C78700',
     title: 'SEO Reporting & Analytics',
     desc: 'Crystal-clear monthly reports showing rank movements, traffic growth, conversions, and the direct ROI of your SEO investment.',
     features: ['Rank tracker dashboards', 'GA4 & Search Console reports', 'Competitor benchmark tracking', 'Monthly strategy review calls'],
@@ -118,7 +118,7 @@ const SEO_PROCESS = [
     title: 'Audit & Research',
     desc: 'We run a 150-point technical audit alongside in-depth keyword research and competitor analysis to understand exactly where you stand and what opportunities exist.',
     tags: ['Site Crawl', 'Keyword Research', 'Competitor Gap', 'Opportunity Map'],
-    accent: '#1A56DB',
+    accent: '#C78700',
   },
   {
     step: '02',
@@ -126,7 +126,7 @@ const SEO_PROCESS = [
     title: 'Strategy & Roadmap',
     desc: 'Your findings are turned into a prioritised 90-day SEO roadmap with clear milestones, target keywords, and content requirements mapped to business goals.',
     tags: ['90-Day Roadmap', 'Priority Matrix', 'Content Plan', 'KPI Setting'],
-    accent: '#7C3AED',
+    accent: '#C78700',
   },
   {
     step: '03',
@@ -134,7 +134,7 @@ const SEO_PROCESS = [
     title: 'On-Page Fixes',
     desc: 'We systematically optimise every page — titles, meta descriptions, headings, internal links, structured data — ensuring Google fully understands your content.',
     tags: ['Title Tags', 'Schema Markup', 'Internal Links', 'Image SEO'],
-    accent: '#059669',
+    accent: '#C78700',
   },
   {
     step: '04',
@@ -142,7 +142,7 @@ const SEO_PROCESS = [
     title: 'Content Creation',
     desc: 'Expert SEO writers produce authoritative, search-optimised content — blogs, pillar pages, and landing pages — that attract backlinks and rank for target keywords.',
     tags: ['Pillar Pages', 'Blog Articles', 'FAQ Content', 'Link Bait Assets'],
-    accent: '#F97316',
+    accent: '#F5A800',
   },
   {
     step: '05',
@@ -150,7 +150,7 @@ const SEO_PROCESS = [
     title: 'Monitor & Report',
     desc: 'We track every keyword, every backlink, and every conversion, sharing clear monthly reports and adjusting the strategy based on live data.',
     tags: ['Rank Tracking', 'GA4 Reports', 'Link Monitoring', 'Strategy Refinement'],
-    accent: '#0891B2',
+    accent: '#C78700',
   },
 ]
 
@@ -183,7 +183,7 @@ export default function SEOServices() {
               </p>
 
               <div className="svc-hero__actions">
-                <Link to="/contact" className="btn btn-blue">
+                <Link to="/contact" className="btn btn--yellow">
                   Get Free SEO Audit <FiArrowRight size={16} />
                 </Link>
                 <Link to="/contact" className="btn btn-outline">
@@ -319,8 +319,8 @@ export default function SEOServices() {
 
       {/* ── Our Work (real reels + posts) ────────────────── */}
       <ServiceWork
-        accent="#0891B2"
-        accentSoft="#ECFEFF"
+        accent="#F5A800"
+        accentSoft="#FFF6E0"
         heading="Content That Ranks & Converts"
         subtitle="Real reels and creative posts we've produced for brands we help grow."
       />
@@ -353,9 +353,9 @@ export default function SEOServices() {
                   to="/contact"
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '8px',
-                    padding: '14px 30px', borderRadius: '12px', background: '#F97316',
-                    color: '#fff', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(249,115,22,0.4)',
+                    padding: '14px 30px', borderRadius: '12px', background: '#F5A800',
+                    color: '#1a1a1a', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(245,168,0,0.4)',
                   }}
                 >
                   Claim Free SEO Audit <FiArrowRight size={17} />
