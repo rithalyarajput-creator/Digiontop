@@ -1,0 +1,95 @@
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import {
+  FiSmartphone, FiZap, FiLayers, FiBell, FiLock, FiTrendingUp,
+  FiCheck, FiArrowRight, FiArrowUpRight, FiGrid, FiHome,
+} from 'react-icons/fi'
+import ServiceFaq from '../../components/ServiceFaq'
+import '../../styles/MobilePages.css'
+
+const FAQS = [
+  { q: 'Do you build for both iOS and Android?', a: 'Yes — native or cross-platform apps that run beautifully on both, tailored to your budget and goals.' },
+  { q: 'How long does app development take?', a: 'A typical app takes 8–16 weeks depending on features. We share a clear roadmap and milestones upfront.' },
+  { q: 'Will you publish it to the app stores?', a: 'Absolutely — we handle App Store and Play Store submission, guidelines and approval.' },
+  { q: 'Can it integrate with my systems?', a: 'Yes — payments, APIs, CRMs and backend systems all integrate seamlessly.' },
+  { q: 'Do you provide post-launch support?', a: 'We offer ongoing maintenance, updates and new features as your app grows.' },
+]
+
+const FEATURES = [
+  { icon: <FiLayers />, t: 'Native & Cross-Platform', d: 'Apps that feel native on both iOS and Android.' },
+  { icon: <FiZap />, t: 'Fast & Smooth', d: 'Optimised performance with buttery-smooth interactions.' },
+  { icon: <FiBell />, t: 'Push Notifications', d: 'Re-engage users with timely, targeted notifications.' },
+  { icon: <FiLock />, t: 'Secure by Design', d: 'Authentication, encryption and best-practice security.' },
+  { icon: <FiGrid />, t: 'Custom Features', d: 'Any functionality your business needs, built to spec.' },
+  { icon: <FiTrendingUp />, t: 'Scalable Backend', d: 'Cloud infrastructure that grows with your users.' },
+]
+
+export default function MobileApp() {
+  useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
+  return (
+    <main className="mob">
+      <section className="mob-hero mob-hero--dark">
+        <div className="mob-hero__grid" />
+        <div className="mob-container mob-hero__inner">
+          <div className="mob-hero__text" data-aos="fade-right">
+            <span className="mob-tag mob-tag--light"><FiSmartphone /> Mobile App Development</span>
+            <h1 className="mob-hero__title mob-hero__title--light">Apps Your Customers<br /><span>Love to Use</span></h1>
+            <p className="mob-hero__sub mob-hero__sub--light">Beautiful, fast mobile apps for iOS and Android — built to engage your users, grow your business and scale effortlessly.</p>
+            <div className="mob-hero__cta">
+              <Link to="/contact" className="mob-btn mob-btn--solid">Build My App <FiArrowRight /></Link>
+              <Link to="/contact" className="mob-btn mob-btn--ghost-l">Discuss My Idea</Link>
+            </div>
+          </div>
+          <div className="mp-phone" data-aos="fade-left">
+            <span className="mp-phone__notch" />
+            <div className="mp-phone__screen">
+              <div className="mp-phone__top"><span className="mp-phone__logo" /><b>YourApp</b></div>
+              <div className="mp-phone__hero"><FiSmartphone /></div>
+              <div className="mp-phone__cards"><span /><span /><span /><span /></div>
+              <div className="mp-phone__nav"><i /><i /><i /><i /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mob-features">
+        <div className="mob-container">
+          <div className="mob-head" data-aos="fade-up">
+            <span className="mob-eyebrow">What You Get</span>
+            <h2>Everything a Great App Needs</h2>
+          </div>
+          <div className="mob-features__grid">
+            {FEATURES.map((f, i) => (
+              <div className="mob-feature" key={f.t} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
+                <span className="mob-feature__icon">{f.icon}</span><h3>{f.t}</h3><p>{f.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mob-band">
+        <div className="mob-container mob-band__inner" data-aos="fade-up">
+          <div><b>iOS + Android</b><span>Both Platforms</span></div>
+          <div><b>Store</b><span>Publishing Handled</span></div>
+          <div><b>Ongoing</b><span>Support & Updates</span></div>
+        </div>
+      </section>
+
+      <ServiceFaq service="Mobile App Development" faqs={FAQS} />
+
+      <section className="mob-cta">
+        <div className="mob-container">
+          <div className="mob-cta__box" data-aos="zoom-in">
+            <FiSmartphone className="mob-cta__ic" />
+            <h2>Have an App Idea? Let's Build It.</h2>
+            <p>Tell us your idea — we'll map the features, timeline and cost to bring your app to life.</p>
+            <Link to="/contact" className="mob-btn mob-btn--light">Discuss My Project <FiArrowUpRight /></Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}

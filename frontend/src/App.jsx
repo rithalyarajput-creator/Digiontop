@@ -55,6 +55,14 @@ import WebApp from './pages/sub/WebApp';
 import WooCommerce from './pages/sub/WooCommerce';
 import WebsiteRedesign from './pages/sub/WebsiteRedesign';
 import LandingPage from './pages/sub/LandingPage';
+import MobileApp from './pages/sub/MobileApp';
+import IosApp from './pages/sub/IosApp';
+import AndroidApp from './pages/sub/AndroidApp';
+import FlutterApp from './pages/sub/FlutterApp';
+import CloudSolutions from './pages/sub/CloudSolutions';
+import ApiDevelopment from './pages/sub/ApiDevelopment';
+import SaasDevelopment from './pages/sub/SaasDevelopment';
+import DevOpsServices from './pages/sub/DevOpsServices';
 import SocialMedia from './pages/SocialMedia';
 import WhyUs from './pages/WhyUs';
 import Industries from './pages/Industries';
@@ -114,6 +122,14 @@ function PublicSite() {
         <Route path="/services/ecommerce-solutions" element={<EcommercePage />} />
         <Route path="/services/ecom/:slug" element={<EcomServicePage />} />
         <Route path="/services/mobile-software" element={<MobileSoftware />} />
+        <Route path="/services/mobile/mobile-app" element={<MobileApp />} />
+        <Route path="/services/mobile/ios" element={<IosApp />} />
+        <Route path="/services/mobile/android" element={<AndroidApp />} />
+        <Route path="/services/mobile/flutter" element={<FlutterApp />} />
+        <Route path="/services/mobile/cloud" element={<CloudSolutions />} />
+        <Route path="/services/mobile/api" element={<ApiDevelopment />} />
+        <Route path="/services/mobile/saas" element={<SaasDevelopment />} />
+        <Route path="/services/mobile/devops" element={<DevOpsServices />} />
         <Route path="/services/mobile/:slug" element={<MobileServicePage />} />
         <Route path="/services/social/social-media-marketing" element={<SocialMediaMarketing />} />
         <Route path="/services/social/content-marketing" element={<ContentMarketing />} />
