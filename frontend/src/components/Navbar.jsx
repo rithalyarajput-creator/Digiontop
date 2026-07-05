@@ -78,7 +78,7 @@ export default function Navbar() {
 
         {/* ── Logo (always left) ── */}
         <Link to="/" className="navbar__logo">
-          <img src={settings.logo_header || "/images/logo-header.webp"} alt={settings.site_name || "DigionTop"} />
+          <img src={(settings.logo_header || "/images/logo-header.webp").replace(/\/images\/(logo-\w+)\.(png|jpe?g)$/i, "/images/$1.webp")} alt={settings.site_name || "DigionTop"} />
         </Link>
 
         {/* ── Desktop center pill ── */}
@@ -226,7 +226,7 @@ export default function Navbar() {
         {/* Drawer header */}
         <div className="navbar__drawer-head">
           <Link to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>
-            <img src={settings.logo_header || "/images/logo-header.webp"} alt={settings.site_name || "DigionTop"} />
+            <img src={(settings.logo_header || "/images/logo-header.webp").replace(/\/images\/(logo-\w+)\.(png|jpe?g)$/i, "/images/$1.webp")} alt={settings.site_name || "DigionTop"} />
           </Link>
           <button className="navbar__drawer-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
