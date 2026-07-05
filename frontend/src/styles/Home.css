@@ -1361,13 +1361,14 @@ a {
 .home-testimonials__track {
   display: flex;
   gap: 28px;
+  align-items: stretch;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 22px 4px 12px;
-  scroll-padding-left: 4px;
-  margin-top: 44px;
+  padding: 30px 6px 40px;
+  scroll-padding-left: 6px;
+  margin-top: 30px;
 }
 .home-testimonials__track::-webkit-scrollbar { display: none; }
 .home-testimonials__track .tcard {
