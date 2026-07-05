@@ -87,11 +87,19 @@ export default function Industries() {
       <section className="industries-hero">
         <div className="industries-hero__overlay" />
         <div className="industries-hero__content">
-          <h1 className="industries-hero__heading">Industries We Serve</h1>
+          <span className="industries-hero__badge">Industry Expertise</span>
+          <h1 className="industries-hero__heading">
+            Digital Growth, Tailored to <span>Your Industry</span>
+          </h1>
           <p className="industries-hero__sub">
             Sector-specific digital strategies built for the way your business
             actually works — not generic templates.
           </p>
+          <div className="industries-hero__stats">
+            <div className="industries-hero__stat"><b>10+</b><span>Industries Served</span></div>
+            <div className="industries-hero__stat"><b>50+</b><span>Brands Grown</span></div>
+            <div className="industries-hero__stat"><b>100%</b><span>Custom Strategy</span></div>
+          </div>
           <nav className="industries-hero__breadcrumb" aria-label="Breadcrumb">
             <Link to="/" className="industries-hero__breadcrumb-link">Home</Link>
             <span className="industries-hero__breadcrumb-sep" aria-hidden="true">/</span>
@@ -117,11 +125,13 @@ export default function Industries() {
           </div>
 
           <div className="industries-grid">
-            {industries.map((ind) => (
+            {industries.map((ind, i) => (
               <div key={ind.title} className="industry-card">
+                <span className="industry-card__num">{String(i + 1).padStart(2, '0')}</span>
                 <div className="industry-card__icon">{ind.icon}</div>
                 <h3 className="industry-card__title">{ind.title}</h3>
                 <p className="industry-card__desc">{ind.description}</p>
+                <span className="industry-card__arrow" aria-hidden="true">→</span>
               </div>
             ))}
           </div>

@@ -14,6 +14,10 @@ const CAT_ICONS = {
    `categoryHeading` must match a heading in SERVICES_MENU.
    `activePath` (optional) highlights/excludes the current page. */
 export default function RelatedServices({ categoryHeading, activePath }) {
+  // Removed from all service pages per request — render nothing.
+  return null
+
+  // eslint-disable-next-line no-unreachable
   const cat = SERVICES_MENU.find((c) => c.heading === categoryHeading)
   if (!cat) return null
   const Icon = CAT_ICONS[cat.icon] || FiMonitor
