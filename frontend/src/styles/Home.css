@@ -1357,11 +1357,37 @@ a {
   padding: 80px 0;
   background: #fff;
 }
-.home-testimonials__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 64px;
+/* Head row: title left, nav arrows right */
+.home-testimonials__head {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
+  margin-bottom: 44px; flex-wrap: wrap;
+}
+.tslide__nav { display: flex; gap: 12px; }
+.tslide__btn {
+  width: 48px; height: 48px; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  background: #fff; border: 1.5px solid #ececf1; color: #14182b; font-size: 16px;
+  box-shadow: 0 6px 16px rgba(20,24,43,0.06);
+  transition: all 0.2s ease;
+}
+.tslide__btn:hover { background: #14182b; color: #FFD874; border-color: #14182b; transform: translateY(-2px); }
+
+/* Horizontal sliding track */
+.home-testimonials__track {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 22px 4px 12px;
+  scroll-padding-left: 4px;
+}
+.home-testimonials__track::-webkit-scrollbar { display: none; }
+.home-testimonials__track .tcard {
+  flex: 0 0 calc((100% - 56px) / 3);
+  max-width: calc((100% - 56px) / 3);
+  scroll-snap-align: start;
 }
 
 /* ── Ribbon testimonial card (exact reference design) ── */
@@ -1462,10 +1488,11 @@ a {
 }
 
 @media (max-width: 900px) {
-  .home-testimonials__grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .home-testimonials__track .tcard { flex: 0 0 calc((100% - 28px) / 2); max-width: calc((100% - 28px) / 2); }
 }
 @media (max-width: 600px) {
   .home-testimonials { padding: 56px 0; }
+  .home-testimonials__track .tcard { flex: 0 0 84%; max-width: 84%; }
 
   /* Horizontal swipe-slide instead of stacking */
   .home-testimonials__grid {

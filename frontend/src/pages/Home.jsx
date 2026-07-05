@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -405,42 +405,60 @@ const SocialReelsSection = () => (
 /* ── Testimonials Section ── */
 const TCOLORS = ['#F5A800', '#0d5c63', '#1a1a1a'];
 
+const FALLBACK_TESTIMONIALS = [
+  { id: 1, client_name: 'Rajesh Sharma', client_role: 'E-Commerce Seller', client_location: 'Delhi', testimonial_text: 'DigionTop completely transformed our Amazon listings. Within three months our products were ranking on page one and organic sales doubled!', rating: 5 },
+  { id: 2, client_name: 'Priya Mehta', client_role: 'Wellness Studio Owner', client_location: 'Bangalore', testimonial_text: 'Within four months we were ranking for every major keyword. New client enquiries went up by over 60% — incredible results!', rating: 5 },
+  { id: 3, client_name: 'Ankur Gupta', client_role: 'Restaurant Owner', client_location: 'Jaipur', testimonial_text: 'In six months we crossed 4,200 Instagram followers and customers started walking in specifically because they found us online.', rating: 5 },
+  { id: 4, client_name: 'Sneha Reddy', client_role: 'Boutique Founder', client_location: 'Hyderabad', testimonial_text: 'Their team built us a stunning Shopify store that loads fast and converts. Our online orders tripled within the first quarter!', rating: 5 },
+  { id: 5, client_name: 'Vikram Singh', client_role: 'Real Estate Agency', client_location: 'Mumbai', testimonial_text: 'The paid ad campaigns brought us qualified leads at half the cost we used to pay. Genuinely the best marketing partner we have worked with.', rating: 5 },
+  { id: 6, client_name: 'Meera Iyer', client_role: 'D2C Brand Owner', client_location: 'Chennai', testimonial_text: 'From branding to social media, they handled everything. Our Instagram engagement is up 5x and our brand finally looks premium.', rating: 5 },
+];
+
 const TestimonialsSection = () => {
   const [items, setItems] = useState([]);
+  const trackRef = useRef(null);
 
   useEffect(() => {
     fetch('/api/testimonials')
       .then(r => r.json())
-      .then(d => setItems(Array.isArray(d) ? d.slice(0, 3) : []))
+      .then(d => setItems(Array.isArray(d) ? d : []))
       .catch(() => {});
   }, []);
 
-  const display = items.length > 0 ? items : [
-    { id: 1, client_name: 'Rajesh Sharma', client_role: 'E-Commerce Seller', client_location: 'Delhi', testimonial_text: 'DigionTop completely transformed our Amazon listings. Within three months our products were ranking on page one and organic sales doubled!', rating: 5 },
-    { id: 2, client_name: 'Priya Mehta', client_role: 'Wellness Studio Owner', client_location: 'Bangalore', testimonial_text: 'Within four months we were ranking for every major keyword. New client enquiries went up by over 60% — incredible results!', rating: 5 },
-    { id: 3, client_name: 'Ankur Gupta', client_role: 'Restaurant Owner', client_location: 'Jaipur', testimonial_text: 'In six months we crossed 4,200 Instagram followers and customers started walking in specifically because they found us online.', rating: 5 },
-  ];
+  const display = items.length > 0 ? items : FALLBACK_TESTIMONIALS;
+
+  const scrollBy = (dir) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.querySelector('.tcard');
+    const step = card ? card.offsetWidth + 28 : 380;
+    el.scrollBy({ left: dir * step, behavior: 'smooth' });
+  };
 
   return (
     <section className="home-testimonials" data-aos="fade-up">
       <div className="container">
-        <p className="section-label">CLIENT STORIES</p>
-        <h2 className="section-title">What Our Clients Say</h2>
-        <p className="section-subtitle">Real results from real Indian businesses.</p>
-        <div className="home-testimonials__grid">
+        <div className="home-testimonials__head">
+          <div>
+            <p className="section-label">CLIENT STORIES</p>
+            <h2 className="section-title">What Our Clients Say</h2>
+            <p className="section-subtitle">Real results from real Indian businesses.</p>
+          </div>
+          <div className="tslide__nav">
+            <button className="tslide__btn" onClick={() => scrollBy(-1)} aria-label="Previous"><FaArrowRight style={{ transform: 'rotate(180deg)' }} /></button>
+            <button className="tslide__btn" onClick={() => scrollBy(1)} aria-label="Next"><FaArrowRight /></button>
+          </div>
+        </div>
+
+        <div className="home-testimonials__track" ref={trackRef}>
           {display.map((t) => (
             <div key={t.id} className="tcard">
-              {/* Blue ribbon banner with name */}
               <div className="tcard__ribbon">
                 <span className="tcard__ribbon-name">{t.client_name}</span>
               </div>
-              {/* Quote icon */}
               <div className="tcard__quote">”</div>
-              {/* Stars */}
               <div className="tcard__stars">{'★'.repeat(t.rating || 5)}</div>
-              {/* Text */}
               <p className="tcard__text">{t.testimonial_text}</p>
-              {/* Role (small, below) */}
               {t.client_role && (
                 <p className="tcard__role">{t.client_role}{t.client_location ? `, ${t.client_location}` : ''}</p>
               )}
