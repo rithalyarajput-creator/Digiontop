@@ -1664,11 +1664,17 @@ a {
    ============================================================ */
 .hero--banner {
   position: relative;
-  min-height: 560px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding: 60px 24px;
+  padding: 0;
+  line-height: 0;              /* remove gap under image */
+  background: #0b0d12;
+}
+.hero__banner-link { display: block; }
+/* Full image — always shown complete, never cropped, scales with screen width */
+.hero__banner-full {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 .hero__bg-img {
   position: absolute; inset: 0;
@@ -1691,14 +1697,7 @@ a {
 .hero__banner-content .hero__stats-row { margin-top: 40px; }
 
 @media (max-width: 768px) {
-  .hero--banner { min-height: 520px; padding: 50px 18px; text-align: center; }
-  .hero__bg-img { object-position: center; }
-  .hero__overlay { background: linear-gradient(180deg, rgba(8,10,18,0.85) 0%, rgba(8,10,18,0.72) 100%); }
-  .hero__banner-content { padding-left: 0; }
-  .hero__banner-content .hero__badge,
-  .hero__banner-content .hero__ctas,
-  .hero__banner-content .hero__stats-row { justify-content: center; }
-  .hero__banner-content .hero__subheadline { margin-left: auto; margin-right: auto; }
+  .hero--banner { min-height: 0; padding: 0; }
 }
 
 /* ============================================================

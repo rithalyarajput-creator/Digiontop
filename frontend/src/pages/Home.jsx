@@ -114,39 +114,10 @@ const heroStats = [
 
 const HeroSection = () => (
   <section className="hero hero--banner">
-    {/* Full-width banner image with text + buttons overlaid on top */}
-    <img src="/images/home-banner.png" alt="DigionTop — Business Growth" className="hero__bg-img" />
-    <div className="hero__overlay" />
-    <div className="hero__banner-content" data-aos="fade-up">
-      <div className="hero__badge">
-        <span className="hero__badge-star">★</span> #1 Digital Marketing Agency
-      </div>
-      <h1 className="hero__headline">
-        Stay On <span className="hero__headline--yellow">Top.</span>
-      </h1>
-      <p className="hero__subheadline">
-        We Help Brands Rank Higher, Grow Faster<br />
-        &amp; Generate <span className="hero__subheadline--yellow">More Revenue.</span>
-      </p>
-      <div className="hero__ctas">
-        <a href="/contact" className="btn btn--yellow hero__btn-call">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          Get a Free Strategy Call
-        </a>
-        <a href="/services" className="btn btn--outline hero__btn-services">
-          <span className="hero__btn-arrow">↗</span> View Our Services
-        </a>
-      </div>
-
-      <div className="hero__stats-row">
-        {heroStats.map((s, i) => (
-          <div className="hero__stat-item" key={i}>
-            <span className="hero__stat-val">{s.value}</span>
-            <span className="hero__stat-lbl">{s.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
+    {/* Full banner image — shown complete (never cropped). Text/CTA live inside the image. */}
+    <a href="/contact" className="hero__banner-link" aria-label="DigionTop — Get a free consultation">
+      <img src="/images/home-banner.png" alt="DigionTop — #1 Digital Marketing Agency. Get a free strategy call." className="hero__banner-full" />
+    </a>
   </section>
 );
 
