@@ -96,7 +96,7 @@ export default function Portfolio() {
 
         <div className="pf-hero__inner">
           <motion.img
-            src="/images/logo-footer.png"
+            src="/images/logo-header.png"
             alt="DigionTop"
             className="pf-hero__logo"
             initial={{ opacity: 0, scale: 0.8, y: -20 }}
