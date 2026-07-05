@@ -69,7 +69,6 @@ const SECTIONS = [
       { id: 'p1', title: 'Smile Dental Care Centre', tag: 'Healthcare Website', image: '/images/work/smile-dental.png', link: 'https://smiledentalcarecentre.com' },
       { id: 'p2', title: 'Baid Stock Broking', tag: 'Finance Website', image: '/images/work/baid-finance.png', link: 'https://baidstockbroking.com' },
       { id: 'p3', title: 'Delhi Dental Implants', tag: 'Dental Clinic', image: '/images/work/delhi-dental.png' },
-      { id: 'p4', title: 'Delhi Dentist', tag: 'Dental Healthcare', image: '/images/work/delhi-dentist.png' },
       { id: 'p5', title: 'Lightboard Signage', tag: 'Business Website', image: '/images/work/lightboard-signage.png' },
       { id: 'p6', title: 'Stressless Learner', tag: 'Education', image: '/images/work/stressless-learner.png' },
       { id: 'p7', title: 'Rithala Village', tag: 'Information & Community', image: '/images/work/rithala-village.png' },
@@ -97,7 +96,7 @@ export default function Portfolio() {
 
         <div className="pf-hero__inner">
           <motion.img
-            src="/images/logo-header.png"
+            src="/images/logo-footer.png"
             alt="DigionTop"
             className="pf-hero__logo"
             initial={{ opacity: 0, scale: 0.8, y: -20 }}
