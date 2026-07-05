@@ -520,94 +520,91 @@ const TestimonialsSection = () => {
 };
 
 // ─── OUR WORK ────────────────────────────────────────────────────────────────
-const workCategories = [
+const showcaseSites = [
   {
-    key: "websites",
-    label: "Websites & Web Apps",
-    tag: "Web Development",
-    title: "High-converting websites that sell",
-    desc: "From eCommerce to business sites — we design custom, mobile-first websites that turn visitors into customers.",
+    key: "smile-dental",
+    title: "Smile Dental Care Centre",
+    tag: "Healthcare Website",
+    url: "smiledentalcare.in",
     image: "/images/work/smile-dental.png",
   },
   {
-    key: "ecommerce",
-    label: "E-Commerce Stores",
-    tag: "Online Stores",
-    title: "Online stores built to grow",
-    desc: "Shopify & WooCommerce stores with high-converting product pages, optimised for sales and scale.",
+    key: "baid-finance",
+    title: "Baid Stock Broking",
+    tag: "Finance Website",
+    url: "baidstockbroking.com",
+    image: "/images/work/baid-finance.png",
+  },
+  {
+    key: "delhi-dental",
+    title: "Delhi Dental Implants",
+    tag: "Dental Clinic",
+    url: "drkathuriadentistry.com",
+    image: "/images/work/delhi-dental.png",
+  },
+  {
+    key: "stressless",
+    title: "Stressless Learner",
+    tag: "Education Platform",
+    url: "stresslesslearner.com",
+    image: "/images/work/stressless-learner.png",
+  },
+  {
+    key: "blameless",
+    title: "Blameless Skincare",
+    tag: "E-Commerce Store",
+    url: "blamelessskincare.com",
     image: "/images/work/blameless-skincare.png",
   },
   {
-    key: "reels",
-    label: "Reels & Video Content",
-    tag: "Social Media",
-    title: "Reels that stop the scroll",
-    desc: "Short-form video content crafted to grab attention, build trust and drive real engagement.",
-    image: "/images/work/post-1.jpg",
-  },
-  {
-    key: "branding",
-    label: "Finance & Branding",
-    tag: "Branding & Design",
-    title: "Brands people remember",
-    desc: "Strong identities, landing pages and campaigns for finance, healthcare and growing businesses.",
-    image: "/images/work/baid-finance.png",
+    key: "toreto",
+    title: "Toreto",
+    tag: "Brand Website",
+    url: "toreto.in",
+    image: "/images/work/toreto.png",
   },
 ];
 
-const OurWorkSection = () => {
-  const [active, setActive] = useState(0);
-  const cat = workCategories[active];
-
-  return (
-    <section className="ourwork" id="our-work">
-      <div className="ourwork__inner">
-        <div className="ourwork__head" data-aos="fade-up">
-          <p className="section-label">OUR WORK</p>
-          <h2 className="section-title">Brands We've Helped Grow</h2>
-          <p className="section-subtitle">
-            Pick a category to see the kind of results we deliver for our clients.
-          </p>
-        </div>
-
-        <div className="ourwork__body">
-          {/* LEFT — category buttons */}
-          <div className="ourwork__tabs" data-aos="fade-right">
-            {workCategories.map((c, i) => (
-              <button
-                key={c.key}
-                className={`ourwork__tab${i === active ? " ourwork__tab--active" : ""}`}
-                onClick={() => setActive(i)}
-              >
-                <span>{c.label}</span>
-                <span className="ourwork__tab-arrow">→</span>
-              </button>
-            ))}
-          </div>
-
-          {/* RIGHT — preview image + content */}
-          <div className="ourwork__preview" data-aos="fade-left">
-            <div className="ourwork__preview-media">
-              <img src={cat.image} alt={cat.title} key={cat.key} />
-              <span className="ourwork__preview-tag">{cat.tag}</span>
-            </div>
-            <div className="ourwork__preview-body">
-              <h3 className="ourwork__preview-title">{cat.title}</h3>
-              <p className="ourwork__preview-desc">{cat.desc}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Explore More → portfolio */}
-        <div className="ourwork__cta" data-aos="fade-up">
-          <Link to="/portfolio" className="ourwork__explore">
-            Explore More Projects <span>→</span>
-          </Link>
-        </div>
+const OurWorkSection = () => (
+  <section className="showcase" id="our-work">
+    <div className="container">
+      <div className="showcase__head" data-aos="fade-up">
+        <p className="section-label">OUR WORK</p>
+        <h2 className="section-title">Websites We've Built &amp; Launched</h2>
+        <p className="section-subtitle">
+          Hover over any website to explore the full design — real projects, real results.
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <div className="showcase__grid">
+        {showcaseSites.map((s, i) => (
+          <div className="showcase__card" key={s.key} data-aos="fade-up" data-aos-delay={(i % 3) * 90}>
+            <div className="showcase__bar">
+              <span className="showcase__dot" /><span className="showcase__dot" /><span className="showcase__dot" />
+              <span className="showcase__url">{s.url}</span>
+            </div>
+            <div className="showcase__window">
+              <img src={s.image} alt={s.title} className="showcase__shot" loading="lazy" />
+            </div>
+            <div className="showcase__caption">
+              <div>
+                <span className="showcase__title">{s.title}</span>
+                <span className="showcase__tag">{s.tag}</span>
+              </div>
+              <span className="showcase__arrow"><FaArrowRight /></span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="showcase__cta" data-aos="fade-up">
+        <Link to="/portfolio" className="showcase__explore">
+          Explore More Projects <FaArrowRight />
+        </Link>
+      </div>
+    </div>
+  </section>
+);
 
 const Home = () => {
   useEffect(() => {
