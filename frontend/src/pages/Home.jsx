@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SocialReelsSection from "../components/SocialReelsSection";
+import ServiceFaq from "../components/ServiceFaq";
 import {
   FaCode,
   FaSearch,
@@ -582,6 +583,15 @@ const OurWorkSection = () => {
   );
 };
 
+const HOME_FAQS = [
+  { q: 'What services does DigionTop offer?', a: 'We are a full-service digital marketing agency — websites & Shopify stores, social media & reels, SEO, paid ads (Google/Meta), branding, and e-commerce marketplace management. One team handles your entire digital presence.' },
+  { q: 'How soon can we get started?', a: 'Usually within 2–3 days of your consultation. We start with a discovery call, map a custom strategy, and begin execution — keeping you updated at every milestone.' },
+  { q: 'Do you work with small businesses and startups?', a: 'Absolutely. From new startups to growing brands, we tailor our plans to your budget and goals. No project is too small — we grow with you.' },
+  { q: 'How much do your services cost?', a: 'Pricing depends on your goals and the services you need. We offer flexible, transparent packages with no long-term lock-ins. Book a free consultation and we\'ll share a clear quote.' },
+  { q: 'Will I get regular reports on results?', a: 'Yes — you receive clear, plain-language reports so you always know exactly where your budget goes and what results it\'s driving. Full transparency, always.' },
+  { q: 'Do you offer a free consultation?', a: 'Yes! We offer a free, no-obligation strategy consultation. Fill the form and we\'ll reply within one business day with a clear plan to grow your business.' },
+];
+
 const Home = () => {
   useEffect(() => {
     AOS.init({ duration: 700, easing: "ease-out-cubic", once: true });
@@ -595,6 +605,7 @@ const Home = () => {
       <OurWorkSection />
       <IndustriesSection />
       <TestimonialsSection />
+      <ServiceFaq service="Digital Marketing" faqs={HOME_FAQS} />
       <CtaBanner />
     </main>
   );
