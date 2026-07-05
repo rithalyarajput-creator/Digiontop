@@ -32,8 +32,9 @@ const SECTIONS = [
     ratio: 'wide',
     mockup: 'ecommerce',
     items: [
-      { id: 'e1', title: 'Blameless', tag: 'Skincare E-Commerce', image: '/images/work/blameless-skincare.png', link: 'https://blameless.in' },
-      { id: 'e2', title: 'Toreto', tag: 'Electronics E-Commerce', image: '/images/work/toreto.png', link: 'https://toreto.in' },
+      { id: 'e1', title: 'Amshine Jewels', tag: 'Jewellery E-Commerce', image: '/images/work/amshine-jewels.png', link: 'https://amshinejewels.com' },
+      { id: 'e2', title: 'Blameless', tag: 'Skincare E-Commerce', image: '/images/work/blameless-skincare.png', link: 'https://blameless.in' },
+      { id: 'e3', title: 'Toreto', tag: 'Electronics E-Commerce', image: '/images/work/toreto.png', link: 'https://toreto.in' },
     ],
   },
   {
