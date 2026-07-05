@@ -594,7 +594,6 @@ const Home = () => {
       <WhyUsSection />
       <OurWorkSection />
       <IndustriesSection />
-      <SocialReelsSection />
       <TestimonialsSection />
       <CtaBanner />
     </main>
