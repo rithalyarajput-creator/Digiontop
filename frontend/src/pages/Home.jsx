@@ -416,7 +416,9 @@ const FALLBACK_TESTIMONIALS = [
 
 const TestimonialsSection = () => {
   const [items, setItems] = useState([]);
+  const [active, setActive] = useState(0);
   const trackRef = useRef(null);
+  const pauseRef = useRef(false);
 
   useEffect(() => {
     fetch('/api/testimonials')
@@ -427,30 +429,65 @@ const TestimonialsSection = () => {
 
   const display = items.length > 0 ? items : FALLBACK_TESTIMONIALS;
 
-  const scrollBy = (dir) => {
+  // how many cards fit per "page" (matches CSS: 3 desktop / 2 / 1)
+  const perPage = () => {
+    if (typeof window === 'undefined') return 3;
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
+  };
+  const pageCount = Math.max(1, Math.ceil(display.length / perPage()));
+
+  const goTo = (page) => {
     const el = trackRef.current;
     if (!el) return;
     const card = el.querySelector('.tcard');
-    const step = card ? card.offsetWidth + 28 : 380;
-    el.scrollBy({ left: dir * step, behavior: 'smooth' });
+    const step = card ? (card.offsetWidth + 28) * perPage() : el.clientWidth;
+    el.scrollTo({ left: step * page, behavior: 'smooth' });
+    setActive(page);
+  };
+
+  // Auto-slide every 4s (pauses on hover)
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (pauseRef.current) return;
+      setActive((prev) => {
+        const next = (prev + 1) % pageCount;
+        const el = trackRef.current;
+        if (el) {
+          const card = el.querySelector('.tcard');
+          const step = card ? (card.offsetWidth + 28) * perPage() : el.clientWidth;
+          el.scrollTo({ left: step * next, behavior: 'smooth' });
+        }
+        return next;
+      });
+    }, 4000);
+    return () => clearInterval(id);
+  }, [pageCount]);
+
+  // Keep active dot in sync when user swipes manually
+  const onScroll = () => {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.querySelector('.tcard');
+    const step = card ? (card.offsetWidth + 28) * perPage() : el.clientWidth;
+    setActive(Math.round(el.scrollLeft / step));
   };
 
   return (
     <section className="home-testimonials" data-aos="fade-up">
       <div className="container">
-        <div className="home-testimonials__head">
-          <div>
-            <p className="section-label">CLIENT STORIES</p>
-            <h2 className="section-title">What Our Clients Say</h2>
-            <p className="section-subtitle">Real results from real Indian businesses.</p>
-          </div>
-          <div className="tslide__nav">
-            <button className="tslide__btn" onClick={() => scrollBy(-1)} aria-label="Previous"><FaArrowRight style={{ transform: 'rotate(180deg)' }} /></button>
-            <button className="tslide__btn" onClick={() => scrollBy(1)} aria-label="Next"><FaArrowRight /></button>
-          </div>
-        </div>
+        <p className="section-label">CLIENT STORIES</p>
+        <h2 className="section-title">What Our Clients Say</h2>
+        <p className="section-subtitle">Real results from real Indian businesses.</p>
 
-        <div className="home-testimonials__track" ref={trackRef}>
+        <div
+          className="home-testimonials__track"
+          ref={trackRef}
+          onScroll={onScroll}
+          onMouseEnter={() => { pauseRef.current = true; }}
+          onMouseLeave={() => { pauseRef.current = false; }}
+        >
           {display.map((t) => (
             <div key={t.id} className="tcard">
               <div className="tcard__ribbon">
@@ -463,6 +500,18 @@ const TestimonialsSection = () => {
                 <p className="tcard__role">{t.client_role}{t.client_location ? `, ${t.client_location}` : ''}</p>
               )}
             </div>
+          ))}
+        </div>
+
+        {/* Bottom-center dots */}
+        <div className="tslide__dots">
+          {Array.from({ length: pageCount }).map((_, i) => (
+            <button
+              key={i}
+              className={`tslide__dot${i === active ? ' tslide__dot--active' : ''}`}
+              onClick={() => goTo(i)}
+              aria-label={`Go to slide ${i + 1}`}
+            />
           ))}
         </div>
       </div>
