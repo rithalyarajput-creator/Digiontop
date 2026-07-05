@@ -1,0 +1,96 @@
+/* ============================================================
+   CarouselShowcase — phone with swipeable IG carousel
+   Portfolio page · light theme · pink/yellow accents
+   ============================================================ */
+.cshow {
+  padding: 80px 24px 90px;
+  background: linear-gradient(180deg, #fafafa, #fff);
+  text-align: center;
+  overflow: hidden;
+}
+.cshow__head { max-width: 620px; margin: 0 auto 44px; }
+.cshow__eyebrow {
+  display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #e1306c; margin-bottom: 12px;
+}
+.cshow__title {
+  font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 800; color: #1a1a1a;
+  letter-spacing: -0.02em; margin: 0 0 12px; line-height: 1.15;
+}
+.cshow__text { font-size: 1.05rem; color: #6b6b72; line-height: 1.6; margin: 0; }
+
+/* stage: arrows + phone */
+.cshow__stage {
+  display: flex; align-items: center; justify-content: center; gap: 26px;
+  position: relative;
+}
+
+.cshow__nav {
+  width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+  display: grid; place-items: center; cursor: pointer;
+  background: #fff; border: 1px solid #ececec; color: #1a1a1a; font-size: 22px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08); transition: all 0.22s ease; z-index: 3;
+}
+.cshow__nav:hover { background: #1a1a1a; color: #FFD874; border-color: #1a1a1a; transform: scale(1.06); }
+
+/* phone */
+.cshow__phone {
+  width: 300px; height: 600px; flex-shrink: 0;
+  background: #1a1a1a; border-radius: 44px; border: 7px solid #2a2a2a;
+  position: relative; box-shadow: 0 0 0 2px #111, 0 30px 70px rgba(0,0,0,0.35), 0 6px 16px rgba(225,48,108,0.12);
+  overflow: hidden;
+}
+.cshow__notch {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  width: 90px; height: 24px; background: #111; border-radius: 20px; z-index: 10;
+}
+.cshow__screen {
+  width: 100%; height: 100%; background: #fff; border-radius: 36px;
+  display: flex; flex-direction: column; overflow: hidden; padding-top: 40px;
+}
+
+/* IG top */
+.cshow__igtop { display: flex; align-items: center; gap: 9px; padding: 10px 14px; }
+.cshow__ava { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg,#FFD24A,#e1306c); flex-shrink: 0; }
+.cshow__handle { font-size: 13px; font-weight: 700; color: #1a1a1a; }
+.cshow__more { margin-left: auto; color: #999; font-weight: 700; letter-spacing: 1px; }
+
+/* viewport + track */
+.cshow__viewport { position: relative; flex: 1; overflow: hidden; }
+.cshow__track { display: flex; height: 100%; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
+.cshow__slide { flex: 0 0 100%; height: 100%; position: relative; background: #f0f0f2; }
+.cshow__slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cshow__page {
+  position: absolute; bottom: 12px; right: 12px;
+  font-size: 11px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.5);
+  padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(4px);
+}
+/* dots overlay */
+.cshow__dots {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 6px; z-index: 4;
+}
+.cshow__dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.55); transition: all 0.3s ease; }
+.cshow__dot.is-active { width: 16px; border-radius: 4px; background: #fff; }
+
+/* IG actions */
+.cshow__igactions { display: flex; align-items: center; gap: 16px; padding: 12px 14px 4px; font-size: 20px; color: #1a1a1a; }
+.cshow__igactions .cshow__save { margin-left: auto; }
+.cshow__igcaption { font-size: 12px; color: #333; text-align: left; padding: 4px 14px 14px; line-height: 1.4; }
+.cshow__igcaption b { font-weight: 700; }
+
+.cshow__counter {
+  margin-top: 26px; font-family: 'Space Mono', monospace; font-size: 14px;
+  font-weight: 700; color: #e1306c; letter-spacing: 0.1em;
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .cshow { padding: 60px 16px 70px; }
+  .cshow__stage { gap: 8px; }
+  .cshow__nav { width: 42px; height: 42px; font-size: 18px; }
+  .cshow__phone { width: 250px; height: 500px; border-radius: 38px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cshow__track { transition: none; }
+}
