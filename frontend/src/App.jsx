@@ -41,6 +41,13 @@ import MetaAds from './pages/sub/MetaAds';
 import LinkedInAds from './pages/sub/LinkedInAds';
 import YouTubeAds from './pages/sub/YouTubeAds';
 import SocialAds from './pages/sub/SocialAds';
+import SocialMediaMarketing from './pages/sub/SocialMediaMarketing';
+import ContentMarketing from './pages/sub/ContentMarketing';
+import EmailMarketing from './pages/sub/EmailMarketing';
+import SocialMediaManagement from './pages/sub/SocialMediaManagement';
+import InfluencerMarketing from './pages/sub/InfluencerMarketing';
+import SeoContentWriting from './pages/sub/SeoContentWriting';
+import Copywriting from './pages/sub/Copywriting';
 import SocialMedia from './pages/SocialMedia';
 import WhyUs from './pages/WhyUs';
 import Industries from './pages/Industries';
@@ -94,6 +101,13 @@ function PublicSite() {
         <Route path="/services/ecom/:slug" element={<EcomServicePage />} />
         <Route path="/services/mobile-software" element={<MobileSoftware />} />
         <Route path="/services/mobile/:slug" element={<MobileServicePage />} />
+        <Route path="/services/social/social-media-marketing" element={<SocialMediaMarketing />} />
+        <Route path="/services/social/content-marketing" element={<ContentMarketing />} />
+        <Route path="/services/social/email-marketing" element={<EmailMarketing />} />
+        <Route path="/services/social/social-media-management" element={<SocialMediaManagement />} />
+        <Route path="/services/social/influencer-marketing" element={<InfluencerMarketing />} />
+        <Route path="/services/social/seo-content-writing" element={<SeoContentWriting />} />
+        <Route path="/services/social/copywriting" element={<Copywriting />} />
         <Route path="/services/social/:slug" element={<SocialServicePage />} />
         <Route path="/services/ppc" element={<PpcPage />} />
         <Route path="/services/google-ads" element={<GoogleAds />} />
