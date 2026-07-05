@@ -544,46 +544,105 @@ const showcaseSites = [
   },
 ];
 
-const OurWorkSection = () => (
-  <section className="showcase" id="our-work">
-    <div className="container">
-      <div className="showcase__head" data-aos="fade-up">
-        <p className="section-label">OUR WORK</p>
-        <h2 className="section-title">Websites We've Built &amp; Launched</h2>
-        <p className="section-subtitle">
-          Hover over any website to explore the full design — real projects, real results.
-        </p>
-      </div>
+const showcasePosts = [
+  { key: 'p1', image: '/images/work/post-1.jpg' },
+  { key: 'p2', image: '/images/work/post-2.jpg' },
+  { key: 'p3', image: '/images/work/creative-jhumka.jpg' },
+];
 
-      <div className="showcase__grid">
-        {showcaseSites.map((s, i) => (
-          <div className="showcase__card" key={s.key} data-aos="fade-up" data-aos-delay={(i % 3) * 90}>
-            <div className="showcase__bar">
-              <span className="showcase__dot" /><span className="showcase__dot" /><span className="showcase__dot" />
-              <span className="showcase__url">{s.url}</span>
-            </div>
-            <div className="showcase__window">
-              <img src={s.image} alt={s.title} className="showcase__shot" loading="lazy" />
-            </div>
-            <div className="showcase__caption">
-              <div>
-                <span className="showcase__title">{s.title}</span>
-                <span className="showcase__tag">{s.tag}</span>
+const showcaseReels = [
+  { key: 'r1', video: '/images/work/reel-1.mp4' },
+  { key: 'r2', video: '/images/work/reel-2.mp4' },
+];
+
+const WORK_TABS = [
+  { key: 'websites', label: 'Websites' },
+  { key: 'graphics', label: 'Graphics' },
+  { key: 'reels', label: 'Reels' },
+];
+
+const OurWorkSection = () => {
+  const [tab, setTab] = useState('websites');
+
+  return (
+    <section className="showcase" id="our-work">
+      <div className="container">
+        <div className="showcase__head" data-aos="fade-up">
+          <p className="section-label showcase__label">OUR WORK</p>
+          <h2 className="section-title showcase__title-h">Work We're Proud Of</h2>
+          <p className="section-subtitle showcase__sub">
+            Websites, creatives and reels — real projects we've delivered for real brands.
+          </p>
+        </div>
+
+        {/* Tabs */}
+        <div className="showcase__tabs" data-aos="fade-up">
+          {WORK_TABS.map((t) => (
+            <button
+              key={t.key}
+              className={`showcase__tab${tab === t.key ? ' showcase__tab--active' : ''}`}
+              onClick={() => setTab(t.key)}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        {/* WEBSITES */}
+        {tab === 'websites' && (
+          <div className="showcase__grid">
+            {showcaseSites.map((s, i) => (
+              <div className="showcase__card" key={s.key} data-aos="fade-up" data-aos-delay={(i % 3) * 90}>
+                <div className="showcase__bar">
+                  <span className="showcase__dot" /><span className="showcase__dot" /><span className="showcase__dot" />
+                  <span className="showcase__url">{s.url}</span>
+                </div>
+                <div className="showcase__window">
+                  <img src={s.image} alt={s.title} className="showcase__shot" loading="lazy" />
+                </div>
+                <div className="showcase__caption">
+                  <div>
+                    <span className="showcase__title">{s.title}</span>
+                    <span className="showcase__tag">{s.tag}</span>
+                  </div>
+                  <span className="showcase__arrow"><FaArrowRight /></span>
+                </div>
               </div>
-              <span className="showcase__arrow"><FaArrowRight /></span>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
+        )}
 
-      <div className="showcase__cta" data-aos="fade-up">
-        <Link to="/portfolio" className="showcase__explore">
-          Explore More Projects <FaArrowRight />
-        </Link>
+        {/* GRAPHICS / POSTS */}
+        {tab === 'graphics' && (
+          <div className="showcase__grid showcase__grid--posts">
+            {showcasePosts.map((p, i) => (
+              <div className="showcase__post" key={p.key} data-aos="fade-up" data-aos-delay={(i % 3) * 90}>
+                <img src={p.image} alt="Creative design" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* REELS */}
+        {tab === 'reels' && (
+          <div className="showcase__grid showcase__grid--reels">
+            {showcaseReels.map((r, i) => (
+              <div className="showcase__reel" key={r.key} data-aos="fade-up" data-aos-delay={(i % 3) * 90}>
+                <video src={r.video} muted loop playsInline autoPlay preload="metadata" />
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="showcase__cta" data-aos="fade-up">
+          <Link to="/portfolio" className="showcase__explore">
+            View All Projects <FaArrowRight />
+          </Link>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Home = () => {
   useEffect(() => {

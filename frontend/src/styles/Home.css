@@ -1784,49 +1784,69 @@ a {
 }
 
 /* ============================================================
-   Showcase — website mockups that scroll up on hover
+   Showcase — dark section: tabs (websites/graphics/reels)
    ============================================================ */
-.showcase { background: #f7f8fa; padding: 90px 0; }
-.showcase__head { text-align: center; max-width: 640px; margin: 0 auto 54px; }
+.showcase {
+  background: radial-gradient(circle at 50% 0%, #1a1f36 0%, #101223 55%, #0b0d18 100%);
+  padding: 90px 0;
+}
+.showcase__head { text-align: center; max-width: 640px; margin: 0 auto 34px; }
+.showcase__label { color: #F5A800 !important; }
+.showcase__title-h { color: #fff !important; }
+.showcase__sub { color: rgba(255,255,255,0.62) !important; margin: 0 auto 0 !important; }
+
+/* Tabs (centered pill buttons) */
+.showcase__tabs {
+  display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 46px;
+}
+.showcase__tab {
+  padding: 11px 28px; border-radius: 50px; cursor: pointer;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  color: #e6e8f0; font-size: 14px; font-weight: 800;
+  transition: all 0.22s ease;
+}
+.showcase__tab:hover { background: rgba(255,255,255,0.12); }
+.showcase__tab--active {
+  background: linear-gradient(135deg, #FFD24A, #F5A800);
+  color: #14182b; border-color: transparent;
+  box-shadow: 0 10px 26px rgba(245,168,0,0.4);
+}
 
 .showcase__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 28px;
 }
 
+/* ── Website cards ── */
 .showcase__card {
   background: #fff;
-  border: 1px solid #ececf1;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(20,24,43,0.06);
-  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.45);
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease;
 }
-.showcase__card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(20,24,43,0.14);
-  border-color: #FFE49A;
-}
+.showcase__card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(245,168,0,0.22); }
 
-/* browser bar */
+/* slim browser bar (kept, but smaller & lighter) */
 .showcase__bar {
   display: flex; align-items: center; gap: 7px;
-  padding: 11px 16px; background: #14182b; border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 9px 14px; background: #f1f2f6; border-bottom: 1px solid #e6e7ee;
 }
-.showcase__dot { width: 10px; height: 10px; border-radius: 50%; background: #3a4056; }
+.showcase__dot { width: 9px; height: 9px; border-radius: 50%; }
 .showcase__dot:nth-child(1) { background: #ff5f57; }
 .showcase__dot:nth-child(2) { background: #febc2e; }
 .showcase__dot:nth-child(3) { background: #28c840; }
 .showcase__url {
-  margin-left: 12px; font-size: 12px; color: #9aa2b8; font-weight: 600;
-  background: rgba(255,255,255,0.07); padding: 4px 14px; border-radius: 20px;
+  margin-left: 10px; font-size: 11.5px; color: #8890a3; font-weight: 600;
+  background: #fff; padding: 4px 14px; border-radius: 20px; border: 1px solid #e6e7ee;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
-/* scrolling window */
+/* scrolling window — SLOWER scroll */
 .showcase__window {
-  height: 280px;
+  height: 300px;
   overflow: hidden;
   position: relative;
   background: #eef0f4;
@@ -1835,10 +1855,10 @@ a {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 3s ease-in-out;
+  transition: transform 7s ease-in-out;
   transform: translateY(0);
 }
-.showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 280px)); }
+.showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 300px)); }
 
 /* caption */
 .showcase__caption {
@@ -1854,23 +1874,48 @@ a {
 }
 .showcase__card:hover .showcase__arrow { background: #14182b; color: #FFD874; transform: translateX(3px); }
 
+/* ── Graphics / posts ── */
+.showcase__grid--posts .showcase__post {
+  border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 5;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.showcase__post img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.showcase__post:hover { transform: translateY(-5px); box-shadow: 0 26px 54px rgba(245,168,0,0.22); }
+.showcase__post:hover img { transform: scale(1.06); }
+
+/* ── Reels ── */
+.showcase__grid--reels { grid-template-columns: repeat(3, 1fr); max-width: 760px; margin: 0 auto; }
+.showcase__reel {
+  border-radius: 16px; overflow: hidden; aspect-ratio: 9 / 16;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.45); background: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.showcase__reel video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.showcase__reel:hover { transform: translateY(-5px); box-shadow: 0 26px 54px rgba(245,168,0,0.24); }
+
 .showcase__cta { text-align: center; margin-top: 48px; }
 .showcase__explore {
   display: inline-flex; align-items: center; gap: 10px;
-  background: #14182b; color: #fff; font-weight: 800; font-size: 0.95rem;
-  padding: 15px 32px; border-radius: 50px; text-decoration: none;
+  background: linear-gradient(135deg, #FFD24A, #F5A800); color: #14182b; font-weight: 800; font-size: 0.95rem;
+  padding: 15px 34px; border-radius: 50px; text-decoration: none;
+  box-shadow: 0 10px 26px rgba(245,168,0,0.35);
   transition: all 0.22s ease;
 }
 .showcase__explore svg { transition: transform 0.2s ease; }
-.showcase__explore:hover { background: #F5A800; color: #14182b; transform: translateY(-3px); box-shadow: 0 14px 30px rgba(245,168,0,0.35); }
+.showcase__explore:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(245,168,0,0.5); }
 .showcase__explore:hover svg { transform: translateX(4px); }
 
-@media (max-width: 900px) { .showcase__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) {
+  .showcase__grid { grid-template-columns: repeat(2, 1fr); }
+  .showcase__grid--reels { grid-template-columns: repeat(2, 1fr); max-width: 500px; }
+}
 @media (max-width: 600px) {
   .showcase { padding: 60px 0; }
   .showcase__grid { grid-template-columns: 1fr; gap: 22px; }
-  .showcase__window { height: 240px; }
-  .showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 240px)); }
+  .showcase__grid--reels { grid-template-columns: 1fr; max-width: 280px; }
+  .showcase__window { height: 260px; }
+  .showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 260px)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .showcase__shot { transition: none; }
