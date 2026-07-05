@@ -481,7 +481,8 @@
   text-decoration: none;
   transition: opacity 0.16s ease, transform 0.16s ease;
 }
-.navbar__mega-bar-link:hover { opacity: 0.7; }
+/* keep dark text on hover (do NOT inherit the global yellow a:hover) */
+.navbar__mega-bar-link:hover { opacity: 0.7; color: #1a1a1a; }
 .navbar__mega-bar-link--all { margin-left: auto; }
 .navbar__mega-bar-link--all span { transition: transform 0.18s ease; }
 .navbar__mega-bar-link--all:hover { opacity: 1; }
