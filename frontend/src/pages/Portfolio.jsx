@@ -33,9 +33,9 @@ const SECTIONS = [
     ratio: 'wide',
     mockup: 'ecommerce',
     items: [
-      { id: 'e1', title: 'Amshine Jewels', tag: 'Jewellery E-Commerce', image: '/images/work/amshine-jewels.png', link: 'https://amshinejewels.com' },
-      { id: 'e2', title: 'Blameless', tag: 'Skincare E-Commerce', image: '/images/work/blameless-skincare.png', link: 'https://blameless.in' },
-      { id: 'e3', title: 'Toreto', tag: 'Electronics E-Commerce', image: '/images/work/toreto.png', link: 'https://toreto.in' },
+      { id: 'e1', title: 'Amshine Jewels', tag: 'Jewellery E-Commerce', image: '/images/work/amshine-jewels.webp', link: 'https://amshinejewels.com' },
+      { id: 'e2', title: 'Blameless', tag: 'Skincare E-Commerce', image: '/images/work/blameless-skincare.webp', link: 'https://blameless.in' },
+      { id: 'e3', title: 'Toreto', tag: 'Electronics E-Commerce', image: '/images/work/toreto.webp', link: 'https://toreto.in' },
     ],
   },
   {
@@ -49,12 +49,12 @@ const SECTIONS = [
     gridClass: 'pf-grid--postgrid',
     mockup: 'post',
     items: [
-      { id: 'po1', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/post-1.jpg' },
-      { id: 'po2', title: 'Brand Campaign', tag: 'Creative Post', image: '/images/work/post-2.jpg' },
-      { id: 'po3', title: 'Jhumka Collection', tag: 'Product Creative', image: '/images/work/creative-jhumka.jpg' },
-      { id: 'po4', title: 'Microwave Bowl Set', tag: 'Product Creative', image: '/images/work/creative-2.jpg' },
-      { id: 'po5', title: 'Gold Hair Clips', tag: 'Product Creative', image: '/images/work/creative-hairclip.jpg' },
-      { id: 'po6', title: 'Traditional Jewellery', tag: 'Product Creative', image: '/images/work/creative-tradition.jpg' },
+      { id: 'po1', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/post-1.webp' },
+      { id: 'po2', title: 'Brand Campaign', tag: 'Creative Post', image: '/images/work/post-2.webp' },
+      { id: 'po3', title: 'Jhumka Collection', tag: 'Product Creative', image: '/images/work/creative-jhumka.webp' },
+      { id: 'po4', title: 'Microwave Bowl Set', tag: 'Product Creative', image: '/images/work/creative-2.webp' },
+      { id: 'po5', title: 'Gold Hair Clips', tag: 'Product Creative', image: '/images/work/creative-hairclip.webp' },
+      { id: 'po6', title: 'Traditional Jewellery', tag: 'Product Creative', image: '/images/work/creative-tradition.webp' },
     ],
   },
   {
@@ -68,12 +68,12 @@ const SECTIONS = [
     mockup: 'landing',
     /* Real client websites — `link` makes the card clickable. */
     items: [
-      { id: 'p1', title: 'Smile Dental Care Centre', tag: 'Healthcare Website', image: '/images/work/smile-dental.png', link: 'https://smiledentalcarecentre.com' },
-      { id: 'p2', title: 'Baid Stock Broking', tag: 'Finance Website', image: '/images/work/baid-finance.png', link: 'https://baidstockbroking.com' },
-      { id: 'p3', title: 'Delhi Dental Implants', tag: 'Dental Clinic', image: '/images/work/delhi-dental.png' },
-      { id: 'p5', title: 'Lightboard Signage', tag: 'Business Website', image: '/images/work/lightboard-signage.png' },
-      { id: 'p6', title: 'Stressless Learner', tag: 'Education', image: '/images/work/stressless-learner.png' },
-      { id: 'p7', title: 'Rithala Village', tag: 'Information & Community', image: '/images/work/rithala-village.png' },
+      { id: 'p1', title: 'Smile Dental Care Centre', tag: 'Healthcare Website', image: '/images/work/smile-dental.webp', link: 'https://smiledentalcarecentre.com' },
+      { id: 'p2', title: 'Baid Stock Broking', tag: 'Finance Website', image: '/images/work/baid-finance.webp', link: 'https://baidstockbroking.com' },
+      { id: 'p3', title: 'Delhi Dental Implants', tag: 'Dental Clinic', image: '/images/work/delhi-dental.webp' },
+      { id: 'p5', title: 'Lightboard Signage', tag: 'Business Website', image: '/images/work/lightboard-signage.webp' },
+      { id: 'p6', title: 'Stressless Learner', tag: 'Education', image: '/images/work/stressless-learner.webp' },
+      { id: 'p7', title: 'Rithala Village', tag: 'Information & Community', image: '/images/work/rithala-village.webp' },
     ],
   },
 ];
@@ -98,7 +98,7 @@ export default function Portfolio() {
 
         <div className="pf-hero__inner">
           <motion.img
-            src="/images/logo-header.png"
+            src="/images/logo-header.webp"
             alt="DigionTop"
             className="pf-hero__logo"
             initial={{ opacity: 0, scale: 0.8, y: -20 }}

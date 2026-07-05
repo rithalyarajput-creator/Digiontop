@@ -43,7 +43,7 @@ const Footer = () => {
           {/* Column 1: About */}
           <div className="footer-col footer-col--about">
             <div className="footer-logo">
-              <img src={settings.logo_footer || "/images/logo-footer.png"} alt={settings.site_name || "DigionTop"} />
+              <img src={settings.logo_footer || "/images/logo-footer.webp"} alt={settings.site_name || "DigionTop"} />
             </div>
             <p className="footer-desc">{settings.tagline || "Digital Marketing Agency"}</p>
             <p className="footer-about-text">

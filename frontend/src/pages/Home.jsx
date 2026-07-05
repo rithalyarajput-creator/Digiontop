@@ -31,7 +31,7 @@ const services = [
     description:
       "We build fast, modern, mobile-first websites and landing pages that convert visitors into customers — on every device.",
     link: "/services/website-development",
-    image: "/images/service-web.png",
+    image: "/images/service-web.webp",
   },
   {
     icon: <FaSearch />,
@@ -39,7 +39,7 @@ const services = [
     description:
       "Data-driven on-page, off-page and technical SEO that pushes your brand to the top of Google search results and keeps it there.",
     link: "/services/seo-services",
-    image: "/images/service-seo.png",
+    image: "/images/service-seo.webp",
   },
   {
     icon: <FaBullhorn />,
@@ -47,7 +47,7 @@ const services = [
     description:
       "Strategic content, paid ads and community management across Instagram, Facebook, LinkedIn and more — built to grow your audience.",
     link: "/services/social-media-marketing",
-    image: "/images/service-social.png",
+    image: "/images/service-social.webp",
   },
   {
     icon: <FaShoppingCart />,
@@ -55,7 +55,7 @@ const services = [
     description:
       "End-to-end marketplace management on Amazon, Flipkart and Meesho — from listing optimisation to sponsored ads and account health.",
     link: "/services/ecommerce-solutions",
-    image: "/images/service-ecommerce.png",
+    image: "/images/service-ecommerce.webp",
   },
   {
     icon: <FaBullhorn />,
@@ -63,7 +63,7 @@ const services = [
     description:
       "Run high-converting Google Ads & Meta Ads, boost your reels for maximum reach, and turn clicks into real sales with data-driven ad campaigns.",
     link: "/contact",
-    image: "/images/service-ads.png",
+    image: "/images/service-ads.webp",
   },
 ];
 
@@ -115,7 +115,7 @@ const heroStats = [
 const HeroSection = () => (
   <section className="hero hero--banner">
     {/* Full banner image — shown complete (never cropped) */}
-    <img src="/images/home-banner.png" alt="DigionTop — #1 Digital Marketing Agency" className="hero__banner-full" />
+    <img src="/images/home-banner.webp" alt="DigionTop — #1 Digital Marketing Agency" className="hero__banner-full" />
     <div className="hero__overlay" />
     <div className="hero__banner-content" data-aos="fade-up">
       <div className="hero__badge">
@@ -457,27 +457,27 @@ const showcaseSites = [
     title: "Amshine Jewels",
     tag: "Jewellery E-Commerce",
     url: "amshinejewels.com",
-    image: "/images/work/amshine-jewels.png",
+    image: "/images/work/amshine-jewels.webp",
   },
   {
     key: "stressless",
     title: "Stressless Learner",
     tag: "Education Platform",
     url: "stresslesslearner.com",
-    image: "/images/work/stressless-learner.png",
+    image: "/images/work/stressless-learner.webp",
   },
   {
     key: "toreto",
     title: "Toreto",
     tag: "Electronics E-Commerce",
     url: "toreto.in",
-    image: "/images/work/toreto.png",
+    image: "/images/work/toreto.webp",
   },
 ];
 
 const showcasePosts = [
-  { key: 'p1', title: 'Jhumka Collection', tag: 'Product Creative', image: '/images/work/creative-jhumka.jpg' },
-  { key: 'p2', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/post-1.jpg' },
+  { key: 'p1', title: 'Jhumka Collection', tag: 'Product Creative', image: '/images/work/creative-jhumka.webp' },
+  { key: 'p2', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/post-1.webp' },
   { key: 'p3', title: 'Maha Vir Jayanti', tag: 'Festival Reel', video: '/images/work/mahavir-jayanti.mp4' },
 ];
 

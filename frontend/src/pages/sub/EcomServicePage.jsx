@@ -20,5 +20,5 @@ export default function EcomServicePage() {
   const { slug } = useParams()
   const data = ECOM_SERVICES[slug]
   if (!data) return <Navigate to="/services/ecommerce-solutions" replace />
-  return <MarketplacePage icon={ICONS[slug]} heroImg="/images/ecom-hero.png" category="E-Commerce Solutions" {...data} />
+  return <MarketplacePage icon={ICONS[slug]} heroImg="/images/ecom-hero.webp" category="E-Commerce Solutions" {...data} />
 }

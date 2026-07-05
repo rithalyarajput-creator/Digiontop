@@ -12,14 +12,14 @@ const REELS = [
   { src: '/images/work/reel-2.mp4', title: 'Promo Reel', tag: 'Instagram Reel', views: '94K' },
 ]
 const POSTS = [
-  { src: '/images/work/post-1.jpg', title: 'Sunscreen Awareness', tag: 'Creative Post' },
-  { src: '/images/work/post-2.jpg', title: 'Brand Campaign', tag: 'Creative Post' },
+  { src: '/images/work/post-1.webp', title: 'Sunscreen Awareness', tag: 'Creative Post' },
+  { src: '/images/work/post-2.webp', title: 'Brand Campaign', tag: 'Creative Post' },
 ]
 const WEBSITES = [
-  { src: '/images/work/smile-dental.png', title: 'Smile Dental Care Centre', tag: 'Healthcare Website' },
-  { src: '/images/work/baid-finance.png', title: 'Baid Stock Broking', tag: 'Finance Website' },
-  { src: '/images/work/toreto.png', title: 'Toreto', tag: 'E-Commerce Store' },
-  { src: '/images/work/stressless-learner.png', title: 'Stressless Learner', tag: 'Education Website' },
+  { src: '/images/work/smile-dental.webp', title: 'Smile Dental Care Centre', tag: 'Healthcare Website' },
+  { src: '/images/work/baid-finance.webp', title: 'Baid Stock Broking', tag: 'Finance Website' },
+  { src: '/images/work/toreto.webp', title: 'Toreto', tag: 'E-Commerce Store' },
+  { src: '/images/work/stressless-learner.webp', title: 'Stressless Learner', tag: 'Education Website' },
 ]
 
 export default function ServiceWork({

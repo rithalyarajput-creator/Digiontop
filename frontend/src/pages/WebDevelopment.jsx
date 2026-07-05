@@ -114,7 +114,7 @@ export default function WebDevelopment() {
           {/* floating browser mockup */}
           <div className="wd-hero__visual" data-aos="fade-left" data-aos-delay="150">
             {/* Laptop + phone mockup image */}
-            <img src="/images/webdev-hero.png" alt="Websites we build" className="wd-hero__img" loading="eager" />
+            <img src="/images/webdev-hero.webp" alt="Websites we build" className="wd-hero__img" loading="eager" />
             <div className="wd-float wd-float--a"><FiZap /> Fast</div>
             <div className="wd-float wd-float--b"><FiSearch /> SEO Ready</div>
           </div>

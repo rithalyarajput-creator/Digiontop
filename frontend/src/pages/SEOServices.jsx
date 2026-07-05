@@ -206,7 +206,7 @@ export default function SEOServices() {
             </div>
 
             <div className="svc-hero__right" data-aos="fade-left">
-              <img src="/images/seo-hero.png" alt="SEO that ranks" loading="eager" />
+              <img src="/images/seo-hero.webp" alt="SEO that ranks" loading="eager" />
             </div>
           </div>
         </div>

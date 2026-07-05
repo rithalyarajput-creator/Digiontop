@@ -56,7 +56,7 @@ export default function EcommercePage() {
             </div>
           </div>
           <div className="ec-hero__media" data-aos="fade-left">
-            <img src="/images/ecom-hero.png" alt="E-Commerce across marketplaces" loading="eager" />
+            <img src="/images/ecom-hero.webp" alt="E-Commerce across marketplaces" loading="eager" />
           </div>
         </div>
       </section>

@@ -8,12 +8,12 @@ import '../../styles/SubService.css'
 const SERVICES = ['Social Media Creatives', 'Advertising Banners', 'Brochure Design', 'Flyer Design', 'Business Cards', 'Marketing Materials', 'Presentation Design']
 
 const GALLERY = [
-  '/images/work/post-1.jpg',
-  '/images/work/post-2.jpg',
-  '/images/work/creative-jhumka.jpg',
-  '/images/work/creative-2.jpg',
-  '/images/work/creative-hairclip.jpg',
-  '/images/work/creative-tradition.jpg',
+  '/images/work/post-1.webp',
+  '/images/work/post-2.webp',
+  '/images/work/creative-jhumka.webp',
+  '/images/work/creative-2.webp',
+  '/images/work/creative-hairclip.webp',
+  '/images/work/creative-tradition.webp',
 ]
 
 export default function GraphicDesign() {

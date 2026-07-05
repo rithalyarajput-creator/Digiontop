@@ -187,7 +187,7 @@ export default function SocialMedia() {
             </div>
 
             <div className="svc-hero__right" data-aos="fade-left">
-              <img src="/images/social-hero.png" alt="Social media growth" loading="eager" />
+              <img src="/images/social-hero.webp" alt="Social media growth" loading="eager" />
             </div>
           </div>
         </div>

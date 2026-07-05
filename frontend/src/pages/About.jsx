@@ -182,7 +182,7 @@ export default function About() {
       <section className="ab-split">
         <div className="about-container ab-split__inner">
           <div className="ab-split__media" data-aos="fade-right">
-            <img src="/images/digiontop-office-wall.png" alt="DigionTop office" loading="lazy" />
+            <img src="/images/digiontop-office-wall.webp" alt="DigionTop office" loading="lazy" />
             <div className="ab-split__badge">
               <b>Since 2024</b>
               <span>Delhi, India</span>
@@ -254,7 +254,7 @@ export default function About() {
             </ul>
           </div>
           <div className="ab-mission__media" data-aos="fade-left">
-            <img src="/images/mission-target.png" alt="Our mission - hitting the target" loading="lazy" />
+            <img src="/images/mission-target.webp" alt="Our mission - hitting the target" loading="lazy" />
           </div>
         </div>
       </section>
@@ -263,7 +263,7 @@ export default function About() {
       <section className="ab-vision">
         <div className="about-container ab-vision__inner">
           <div className="ab-vision__media" data-aos="fade-right">
-            <img src="/images/vision.png" alt="Our vision" loading="lazy" />
+            <img src="/images/vision.webp" alt="Our vision" loading="lazy" />
           </div>
           <div className="ab-vision__text" data-aos="fade-left">
             <span className="ab-eyebrow">Where We're Headed</span>
@@ -334,7 +334,7 @@ export default function About() {
           </div>
           <div className="about-partner__visual" data-aos="fade-left">
             <div className="about-partner__photo">
-              <img src="/images/digiontop-office.png" alt="DigionTop team at the office" loading="lazy" />
+              <img src="/images/digiontop-office.webp" alt="DigionTop team at the office" loading="lazy" />
             </div>
             <span className="about-partner__chip about-partner__chip--star"><FiStar /><FiStar /><FiStar /><FiStar /><FiStar /></span>
             <span className="about-partner__chip about-partner__chip--pin"><FiMapPin /></span>

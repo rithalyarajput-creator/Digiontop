@@ -62,7 +62,7 @@ export default function MobileSoftware() {
             </div>
           </div>
           <div className="ec-hero__media" data-aos="fade-left">
-            <img src="/images/mobile-hero.png" alt="Mobile & software solutions" loading="eager" />
+            <img src="/images/mobile-hero.webp" alt="Mobile & software solutions" loading="eager" />
           </div>
         </div>
       </section>

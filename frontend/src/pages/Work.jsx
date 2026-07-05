@@ -15,7 +15,7 @@ const PROJECTS = [
     title: 'Stressless Learner',
     subtitle: 'Website Design & Development',
     category: 'education',
-    image: '/images/work/stressless-learner.png',
+    image: '/images/work/stressless-learner.webp',
     link: 'https://example.com', // replace with the live URL
   },
   {
@@ -23,7 +23,7 @@ const PROJECTS = [
     title: 'Rithala Village',
     subtitle: 'Website Design & Development',
     category: 'community',
-    image: '/images/work/rithala-village.png',
+    image: '/images/work/rithala-village.webp',
     link: 'https://example.com', // replace with the live URL
   },
   {
@@ -31,7 +31,7 @@ const PROJECTS = [
     title: 'Blameless',
     subtitle: 'E-Commerce Website Development',
     category: 'ecommerce',
-    image: '/images/work/blameless-skincare.png',
+    image: '/images/work/blameless-skincare.webp',
     link: 'https://blameless.in/',
   },
   {
@@ -39,7 +39,7 @@ const PROJECTS = [
     title: 'Smile Dental Care Centre',
     subtitle: 'Healthcare Website Development',
     category: 'healthcare',
-    image: '/images/work/smile-dental.png',
+    image: '/images/work/smile-dental.webp',
     link: 'https://smiledentalcarecentre.com/',
   },
   {
@@ -47,7 +47,7 @@ const PROJECTS = [
     title: 'Baid Stock Broking',
     subtitle: 'Financial Services Website Development',
     category: 'finance',
-    image: '/images/work/baid-finance.png',
+    image: '/images/work/baid-finance.webp',
     link: 'https://baidstockbroking.com/',
   },
   {
@@ -55,7 +55,7 @@ const PROJECTS = [
     title: 'Toreto',
     subtitle: 'E-Commerce Website Development',
     category: 'ecommerce',
-    image: '/images/work/toreto.png',
+    image: '/images/work/toreto.webp',
     link: 'https://toreto.in/',
   },
   {
@@ -63,7 +63,7 @@ const PROJECTS = [
     title: 'Delhi Dental Implants',
     subtitle: 'Dental Clinic Website Development',
     category: 'healthcare',
-    image: '/images/work/delhi-dental.png',
+    image: '/images/work/delhi-dental.webp',
     link: '#',
   },
   {
@@ -71,7 +71,7 @@ const PROJECTS = [
     title: 'Delhi Dentist',
     subtitle: 'Dental Healthcare Website Development',
     category: 'healthcare',
-    image: '/images/work/delhi-dentist.png',
+    image: '/images/work/delhi-dentist.webp',
     link: '#',
   },
   {
@@ -79,7 +79,7 @@ const PROJECTS = [
     title: 'Lightboard Signage',
     subtitle: 'Business Website Development',
     category: 'advertising',
-    image: '/images/work/lightboard-signage.png',
+    image: '/images/work/lightboard-signage.webp',
     link: '#',
   },
   {
@@ -103,7 +103,7 @@ const PROJECTS = [
     title: 'Sunscreen Awareness Post',
     subtitle: 'Social Media · Creative Post',
     category: 'posts',
-    poster: '/images/work/post-1.jpg',
+    poster: '/images/work/post-1.webp',
     link: '#',
   },
   {
@@ -111,7 +111,7 @@ const PROJECTS = [
     title: 'Brand Campaign Post',
     subtitle: 'Social Media · Creative Post',
     category: 'posts',
-    poster: '/images/work/post-2.jpg',
+    poster: '/images/work/post-2.webp',
     link: '#',
   },
 ];

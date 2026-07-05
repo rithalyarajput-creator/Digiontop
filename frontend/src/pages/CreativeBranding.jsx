@@ -87,7 +87,7 @@ export default function CreativeBranding() {
             </div>
           </div>
           <div className="cbp-hero__media" data-aos="fade-left">
-            <img src="/images/creative-hero.png" alt="Creative & branding" loading="eager" />
+            <img src="/images/creative-hero.webp" alt="Creative & branding" loading="eager" />
           </div>
         </div>
       </section>

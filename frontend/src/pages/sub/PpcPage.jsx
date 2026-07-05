@@ -45,7 +45,7 @@ export default function PpcPage() {
             </div>
           </div>
           <div className="ec-hero__media" data-aos="fade-left">
-            <img src="/images/ppc-hero.png" alt="PPC & paid advertising" loading="eager" />
+            <img src="/images/ppc-hero.webp" alt="PPC & paid advertising" loading="eager" />
           </div>
         </div>
       </section>
