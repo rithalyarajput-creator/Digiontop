@@ -545,9 +545,9 @@ const showcaseSites = [
 ];
 
 const showcasePosts = [
-  { key: 'p1', image: '/images/work/post-1.jpg' },
-  { key: 'p2', image: '/images/work/post-2.jpg' },
-  { key: 'p3', image: '/images/work/creative-tradition.jpg' },
+  { key: 'p1', title: 'Jhumka Collection', tag: 'Product Creative', image: '/images/work/creative-jhumka.jpg' },
+  { key: 'p2', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/blameless-post.png' },
+  { key: 'p3', title: 'Maha Vir Jayanti', tag: 'Festival Reel', video: '/images/work/mahavir-jayanti.mp4' },
 ];
 
 const showcaseReels = [
@@ -612,8 +612,20 @@ const OurWorkSection = () => {
         {tab === 'graphics' && (
           <div className="showcase__grid showcase__grid--posts">
             {showcasePosts.map((p, i) => (
-              <div className="showcase__post" key={p.key} data-aos="fade-up" data-aos-delay={(i % 3) * 90}>
-                <img src={p.image} alt="Creative design" loading="lazy" />
+              <div className="showcase__card" key={p.key} data-aos="fade-up" data-aos-delay={(i % 3) * 90}>
+                <div className="showcase__post">
+                  {p.video
+                    ? <video src={p.video} muted loop playsInline autoPlay preload="metadata" />
+                    : <img src={p.image} alt={p.title} loading="lazy" />}
+                  <span className="showcase__shine" />
+                </div>
+                <div className="showcase__caption">
+                  <div>
+                    <span className="showcase__title">{p.title}</span>
+                    <span className="showcase__tag">{p.tag}</span>
+                  </div>
+                  <span className="showcase__arrow"><FaArrowRight /></span>
+                </div>
               </div>
             ))}
           </div>
