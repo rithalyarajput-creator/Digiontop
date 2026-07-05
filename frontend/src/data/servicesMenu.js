@@ -27,11 +27,11 @@ export const SERVICES_MENU = [
     link: '/services/ppc',
     items: [
       { label: 'PPC Management', path: '/services/ppc' },
-      { label: 'Google Ads Management', path: '/services/ppc' },
-      { label: 'Social Media Advertising', path: '/services/ppc' },
-      { label: 'Facebook & Instagram Ads', path: '/services/ppc' },
-      { label: 'LinkedIn Advertising', path: '/services/ppc' },
-      { label: 'YouTube Advertising', path: '/services/ppc' },
+      { label: 'Google Ads Management', path: '/services/google-ads' },
+      { label: 'Social Media Advertising', path: '/services/social-advertising' },
+      { label: 'Facebook & Instagram Ads', path: '/services/meta-ads' },
+      { label: 'LinkedIn Advertising', path: '/services/linkedin-ads' },
+      { label: 'YouTube Advertising', path: '/services/youtube-ads' },
     ],
   },
   {

@@ -1,0 +1,67 @@
+/* LinkedIn Ads — B2B professional theme (brand yellow/navy) */
+.li{--gold:#F5A800;--gold-d:#C78700;--ink:#14182b;--muted:#6b6f7b;--line:#ececf1;
+  font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#fff;overflow-x:clip;}
+.li *{box-sizing:border-box;}
+.li-container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.li-head{text-align:center;max-width:620px;margin:0 auto 46px;}
+.li-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:900;letter-spacing:-.02em;margin:8px 0 0;}
+.li-eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);}
+.li-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:#FFD874;background:rgba(245,168,0,.12);border:1px solid rgba(245,168,0,.3);padding:7px 15px;border-radius:8px;margin-bottom:18px;}
+.li-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-size:14px;font-weight:800;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.li-btn--solid{background:linear-gradient(135deg,#FFD24A,#F5A800);color:#1a1a1a;box-shadow:0 10px 26px rgba(245,168,0,.4);}
+.li-btn--solid:hover{transform:translateY(-3px);}
+.li-btn--ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.24);}
+.li-btn--ghost:hover{border-color:var(--gold);color:var(--gold);}
+.li-btn--light{background:#fff;color:var(--gold-d);}
+.li-btn--light:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.2);}
+
+/* HERO dark */
+.li-hero{padding:80px 24px;background:radial-gradient(ellipse at 75% 30%,#1c2136,#14182b 55%,#0e1120);}
+.li-hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.li-hero__title{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:900;line-height:1.06;letter-spacing:-.03em;color:#fff;margin:0 0 18px;}
+.li-hero__title span{background:linear-gradient(120deg,#FFD24A,#F5A800);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.li-hero__sub{font-size:1.08rem;color:#aeb2c0;line-height:1.7;max-width:480px;margin:0 0 26px;}
+.li-hero__cta{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* targeting card */
+.li-card{background:#0f1426;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px;box-shadow:0 40px 70px -30px rgba(0,0,0,.8);}
+.li-card__top{display:flex;align-items:center;gap:12px;margin-bottom:18px;color:#fff;}
+.li-card__ava{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#FFD24A,#F5A800);}
+.li-card__top b{font-size:15px;}.li-card__top small{color:#8890a3;font-size:11px;}
+.li-card__brand{margin-left:auto;color:#FFD874;font-size:22px;}
+.li-card__targets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.li-card__chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#e6e8f0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:8px 14px;}
+.li-card__chip svg{color:#FFD874;}
+.li-card__match{display:flex;align-items:baseline;justify-content:space-between;color:#fff;margin-bottom:8px;}
+.li-card__match span{font-size:12px;color:#8890a3;}
+.li-card__match b{font-size:1.1rem;color:#FFD874;}
+.li-card__bar{height:8px;border-radius:6px;background:rgba(255,255,255,.1);overflow:hidden;}
+.li-card__bar span{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#FFD24A,#F5A800);}
+
+/* campaigns */
+.li-camps{padding:84px 0;}
+.li-camps__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.li-camp{border:1px solid var(--line);border-radius:16px;padding:28px 24px;transition:transform .3s,box-shadow .3s,border-color .3s;}
+.li-camp:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(245,168,0,.14);border-color:#FFE49A;}
+.li-camp__icon{display:grid;place-items:center;width:50px;height:50px;border-radius:14px;background:#FFF6E0;color:var(--gold-d);font-size:22px;margin-bottom:16px;}
+.li-camp h3{font-size:1.05rem;margin:0 0 8px;}
+.li-camp p{font-size:.9rem;color:var(--muted);line-height:1.6;margin:0;}
+
+/* band */
+.li-band{padding:0 0 84px;}
+.li-band__inner{text-align:center;background:linear-gradient(135deg,#14182b,#1f2540);border-radius:22px;padding:50px 30px;color:#fff;}
+.li-band__inner h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;margin:0 0 26px;}
+.li-band__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:600px;margin:0 auto;}
+.li-band__stats b{display:block;font-size:1.8rem;font-weight:900;color:#FFD874;}
+.li-band__stats span{font-size:.85rem;color:#aeb2c0;}
+
+/* CTA */
+.li-cta{padding:0 0 90px;}
+.li-cta__box{text-align:center;background:radial-gradient(ellipse at 50% 0%,#1c2136,#12162a);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:60px 30px;}
+.li-cta__ic{font-size:32px;color:#FFD874;margin-bottom:12px;}
+.li-cta__box h2{color:#fff;font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:900;margin:0 0 12px;}
+.li-cta__box p{color:#aeb2c0;max-width:520px;margin:0 auto 26px;line-height:1.7;}
+
+@media(max-width:900px){.li-hero__inner{grid-template-columns:1fr;gap:44px;}.li-camps__grid{grid-template-columns:1fr;}}
+@media(max-width:560px){.li-band__stats{grid-template-columns:1fr;}}

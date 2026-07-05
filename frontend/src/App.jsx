@@ -36,6 +36,11 @@ import EcommerceSeo from './pages/sub/EcommerceSeo';
 import EnterpriseSeo from './pages/sub/EnterpriseSeo';
 import LinkBuilding from './pages/sub/LinkBuilding';
 import SeoAudit from './pages/sub/SeoAudit';
+import GoogleAds from './pages/sub/GoogleAds';
+import MetaAds from './pages/sub/MetaAds';
+import LinkedInAds from './pages/sub/LinkedInAds';
+import YouTubeAds from './pages/sub/YouTubeAds';
+import SocialAds from './pages/sub/SocialAds';
 import SocialMedia from './pages/SocialMedia';
 import WhyUs from './pages/WhyUs';
 import Industries from './pages/Industries';
@@ -91,6 +96,11 @@ function PublicSite() {
         <Route path="/services/mobile/:slug" element={<MobileServicePage />} />
         <Route path="/services/social/:slug" element={<SocialServicePage />} />
         <Route path="/services/ppc" element={<PpcPage />} />
+        <Route path="/services/google-ads" element={<GoogleAds />} />
+        <Route path="/services/meta-ads" element={<MetaAds />} />
+        <Route path="/services/social-advertising" element={<SocialAds />} />
+        <Route path="/services/linkedin-ads" element={<LinkedInAds />} />
+        <Route path="/services/youtube-ads" element={<YouTubeAds />} />
         <Route path="/why-us" element={<WhyUs />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/testimonials" element={<Testimonials />} />
