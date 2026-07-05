@@ -1665,16 +1665,17 @@ a {
 .hero--banner {
   position: relative;
   padding: 0;
-  line-height: 0;              /* remove gap under image */
+  line-height: 0;
   background: #0b0d12;
+  overflow: hidden;
 }
-.hero__banner-link { display: block; }
 /* Full image — always shown complete, never cropped, scales with screen width */
 .hero__banner-full {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
+  position: relative;
+  z-index: 0;
 }
 .hero__bg-img {
   position: absolute; inset: 0;
@@ -1689,15 +1690,39 @@ a {
   background: linear-gradient(90deg, rgba(8,10,18,0.92) 0%, rgba(8,10,18,0.7) 42%, rgba(8,10,18,0.25) 70%, rgba(8,10,18,0.1) 100%);
 }
 .hero__banner-content {
-  position: relative; z-index: 2;
-  max-width: 1200px; margin: 0 auto; width: 100%;
-  padding-left: 8px;
+  position: absolute;
+  top: 50%;
+  left: max(20px, calc((100% - 1200px) / 2 + 20px));
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40%;
+  max-width: 460px;
+  line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* content sits on the LEFT (dark) area */
+  text-align: left;
 }
-.hero__banner-content .hero__headline { font-size: clamp(2.6rem, 6vw, 4.2rem); }
-.hero__banner-content .hero__stats-row { margin-top: 40px; }
+.hero__banner-content .hero__headline { font-size: clamp(1.6rem, 3.4vw, 3rem); }
+.hero__banner-content .hero__subheadline { font-size: clamp(0.85rem, 1.4vw, 1.05rem); }
+.hero__banner-content .hero__stats-row { margin-top: 28px; }
 
+@media (max-width: 900px) {
+  .hero__banner-content .hero__stats-row { display: none; }
+  .hero__banner-content .hero__subheadline { display: none; }
+}
 @media (max-width: 768px) {
   .hero--banner { min-height: 0; padding: 0; }
+  .hero__overlay { background: linear-gradient(180deg, rgba(8,10,18,0.82) 0%, rgba(8,10,18,0.6) 60%, rgba(8,10,18,0.4) 100%); }
+  .hero__banner-content { padding: 0 20px; text-align: center; }
+  .hero__banner-content .hero__badge,
+  .hero__banner-content .hero__ctas { justify-content: center; }
+  .hero__banner-content .hero__headline { font-size: clamp(1.5rem, 7vw, 2.4rem); }
+  .hero__ctas .btn { padding: 10px 18px; font-size: 0.85rem; }
+}
+@media (max-width: 480px) {
+  .hero__banner-content .hero__badge { font-size: 0.7rem; padding: 5px 12px; }
+  .hero__banner-content .hero__ctas { gap: 8px; }
 }
 
 /* ============================================================
