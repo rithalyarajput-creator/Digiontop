@@ -522,25 +522,11 @@ const TestimonialsSection = () => {
 // ─── OUR WORK ────────────────────────────────────────────────────────────────
 const showcaseSites = [
   {
-    key: "smile-dental",
-    title: "Smile Dental Care Centre",
-    tag: "Healthcare Website",
-    url: "smiledentalcare.in",
-    image: "/images/work/smile-dental.png",
-  },
-  {
-    key: "baid-finance",
-    title: "Baid Stock Broking",
-    tag: "Finance Website",
-    url: "baidstockbroking.com",
-    image: "/images/work/baid-finance.png",
-  },
-  {
-    key: "delhi-dental",
-    title: "Delhi Dental Implants",
-    tag: "Dental Clinic",
-    url: "drkathuriadentistry.com",
-    image: "/images/work/delhi-dental.png",
+    key: "amshine",
+    title: "Amshine Jewels",
+    tag: "Jewellery E-Commerce",
+    url: "amshinejewels.com",
+    image: "/images/work/amshine-jewels.png",
   },
   {
     key: "stressless",
@@ -552,16 +538,9 @@ const showcaseSites = [
   {
     key: "blameless",
     title: "Blameless Skincare",
-    tag: "E-Commerce Store",
+    tag: "Skincare E-Commerce",
     url: "blamelessskincare.com",
     image: "/images/work/blameless-skincare.png",
-  },
-  {
-    key: "toreto",
-    title: "Toreto",
-    tag: "Brand Website",
-    url: "toreto.in",
-    image: "/images/work/toreto.png",
   },
 ];
 
