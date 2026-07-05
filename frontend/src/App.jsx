@@ -48,6 +48,13 @@ import SocialMediaManagement from './pages/sub/SocialMediaManagement';
 import InfluencerMarketing from './pages/sub/InfluencerMarketing';
 import SeoContentWriting from './pages/sub/SeoContentWriting';
 import Copywriting from './pages/sub/Copywriting';
+import CustomWebsite from './pages/sub/CustomWebsite';
+import BusinessWebsite from './pages/sub/BusinessWebsite';
+import WordPressDev from './pages/sub/WordPressDev';
+import WebApp from './pages/sub/WebApp';
+import WooCommerce from './pages/sub/WooCommerce';
+import WebsiteRedesign from './pages/sub/WebsiteRedesign';
+import LandingPage from './pages/sub/LandingPage';
 import SocialMedia from './pages/SocialMedia';
 import WhyUs from './pages/WhyUs';
 import Industries from './pages/Industries';
@@ -78,6 +85,13 @@ function PublicSite() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services/website-development" element={<WebDevelopment />} />
+        <Route path="/services/custom-website" element={<CustomWebsite />} />
+        <Route path="/services/business-website" element={<BusinessWebsite />} />
+        <Route path="/services/wordpress-development" element={<WordPressDev />} />
+        <Route path="/services/custom-web-application" element={<WebApp />} />
+        <Route path="/services/woocommerce-development" element={<WooCommerce />} />
+        <Route path="/services/website-redesign" element={<WebsiteRedesign />} />
+        <Route path="/services/landing-page-design" element={<LandingPage />} />
         <Route path="/services/web-development" element={<WebDevelopment />} />
         <Route path="/services/shopify-development" element={<ShopifyDevelopment />} />
         <Route path="/services/creative-branding" element={<CreativeBranding />} />
