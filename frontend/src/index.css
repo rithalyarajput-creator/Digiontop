@@ -117,7 +117,9 @@ a {
   transition: color var(--transition-base);
 }
 
-a:hover {
+/* Only plain text links turn yellow on hover.
+   Buttons / CTAs keep their own hover styles (their text must NOT turn yellow). */
+a:hover:not([class*="btn"]):not([class*="button"]):not([class*="cta"]):not([class*="__btn"]):not([class*="-btn"]) {
   color: var(--primary);
 }
 
