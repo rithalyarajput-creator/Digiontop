@@ -546,7 +546,7 @@ const showcaseSites = [
 
 const showcasePosts = [
   { key: 'p1', title: 'Jhumka Collection', tag: 'Product Creative', image: '/images/work/creative-jhumka.jpg' },
-  { key: 'p2', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/blameless-post.png' },
+  { key: 'p2', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/post-1.jpg' },
   { key: 'p3', title: 'Maha Vir Jayanti', tag: 'Festival Reel', video: '/images/work/mahavir-jayanti.mp4' },
 ];
 
