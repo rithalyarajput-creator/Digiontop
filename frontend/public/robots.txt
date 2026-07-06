@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 
-Sitemap: https://digiontop.com/sitemap.xml
+Sitemap: https://www.digiontop.com/sitemap.xml
