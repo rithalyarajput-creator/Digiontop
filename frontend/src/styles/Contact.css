@@ -481,8 +481,22 @@
     padding: 9px 11px !important;
   }
   .contact-page .about-lead__cc { padding: 0 9px !important; font-size: 0.8rem !important; }
-  .contact-page .about-lead__consent { font-size: 0.76rem !important; grid-template-columns: none !important; align-items: flex-start; }
-  .contact-page .about-lead__consent input { margin-top: 2px; }
+  .contact-page .about-lead__consent {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    font-size: 0.76rem !important;
+    line-height: 1.35;
+    text-align: left;
+  }
+  .contact-page .about-lead__consent input {
+    width: 16px !important;
+    height: 16px !important;
+    flex: 0 0 16px !important;
+    margin: 2px 0 0 !important;
+  }
   .contact-page .about-lead__btn { padding: 13px !important; font-size: 0.88rem !important; }
   .contact-page__heading { font-size: 1.7rem; }
 }

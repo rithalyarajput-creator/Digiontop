@@ -51,6 +51,13 @@
 }
 @media (max-width: 520px) {
   .sfaq { padding: 56px 16px; }
-  .sfaq__row { grid-template-columns: 1fr; }
-  .sfaq__form { padding: 24px 20px; }
+  /* keep First/Last (and Company/Website) side-by-side, just compact */
+  .sfaq__row { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .sfaq__form { padding: 22px 18px; }
+  .sfaq__form input, .sfaq__form textarea { font-size: 0.85rem; padding: 10px 12px; min-width: 0; }
+  .sfaq__form-title { font-size: 1.1rem; }
+  .sfaq__form-sub { font-size: 0.8rem; margin-bottom: 16px; }
+  .sfaq__cc { white-space: nowrap; }
+  .sfaq__consent { font-size: 0.78rem; align-items: flex-start; }
+  .sfaq__consent input { flex: 0 0 16px; width: 16px; height: 16px; margin-top: 1px; }
 }
