@@ -170,3 +170,34 @@
 
 /* wider hero image for dense illustrations (mobile/software) */
 .ss .ec-hero__media img { max-width: 520px; }
+
+/* ============================================================
+   MOBILE RESPONSIVE — global fixes for all sub-service pages
+   ============================================================ */
+@media (max-width: 768px) {
+  .ss-container { padding: 0 18px; }
+  .ss-hero { padding: 40px 0 30px; }
+  /* headings never overflow */
+  .ss-hero__title { font-size: clamp(1.7rem, 8vw, 2.3rem) !important; word-break: break-word; }
+  .ss-h2 { font-size: clamp(1.5rem, 6.5vw, 2rem) !important; }
+  .ss-hero__sub, .ss p { font-size: 0.95rem; }
+  /* images always fit */
+  .ss img, .ss video { max-width: 100% !important; height: auto; }
+  .ss .ec-hero__media img { max-width: 100% !important; }
+  /* hero buttons stack full-width */
+  .ss-hero__actions { flex-direction: column; align-items: stretch; }
+  .ss-hero__actions .ss-btn { justify-content: center; width: 100%; }
+  /* stats grids to 1-2 cols */
+  .ds-stats, .ss-stats { grid-template-columns: 1fr 1fr !important; gap: 14px; }
+  /* process steps wrap */
+  .ss-process { gap: 8px; }
+  .ss-process__step { font-size: 0.82rem; }
+  /* section padding tighter */
+  .ss-sec { padding: 48px 0; }
+}
+@media (max-width: 480px) {
+  .ss-hero__title { font-size: 1.7rem !important; }
+  .ss-h2 { font-size: 1.5rem !important; }
+  .ds-stats, .ss-stats { grid-template-columns: 1fr !important; }
+  .ss-tag { font-size: 0.68rem; }
+}

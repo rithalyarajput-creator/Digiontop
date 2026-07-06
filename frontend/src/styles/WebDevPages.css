@@ -172,3 +172,12 @@
 .lp-mock__trust span{color:var(--gold);font-size:13px;letter-spacing:2px;}
 .lp-mock__trust small{font-size:11px;color:var(--muted);}
 .lp-mock__conv{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;font-weight:700;color:var(--gold-d);background:#FFF6E0;padding:12px;}
+
+/* mobile overflow + heading guard */
+@media (max-width: 768px) {
+  [class$="-hero__title"], [class$="-hero__title--light"] { font-size: clamp(1.8rem, 8.5vw, 2.4rem) !important; word-break: break-word; }
+  [class$="-head"] h2, [class$="-cta__box"] h2 { font-size: clamp(1.5rem, 6.5vw, 2rem) !important; word-break: break-word; }
+  img, video { max-width: 100% !important; height: auto; }
+  [class$="-hero__cta"] { flex-direction: column; align-items: stretch; }
+  [class$="-hero__cta"] > a { justify-content: center; width: 100%; }
+}

@@ -667,3 +667,14 @@ select {
     border: 1px solid #000;
   }
 }
+
+/* ============================================================
+   GLOBAL MOBILE SAFETY NET — prevent horizontal overflow site-wide
+   ============================================================ */
+html, body { max-width: 100%; overflow-x: hidden; }
+@media (max-width: 768px) {
+  /* nothing should push the page wider than the screen */
+  img, video, table, pre, iframe { max-width: 100%; }
+  /* long words/URLs wrap instead of overflowing (only breaks when needed) */
+  h1, h2, h3, p, li { overflow-wrap: break-word; }
+}

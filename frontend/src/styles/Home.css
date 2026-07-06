@@ -819,9 +819,12 @@ a {
     grid-template-columns: 1fr;
     max-width: 420px;
     margin: 0 auto;
-    gap: 64px;
+    gap: 90px;                 /* bigger gap so floating icons don't touch the card above */
+    padding-top: 70px;
   }
   .services__grid > .service-card { grid-column: auto !important; }
+  /* smaller floating image + pull it in so it stays on its own card */
+  .services__grid .service-card__float-img { width: 120px; height: 104px; top: -46px; right: 8px; }
 
   .why-us {
     padding: 64px 0;
@@ -1720,26 +1723,29 @@ a {
 .hero__banner-content .hero__stats-row { display: none; }
 
 @media (max-width: 768px) {
-  /* Give the wide banner a fixed height; keep text vertically CENTERED over it */
-  .hero--banner { min-height: 360px; padding: 0; }
-  .hero__banner-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center right; }
-  .hero__overlay { background: linear-gradient(180deg, rgba(8,10,18,0.88) 0%, rgba(8,10,18,0.62) 55%, rgba(8,10,18,0.5) 100%); }
+  /* Fixed-height banner; image behind, strong dark overlay so text is crisp */
+  .hero--banner { min-height: 420px; padding: 0; }
+  /* show the LEFT (dark) part of the banner on mobile so text sits on a clean area */
+  .hero__banner-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 22% center; }
+  /* strong even overlay on mobile so text is always crisp over any part */
+  .hero__overlay { background: rgba(8,10,18,0.78); }
   .hero__banner-content {
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);   /* center vertically + horizontally */
-    width: 100%; max-width: none;
-    padding: 0 22px; text-align: center; align-items: center;
+    top: 50% !important; left: 0 !important; right: 0 !important;
+    transform: translateY(-50%) !important;
+    width: 100% !important; max-width: none !important;
+    padding: 0 24px !important; text-align: center !important; align-items: center !important;
   }
-  .hero__banner-content .hero__badge { font-size: 0.66rem; padding: 5px 12px; margin-bottom: 12px; }
-  .hero__banner-content .hero__ctas { justify-content: center; }
-  .hero__banner-content .hero__headline { font-size: clamp(1.7rem, 8vw, 2.4rem); }
-  .hero__banner-content .hero__subheadline { font-size: 0.85rem; margin-bottom: 18px; }
-  .hero__ctas .btn { padding: 11px 20px; font-size: 0.85rem; }
+  .hero__banner-content .hero__badge { font-size: 0.68rem; padding: 6px 14px; margin-bottom: 14px; }
+  .hero__banner-content .hero__ctas { justify-content: center; margin-left: 0; }
+  .hero__banner-content .hero__headline { font-size: clamp(1.9rem, 9vw, 2.6rem); margin-bottom: 12px; }
+  .hero__banner-content .hero__subheadline { font-size: 0.9rem; margin-bottom: 20px; }
+  .hero__ctas .btn { padding: 12px 22px; font-size: 0.9rem; }
 }
 @media (max-width: 420px) {
-  .hero--banner { min-height: 320px; }
-  .hero__banner-content .hero__subheadline { display: none; }
+  .hero--banner { min-height: 380px; }
+  .hero__banner-content .hero__headline { font-size: 2rem; }
+  .hero__banner-content .hero__subheadline { font-size: 0.82rem; }
 }
 
 /* ============================================================
