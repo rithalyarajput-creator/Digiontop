@@ -858,11 +858,16 @@
   .about-lead__bars { display: none !important; }   /* bars were colliding with the text */
 
   /* ── Hero: tighten the big vertical gaps on mobile ── */
-  .ab-hero { padding: 40px 0 40px !important; }
-  .ab-hero .ab-tag { margin-bottom: 20px; }
-  .ab-hero__title { font-size: clamp(1.9rem, 8vw, 2.6rem) !important; margin-bottom: 16px; }
-  .ab-hero__sub { font-size: 1rem; margin-bottom: 24px; }
-  .ab-btn--primary { margin-top: 4px; }
-  .ab-hero__stats { margin-top: 30px !important; padding-top: 26px !important; gap: 24px 34px; }
+  .ab-hero { padding: 28px 0 36px !important; }
+  /* control spacing with one flex gap instead of loose per-element margins */
+  .ab-hero__inner {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0;
+  }
+  .ab-hero .ab-tag { margin: 0 0 14px !important; }
+  .ab-hero__title { font-size: clamp(1.9rem, 8vw, 2.6rem) !important; margin: 0 auto 14px !important; line-height: 1.12 !important; }
+  .ab-hero__sub { font-size: 1rem; margin: 0 auto 20px !important; max-width: 100%; }
+  .ab-hero .ab-btn--primary { margin: 0 !important; }
+  .ab-hero__stats { width: 100%; margin-top: 30px !important; padding-top: 26px !important; gap: 24px 34px; }
   .ab-hero__stats b { font-size: 1.8rem; }
 }
