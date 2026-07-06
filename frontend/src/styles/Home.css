@@ -819,14 +819,14 @@ a {
     grid-template-columns: 1fr;
     max-width: 420px;
     margin: 0 auto;
-    gap: 90px;                 /* bigger gap so floating icons don't touch the card above */
-    padding-top: 70px;
+    gap: 64px;                 /* even spacing between cards */
+    padding-top: 58px;
   }
   .services__grid > .service-card { grid-column: auto !important; }
-  .services__grid > .service-card { padding: 52px 22px 26px; }
+  .services__grid > .service-card { padding: 44px 22px 26px; }
   .service-card__desc { font-size: 0.9rem; }
-  /* smaller floating image + pull it in so it stays on its own card */
-  .services__grid .service-card__float-img { width: 118px; height: 100px; top: -44px; right: 6px; }
+  /* floating icon sits closer to its own card (attached, not floating in the gap) */
+  .services__grid .service-card__float-img { width: 104px; height: 88px; top: -32px; right: 8px; }
 
   .why-us {
     padding: 64px 0;

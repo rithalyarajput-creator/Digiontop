@@ -468,27 +468,30 @@
     padding: 3px 6px;
   }
 
-  /* Newsletter — input on top, full-width button below (clean on mobile) */
+  /* Newsletter — input on left, Subscribe button on the RIGHT (row) */
   .footer-newsletter {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: stretch;
     border: none;
     border-radius: 0;
     overflow: visible;
-    gap: 10px;
+    gap: 8px;
   }
   .footer-newsletter-input {
-    flex: none;
-    width: 100%;
+    flex: 1 1 auto;
+    width: auto;
     border: 1px solid #333;
     border-radius: 10px;
-    padding: 13px 16px;
+    padding: 12px 14px;
     min-width: 0;
+    font-size: 0.9rem;
   }
   .footer-newsletter-btn {
-    width: 100%;
+    flex: 0 0 auto;
+    width: auto;
     border-radius: 10px;
-    padding: 13px 18px;
-    font-size: 0.9rem;
+    padding: 12px 18px;
+    font-size: 0.88rem;
     font-weight: 800;
     white-space: nowrap;
   }
