@@ -476,6 +476,7 @@
     border-radius: 0;
     overflow: visible;
     gap: 8px;
+    margin-bottom: 22px;   /* breathing room below newsletter */
   }
   .footer-newsletter-input {
     flex: 1 1 auto;

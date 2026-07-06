@@ -819,7 +819,7 @@ a {
     grid-template-columns: 1fr;
     max-width: 420px;
     margin: 0 auto;
-    gap: 64px;                 /* even spacing between cards */
+    gap: 84px;                 /* more breathing room between cards */
     padding-top: 58px;
   }
   .services__grid > .service-card { grid-column: auto !important; }
