@@ -826,4 +826,28 @@
   .about-lead__phone { display: flex; gap: 8px; min-width: 0; }
   .about-lead__phone input { flex: 1; min-width: 0; }
   .about-lead__btn { width: 100%; justify-content: center; }
+
+  /* ── What We Do: single column so titles don't break mid-word ── */
+  .ab-do__grid { grid-template-columns: 1fr !important; gap: 20px; }
+  .ab-do__card { flex: 0 1 100% !important; }
+  .ab-do__card h3 { font-size: 1.15rem; }
+  .ab-do__card p { font-size: 0.95rem; }
+  .ab-do__num { font-size: 2.6rem; }
+
+  /* ── Partner section: keep photo + text inside the screen ── */
+  .about-partner { padding: 56px 0; overflow: hidden; }
+  .about-partner__inner { gap: 32px; }
+  .about-partner__visual::before {
+    width: 300px; height: 300px; max-width: 88vw; max-height: 88vw;
+  }
+  .about-partner__photo { width: 100%; max-width: 340px; }
+  .about-partner__text p { font-size: 0.96rem; word-wrap: break-word; }
+  .about-partner__btns { gap: 12px; }
+  .about-partner__btn { flex: 1 1 auto; justify-content: center; padding: 13px 18px; }
+  /* pull the floating chips in so they don't push page width */
+  .about-partner__chip--star { left: 0; }
+  .about-partner__chip--pin { right: 0; }
+
+  /* Hero + section headings: allow long words to wrap cleanly */
+  .ab-h2, .ab-hero__title { word-wrap: break-word; }
 }
