@@ -381,7 +381,7 @@ a {
 .services__grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 64px 28px;
+  gap: 96px 28px;
   padding-top: 64px;
   max-width: 1140px;
   margin: 0 auto;
@@ -656,7 +656,7 @@ a {
    ============================================================ */
 .cta-banner {
   background: var(--yellow);
-  padding: 44px 24px;
+  padding: 30px 24px;
 }
 
 .cta-banner__inner {
@@ -670,7 +670,7 @@ a {
 /* Mobile — compact + attractive card look */
 @media (max-width: 768px) {
   .cta-banner {
-    padding: 36px 16px;
+    padding: 24px 16px;
     background: linear-gradient(135deg, #F5A800 0%, #ffc62e 100%);
   }
   .cta-banner__inner {
