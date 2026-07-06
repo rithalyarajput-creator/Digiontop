@@ -64,7 +64,7 @@
 .smm-cta,.cm-cta,.em-cta,.sm-cta,.im-cta,.cw-cta,.cp-cta{padding:0 0 90px;}
 .smm-cta__box,.cm-cta__box,.em-cta__box,.sm-cta__box,.im-cta__box,.cw-cta__box,.cp-cta__box{
   text-align:center;background:radial-gradient(ellipse at 50% 0%,#1e1e1e,#0e0e0e);border-radius:24px;padding:60px 30px;}
-[class$="-cta__ic"]{font-size:32px;color:var(--gold-l);margin-bottom:12px;}
+.smm-cta__ic,.cm-cta__ic,.em-cta__ic,.sm-cta__ic,.im-cta__ic,.cw-cta__ic,.cp-cta__ic{font-size:32px;color:var(--gold-l);margin-bottom:12px;}
 .smm-cta__box h2,.cm-cta__box h2,.em-cta__box h2,.sm-cta__box h2,.im-cta__box h2,.cw-cta__box h2,.cp-cta__box h2{
   color:#fff;font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:900;margin:0 0 12px;}
 .smm-cta__box p,.cm-cta__box p,.em-cta__box p,.sm-cta__box p,.im-cta__box p,.cw-cta__box p,.cp-cta__box p{
