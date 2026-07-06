@@ -262,7 +262,21 @@
 /* ── GRID variants ─────────────────────────────────────────── */
 .pf-grid { display: grid; gap: 26px; }
 .pf-grid--vertical { grid-template-columns: repeat(5, 1fr); }
-.pf-grid--wide     { grid-template-columns: repeat(3, 1fr); }
+/* Wide cards (E-Commerce + Websites): centered row that stays even
+   whether the section has 2 or 3 cards — all same width, one line. */
+.pf-grid--wide {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px;
+}
+.pf-grid--wide > .pf-card {
+  flex: 1 1 300px;
+  max-width: 420px;
+}
+@media (max-width: 720px) {
+  .pf-grid--wide > .pf-card { flex-basis: 100%; max-width: 480px; }
+}
 
 /* Creative Posts → horizontal left/right slider (swipe / scroll-snap).
    Pure CSS: smooth, touch-friendly, no JS. */

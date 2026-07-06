@@ -35,14 +35,6 @@ const PROJECTS = [
     link: 'https://blameless.in/',
   },
   {
-    id: 7,
-    title: 'Delhi Dental Implants',
-    subtitle: 'Dental Clinic Website Development',
-    category: 'healthcare',
-    image: '/images/work/delhi-dental.webp',
-    link: '#',
-  },
-  {
     id: 8,
     title: 'Delhi Dentist',
     subtitle: 'Dental Healthcare Website Development',

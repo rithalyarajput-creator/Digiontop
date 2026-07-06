@@ -467,11 +467,11 @@ const showcaseSites = [
     image: "/images/work/stressless-learner.webp",
   },
   {
-    key: "delhi-dental",
-    title: "Delhi Dental Implants",
-    tag: "Dental Clinic",
+    key: "rithala",
+    title: "Rithala Village",
+    tag: "Information & Community",
     url: "",
-    image: "/images/work/delhi-dental.webp",
+    image: "/images/work/rithala-village.webp",
   },
 ];
 

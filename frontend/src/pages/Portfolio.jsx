@@ -67,7 +67,6 @@ const SECTIONS = [
     mockup: 'landing',
     /* Real client websites — `link` makes the card clickable. */
     items: [
-      { id: 'p3', title: 'Delhi Dental Implants', tag: 'Dental Clinic', image: '/images/work/delhi-dental.webp' },
       { id: 'p6', title: 'Stressless Learner', tag: 'Education', image: '/images/work/stressless-learner.webp' },
       { id: 'p7', title: 'Rithala Village', tag: 'Information & Community', image: '/images/work/rithala-village.webp' },
     ],

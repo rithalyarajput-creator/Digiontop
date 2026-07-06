@@ -18,7 +18,7 @@ const POSTS = [
 const WEBSITES = [
   { src: '/images/work/amshine-jewels.webp', title: 'Amshine Jewels', tag: 'Jewellery E-Commerce' },
   { src: '/images/work/blameless-skincare.webp', title: 'Blameless', tag: 'Skincare E-Commerce' },
-  { src: '/images/work/delhi-dental.webp', title: 'Delhi Dental Implants', tag: 'Dental Clinic' },
+  { src: '/images/work/rithala-village.webp', title: 'Rithala Village', tag: 'Information & Community' },
   { src: '/images/work/stressless-learner.webp', title: 'Stressless Learner', tag: 'Education Website' },
 ]
 
