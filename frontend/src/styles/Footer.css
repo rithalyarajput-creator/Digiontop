@@ -498,9 +498,8 @@
   }
 }
 
-/* small gap above the footer so it doesn't stick to the section above */
 @media (max-width: 768px) {
-  .footer { margin-top: 8px; }
+  .footer { margin-top: 0; }
   .footer-container { padding-top: 44px; }
 }
 
