@@ -7,7 +7,6 @@ import {
 } from 'react-icons/fi';
 import { motion, useInView } from 'framer-motion';
 import SocialReelsSection from '../components/SocialReelsSection';
-import CarouselShowcase from '../components/CarouselShowcase';
 import '../styles/Portfolio.css';
 
 /* ──────────────────────────────────────────────────────────────
@@ -197,9 +196,6 @@ export default function Portfolio() {
       {SECTIONS.map((sec) => (
         <Section key={sec.id} section={sec} />
       ))}
-
-      {/* ── Carousel showcase (phone + swipeable slides) ── */}
-      <CarouselShowcase />
 
       {/* ── Social / Reels (same as Home) ── */}
       <SocialReelsSection />

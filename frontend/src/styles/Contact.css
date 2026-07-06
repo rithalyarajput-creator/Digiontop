@@ -460,3 +460,29 @@
   .contact-form-side, .contact-info-card { width: auto !important; display: block; margin-bottom: 20px; }
   .contact-form-side * { max-width: 100%; }
 }
+
+/* ============================================================
+   Contact form — compact on mobile: pairs stay side-by-side,
+   smaller inputs/labels (scoped to .contact-page so About is untouched)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* First/Last, Company/Website, Email/Phone → two per line */
+  .contact-page .about-lead__row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+  /* smaller, tighter form */
+  .contact-page .about-lead__form label { font-size: 0.72rem !important; gap: 4px; }
+  .contact-page .about-lead__form input,
+  .contact-page .about-lead__form select,
+  .contact-page .about-lead__form textarea {
+    font-size: 0.82rem !important;
+    padding: 9px 11px !important;
+  }
+  .contact-page .about-lead__cc { padding: 0 9px !important; font-size: 0.8rem !important; }
+  .contact-page .about-lead__consent { font-size: 0.76rem !important; grid-template-columns: none !important; align-items: flex-start; }
+  .contact-page .about-lead__consent input { margin-top: 2px; }
+  .contact-page .about-lead__btn { padding: 13px !important; font-size: 0.88rem !important; }
+  .contact-page__heading { font-size: 1.7rem; }
+}

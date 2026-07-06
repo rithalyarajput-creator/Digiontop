@@ -105,10 +105,14 @@
   filter: drop-shadow(0 8px 20px rgba(245,168,0,0.18));
 }
 @media (max-width: 480px) {
-  .pf-hero { padding: 48px 18px 50px; }
-  .pf-hero__logo { height: 56px; margin-bottom: 4px; }
-  .pf-hero__title { margin: 14px 0 18px; }
+  .pf-hero { padding: 28px 18px 40px; }
+  .pf-hero__logo { height: 50px; margin-bottom: 14px; }
+  .pf-hero__title { font-size: clamp(1.9rem, 8vw, 2.4rem); margin: 16px 0 16px; }
   .pf-word { margin-right: 0.18em; }
+  .pf-hero__about { margin-top: 4px; padding: 20px 20px; }
+  .pf-hero__stats { margin-top: 24px; gap: 12px; }
+  /* hide the "scroll to explore" cue on mobile — it just adds empty space */
+  .pf-hero__scroll { display: none; }
 }
 
 .pf-hero__eyebrow {
