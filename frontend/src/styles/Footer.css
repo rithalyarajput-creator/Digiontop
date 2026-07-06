@@ -468,27 +468,36 @@
     padding: 3px 6px;
   }
 
-  /* Newsletter — input + button side by side, clean pill */
+  /* Newsletter — input on top, full-width button below (clean on mobile) */
   .footer-newsletter {
-    flex-direction: row;
-    border-radius: 10px;
-    gap: 8px;
-    align-items: stretch;
+    flex-direction: column;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    gap: 10px;
   }
   .footer-newsletter-input {
-    flex: 1;
-    border-radius: 8px;
-    padding: 12px 14px;
+    flex: none;
+    width: 100%;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 13px 16px;
     min-width: 0;
   }
   .footer-newsletter-btn {
-    border-radius: 8px;
-    padding: 12px 18px;
-    font-size: 0.82rem;
-    font-weight: 700;
+    width: 100%;
+    border-radius: 10px;
+    padding: 13px 18px;
+    font-size: 0.9rem;
+    font-weight: 800;
     white-space: nowrap;
-    flex-shrink: 0;
   }
+}
+
+/* small gap above the footer so it doesn't stick to the section above */
+@media (max-width: 768px) {
+  .footer { margin-top: 8px; }
+  .footer-container { padding-top: 44px; }
 }
 
 /* ============================================================

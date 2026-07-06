@@ -808,3 +808,22 @@
   .ab-split__points { grid-template-columns: 1fr; }
   .ab-split__badge { right: 10px; padding: 10px 16px; }
 }
+
+/* ============================================================
+   MOBILE FIX — lead form (used on About + Contact) must fit screen
+   ============================================================ */
+@media (max-width: 768px) {
+  .about-lead__form { padding: 24px 18px !important; max-width: 100%; box-sizing: border-box; }
+  .about-lead__row { grid-template-columns: 1fr !important; gap: 12px; }
+  .about-lead__form input,
+  .about-lead__form select,
+  .about-lead__form textarea {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  .about-lead__phone { display: flex; gap: 8px; min-width: 0; }
+  .about-lead__phone input { flex: 1; min-width: 0; }
+  .about-lead__btn { width: 100%; justify-content: center; }
+}

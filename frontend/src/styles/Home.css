@@ -823,8 +823,10 @@ a {
     padding-top: 70px;
   }
   .services__grid > .service-card { grid-column: auto !important; }
+  .services__grid > .service-card { padding: 52px 22px 26px; }
+  .service-card__desc { font-size: 0.9rem; }
   /* smaller floating image + pull it in so it stays on its own card */
-  .services__grid .service-card__float-img { width: 120px; height: 104px; top: -46px; right: 8px; }
+  .services__grid .service-card__float-img { width: 118px; height: 100px; top: -44px; right: 6px; }
 
   .why-us {
     padding: 64px 0;
@@ -1955,36 +1957,42 @@ a {
   .showcase__grid { grid-template-columns: repeat(2, 1fr); }
   .showcase__grid--reels { grid-template-columns: repeat(2, 1fr); max-width: 500px; }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .showcase { padding: 60px 0; }
 
-  /* Horizontal left/right swipe slider instead of vertical stack */
-  .showcase__grid {
-    display: flex;
-    grid-template-columns: none;
+  /* Horizontal left/right swipe slider instead of vertical stack (all tabs) */
+  .showcase__grid,
+  .showcase__grid--posts,
+  .showcase__grid--reels {
+    display: flex !important;
+    grid-template-columns: none !important;
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding: 4px 4px 10px;
-    margin-left: -4px; margin-right: -4px;
+    padding: 4px 2px 12px;
+    margin: 0 -2px;
+    max-width: 100% !important;
   }
-  .showcase__grid::-webkit-scrollbar { display: none; }
+  .showcase__grid::-webkit-scrollbar,
+  .showcase__grid--posts::-webkit-scrollbar,
+  .showcase__grid--reels::-webkit-scrollbar { display: none; }
   .showcase__grid > .showcase__card,
-  .showcase__grid--reels > .showcase__reel {
-    flex: 0 0 82%;
-    max-width: 82%;
+  .showcase__grid--posts > .showcase__card,
+  .showcase__grid--posts > .showcase__post {
+    flex: 0 0 82% !important;
+    max-width: 82% !important;
     scroll-snap-align: center;
   }
-  .showcase__grid--reels { max-width: none; justify-content: flex-start; }
-  .showcase__grid--reels > .showcase__reel { flex: 0 0 62%; max-width: 62%; }
-
+  .showcase__grid--reels > .showcase__reel {
+    flex: 0 0 62% !important;
+    max-width: 62% !important;
+    scroll-snap-align: center;
+  }
   .showcase__window { height: 220px; }
   .showcase__card:hover .showcase__shot { transform: translateY(calc(-100% + 220px)); }
-
-  /* subtle hint that content scrolls */
-  .showcase__tabs { margin-bottom: 30px; }
+  .showcase__tabs { margin-bottom: 28px; flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) {
   .showcase__shot { transition: none; }

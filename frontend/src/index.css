@@ -678,3 +678,6 @@ html, body { max-width: 100%; overflow-x: hidden; }
   /* long words/URLs wrap instead of overflowing (only breaks when needed) */
   h1, h2, h3, p, li { overflow-wrap: break-word; }
 }
+
+/* form inputs must always respect their container width (prevents mobile overflow) */
+input, textarea, select { box-sizing: border-box; max-width: 100%; }

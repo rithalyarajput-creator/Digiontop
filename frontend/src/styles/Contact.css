@@ -404,3 +404,59 @@
   border-radius: 18px;
   box-shadow: 0 12px 36px rgba(20,24,43,0.08);
 }
+
+/* ============================================================
+   MOBILE FIX — form inputs must never overflow the screen
+   ============================================================ */
+@media (max-width: 768px) {
+  .contact-form, .contact-form-side, .contact-form__row, .contact-form__field { max-width: 100%; min-width: 0; }
+  .contact-form__field input,
+  .contact-form__field textarea,
+  .contact-lead__form input,
+  .contact-lead__form textarea,
+  .contact-lead__form select {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  /* phone code + number row fits */
+  .contact-form__phone, .contact-phone-row { display: flex; gap: 8px; max-width: 100%; }
+  .contact-form__phone input, .contact-phone-row input { min-width: 0; flex: 1; }
+}
+
+/* ============================================================
+   MOBILE HARD-FIX — force contact form area inside the screen
+   ============================================================ */
+@media (max-width: 860px) {
+  .contact-wrap__inner { grid-template-columns: 1fr !important; max-width: 100% !important; }
+  .contact-form-side { width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box; }
+}
+@media (max-width: 768px) {
+  .contact-wrap { padding: 40px 16px 60px !important; overflow-x: hidden; }
+  .contact-form-side { padding: 24px 16px !important; }
+  .about-lead__form, .contact-lead__form { padding: 0 !important; border: none !important; box-shadow: none !important; background: transparent !important; }
+}
+
+/* NUCLEAR mobile fix — nothing in the contact form area exceeds the screen */
+@media (max-width: 768px) {
+  .contact-wrap, .contact-wrap__inner, .contact-form-side,
+  .about-lead__form, .contact-lead__form,
+  .about-lead__row, .about-lead__form label,
+  .about-lead__phone {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .about-lead__form input, .about-lead__form select, .about-lead__form textarea {
+    width: 100% !important; max-width: 100% !important; min-width: 0 !important;
+  }
+  .about-lead__cc { flex-shrink: 0; white-space: nowrap; }
+}
+
+/* FINAL — block layout on mobile so no grid track forces width */
+@media (max-width: 768px) {
+  .contact-wrap__inner { display: block !important; }
+  .contact-form-side, .contact-info-card { width: auto !important; display: block; margin-bottom: 20px; }
+  .contact-form-side * { max-width: 100%; }
+}
