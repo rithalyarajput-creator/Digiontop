@@ -850,4 +850,19 @@
 
   /* Hero + section headings: allow long words to wrap cleanly */
   .ab-h2, .ab-hero__title { word-wrap: break-word; }
+
+  /* ── Lead form promo board: compact + hide bars that overlap text ── */
+  .about-lead__promo { padding: 26px 22px !important; }
+  .about-lead__promo h2 { font-size: 1.7rem !important; margin-bottom: 10px !important; }
+  .about-lead__promo p { font-size: 0.9rem !important; }
+  .about-lead__bars { display: none !important; }   /* bars were colliding with the text */
+
+  /* ── Hero: tighten the big vertical gaps on mobile ── */
+  .ab-hero { padding: 40px 0 40px !important; }
+  .ab-hero .ab-tag { margin-bottom: 20px; }
+  .ab-hero__title { font-size: clamp(1.9rem, 8vw, 2.6rem) !important; margin-bottom: 16px; }
+  .ab-hero__sub { font-size: 1rem; margin-bottom: 24px; }
+  .ab-btn--primary { margin-top: 4px; }
+  .ab-hero__stats { margin-top: 30px !important; padding-top: 26px !important; gap: 24px 34px; }
+  .ab-hero__stats b { font-size: 1.8rem; }
 }
