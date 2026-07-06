@@ -35,7 +35,6 @@ const SECTIONS = [
     items: [
       { id: 'e1', title: 'Amshine Jewels', tag: 'Jewellery E-Commerce', image: '/images/work/amshine-jewels.webp', link: 'https://amshinejewels.com' },
       { id: 'e2', title: 'Blameless', tag: 'Skincare E-Commerce', image: '/images/work/blameless-skincare.webp', link: 'https://blameless.in' },
-      { id: 'e3', title: 'Toreto', tag: 'Electronics E-Commerce', image: '/images/work/toreto.webp', link: 'https://toreto.in' },
     ],
   },
   {
@@ -68,10 +67,7 @@ const SECTIONS = [
     mockup: 'landing',
     /* Real client websites — `link` makes the card clickable. */
     items: [
-      { id: 'p1', title: 'Smile Dental Care Centre', tag: 'Healthcare Website', image: '/images/work/smile-dental.webp', link: 'https://smiledentalcarecentre.com' },
-      { id: 'p2', title: 'Baid Stock Broking', tag: 'Finance Website', image: '/images/work/baid-finance.webp', link: 'https://baidstockbroking.com' },
       { id: 'p3', title: 'Delhi Dental Implants', tag: 'Dental Clinic', image: '/images/work/delhi-dental.webp' },
-      { id: 'p5', title: 'Lightboard Signage', tag: 'Business Website', image: '/images/work/lightboard-signage.webp' },
       { id: 'p6', title: 'Stressless Learner', tag: 'Education', image: '/images/work/stressless-learner.webp' },
       { id: 'p7', title: 'Rithala Village', tag: 'Information & Community', image: '/images/work/rithala-village.webp' },
     ],

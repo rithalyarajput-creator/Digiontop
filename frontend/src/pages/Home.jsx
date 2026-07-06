@@ -467,11 +467,11 @@ const showcaseSites = [
     image: "/images/work/stressless-learner.webp",
   },
   {
-    key: "toreto",
-    title: "Toreto",
-    tag: "Electronics E-Commerce",
-    url: "toreto.in",
-    image: "/images/work/toreto.webp",
+    key: "delhi-dental",
+    title: "Delhi Dental Implants",
+    tag: "Dental Clinic",
+    url: "",
+    image: "/images/work/delhi-dental.webp",
   },
 ];
 

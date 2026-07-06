@@ -16,9 +16,9 @@ const POSTS = [
   { src: '/images/work/post-2.webp', title: 'Brand Campaign', tag: 'Creative Post' },
 ]
 const WEBSITES = [
-  { src: '/images/work/smile-dental.webp', title: 'Smile Dental Care Centre', tag: 'Healthcare Website' },
-  { src: '/images/work/baid-finance.webp', title: 'Baid Stock Broking', tag: 'Finance Website' },
-  { src: '/images/work/toreto.webp', title: 'Toreto', tag: 'E-Commerce Store' },
+  { src: '/images/work/amshine-jewels.webp', title: 'Amshine Jewels', tag: 'Jewellery E-Commerce' },
+  { src: '/images/work/blameless-skincare.webp', title: 'Blameless', tag: 'Skincare E-Commerce' },
+  { src: '/images/work/delhi-dental.webp', title: 'Delhi Dental Implants', tag: 'Dental Clinic' },
   { src: '/images/work/stressless-learner.webp', title: 'Stressless Learner', tag: 'Education Website' },
 ]
 
