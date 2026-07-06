@@ -1697,7 +1697,7 @@ a {
 }
 .hero__banner-content {
   position: absolute;
-  top: 44%;                  /* above center so the CTA button clears the chatbot below */
+  top: 50%;                  /* vertically centered in the banner */
   left: max(20px, calc((100% - 1200px) / 2 + 20px));
   transform: translateY(-50%);
   z-index: 3;
