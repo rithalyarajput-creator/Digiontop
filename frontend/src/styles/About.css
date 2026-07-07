@@ -531,7 +531,7 @@
   .about-lead__promo { padding: 34px 28px; }
 }
 @media (max-width: 560px) {
-  .about-lead__row { grid-template-columns: 1fr; gap: 14px; }
+  .about-lead__row { grid-template-columns: 1fr 1fr; gap: 10px; }
   .about-lead__form { padding: 28px 22px; }
 }
 
@@ -813,8 +813,10 @@
    MOBILE FIX — lead form (used on About + Contact) must fit screen
    ============================================================ */
 @media (max-width: 768px) {
-  .about-lead__form { padding: 24px 18px !important; max-width: 100%; box-sizing: border-box; }
-  .about-lead__row { grid-template-columns: 1fr !important; gap: 12px; }
+  .about-lead__form { padding: 22px 18px !important; max-width: 100%; box-sizing: border-box; }
+  /* keep First/Last (+ pairs) side-by-side, just compact */
+  .about-lead__row { grid-template-columns: 1fr 1fr !important; gap: 10px; }
+  .about-lead__form label { font-size: 0.72rem !important; gap: 4px; }
   .about-lead__form input,
   .about-lead__form select,
   .about-lead__form textarea {
@@ -822,10 +824,22 @@
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+    font-size: 0.82rem !important;
+    padding: 9px 11px !important;
   }
-  .about-lead__phone { display: flex; gap: 8px; min-width: 0; }
+  .about-lead__phone { display: flex; gap: 6px; min-width: 0; }
   .about-lead__phone input { flex: 1; min-width: 0; }
-  .about-lead__btn { width: 100%; justify-content: center; }
+  .about-lead__cc { padding: 0 9px !important; font-size: 0.8rem !important; }
+  .about-lead__btn { width: 100%; justify-content: center; padding: 13px !important; }
+  /* compact promo board — smaller, distinct */
+  .about-lead__inner { border-radius: 18px; }
+  /* consent: tight single row, checkbox next to text */
+  .about-lead__consent {
+    display: flex !important; flex-direction: row !important;
+    align-items: flex-start !important; justify-content: flex-start !important;
+    gap: 8px !important; font-size: 0.76rem !important; text-align: left;
+  }
+  .about-lead__consent input { flex: 0 0 16px !important; width: 16px !important; height: 16px !important; margin-top: 2px !important; }
 
   /* ── What We Do: single column so titles don't break mid-word ── */
   .ab-do__grid { grid-template-columns: 1fr !important; gap: 20px; }
@@ -844,12 +858,19 @@
   .about-partner__text p { font-size: 0.96rem; word-wrap: break-word; }
   .about-partner__btns { gap: 12px; }
   .about-partner__btn { flex: 1 1 auto; justify-content: center; padding: 13px 18px; }
-  /* pull the floating chips in so they don't push page width */
-  .about-partner__chip--star { left: 0; }
-  .about-partner__chip--pin { right: 0; }
+  /* hide the floating icon chips on mobile — show only the clean image */
+  .about-partner__chip { display: none !important; }
+  .about-partner__visual::before { display: none; }
 
   /* Hero + section headings: allow long words to wrap cleanly */
   .ab-h2, .ab-hero__title { word-wrap: break-word; }
+
+  /* ── Our Goal: don't touch screen edges + compact ── */
+  .ab-goal { padding: 0 16px 64px !important; }
+  .ab-goal__inner { padding: 44px 24px !important; border-radius: 22px; }
+  .ab-goal__title { font-size: clamp(1.5rem, 7vw, 2rem) !important; }
+  .ab-goal__inner p { font-size: 0.95rem !important; }
+  .ab-goal__tagline { font-size: 1.05rem !important; }
 
   /* ── Lead form promo board: compact + hide bars that overlap text ── */
   .about-lead__promo { padding: 26px 22px !important; }

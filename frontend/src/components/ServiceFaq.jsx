@@ -8,7 +8,7 @@ const INITIAL = { firstName: '', lastName: '', company: '', website: '', email: 
    `service` = service name (used in form heading + lead source).
    `faqs` = [{ q, a }]  */
 export default function ServiceFaq({ service = 'this service', faqs = [] }) {
-  const [open, setOpen] = useState(0)
+  const [open, setOpen] = useState(-1)
   const [form, setForm] = useState(INITIAL)
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)

@@ -22,7 +22,7 @@
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 24px 48px;
+  padding: 84px 24px 48px;
 }
 
 /* ---------- Grid ---------- */
@@ -339,33 +339,26 @@
   font-weight: 500;
 }
 
-.footer-bottom__payments {
+.footer-bottom__links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-
-.footer-bottom__we-accept {
-  font-size: 0.78rem;
-  color: #1a1a1a;
-  font-weight: 500;
+.footer-bottom__link {
+  font-size: 0.82rem;
+  color: #cfcfcf;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
-
-.footer-payment-badge {
-  background: #fff;
-  color: #1a1a1a;
-  font-size: 0.7rem;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.03em;
-}
-
-.footer-payment-badge--mc {
-  background: #eb001b;
-  color: #fff;
-  letter-spacing: -4px;
-  padding: 3px 10px;
+.footer-bottom__link:hover { color: #F5A800; }
+.footer-bottom__sep { color: #555; font-size: 0.7rem; }
+.footer-bottom__flag {
+  font-size: 0.8rem;
+  color: #cfcfcf;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 /* =========================================================
@@ -449,24 +442,16 @@
     justify-content: center;
     margin: 0;
   }
-  .footer-bottom__payments { margin-top: 2px; }
-
-  /* "We Accept" + payment badges stay on ONE line */
-  .footer-bottom__payments {
-    flex-wrap: nowrap;
+  /* Bottom links row stays centered on one line */
+  .footer-bottom__links {
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     width: 100%;
+    margin-top: 2px;
   }
-  .footer-bottom__we-accept {
-    font-size: 0.72rem;
-    white-space: nowrap;
-  }
-  .footer-payment-badge {
-    font-size: 0.62rem;
-    padding: 3px 6px;
-  }
+  .footer-bottom__link, .footer-bottom__flag { font-size: 0.74rem; }
 
   /* Newsletter — input on left, Subscribe button on the RIGHT (row) */
   .footer-newsletter {

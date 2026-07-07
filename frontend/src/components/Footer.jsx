@@ -135,12 +135,12 @@ const Footer = () => {
           <span className="footer-bottom__mission">
             <span className="footer-bottom__shield">🛡</span> Your Growth. Our Mission.
           </span>
-          <span className="footer-bottom__payments">
-            <span className="footer-bottom__we-accept">We Accept</span>
-            <span className="footer-payment-badge">VISA</span>
-            <span className="footer-payment-badge footer-payment-badge--mc">●●</span>
-            <span className="footer-payment-badge">UPI</span>
-            <span className="footer-payment-badge">PayPal</span>
+          <span className="footer-bottom__links">
+            <Link to="/about" className="footer-bottom__link">About</Link>
+            <span className="footer-bottom__sep">•</span>
+            <Link to="/contact" className="footer-bottom__link">Contact</Link>
+            <span className="footer-bottom__sep">•</span>
+            <span className="footer-bottom__flag">🇮🇳 Proudly Made in India</span>
           </span>
         </div>
       </div>
