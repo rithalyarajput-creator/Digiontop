@@ -19,6 +19,10 @@ import {
   FaTshirt,
   FaBuilding,
   FaArrowRight,
+  FaComments,
+  FaPencilRuler,
+  FaRocket,
+  FaChartBar,
 } from "react-icons/fa";
 import "../styles/Home.css";
 
@@ -89,12 +93,19 @@ const whyUs = [
 ];
 
 const industries = [
-  { label: "Retail", icon: <FaStore /> },
-  { label: "Restaurants", icon: <FaUtensils /> },
-  { label: "Healthcare", icon: <FaHeartbeat /> },
-  { label: "Education", icon: <FaGraduationCap /> },
-  { label: "Fashion", icon: <FaTshirt /> },
-  { label: "Real Estate", icon: <FaBuilding /> },
+  { label: "Retail & E-Commerce", icon: <FaStore />, desc: "Online stores that turn browsers into buyers." },
+  { label: "Restaurants & Food", icon: <FaUtensils />, desc: "Menus, orders & local reach that fill tables." },
+  { label: "Healthcare & Clinics", icon: <FaHeartbeat />, desc: "Trust-building sites that book more patients." },
+  { label: "Education & Coaching", icon: <FaGraduationCap />, desc: "Enroll more students with a strong presence." },
+  { label: "Fashion & Beauty", icon: <FaTshirt />, desc: "Scroll-stopping brand visuals that convert." },
+  { label: "Real Estate", icon: <FaBuilding />, desc: "Lead-driven sites that showcase properties." },
+];
+
+const processSteps = [
+  { icon: <FaComments />, title: "Discovery Call", desc: "We learn your business, goals and audience — then map the fastest path to growth." },
+  { icon: <FaPencilRuler />, title: "Strategy & Design", desc: "A tailored plan plus designs built to convert — approved by you before we build." },
+  { icon: <FaRocket />, title: "Build & Launch", desc: "We develop, test and launch — websites, campaigns and content that go live fast." },
+  { icon: <FaChartBar />, title: "Grow & Optimise", desc: "We track real KPIs and keep improving — more traffic, leads and revenue every month." },
 ];
 
 const stats = [
@@ -220,24 +231,69 @@ const WhyUsSection = () => (
 );
 
 const IndustriesSection = () => (
-  <section className="industries" id="industries">
-    <div className="container">
-      <p className="section-label" data-aos="fade-up">INDUSTRIES WE SERVE</p>
-      <h2 className="section-title" data-aos="fade-up" data-aos-delay="60">
-        Built for Businesses Across Every Sector
-      </h2>
-      <div className="industries__pills">
+  <section className="inds" id="industries">
+    <div className="inds__bg" aria-hidden="true" />
+    <div className="container inds__inner">
+      <div className="inds__head" data-aos="fade-up">
+        <span className="inds__eyebrow"><span className="inds__eyebrow-dot" /> Industries We Serve</span>
+        <h2 className="inds__title">Built for Businesses Across <span>Every Sector</span></h2>
+        <p className="inds__sub">Whatever your field, we craft a digital strategy that fits it — and helps you outgrow the competition.</p>
+      </div>
+
+      <div className="inds__grid">
         {industries.map((ind, i) => (
-          <div
-            className="industries__pill"
+          <article
+            className="inds__card"
             key={i}
-            data-aos="zoom-in"
-            data-aos-delay={i * 80}
+            data-aos="fade-up"
+            data-aos-delay={(i % 3) * 90}
           >
-            <span className="industries__pill-icon">{ind.icon}</span>
-            <span className="industries__pill-label">{ind.label}</span>
+            <span className="inds__card-num">{String(i + 1).padStart(2, '0')}</span>
+            <span className="inds__card-icon">{ind.icon}</span>
+            <h3 className="inds__card-title">{ind.label}</h3>
+            <p className="inds__card-desc">{ind.desc}</p>
+            <span className="inds__card-arrow"><FaArrowRight /></span>
+          </article>
+        ))}
+      </div>
+
+      <div className="inds__foot" data-aos="fade-up">
+        <span>Don’t see your industry?</span>
+        <Link to="/contact" className="inds__foot-link">We work with all of them — let’s talk <FaArrowRight /></Link>
+      </div>
+    </div>
+  </section>
+);
+
+const ProcessSection = () => (
+  <section className="proc" id="how-we-work">
+    <div className="container">
+      <div className="proc__head" data-aos="fade-up">
+        <span className="proc__eyebrow"><span className="proc__eyebrow-dot" /> How We Work</span>
+        <h2 className="proc__title">From Idea to Impact in <span>4 Simple Steps</span></h2>
+        <p className="proc__sub">A clear, proven process — no confusion, no surprises. Just results you can measure.</p>
+      </div>
+
+      <div className="proc__track">
+        {processSteps.map((step, i) => (
+          <div className="proc__step" key={i} data-aos="fade-up" data-aos-delay={i * 110}>
+            <div className="proc__step-top">
+              <span className="proc__step-num">{String(i + 1).padStart(2, '0')}</span>
+              <span className="proc__step-icon">{step.icon}</span>
+            </div>
+            <h3 className="proc__step-title">{step.title}</h3>
+            <p className="proc__step-desc">{step.desc}</p>
+            {i < processSteps.length - 1 && <span className="proc__connector" aria-hidden="true" />}
           </div>
         ))}
+      </div>
+
+      <div className="proc__cta" data-aos="zoom-in">
+        <div>
+          <h3>Ready to start your growth journey?</h3>
+          <p>Book a free strategy call — we’ll show you exactly where to begin.</p>
+        </div>
+        <Link to="/contact" className="proc__cta-btn">Get Started Free <FaArrowRight /></Link>
       </div>
     </div>
   </section>
@@ -604,6 +660,7 @@ const Home = () => {
       <WhyUsSection />
       <OurWorkSection />
       <IndustriesSection />
+      <ProcessSection />
       <TestimonialsSection />
       <ServiceFaq service="Digital Marketing" faqs={HOME_FAQS} />
       <CtaBanner />

@@ -587,68 +587,179 @@ a {
 /* ============================================================
    4. INDUSTRIES SECTION
    ============================================================ */
-.industries {
-  padding: 80px 0;
-  background: var(--white);
-  text-align: center;
+/* ============================================================
+   INDUSTRIES — premium card grid (redesigned)
+   ============================================================ */
+.inds {
+  position: relative;
+  padding: 92px 0;
+  background: #0e0e0e;
+  overflow: hidden;
+}
+.inds__bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(600px 300px at 15% 0%, rgba(245,168,0,0.14), transparent 70%),
+    radial-gradient(500px 300px at 100% 100%, rgba(245,168,0,0.1), transparent 70%);
+}
+.inds__bg::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 30%, #000, transparent 78%);
+}
+.inds__inner { position: relative; z-index: 1; }
+
+.inds__head { text-align: center; max-width: 640px; margin: 0 auto 52px; }
+.inds__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.74rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+  color: #FFD874; background: rgba(245,168,0,0.1); border: 1px solid rgba(245,168,0,0.3);
+  padding: 7px 16px; border-radius: 50px; margin-bottom: 18px;
+}
+.inds__eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #F5A800; box-shadow: 0 0 10px #F5A800; }
+.inds__title {
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem); font-weight: 900; letter-spacing: -0.02em;
+  line-height: 1.15; color: #fff; margin: 0 0 14px;
+}
+.inds__title span { background: linear-gradient(120deg, #FFD24A, #F5A800); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.inds__sub { font-size: 1.02rem; color: #b6b6b6; line-height: 1.7; margin: 0; }
+
+.inds__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  max-width: 1080px; margin: 0 auto;
+}
+.inds__card {
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #1a1a1a, #141414);
+  border: 1px solid #262626; border-radius: 20px;
+  padding: 30px 26px 28px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.inds__card::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(160deg, rgba(245,168,0,0.14), transparent 55%);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.inds__card > * { position: relative; z-index: 1; }
+.inds__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245,168,0,0.55);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.5);
+}
+.inds__card:hover::before { opacity: 1; }
+.inds__card-num {
+  position: absolute; top: 14px; right: 20px; z-index: 1;
+  font-size: 2.3rem; font-weight: 900; color: rgba(255,255,255,0.05);
+  letter-spacing: -0.03em; transition: color 0.3s ease;
+}
+.inds__card:hover .inds__card-num { color: rgba(245,168,0,0.16); }
+.inds__card-icon {
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: 15px;
+  background: linear-gradient(135deg, #FFD24A, #F5A800); color: #141414; font-size: 24px;
+  margin-bottom: 20px; box-shadow: 0 10px 24px rgba(245,168,0,0.3);
+  transition: transform 0.3s ease;
+}
+.inds__card:hover .inds__card-icon { transform: scale(1.08) rotate(-6deg); }
+.inds__card-title { font-size: 1.12rem; font-weight: 800; color: #fff; margin: 0 0 8px; }
+.inds__card-desc { font-size: 0.9rem; color: #9a9a9a; line-height: 1.6; margin: 0; }
+.inds__card-arrow {
+  display: inline-grid; place-items: center; width: 34px; height: 34px; margin-top: 18px;
+  border-radius: 50%; background: rgba(255,255,255,0.06); color: #FFD874; font-size: 13px;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+.inds__card:hover .inds__card-arrow { opacity: 1; transform: translateX(0); background: #F5A800; color: #141414; }
+
+.inds__foot {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 14px;
+  margin-top: 44px; text-align: center;
+}
+.inds__foot span { color: #9a9a9a; font-size: 0.98rem; }
+.inds__foot-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: #FFD874; font-weight: 800; font-size: 0.98rem; text-decoration: none;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+.inds__foot-link:hover { gap: 12px; color: #F5A800; }
+
+/* ============================================================
+   HOW WE WORK — 4-step process
+   ============================================================ */
+.proc { padding: 92px 0; background: #fafafb; border-bottom: 1px solid #eee; }
+.proc__head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+.proc__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.74rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+  color: #c47f00; background: #FFF3CC; border: 1px solid #FFE49A;
+  padding: 7px 16px; border-radius: 50px; margin-bottom: 18px;
+}
+.proc__eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #F5A800; }
+.proc__title { font-size: clamp(1.7rem, 3.6vw, 2.6rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; color: #14182b; margin: 0 0 14px; }
+.proc__title span { color: #F5A800; }
+.proc__sub { font-size: 1.02rem; color: #6b7280; line-height: 1.7; margin: 0; }
+
+.proc__track {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+  max-width: 1120px; margin: 0 auto;
+}
+.proc__step {
+  position: relative; background: #fff; border: 1px solid #ececf1; border-radius: 20px;
+  padding: 30px 24px 28px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.proc__step:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(245,168,0,0.15); border-color: #FFE49A; }
+.proc__step-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.proc__step-num { font-size: 2.4rem; font-weight: 900; color: #f0e6c8; letter-spacing: -0.03em; line-height: 1; }
+.proc__step:hover .proc__step-num { color: #F5A800; }
+.proc__step-icon {
+  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px;
+  background: linear-gradient(135deg, #FFF3CC, #FFE49A); color: #c47f00; font-size: 21px;
+  transition: all 0.3s ease;
+}
+.proc__step:hover .proc__step-icon { background: #14182b; color: #FFD874; transform: rotate(-6deg); }
+.proc__step-title { font-size: 1.1rem; font-weight: 800; color: #14182b; margin: 0 0 8px; }
+.proc__step-desc { font-size: 0.9rem; color: #6b7280; line-height: 1.62; margin: 0; }
+/* dashed connector between steps */
+.proc__connector {
+  position: absolute; top: 54px; right: -22px; width: 22px; height: 2px; z-index: 2;
+  background: repeating-linear-gradient(90deg, #F5A800 0 6px, transparent 6px 12px);
 }
 
-.industries .section-label,
-.industries .section-title {
-  display: block;
-  text-align: center;
+.proc__cta {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
+  max-width: 1120px; margin: 48px auto 0;
+  background: radial-gradient(circle at 15% 0%, #20284a, #11162a 70%);
+  border-radius: 24px; padding: 34px 40px;
+  box-shadow: 0 26px 60px rgba(20,24,43,0.28);
 }
-
-.industries .section-title {
-  margin-bottom: 40px;
+.proc__cta h3 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 6px; }
+.proc__cta p { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0; }
+.proc__cta-btn {
+  display: inline-flex; align-items: center; gap: 9px; white-space: nowrap;
+  background: linear-gradient(135deg, #FFD24A, #F5A800); color: #141414;
+  font-weight: 800; font-size: 0.95rem; padding: 15px 30px; border-radius: 50px;
+  text-decoration: none; box-shadow: 0 12px 28px rgba(245,168,0,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.proc__cta-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(245,168,0,0.5); }
 
-.industries__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  max-width: 760px;
-  margin: 0 auto;
+/* ── Industries + Process: tablet ── */
+@media (max-width: 900px) {
+  .inds__grid { grid-template-columns: repeat(2, 1fr); }
+  .proc__track { grid-template-columns: repeat(2, 1fr); }
+  .proc__connector { display: none; }
 }
-
-.industries__pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 26px;
-  border-radius: 50px;
-  background: var(--gray-light);
-  border: 2px solid var(--gray-mid);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--dark);
-  transition: background var(--transition), border-color var(--transition),
-    transform var(--transition), color var(--transition);
-  cursor: default;
-}
-
-.industries__pill:hover {
-  background: var(--yellow);
-  border-color: var(--yellow);
-  color: var(--dark);
-  transform: translateY(-3px);
-}
-
-.industries__pill-icon {
-  font-size: 1.1rem;
-  color: var(--yellow-dark);
-  transition: color var(--transition);
-  display: flex;
-  align-items: center;
-}
-
-.industries__pill:hover .industries__pill-icon {
-  color: var(--dark);
-}
-
-.industries__pill-label {
-  line-height: 1;
+/* ── Industries + Process: mobile ── */
+@media (max-width: 560px) {
+  .inds { padding: 64px 0; }
+  .inds__grid { grid-template-columns: 1fr; max-width: 420px; gap: 16px; }
+  .inds__head { margin-bottom: 38px; }
+  .proc { padding: 64px 0; }
+  .proc__track { grid-template-columns: 1fr; max-width: 420px; gap: 16px; }
+  .proc__cta { flex-direction: column; text-align: center; padding: 30px 24px; }
+  .proc__cta-btn { width: 100%; justify-content: center; }
 }
 
 /* ============================================================
@@ -838,9 +949,6 @@ a {
     margin: 0 auto;
   }
 
-  .industries {
-    padding: 64px 0;
-  }
 
   .cta-banner {
     padding: 56px 20px;
@@ -905,15 +1013,6 @@ a {
 
   .why-us__card {
     padding: 28px 22px;
-  }
-
-  .industries__pills {
-    gap: 10px;
-  }
-
-  .industries__pill {
-    padding: 11px 18px;
-    font-size: 0.88rem;
   }
 
   .cta-banner__title {
@@ -1527,7 +1626,7 @@ a {
 @media (max-width: 768px) {
   html, body { overflow-x: hidden; max-width: 100vw; }
   .container, .hero__inner, .services__grid, .why-us__grid,
-  .industries__pills, .cta-banner__inner {
+  .cta-banner__inner {
     padding-left: 16px;
     padding-right: 16px;
   }
