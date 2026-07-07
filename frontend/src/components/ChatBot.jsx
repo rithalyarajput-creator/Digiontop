@@ -2,90 +2,98 @@ import React, { useState, useRef, useEffect } from 'react';
 import './ChatBot.css';
 
 const QUICK_REPLIES = [
-  { label: '🎁 Free Brand Audit', key: 'audit' },
-  { label: 'Website Development',  key: 'website' },
-  { label: 'Shopify Store',        key: 'shopify' },
-  { label: 'SEO Services',         key: 'seo' },
+  { label: '💬 How can you help?', key: 'help' },
+  { label: '💰 Pricing',           key: 'pricing' },
+  { label: '📞 Contact Number',    key: 'contact' },
+  { label: '🎁 Free Consultation', key: 'consultation' },
+  { label: 'Website',              key: 'website' },
+  { label: 'SEO',                  key: 'seo' },
   { label: 'Social Media',         key: 'social media' },
-  { label: 'E-Commerce',           key: 'e-commerce' },
-  { label: 'Performance Ads',      key: 'ads' },
-  { label: 'Branding & Design',    key: 'branding' },
-  { label: 'Pricing',              key: 'pricing' },
+  { label: 'Ads',                  key: 'ads' },
 ];
 
-const AUDIT_ACTION = { label: '🎁 Get My Free Brand Audit', href: '/contact' };
+const AUDIT_ACTION  = { label: 'Get Free Consultation', href: '/contact' };
+const CALL_ACTION   = { label: '📞 Call +91 92175 94664', href: 'tel:+919217594664' };
 
+/* Short, website-only answers. Kept 1–3 lines each. */
 const REPLIES = {
-  audit: {
-    text: 'Great choice! 🎁 We offer a 100% FREE brand audit for your business.\n\nOur experts will review your website, SEO, social media & competitors — then send you a clear report with exactly what to fix to grow faster.\n\nNo cost, no commitment. Just fill the quick form and we will deliver your free audit within 1 business day.',
+  help: {
+    text: 'We help you grow online! 🚀\nWebsites, SEO, Social Media, Ads, E-Commerce & Branding.\nWhat are you looking for?',
     action: AUDIT_ACTION,
   },
   website: {
-    text: 'We build fast, modern, mobile-first websites that turn visitors into customers — business sites, WordPress, custom web apps & more.\n\n💰 Pricing: Business websites from ₹8,000 · Custom web apps quoted on scope.\n\nWant a free brand audit + custom quote for your website?',
+    text: 'We build fast, mobile-first websites that convert. 🌐\n💰 From ₹8,000.',
     action: AUDIT_ACTION,
   },
   shopify: {
-    text: 'We design high-converting Shopify stores — custom theme, product setup, payment & shipping integration, apps & speed optimisation.\n\n💰 Pricing: Shopify stores from ₹15,000 depending on products & features.\n\nLet us audit your store idea for free and send a tailored plan.',
+    text: 'High-converting Shopify stores — setup, payments & speed. 🛍️\n💰 From ₹15,000.',
     action: AUDIT_ACTION,
   },
   seo: {
-    text: 'Our SEO ranks your business #1 on Google — on-page, technical, local & content SEO. Most clients see a 2x traffic lift within 90 days.\n\n💰 Pricing: SEO plans from ₹7,000/month.\n\nWant a FREE SEO audit of your website? We will show you exactly what is holding your rankings back.',
+    text: 'We rank you #1 on Google — on-page, technical & local SEO. 📈\n💰 From ₹7,000/month.',
     action: AUDIT_ACTION,
   },
   'social media': {
-    text: 'We grow your brand on Instagram, Facebook, YouTube & LinkedIn — content, reels, posts, community & paid campaigns.\n\n💰 Pricing: Social media management from ₹5,000/month.\n\nGet a free audit of your social pages and a 30-day growth plan.',
+    text: 'Instagram, Facebook & more — content, reels & growth. 📱\n💰 From ₹5,000/month.',
     action: AUDIT_ACTION,
   },
   'e-commerce': {
-    text: 'We scale your sales on Amazon, Flipkart, Meesho & Shopify — product listing, SEO, catalog & sponsored ads.\n\n💰 Pricing: Marketplace management from ₹6,000/month.\n\nWant a free audit of your product listings? We will spot the quick wins.',
+    text: 'Amazon, Flipkart & Meesho — listings, SEO & ads. 🛒\n💰 From ₹6,000/month.',
     action: AUDIT_ACTION,
   },
   ads: {
-    text: 'High-ROI paid campaigns on Google & Meta — lead generation, conversion optimisation & retargeting that actually delivers customers.\n\n💰 Pricing: Ad management from ₹8,000/month + ad spend.\n\nGet a free audit of your current ads (or a fresh strategy).',
+    text: 'High-ROI Google & Meta ads that bring real leads. 🎯\n💰 From ₹8,000/month + ad spend.',
     action: AUDIT_ACTION,
   },
   branding: {
-    text: 'Logos, brand identity, social creatives, packaging & marketing design that makes your brand memorable.\n\n💰 Pricing: Logo & identity from ₹4,000 · Monthly creative packs available.\n\nWant a free brand review? We will tell you how to look more premium.',
+    text: 'Logo, brand identity & creatives that stand out. 🎨\n💰 From ₹4,000.',
     action: AUDIT_ACTION,
   },
   pricing: {
-    text: '💰 DigionTop pricing (starting from):\n\n• Website Development — ₹8,000\n• Shopify Store — ₹15,000\n• SEO Services — ₹7,000/month\n• Social Media — ₹5,000/month\n• E-Commerce Management — ₹6,000/month\n• Performance Ads — ₹8,000/month\n• Branding & Logo — ₹4,000\n\nFinal price depends on your needs. Get a free audit + exact custom quote.',
+    text: '💰 Starting prices:\n• Website — ₹8,000\n• SEO — ₹7,000/mo\n• Social Media — ₹5,000/mo\n• Ads — ₹8,000/mo\n• Branding — ₹4,000\nFinal quote is free!',
     action: AUDIT_ACTION,
   },
   consultation: {
-    text: 'Book a FREE 30-minute strategy session with our experts. You will get a tailored roadmap + a free brand audit — completely free, no commitment.',
+    text: 'Book a FREE 30-min strategy call. 🎁\nWe’ll share a clear plan to grow your business — no cost.',
     action: AUDIT_ACTION,
   },
-  hello: { text: 'Hello! 👋 Welcome to DigionTop. I can tell you about our services, pricing, or set up your FREE brand audit. What would you like?', action: AUDIT_ACTION },
-  hi:    { text: 'Hi there! 👋 Great to have you here. Want me to explain our services, share pricing, or book your FREE brand audit?', action: AUDIT_ACTION },
-  thanks: { text: 'You are welcome! 😊 Whenever you are ready, grab your free brand audit and we will help you grow.', action: AUDIT_ACTION },
   contact: {
-    text: 'Here is how to reach DigionTop:\n\n📧 Email: digiontop.agency@gmail.com\n📞 Phone: +91 92175 94664\n\nAvailable Mon–Sat, 10 AM – 7 PM IST. Or just fill the form and we will call you.',
-    action: { label: 'Go to Contact Page', href: '/contact' },
+    text: '📞 +91 92175 94664\n📧 digiontop.agency@gmail.com\nMon–Sat, 10 AM – 7 PM.',
+    action: CALL_ACTION,
   },
+  timing: {
+    text: '🕒 We’re available Mon–Sat, 10 AM – 7 PM IST.\nFill the form anytime — we reply within 1 business day.',
+    action: AUDIT_ACTION,
+  },
+  location: {
+    text: '📍 We’re a remote-first agency based in Delhi, serving businesses across all of India.',
+    action: AUDIT_ACTION,
+  },
+  hello:  { text: 'Hi! 👋 I’m Digi. How can I help you today?', action: AUDIT_ACTION },
+  thanks: { text: 'You’re welcome! 😊 Anything else I can help with?', action: AUDIT_ACTION },
   default: {
-    text: 'Thanks for reaching out to DigionTop! 🚀\n\nI can help with Website Development, Shopify, SEO, Social Media, E-Commerce, Ads & Branding. The best first step is a FREE brand audit — we will review your business and show you how to grow.',
+    text: 'I can help with Websites, SEO, Social Media, Ads & Pricing. 🙂\nWhat would you like to know?',
     action: AUDIT_ACTION,
   },
 };
 
 function getReply(msg) {
   const l = msg.toLowerCase();
-  if (l.includes('audit') || l.includes('review') || l.includes('check my') || l.includes('analyse') || l.includes('analyze') || l.includes('free brand')) return REPLIES.audit;
+  if (l.includes('help') || l.includes('what do you') || l.includes('what can') || l.includes('services') || l.includes('service')) return REPLIES.help;
   if (l.includes('shopify')) return REPLIES.shopify;
   if (l.includes('website') || l.includes('web ') || l.includes('webite') || l.includes('wordpress') || l.includes('app') || l.includes('landing')) return REPLIES.website;
   if (l.includes('seo') || l.includes('google') || l.includes('rank') || l.includes('traffic') || l.includes('search')) return REPLIES.seo;
   if (l.includes('social') || l.includes('instagram') || l.includes('insta') || l.includes('facebook') || l.includes('reel') || l.includes('youtube')) return REPLIES['social media'];
   if (l.includes('ecommerce') || l.includes('e-commerce') || l.includes('amazon') || l.includes('flipkart') || l.includes('meesho') || l.includes('marketplace')) return REPLIES['e-commerce'];
-  if (l.includes('ads') || l.includes('ppc') || l.includes('google ads') || l.includes('meta') || l.includes('lead') || l.includes('campaign')) return REPLIES.ads;
+  if (l.includes('ads') || l.includes('ppc') || l.includes('meta') || l.includes('lead') || l.includes('campaign')) return REPLIES.ads;
   if (l.includes('brand') || l.includes('logo') || l.includes('design') || l.includes('creative') || l.includes('identity')) return REPLIES.branding;
-  if (l.includes('pric') || l.includes('cost') || l.includes('package') || l.includes('rate') || l.includes('charge') || l.includes('budget') || l.includes('kitna') || l.includes('paisa')) return REPLIES.pricing;
-  if (l.includes('consult') || l.includes('call') || l.includes('book') || l.includes('meet')) return REPLIES.consultation;
-  if (l.includes('thank') || l.includes('thanks') || l.includes('thx')) return REPLIES.thanks;
-  if (l.includes('hello') || l.includes('helo') || l.includes('hii') || l.includes('namaste')) return REPLIES.hello;
-  if (l.includes('hi') || l.includes('hey')) return REPLIES.hi;
-  if (l.includes('contact') || l.includes('phone') || l.includes('email') || l.includes('number') || l.includes('reach')) return REPLIES.contact;
-  if (l.includes('free') || l.includes('offer')) return REPLIES.audit;
+  if (l.includes('pric') || l.includes('cost') || l.includes('package') || l.includes('rate') || l.includes('charge') || l.includes('budget') || l.includes('kitna') || l.includes('paisa') || l.includes('fees')) return REPLIES.pricing;
+  if (l.includes('consult') || l.includes('call') || l.includes('book') || l.includes('meet') || l.includes('free') || l.includes('audit') || l.includes('quote')) return REPLIES.consultation;
+  if (l.includes('contact') || l.includes('phone') || l.includes('email') || l.includes('number') || l.includes('reach') || l.includes('whatsapp')) return REPLIES.contact;
+  if (l.includes('time') || l.includes('open') || l.includes('hour') || l.includes('when') || l.includes('available')) return REPLIES.timing;
+  if (l.includes('where') || l.includes('location') || l.includes('address') || l.includes('city') || l.includes('office')) return REPLIES.location;
+  if (l.includes('thank') || l.includes('thx')) return REPLIES.thanks;
+  if (l.includes('hello') || l.includes('helo') || l.includes('hii') || l.includes('namaste') || l.includes('hi') || l.includes('hey')) return REPLIES.hello;
   return REPLIES.default;
 }
 
@@ -98,7 +106,7 @@ export default function ChatBot() {
   const [open, setOpen]     = useState(false);
   const [messages, setMessages] = useState([{
     from: 'bot',
-    text: 'Hi! 👋 I am Digi, your DigionTop assistant.\n\nI can explain our services, share pricing, and set up your 🎁 FREE Brand Audit. What would you like to know?',
+    text: 'Hi! 👋 I’m Digi from DigionTop.\nHow can I help you today?',
     action: AUDIT_ACTION,
     time: getTime(),
     id: 0,
