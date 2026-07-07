@@ -7,6 +7,7 @@
 
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Seo from '../components/Seo'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -162,6 +163,7 @@ export default function SEOServices() {
 
   return (
     <>
+      <Seo title="SEO Services in India — Rank #1 on Google | DigionTop" description="Data-driven SEO services that rank your business #1 on Google. On-page, technical, local & content SEO with a 2x traffic lift in 90 days. Get a free SEO audit." path="/services/seo" />
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="svc-hero svc-hero--split">
         <div className="container">

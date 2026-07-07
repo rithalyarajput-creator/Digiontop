@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -10,77 +10,77 @@ import WhatsAppButton from './components/WhatsAppButton';
 import MobileCTABar from './components/MobileCTABar';
 import AdminApp from './admin/AdminApp';
 
-import Home from './pages/Home';
-import About from './pages/About';
-import WebDevelopment from './pages/WebDevelopment';
-import ShopifyDevelopment from './pages/ShopifyDevelopment';
-import CreativeBranding from './pages/CreativeBranding';
-import BrandingIdentity from './pages/sub/BrandingIdentity';
-import UiUxDesign from './pages/sub/UiUxDesign';
-import VideoProduction from './pages/sub/VideoProduction';
-import DigitalStrategy from './pages/sub/DigitalStrategy';
-import AnalyticsInsights from './pages/sub/AnalyticsInsights';
-import LogoDesign from './pages/sub/LogoDesign';
-import GraphicDesign from './pages/sub/GraphicDesign';
-import CroServices from './pages/sub/CroServices';
-import EcommercePage from './pages/EcommercePage';
-import EcomServicePage from './pages/sub/EcomServicePage';
-import MobileSoftware from './pages/MobileSoftware';
-import MobileServicePage from './pages/sub/MobileServicePage';
-import SocialServicePage from './pages/sub/SocialServicePage';
-import PpcPage from './pages/sub/PpcPage';
-import SEOServices from './pages/SEOServices';
-import LocalSeo from './pages/sub/LocalSeo';
-import TechnicalSeo from './pages/sub/TechnicalSeo';
-import EcommerceSeo from './pages/sub/EcommerceSeo';
-import EnterpriseSeo from './pages/sub/EnterpriseSeo';
-import LinkBuilding from './pages/sub/LinkBuilding';
-import SeoAudit from './pages/sub/SeoAudit';
-import GoogleAds from './pages/sub/GoogleAds';
-import MetaAds from './pages/sub/MetaAds';
-import LinkedInAds from './pages/sub/LinkedInAds';
-import YouTubeAds from './pages/sub/YouTubeAds';
-import SocialAds from './pages/sub/SocialAds';
-import SocialMediaMarketing from './pages/sub/SocialMediaMarketing';
-import ContentMarketing from './pages/sub/ContentMarketing';
-import EmailMarketing from './pages/sub/EmailMarketing';
-import SocialMediaManagement from './pages/sub/SocialMediaManagement';
-import InfluencerMarketing from './pages/sub/InfluencerMarketing';
-import SeoContentWriting from './pages/sub/SeoContentWriting';
-import Copywriting from './pages/sub/Copywriting';
-import CustomWebsite from './pages/sub/CustomWebsite';
-import BusinessWebsite from './pages/sub/BusinessWebsite';
-import WordPressDev from './pages/sub/WordPressDev';
-import WebApp from './pages/sub/WebApp';
-import WooCommerce from './pages/sub/WooCommerce';
-import WebsiteRedesign from './pages/sub/WebsiteRedesign';
-import LandingPage from './pages/sub/LandingPage';
-import MobileApp from './pages/sub/MobileApp';
-import IosApp from './pages/sub/IosApp';
-import AndroidApp from './pages/sub/AndroidApp';
-import FlutterApp from './pages/sub/FlutterApp';
-import CloudSolutions from './pages/sub/CloudSolutions';
-import ApiDevelopment from './pages/sub/ApiDevelopment';
-import SaasDevelopment from './pages/sub/SaasDevelopment';
-import DevOpsServices from './pages/sub/DevOpsServices';
-import AmazonListing from './pages/sub/AmazonListing';
-import FlipkartListing from './pages/sub/FlipkartListing';
-import MeeshoListing from './pages/sub/MeeshoListing';
-import ProductSeo from './pages/sub/ProductSeo';
-import ProductImage from './pages/sub/ProductImage';
-import CatalogManagement from './pages/sub/CatalogManagement';
-import AccountManagement from './pages/sub/AccountManagement';
-import GrowthConsulting from './pages/sub/GrowthConsulting';
-import SocialMedia from './pages/SocialMedia';
-import WhyUs from './pages/WhyUs';
-import Industries from './pages/Industries';
-import Testimonials from './pages/Testimonials';
-import FAQ from './pages/FAQ';
-import Contact from './pages/Contact';
-import Work from './pages/Work';
-import Portfolio from './pages/Portfolio';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const WebDevelopment = lazy(() => import('./pages/WebDevelopment'));
+const ShopifyDevelopment = lazy(() => import('./pages/ShopifyDevelopment'));
+const CreativeBranding = lazy(() => import('./pages/CreativeBranding'));
+const BrandingIdentity = lazy(() => import('./pages/sub/BrandingIdentity'));
+const UiUxDesign = lazy(() => import('./pages/sub/UiUxDesign'));
+const VideoProduction = lazy(() => import('./pages/sub/VideoProduction'));
+const DigitalStrategy = lazy(() => import('./pages/sub/DigitalStrategy'));
+const AnalyticsInsights = lazy(() => import('./pages/sub/AnalyticsInsights'));
+const LogoDesign = lazy(() => import('./pages/sub/LogoDesign'));
+const GraphicDesign = lazy(() => import('./pages/sub/GraphicDesign'));
+const CroServices = lazy(() => import('./pages/sub/CroServices'));
+const EcommercePage = lazy(() => import('./pages/EcommercePage'));
+const EcomServicePage = lazy(() => import('./pages/sub/EcomServicePage'));
+const MobileSoftware = lazy(() => import('./pages/MobileSoftware'));
+const MobileServicePage = lazy(() => import('./pages/sub/MobileServicePage'));
+const SocialServicePage = lazy(() => import('./pages/sub/SocialServicePage'));
+const PpcPage = lazy(() => import('./pages/sub/PpcPage'));
+const SEOServices = lazy(() => import('./pages/SEOServices'));
+const LocalSeo = lazy(() => import('./pages/sub/LocalSeo'));
+const TechnicalSeo = lazy(() => import('./pages/sub/TechnicalSeo'));
+const EcommerceSeo = lazy(() => import('./pages/sub/EcommerceSeo'));
+const EnterpriseSeo = lazy(() => import('./pages/sub/EnterpriseSeo'));
+const LinkBuilding = lazy(() => import('./pages/sub/LinkBuilding'));
+const SeoAudit = lazy(() => import('./pages/sub/SeoAudit'));
+const GoogleAds = lazy(() => import('./pages/sub/GoogleAds'));
+const MetaAds = lazy(() => import('./pages/sub/MetaAds'));
+const LinkedInAds = lazy(() => import('./pages/sub/LinkedInAds'));
+const YouTubeAds = lazy(() => import('./pages/sub/YouTubeAds'));
+const SocialAds = lazy(() => import('./pages/sub/SocialAds'));
+const SocialMediaMarketing = lazy(() => import('./pages/sub/SocialMediaMarketing'));
+const ContentMarketing = lazy(() => import('./pages/sub/ContentMarketing'));
+const EmailMarketing = lazy(() => import('./pages/sub/EmailMarketing'));
+const SocialMediaManagement = lazy(() => import('./pages/sub/SocialMediaManagement'));
+const InfluencerMarketing = lazy(() => import('./pages/sub/InfluencerMarketing'));
+const SeoContentWriting = lazy(() => import('./pages/sub/SeoContentWriting'));
+const Copywriting = lazy(() => import('./pages/sub/Copywriting'));
+const CustomWebsite = lazy(() => import('./pages/sub/CustomWebsite'));
+const BusinessWebsite = lazy(() => import('./pages/sub/BusinessWebsite'));
+const WordPressDev = lazy(() => import('./pages/sub/WordPressDev'));
+const WebApp = lazy(() => import('./pages/sub/WebApp'));
+const WooCommerce = lazy(() => import('./pages/sub/WooCommerce'));
+const WebsiteRedesign = lazy(() => import('./pages/sub/WebsiteRedesign'));
+const LandingPage = lazy(() => import('./pages/sub/LandingPage'));
+const MobileApp = lazy(() => import('./pages/sub/MobileApp'));
+const IosApp = lazy(() => import('./pages/sub/IosApp'));
+const AndroidApp = lazy(() => import('./pages/sub/AndroidApp'));
+const FlutterApp = lazy(() => import('./pages/sub/FlutterApp'));
+const CloudSolutions = lazy(() => import('./pages/sub/CloudSolutions'));
+const ApiDevelopment = lazy(() => import('./pages/sub/ApiDevelopment'));
+const SaasDevelopment = lazy(() => import('./pages/sub/SaasDevelopment'));
+const DevOpsServices = lazy(() => import('./pages/sub/DevOpsServices'));
+const AmazonListing = lazy(() => import('./pages/sub/AmazonListing'));
+const FlipkartListing = lazy(() => import('./pages/sub/FlipkartListing'));
+const MeeshoListing = lazy(() => import('./pages/sub/MeeshoListing'));
+const ProductSeo = lazy(() => import('./pages/sub/ProductSeo'));
+const ProductImage = lazy(() => import('./pages/sub/ProductImage'));
+const CatalogManagement = lazy(() => import('./pages/sub/CatalogManagement'));
+const AccountManagement = lazy(() => import('./pages/sub/AccountManagement'));
+const GrowthConsulting = lazy(() => import('./pages/sub/GrowthConsulting'));
+const SocialMedia = lazy(() => import('./pages/SocialMedia'));
+const WhyUs = lazy(() => import('./pages/WhyUs'));
+const Industries = lazy(() => import('./pages/Industries'));
+const Testimonials = lazy(() => import('./pages/Testimonials'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Work = lazy(() => import('./pages/Work'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -97,6 +97,7 @@ function PublicSite() {
     <>
       <Navbar />
       <ScrollToTop />
+      <Suspense fallback={<div className="route-loading"><span className="route-loading__spinner" /></div>}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -172,6 +173,7 @@ function PublicSite() {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </Suspense>
       <Footer />
       <ChatBot />
       <WhatsAppButton />

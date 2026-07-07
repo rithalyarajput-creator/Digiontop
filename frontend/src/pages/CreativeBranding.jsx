@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Seo from '../components/Seo'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import {
@@ -64,6 +65,7 @@ export default function CreativeBranding() {
 
   return (
     <main className="cb-page">
+      <Seo title="Branding & Creative Design Services | DigionTop" description="Logos, brand identity, social creatives & marketing design that make your brand memorable. Premium branding from ₹4,000. Get a free brand review today." path="/services/branding" />
       {/* ── HERO ── */}
       <section className="cbp-hero cbp-hero--split">
         <div className="cbp-container cbp-hero__grid">

@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import Seo from '../components/Seo'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import {
@@ -81,6 +82,7 @@ export default function WebDevelopment() {
 
   return (
     <main className="wd">
+      <Seo title="Website Development Company in India | DigionTop" description="Fast, mobile-first websites that convert visitors into customers. Business sites, WordPress, custom web apps & landing pages from ₹8,000. Get a free quote." path="/services/website-development" />
       {/* ── HERO ── */}
       <section className="wd-hero">
         <div className="wd-hero__bg">

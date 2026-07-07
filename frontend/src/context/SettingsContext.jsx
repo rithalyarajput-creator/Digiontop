@@ -33,7 +33,9 @@ export function SettingsProvider({ children }) {
       .finally(() => setLoaded(true));
   }, []);
 
-  // Apply favicon + document title + meta description globally
+  // Apply favicon globally. NOTE: per-page <title> and <meta description>
+  // are handled by react-helmet-async (components/Seo.jsx) — do NOT set them
+  // here or it would override every page with the same global values.
   useEffect(() => {
     if (settings.favicon) {
       let link = document.querySelector("link[rel~='icon']");
@@ -44,17 +46,7 @@ export function SettingsProvider({ children }) {
       }
       link.href = settings.favicon;
     }
-    if (settings.seo_meta_title) document.title = settings.seo_meta_title;
-    if (settings.seo_meta_description) {
-      let meta = document.querySelector("meta[name='description']");
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.name = 'description';
-        document.head.appendChild(meta);
-      }
-      meta.content = settings.seo_meta_description;
-    }
-  }, [settings.favicon, settings.seo_meta_title, settings.seo_meta_description]);
+  }, [settings.favicon]);
 
   return (
     <SettingsContext.Provider value={{ settings, loaded, setSettings }}>

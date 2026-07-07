@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import SocialReelsSection from "../components/SocialReelsSection";
 import ServiceFaq from "../components/ServiceFaq";
+import Seo from "../components/Seo";
 import {
   FaCode,
   FaSearch,
@@ -655,6 +656,11 @@ const Home = () => {
 
   return (
     <main className="home-page">
+      <Seo
+        title="DigionTop — #1 Digital Marketing Agency in India"
+        description="Rank higher & grow faster with DigionTop — India's full-service digital marketing agency. Websites, SEO, social media, ads & e-commerce. Get a free strategy call today!"
+        path="/"
+      />
       <HeroSection />
       <ServicesSection />
       <WhyUsSection />

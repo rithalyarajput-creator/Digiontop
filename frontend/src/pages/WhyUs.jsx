@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 import {
   FaMapMarkerAlt, FaLayerGroup, FaChartBar, FaTags,
@@ -29,6 +30,7 @@ const steps = [
 export default function WhyUs() {
   return (
     <main className="whyus">
+      <Seo title="Why Choose DigionTop — 8 Reasons We Grow Your Business" description="Senior-led teams, transparent reporting and measurable results. See the 8 reasons Indian businesses choose DigionTop as their digital marketing partner." path="/why-us" />
 
       {/* ── Hero ── */}
       <section className="whyus__hero">

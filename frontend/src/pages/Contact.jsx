@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Seo from '../components/Seo';
 import {
   FiPhone, FiMail, FiMessageCircle, FiFacebook,
   FiInstagram, FiYoutube, FiCheckCircle,
@@ -67,6 +68,7 @@ export default function Contact() {
 
   return (
     <main className="contact-page">
+      <Seo title="Contact DigionTop — Get a Free Digital Marketing Quote" description="Get in touch with DigionTop for websites, SEO, social media & ads. Call +91 92175 94664 or fill the form for a free consultation. We reply within 1 business day." path="/contact" />
       <section className="contact-wrap">
         <h1 className="contact-page__heading">Contact Us</h1>
         <div className="contact-wrap__inner">
