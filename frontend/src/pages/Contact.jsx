@@ -113,7 +113,7 @@ export default function Contact() {
                 </label>
                 {error && <p className="about-lead__error">{error}</p>}
                 <button type="submit" className="about-lead__btn" disabled={submitting}>
-                  {submitting ? 'Sending…' : 'Get Your Free Proposal'}
+                  {submitting ? 'Sending…' : 'Get Free Consultation'}
                 </button>
                 <p className="about-lead__note">Need quick assistance? Reach us at <strong>+91 92175 94664</strong></p>
               </>
