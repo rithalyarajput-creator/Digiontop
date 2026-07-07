@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   FaMapMarkerAlt, FaLayerGroup, FaChartBar, FaTags,
   FaUnlock, FaUserTie, FaBullseye, FaFlask,
+  FaStar, FaArrowRight,
 } from 'react-icons/fa';
 import '../styles/WhyUs.css';
 
@@ -98,12 +99,27 @@ export default function WhyUs() {
 
       {/* ── CTA ── */}
       <section className="whyus__cta">
-        <div className="whyus__cta-inner">
-          <h2 className="whyus__cta-title">Ready to Experience the DigionTop Difference?</h2>
-          <p className="whyus__cta-sub">Book a free strategy call and let us show you exactly how we will grow your business.</p>
-          <div className="whyus__cta-actions">
-            <Link to="/contact" className="whyus__cta-btn whyus__cta-btn--primary">Get Free Consultation</Link>
-            <Link to="/services" className="whyus__cta-btn whyus__cta-btn--outline">Explore Our Services</Link>
+        <div className="whyus__cta-card" data-aos="zoom-in">
+          <span className="whyus__cta-orb whyus__cta-orb--1" aria-hidden="true" />
+          <span className="whyus__cta-orb whyus__cta-orb--2" aria-hidden="true" />
+          <span className="whyus__cta-grid" aria-hidden="true" />
+
+          <div className="whyus__cta-inner">
+            <span className="whyus__cta-eyebrow"><FaStar /> Let’s Build Something Great</span>
+            <h2 className="whyus__cta-title">Ready to Experience the <span>DigionTop Difference?</span></h2>
+            <p className="whyus__cta-sub">Book a free strategy call and let us show you exactly how we will grow your business — no pressure, no jargon, just a clear plan.</p>
+            <div className="whyus__cta-actions">
+              <Link to="/contact" className="whyus__cta-btn whyus__cta-btn--primary">Get Free Consultation <FaArrowRight /></Link>
+              <Link to="/services" className="whyus__cta-btn whyus__cta-btn--outline">Explore Our Services</Link>
+            </div>
+
+            <div className="whyus__cta-trust">
+              <div className="whyus__cta-trust-item"><FaStar className="whyus__cta-trust-star" /><b>5.0</b><span>Client Rating</span></div>
+              <span className="whyus__cta-divider" />
+              <div className="whyus__cta-trust-item"><b>100+</b><span>Projects Delivered</span></div>
+              <span className="whyus__cta-divider" />
+              <div className="whyus__cta-trust-item"><b>24h</b><span>Reply Time</span></div>
+            </div>
           </div>
         </div>
       </section>

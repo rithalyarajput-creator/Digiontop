@@ -593,19 +593,19 @@ a {
 .inds {
   position: relative;
   padding: 92px 0;
-  background: #0e0e0e;
+  background: #ffffff;
   overflow: hidden;
 }
 .inds__bg {
   position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(600px 300px at 15% 0%, rgba(245,168,0,0.14), transparent 70%),
-    radial-gradient(500px 300px at 100% 100%, rgba(245,168,0,0.1), transparent 70%);
+    radial-gradient(600px 300px at 12% 0%, rgba(245,168,0,0.08), transparent 70%),
+    radial-gradient(500px 300px at 100% 100%, rgba(245,168,0,0.06), transparent 70%);
 }
 .inds__bg::after {
   content: ''; position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(20,24,43,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,24,43,0.04) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(circle at 50% 30%, #000, transparent 78%);
 }
@@ -615,16 +615,16 @@ a {
 .inds__eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 0.74rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
-  color: #FFD874; background: rgba(245,168,0,0.1); border: 1px solid rgba(245,168,0,0.3);
+  color: #c47f00; background: #FFF3CC; border: 1px solid #FFE49A;
   padding: 7px 16px; border-radius: 50px; margin-bottom: 18px;
 }
-.inds__eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #F5A800; box-shadow: 0 0 10px #F5A800; }
+.inds__eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #F5A800; box-shadow: 0 0 10px rgba(245,168,0,0.6); }
 .inds__title {
   font-size: clamp(1.7rem, 3.6vw, 2.6rem); font-weight: 900; letter-spacing: -0.02em;
-  line-height: 1.15; color: #fff; margin: 0 0 14px;
+  line-height: 1.15; color: #14182b; margin: 0 0 14px;
 }
-.inds__title span { background: linear-gradient(120deg, #FFD24A, #F5A800); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.inds__sub { font-size: 1.02rem; color: #b6b6b6; line-height: 1.7; margin: 0; }
+.inds__title span { background: linear-gradient(120deg, #F5A800, #E08E00); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.inds__sub { font-size: 1.02rem; color: #6b7280; line-height: 1.7; margin: 0; }
 
 .inds__grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
@@ -632,29 +632,40 @@ a {
 }
 .inds__card {
   position: relative; overflow: hidden;
-  background: linear-gradient(160deg, #1a1a1a, #141414);
-  border: 1px solid #262626; border-radius: 20px;
-  padding: 30px 26px 28px;
+  background: #fff;
+  border: 1px solid #ececf1; border-radius: 20px;
+  padding: 32px 26px 28px;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
+/* coloured top strip — accent bar that reveals on hover */
 .inds__card::before {
-  content: ''; position: absolute; inset: 0; z-index: 0;
-  background: linear-gradient(160deg, rgba(245,168,0,0.14), transparent 55%);
-  opacity: 0; transition: opacity 0.3s ease;
+  content: ''; position: absolute; left: 0; top: 0; right: 0; height: 4px; z-index: 2;
+  background: linear-gradient(90deg, #FFD24A, #F5A800);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
 }
 .inds__card > * { position: relative; z-index: 1; }
 .inds__card:hover {
   transform: translateY(-6px);
-  border-color: rgba(245,168,0,0.55);
-  box-shadow: 0 24px 50px rgba(0,0,0,0.5);
+  border-color: #FFE49A;
+  box-shadow: 0 24px 50px rgba(245,168,0,0.16);
 }
-.inds__card:hover::before { opacity: 1; }
+.inds__card:hover::before { transform: scaleX(1); }
 .inds__card-num {
-  position: absolute; top: 14px; right: 20px; z-index: 1;
-  font-size: 2.3rem; font-weight: 900; color: rgba(255,255,255,0.05);
+  position: absolute; top: 16px; right: 22px; z-index: 1;
+  font-size: 2.4rem; font-weight: 900; color: #f2f2f4;
   letter-spacing: -0.03em; transition: color 0.3s ease;
 }
-.inds__card:hover .inds__card-num { color: rgba(245,168,0,0.16); }
+.inds__card:hover .inds__card-num { color: #FFE49A; }
+
+/* Vary the cards: even-numbered cards get a soft cream tint + outlined icon */
+.inds__card:nth-child(even) { background: #FFFDF6; }
+.inds__card:nth-child(even) .inds__card-icon {
+  background: #fff; color: #F5A800; border: 2px solid #FFD24A; box-shadow: none;
+}
+.inds__card:nth-child(even):hover .inds__card-icon {
+  background: linear-gradient(135deg, #FFD24A, #F5A800); color: #141414; border-color: transparent;
+}
 .inds__card-icon {
   display: grid; place-items: center; width: 56px; height: 56px; border-radius: 15px;
   background: linear-gradient(135deg, #FFD24A, #F5A800); color: #141414; font-size: 24px;
@@ -662,11 +673,11 @@ a {
   transition: transform 0.3s ease;
 }
 .inds__card:hover .inds__card-icon { transform: scale(1.08) rotate(-6deg); }
-.inds__card-title { font-size: 1.12rem; font-weight: 800; color: #fff; margin: 0 0 8px; }
-.inds__card-desc { font-size: 0.9rem; color: #9a9a9a; line-height: 1.6; margin: 0; }
+.inds__card-title { font-size: 1.12rem; font-weight: 800; color: #14182b; margin: 0 0 8px; }
+.inds__card-desc { font-size: 0.9rem; color: #6b7280; line-height: 1.6; margin: 0; }
 .inds__card-arrow {
   display: inline-grid; place-items: center; width: 34px; height: 34px; margin-top: 18px;
-  border-radius: 50%; background: rgba(255,255,255,0.06); color: #FFD874; font-size: 13px;
+  border-radius: 50%; background: #f4f4f6; color: #c47f00; font-size: 13px;
   opacity: 0; transform: translateX(-8px);
   transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
 }
@@ -676,10 +687,10 @@ a {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 14px;
   margin-top: 44px; text-align: center;
 }
-.inds__foot span { color: #9a9a9a; font-size: 0.98rem; }
+.inds__foot span { color: #6b7280; font-size: 0.98rem; }
 .inds__foot-link {
   display: inline-flex; align-items: center; gap: 8px;
-  color: #FFD874; font-weight: 800; font-size: 0.98rem; text-decoration: none;
+  color: #c47f00; font-weight: 800; font-size: 0.98rem; text-decoration: none;
   transition: gap 0.25s ease, color 0.25s ease;
 }
 .inds__foot-link:hover { gap: 12px; color: #F5A800; }
