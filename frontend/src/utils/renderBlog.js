@@ -11,8 +11,12 @@ function inline(text) {
 
 export function renderBlogContent(raw) {
   if (!raw) return '';
-  const hasHtml = /<(p|h[1-6]|ul|ol|li|blockquote|div|img|table|strong|em|b|i|a|pre|code)\b/i.test(raw);
-  if (hasHtml) return raw;
+  // Only treat as "already full HTML" when it uses BLOCK-level tags
+  // (real HTML documents). Content that just sprinkles inline tags like
+  // <strong>/<em>/<a> among Markdown must STILL be markdown-converted —
+  // otherwise the # and ** would show raw. inline() leaves those tags alone.
+  const hasBlockHtml = /<(p|h[1-6]|ul|ol|li|blockquote|div|table|pre)\b/i.test(raw);
+  if (hasBlockHtml) return raw;
 
   const lines = raw.replace(/\r\n/g, '\n').split('\n');
   const out = [];
@@ -31,8 +35,10 @@ export function renderBlogContent(raw) {
       continue;
     }
     if (/^#{1,6}\s+/.test(t)) {
+      // page already has an <h1> (the post title), so start content at h2:
+      // #→h2, ##→h2, ###→h3, ####→h4
       const level = t.match(/^#+/)[0].length;
-      const h = Math.min(level, 4);
+      const h = Math.min(Math.max(level, 2), 4);
       out.push(`<h${h}>${inline(t.replace(/^#+\s+/, ''))}</h${h}>`);
       i++; continue;
     }
