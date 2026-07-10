@@ -1075,14 +1075,19 @@ a {
   position: relative;
   width: 560px;
   height: 560px;
+  margin: 0 auto;
 }
 
 /* The ring that spins */
 .orbit-ring {
   position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   border-radius: 50%;
-  animation: orbit-spin 18s linear infinite;
+  animation: orbit-spin 20s linear infinite;
+  animation-play-state: running;
 }
 
 /*
@@ -1105,7 +1110,8 @@ a {
     rotate(calc(var(--i) * (360deg / var(--total))))
     translateY(-240px)
     rotate(calc(-1 * var(--i) * (360deg / var(--total))));
-  animation: orbit-unspin 18s linear infinite;
+  animation: orbit-unspin 20s linear infinite;
+  animation-play-state: running;
 }
 
 /* Golden circle with golden border */
@@ -1122,7 +1128,15 @@ a {
   transition: transform 0.25s, box-shadow 0.25s;
   flex-shrink: 0;
   color: #F5A800;
-  font-size: 1.8rem;
+  font-size: 2rem;
+}
+
+.orbit-dot__circle svg {
+  width: 28px;
+  height: 28px;
+  color: #F5A800;
+  stroke: #F5A800;
+  fill: none;
 }
 .orbit-dot:hover .orbit-dot__circle {
   transform: scale(1.15);
