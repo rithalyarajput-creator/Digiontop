@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
 import WhatsAppButton from './components/WhatsAppButton';
 import MobileCTABar from './components/MobileCTABar';
+import LeadPopup from './components/LeadPopup';
 import AdminApp from './admin/AdminApp';
 
 const Home = lazy(() => import('./pages/Home'));
@@ -178,6 +179,7 @@ function PublicSite() {
       <ChatBot />
       <WhatsAppButton />
       <MobileCTABar />
+      <LeadPopup />
     </>
   );
 }
