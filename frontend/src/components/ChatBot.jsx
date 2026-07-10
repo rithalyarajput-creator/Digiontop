@@ -3,7 +3,6 @@ import './ChatBot.css';
 
 const QUICK_REPLIES = [
   { label: '💬 How can you help?', key: 'help' },
-  { label: '💰 Pricing',           key: 'pricing' },
   { label: '📞 Contact Number',    key: 'contact' },
   { label: '🎁 Free Consultation', key: 'consultation' },
   { label: 'Website',              key: 'website' },
@@ -22,35 +21,35 @@ const REPLIES = {
     action: AUDIT_ACTION,
   },
   website: {
-    text: 'We build fast, mobile-first websites that convert. 🌐\n💰 From ₹8,000.',
+    text: 'We build fast, mobile-first websites that convert. 🌐\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   shopify: {
-    text: 'High-converting Shopify stores — setup, payments & speed. 🛍️\n💰 From ₹15,000.',
+    text: 'High-converting Shopify stores — setup, payments & speed. 🛍️\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   seo: {
-    text: 'We rank you #1 on Google — on-page, technical & local SEO. 📈\n💰 From ₹7,000/month.',
+    text: 'We rank you #1 on Google — on-page, technical & local SEO. 📈\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   'social media': {
-    text: 'Instagram, Facebook & more — content, reels & growth. 📱\n💰 From ₹5,000/month.',
+    text: 'Instagram, Facebook & more — content, reels & growth. 📱\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   'e-commerce': {
-    text: 'Amazon, Flipkart & Meesho — listings, SEO & ads. 🛒\n💰 From ₹6,000/month.',
+    text: 'Amazon, Flipkart & Meesho — listings, SEO & ads. 🛒\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   ads: {
-    text: 'High-ROI Google & Meta ads that bring real leads. 🎯\n💰 From ₹8,000/month + ad spend.',
+    text: 'High-ROI Google & Meta ads that bring real leads. 🎯\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   branding: {
-    text: 'Logo, brand identity & creatives that stand out. 🎨\n💰 From ₹4,000.',
+    text: 'Logo, brand identity & creatives that stand out. 🎨\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   pricing: {
-    text: '💰 Starting prices:\n• Website — ₹8,000\n• SEO — ₹7,000/mo\n• Social Media — ₹5,000/mo\n• Ads — ₹8,000/mo\n• Branding — ₹4,000\nFinal quote is free!',
+    text: 'Pricing depends on your needs and goals. 💰\nEvery business is unique!\nBook a free consultation to get a custom quote.',
     action: AUDIT_ACTION,
   },
   consultation: {
