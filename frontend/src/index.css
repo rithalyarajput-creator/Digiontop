@@ -690,3 +690,27 @@ input, textarea, select { box-sizing: border-box; max-width: 100%; }
   animation: route-spin 0.8s linear infinite;
 }
 @keyframes route-spin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   MOBILE: stop iOS/Safari auto-zoom when tapping a form field.
+   iOS zooms in whenever an input's font-size is < 16px. Forcing
+   16px on every field on small screens prevents that jump while
+   still letting the user pinch-zoom manually.
+   ============================================================ */
+@media (max-width: 768px) {
+  /* high-specificity so it beats page-scoped rules like
+     `.contact-page .about-lead__form input { font-size: .82rem }` */
+  html body input,
+  html body textarea,
+  html body select,
+  html body .contact-page .about-lead__form input,
+  html body .contact-page .about-lead__form select,
+  html body .contact-page .about-lead__form textarea,
+  html body .about-lead__form input,
+  html body .about-lead__form select,
+  html body .about-lead__form textarea,
+  html body .sfaq__form input,
+  html body .sfaq__form textarea {
+    font-size: 16px !important;
+  }
+}
