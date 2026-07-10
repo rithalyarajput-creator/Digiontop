@@ -1779,87 +1779,95 @@ a {
 /* ============================================================
    Home Hero — full-width banner image with overlay content
    ============================================================ */
-.hero--banner {
+/* ============================================================
+   HERO — split: text + buttons LEFT, image RIGHT
+   ============================================================ */
+.hero--split {
   position: relative;
-  padding: 0;
-  line-height: 0;
-  background: #0b0d12;
   overflow: hidden;
+  background: linear-gradient(135deg, #14182b 0%, #0e1020 55%, #0b0d18 100%);
+  padding: 84px 0;
 }
-/* Full image — always shown complete, never cropped, scales with screen width */
-.hero__banner-full {
-  width: 100%;
-  height: auto;
-  display: block;
-  position: relative;
-  z-index: 0;
-}
-.hero__bg-img {
+.hero__bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.hero__bg-orb { position: absolute; border-radius: 50%; filter: blur(90px); }
+.hero__bg-orb--1 { width: 460px; height: 460px; background: radial-gradient(circle, rgba(245,168,0,0.22), transparent 70%); top: -160px; left: -120px; }
+.hero__bg-orb--2 { width: 380px; height: 380px; background: radial-gradient(circle, rgba(245,168,0,0.12), transparent 70%); bottom: -140px; right: 10%; }
+.hero__bg-grid {
   position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center right;
-  z-index: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle at 30% 40%, #000, transparent 78%);
 }
-/* dark gradient so text (on the left) is readable over the image — smooth fade, no hard edge */
-.hero__overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(90deg,
-    rgba(8,10,18,0.88) 0%,
-    rgba(8,10,18,0.78) 22%,
-    rgba(8,10,18,0.55) 42%,
-    rgba(8,10,18,0.25) 58%,
-    rgba(8,10,18,0.08) 72%,
-    rgba(8,10,18,0) 85%);
-}
-.hero__banner-content {
-  position: absolute;
-  top: 50%;                  /* vertically centered in the banner (as before) */
-  left: max(20px, calc((100% - 1200px) / 2 + 20px));
-  transform: translateY(-50%);
-  z-index: 3;
-  width: 46%;
-  max-width: 560px;
-  line-height: 1.3;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;   /* content sits on the LEFT (dark) area */
-  text-align: left;
-}
-/* nudge the CTA to the right so it never sits under the bottom-left chatbot */
-.hero__banner-content .hero__ctas { margin-left: 4px; }
-.hero__banner-content .hero__badge { margin-bottom: 14px; }
-.hero__banner-content .hero__headline { font-size: clamp(2.2rem, 4vw, 3.8rem); line-height: 1.06; margin-bottom: 14px; }
-.hero__banner-content .hero__subheadline { font-size: clamp(0.95rem, 1.3vw, 1.12rem); line-height: 1.5; margin-bottom: 20px; }
-.hero__banner-content .hero__ctas { margin-bottom: 0; }
-/* keep it compact: only ONE button + no stats so nothing overflows the banner */
-.hero__banner-content .hero__btn-services { display: none; }
-.hero__banner-content .hero__stats-row { display: none; }
 
-@media (max-width: 768px) {
-  /* Fixed-height banner; image behind, strong dark overlay so text is crisp */
-  .hero--banner { min-height: 420px; padding: 0; }
-  /* show the LEFT (dark) part of the banner on mobile so text sits on a clean area */
-  .hero__banner-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 22% center; }
-  /* strong even overlay on mobile so text is always crisp over any part */
-  .hero__overlay { background: rgba(8,10,18,0.78); }
-  .hero__banner-content {
-    position: absolute;
-    top: 50% !important; left: 0 !important; right: 0 !important;
-    transform: translateY(-50%) !important;
-    width: 100% !important; max-width: none !important;
-    padding: 0 24px !important; text-align: center !important; align-items: center !important;
-  }
-  .hero__banner-content .hero__badge { font-size: 0.68rem; padding: 6px 14px; margin-bottom: 14px; }
-  .hero__banner-content .hero__ctas { justify-content: center; margin-left: 0; }
-  .hero__banner-content .hero__headline { font-size: clamp(1.9rem, 9vw, 2.6rem); margin-bottom: 12px; }
-  .hero__banner-content .hero__subheadline { font-size: 0.9rem; margin-bottom: 20px; }
-  .hero__ctas .btn { padding: 12px 22px; font-size: 0.9rem; }
+.hero__split-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px; align-items: center;
 }
-@media (max-width: 420px) {
-  .hero--banner { min-height: 380px; }
-  .hero__banner-content .hero__headline { font-size: 2rem; }
-  .hero__banner-content .hero__subheadline { font-size: 0.82rem; }
+
+/* LEFT text column */
+.hero__split-text { text-align: left; }
+.hero__split-text .hero__badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(245,168,0,0.35);
+  color: #fff; font-size: 0.82rem; font-weight: 700;
+  padding: 8px 18px; border-radius: 50px; margin-bottom: 22px;
+}
+.hero__split-text .hero__badge-star { color: #F5A800; }
+.hero__split-text .hero__headline {
+  font-size: clamp(2.4rem, 4.6vw, 4rem); font-weight: 900; color: #fff;
+  line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 16px;
+}
+.hero__split-text .hero__headline--yellow {
+  background: linear-gradient(120deg, #FFD24A, #F5A800);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero__split-text .hero__subheadline {
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem); font-weight: 700; color: #e8e8ee;
+  line-height: 1.4; margin: 0 0 16px;
+}
+.hero__split-text .hero__subheadline--yellow { color: #FFD24A; }
+.hero__lead {
+  font-size: 1rem; color: #a9adba; line-height: 1.7; margin: 0 0 30px; max-width: 480px;
+}
+.hero__split-text .hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 40px; }
+.hero__split-text .hero__stats-row {
+  display: flex; flex-wrap: wrap; gap: 40px;
+  padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hero__split-text .hero__stat-item { display: flex; flex-direction: column; gap: 3px; }
+.hero__split-text .hero__stat-val { font-size: 1.7rem; font-weight: 900; color: #fff; line-height: 1; }
+.hero__split-text .hero__stat-lbl { font-size: 0.82rem; color: #9297a6; }
+
+/* RIGHT image column */
+.hero__split-media { position: relative; display: grid; place-items: center; }
+.hero__split-img {
+  width: 100%; height: auto; display: block;
+  border-radius: 20px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+}
+
+/* ── Tablet ── */
+@media (max-width: 960px) {
+  .hero--split { padding: 60px 0; }
+  .hero__split-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero__split-media { order: -1; max-width: 620px; margin: 0 auto; }
+  .hero__split-text { text-align: center; }
+  .hero__split-text .hero__ctas { justify-content: center; }
+  .hero__split-text .hero__stats-row { justify-content: center; }
+  .hero__lead { margin-left: auto; margin-right: auto; }
+}
+/* ── Mobile ── */
+@media (max-width: 560px) {
+  .hero--split { padding: 44px 0; }
+  .hero__split-text .hero__headline { font-size: clamp(2rem, 10vw, 2.6rem); }
+  .hero__split-text .hero__subheadline { font-size: 1.05rem; }
+  .hero__lead { font-size: 0.92rem; }
+  .hero__split-text .hero__ctas { gap: 10px; }
+  .hero__split-text .hero__ctas .btn { flex: 1 1 auto; justify-content: center; padding: 13px 18px; }
+  .hero__split-text .hero__stats-row { gap: 20px 30px; }
+  .hero__split-text .hero__stat-val { font-size: 1.4rem; }
 }
 
 /* ============================================================
