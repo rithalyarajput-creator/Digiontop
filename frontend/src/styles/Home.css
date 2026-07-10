@@ -1893,32 +1893,48 @@ a {
 }
 /* ── Mobile ── */
 @media (max-width: 560px) {
-  .hero--bgimg { min-height: 460px; }
-  .hero__bgimg { content: url('/images/home-banner-mobile.webp'); object-position: center; }
-  .hero__bgimg-shade { background: rgba(8,10,18,0.7); }
-  .hero__bgimg-text { max-width: none; text-align: center; margin: 0 auto; }
-  .hero__bgimg-text .hero__headline { font-size: clamp(2rem, 10vw, 2.6rem); }
-  .hero__bgimg-text .hero__subheadline { font-size: 1.02rem; }
-  .hero__bgimg-text .hero__lead { font-size: 0.9rem; margin-left: auto; margin-right: auto; }
-  .hero__bgimg-text .hero__ctas { gap: 10px; flex-direction: column; justify-content: center; }
-  .hero__bgimg-text .hero__ctas .btn { width: auto; padding: 13px 16px; }
-  .hero__bgimg-text .hero__stats-row {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 20px;
-    justify-content: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.12);
+  .hero--bgimg {
+    aspect-ratio: 1 / 1;
+    max-width: 100%;
+    width: 100%;
   }
-  .hero__bgimg-text .hero__stat-item {
+  .hero__bgimg {
+    object-position: center;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+  }
+  .hero__bgimg-shade {
+    background: linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.2) 65%, rgba(0,0,0,0) 100%);
+    width: 82%;
+    height: 40%;
+    top: 0;
+    left: 0;
+  }
+  .hero__bgimg-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    flex: 1;
+    align-items: flex-start;
+    justify-content: center;
   }
-  .hero__bgimg-text .hero__stat-val { font-size: 1.3rem; }
-  .hero__bgimg-text .hero__stat-lbl { font-size: 0.75rem; }
+  .hero__bgimg-text {
+    max-width: calc(100% - 30px);
+    text-align: center;
+    margin: 20px auto 0;
+    position: relative;
+  }
+  .hero__bgimg-text .hero__headline { font-size: 1.8rem; font-weight: 900; }
+  .hero__bgimg-text .hero__subheadline { font-size: 0.95rem; }
+  .hero__bgimg-text .hero__lead { font-size: 0.85rem; margin-left: auto; margin-right: auto; line-height: 1.5; }
+  .hero__bgimg-text .hero__ctas { gap: 10px; flex-direction: column; justify-content: center; }
+  .hero__bgimg-text .hero__ctas .btn { width: auto; padding: 11px 14px; font-size: 0.9rem; }
+  .hero__bgimg-text .hero__stats-row {
+    display: none;
+  }
 }
 
 /* ============================================================
