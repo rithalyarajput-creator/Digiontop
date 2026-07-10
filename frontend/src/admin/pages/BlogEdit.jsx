@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { apiGet, apiPost, apiPut } from '../api';
+import { renderBlogContent } from '../../utils/renderBlog';
 
 function slugify(text) {
   return text.toLowerCase().trim()
@@ -317,9 +318,9 @@ export default function BlogEdit() {
               </div>
             </div>
             {form.content && (
-              <div className="blogedit__preview-content">
+              <div className="blogedit__preview-content blogpost-content">
                 <h4>Content Preview:</h4>
-                <div dangerouslySetInnerHTML={{ __html: form.content.replace(/\n/g, '<br/>') }} />
+                <div dangerouslySetInnerHTML={{ __html: renderBlogContent(form.content) }} />
               </div>
             )}
           </div>
