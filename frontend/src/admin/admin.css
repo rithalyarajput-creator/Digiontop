@@ -119,7 +119,7 @@
 /* first column (Name) reads as the row's primary label */
 .admin-table--leads td:first-child { font-weight: 700; color: #14182b; }
 .admin-table__empty { text-align: center; color: #999; padding: 30px; }
-.admin-actions { display: flex; gap: 8px; }
+.admin-actions { display: flex; flex-wrap: nowrap; gap: 6px; align-items: center; }
 
 /* ---- Badges / statuses ---- */
 .admin-badge {
@@ -148,11 +148,13 @@
 .admin-btn--primary { background: #f5a800; border-color: #f5a800; color: #1a1a1a; }
 .admin-btn--primary:hover { background: #c78700; border-color: #c78700; }
 .admin-icon-btn {
-  width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 8px; border: 1px solid #e0e0e0; background: #fff; cursor: pointer; color: #555;
-  text-decoration: none;
+  width: 34px; height: 34px; flex: 0 0 34px; box-sizing: border-box;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 8px; border: 1px solid #e6e6ea; background: #fff; cursor: pointer; color: #555;
+  text-decoration: none; font-size: 15px; transition: background 0.16s, color 0.16s, border-color 0.16s;
 }
-.admin-icon-btn:hover { background: #f4f5f7; color: #1a1a1a; }
+.admin-icon-btn:hover { background: #14182b; color: #fff; border-color: #14182b; }
+.admin-icon-btn--danger { color: #d22; }
 .admin-icon-btn--danger:hover { background: #ffe5e5; color: #d22; border-color: #ffcaca; }
 
 /* ---- Forms ---- */
@@ -725,8 +727,8 @@
 .admin-table--leads th:nth-child(4), .admin-table--leads td:nth-child(4) { width: 12%; }   /* Service */
 .admin-table--leads th:nth-child(5), .admin-table--leads td:nth-child(5) { width: 15%; }   /* Message */
 .admin-table--leads th:nth-child(6), .admin-table--leads td:nth-child(6) { width: 11%; }   /* Status */
-.admin-table--leads th:nth-child(7), .admin-table--leads td:nth-child(7) { width: 11%; }   /* Date */
-.admin-table--leads th:nth-child(8), .admin-table--leads td:nth-child(8) { width: 7%; }    /* Actions */
+.admin-table--leads th:nth-child(7), .admin-table--leads td:nth-child(7) { width: 10%; }   /* Date */
+.admin-table--leads th:nth-child(8), .admin-table--leads td:nth-child(8) { width: 9%; min-width: 92px; }  /* Actions */
 .admin-table--leads .admin-status-select { width: 100%; min-width: 0; }
 .admin-lead-msg {
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
