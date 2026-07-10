@@ -105,16 +105,19 @@
 .admin-stat-card__label { font-size: 13px; color: #6b7280; margin-top: 5px; font-weight: 600; }
 
 /* ---- Tables ---- */
-.admin-table-wrap { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; overflow-x: auto; }
+.admin-table-wrap { background: #fff; border: 1px solid #e8e8ec; border-radius: 14px; overflow-x: auto; box-shadow: 0 4px 18px rgba(20,24,43,0.05); }
 .admin-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .admin-table th {
-  text-align: left; padding: 14px 16px; background: #fafafa;
-  font-weight: 700; color: #555; border-bottom: 1px solid #e0e0e0; white-space: nowrap;
+  text-align: left; padding: 15px 18px; background: #f8f9fb;
+  font-weight: 700; color: #6b7280; border-bottom: 1px solid #ececf1; white-space: nowrap;
+  font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;
 }
-.admin-table td { padding: 14px 16px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+.admin-table td { padding: 15px 18px; border-bottom: 1px solid #f2f2f5; vertical-align: middle; color: #2d3340; }
 .admin-table tr:last-child td { border-bottom: none; }
-.admin-table tbody tr { transition: background 0.18s ease; }
+.admin-table tbody tr { transition: background 0.16s ease; }
 .admin-table tbody tr:hover { background: #fffaf0; }
+/* first column (Name) reads as the row's primary label */
+.admin-table--leads td:first-child { font-weight: 700; color: #14182b; }
 .admin-table__empty { text-align: center; color: #999; padding: 30px; }
 .admin-actions { display: flex; gap: 8px; }
 
@@ -714,19 +717,23 @@
 .admin-blog-title__text { font-weight: 600; line-height: 1.35; }
 
 /* Leads table — fit columns so Actions never gets cut */
-.admin-table--leads { table-layout: fixed; width: 100%; min-width: 0; }
+.admin-table--leads { table-layout: fixed; width: 100%; min-width: 880px; }
 .admin-table--leads th, .admin-table--leads td { word-break: break-word; }
 .admin-table--leads th:nth-child(1), .admin-table--leads td:nth-child(1) { width: 13%; }   /* Name */
-.admin-table--leads th:nth-child(2), .admin-table--leads td:nth-child(2) { width: 20%; }   /* Email */
-.admin-table--leads th:nth-child(3), .admin-table--leads td:nth-child(3) { width: 13%; }   /* Phone */
+.admin-table--leads th:nth-child(2), .admin-table--leads td:nth-child(2) { width: 19%; }   /* Email */
+.admin-table--leads th:nth-child(3), .admin-table--leads td:nth-child(3) { width: 12%; }   /* Phone */
 .admin-table--leads th:nth-child(4), .admin-table--leads td:nth-child(4) { width: 12%; }   /* Service */
-.admin-table--leads th:nth-child(5), .admin-table--leads td:nth-child(5) { width: 16%; }   /* Message */
-.admin-table--leads th:nth-child(6), .admin-table--leads td:nth-child(6) { width: 10%; }   /* Status */
-.admin-table--leads th:nth-child(7), .admin-table--leads td:nth-child(7) { width: 9%; }    /* Date */
+.admin-table--leads th:nth-child(5), .admin-table--leads td:nth-child(5) { width: 15%; }   /* Message */
+.admin-table--leads th:nth-child(6), .admin-table--leads td:nth-child(6) { width: 11%; }   /* Status */
+.admin-table--leads th:nth-child(7), .admin-table--leads td:nth-child(7) { width: 11%; }   /* Date */
 .admin-table--leads th:nth-child(8), .admin-table--leads td:nth-child(8) { width: 7%; }    /* Actions */
 .admin-table--leads .admin-status-select { width: 100%; min-width: 0; }
 .admin-lead-msg {
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   overflow: hidden; line-height: 1.4;
 }
+/* clean stacked date + time */
+.admin-lead-date { white-space: nowrap; }
+.admin-lead-date__day { display: block; font-weight: 700; color: #1a2b4a; font-size: 13px; }
+.admin-lead-date__time { display: block; font-size: 11.5px; color: #9a9a9a; margin-top: 2px; }
 .admin-table--leads .admin-actions { flex-wrap: wrap; gap: 6px; }

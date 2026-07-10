@@ -4,6 +4,20 @@ import { apiGet, apiPut, apiDelete } from '../api';
 
 const STATUSES = ['new', 'contacted', 'converted', 'closed'];
 
+/* clean date/time: "10 Jul 2026" + "4:32 PM" */
+function fmtDate(iso) {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  if (isNaN(d)) return '—';
+  return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+function fmtTime(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (isNaN(d)) return '';
+  return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+}
+
 export default function Leads() {
   const [leads, setLeads] = useState([]);
   const [filter, setFilter] = useState('');
@@ -148,7 +162,10 @@ export default function Leads() {
                     {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
                   </select>
                 </td>
-                <td>{new Date(l.created_at).toLocaleDateString()}</td>
+                <td className="admin-lead-date">
+                  <span className="admin-lead-date__day">{fmtDate(l.created_at)}</span>
+                  <span className="admin-lead-date__time">{fmtTime(l.created_at)}</span>
+                </td>
                 <td className="admin-actions">
                   {l.status === 'new' && (
                     <button className="admin-icon-btn" title="Mark as Contacted" onClick={() => updateStatus(l.id, 'contacted')}>
