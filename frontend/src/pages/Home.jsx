@@ -25,6 +25,9 @@ import {
   FaRocket,
   FaChartBar,
   FaTrophy,
+  FaThumbsUp,
+  FaMobileAlt,
+  FaPalette,
 } from "react-icons/fa";
 import "../styles/Home.css";
 
@@ -329,36 +332,32 @@ const CtaBanner = () => (
 
 const ORBIT_ITEMS = [
   {
-    label: 'Website\nMarketing',
-    svg: <svg viewBox="0 0 24 24" fill="#fff" width="26" height="26"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#fff" strokeWidth="1.8" fill="none"/><path d="M8 21h8M12 17v4" stroke="#fff" strokeWidth="1.8" strokeLinecap="round"/><path d="M6 8h4M6 11h8" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/><circle cx="17" cy="9.5" r="2.5" stroke="#fff" strokeWidth="1.5" fill="none"/><path d="M15.5 14l1.5-2 1.5 2" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>,
+    label: 'SEO &\nSearch Marketing',
+    svg: <FaSearch />,
   },
   {
-    label: 'SEO',
-    svg: <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="12" r="10" stroke="#fff" strokeWidth="1.6"/><ellipse cx="12" cy="12" rx="4" ry="10" stroke="#fff" strokeWidth="1.4"/><path d="M2 12h20M12 2C9 6 9 18 12 22M12 2c3 4 3 16 0 20" stroke="#fff" strokeWidth="1.4"/><text x="7.5" y="14" fill="#fff" fontSize="5" fontWeight="bold">SEO</text></svg>,
+    label: 'PPC &\nPaid Advertising',
+    svg: <FaRocket />,
   },
   {
-    label: 'Social Media\nMarketing',
-    svg: <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><path d="M21 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM8 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM21 18.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" stroke="#fff" strokeWidth="1.6"/><path d="M8.5 10.5l7-3.5M8.5 13.5l7 3.5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/></svg>,
+    label: 'Social Media &\nContent',
+    svg: <FaThumbsUp />,
   },
   {
-    label: 'PPC\nMarketing',
-    svg: <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round"/><path d="M2 17l10 5 10-5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 12l10 5 10-5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    label: 'Web\nDevelopment',
+    svg: <FaCode />,
   },
   {
-    label: 'Content\nMarketing',
-    svg: <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><rect x="4" y="2" width="12" height="16" rx="2" stroke="#fff" strokeWidth="1.6"/><path d="M8 6h6M8 9h6M8 12h4" stroke="#fff" strokeWidth="1.4" strokeLinecap="round"/><path d="M14 14l5 5M17.5 17.5l1.5 1.5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><circle cx="17" cy="17" r="3" stroke="#fff" strokeWidth="1.4"/></svg>,
+    label: 'Mobile &\nSoftware',
+    svg: <FaMobileAlt />,
   },
   {
-    label: 'Email\nMarketing',
-    svg: <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#fff" strokeWidth="1.6"/><path d="M2 8l10 7 10-7" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    label: 'E-Commerce\nSolutions',
+    svg: <FaShoppingCart />,
   },
   {
-    label: 'Affiliate\nMarketing',
-    svg: <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="5" r="2.5" stroke="#fff" strokeWidth="1.5"/><circle cx="5" cy="19" r="2.5" stroke="#fff" strokeWidth="1.5"/><circle cx="19" cy="19" r="2.5" stroke="#fff" strokeWidth="1.5"/><path d="M12 7.5v4M12 11.5L5 16.5M12 11.5L19 16.5" stroke="#fff" strokeWidth="1.4" strokeLinecap="round"/></svg>,
-  },
-  {
-    label: 'Video\nMarketing',
-    svg: <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><rect x="2" y="5" width="15" height="14" rx="2" stroke="#fff" strokeWidth="1.6"/><path d="M17 9l5-3v12l-5-3V9z" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round"/><path d="M8 10l4 2.5-4 2.5V10z" fill="#fff"/></svg>,
+    label: 'Creative &\nBranding',
+    svg: <FaPalette />,
   },
 ];
 
@@ -378,17 +377,18 @@ const DigitalOrbitSection = () => (
               <div className="orbit-dot__circle">
                 {item.svg}
               </div>
+              <div className="orbit-dot__connector" aria-hidden="true" />
               <span className="orbit-dot__label">
-                {item.label.split('\n').map((ln, j) => <span key={j}>{ln}<br /></span>)}
+                {item.label.split('\n').map((ln, j) => <span key={j}>{ln}{j < item.label.split('\n').length - 1 && <br />}</span>)}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Center text */}
+        {/* Center astronaut area */}
         <div className="orbit-center">
-          <p className="orbit-center__line1">DIGITAL</p>
-          <p className="orbit-center__line2">MARKETING</p>
+          <p className="orbit-center__line1">OUR</p>
+          <p className="orbit-center__line2">SERVICES</p>
         </div>
       </div>
     </div>
