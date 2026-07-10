@@ -85,22 +85,57 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
+    // Self-heal: make sure every column the API writes to exists, even on
+    // an older blog_posts table. Cheap + idempotent; prevents 500s from a
+    // missing column after a schema change.
+    if (req.method === 'POST' || req.method === 'PUT') {
+      try {
+        await sql`
+          ALTER TABLE blog_posts
+            ADD COLUMN IF NOT EXISTS meta_title VARCHAR(255),
+            ADD COLUMN IF NOT EXISTS meta_description TEXT,
+            ADD COLUMN IF NOT EXISTS tags TEXT,
+            ADD COLUMN IF NOT EXISTS scheduled_at TIMESTAMPTZ,
+            ADD COLUMN IF NOT EXISTS views INTEGER DEFAULT 0,
+            ADD COLUMN IF NOT EXISTS image_url VARCHAR(500),
+            ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ DEFAULT NOW()
+        `;
+        // content must allow empty inserts (we default '' in code, but drop
+        // NOT NULL so a legacy strict column can't 500 the request either)
+        await sql`ALTER TABLE blog_posts ALTER COLUMN content DROP NOT NULL`;
+      } catch {}
+    }
+
     if (req.method === 'POST') {
       const {
         title, slug, author, excerpt, content, category, image_url,
         meta_title, meta_description, tags, scheduled_at, status,
       } = req.body || {};
-      if (!title) {
-        return res.status(400).json({ error: 'title is required' });
+      if (!title || !String(title).trim()) {
+        return res.status(400).json({ error: 'Post title is required.' });
       }
-      const finalSlug = slug && slug.trim() ? slugify(slug) : slugify(title);
+      // content column is NOT NULL — never insert null (would 500). Default to ''.
+      const finalContent = (content ?? '') === '' ? '' : content;
       const finalStatus = status || 'draft';
+      // ensure a unique slug so a duplicate never throws a 500
+      let baseSlug = slug && slug.trim() ? slugify(slug) : slugify(title);
+      if (!baseSlug) baseSlug = 'post';
+      let finalSlug = baseSlug;
+      try {
+        const existing = await sql`SELECT slug FROM blog_posts WHERE slug LIKE ${baseSlug + '%'}`;
+        if (existing.some((r) => r.slug === baseSlug)) {
+          let n = 2;
+          const taken = new Set(existing.map((r) => r.slug));
+          while (taken.has(`${baseSlug}-${n}`)) n++;
+          finalSlug = `${baseSlug}-${n}`;
+        }
+      } catch {}
       const rows = await sql`
         INSERT INTO blog_posts
           (title, slug, author, excerpt, content, category, image_url,
            meta_title, meta_description, tags, scheduled_at, status)
         VALUES
-          (${title}, ${finalSlug}, ${author || null}, ${excerpt || null}, ${content || null},
+          (${title}, ${finalSlug}, ${author || null}, ${excerpt || null}, ${finalContent},
            ${category || null}, ${image_url || null}, ${meta_title || null}, ${meta_description || null},
            ${tags || null}, ${finalStatus === 'scheduled' ? (scheduled_at || null) : null}, ${finalStatus})
         RETURNING *
@@ -151,6 +186,10 @@ export default async function handler(req, res) {
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (err) {
-    return res.status(500).json({ error: 'Internal server error' });
+    console.error('[blog api] error:', err);
+    return res.status(500).json({
+      error: 'Internal server error',
+      detail: err?.message || String(err),
+    });
   }
 }
