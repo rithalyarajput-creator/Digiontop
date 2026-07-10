@@ -1828,9 +1828,9 @@ a {
 }
 /* nudge the CTA to the right so it never sits under the bottom-left chatbot */
 .hero__banner-content .hero__ctas { margin-left: 4px; }
-.hero__banner-content .hero__badge { margin-bottom: 16px; }
-.hero__banner-content .hero__headline { font-size: clamp(2.4rem, 4.6vw, 4.4rem); line-height: 1.05; margin-bottom: 16px; }
-.hero__banner-content .hero__subheadline { font-size: clamp(1rem, 1.5vw, 1.2rem); margin-bottom: 24px; }
+.hero__banner-content .hero__badge { margin-bottom: 14px; }
+.hero__banner-content .hero__headline { font-size: clamp(2.2rem, 4vw, 3.8rem); line-height: 1.06; margin-bottom: 14px; }
+.hero__banner-content .hero__subheadline { font-size: clamp(0.95rem, 1.3vw, 1.12rem); line-height: 1.5; margin-bottom: 20px; }
 .hero__banner-content .hero__ctas { margin-bottom: 0; }
 /* keep it compact: only ONE button + no stats so nothing overflows the banner */
 .hero__banner-content .hero__btn-services { display: none; }
