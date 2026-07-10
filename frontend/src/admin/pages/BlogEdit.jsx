@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { apiGet, apiPost, apiPut } from '../api';
 import { renderBlogContent } from '../../utils/renderBlog';
+import RichEditor from '../components/RichEditor';
 
 function slugify(text) {
   return text.toLowerCase().trim()
@@ -34,7 +35,7 @@ export default function BlogEdit() {
   const [slugTouched, setSlugTouched] = useState(false);
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
-  const [editorMode, setEditorMode] = useState('simple'); // 'simple' | 'html'
+  const [editorMode, setEditorMode] = useState('visual'); // 'visual' | 'simple' | 'html'
   const [preview, setPreview] = useState(false);
   const [cats, setCats] = useState(FALLBACK_CATS);
   const [authors, setAuthors] = useState([]);
@@ -218,31 +219,46 @@ export default function BlogEdit() {
           <div className="blogedit__section">
             <h2 className="blogedit__section-title">Content</h2>
             <div className="blogedit__editor-tabs">
-              <button type="button" className={`blogedit__tab${editorMode === 'simple' ? ' blogedit__tab--active' : ''}`} onClick={() => setEditorMode('simple')}>Simple Editor</button>
-              <button type="button" className={`blogedit__tab${editorMode === 'html' ? ' blogedit__tab--active' : ''}`} onClick={() => setEditorMode('html')}>HTML Editor</button>
+              <button type="button" className={`blogedit__tab${editorMode === 'visual' ? ' blogedit__tab--active' : ''}`} onClick={() => setEditorMode('visual')}>Visual Editor</button>
+              <button type="button" className={`blogedit__tab${editorMode === 'simple' ? ' blogedit__tab--active' : ''}`} onClick={() => setEditorMode('simple')}>Text / Markdown</button>
+              <button type="button" className={`blogedit__tab${editorMode === 'html' ? ' blogedit__tab--active' : ''}`} onClick={() => setEditorMode('html')}>HTML</button>
             </div>
 
-            {/* Formatting toolbar — available in BOTH editors */}
-            <div className="blogedit__toolbar">
-              {[['h2','H2',true],['h3','H3',true],['strong','Bold',true],['em','Italic',true],['ul','List',true],['li','List Item',true],['a','Link',true],['img','Image',false],['blockquote','Quote',true]].map(([tag, label, wrap]) => (
-                <button key={tag} type="button" className="blogedit__tool-btn" onClick={() => insertHtml(tag, wrap)} title={`Insert ${label}`}>
-                  {label === 'Bold' ? <b>B</b> : label === 'Italic' ? <i>I</i> : label}
-                </button>
-              ))}
-            </div>
-
-            <textarea
-              id="blog-content"
-              rows={editorMode === 'html' ? 20 : 14}
-              value={form.content}
-              onChange={(e) => update('content', e.target.value)}
-              placeholder={editorMode === 'html' ? '<h2>Your heading</h2>\n<p>Your paragraph...</p>' : 'Write your blog post content here...'}
-              className="blogedit__textarea"
-              required
-            />
-            <p className="blogedit__hint">
-              Tip: select the text you want to style, then click <b>B</b> (bold), <b>H2</b> (heading), <b>List</b>, etc. to format it.
-            </p>
+            {editorMode === 'visual' ? (
+              <>
+                <RichEditor
+                  value={/<(p|h[1-6]|ul|ol|li|blockquote|div|table|pre)\b/i.test(form.content || '') ? form.content : renderBlogContent(form.content)}
+                  onChange={(html) => update('content', html)}
+                  placeholder="Write your blog post here — select text and click B, H2, List… just like Word."
+                />
+                <p className="blogedit__hint">
+                  ✍️ Type or paste your text, select it, then click <b>B</b>, <b>H2</b>, <b>• List</b> etc.
+                  What you see here is exactly what appears on the blog.
+                </p>
+              </>
+            ) : (
+              <>
+                {/* symbol-insert toolbar for the raw text / html modes */}
+                <div className="blogedit__toolbar">
+                  {[['h2','H2',true],['h3','H3',true],['strong','Bold',true],['em','Italic',true],['ul','List',true],['li','List Item',true],['a','Link',true],['img','Image',false],['blockquote','Quote',true]].map(([tag, label, wrap]) => (
+                    <button key={tag} type="button" className="blogedit__tool-btn" onClick={() => insertHtml(tag, wrap)} title={`Insert ${label}`}>
+                      {label === 'Bold' ? <b>B</b> : label === 'Italic' ? <i>I</i> : label}
+                    </button>
+                  ))}
+                </div>
+                <textarea
+                  id="blog-content"
+                  rows={editorMode === 'html' ? 20 : 14}
+                  value={form.content}
+                  onChange={(e) => update('content', e.target.value)}
+                  placeholder={editorMode === 'html' ? '<h2>Your heading</h2>\n<p>Your paragraph...</p>' : 'Write your blog post content here...'}
+                  className="blogedit__textarea"
+                />
+                <p className="blogedit__hint">
+                  Tip: select the text you want to style, then click <b>B</b> (bold), <b>H2</b> (heading), <b>List</b>, etc. to format it.
+                </p>
+              </>
+            )}
           </div>
 
           {/* ── SEO ── */}
