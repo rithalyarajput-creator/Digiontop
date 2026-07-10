@@ -1894,11 +1894,14 @@ a {
 /* ── Mobile ── */
 @media (max-width: 560px) {
   .hero--bgimg { min-height: 460px; }
+  .hero__bgimg { content: url('/images/home-banner-mobile.webp'); object-position: center; }
+  .hero__bgimg-shade { background: rgba(8,10,18,0.7); }
+  .hero__bgimg-text { max-width: none; text-align: left; }
   .hero__bgimg-text .hero__headline { font-size: clamp(2rem, 10vw, 2.6rem); }
   .hero__bgimg-text .hero__subheadline { font-size: 1.02rem; }
   .hero__bgimg-text .hero__lead { font-size: 0.9rem; }
-  .hero__bgimg-text .hero__ctas { gap: 10px; }
-  .hero__bgimg-text .hero__ctas .btn { flex: 1 1 auto; justify-content: center; padding: 13px 16px; }
+  .hero__bgimg-text .hero__ctas { gap: 10px; flex-direction: column; }
+  .hero__bgimg-text .hero__ctas .btn { width: auto; padding: 13px 16px; }
   .hero__bgimg-text .hero__stats-row { gap: 18px 28px; }
   .hero__bgimg-text .hero__stat-val { font-size: 1.4rem; }
 }
