@@ -38,8 +38,28 @@ export default function Contact() {
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
+    if (!form.firstName.trim()) {
+      setError('First name is required.');
+      return;
+    }
+    if (!form.lastName.trim()) {
+      setError('Last name is required.');
+      return;
+    }
+    if (!form.company.trim()) {
+      setError('Company/Organization is required.');
+      return;
+    }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       setError('Please enter a valid email address.');
+      return;
+    }
+    if (!form.service) {
+      setError('Please select a service.');
+      return;
+    }
+    if (!form.consent) {
+      setError('Please check the consent checkbox to proceed.');
       return;
     }
     setSubmitting(true);
