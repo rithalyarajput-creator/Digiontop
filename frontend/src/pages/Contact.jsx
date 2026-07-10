@@ -6,6 +6,7 @@ import {
 } from 'react-icons/fi';
 import { FaXTwitter } from 'react-icons/fa6';
 import { useSettings } from '../context/SettingsContext';
+import '../styles/About.css';   /* Contact form reuses the .about-lead__* base styles */
 import '../styles/Contact.css';
 
 const X_LINK = 'https://x.com/digiontopagency';
