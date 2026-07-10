@@ -125,15 +125,14 @@ const heroStats = [
 ];
 
 const HeroSection = () => (
-  <section className="hero hero--split">
-    <div className="hero__bg" aria-hidden="true">
-      <span className="hero__bg-orb hero__bg-orb--1" />
-      <span className="hero__bg-orb hero__bg-orb--2" />
-      <span className="hero__bg-grid" />
-    </div>
-    <div className="container hero__split-inner">
-      {/* LEFT — text + buttons */}
-      <div className="hero__split-text" data-aos="fade-right">
+  <section className="hero hero--bgimg">
+    {/* full designed image as the background */}
+    <img src="/images/home-banner.webp" alt="DigionTop — #1 Digital Marketing Agency in India" className="hero__bgimg" />
+    <div className="hero__bgimg-shade" aria-hidden="true" />
+
+    <div className="container hero__bgimg-inner">
+      {/* text + buttons on the LEFT (dark) area of the image */}
+      <div className="hero__bgimg-text" data-aos="fade-right">
         <div className="hero__badge">
           <span className="hero__badge-star">★</span> #1 Digital Marketing Agency
         </div>
@@ -165,11 +164,6 @@ const HeroSection = () => (
             </div>
           ))}
         </div>
-      </div>
-
-      {/* RIGHT — image */}
-      <div className="hero__split-media" data-aos="fade-left">
-        <img src="/images/home-banner.webp" alt="DigionTop — #1 Digital Marketing Agency in India" className="hero__split-img" />
       </div>
     </div>
   </section>
