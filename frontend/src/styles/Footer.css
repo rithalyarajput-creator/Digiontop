@@ -463,31 +463,42 @@
 
   /* Newsletter — input on left, Subscribe button on the RIGHT (row) */
   .footer-newsletter {
+    display: flex;
     flex-direction: row;
     align-items: stretch;
     border: none;
     border-radius: 0;
     overflow: visible;
     gap: 8px;
-    margin-bottom: 22px;   /* breathing room below newsletter */
+    margin-bottom: 22px;
+    width: 100%;
   }
   .footer-newsletter-input {
     flex: 1 1 auto;
-    width: auto;
+    width: 100%;
+    min-width: 0;
     border: 1px solid #333;
     border-radius: 10px;
     padding: 12px 14px;
-    min-width: 0;
     font-size: 0.9rem;
+    background: #222;
+    color: #fff;
   }
   .footer-newsletter-btn {
     flex: 0 0 auto;
     width: auto;
+    min-width: 100px;
     border-radius: 10px;
     padding: 12px 18px;
     font-size: 0.88rem;
     font-weight: 800;
     white-space: nowrap;
+    background: var(--footer-accent);
+    color: #000;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    visibility: visible;
   }
 }
 
