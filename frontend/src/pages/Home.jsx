@@ -134,6 +134,26 @@ const HeroSection = () => (
     <img src="/images/home-banner.webp" alt="DigionTop — #1 Digital Marketing Agency in India" className="hero__bgimg" />
     <div className="hero__bgimg-shade" aria-hidden="true" />
 
+    {/* Animated orbit overlay — desktop only */}
+    <div className="hero__orbit-overlay">
+      <div className="hero__orbit-ring">
+        {ORBIT_ITEMS.map((item, i) => (
+          <div
+            key={i}
+            className="hero__orbit-dot"
+            style={{ '--i': i, '--total': ORBIT_ITEMS.length }}
+          >
+            <div className="hero__orbit-dot__circle">
+              {item.svg}
+            </div>
+            <span className="hero__orbit-dot__label">
+              {item.label.split('\n').map((ln, j) => <span key={j}>{ln}{j < item.label.split('\n').length - 1 && <br />}</span>)}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
     <div className="container hero__bgimg-inner">
       {/* text + buttons on the LEFT (dark) area of the image */}
       <div className="hero__bgimg-text" data-aos="fade-right">
