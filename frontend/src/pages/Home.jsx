@@ -24,6 +24,7 @@ import {
   FaPencilRuler,
   FaRocket,
   FaChartBar,
+  FaTrophy,
 } from "react-icons/fa";
 import "../styles/Home.css";
 
@@ -119,9 +120,9 @@ const stats = [
 // ─── SUB-COMPONENTS ───────────────────────────────────────────────────────────
 
 const heroStats = [
-  { value: "500+", label: "Happy Clients" },
-  { value: "2X+", label: "Average Growth" },
-  { value: "#1", label: "Client Satisfaction" },
+  { value: "500+", label: "Happy Clients", icon: <FaHandshake /> },
+  { value: "2X+", label: "Average Growth", icon: <FaChartLine /> },
+  { value: "#1", label: "Client Satisfaction", icon: <FaTrophy /> },
 ];
 
 const HeroSection = () => (
@@ -159,6 +160,7 @@ const HeroSection = () => (
         <div className="hero__stats-row">
           {heroStats.map((s, i) => (
             <div className="hero__stat-item" key={i}>
+              {s.icon && <span className="hero__stat-icon">{s.icon}</span>}
               <span className="hero__stat-val">{s.value}</span>
               <span className="hero__stat-lbl">{s.label}</span>
             </div>
