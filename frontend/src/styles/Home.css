@@ -1814,7 +1814,7 @@ a {
 }
 .hero__banner-content {
   position: absolute;
-  top: 50%;                  /* vertically centered in the banner */
+  top: 46%;                  /* slightly above center so the empty gap above stays small on wide screens */
   left: max(20px, calc((100% - 1200px) / 2 + 20px));
   transform: translateY(-50%);
   z-index: 3;
