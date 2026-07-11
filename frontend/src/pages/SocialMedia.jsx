@@ -38,6 +38,7 @@ import { MdOutlineAutoGraph, MdOutlineCampaign } from 'react-icons/md'
 import ServiceWork from '../components/ServiceWork'
 import ServiceFaq from '../components/ServiceFaq'
 import RelatedServices from '../components/RelatedServices'
+import ServiceHeroAnim from '../components/ServiceHeroAnim'
 import '../styles/Services.css'
 
 const SM_FAQS = [
@@ -187,7 +188,7 @@ export default function SocialMedia() {
             </div>
 
             <div className="svc-hero__right" data-aos="fade-left">
-              <img src="/images/social-hero.webp" alt="Social media growth" loading="eager" />
+              <ServiceHeroAnim variant="social" label="Social media growth illustration" />
             </div>
           </div>
         </div>
