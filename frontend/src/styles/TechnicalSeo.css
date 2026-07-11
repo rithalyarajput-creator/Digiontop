@@ -20,11 +20,11 @@
 /* HERO dark terminal */
 .tseo-hero{position:relative;padding:80px 24px;background:radial-gradient(ellipse at 20% 0%,#1a2036,#12162a 55%,#0c0f1e);overflow:hidden;}
 .tseo-hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;mask:radial-gradient(ellipse 60% 60% at 60% 30%,#000,transparent 75%);}
-.tseo-hero__inner{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.tseo-hero__inner{position:relative;max-width:820px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;}
 .tseo-hero__title{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:900;line-height:1.06;letter-spacing:-.03em;color:#fff;margin:0 0 18px;}
 .tseo-hero__title span{color:var(--gold);}
-.tseo-hero__sub{font-size:1.08rem;color:#aeb2c0;line-height:1.7;max-width:480px;margin:0 0 26px;}
-.tseo-hero__cta{display:flex;gap:14px;flex-wrap:wrap;}
+.tseo-hero__sub{font-size:1.08rem;color:#aeb2c0;line-height:1.7;max-width:480px;margin:0 0 26px;margin-left:auto;margin-right:auto;}
+.tseo-hero__cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
 
 /* terminal window */
 .tseo-term{border-radius:14px;overflow:hidden;background:#0b0e1a;border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 70px -30px rgba(0,0,0,.8);font-family:'Space Mono',monospace;}

@@ -18,11 +18,12 @@
 
 /* HERO dark */
 .ent-hero{padding:80px 24px;background:radial-gradient(ellipse at 70% 20%,#1c2136,#14182b 55%,#0e1120);}
-.ent-hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.ent-hero__inner{max-width:820px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;}
 .ent-hero__title{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:900;line-height:1.06;letter-spacing:-.03em;color:#fff;margin:0 0 18px;}
 .ent-hero__title span{background:linear-gradient(120deg,#FFD24A,#F5A800);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 .ent-hero__sub{font-size:1.08rem;color:#aeb2c0;line-height:1.7;max-width:480px;margin:0 0 26px;}
-.ent-hero__cta{display:flex;gap:14px;flex-wrap:wrap;}
+.ent-hero__cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+.ent-hero__sub{margin-left:auto;margin-right:auto;}
 
 /* dashboard */
 .ent-dash{background:#0f1426;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px;box-shadow:0 40px 70px -30px rgba(0,0,0,.8);}

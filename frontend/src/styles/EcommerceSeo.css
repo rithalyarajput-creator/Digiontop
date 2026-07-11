@@ -19,7 +19,7 @@
 
 /* HERO */
 .eseo-hero{padding:74px 24px 84px;background:linear-gradient(180deg,#FFF8EC,#fff);}
-.eseo-hero__inner{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;}
+.eseo-hero__inner{max-width:820px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;}
 .eseo-hero__title{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.06;letter-spacing:-.03em;margin:0 0 18px;}
 .eseo-hero__title span{background:linear-gradient(120deg,#F5A800,#C78700);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 .eseo-hero__sub{font-size:1.1rem;color:var(--muted);line-height:1.7;max-width:480px;margin:0 0 26px;}
@@ -27,6 +27,8 @@
 .eseo-hero__mini{display:flex;gap:28px;flex-wrap:wrap;}
 .eseo-hero__mini b{display:block;font-size:1.4rem;font-weight:900;color:var(--gold-d);}
 .eseo-hero__mini span{font-size:.8rem;color:var(--muted);}
+.eseo-hero__sub{margin-left:auto;margin-right:auto;}
+.eseo-hero__cta{justify-content:center;}
 
 /* faux SERP */
 .eseo-serp{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 30px 60px -30px rgba(20,24,43,.35);}

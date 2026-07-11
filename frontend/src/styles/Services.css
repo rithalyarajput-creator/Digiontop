@@ -627,6 +627,18 @@
 @keyframes svc-hero-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 
 /* Split hero: left text + right image, pure white (SEO / Social) */
+/* simple centered hero variant */
+.svc-hero--center { background: #fff; padding: 84px 0 72px; position: relative; overflow: hidden; }
+.svc-hero__centered {
+  max-width: 820px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.svc-hero__centered .svc-hero__tag { margin-bottom: 20px; }
+.svc-hero__centered .svc-hero__title { text-align: center; }
+.svc-hero__centered .svc-hero__subtitle { text-align: center; margin: 0 auto 26px; max-width: 640px; }
+.svc-hero__centered .svc-hero__actions { justify-content: center; }
+.svc-hero__centered .svc-hero__stats { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee; gap: 48px; justify-content: center; }
+
 .svc-hero--split { background: #fff; padding: 80px 0 70px; position: relative; overflow: hidden; }
 .svc-hero__split { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 50px; align-items: center; }
 .svc-hero__left { text-align: left; }

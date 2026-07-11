@@ -52,20 +52,6 @@ export default function TechnicalSeo() {
               <Link to="/contact" className="tseo-btn tseo-btn--ghost">Talk to an Engineer</Link>
             </div>
           </div>
-          {/* terminal window */}
-          <div className="tseo-term" data-aos="fade-left">
-            <div className="tseo-term__bar"><i /><i /><i /><span>site-health-scan</span></div>
-            <div className="tseo-term__body">
-              <p><span className="p">$</span> digiontop scan example.com</p>
-              <p className="dim">Crawling 1,284 URLs…</p>
-              {CHECKS.map((c) => (
-                <p key={c.t} className={c.ok ? 'ok' : 'bad'}>
-                  {c.ok ? <FiCheck /> : <FiX />} {c.t} <b>{c.s}</b>
-                </p>
-              ))}
-              <p className="score">Health Score: <b>64/100</b> → target <b className="g">95+</b></p>
-            </div>
-          </div>
         </div>
       </section>
 

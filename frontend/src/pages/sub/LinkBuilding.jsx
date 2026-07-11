@@ -46,17 +46,6 @@ export default function LinkBuilding() {
               <Link to="/contact" className="lb-btn lb-btn--ghost">See Sample Links</Link>
             </div>
           </div>
-          {/* node graph */}
-          <div className="lb-graph" data-aos="fade-left">
-            <span className="lb-node lb-node--center"><FiGlobe /><b>You</b></span>
-            {['DA 92', 'DA 78', 'DA 84', 'DA 71', 'DA 66'].map((n, i) => (
-              <span key={n} className={`lb-node lb-node--${i + 1}`}>{n}</span>
-            ))}
-            <svg className="lb-lines" viewBox="0 0 400 340" preserveAspectRatio="none">
-              <path d="M200,170 L70,60" /><path d="M200,170 L340,70" /><path d="M200,170 L50,250" />
-              <path d="M200,170 L350,260" /><path d="M200,170 L200,30" />
-            </svg>
-          </div>
         </div>
       </section>
 

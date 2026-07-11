@@ -47,22 +47,6 @@ export default function EcommerceSeo() {
               <div><b>Page 1</b><span>Product Rankings</span></div>
             </div>
           </div>
-          {/* faux search + product grid */}
-          <div className="eseo-serp" data-aos="fade-left">
-            <div className="eseo-serp__bar"><FiSearch /> buy running shoes online</div>
-            <div className="eseo-serp__grid">
-              {[{ p: '₹2,499', s: '4.8' }, { p: '₹1,999', s: '4.6' }, { p: '₹3,299', s: '4.9' }, { p: '₹2,799', s: '4.7' }].map((x, i) => (
-                <div className="eseo-prod" key={i}>
-                  <div className="eseo-prod__img"><FiShoppingBag /></div>
-                  <div className="eseo-prod__meta">
-                    <span className="eseo-prod__stars"><FiStar className="f" /> {x.s}</span>
-                    <span className="eseo-prod__price">{x.p}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <span className="eseo-serp__badge"><FiCheck /> Rich results live</span>
-          </div>
         </div>
       </section>
 

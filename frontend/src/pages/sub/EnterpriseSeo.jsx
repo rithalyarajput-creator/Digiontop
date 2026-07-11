@@ -42,18 +42,6 @@ export default function EnterpriseSeo() {
               <Link to="/contact" className="ent-btn ent-btn--ghost">Request a Proposal</Link>
             </div>
           </div>
-          {/* dashboard card */}
-          <div className="ent-dash" data-aos="fade-left">
-            <div className="ent-dash__head"><b>Organic Performance</b><span className="ent-dash__live">● Live</span></div>
-            <div className="ent-dash__kpis">
-              <div><span>Organic Revenue</span><b>₹4.2Cr</b><i className="up"><FiTrendingUp /> +38%</i></div>
-              <div><span>Indexed Pages</span><b>128k</b><i className="up"><FiTrendingUp /> +12k</i></div>
-            </div>
-            <div className="ent-dash__chart">
-              {[38, 52, 46, 64, 58, 78, 72, 92].map((h, i) => (<span key={i} style={{ height: `${h}%` }} />))}
-            </div>
-            <div className="ent-dash__foot"><FiCheck /> 40 markets · 8 languages · 1 strategy</div>
-          </div>
         </div>
       </section>
 

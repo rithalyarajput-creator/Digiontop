@@ -42,17 +42,6 @@ export default function SeoAudit() {
               <Link to="/contact" className="aud-btn aud-btn--ghost">See a Sample Report</Link>
             </div>
           </div>
-          {/* scorecard ring */}
-          <div className="aud-score" data-aos="fade-left">
-            <div className="aud-ring" style={{ '--v': 68 }}>
-              <div className="aud-ring__center"><b>68</b><span>/100</span><small>SEO Score</small></div>
-            </div>
-            <div className="aud-score__legend">
-              <span><i className="bad" /> Critical</span>
-              <span><i className="mid" /> Needs work</span>
-              <span><i className="good" /> Healthy</span>
-            </div>
-          </div>
         </div>
       </section>
 

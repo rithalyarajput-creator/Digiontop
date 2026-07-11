@@ -57,28 +57,6 @@ export default function LocalSeo() {
             </div>
           </div>
 
-          {/* faux map + pin + local-pack card */}
-          <div className="lseo-hero__map" data-aos="fade-left">
-            <div className="lseo-map">
-              <span className="lseo-map__road lseo-map__road--1" />
-              <span className="lseo-map__road lseo-map__road--2" />
-              <span className="lseo-map__road lseo-map__road--3" />
-              <span className="lseo-map__pin lseo-map__pin--main"><FiMapPin /></span>
-              <span className="lseo-map__pin lseo-map__pin--a" />
-              <span className="lseo-map__pin lseo-map__pin--b" />
-              <span className="lseo-map__pulse" />
-            </div>
-            <div className="lseo-pack">
-              <div className="lseo-pack__head"><FiSearch /> plumber near me</div>
-              <div className="lseo-pack__item lseo-pack__item--top">
-                <span className="lseo-pack__rank">1</span>
-                <div><b>Your Business</b><small><FiStar className="fill" /><FiStar className="fill" /><FiStar className="fill" /><FiStar className="fill" /><FiStar className="fill" /> 4.9 · Open now</small></div>
-                <FiPhone className="lseo-pack__call" />
-              </div>
-              <div className="lseo-pack__item"><span className="lseo-pack__rank">2</span><div><b>Competitor A</b><small>4.2 · 1.4 km</small></div></div>
-              <div className="lseo-pack__item"><span className="lseo-pack__rank">3</span><div><b>Competitor B</b><small>3.9 · 2.1 km</small></div></div>
-            </div>
-          </div>
         </div>
       </section>
 
