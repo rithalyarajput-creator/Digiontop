@@ -110,7 +110,16 @@
   .pf-hero__title { font-size: clamp(1.9rem, 8vw, 2.4rem); margin: 16px 0 16px; }
   .pf-word { margin-right: 0.18em; }
   .pf-hero__about { margin-top: 4px; padding: 20px 20px; }
-  .pf-hero__stats { margin-top: 24px; gap: 12px; }
+  /* all 4 stats on ONE row */
+  .pf-hero__stats {
+    margin-top: 24px; gap: 8px;
+    flex-wrap: nowrap; justify-content: space-between;
+  }
+  .pf-stat {
+    flex: 1; min-width: 0; padding: 14px 6px; text-align: center; border-radius: 12px;
+  }
+  .pf-stat b { font-size: clamp(1.15rem, 5.4vw, 1.6rem); }
+  .pf-stat span { font-size: 10.5px; line-height: 1.2; display: block; }
   /* hide the "scroll to explore" cue on mobile — it just adds empty space */
   .pf-hero__scroll { display: none; }
 }
@@ -876,7 +885,21 @@
 
 /* ── CTA ───────────────────────────────────────────────────── */
 .pf-cta { padding: 80px 24px 100px; text-align: center; background: var(--ink); }
-.pf-cta__box { max-width: 680px; margin: 0 auto; }
+.pf-cta__box {
+  position: relative; overflow: hidden;
+  max-width: 720px; margin: 0 auto;
+  padding: 52px 40px;
+  border-radius: 26px;
+  background: linear-gradient(150deg, rgba(245,168,0,0.08), rgba(255,255,255,0.02));
+  border: 1px solid rgba(245,168,0,0.22);
+}
+/* soft glow inside the CTA card */
+.pf-cta__box::before {
+  content: ''; position: absolute; width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,168,0,0.28), transparent 70%);
+  top: -120px; right: -80px; pointer-events: none;
+}
+.pf-cta__box > * { position: relative; z-index: 1; }
 .pf-cta h2 {
   font-size: clamp(1.8rem, 4.5vw, 2.8rem);
   font-weight: 800;
@@ -916,6 +939,14 @@
   .pf-grid--vertical { grid-template-columns: 1fr; }
   /* keep posts as a swipeable slider on phones */
   .pf-grid--square > .pf-card { flex-basis: 280px; }
+
+  /* ── CTA: distinct compact card with side gutters ── */
+  .pf-cta { padding: 48px 14px 70px; }
+  .pf-cta__box { padding: 34px 24px; border-radius: 22px; }
+  .pf-cta__box::before { width: 200px; height: 200px; top: -80px; right: -60px; }
+  .pf-cta h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .pf-cta p { font-size: 0.95rem; margin-bottom: 22px; }
+  .pf-cta__btn { width: 100%; justify-content: center; padding: 15px 24px; }
 }
 
 /* ── Touch devices (phones/tablets): no hover, so the scroll-on-hover

@@ -33,7 +33,6 @@ const SECTIONS = [
     mockup: 'ecommerce',
     items: [
       { id: 'e1', title: 'Amshine Jewels', tag: 'Jewellery E-Commerce', image: '/images/work/amshine-jewels.webp', link: 'https://amshinejewels.com' },
-      { id: 'e2', title: 'Blameless', tag: 'Skincare E-Commerce', image: '/images/work/blameless-skincare.webp', link: 'https://blameless.in' },
     ],
   },
   {
@@ -47,8 +46,6 @@ const SECTIONS = [
     gridClass: 'pf-grid--postgrid',
     mockup: 'post',
     items: [
-      { id: 'po1', title: 'Sunscreen Awareness', tag: 'Creative Post', image: '/images/work/post-1.webp' },
-      { id: 'po2', title: 'Brand Campaign', tag: 'Creative Post', image: '/images/work/post-2.webp' },
       { id: 'po3', title: 'Jhumka Collection', tag: 'Product Creative', image: '/images/work/creative-jhumka.webp' },
       { id: 'po4', title: 'Microwave Bowl Set', tag: 'Product Creative', image: '/images/work/creative-2.webp' },
       { id: 'po5', title: 'Gold Hair Clips', tag: 'Product Creative', image: '/images/work/creative-hairclip.webp' },
