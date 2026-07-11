@@ -319,16 +319,22 @@ export default function About() {
       </section>
 
       {/* ══ 5b. OUR GOAL ══ */}
-      <section className="ab-goal">
-        <div className="about-container ab-goal__inner" data-aos="zoom-in">
-          <span className="ab-eyebrow">Our Goal</span>
-          <h2 className="ab-goal__title">Helping Your Business <span>Reach The Top</span></h2>
-          <p>
-            Our goal is not simply to build websites, manage social media, or run campaigns —
-            it's to help businesses create a strong digital presence, attract the right audience,
-            generate more opportunities, and achieve meaningful growth.
-          </p>
-          <p className="ab-goal__tagline">Build Better. Grow Faster. Reach The Top.</p>
+      <section className="ab-goal2">
+        <div className="about-container">
+          <div className="ab-goal2__card" data-aos="fade-up">
+            <div className="ab-goal2__left">
+              <span className="ab-goal2__eyebrow"><span className="ab-goal2__eyebrow-dot" /> Our Goal</span>
+              <h2 className="ab-goal2__title">Helping Your Business <span>Reach The Top</span></h2>
+            </div>
+            <div className="ab-goal2__right">
+              <p className="ab-goal2__text">
+                Our goal isn't simply to build websites, manage social media, or run campaigns —
+                it's to help businesses create a strong digital presence, attract the right
+                audience, and achieve meaningful growth.
+              </p>
+              <p className="ab-goal2__tagline"><FiTrendingUp /> Build Better. Grow Faster. Reach The Top.</p>
+            </div>
+          </div>
         </div>
       </section>
 

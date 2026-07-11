@@ -817,21 +817,41 @@
 .ab-why2__card:hover .ab-why2__shine { left: 130%; }
 
 /* OUR GOAL — dramatic dark full-width banner */
-.ab-goal { padding: 0 0 90px; }
-.ab-goal__inner {
-  position: relative; overflow: hidden; text-align: center;
+/* ══ OUR GOAL — compact split card ══ */
+.ab-goal2 { padding: 0 0 80px; }
+.ab-goal2__card {
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: center;
   max-width: 1000px; margin: 0 auto;
-  background: radial-gradient(circle at 50% 0%, #20284a, #11162a 70%);
-  border-radius: 28px; padding: 70px 40px;
-  box-shadow: 0 30px 70px rgba(20,24,43,0.32);
+  background: linear-gradient(135deg, #16171f 0%, #1c1f2e 100%);
+  border: 1px solid rgba(245,168,0,0.16);
+  border-radius: 22px; padding: 40px 44px;
+  box-shadow: 0 20px 50px rgba(20,24,43,0.22);
 }
-.ab-goal__inner::before { content: ''; position: absolute; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(245,168,0,0.3), transparent 70%); top: -160px; right: -120px; }
-.ab-goal__inner::after { content: ''; position: absolute; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(245,168,0,0.18), transparent 70%); bottom: -150px; left: -100px; }
-.ab-goal__inner .ab-eyebrow { position: relative; color: #FFD874; }
-.ab-goal__title { position: relative; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: #fff; margin: 8px 0 18px; }
-.ab-goal__title span { color: #FFB12E; }
-.ab-goal__inner p { position: relative; color: rgba(255,255,255,0.72); line-height: 1.75; font-size: 1.04rem; margin: 0 auto 14px; max-width: 640px; }
-.ab-goal__tagline { position: relative; font-size: 1.25rem; font-weight: 900; color: #FFD874 !important; letter-spacing: 0.01em; margin-top: 22px !important; }
+/* golden accent bar between the two halves */
+.ab-goal2__card::after {
+  content: ''; position: absolute; left: 46%; top: 22%; bottom: 22%; width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(245,168,0,0.5), transparent);
+}
+.ab-goal2__eyebrow {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #F5A800; margin-bottom: 14px;
+}
+.ab-goal2__eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #F5A800; box-shadow: 0 0 8px rgba(245,168,0,0.9); }
+.ab-goal2__title { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 900; color: #fff; line-height: 1.18; margin: 0; letter-spacing: -0.01em; }
+.ab-goal2__title span {
+  background: linear-gradient(120deg, #FFD24A, #F5A800);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.ab-goal2__text { color: #adb1bd; line-height: 1.7; font-size: 0.98rem; margin: 0 0 16px; }
+.ab-goal2__tagline {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 1rem; font-weight: 800; color: #FFD24A; margin: 0;
+  padding: 10px 16px; border-radius: 12px;
+  background: rgba(245,168,0,0.1); border: 1px solid rgba(245,168,0,0.24);
+}
+.ab-goal2__tagline svg { flex-shrink: 0; }
 
 @media (max-width: 1024px) {
   .ab-why2__grid { grid-template-columns: repeat(2, 1fr); }
@@ -991,11 +1011,12 @@
   .ab-h2, .ab-hero__title { word-wrap: break-word; }
 
   /* ── Our Goal: don't touch screen edges + compact ── */
-  .ab-goal { padding: 0 16px 64px !important; }
-  .ab-goal__inner { padding: 44px 24px !important; border-radius: 22px; }
-  .ab-goal__title { font-size: clamp(1.5rem, 7vw, 2rem) !important; }
-  .ab-goal__inner p { font-size: 0.95rem !important; }
-  .ab-goal__tagline { font-size: 1.05rem !important; }
+  .ab-goal2 { padding: 0 16px 56px; }
+  .ab-goal2__card { grid-template-columns: 1fr; gap: 20px; padding: 30px 22px; text-align: left; }
+  .ab-goal2__card::after { display: none; }   /* no divider when stacked */
+  .ab-goal2__title { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+  .ab-goal2__text { font-size: 0.92rem; }
+  .ab-goal2__tagline { font-size: 0.9rem; }
 
   /* ── Lead form promo board: compact + hide bars that overlap text ── */
   .about-lead__promo { padding: 26px 22px !important; }
