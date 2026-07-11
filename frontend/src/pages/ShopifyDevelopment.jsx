@@ -88,21 +88,28 @@ export default function ShopifyDevelopment() {
         </div>
       </section>
 
-      {/* ── INTRO ── */}
+      {/* ── INTRO — statement card with stat highlights ── */}
       <section className="sf-intro">
         <div className="sf-container">
-          <h2 className="sf-h2" data-aos="fade-up">High-Converting Shopify Stores Built for Modern Brands</h2>
-          <div className="sf-intro__grid">
-            <p data-aos="fade-up">
+          <div className="sf-intro__card" data-aos="fade-up">
+            <span className="sf-intro__quote" aria-hidden="true">&ldquo;</span>
+            <span className="sf-eyebrow">Why It Matters</span>
+            <h2 className="sf-h2">High-Converting Shopify Stores <span>Built for Modern Brands</span></h2>
+            <p className="sf-intro__lead">
               Your Shopify store is more than just a website — it's the foundation of your online business.
-              At DigionTop Agency, we design and develop professional Shopify stores that help brands create
-              a strong online presence, improve customer experience, and increase sales.
+              We design and develop professional Shopify stores that help brands create a strong online
+              presence, improve customer experience, and increase sales.
             </p>
-            <p data-aos="fade-up" data-aos-delay="100">
-              From custom storefront design to complete store setup, we build Shopify solutions tailored to
-              your goals. Whether you're launching a new brand or upgrading an existing store, we create fast,
-              mobile-friendly, and conversion-focused Shopify websites built for growth.
+            <p className="sf-intro__lead">
+              From custom storefront design to complete store setup, whether you're launching a new brand
+              or upgrading an existing one, we build fast, mobile-friendly, conversion-focused stores made
+              for growth.
             </p>
+            <div className="sf-intro__stats">
+              <div><b>2.4s</b><span>Avg. Load Time</span></div>
+              <div><b>100%</b><span>Mobile Optimised</span></div>
+              <div><b>Zero</b><span>Template Lock-In</span></div>
+            </div>
           </div>
         </div>
       </section>
@@ -176,14 +183,6 @@ export default function ShopifyDevelopment() {
           </div>
         </div>
       </section>
-
-      {/* ── PORTFOLIO ── */}
-      <ServiceWork
-        accent="#5bb381"
-        accentSoft="#e8f6ee"
-        heading="Stores & Content We've Delivered"
-        subtitle="A look at the e-commerce work, reels and creatives we produce for our clients."
-      />
 
       {/* FAQ + lead form */}
       <ServiceFaq service="Shopify Store Development" faqs={FAQS} />

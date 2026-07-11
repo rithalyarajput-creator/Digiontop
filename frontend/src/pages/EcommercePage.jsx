@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
-import ServiceHeroAnim from '../components/ServiceHeroAnim'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import {
@@ -49,18 +48,13 @@ export default function EcommercePage() {
       <Seo title="E-Commerce Solutions — Amazon, Flipkart & Shopify | DigionTop" description="Scale your online sales on Amazon, Flipkart, Meesho & Shopify. Product listings, SEO, catalog & sponsored ads that drive growth. Get a free store audit." path="/services/ecommerce" />
       {/* HERO */}
       <section className="ss-hero ss-hero--white">
-        <div className="ss-container ds-hero" style={{ position: 'relative' }}>
-          <div data-aos="fade-right">
-            <span className="ss-tag"><FiShoppingBag /> E-Commerce Solutions</span>
-            <h1 className="ss-hero__title">Sell More. Scale Faster. <span>Grow Across Every Marketplace.</span></h1>
-            <p className="ss-hero__sub">Listing products online isn't enough. We help businesses build, manage, and grow on Amazon, Flipkart, Meesho & Shopify — more visibility, more conversions, more sales.</p>
-            <div className="ss-hero__actions">
-              <Link to="/contact" className="ss-btn ss-btn--primary">Grow My Marketplace Sales <FiArrowRight /></Link>
-              <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Consultation</Link>
-            </div>
-          </div>
-          <div className="ec-hero__media" data-aos="fade-left">
-            <ServiceHeroAnim variant="ecommerce" label="E-commerce marketplace illustration" />
+        <div className="ss-container ss-hero__center" data-aos="fade-up">
+          <span className="ss-tag"><FiShoppingBag /> E-Commerce Solutions</span>
+          <h1 className="ss-hero__title">Sell More. Scale Faster. <span>Grow Across Every Marketplace.</span></h1>
+          <p className="ss-hero__sub">Listing products online isn't enough. We help businesses build, manage, and grow on Amazon, Flipkart, Meesho & Shopify — more visibility, more conversions, more sales.</p>
+          <div className="ss-hero__actions">
+            <Link to="/contact" className="ss-btn ss-btn--primary">Grow My Marketplace Sales <FiArrowRight /></Link>
+            <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Consultation</Link>
           </div>
         </div>
       </section>

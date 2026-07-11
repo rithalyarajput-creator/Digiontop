@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiShoppingBag, FiSearch, FiEdit3, FiTag, FiTrendingUp, FiStar, FiCheck, FiArrowRight, FiArrowUpRight, FiAward } from 'react-icons/fi'
+import { FiShoppingBag, FiSearch, FiEdit3, FiTag, FiTrendingUp, FiStar, FiCheck, FiArrowRight, FiArrowUpRight, FiAward, FiLayers, FiTarget, FiShield, FiZap } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/EcomPages.css'
 
@@ -21,6 +21,19 @@ const FEATURES = [
   { icon: <FiStar />, t: 'Category & Attributes', d: 'Correct placement so you show up in the right searches.' },
   { icon: <FiTrendingUp />, t: 'Conversion Focused', d: 'Everything tuned to turn views into orders.' },
 ]
+const PROCESS = [
+  { n: '01', t: 'Listing Audit', d: 'We review your current titles, bullets, images and backend terms against top-ranking competitors.' },
+  { n: '02', t: 'Keyword Research', d: 'We mine high-intent search terms using Amazon and third-party indexing data to target real buyer queries.' },
+  { n: '03', t: 'Copy & A+ Build', d: 'We rewrite titles, bullets and descriptions, then design A+ Content that builds trust and lifts conversions.' },
+  { n: '04', t: 'Index & Monitor', d: 'We track keyword indexing, search rank and Buy Box share, then refine copy based on real performance.' },
+]
+const STACK = ['Title Optimisation', 'Bullet Points', 'Backend Search Terms', 'A+ Content', 'Keyword Indexing', 'Buy Box Share', 'Category Mapping', 'Image & Infographic Briefs', 'Search Rank Tracking', 'Competitor Benchmarking']
+const WHY = [
+  { icon: <FiTarget />, t: 'Buyer-Intent Keywords', d: 'We target the exact phrases shoppers type before they click "Buy Now", not vanity search terms.' },
+  { icon: <FiLayers />, t: 'Full Listing Coverage', d: 'Titles, bullets, backend terms and A+ Content are optimised together as one consistent listing.' },
+  { icon: <FiShield />, t: 'Policy-Safe Copy', d: 'Every listing follows Amazon style and keyword guidelines to avoid suppression or listing flags.' },
+  { icon: <FiZap />, t: 'Faster Re-Indexing', d: 'Structured keyword placement helps Amazon re-index your listing and reflect ranking gains sooner.' },
+]
 
 export default function AmazonListing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
@@ -37,15 +50,6 @@ export default function AmazonListing() {
               <Link to="/contact" className="amz-btn amz-btn--ghost">Free Listing Review</Link>
             </div>
           </div>
-          <div className="ec-listing" data-aos="fade-left">
-            <div className="ec-listing__bar"><FiSearch /> your product keyword</div>
-            <div className="ec-listing__item ec-listing__item--top">
-              <span className="ec-listing__img"><FiShoppingBag /></span>
-              <div className="ec-listing__info"><b>Your Optimised Product</b><span className="ec-listing__stars">★★★★★</span><span className="ec-listing__price">₹1,299 <s>₹2,499</s></span><span className="ec-listing__badge">Best Seller</span></div>
-            </div>
-            <div className="ec-listing__item"><span className="ec-listing__img"><FiShoppingBag /></span><div className="ec-listing__info"><b>Competitor</b><span className="ec-listing__stars">★★★☆☆</span><span className="ec-listing__price">₹1,499</span></div></div>
-            <div className="ec-listing__foot"><FiTrendingUp /> Ranked #1 · +180% sales</div>
-          </div>
         </div>
       </section>
       <section className="amz-features">
@@ -56,7 +60,49 @@ export default function AmazonListing() {
           </div>
         </div>
       </section>
-      <section className="amz-band"><div className="amz-container amz-band__inner" data-aos="fade-up"><div><b>+180%</b><span>Avg Sales Lift</span></div><div><b>Buy Box</b><span>Optimised</span></div><div><b>Page 1</b><span>Rankings</span></div></div></section>
+      <section className="amz-process">
+        <div className="amz-container">
+          <div className="amz-head" data-aos="fade-up">
+            <span className="amz-eyebrow">Our Process</span>
+            <h2>How We Work</h2>
+          </div>
+          <div className="amz-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="amz-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="amz-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="amz-stack">
+        <div className="amz-container">
+          <div className="amz-head" data-aos="fade-up">
+            <span className="amz-eyebrow">What We Cover</span>
+            <h2>Everything That Moves The Needle</h2>
+          </div>
+          <div className="amz-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="amz-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+      <section className="amz-why">
+        <div className="amz-container">
+          <div className="amz-head" data-aos="fade-up">
+            <span className="amz-eyebrow">Why Us</span>
+            <h2>Why Sellers Choose Us</h2>
+          </div>
+          <div className="amz-why__grid">
+            {WHY.map((w, i) => (
+              <div className="amz-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="amz-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <ServiceFaq service="Amazon Product Listing" faqs={FAQS} />
       <section className="amz-cta"><div className="amz-container"><div className="amz-cta__box" data-aos="zoom-in"><FiShoppingBag className="amz-cta__ic" /><h2>Win More Sales on Amazon</h2><p>Get a free listing review — we'll show you exactly what's holding your products back.</p><Link to="/contact" className="amz-btn amz-btn--light">Get My Free Review <FiArrowUpRight /></Link></div></div></section>
     </main>

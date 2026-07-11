@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiShoppingBag, FiUploadCloud, FiGrid, FiZap, FiTrendingUp, FiTag, FiCheck, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
+import { FiShoppingBag, FiUploadCloud, FiGrid, FiZap, FiTrendingUp, FiTag, FiArrowRight, FiArrowUpRight, FiDollarSign, FiUsers, FiShield, FiHeadphones } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/EcomPages.css'
 
@@ -21,6 +21,19 @@ const FEATURES = [
   { icon: <FiShoppingBag />, t: 'Category Selection', d: 'Correct categories so buyers find your products.' },
   { icon: <FiTrendingUp />, t: 'Listing Management', d: 'Ongoing management to keep listings performing.' },
 ]
+const PROCESS = [
+  { n: '01', t: 'Catalogue Audit', d: 'We review your product range, images and current pricing to spot gaps against top-selling Meesho catalogues.' },
+  { n: '02', t: 'Supplier Panel Setup', d: 'Your Meesho Supplier Panel is configured correctly — GST, bank details, shipping preferences and category permissions.' },
+  { n: '03', t: 'Bulk Upload & Pricing', d: 'Products are uploaded in bulk with competitive pricing strategy built around Meesho\'s commission and margin structure.' },
+  { n: '04', t: 'Reseller Network Push', d: 'Listings are optimised to appeal to Meesho\'s reseller network, driving repeat orders and wider organic reach.' },
+]
+const STACK = ['Supplier Panel', 'Bulk Catalogue Upload', 'Pricing Strategy', 'Reseller Network', 'Category Mapping', 'Order & Return Rate', 'GST Compliance', 'Return-Adjusted Pricing', 'Catalogue Quality Score', 'Ads & Boost Tools']
+const WHY = [
+  { icon: <FiDollarSign />, t: 'Margin-Safe Pricing', d: 'Pricing built to absorb Meesho commission and return rates without eating into your profit.' },
+  { icon: <FiUsers />, t: 'Reseller-Ready Listings', d: 'Catalogues crafted to attract and retain Meesho\'s reseller network for repeat bulk orders.' },
+  { icon: <FiShield />, t: 'Supplier Panel Expertise', d: 'End-to-end handling of your Supplier Panel so compliance and payouts never stall your sales.' },
+  { icon: <FiHeadphones />, t: 'Dedicated Catalogue Support', d: 'A dedicated team monitors approvals, rejections and catalogue health so nothing slips through.' },
+]
 
 export default function MeeshoListing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
@@ -37,12 +50,6 @@ export default function MeeshoListing() {
               <Link to="/contact" className="msh-btn msh-btn--ghost">Free Consultation</Link>
             </div>
           </div>
-          <div className="ec-listing" data-aos="fade-left">
-            <div className="ec-listing__bar"><FiUploadCloud /> bulk upload · 240 products</div>
-            <div className="ec-listing__item ec-listing__item--top"><span className="ec-listing__img"><FiShoppingBag /></span><div className="ec-listing__info"><b>Your Catalogue</b><span className="ec-listing__stars">★★★★★</span><span className="ec-listing__price">₹399</span><span className="ec-listing__badge">Approved</span></div></div>
-            <div className="ec-listing__item"><span className="ec-listing__img"><FiShoppingBag /></span><div className="ec-listing__info"><b>Product</b><span className="ec-listing__stars">★★★★☆</span><span className="ec-listing__price">₹549</span></div></div>
-            <div className="ec-listing__foot"><FiCheck /> Fast approval · wide reach</div>
-          </div>
         </div>
       </section>
       <section className="msh-features">
@@ -53,7 +60,49 @@ export default function MeeshoListing() {
           </div>
         </div>
       </section>
-      <section className="msh-band"><div className="msh-container msh-band__inner" data-aos="fade-up"><div><b>Fast</b><span>Product Approval</span></div><div><b>Wide</b><span>Buyer Reach</span></div><div><b>Bulk</b><span>Upload Ready</span></div></div></section>
+      <section className="msh-process">
+        <div className="msh-container">
+          <div className="msh-head" data-aos="fade-up">
+            <span className="msh-eyebrow">Our Process</span>
+            <h2>How We Work</h2>
+          </div>
+          <div className="msh-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="msh-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="msh-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="msh-stack">
+        <div className="msh-container">
+          <div className="msh-head" data-aos="fade-up">
+            <span className="msh-eyebrow">What We Cover</span>
+            <h2>Everything That Moves The Needle</h2>
+          </div>
+          <div className="msh-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="msh-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+      <section className="msh-why">
+        <div className="msh-container">
+          <div className="msh-head" data-aos="fade-up">
+            <span className="msh-eyebrow">Why Us</span>
+            <h2>Why Sellers Choose Us</h2>
+          </div>
+          <div className="msh-why__grid">
+            {WHY.map((w, i) => (
+              <div className="msh-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="msh-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <ServiceFaq service="Meesho Product Listing" faqs={FAQS} />
       <section className="msh-cta"><div className="msh-container"><div className="msh-cta__box" data-aos="zoom-in"><FiShoppingBag className="msh-cta__ic" /><h2>Scale Faster on Meesho</h2><p>Get a free consultation — we'll get your catalogue live and selling on Meesho.</p><Link to="/contact" className="msh-btn msh-btn--light">Get Started <FiArrowUpRight /></Link></div></div></section>
     </main>

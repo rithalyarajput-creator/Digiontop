@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiShoppingBag, FiSearch, FiEdit3, FiGrid, FiTrendingUp, FiStar, FiCheck, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
+import { FiShoppingBag, FiSearch, FiEdit3, FiGrid, FiTrendingUp, FiStar, FiCheck, FiArrowRight, FiArrowUpRight, FiShield, FiTarget, FiLayers, FiZap } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/EcomPages.css'
 
@@ -21,6 +21,19 @@ const FEATURES = [
   { icon: <FiTrendingUp />, t: 'Product SEO', d: 'Keyword optimisation for higher Flipkart rankings.' },
   { icon: <FiShoppingBag />, t: 'Listing Updates', d: 'Ongoing improvements to keep listings performing.' },
 ]
+const PROCESS = [
+  { n: '01', t: 'Catalogue Audit', d: 'We review your existing SKUs, category mapping and GTIN data to flag listing quality and policy gaps.' },
+  { n: '02', t: 'Title & Content Build', d: 'Search-weighted titles, bullet specs and A+ style descriptions are written to match Flipkart\'s ranking signals.' },
+  { n: '03', t: 'F-Assured & Compliance Setup', d: 'We align packaging, quality and fulfilment documentation so eligible SKUs qualify for F-Assured badging.' },
+  { n: '04', t: 'Ads & Performance Tracking', d: 'Flipkart Ads campaigns are launched and listings are monitored weekly against search rank and conversion data.' },
+]
+const STACK = ['Flipkart Seller Hub', 'Flipkart Ads Manager', 'Category & GTIN Mapping', 'F-Assured Compliance', 'Keyword Rank Tracking', 'Catalogue Quality Score', 'A+ Content Blocks', 'Bulk Listing Uploader', 'Search CTR Analysis', 'Buy Box Monitoring']
+const WHY = [
+  { icon: <FiTarget />, t: 'Category-Accurate Mapping', d: 'We place every SKU in the exact Flipkart category and sub-type buyers actually search in.' },
+  { icon: <FiShield />, t: 'F-Assured Ready', d: 'Listings and documentation are structured to meet F-Assured quality and fulfilment criteria.' },
+  { icon: <FiZap />, t: 'Ads That Convert', d: 'Flipkart Ads budgets are directed at listings already optimised to close the sale.' },
+  { icon: <FiLayers />, t: 'Bulk Catalogue Expertise', d: 'We manage large, multi-variant catalogues without losing listing accuracy or speed.' },
+]
 
 export default function FlipkartListing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
@@ -37,12 +50,6 @@ export default function FlipkartListing() {
               <Link to="/contact" className="flp-btn flp-btn--ghost-l">Free Review</Link>
             </div>
           </div>
-          <div className="ec-listing" data-aos="fade-left">
-            <div className="ec-listing__bar"><FiSearch /> flipkart search</div>
-            <div className="ec-listing__item ec-listing__item--top"><span className="ec-listing__img"><FiShoppingBag /></span><div className="ec-listing__info"><b>Your Product</b><span className="ec-listing__stars">★★★★★</span><span className="ec-listing__price">₹899 <s>₹1,799</s></span><span className="ec-listing__badge">Assured</span></div></div>
-            <div className="ec-listing__item"><span className="ec-listing__img"><FiShoppingBag /></span><div className="ec-listing__info"><b>Competitor</b><span className="ec-listing__stars">★★★★☆</span><span className="ec-listing__price">₹1,099</span></div></div>
-            <div className="ec-listing__foot"><FiTrendingUp /> Top of category · more orders</div>
-          </div>
         </div>
       </section>
       <section className="flp-features">
@@ -53,7 +60,49 @@ export default function FlipkartListing() {
           </div>
         </div>
       </section>
-      <section className="flp-band"><div className="flp-container flp-band__inner" data-aos="fade-up"><div><b>Better</b><span>Discoverability</span></div><div><b>Correct</b><span>Category Mapping</span></div><div><b>More</b><span>Orders</span></div></div></section>
+      <section className="flp-process">
+        <div className="flp-container">
+          <div className="flp-head" data-aos="fade-up">
+            <span className="flp-eyebrow">Our Process</span>
+            <h2>How We Work</h2>
+          </div>
+          <div className="flp-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="flp-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="flp-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="flp-stack">
+        <div className="flp-container">
+          <div className="flp-head" data-aos="fade-up">
+            <span className="flp-eyebrow">What We Cover</span>
+            <h2>Everything That Moves The Needle</h2>
+          </div>
+          <div className="flp-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="flp-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+      <section className="flp-why">
+        <div className="flp-container">
+          <div className="flp-head" data-aos="fade-up">
+            <span className="flp-eyebrow">Why Us</span>
+            <h2>Why Sellers Choose Us</h2>
+          </div>
+          <div className="flp-why__grid">
+            {WHY.map((w, i) => (
+              <div className="flp-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="flp-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <ServiceFaq service="Flipkart Product Listing" faqs={FAQS} />
       <section className="flp-cta"><div className="flp-container"><div className="flp-cta__box" data-aos="zoom-in"><FiShoppingBag className="flp-cta__ic" /><h2>Grow Your Sales on Flipkart</h2><p>Get a free listing review — we'll show you how to reach more buyers on Flipkart.</p><Link to="/contact" className="flp-btn flp-btn--light">Get My Free Review <FiArrowUpRight /></Link></div></div></section>
     </main>

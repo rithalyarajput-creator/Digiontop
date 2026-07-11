@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiGrid, FiEdit3, FiRefreshCw, FiPackage, FiCheckCircle, FiTrendingUp, FiCheck, FiArrowRight, FiArrowUpRight, FiDatabase } from 'react-icons/fi'
+import { FiGrid, FiEdit3, FiRefreshCw, FiPackage, FiCheckCircle, FiTrendingUp, FiArrowRight, FiArrowUpRight, FiDatabase, FiUploadCloud, FiLayers, FiShield } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/EcomPages.css'
 
@@ -21,6 +21,19 @@ const FEATURES = [
   { icon: <FiDatabase />, t: 'Bulk Management', d: 'Efficient handling of large, complex catalogues.' },
   { icon: <FiTrendingUp />, t: 'Performance Review', d: 'Ongoing optimisation of underperforming listings.' },
 ]
+const PROCESS = [
+  { n: '01', t: 'Catalogue Audit', d: 'We map every SKU, attribute set and image against each marketplace’s listing rules to spot gaps and mismatches.' },
+  { n: '02', t: 'Bulk Upload & Mapping', d: 'New products go live in bulk using category-specific templates, with variations (size, colour, pack) mapped correctly to each channel.' },
+  { n: '03', t: 'Inventory Sync Setup', d: 'Stock and pricing are connected across Amazon, Flipkart, Meesho and your store so counts update in real time everywhere.' },
+  { n: '04', t: 'Monitor & Reconcile', d: 'We track sync errors, suppressed listings and stock mismatches daily, fixing issues before they cost you sales.' },
+]
+const STACK = ['Bulk Upload Templates', 'Variation Mapping', 'Amazon Seller Central', 'Flipkart Seller Hub', 'Meesho Supplier Panel', 'Inventory Sync Feeds', 'SKU & Barcode Mapping', 'Price Parity Checks', 'Listing Error Alerts', 'Category Attribute Compliance']
+const WHY = [
+  { icon: <FiUploadCloud />, t: 'Faster Bulk Uploads', d: 'Hundreds of SKUs and variations go live in a single upload cycle, not one listing at a time.' },
+  { icon: <FiLayers />, t: 'Accurate Variations', d: 'Size, colour and pack combinations map correctly so customers never land on the wrong variant.' },
+  { icon: <FiRefreshCw />, t: 'Real-Time Stock Sync', d: 'Inventory stays consistent across every marketplace, cutting overselling and stockout cancellations.' },
+  { icon: <FiShield />, t: 'Fewer Listing Errors', d: 'Daily checks catch suppressed listings, attribute mismatches and pricing conflicts before they hurt rankings.' },
+]
 
 export default function CatalogManagement() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
@@ -37,12 +50,6 @@ export default function CatalogManagement() {
               <Link to="/contact" className="cat-btn cat-btn--ghost-l">Free Consultation</Link>
             </div>
           </div>
-          <div className="ec-dark" data-aos="fade-left">
-            <div className="ec-dark__top"><b>Catalogue Health</b><span className="ec-dark__up">● 98% complete</span></div>
-            <div className="ec-dark__kpis"><div><span>SKUs</span><b>1,240</b></div><div><span>Live</span><b>1,216</b></div><div><span>Issues</span><b>24</b></div></div>
-            <div className="ec-dark__chart">{[60, 72, 68, 84, 80, 92, 96].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}</div>
-            <div className="ec-dark__top" style={{ marginBottom: 0, marginTop: 4 }}><FiCheck style={{ color: '#FFD874' }} /><span style={{ fontSize: 11, color: '#aaa', marginLeft: 8 }}>Synced across Amazon · Flipkart · Meesho</span></div>
-          </div>
         </div>
       </section>
       <section className="cat-features">
@@ -53,7 +60,49 @@ export default function CatalogManagement() {
           </div>
         </div>
       </section>
-      <section className="cat-band"><div className="cat-container cat-band__inner" data-aos="fade-up"><div><b>1000s</b><span>Of SKUs Managed</span></div><div><b>Synced</b><span>Every Marketplace</span></div><div><b>Zero</b><span>Listing Errors</span></div></div></section>
+      <section className="cat-process">
+        <div className="cat-container">
+          <div className="cat-head" data-aos="fade-up">
+            <span className="cat-eyebrow">Our Process</span>
+            <h2>How We Work</h2>
+          </div>
+          <div className="cat-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="cat-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="cat-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="cat-stack">
+        <div className="cat-container">
+          <div className="cat-head" data-aos="fade-up">
+            <span className="cat-eyebrow">What We Cover</span>
+            <h2>Everything That Moves The Needle</h2>
+          </div>
+          <div className="cat-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="cat-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+      <section className="cat-why">
+        <div className="cat-container">
+          <div className="cat-head" data-aos="fade-up">
+            <span className="cat-eyebrow">Why Us</span>
+            <h2>Why Sellers Choose Us</h2>
+          </div>
+          <div className="cat-why__grid">
+            {WHY.map((w, i) => (
+              <div className="cat-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="cat-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <ServiceFaq service="Catalog Management" faqs={FAQS} />
       <section className="cat-cta"><div className="cat-container"><div className="cat-cta__box" data-aos="zoom-in"><FiGrid className="cat-cta__ic" /><h2>Take Catalogue Chaos Off Your Plate</h2><p>Get a free consultation — we'll keep your catalogue accurate so you can focus on selling.</p><Link to="/contact" className="cat-btn cat-btn--light">Get Started <FiArrowUpRight /></Link></div></div></section>
     </main>
