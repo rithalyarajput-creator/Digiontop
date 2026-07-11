@@ -1,0 +1,180 @@
+/* ============================================================
+   ServiceHeroAnim — reusable animated hero visual (CSS/SVG only)
+   ============================================================ */
+.sha {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sha__glow {
+  position: absolute; inset: 6%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,168,0,0.22), transparent 68%);
+  filter: blur(8px);
+  animation: sha-pulse 5s ease-in-out infinite;
+}
+@keyframes sha-pulse { 0%,100% { transform: scale(1); opacity: .8; } 50% { transform: scale(1.08); opacity: 1; } }
+.sha__stage { position: relative; width: 78%; height: 78%; }
+
+/* ── shared card ── */
+.sha-card {
+  position: absolute;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(20,24,43,0.14);
+  border: 1px solid #eef0f4;
+  padding: 16px;
+  display: flex;
+  animation: sha-float 4.5s ease-in-out infinite;
+}
+@keyframes sha-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* floating badges + chips (shared) */
+.sha-badge {
+  position: absolute;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; height: 44px; padding: 0 10px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FFD24A, #F5A800);
+  color: #141414; font-weight: 900; font-size: 0.95rem;
+  box-shadow: 0 10px 24px rgba(245,168,0,0.4);
+  animation: sha-float 3.8s ease-in-out infinite;
+}
+.sha-chip {
+  position: absolute;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 12px; border-radius: 50px;
+  background: #14182b; color: #fff; font-size: 0.72rem; font-weight: 800;
+  box-shadow: 0 10px 24px rgba(20,24,43,0.3);
+}
+.sha-chip svg { color: #7CFF9B; }
+.sha-chip--float { animation: sha-float 4.2s ease-in-out infinite .5s; bottom: 6%; right: -4%; }
+
+/* generic bits */
+.sha-line { display: block; height: 8px; border-radius: 5px; background: #e6e8ee; margin: 5px 0; }
+.sha-line--w40 { width: 40%; } .sha-line--w50 { width: 50%; } .sha-line--w60 { width: 60%; }
+.sha-line--w70 { width: 70%; } .sha-line--w80 { width: 80%; } .sha-line--w90 { width: 90%; }
+.sha-dot { width: 12px; height: 12px; border-radius: 50%; background: #F5A800; flex-shrink: 0; }
+
+/* ── SEO / default: rank bars ── */
+.sha-card--rank, .sha-card--chart {
+  bottom: 6%; left: 8%; width: 58%; height: 46%;
+  align-items: flex-end; gap: 8px;
+}
+.sha-rankbar {
+  flex: 1; height: var(--h); border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, #FFD24A, #F5A800);
+  transform-origin: bottom; transform: scaleY(0);
+  animation: sha-grow .8s cubic-bezier(.34,1.56,.64,1) forwards, sha-bar-idle 3.6s ease-in-out infinite;
+  animation-delay: var(--d), calc(var(--d) + .8s);
+}
+@keyframes sha-grow { to { transform: scaleY(1); } }
+@keyframes sha-bar-idle { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.9); } }
+.sha-card--search { top: 6%; right: 2%; width: 56%; height: 24%; align-items: center; gap: 10px; }
+.sha-badge--num { top: 4%; left: 4%; }
+
+/* ── WEB: code window ── */
+.sha-window {
+  position: absolute; top: 10%; left: 8%; width: 74%; height: 60%;
+  background: #14182b; border-radius: 16px; padding: 18px 16px;
+  box-shadow: 0 20px 44px rgba(20,24,43,0.28);
+  animation: sha-float 4.5s ease-in-out infinite;
+}
+.sha-dots { display: flex; gap: 6px; margin-bottom: 14px; }
+.sha-dots i { width: 9px; height: 9px; border-radius: 50%; background: #3a4055; }
+.sha-dots i:first-child { background: #ff5f57; } .sha-dots i:nth-child(2) { background: #febc2e; } .sha-dots i:nth-child(3) { background: #28c840; }
+.sha-code { display: block; height: 9px; border-radius: 5px; margin: 9px 0;
+  background: linear-gradient(90deg, #F5A800, #3a4055); opacity: .55;
+  animation: sha-type 2.4s ease-in-out infinite; }
+.sha-code--w80 { width: 80%; animation-delay: 0s; } .sha-code--w60 { width: 60%; animation-delay: .3s; }
+.sha-code--w70 { width: 70%; animation-delay: .6s; } .sha-code--w40 { width: 40%; animation-delay: .9s; }
+@keyframes sha-type { 0%,100% { opacity: .35; } 50% { opacity: .8; } }
+.sha-badge--tag { bottom: 12%; left: 2%; font-size: 0.85rem; }
+
+/* ── SOCIAL: post card ── */
+.sha-card--post { top: 8%; left: 12%; width: 62%; height: 70%; flex-direction: column; gap: 8px; }
+.sha-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg,#F5A800,#e1306c); }
+.sha-media { width: 100%; flex: 1; border-radius: 10px; background: linear-gradient(135deg,#ffe9c2,#ffd1e3); min-height: 40px; }
+.sha-react { display: flex; gap: 6px; color: #e1306c; }
+.sha-react svg { animation: sha-beat 1.4s ease-in-out infinite; }
+.sha-react svg:nth-child(2) { animation-delay: .2s; } .sha-react svg:nth-child(3) { animation-delay: .4s; }
+@keyframes sha-beat { 0%,100% { transform: scale(1); } 40% { transform: scale(1.3); } }
+.sha-badge--heart { top: 6%; right: 4%; color: #e1306c; background: #fff; }
+.sha-badge--heart svg { width: 18px; height: 18px; }
+
+/* ── ECOMMERCE: product card ── */
+.sha-card--product { top: 8%; left: 12%; width: 60%; height: 72%; flex-direction: column; gap: 7px; }
+.sha-thumb { width: 100%; flex: 1; border-radius: 10px; background: linear-gradient(135deg,#fff0d0,#ffe0a3); min-height: 46px; }
+.sha-price { font-weight: 900; color: #14182b; font-size: 1rem; }
+.sha-stars { color: #F5A800; font-size: 0.8rem; letter-spacing: 1px; }
+.sha-badge--cart { top: 4%; right: 2%; }
+.sha-badge--cart svg { width: 18px; height: 18px; }
+
+/* ── ADS: target rings ── */
+.sha-card--target {
+  top: 12%; left: 14%; width: 58%; height: 58%; border-radius: 50%;
+  align-items: center; justify-content: center; padding: 0;
+}
+.sha-ring { position: absolute; border-radius: 50%; border: 3px solid #F5A800; opacity: .5; }
+.sha-ring--1 { inset: 6%; } .sha-ring--2 { inset: 24%; opacity: .7; } .sha-ring--3 { inset: 42%; }
+.sha-bull { width: 16%; height: 16%; border-radius: 50%; background: #F5A800; animation: sha-pulse 1.8s ease-in-out infinite; }
+.sha-badge--roi { bottom: 14%; right: 0; }
+
+/* ── MOBILE: phone with app icons ── */
+.sha-phone {
+  position: absolute; top: 6%; left: 26%; width: 46%; height: 82%;
+  background: #14182b; border-radius: 22px; padding: 22px 12px 12px;
+  box-shadow: 0 22px 48px rgba(20,24,43,0.3);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start;
+  animation: sha-float 4.5s ease-in-out infinite;
+}
+.sha-notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 34%; height: 6px; border-radius: 5px; background: #3a4055; }
+.sha-appicon { aspect-ratio: 1; border-radius: 11px; background: linear-gradient(135deg,#FFD24A,#F5A800);
+  animation: sha-appin .6s cubic-bezier(.34,1.56,.64,1) both; animation-delay: var(--d); }
+.sha-appicon:nth-child(3) { background: linear-gradient(135deg,#e1306c,#F5A800); }
+.sha-appicon:nth-child(4) { background: linear-gradient(135deg,#14182b,#3a4055); }
+@keyframes sha-appin { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: scale(1); } }
+.sha-badge--tag { }
+
+/* ── BRANDING: colour palette ── */
+.sha-card--palette { top: 16%; left: 12%; width: 62%; height: 42%; gap: 10px; align-items: stretch; }
+.sha-swatch { flex: 1; border-radius: 10px; background: var(--c);
+  transform-origin: bottom; animation: sha-swatchin .6s cubic-bezier(.34,1.56,.64,1) both; animation-delay: var(--d); }
+@keyframes sha-swatchin { from { opacity: 0; transform: scaleY(.3); } to { opacity: 1; transform: scaleY(1); } }
+.sha-badge--logo { top: 8%; right: 6%; font-size: 1.3rem; border-radius: 50%; }
+
+/* ── CONTENT: document lines ── */
+.sha-card--doc { top: 10%; left: 12%; width: 64%; height: 66%; flex-direction: column; justify-content: center; gap: 10px; }
+.sha-card--doc .sha-line { height: 10px; animation: sha-type 2.6s ease-in-out infinite; }
+.sha-card--doc .sha-line:nth-child(2){animation-delay:.3s} .sha-card--doc .sha-line:nth-child(3){animation-delay:.6s} .sha-card--doc .sha-line:nth-child(4){animation-delay:.9s}
+.sha-badge--pen { top: 6%; right: 4%; font-size: 1.2rem; }
+
+/* ── ANALYTICS: line graph ── */
+.sha-graph { width: 100%; height: 46%; }
+.sha-graph polyline { fill: none; stroke: #F5A800; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 240; stroke-dashoffset: 240; animation: sha-draw 2s ease-out forwards; }
+@keyframes sha-draw { to { stroke-dashoffset: 0; } }
+.sha-card--chart { flex-direction: column; justify-content: flex-end; }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .sha { max-width: 380px; }
+}
+@media (max-width: 560px) {
+  .sha { max-width: 300px; aspect-ratio: 1 / 0.82; }
+  .sha-badge { min-width: 38px; height: 38px; font-size: 0.82rem; }
+  .sha-chip { font-size: 0.66rem; padding: 6px 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sha *, .sha__glow { animation: none !important; }
+  .sha-rankbar, .sha-appicon, .sha-swatch { transform: none !important; opacity: 1 !important; }
+  .sha-graph polyline { stroke-dashoffset: 0 !important; }
+}

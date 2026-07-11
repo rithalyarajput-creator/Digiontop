@@ -8,6 +8,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
+import ServiceHeroAnim from '../components/ServiceHeroAnim'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -208,7 +209,7 @@ export default function SEOServices() {
             </div>
 
             <div className="svc-hero__right" data-aos="fade-left">
-              <img src="/images/seo-hero.webp" alt="SEO that ranks" loading="eager" />
+              <ServiceHeroAnim variant="seo" label="SEO ranking illustration" />
             </div>
           </div>
         </div>
