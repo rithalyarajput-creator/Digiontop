@@ -46,6 +46,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled]           = useState(false);
   const [megaCat, setMegaCat]             = useState(0); // hovered category index in services mega
+  const [mobCat, setMobCat]               = useState(null); // expanded category heading in mobile drawer
   const hoverTimeout = useRef(null);
 
   useEffect(() => {
@@ -57,6 +58,7 @@ export default function Navbar() {
   useEffect(() => {
     setMenuOpen(false);
     setActiveDropdown(null);
+    setMobCat(null);
   }, [location.pathname]);
 
   /* Lock body scroll when drawer open */
@@ -247,17 +249,27 @@ export default function Navbar() {
                 </button>
                 {activeDropdown === 'services' && (
                   <div className="navbar__drawer-sub">
-                    {servicesMenu.map(col => (
-                      <div key={col.heading}>
-                        <p className="navbar__drawer-sub-heading">{col.heading}</p>
-                        {col.items.map(item => (
-                          <Link key={item.label} to={item.path} className="navbar__drawer-sub-link"
-                            onClick={() => setMenuOpen(false)}>
-                            › {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    ))}
+                    {servicesMenu.map(col => {
+                      const open = mobCat === col.heading;
+                      return (
+                        <div key={col.heading} className="navbar__drawer-cat">
+                          <button
+                            type="button"
+                            className={`navbar__drawer-sub-heading navbar__drawer-sub-heading--toggle${open ? ' navbar__drawer-sub-heading--open' : ''}`}
+                            onClick={() => setMobCat(p => p === col.heading ? null : col.heading)}
+                          >
+                            {col.heading}
+                            <span className={`navbar__arrow${open ? ' navbar__arrow--up' : ''}`}>&#9660;</span>
+                          </button>
+                          {open && col.items.map(item => (
+                            <Link key={item.label} to={item.path} className="navbar__drawer-sub-link"
+                              onClick={() => setMenuOpen(false)}>
+                              › {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>

@@ -682,6 +682,30 @@
   margin: 8px 0 4px;
 }
 .navbar__drawer-sub-heading:first-child { margin-top: 0; }
+
+/* category headings become tappable accordion toggles on mobile */
+.navbar__drawer-cat { border-bottom: 1px solid #eee; }
+.navbar__drawer-cat:last-child { border-bottom: none; }
+.navbar__drawer-sub-heading--toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 4px;
+  font-family: inherit;
+  text-align: left;
+}
+.navbar__drawer-sub-heading--toggle .navbar__arrow {
+  font-size: 9px;
+  color: #999;
+  transition: transform 0.2s ease;
+}
+.navbar__drawer-sub-heading--open .navbar__arrow,
+.navbar__arrow--up { transform: rotate(180deg); }
+.navbar__drawer-sub-heading--open { color: #c47f00; }
 .navbar__drawer-sub-link {
   display: block;
   padding: 8px 10px;
