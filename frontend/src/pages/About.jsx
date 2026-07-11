@@ -407,6 +407,13 @@ export default function About() {
 
       {/* ══ 7. FREE PROPOSAL LEAD FORM ══ */}
       <section className="about-lead" id="about-lead">
+        <div className="about-container">
+          <div className="ab-head about-lead__head" data-aos="fade-up">
+            <span className="ab-eyebrow">Get Started</span>
+            <h2 className="ab-h2">Get Your Free Proposal</h2>
+            <p className="about-lead__head-sub">Tell us where you are — we reply within one business day with a clear plan &amp; quote.</p>
+          </div>
+        </div>
         <div className="about-container about-lead__inner about-lead__inner--noPromo">
           {/* form only (promo panel removed) */}
           <form className="about-lead__form" onSubmit={submit} data-aos="fade-up" data-aos-delay="100">

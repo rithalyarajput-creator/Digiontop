@@ -460,7 +460,9 @@
 /* ============================================================
    About — Free Proposal lead form
    ============================================================ */
-.about-lead { padding: 0 0 90px; }
+.about-lead { padding: 80px 0 90px; }
+.about-lead__head { text-align: center; margin-bottom: 32px; }
+.about-lead__head-sub { color: #6b7280; font-size: 1rem; line-height: 1.65; margin: 12px auto 0; max-width: 520px; }
 .about-lead__inner {
   display: grid; grid-template-columns: 300px 1fr;
   max-width: 920px; margin: 0 auto;          /* smaller + centered (equal gaps) */
@@ -574,8 +576,19 @@
   .about-lead__promo h2 { font-size: 1.9rem; }
 }
 @media (max-width: 560px) {
-  .about-lead__row { grid-template-columns: 1fr; gap: 12px; }
-  .about-lead__form { padding: 26px 20px; }
+  /* section breathes: top gap + side gutters so nothing touches the edge */
+  .about-lead { padding: 48px 14px 60px; }
+  .about-lead__head { margin-bottom: 22px; }
+  .about-lead__head-sub { font-size: 0.9rem; }
+  .about-lead__inner--noPromo { border-radius: 18px; }
+  /* attractive form: 2-up name row, softer rounded fields, roomy tap targets */
+  .about-lead__row { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .about-lead__form { padding: 22px 18px; }
+  .about-lead__form label { font-size: 0.72rem; }
+  .about-lead__form input,
+  .about-lead__form select,
+  .about-lead__form textarea { padding: 12px 14px; border-radius: 11px; font-size: 0.92rem; }
+  .about-lead__btn { padding: 14px; font-size: 0.98rem; border-radius: 12px; }
   .about-lead__promo { padding: 30px 22px; }
   .about-lead__promo h2 { font-size: 1.75rem; }
   .about-lead__promo-perks li { font-size: 0.86rem; }
@@ -1022,12 +1035,23 @@
   .ab-h2, .ab-hero__title { word-wrap: break-word; }
 
   /* ── Our Goal: don't touch screen edges + compact ── */
-  .ab-goal2 { padding: 0 16px 56px; }
-  .ab-goal2__card { grid-template-columns: 1fr; gap: 20px; padding: 30px 22px; text-align: left; }
-  .ab-goal2__card::after { display: none; }   /* no divider when stacked */
+  /* Our Goal on mobile: distinct 'quote card' — big golden quote, left bar */
+  .ab-goal2 { padding: 0 14px 52px; }
+  .ab-goal2__card {
+    grid-template-columns: 1fr; gap: 16px; padding: 28px 22px 26px 26px; text-align: left;
+    position: relative; border-left: 4px solid #F5A800; border-radius: 18px;
+    background: linear-gradient(160deg, #17181f 0%, #1e2130 100%);
+  }
+  /* big decorative quote mark top-right */
+  .ab-goal2__card::before {
+    content: '\201C'; position: absolute; top: 4px; right: 18px;
+    font-size: 5rem; line-height: 1; color: rgba(245,168,0,0.18);
+    font-family: Georgia, serif; pointer-events: none;
+  }
+  .ab-goal2__card::after { display: none; }   /* no vertical divider when stacked */
   .ab-goal2__title { font-size: clamp(1.4rem, 6vw, 1.8rem); }
   .ab-goal2__text { font-size: 0.92rem; }
-  .ab-goal2__tagline { font-size: 0.9rem; }
+  .ab-goal2__tagline { font-size: 0.88rem; width: 100%; justify-content: center; }
 
   /* ── Lead form promo board: compact + hide bars that overlap text ── */
   .about-lead__promo { padding: 26px 22px !important; }
