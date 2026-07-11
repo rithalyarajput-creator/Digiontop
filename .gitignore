@@ -26,3 +26,4 @@ Thumbs.db
 
 # PHP admin — keep real DB credentials out of git
 admin/config/database.local.php
+.claude/
