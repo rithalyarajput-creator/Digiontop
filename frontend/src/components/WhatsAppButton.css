@@ -35,7 +35,8 @@
 }
 
 @media (max-width: 768px) {
-  .wa-fab { bottom: 84px; right: 16px; width: 52px; height: 52px; font-size: 27px; }
+  /* keep clear of the sticky Call/Free-Audit bar (incl. phone safe-area) */
+  .wa-fab { bottom: calc(96px + env(safe-area-inset-bottom)); right: 16px; width: 52px; height: 52px; font-size: 27px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

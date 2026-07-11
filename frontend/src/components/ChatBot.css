@@ -385,9 +385,9 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
-  /* Shift FAB higher so it never overlaps footers / CTAs */
-  .cb-fab { bottom: 84px; left: 16px; right: auto; }
-  .cb-fab--open { bottom: 84px; left: 16px; right: auto; }
+  /* Shift FAB higher so it never overlaps the sticky Call/Free-Audit bar (incl. phone safe-area) */
+  .cb-fab { bottom: calc(96px + env(safe-area-inset-bottom)); left: 16px; right: auto; }
+  .cb-fab--open { bottom: calc(96px + env(safe-area-inset-bottom)); left: 16px; right: auto; }
 }
 
 @media (max-width: 480px) {
