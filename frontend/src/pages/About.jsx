@@ -365,9 +365,23 @@ export default function About() {
         <div className="about-container about-lead__inner">
           {/* left promo panel */}
           <div className="about-lead__promo" data-aos="fade-up">
-            <h2>Get your free proposal</h2>
-            <p>Tell us where you are and what you want to achieve. We reply within one business day with a clear plan and a quote.</p>
-            <div className="about-lead__bars"><span /><span /><span /><i>↑</i><i>↑</i></div>
+            <span className="about-lead__promo-glow about-lead__promo-glow--1" aria-hidden="true" />
+            <span className="about-lead__promo-glow about-lead__promo-glow--2" aria-hidden="true" />
+            <div className="about-lead__promo-body">
+              <span className="about-lead__promo-badge"><span className="about-lead__promo-badge-dot" /> Free Proposal</span>
+              <h2>Get your <span>free proposal</span></h2>
+              <p>Tell us where you are and what you want to achieve. We reply within one business day with a clear plan and a quote.</p>
+              <ul className="about-lead__promo-perks">
+                <li><FiCheckCircle /> Reply within 1 business day</li>
+                <li><FiCheckCircle /> A clear 90-day growth plan</li>
+                <li><FiCheckCircle /> No commitment, no pressure</li>
+              </ul>
+            </div>
+            <div className="about-lead__promo-foot">
+              <div className="about-lead__promo-stat"><b>250+</b><span>Projects</span></div>
+              <div className="about-lead__promo-stat"><b>120+</b><span>Clients</span></div>
+              <div className="about-lead__promo-stat"><b>5★</b><span>Rating</span></div>
+            </div>
           </div>
 
           {/* right form */}
