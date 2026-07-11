@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiCloud, FiServer, FiShield, FiZap, FiRefreshCw, FiTrendingUp, FiCheck, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
+import { FiCloud, FiServer, FiShield, FiZap, FiRefreshCw, FiTrendingUp, FiCheck, FiArrowRight, FiArrowUpRight, FiDollarSign, FiActivity } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/MobilePages.css'
 
@@ -20,6 +20,19 @@ const FEATURES = [
   { icon: <FiRefreshCw />, t: 'Cloud Migration', d: 'Safe, zero-downtime migration of your systems.' },
   { icon: <FiZap />, t: 'High Performance', d: 'Global CDN and optimised infrastructure for speed.' },
   { icon: <FiCloud />, t: 'Backup & Recovery', d: 'Automated backups and disaster recovery.' },
+]
+const PROCESS = [
+  { n: '01', t: 'Cloud Readiness Audit', d: 'We inventory your servers, databases and dependencies, then benchmark current spend and downtime to decide what moves, what gets rebuilt and what stays.' },
+  { n: '02', t: 'Architecture & Landing Zone', d: 'We design the target architecture on AWS, Azure or GCP — VPC networking, IAM roles, environments and cost guardrails — before a single workload moves.' },
+  { n: '03', t: 'Migration & Automation', d: 'Workloads move in waves with replication and dry runs, while Terraform and CI/CD pipelines make every environment reproducible instead of hand-built.' },
+  { n: '04', t: 'Scale, Monitor & Optimise', d: 'We switch on auto-scaling, alerting and backups, then tune instance sizes and reserved capacity every month so your bill drops as traffic grows.' },
+]
+const STACK = ['AWS', 'Microsoft Azure', 'Google Cloud', 'Kubernetes', 'Docker', 'Terraform', 'AWS Lambda', 'Cloudflare CDN', 'Amazon RDS', 'Prometheus & Grafana']
+const WHY = [
+  { icon: <FiRefreshCw />, t: 'Zero-Downtime Migration', d: 'Live replication and staged cutovers mean your customers never see a maintenance page while we move you to the cloud.' },
+  { icon: <FiDollarSign />, t: 'Lower Monthly Bills', d: 'Right-sizing, autoscaling and reserved instances typically cut cloud spend by 30-40% versus a lift-and-shift setup.' },
+  { icon: <FiShield />, t: 'Security & Compliance', d: 'Least-privilege IAM, encryption at rest and in transit, and audit logging configured to pass real security reviews.' },
+  { icon: <FiActivity />, t: '24/7 Monitoring', d: 'Dashboards, alerts and automated backups so failures are caught and recovered long before they reach your users.' },
 ]
 
 export default function CloudSolutions() {
@@ -45,6 +58,49 @@ export default function CloudSolutions() {
           <div className="cld-head" data-aos="fade-up"><span className="cld-eyebrow">Capabilities</span><h2>Cloud, Done Right</h2></div>
           <div className="cld-features__grid">
             {FEATURES.map((f, i) => (<div className="cld-feature" key={f.t} data-aos="fade-up" data-aos-delay={(i % 3) * 70}><span className="cld-feature__icon">{f.icon}</span><h3>{f.t}</h3><p>{f.d}</p></div>))}
+          </div>
+        </div>
+      </section>
+      <section className="cld-process">
+        <div className="cld-container">
+          <div className="cld-head" data-aos="fade-up">
+            <span className="cld-eyebrow">Our Process</span>
+            <h2>How We Build</h2>
+          </div>
+          <div className="cld-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="cld-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="cld-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="cld-stack">
+        <div className="cld-container">
+          <div className="cld-head" data-aos="fade-up">
+            <span className="cld-eyebrow">Tech Stack</span>
+            <h2>Built With Modern Tech</h2>
+          </div>
+          <div className="cld-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="cld-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+      <section className="cld-why">
+        <div className="cld-container">
+          <div className="cld-head" data-aos="fade-up">
+            <span className="cld-eyebrow">Why Us</span>
+            <h2>Why Businesses Choose Us</h2>
+          </div>
+          <div className="cld-why__grid">
+            {WHY.map((w, i) => (
+              <div className="cld-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="cld-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

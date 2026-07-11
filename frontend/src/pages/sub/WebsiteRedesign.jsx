@@ -4,7 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import {
   FiRefreshCw, FiZap, FiSmartphone, FiTrendingUp, FiEye, FiThumbsUp,
-  FiCheck, FiArrowRight, FiArrowUpRight, FiX,
+  FiCheck, FiArrowRight, FiArrowUpRight, FiX, FiShield, FiClock,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/WebDevPages.css'
@@ -24,6 +24,22 @@ const FEATURES = [
   { icon: <FiTrendingUp />, t: 'Higher Conversions', d: 'Clear structure and CTAs that turn visitors into customers.' },
   { icon: <FiThumbsUp />, t: 'SEO Preserved', d: 'Rankings kept safe with proper redirects and migration.' },
   { icon: <FiRefreshCw />, t: 'Easy to Manage', d: 'A clean CMS so you can update content effortlessly.' },
+]
+
+const PROCESS = [
+  { n: '01', t: 'Audit The Old Site', d: 'We benchmark your current Core Web Vitals, crawl every URL and study heatmaps to pinpoint exactly where visitors drop off.' },
+  { n: '02', t: 'Rearchitect For Conversion', d: 'New sitemap, sharper messaging and wireframes that push offers, proof and CTAs above the fold instead of burying them.' },
+  { n: '03', t: 'Rebuild Lean & Fast', d: 'A ground-up mobile-first build with compressed media, lazy loading and clean code — no bloated legacy themes or plugin sprawl.' },
+  { n: '04', t: 'Migrate & Measure', d: 'We map 301 redirects for every old URL, launch without ranking loss, then track conversion lift and tune what the data shows.' },
+]
+
+const STACK = ['React', 'Next.js', 'WordPress', 'Tailwind CSS', 'Core Web Vitals', 'Cloudflare CDN', 'WebP / AVIF', 'Google Analytics 4', 'Hotjar', 'Screaming Frog']
+
+const WHY = [
+  { icon: <FiZap />, t: 'Speed Is The Priority', d: 'We rebuild for sub-2-second loads, because every extra second of wait quietly costs you paying customers.' },
+  { icon: <FiShield />, t: 'Rankings Stay Safe', d: 'A full URL map and 301 redirect plan means your hard-won Google positions survive the move intact.' },
+  { icon: <FiTrendingUp />, t: 'Designed To Convert', d: 'Every page is restructured around one clear action, so the new site earns leads instead of just looking prettier.' },
+  { icon: <FiClock />, t: 'Live In Weeks, Not Months', d: 'Fixed milestones and weekly demos get most redesigns launched in 2–5 weeks with zero guesswork.' },
 ]
 
 export default function WebsiteRedesign() {
@@ -55,6 +71,52 @@ export default function WebsiteRedesign() {
               <div className="rd-feature" key={f.t} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
                 <span className="rd-feature__icon">{f.icon}</span>
                 <h3>{f.t}</h3><p>{f.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="rd-process">
+        <div className="rd-container">
+          <div className="rd-head" data-aos="fade-up">
+            <span className="rd-eyebrow">Our Process</span>
+            <h2>How We Build</h2>
+          </div>
+          <div className="rd-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="rd-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="rd-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="rd-stack">
+        <div className="rd-container">
+          <div className="rd-head" data-aos="fade-up">
+            <span className="rd-eyebrow">Tech Stack</span>
+            <h2>Built With Modern Tech</h2>
+          </div>
+          <div className="rd-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="rd-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+
+      <section className="rd-why">
+        <div className="rd-container">
+          <div className="rd-head" data-aos="fade-up">
+            <span className="rd-eyebrow">Why Us</span>
+            <h2>Why Businesses Choose Us</h2>
+          </div>
+          <div className="rd-why__grid">
+            {WHY.map((w, i) => (
+              <div className="rd-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="rd-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
               </div>
             ))}
           </div>

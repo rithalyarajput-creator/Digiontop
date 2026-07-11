@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiLayers, FiCreditCard, FiUsers, FiTrendingUp, FiShield, FiZap, FiCheck, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
+import { FiLayers, FiCreditCard, FiUsers, FiTrendingUp, FiShield, FiZap, FiCheck, FiArrowRight, FiArrowUpRight, FiRepeat, FiBarChart2 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/MobilePages.css'
 
@@ -20,6 +20,19 @@ const FEATURES = [
   { icon: <FiShield />, t: 'Secure & Compliant', d: 'Auth, roles and data protection built in from day one.' },
   { icon: <FiZap />, t: 'MVP to Scale', d: 'Launch lean, then expand based on real usage.' },
   { icon: <FiTrendingUp />, t: 'Analytics Built In', d: 'Usage and revenue insights to grow your SaaS.' },
+]
+const PROCESS = [
+  { n: '01', t: 'Product & Pricing Discovery', d: 'We map your core workflow, define the MVP feature set and shape the plan tiers, limits and trial that your pricing page will sell.' },
+  { n: '02', t: 'Tenancy & Data Architecture', d: 'We design the multi-tenant model — shared schema with tenant IDs or isolated databases — plus roles, permissions and row-level access rules.' },
+  { n: '03', t: 'Build: App, Billing & Dashboards', d: 'We ship the product in sprints — auth and org invites, subscription checkout with webhooks, usage metering, and the admin and customer dashboards.' },
+  { n: '04', t: 'Launch, Monitor & Iterate', d: 'We deploy to cloud infrastructure with CI/CD, wire up churn and MRR tracking, then iterate on real usage data after go-live.' },
+]
+const STACK = ['React', 'Next.js', 'Node.js', 'NestJS', 'PostgreSQL', 'Redis', 'Stripe', 'Razorpay', 'Docker', 'AWS']
+const WHY = [
+  { icon: <FiRepeat />, t: 'Recurring Revenue Focus', d: 'Plans, trials, upgrades, dunning and failed-payment recovery are built in — so subscriptions actually keep renewing.' },
+  { icon: <FiShield />, t: 'True Tenant Isolation', d: 'Every query is scoped to a tenant, so one customer can never see another customer\'s data — audited before we ship.' },
+  { icon: <FiBarChart2 />, t: 'Dashboards People Use', d: 'Clean, fast admin and customer dashboards with the metrics, filters and exports your users log in for every day.' },
+  { icon: <FiZap />, t: 'MVP in Weeks, Not Years', d: 'We launch a lean, paying version of your product first, then scale features once real users tell us what matters.' },
 ]
 
 export default function SaasDevelopment() {
@@ -44,6 +57,49 @@ export default function SaasDevelopment() {
           <div className="saas-head" data-aos="fade-up"><span className="saas-eyebrow">What We Build</span><h2>Everything a SaaS Needs</h2></div>
           <div className="saas-features__grid">
             {FEATURES.map((f, i) => (<div className="saas-feature" key={f.t} data-aos="fade-up" data-aos-delay={(i % 3) * 70}><span className="saas-feature__icon">{f.icon}</span><h3>{f.t}</h3><p>{f.d}</p></div>))}
+          </div>
+        </div>
+      </section>
+      <section className="saas-process">
+        <div className="saas-container">
+          <div className="saas-head" data-aos="fade-up">
+            <span className="saas-eyebrow">Our Process</span>
+            <h2>How We Build</h2>
+          </div>
+          <div className="saas-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="saas-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="saas-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="saas-stack">
+        <div className="saas-container">
+          <div className="saas-head" data-aos="fade-up">
+            <span className="saas-eyebrow">Tech Stack</span>
+            <h2>Built With Modern Tech</h2>
+          </div>
+          <div className="saas-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="saas-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+      <section className="saas-why">
+        <div className="saas-container">
+          <div className="saas-head" data-aos="fade-up">
+            <span className="saas-eyebrow">Why Us</span>
+            <h2>Why Businesses Choose Us</h2>
+          </div>
+          <div className="saas-why__grid">
+            {WHY.map((w, i) => (
+              <div className="saas-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="saas-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

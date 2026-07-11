@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiSmartphone, FiZap, FiUsers, FiShield, FiTrendingUp, FiLayers, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
+import { FiSmartphone, FiZap, FiUsers, FiShield, FiTrendingUp, FiLayers, FiArrowRight, FiArrowUpRight, FiCode, FiCheckCircle, FiClock } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/MobilePages.css'
 
@@ -20,6 +20,19 @@ const FEATURES = [
   { icon: <FiShield />, t: 'Secure & Compliant', d: 'Best-practice security and Play policy compliance.' },
   { icon: <FiLayers />, t: 'Material Design', d: 'Clean, intuitive UI following Google\'s design system.' },
   { icon: <FiTrendingUp />, t: 'Play Store Ready', d: 'Full submission, ASO and launch support.' },
+]
+const PROCESS = [
+  { n: '01', t: 'Discovery & Device Strategy', d: 'We map your user journeys, pick a minSdk that covers your real audience and agree the Android version and form-factor matrix we will support.' },
+  { n: '02', t: 'Architecture & Compose UI', d: 'We set up a Kotlin MVVM + Clean Architecture base with Hilt, Coroutines and Flow, then design the screens in Jetpack Compose against Material 3.' },
+  { n: '03', t: 'Build, Test & Instrument', d: 'Feature sprints ship to Firebase App Distribution with unit, Compose UI and Espresso tests plus Crashlytics and Analytics wired in from day one.' },
+  { n: '04', t: 'Play Store Launch & Iterate', d: 'We prepare the signed App Bundle, store listing and data-safety form, run a staged rollout on Play Console, then tune with Vitals and ASO data.' },
+]
+const STACK = ['Kotlin', 'Jetpack Compose', 'Material 3', 'Coroutines & Flow', 'Hilt', 'Room', 'Retrofit', 'Firebase', 'Play Console', 'Android Studio']
+const WHY = [
+  { icon: <FiCode />, t: '100% Kotlin & Compose', d: 'No legacy XML layouts or Java debt — a modern declarative codebase your next developer will actually enjoy inheriting.' },
+  { icon: <FiCheckCircle />, t: 'Play Policy Handled', d: 'Data safety, target API levels, permissions and billing rules are handled for you, so your release is not rejected at the last hurdle.' },
+  { icon: <FiZap />, t: 'Fast on Cheap Phones', d: 'We profile with Baseline Profiles and Android Vitals so the app stays smooth on the low-end devices most of your users actually own.' },
+  { icon: <FiClock />, t: 'Ship Every Sprint', d: 'You get a working build on your own phone every two weeks — no black box, no six-month wait to see progress.' },
 ]
 
 export default function AndroidApp() {
@@ -45,6 +58,49 @@ export default function AndroidApp() {
           <div className="and-head" data-aos="fade-up"><span className="and-eyebrow">Why Native Android</span><h2>Built for the Whole Market</h2></div>
           <div className="and-features__grid">
             {FEATURES.map((f, i) => (<div className="and-feature" key={f.t} data-aos="fade-up" data-aos-delay={(i % 3) * 70}><span className="and-feature__icon">{f.icon}</span><h3>{f.t}</h3><p>{f.d}</p></div>))}
+          </div>
+        </div>
+      </section>
+      <section className="and-process">
+        <div className="and-container">
+          <div className="and-head" data-aos="fade-up">
+            <span className="and-eyebrow">Our Process</span>
+            <h2>How We Build</h2>
+          </div>
+          <div className="and-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="and-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="and-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="and-stack">
+        <div className="and-container">
+          <div className="and-head" data-aos="fade-up">
+            <span className="and-eyebrow">Tech Stack</span>
+            <h2>Built With Modern Tech</h2>
+          </div>
+          <div className="and-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="and-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+      <section className="and-why">
+        <div className="and-container">
+          <div className="and-head" data-aos="fade-up">
+            <span className="and-eyebrow">Why Us</span>
+            <h2>Why Businesses Choose Us</h2>
+          </div>
+          <div className="and-why__grid">
+            {WHY.map((w, i) => (
+              <div className="and-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="and-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

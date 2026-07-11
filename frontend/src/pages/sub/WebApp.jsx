@@ -5,6 +5,7 @@ import 'aos/dist/aos.css'
 import {
   FiCpu, FiDatabase, FiLock, FiZap, FiRefreshCw, FiLayers,
   FiCheck, FiArrowRight, FiArrowUpRight, FiGrid,
+  FiShield, FiTrendingUp, FiUsers,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/WebDevPages.css'
@@ -24,6 +25,22 @@ const FEATURES = [
   { icon: <FiRefreshCw />, t: 'API Integrations', d: 'Connect any tool — payments, CRMs, third-party services.' },
   { icon: <FiZap />, t: 'Fast & Reliable', d: 'Optimised performance so your app stays quick under load.' },
   { icon: <FiLayers />, t: 'Cloud Ready', d: 'Deployed on scalable cloud infrastructure with monitoring.' },
+]
+
+const PROCESS = [
+  { n: '01', t: 'Workflow Discovery', d: 'We map the exact processes, user roles and data your team touches daily, then define the screens and permissions the app must cover.' },
+  { n: '02', t: 'Architecture & UX Blueprint', d: 'We design the data model, API contracts and clickable dashboard flows so structure and screens are agreed before a line of code is written.' },
+  { n: '03', t: 'Agile Build & Integrations', d: 'We ship working modules in two-week sprints, wiring in authentication, payments, CRMs and third-party APIs as we go.' },
+  { n: '04', t: 'Deploy, Monitor & Iterate', d: 'We launch on scalable cloud infrastructure with logging and uptime monitoring, then add features as your usage grows.' },
+]
+
+const STACK = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Redis', 'Docker', 'AWS']
+
+const WHY = [
+  { icon: <FiUsers />, t: 'Built Around Your Workflow', d: 'No forced templates — every dashboard, portal and role is modelled on how your team actually works.' },
+  { icon: <FiShield />, t: 'Security From Day One', d: 'Role-based access, encrypted data and audited authentication are engineered in, not bolted on later.' },
+  { icon: <FiTrendingUp />, t: 'Scales With Your Users', d: 'Cloud-native architecture and tuned queries keep the app fast whether you have 50 users or 50,000.' },
+  { icon: <FiCheck />, t: 'You Own The Code', d: 'Clean, documented repositories handed to you in full — no vendor lock-in, no licence traps.' },
 ]
 
 export default function WebApp() {
@@ -56,6 +73,52 @@ export default function WebApp() {
               <div className="cwa-feature" key={f.t} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
                 <span className="cwa-feature__icon">{f.icon}</span>
                 <h3>{f.t}</h3><p>{f.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="cwa-process">
+        <div className="cwa-container">
+          <div className="cwa-head" data-aos="fade-up">
+            <span className="cwa-eyebrow">Our Process</span>
+            <h2>How We Build</h2>
+          </div>
+          <div className="cwa-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="cwa-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="cwa-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="cwa-stack">
+        <div className="cwa-container">
+          <div className="cwa-head" data-aos="fade-up">
+            <span className="cwa-eyebrow">Tech Stack</span>
+            <h2>Built With Modern Tech</h2>
+          </div>
+          <div className="cwa-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="cwa-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+
+      <section className="cwa-why">
+        <div className="cwa-container">
+          <div className="cwa-head" data-aos="fade-up">
+            <span className="cwa-eyebrow">Why Us</span>
+            <h2>Why Businesses Choose Us</h2>
+          </div>
+          <div className="cwa-why__grid">
+            {WHY.map((w, i) => (
+              <div className="cwa-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="cwa-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
               </div>
             ))}
           </div>

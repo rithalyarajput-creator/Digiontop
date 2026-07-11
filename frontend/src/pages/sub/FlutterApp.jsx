@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiSmartphone, FiZap, FiCode, FiDollarSign, FiLayers, FiTrendingUp, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
+import { FiSmartphone, FiZap, FiCode, FiDollarSign, FiLayers, FiTrendingUp, FiArrowRight, FiArrowUpRight, FiRefreshCw, FiShield, FiUsers } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/MobilePages.css'
 
@@ -20,6 +20,19 @@ const FEATURES = [
   { icon: <FiLayers />, t: 'Beautiful UI', d: 'Pixel-perfect, expressive interfaces on every platform.' },
   { icon: <FiSmartphone />, t: 'Both Platforms', d: 'Launch on iOS and Android at the same time.' },
   { icon: <FiTrendingUp />, t: 'Quick to Market', d: 'Faster builds mean you launch and iterate sooner.' },
+]
+const PROCESS = [
+  { n: '01', t: 'Scope & Platform Audit', d: 'We map your feature list against Flutter\'s widget set and plugin ecosystem, flagging anything that needs native iOS or Android channel code before a line of Dart is written.' },
+  { n: '02', t: 'Dart Architecture', d: 'We set up the single codebase with a clean layered structure — Riverpod or Bloc state management, repository pattern, and separate dev/staging/prod flavours.' },
+  { n: '03', t: 'Widget Build & Hot Reload', d: 'Screens are built as reusable Flutter widgets and reviewed with you weekly, with hot reload letting us apply your feedback live in the same session.' },
+  { n: '04', t: 'Dual-Store Release', d: 'We run the same build through integration tests, then ship signed releases to the App Store and Google Play together — and keep both updated from one repo.' },
+]
+const STACK = ['Flutter', 'Dart', 'Riverpod', 'Bloc', 'Firebase', 'Dio / REST', 'GraphQL', 'Hive', 'Melos', 'Codemagic CI/CD']
+const WHY = [
+  { icon: <FiCode />, t: 'One Team, Two Stores', d: 'A single Dart codebase means one team, one backlog and one release cycle instead of separate iOS and Android squads drifting apart.' },
+  { icon: <FiRefreshCw />, t: 'Pixel-Identical Updates', d: 'Flutter draws its own UI, so a design tweak lands the same way on an iPhone 15 and a three-year-old Android — no per-platform patching.' },
+  { icon: <FiShield />, t: 'Production-Grade Quality', d: 'Widget, unit and integration tests run on every commit through Codemagic, so what reaches the stores is the build we actually tested.' },
+  { icon: <FiUsers />, t: 'Code You Can Keep', d: 'Documented, modular Dart with clear state management — your in-house team can pick it up without reverse-engineering our shortcuts.' },
 ]
 
 export default function FlutterApp() {
@@ -44,6 +57,49 @@ export default function FlutterApp() {
           <div className="flt-head" data-aos="fade-up"><span className="flt-eyebrow">Why Flutter</span><h2>Two Apps for the Price of One</h2></div>
           <div className="flt-features__grid">
             {FEATURES.map((f, i) => (<div className="flt-feature" key={f.t} data-aos="fade-up" data-aos-delay={(i % 3) * 70}><span className="flt-feature__icon">{f.icon}</span><h3>{f.t}</h3><p>{f.d}</p></div>))}
+          </div>
+        </div>
+      </section>
+      <section className="flt-process">
+        <div className="flt-container">
+          <div className="flt-head" data-aos="fade-up">
+            <span className="flt-eyebrow">Our Process</span>
+            <h2>How We Build</h2>
+          </div>
+          <div className="flt-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="flt-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="flt-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="flt-stack">
+        <div className="flt-container">
+          <div className="flt-head" data-aos="fade-up">
+            <span className="flt-eyebrow">Tech Stack</span>
+            <h2>Built With Modern Tech</h2>
+          </div>
+          <div className="flt-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="flt-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+      <section className="flt-why">
+        <div className="flt-container">
+          <div className="flt-head" data-aos="fade-up">
+            <span className="flt-eyebrow">Why Us</span>
+            <h2>Why Businesses Choose Us</h2>
+          </div>
+          <div className="flt-why__grid">
+            {WHY.map((w, i) => (
+              <div className="flt-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="flt-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

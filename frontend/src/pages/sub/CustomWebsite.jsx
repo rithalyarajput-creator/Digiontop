@@ -5,6 +5,7 @@ import 'aos/dist/aos.css'
 import {
   FiCode, FiZap, FiSmartphone, FiLayers, FiLock, FiTrendingUp,
   FiCheck, FiArrowRight, FiArrowUpRight, FiCpu, FiFeather,
+  FiShield, FiUsers,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/WebDevPages.css'
@@ -24,6 +25,22 @@ const FEATURES = [
   { icon: <FiTrendingUp />, t: 'SEO-Ready', d: 'Built to rank with clean structure and on-page SEO baked in.' },
   { icon: <FiLock />, t: 'Secure & Scalable', d: 'SSL, best-practice security and room to grow as you scale.' },
   { icon: <FiLayers />, t: 'CMS & Integrations', d: 'Easy-to-edit content plus any tools your business needs.' },
+]
+
+const PROCESS = [
+  { n: '01', t: 'Discovery & Wireframes', d: 'We map your pages, user journeys and conversion goals, then wireframe every screen before a single line of code is written.' },
+  { n: '02', t: 'Bespoke UI Design', d: 'Your brand becomes a real design system — type scale, colour tokens and components — signed off in Figma before build.' },
+  { n: '03', t: 'React / Next.js Build', d: 'We code it as reusable components with server-side rendering, clean semantic markup and a headless CMS you can actually edit.' },
+  { n: '04', t: 'QA, Launch & Handover', d: 'Lighthouse, cross-browser and mobile testing, then deploy to Vercel with analytics, sitemaps and full code ownership handed to you.' },
+]
+
+const STACK = ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Framer Motion', 'Sanity CMS', 'Vercel', 'Figma', 'Vite']
+
+const WHY = [
+  { icon: <FiFeather />, t: 'Zero Templates', d: 'Every layout is designed from a blank canvas around your brand — no WordPress theme wearing your logo.' },
+  { icon: <FiZap />, t: 'Next.js Performance', d: 'SSR, image optimisation and code-splitting give you Core Web Vitals scores in the green from launch day.' },
+  { icon: <FiShield />, t: 'You Own the Code', d: 'The full React codebase is pushed to your repo — no page-builder lock-in, no licence fees, no hostage situation.' },
+  { icon: <FiUsers />, t: 'One Dedicated Team', d: 'The same designer and developer stay on your project end to end, so nothing gets lost in a hand-off.' },
 ]
 
 export default function CustomWebsite() {
@@ -56,6 +73,52 @@ export default function CustomWebsite() {
               <div className="wd-feature" key={f.t} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
                 <span className="wd-feature__icon">{f.icon}</span>
                 <h3>{f.t}</h3><p>{f.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="wd-process">
+        <div className="wd-container">
+          <div className="wd-head" data-aos="fade-up">
+            <span className="wd-eyebrow">Our Process</span>
+            <h2>How We Build</h2>
+          </div>
+          <div className="wd-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="wd-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="wd-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="wd-stack">
+        <div className="wd-container">
+          <div className="wd-head" data-aos="fade-up">
+            <span className="wd-eyebrow">Tech Stack</span>
+            <h2>Built With Modern Tech</h2>
+          </div>
+          <div className="wd-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="wd-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+
+      <section className="wd-why">
+        <div className="wd-container">
+          <div className="wd-head" data-aos="fade-up">
+            <span className="wd-eyebrow">Why Us</span>
+            <h2>Why Businesses Choose Us</h2>
+          </div>
+          <div className="wd-why__grid">
+            {WHY.map((w, i) => (
+              <div className="wd-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="wd-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
               </div>
             ))}
           </div>

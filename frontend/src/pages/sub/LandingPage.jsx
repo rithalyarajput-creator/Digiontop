@@ -5,6 +5,7 @@ import 'aos/dist/aos.css'
 import {
   FiTarget, FiZap, FiMousePointer, FiTrendingUp, FiEdit3, FiSmartphone,
   FiCheck, FiArrowRight, FiArrowUpRight, FiChevronRight,
+  FiClock, FiBarChart2, FiDollarSign, FiRepeat,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/WebDevPages.css'
@@ -24,6 +25,22 @@ const FEATURES = [
   { icon: <FiSmartphone />, t: 'Mobile Optimised', d: 'Perfect on phones where most paid traffic lands.' },
   { icon: <FiEdit3 />, t: 'Persuasive Copy', d: 'Conversion-focused messaging that drives action.' },
   { icon: <FiTrendingUp />, t: 'A/B Ready', d: 'Built to test and improve conversion rates over time.' },
+]
+
+const PROCESS = [
+  { n: '01', t: 'Offer & Audience Brief', d: 'We map the exact ad, keyword or audience the traffic comes from, then define the one action the page must win.' },
+  { n: '02', t: 'Wireframe & Message Match', d: 'We structure the hero, proof, objections and CTA so the page echoes your ad promise word-for-word and keeps the scent.' },
+  { n: '03', t: 'Design & Build', d: 'Conversion-focused visuals, persuasive copy and a fast, mobile-first build with the form or checkout wired up.' },
+  { n: '04', t: 'Track, Test & Improve', d: 'Pixels, conversion events and heatmaps go live, then we A/B test headlines, offers and CTAs to lift conversion rates.' },
+]
+
+const STACK = ['React', 'Next.js', 'Tailwind CSS', 'Figma', 'Google Tag Manager', 'GA4', 'Meta Pixel', 'Hotjar', 'Google Optimize / VWO', 'Vercel']
+
+const WHY = [
+  { icon: <FiClock />, t: 'Live in Days, Not Weeks', d: 'Campaign-ready pages in 3–7 days so your ad budget never waits on a build.' },
+  { icon: <FiBarChart2 />, t: 'Conversion Tracking Built In', d: 'Every form, call and checkout fires a clean event, so you know exactly which ad made the money.' },
+  { icon: <FiDollarSign />, t: 'Lower Cost Per Lead', d: 'Tight message match and a faster page mean better Quality Scores and cheaper clicks that actually convert.' },
+  { icon: <FiRepeat />, t: 'Built for Testing', d: 'Modular sections and variant-ready layouts let us test headlines and offers without rebuilding the page.' },
 ]
 
 export default function LandingPage() {
@@ -56,6 +73,52 @@ export default function LandingPage() {
               <div className="lp-feature" key={f.t} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
                 <span className="lp-feature__icon">{f.icon}</span>
                 <h3>{f.t}</h3><p>{f.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="lp-process">
+        <div className="lp-container">
+          <div className="lp-head" data-aos="fade-up">
+            <span className="lp-eyebrow">Our Process</span>
+            <h2>How We Build</h2>
+          </div>
+          <div className="lp-process__track">
+            {PROCESS.map((s, i) => (
+              <div className="lp-step" key={s.n} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="lp-step__num">{s.n}</span>
+                <h3>{s.t}</h3><p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="lp-stack">
+        <div className="lp-container">
+          <div className="lp-head" data-aos="fade-up">
+            <span className="lp-eyebrow">Tech Stack</span>
+            <h2>Built With Modern Tech</h2>
+          </div>
+          <div className="lp-stack__grid" data-aos="fade-up">
+            {STACK.map(t => (<span className="lp-chip" key={t}>{t}</span>))}
+          </div>
+        </div>
+      </section>
+
+      <section className="lp-why">
+        <div className="lp-container">
+          <div className="lp-head" data-aos="fade-up">
+            <span className="lp-eyebrow">Why Us</span>
+            <h2>Why Businesses Choose Us</h2>
+          </div>
+          <div className="lp-why__grid">
+            {WHY.map((w, i) => (
+              <div className="lp-why__card" key={w.t} data-aos="fade-up" data-aos-delay={i * 70}>
+                <span className="lp-why__ic">{w.icon}</span>
+                <h3>{w.t}</h3><p>{w.d}</p>
               </div>
             ))}
           </div>
