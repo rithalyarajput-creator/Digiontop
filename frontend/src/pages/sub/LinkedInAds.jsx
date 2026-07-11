@@ -46,15 +46,6 @@ export default function LinkedInAds() {
               <Link to="/contact" className="li-btn li-btn--ghost">Free B2B Strategy Call</Link>
             </div>
           </div>
-          {/* targeting card */}
-          <div className="li-card" data-aos="fade-left">
-            <div className="li-card__top"><span className="li-card__ava" /><div><b>Decision Makers</b><small>Audience preview</small></div><FiLinkedin className="li-card__brand" /></div>
-            <div className="li-card__targets">
-              {TARGETS.map((t) => (<span key={t.t} className="li-card__chip">{t.icon} {t.t}</span>))}
-            </div>
-            <div className="li-card__match"><span>Estimated match</span><b>42,000 professionals</b></div>
-            <div className="li-card__bar"><span style={{ width: '72%' }} /></div>
-          </div>
         </div>
       </section>
 

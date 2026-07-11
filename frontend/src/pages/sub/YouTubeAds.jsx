@@ -40,19 +40,6 @@ export default function YouTubeAds() {
               <Link to="/contact" className="yt-btn yt-btn--ghost">Free Video Strategy</Link>
             </div>
           </div>
-          {/* video player mock */}
-          <div className="yt-player" data-aos="fade-left">
-            <div className="yt-player__screen">
-              <span className="yt-player__play"><FiPlay /></span>
-              <span className="yt-player__adtag">Ad · 0:05</span>
-              <span className="yt-player__skip"><FiSkipForward /> Skip</span>
-            </div>
-            <div className="yt-player__ctrl"><span className="yt-player__prog"><i /></span></div>
-            <div className="yt-player__meta">
-              <div className="yt-player__ava" />
-              <div><b>Your Brand Ad</b><small><FiEye /> 1.2M views · High retention</small></div>
-            </div>
-          </div>
         </div>
       </section>
 

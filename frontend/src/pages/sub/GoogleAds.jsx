@@ -45,19 +45,6 @@ export default function GoogleAds() {
               <div><b>4.8x</b><span>Avg ROAS</span></div>
             </div>
           </div>
-          {/* search result mock */}
-          <div className="gads-serp" data-aos="fade-left">
-            <div className="gads-serp__bar"><FiSearch /> best digital marketing agency</div>
-            <div className="gads-serp__ad">
-              <div className="gads-serp__adtag">Ad</div>
-              <div className="gads-serp__url">yourbusiness.com</div>
-              <h4>#1 Digital Marketing — Get More Leads Today</h4>
-              <p>Data-driven campaigns that grow your revenue. Free strategy call. Trusted by 200+ brands.</p>
-              <div className="gads-serp__ext"><span>★ 4.9 rating</span><span>Call Now</span><span>Free Audit</span></div>
-            </div>
-            <div className="gads-serp__org"><span /><span /><span className="s" /></div>
-            <div className="gads-serp__org"><span /><span /><span className="s" /></div>
-          </div>
         </div>
       </section>
 

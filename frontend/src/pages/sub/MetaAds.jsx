@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import {
-  FiInstagram, FiFacebook, FiHeart, FiMessageCircle, FiSend, FiBookmark,
+  FiInstagram,
   FiTarget, FiCheck, FiArrowRight, FiArrowUpRight, FiUsers, FiZap,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
@@ -28,7 +28,7 @@ export default function MetaAds() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="meta">
-      {/* HERO — phone with IG ad */}
+      {/* HERO */}
       <section className="meta-hero">
         <div className="meta-container meta-hero__inner">
           <div className="meta-hero__text" data-aos="fade-right">
@@ -43,16 +43,6 @@ export default function MetaAds() {
               <span><FiCheck /> Creative Included</span>
               <span><FiCheck /> Pixel & Retargeting</span>
               <span><FiCheck /> Daily Optimisation</span>
-            </div>
-          </div>
-          {/* IG ad phone */}
-          <div className="meta-phone" data-aos="fade-left">
-            <div className="meta-phone__notch" />
-            <div className="meta-phone__screen">
-              <div className="meta-phone__top"><span className="meta-phone__ava" /><b>yourbrand</b><small>Sponsored</small></div>
-              <div className="meta-phone__media"><FiInstagram /><span className="meta-phone__cta2">Shop Now</span></div>
-              <div className="meta-phone__acts"><FiHeart /><FiMessageCircle /><FiSend /><FiBookmark className="save" /></div>
-              <div className="meta-phone__cap"><b>yourbrand</b> New drop is live. Tap to shop →</div>
             </div>
           </div>
         </div>

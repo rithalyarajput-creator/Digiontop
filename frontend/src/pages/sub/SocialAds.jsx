@@ -40,16 +40,6 @@ export default function SocialAds() {
               <Link to="/contact" className="sa-btn sa-btn--ghost">Free Paid-Social Audit</Link>
             </div>
           </div>
-          {/* orbit */}
-          <div className="sa-orbit" data-aos="fade-left">
-            <span className="sa-orbit__center"><FiTarget /></span>
-            <span className="sa-orbit__ring sa-orbit__ring--1" />
-            <span className="sa-orbit__ring sa-orbit__ring--2" />
-            <span className="sa-orbit__ic sa-orbit__ic--1"><FiInstagram /></span>
-            <span className="sa-orbit__ic sa-orbit__ic--2"><FiFacebook /></span>
-            <span className="sa-orbit__ic sa-orbit__ic--3"><FiLinkedin /></span>
-            <span className="sa-orbit__ic sa-orbit__ic--4"><FiYoutube /></span>
-          </div>
         </div>
       </section>
 

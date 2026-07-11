@@ -8,7 +8,6 @@ import {
   FiTarget, FiSearch, FiShare2, FiFacebook, FiLinkedin, FiYoutube,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
-import ServiceHeroAnim from '../../components/ServiceHeroAnim'
 import RelatedServices from '../../components/RelatedServices'
 import '../../styles/SubService.css'
 
@@ -36,18 +35,13 @@ export default function PpcPage() {
   return (
     <main className="ss">
       <section className="ss-hero">
-        <div className="ss-container ds-hero" style={{ position: 'relative' }}>
-          <div data-aos="fade-right">
-            <span className="ss-tag"><FiTrendingUp /> PPC &amp; Paid Advertising</span>
-            <h1 className="ss-hero__title">High-ROI Paid Campaigns <span>Across Every Platform</span></h1>
-            <p className="ss-hero__sub">Google Ads, Meta Ads, lead generation & retargeting campaigns that actually deliver customers — built around real KPIs and measurable ROI.</p>
-            <div className="ss-hero__actions">
-              <Link to="/contact" className="ss-btn ss-btn--primary">Launch My Campaign <FiArrowRight /></Link>
-              <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Ad Audit</Link>
-            </div>
-          </div>
-          <div className="ec-hero__media" data-aos="fade-left">
-            <ServiceHeroAnim variant="ads" label="PPC & paid advertising illustration" />
+        <div className="ss-container ss-hero__center" data-aos="fade-up">
+          <span className="ss-tag"><FiTrendingUp /> PPC &amp; Paid Advertising</span>
+          <h1 className="ss-hero__title">High-ROI Paid Campaigns <span>Across Every Platform</span></h1>
+          <p className="ss-hero__sub">Google Ads, Meta Ads, lead generation & retargeting campaigns that actually deliver customers — built around real KPIs and measurable ROI.</p>
+          <div className="ss-hero__actions">
+            <Link to="/contact" className="ss-btn ss-btn--primary">Launch My Campaign <FiArrowRight /></Link>
+            <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Ad Audit</Link>
           </div>
         </div>
       </section>

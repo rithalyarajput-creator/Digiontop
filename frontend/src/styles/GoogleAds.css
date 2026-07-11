@@ -19,7 +19,7 @@
 
 /* HERO */
 .gads-hero{padding:74px 24px 84px;background:radial-gradient(ellipse 70% 60% at 78% 25%,#FFF8EC,#fff 60%);}
-.gads-hero__inner{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;}
+.gads-hero__inner{max-width:820px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;}
 .gads-hero__title{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.06;letter-spacing:-.03em;margin:0 0 18px;}
 .gads-hero__title span{background:linear-gradient(120deg,#F5A800,#C78700);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 .gads-hero__sub{font-size:1.1rem;color:var(--muted);line-height:1.7;max-width:480px;margin:0 0 26px;}
@@ -27,6 +27,12 @@
 .gads-hero__mini{display:flex;gap:28px;flex-wrap:wrap;}
 .gads-hero__mini b{display:block;font-size:1.4rem;font-weight:900;color:var(--gold-d);}
 .gads-hero__mini span{font-size:.8rem;color:var(--muted);}
+/* centered hero overrides */
+.gads-hero__text{display:flex;flex-direction:column;align-items:center;width:100%;}
+.gads-hero__sub{margin-left:auto;margin-right:auto;}
+.gads-hero__actions{justify-content:center;}
+.gads-hero__cta{justify-content:center;}
+.gads-hero__mini{justify-content:center;}
 
 /* SERP mock */
 .gads-serp{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 30px 60px -30px rgba(20,24,43,.35);}
@@ -56,7 +62,7 @@
 /* ROI band */
 .gads-roi{padding:80px 0;background:linear-gradient(135deg,#14182b,#1f2540);color:#fff;}
 .gads-roi__inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
-.gads-roi h2{font-size:clamp(1.6rem,3.2vw,2.3rem);font-weight:900;margin:10px 0 12px;}
+.gads-roi h2{font-size:clamp(1.6rem,3.2vw,2.3rem);font-weight:900;margin:10px 0 12px;color:#fff;}
 .gads-roi p{color:#aeb2c0;line-height:1.7;max-width:440px;}
 .gads-roi__chart{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:24px;}
 .gads-roi__labels{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;}
@@ -75,7 +81,7 @@
 .gads-cta__box p{color:var(--muted);max-width:520px;margin:0 auto 26px;line-height:1.7;}
 
 @media(max-width:900px){
-  .gads-hero__inner,.gads-roi__inner{grid-template-columns:1fr;gap:40px;}
+  .gads-roi__inner{grid-template-columns:1fr;gap:40px;}
   .gads-camps__grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:560px){.gads-camps__grid{grid-template-columns:1fr;}}
