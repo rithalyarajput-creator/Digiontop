@@ -41,20 +41,6 @@ export default function WebsiteRedesign() {
               <Link to="/contact" className="rd-btn rd-btn--ghost">Free Site Review</Link>
             </div>
           </div>
-          {/* before/after */}
-          <div className="rd-ba" data-aos="fade-left">
-            <div className="rd-ba__col rd-ba__col--before">
-              <span className="rd-ba__tag rd-ba__tag--old"><FiX /> Before</span>
-              <div className="rd-ba__old"><span /><span className="s" /><span /><span className="s" /></div>
-              <small>Slow · Dated · 1.4% convert</small>
-            </div>
-            <div className="rd-ba__arrow"><FiRefreshCw /></div>
-            <div className="rd-ba__col rd-ba__col--after">
-              <span className="rd-ba__tag rd-ba__tag--new"><FiCheck /> After</span>
-              <div className="rd-ba__new"><div className="rd-ba__band" /><span /><span className="s" /></div>
-              <small>Fast · Modern · 4.6% convert</small>
-            </div>
-          </div>
         </div>
       </section>
 

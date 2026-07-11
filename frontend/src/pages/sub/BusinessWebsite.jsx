@@ -41,16 +41,6 @@ export default function BusinessWebsite() {
               <Link to="/contact" className="biz-btn biz-btn--ghost">Free Consultation</Link>
             </div>
           </div>
-          {/* business site mock */}
-          <div className="biz-mock" data-aos="fade-left">
-            <div className="biz-mock__bar"><span /><span /><span /></div>
-            <div className="biz-mock__hero">
-              <div className="biz-mock__nav"><b>YourBusiness</b><span>Home · About · Services · Contact</span></div>
-              <div className="biz-mock__band"><b>Trusted Local Experts</b><span className="biz-mock__cta2">Get a Quote</span></div>
-              <div className="biz-mock__cards"><span /><span /><span /></div>
-            </div>
-            <div className="biz-mock__badge"><FiAward /> Trust Building</div>
-          </div>
         </div>
       </section>
 

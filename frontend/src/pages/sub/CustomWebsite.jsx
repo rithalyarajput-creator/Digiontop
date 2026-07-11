@@ -42,21 +42,6 @@ export default function CustomWebsite() {
               <Link to="/contact" className="wd-btn wd-btn--ghost-l">Get a Free Quote</Link>
             </div>
           </div>
-          {/* code editor mock */}
-          <div className="wd-code" data-aos="fade-left">
-            <div className="wd-code__bar"><i /><i /><i /><span>index.jsx</span></div>
-            <div className="wd-code__body">
-              <p><span className="k">export</span> <span className="k">default</span> <span className="fn">YourBrand</span>() {'{'}</p>
-              <p className="ind"><span className="k">return</span> (</p>
-              <p className="ind2">&lt;<span className="t">Website</span></p>
-              <p className="ind3"><span className="a">design</span>=<span className="s">"custom"</span></p>
-              <p className="ind3"><span className="a">speed</span>=<span className="s">"blazing"</span></p>
-              <p className="ind3"><span className="a">seo</span>={'{'}<span className="b">true</span>{'}'} /&gt;</p>
-              <p className="ind">)</p>
-              <p>{'}'}</p>
-              <p className="ok"><FiCheck /> Built &amp; deployed</p>
-            </div>
-          </div>
         </div>
       </section>
 

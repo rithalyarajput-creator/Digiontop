@@ -42,15 +42,6 @@ export default function WordPressDev() {
               <Link to="/contact" className="wp-btn wp-btn--ghost-l">Free Quote</Link>
             </div>
           </div>
-          {/* wp dashboard mock */}
-          <div className="wp-dash" data-aos="fade-left">
-            <div className="wp-dash__side"><span className="on"><FiEdit3 /> Posts</span><span><FiLayers /> Pages</span><span><FiSettings /> Plugins</span><span><FiTrendingUp /> SEO</span></div>
-            <div className="wp-dash__main">
-              <div className="wp-dash__row"><b>Edit Page</b><span className="wp-dash__pub">Published</span></div>
-              <div className="wp-dash__block" /><div className="wp-dash__block s" /><div className="wp-dash__block" />
-              <div className="wp-dash__save"><FiCheck /> Saved automatically</div>
-            </div>
-          </div>
         </div>
       </section>
 

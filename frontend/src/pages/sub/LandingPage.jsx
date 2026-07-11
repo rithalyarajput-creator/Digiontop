@@ -42,17 +42,6 @@ export default function LandingPage() {
               <Link to="/contact" className="lp-btn lp-btn--ghost-l">See Examples</Link>
             </div>
           </div>
-          {/* landing page mock */}
-          <div className="lp-mock" data-aos="fade-left">
-            <div className="lp-mock__hero">
-              <span className="lp-mock__badge">Limited Offer</span>
-              <b>Get 40% Off Today</b>
-              <span className="lp-mock__sub">One clear message. One clear action.</span>
-              <span className="lp-mock__cta2">Claim My Offer <FiChevronRight /></span>
-            </div>
-            <div className="lp-mock__trust"><span>★★★★★</span><small>Trusted by 200+ brands</small></div>
-            <div className="lp-mock__conv"><FiTrendingUp /> 4.9% conversion rate</div>
-          </div>
         </div>
       </section>
 

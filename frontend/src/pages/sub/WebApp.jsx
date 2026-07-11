@@ -42,13 +42,6 @@ export default function WebApp() {
               <Link to="/contact" className="cwa-btn cwa-btn--ghost-l">Discuss My Idea</Link>
             </div>
           </div>
-          {/* app dashboard mock */}
-          <div className="cwa-app" data-aos="fade-left">
-            <div className="cwa-app__top"><b>Dashboard</b><span className="cwa-app__live">● Online</span></div>
-            <div className="cwa-app__kpis"><div><span>Users</span><b>12.4k</b></div><div><span>Revenue</span><b>₹8.2L</b></div><div><span>Uptime</span><b>99.9%</b></div></div>
-            <div className="cwa-app__chart">{[40, 58, 50, 72, 66, 88, 80].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}</div>
-            <div className="cwa-app__foot"><FiCheck /> Secure · Scalable · Real-time</div>
-          </div>
         </div>
       </section>
 

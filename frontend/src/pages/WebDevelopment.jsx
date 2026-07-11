@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
-import ServiceHeroAnim from '../components/ServiceHeroAnim'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import {
@@ -114,13 +113,6 @@ export default function WebDevelopment() {
             </div>
           </div>
 
-          {/* floating browser mockup */}
-          <div className="wd-hero__visual" data-aos="fade-left" data-aos-delay="150">
-            {/* animated web illustration */}
-            <ServiceHeroAnim variant="web" label="Website development illustration" />
-            <div className="wd-float wd-float--a"><FiZap /> Fast</div>
-            <div className="wd-float wd-float--b"><FiSearch /> SEO Ready</div>
-          </div>
         </div>
       </section>
 

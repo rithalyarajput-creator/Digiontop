@@ -41,17 +41,6 @@ export default function WooCommerce() {
               <Link to="/contact" className="woo-btn woo-btn--ghost">Free Store Plan</Link>
             </div>
           </div>
-          {/* store mock */}
-          <div className="woo-store" data-aos="fade-left">
-            <div className="woo-store__bar"><span /><span /><span /><small>yourstore.com</small></div>
-            <div className="woo-store__band"><b>Mega Sale · Up to 50% Off</b><span className="woo-store__cta2">Shop Now</span></div>
-            <div className="woo-store__grid">
-              {[{ p: '₹999' }, { p: '₹1,499' }, { p: '₹799' }, { p: '₹2,199' }].map((x, i) => (
-                <div className="woo-store__prod" key={i}><span className="woo-store__img"><FiShoppingCart /></span><b>Product</b><small>{x.p}</small></div>
-              ))}
-            </div>
-            <div className="woo-store__cart"><FiShoppingCart /> 3 items · ₹3,297</div>
-          </div>
         </div>
       </section>
 

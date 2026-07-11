@@ -85,21 +85,6 @@ export default function ShopifyDevelopment() {
               <span><FiTrendingUp /> Conversion Focused</span>
             </div>
           </div>
-
-          {/* phone store mockup */}
-          <div className="sf-hero__visual" data-aos="fade-left" data-aos-delay="150">
-            <div className="sf-phone">
-              <div className="sf-phone__notch" />
-              <div className="sf-phone__screen">
-                <div className="sf-phone__topbar"><span className="sf-phone__logo" /><span className="sf-phone__cart"><FiShoppingBag /></span></div>
-                <div className="sf-phone__banner">SALE 50% OFF</div>
-                <div className="sf-phone__grid"><span /><span /><span /><span /></div>
-                <div className="sf-phone__btn">Buy Now</div>
-              </div>
-            </div>
-            <div className="sf-float sf-float--a"><FiCreditCard /> Secure Pay</div>
-            <div className="sf-float sf-float--b"><b>+248%</b> Sales</div>
-          </div>
         </div>
       </section>
 
