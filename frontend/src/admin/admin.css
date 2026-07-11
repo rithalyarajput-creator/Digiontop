@@ -268,7 +268,7 @@
   font-size: 12px; color: #999;
 }
 
-/* ── Responsive: image on top, form card overlapping below ── */
+/* ── Responsive: image on top, floating rounded form card below ── */
 @media (max-width: 860px) {
   .admin-login { padding: 0; }
   .admin-login__shell {
@@ -278,27 +278,30 @@
     height: 100dvh;
     max-width: none;
     border-radius: 0;
+    background: #0d0d0d;
   }
   .admin-login__left {
     display: block;
-    height: 36dvh;
+    height: 44dvh;                 /* more of the banner visible */
     flex-shrink: 0;
   }
   .admin-login__banner { object-position: center top; }
   .admin-login__right {
     flex: 1;
-    margin-top: -26px;             /* card overlaps the image */
-    border-radius: 26px 26px 0 0;
+    margin: -56px 14px calc(14px + env(safe-area-inset-bottom));
+    border-radius: 22px;           /* square card — all corners rounded */
     position: relative;
     z-index: 1;
-    padding: 18px 22px 14px;
-    box-shadow: 0 -12px 30px rgba(0,0,0,0.25);
+    padding: 16px 20px 12px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    min-height: 0;
   }
-  .admin-login__form { gap: 11px; }
-  .admin-login__header-logo { height: 36px; }
-  .admin-login__title { font-size: 19px; }
-  .admin-login__subtitle { font-size: 12.5px; margin-bottom: 6px; }
-  .admin-login__right-bottom { font-size: 11px; }
+  .admin-login__form { gap: 10px; }
+  .admin-login__header-logo { height: 34px; }
+  .admin-login__title { font-size: 18px; }
+  .admin-login__subtitle { font-size: 12px; margin-bottom: 4px; }
+  .admin-field span { font-size: 12.5px; }
+  .admin-login__right-bottom { font-size: 10.5px; }
 }
 
 /* ---- Blog Editor ---- */
@@ -1028,6 +1031,9 @@
 .admin-btn--secondary:hover { background: #d8d8dc; }
 /* only stretch buttons inside the modal footer */
 .admin-modal__footer .admin-btn { flex: 1; justify-content: center; }
+
+/* Blog featured-image upload row */
+.blogedit__upload-row { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
 
 /* Name with business on one line */
 .admin-table--leads td:nth-child(1) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
