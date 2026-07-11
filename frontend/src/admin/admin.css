@@ -268,16 +268,37 @@
   font-size: 12px; color: #999;
 }
 
-/* ── Responsive ── */
+/* ── Responsive: image on top, form card overlapping below ── */
 @media (max-width: 860px) {
-  .admin-login { padding: 14px; }
+  .admin-login { padding: 0; }
   .admin-login__shell {
-    grid-template-columns: 1fr;
-    height: min(calc(100dvh - 28px), 620px);
-    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    border-radius: 0;
   }
-  .admin-login__left { display: none; }   /* form fits the screen — no scrolling */
-  .admin-login__right { padding: 20px 22px; }
+  .admin-login__left {
+    display: block;
+    height: 36dvh;
+    flex-shrink: 0;
+  }
+  .admin-login__banner { object-position: center top; }
+  .admin-login__right {
+    flex: 1;
+    margin-top: -26px;             /* card overlaps the image */
+    border-radius: 26px 26px 0 0;
+    position: relative;
+    z-index: 1;
+    padding: 18px 22px 14px;
+    box-shadow: 0 -12px 30px rgba(0,0,0,0.25);
+  }
+  .admin-login__form { gap: 11px; }
+  .admin-login__header-logo { height: 36px; }
+  .admin-login__title { font-size: 19px; }
+  .admin-login__subtitle { font-size: 12.5px; margin-bottom: 6px; }
+  .admin-login__right-bottom { font-size: 11px; }
 }
 
 /* ---- Blog Editor ---- */
