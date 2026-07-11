@@ -738,7 +738,7 @@
 .ab-why2 {
   position: relative;
   overflow: hidden;
-  padding: 100px 0;
+  padding: 100px 0 120px;
   background:
     radial-gradient(130% 90% at 50% -10%, #1c1a10 0%, #121319 42%, #0b0c11 100%);
 }
@@ -868,7 +868,7 @@
 
 /* OUR GOAL — dramatic dark full-width banner */
 /* ══ OUR GOAL — compact split card ══ */
-.ab-goal2 { padding: 0 0 80px; }
+.ab-goal2 { padding: 40px 0 80px; }
 .ab-goal2__card {
   position: relative; overflow: hidden;
   display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: center;
@@ -929,7 +929,7 @@
   .ab-hero__stats { gap: 28px; }
   .ab-do__card { flex: 0 1 100%; }
   /* Why-choose carousel: 1 card per view, stacked header + arrows */
-  .ab-why2 { padding: 60px 0; }
+  .ab-why2 { padding: 56px 0 72px; }
   .ab-why2__bar { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 26px; }
   .ab-why2__viewport { --why-gap: 14px; --why-card: 100%; }
   .ab-why2__card { padding: 24px 22px; }
@@ -1069,22 +1069,24 @@
 
   /* ── Our Goal: don't touch screen edges + compact ── */
   /* Our Goal on mobile: distinct 'quote card' — big golden quote, left bar */
-  .ab-goal2 { padding: 0 14px 52px; }
+  /* gap from the carousel above + compact card */
+  .ab-goal2 { padding: 30px 14px 46px; }
   .ab-goal2__card {
-    grid-template-columns: 1fr; gap: 16px; padding: 28px 22px 26px 26px; text-align: left;
-    position: relative; border-left: 4px solid #F5A800; border-radius: 18px;
+    grid-template-columns: 1fr; gap: 12px; padding: 22px 18px 20px 20px; text-align: left;
+    position: relative; border-left: 4px solid #F5A800; border-radius: 16px;
     background: linear-gradient(160deg, #17181f 0%, #1e2130 100%);
   }
-  /* big decorative quote mark top-right */
+  /* smaller decorative quote mark top-right */
   .ab-goal2__card::before {
-    content: '\201C'; position: absolute; top: 4px; right: 18px;
-    font-size: 5rem; line-height: 1; color: rgba(245,168,0,0.18);
+    content: '\201C'; position: absolute; top: 2px; right: 16px;
+    font-size: 3.6rem; line-height: 1; color: rgba(245,168,0,0.18);
     font-family: Georgia, serif; pointer-events: none;
   }
   .ab-goal2__card::after { display: none; }   /* no vertical divider when stacked */
-  .ab-goal2__title { font-size: clamp(1.4rem, 6vw, 1.8rem); }
-  .ab-goal2__text { font-size: 0.92rem; }
-  .ab-goal2__tagline { font-size: 0.88rem; width: 100%; justify-content: center; }
+  .ab-goal2__eyebrow { font-size: 0.66rem; margin-bottom: 8px; }
+  .ab-goal2__title { font-size: clamp(1.25rem, 5.4vw, 1.55rem); }
+  .ab-goal2__text { font-size: 0.86rem; line-height: 1.6; margin-bottom: 4px; }
+  .ab-goal2__tagline { font-size: 0.82rem; width: 100%; justify-content: center; padding: 9px 14px; }
 
   /* ── Lead form promo board: compact + hide bars that overlap text ── */
   .about-lead__promo { padding: 26px 22px !important; }
