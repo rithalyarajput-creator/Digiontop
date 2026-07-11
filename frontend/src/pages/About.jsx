@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   FiCheck, FiUsers, FiTarget, FiTrendingUp,
   FiArrowRight, FiArrowUpRight, FiStar, FiMapPin, FiBriefcase, FiCheckCircle,
+  FiSettings, FiLayers, FiZap, FiMessageCircle, FiTag, FiLifeBuoy, FiHeart, FiAward,
 } from 'react-icons/fi';
 import { FaHandshake } from 'react-icons/fa';
 import '../styles/About.css';
@@ -22,14 +23,14 @@ const WHAT_WE_DO = [
 ];
 
 const WHY_CHOOSE = [
-  'Customized Solutions For Every Business',
-  'Modern Design & Development Standards',
-  'Growth-Focused Marketing Strategies',
-  'Transparent Communication',
-  'Affordable & Competitive Pricing',
-  'Dedicated Support & Guidance',
-  'Long-Term Partnership Approach',
-  'Results-Driven Execution',
+  { icon: <FiSettings />,      title: 'Customized Solutions',      desc: 'Tailor-made strategies built around your business, not templates.' },
+  { icon: <FiLayers />,        title: 'Modern Standards',          desc: 'Latest design & development practices for a future-ready brand.' },
+  { icon: <FiTrendingUp />,    title: 'Growth-Focused',            desc: 'Every move is engineered to drive real, measurable growth.' },
+  { icon: <FiMessageCircle />, title: 'Transparent Communication', desc: 'Clear, honest updates — you always know exactly what we do.' },
+  { icon: <FiTag />,           title: 'Competitive Pricing',       desc: 'Premium quality work at prices that make sense for you.' },
+  { icon: <FiLifeBuoy />,      title: 'Dedicated Support',         desc: 'Real people, real guidance — whenever you need us.' },
+  { icon: <FiHeart />,         title: 'Long-Term Partnership',     desc: 'We grow with you, invested in your success for the long run.' },
+  { icon: <FiAward />,         title: 'Results-Driven Execution',  desc: 'We obsess over outcomes — traffic, leads and revenue.' },
 ];
 
 const ABOUT_STATS = [
@@ -288,17 +289,30 @@ export default function About() {
       </section>
 
       {/* ══ 5. WHY CHOOSE ══ */}
-      <section className="ab-why">
-        <div className="about-container">
-          <div className="ab-head" data-aos="fade-up">
-            <span className="ab-eyebrow">Why Businesses Choose DigionTop</span>
-            <h2 className="ab-h2">Built on Trust, Driven by Results</h2>
+      <section className="ab-why2">
+        <span className="ab-why2__glow ab-why2__glow--a" aria-hidden="true" />
+        <span className="ab-why2__glow ab-why2__glow--b" aria-hidden="true" />
+        <div className="about-container ab-why2__inner">
+          <div className="ab-why2__head" data-aos="fade-up">
+            <span className="ab-why2__eyebrow"><span className="ab-why2__eyebrow-dot" /> Why Businesses Choose DigionTop</span>
+            <h2 className="ab-why2__title">Built on <span>Trust</span>, Driven by <span>Results</span></h2>
+            <p className="ab-why2__sub">Eight reasons brands across India trust us to lead their digital growth.</p>
           </div>
-          <div className="ab-why__grid">
+
+          <div className="ab-why2__grid">
             {WHY_CHOOSE.map((w, i) => (
-              <div className="ab-why__item" key={w} data-aos="fade-up" data-aos-delay={(i % 4) * 50}>
-                <FiCheck /> {w}
-              </div>
+              <article
+                className="ab-why2__card"
+                key={w.title}
+                data-aos="fade-up"
+                data-aos-delay={(i % 4) * 70}
+              >
+                <span className="ab-why2__num">{String(i + 1).padStart(2, '0')}</span>
+                <span className="ab-why2__icon">{w.icon}</span>
+                <h3 className="ab-why2__card-title">{w.title}</h3>
+                <p className="ab-why2__card-desc">{w.desc}</p>
+                <span className="ab-why2__shine" aria-hidden="true" />
+              </article>
             ))}
           </div>
         </div>

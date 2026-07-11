@@ -691,36 +691,103 @@
 .ab-mission__media::before { content: ''; position: absolute; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(245,168,0,0.18), transparent 70%); z-index: -1; }
 
 /* WHY CHOOSE (light, premium feature cards) */
-.ab-why { position: relative; overflow: hidden; padding: 90px 0; background: linear-gradient(180deg, #fffdf6, #fff); }
-.ab-why::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(245,168,0,0.1), transparent 70%); top: -240px; left: 50%; transform: translateX(-50%); pointer-events: none; }
-.ab-why .ab-head { position: relative; }
-.ab-why .ab-eyebrow { color: #c47f00; }
-.ab-why .ab-h2 { color: #14182b; }
-/* horizontal pill rows — different "checklist" style */
-.ab-why__grid { position: relative; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 22px; max-width: 940px; margin: 0 auto; }
-.ab-why__item {
-  display: flex; align-items: center; gap: 16px;
-  padding: 18px 22px; border-radius: 14px;
-  background: #fff; border: 1px solid #ececf1;
-  color: #14182b; font-size: 1rem; font-weight: 700; line-height: 1.35;
+/* ══════════════════════════════════════════════════════════════
+   WHY CHOOSE — premium dark section with glowing gradient cards
+   ══════════════════════════════════════════════════════════════ */
+.ab-why2 {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+  background:
+    radial-gradient(130% 90% at 50% -10%, #1c1a10 0%, #121319 42%, #0b0c11 100%);
+}
+/* soft floating glow blobs */
+.ab-why2__glow {
+  position: absolute; border-radius: 50%; filter: blur(90px);
+  pointer-events: none; opacity: 0.55; z-index: 0;
+  animation: abwhy-float 11s ease-in-out infinite;
+}
+.ab-why2__glow--a { width: 420px; height: 420px; background: rgba(245,168,0,0.35); top: -140px; right: -80px; }
+.ab-why2__glow--b { width: 360px; height: 360px; background: rgba(245,168,0,0.18); bottom: -120px; left: -90px; animation-delay: -5s; }
+@keyframes abwhy-float {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(24px,-30px) scale(1.14); }
+}
+.ab-why2__inner { position: relative; z-index: 1; }
+
+.ab-why2__head { text-align: center; max-width: 640px; margin: 0 auto 54px; }
+.ab-why2__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #F5A800;
+  background: rgba(245,168,0,0.1); border: 1px solid rgba(245,168,0,0.28);
+  padding: 8px 18px; border-radius: 50px; margin-bottom: 20px;
+}
+.ab-why2__eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #F5A800; box-shadow: 0 0 10px rgba(245,168,0,0.9); }
+.ab-why2__title {
+  font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 900; line-height: 1.15;
+  color: #fff; letter-spacing: -0.02em; margin: 0 0 14px;
+}
+.ab-why2__title span {
+  background: linear-gradient(120deg, #FFD24A, #F5A800);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.ab-why2__sub { color: #9ca0ad; font-size: 1.02rem; line-height: 1.7; margin: 0; }
+
+.ab-why2__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+}
+.ab-why2__card {
   position: relative; overflow: hidden;
-  box-shadow: 0 6px 18px rgba(20,24,43,0.04);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+  padding: 30px 24px 26px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.09);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.3s;
 }
-.ab-why__item::after {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-  background: linear-gradient(180deg, #FFD24A, #F5A800);
-  transform: scaleY(0); transform-origin: top; transition: transform 0.28s ease;
+/* gradient border-glow ring that appears on hover */
+.ab-why2__card::before {
+  content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 1px;
+  background: linear-gradient(135deg, rgba(245,168,0,0.9), rgba(245,168,0,0) 55%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.3s;
 }
-.ab-why__item:hover { transform: translateX(6px); box-shadow: 0 14px 34px rgba(245,168,0,0.16); background: #fffdf6; }
-.ab-why__item:hover::after { transform: scaleY(1); }
-.ab-why__item svg {
-  color: #1a1a1a; background: linear-gradient(135deg, #FFD24A, #F5A800);
-  border-radius: 50%; padding: 8px; width: 38px; height: 38px; flex-shrink: 0;
-  box-shadow: 0 6px 16px rgba(245,168,0,0.3);
-  transition: transform 0.22s ease;
+.ab-why2__card:hover {
+  transform: translateY(-8px);
+  border-color: transparent;
+  box-shadow: 0 24px 50px rgba(0,0,0,0.45), 0 0 30px rgba(245,168,0,0.12);
 }
-.ab-why__item:hover svg { transform: scale(1.1) rotate(8deg); }
+.ab-why2__card:hover::before { opacity: 1; }
+
+.ab-why2__num {
+  position: absolute; top: 16px; right: 20px;
+  font-size: 2.4rem; font-weight: 900; line-height: 1;
+  color: rgba(255,255,255,0.05); letter-spacing: -0.03em;
+  transition: color 0.3s;
+}
+.ab-why2__card:hover .ab-why2__num { color: rgba(245,168,0,0.16); }
+
+.ab-why2__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px; border-radius: 16px; margin-bottom: 20px;
+  font-size: 1.5rem; color: #141414;
+  background: linear-gradient(135deg, #FFD24A, #F5A800);
+  box-shadow: 0 10px 24px rgba(245,168,0,0.35);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.ab-why2__card:hover .ab-why2__icon { transform: scale(1.1) rotate(-6deg); }
+.ab-why2__card-title { font-size: 1.06rem; font-weight: 800; color: #fff; margin: 0 0 8px; letter-spacing: -0.01em; }
+.ab-why2__card-desc { font-size: 0.9rem; color: #9ca0ad; line-height: 1.6; margin: 0; position: relative; z-index: 1; }
+
+/* sweeping shine on hover */
+.ab-why2__shine {
+  position: absolute; top: 0; left: -60%; width: 45%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.08), transparent);
+  transform: skewX(-18deg); transition: left 0.6s ease; pointer-events: none;
+}
+.ab-why2__card:hover .ab-why2__shine { left: 130%; }
 
 /* OUR GOAL — dramatic dark full-width banner */
 .ab-goal { padding: 0 0 90px; }
@@ -739,6 +806,9 @@
 .ab-goal__inner p { position: relative; color: rgba(255,255,255,0.72); line-height: 1.75; font-size: 1.04rem; margin: 0 auto 14px; max-width: 640px; }
 .ab-goal__tagline { position: relative; font-size: 1.25rem; font-weight: 900; color: #FFD874 !important; letter-spacing: 0.01em; margin-top: 22px !important; }
 
+@media (max-width: 1024px) {
+  .ab-why2__grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 900px) {
   .ab-intro__grid { grid-template-columns: 1fr; gap: 18px; }
   .ab-do__grid { grid-template-columns: repeat(2, 1fr); }
@@ -746,13 +816,20 @@
   .ab-vision__media { order: -1; }
   .ab-mission__media { order: -1; }
   .ab-do__card { flex: 0 1 calc((100% - 24px) / 2); }
-  .ab-why__grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .ab-hero { padding: 56px 0 50px; }
   .ab-hero__stats { gap: 28px; }
   .ab-do__card { flex: 0 1 100%; }
-  .ab-why__grid { grid-template-columns: 1fr; }
+  /* Why-choose: clean single-column stack, compact cards */
+  .ab-why2 { padding: 68px 0; }
+  .ab-why2__head { margin-bottom: 38px; }
+  .ab-why2__grid { grid-template-columns: 1fr; gap: 14px; }
+  .ab-why2__card { padding: 22px 20px; }
+  .ab-why2__icon { width: 48px; height: 48px; font-size: 1.3rem; margin-bottom: 14px; }
+  .ab-why2__num { font-size: 2rem; }
+  /* on touch, keep the border ring visible so cards still feel premium */
+  .ab-why2__card::before { opacity: 0.5; }
 }
 
 /* ============================================================
