@@ -560,7 +560,20 @@
   }
 
   .svc-hero__stats {
-    gap: 24px;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .svc-hero__stats > div {
+    flex: 1;
+    min-width: 0;
+  }
+  .svc-hero__stat-num {
+    font-size: clamp(1rem, 4.6vw, 1.35rem) !important;
+  }
+  .svc-hero__stat-label {
+    font-size: 0.62rem !important;
+    line-height: 1.25;
   }
 
   .svc-cards-grid {
@@ -677,10 +690,17 @@
   .svc-hero__subtitle { font-size: 0.95rem; }
   .svc-hero__actions { flex-direction: column; align-items: stretch; }
   .svc-hero__actions .btn { justify-content: center; width: 100%; }
-  .svc-hero__stats { justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .svc-hero__stats { justify-content: space-between; gap: 10px; flex-wrap: nowrap; }
   .svc-hero__right img { max-width: 100%; height: auto; }
   .h2, .svc-section-header h2 { font-size: clamp(1.5rem, 6.5vw, 2rem) !important; }
-  .svc-cards-grid { grid-template-columns: 1fr !important; }
+  .svc-cards-grid { grid-template-columns: 1fr !important; gap: 14px; }
+  .svc-card { padding: 20px 18px 18px; border-radius: 16px; }
+  .svc-card__icon-wrap { width: 46px; height: 46px; border-radius: 12px; margin-bottom: 12px; }
+  .svc-card__icon-wrap svg { width: 20px; height: 20px; }
+  .svc-card h3, .svc-card__title { font-size: 1rem !important; margin-bottom: 6px !important; }
+  .svc-card p, .svc-card__desc { font-size: 0.86rem !important; line-height: 1.55; }
+  .svc-card__features { margin-top: 10px !important; }
+  .svc-card__feature { font-size: 0.82rem !important; }
   .svc-timeline__num { flex-shrink: 0; }
   .section { padding: 50px 0; }
   .svc-cta__title { font-size: clamp(1.5rem, 6vw, 2rem) !important; }
@@ -688,8 +708,8 @@
 }
 @media (max-width: 420px) {
   .svc-hero__title { font-size: 1.4rem !important; line-height: 1.18; }
-  .svc-hero__stats { gap: 14px; }
-  .svc-hero__stat-num { font-size: 1.4rem !important; }
+  .svc-hero__stats { gap: 8px; flex-wrap: nowrap; justify-content: space-between; }
+  .svc-hero__stat-num { font-size: clamp(0.95rem, 5vw, 1.2rem) !important; }
 }
 
 /* extra mobile guard — hero content must stay inside viewport */
