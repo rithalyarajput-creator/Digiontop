@@ -39,18 +39,6 @@ export default function EmailMarketing() {
               <Link to="/contact" className="em-btn em-btn--ghost">Free Email Audit</Link>
             </div>
           </div>
-          {/* inbox mock */}
-          <div className="em-inbox" data-aos="fade-left">
-            <div className="em-inbox__head"><FiInbox /> Inbox <span className="em-inbox__badge">3 new</span></div>
-            {[{ s: 'Your order is on the way', o: '68% open' }, { s: 'You left something behind…', o: '54% open' }, { s: 'Flat 30% OFF ends tonight', o: '61% open' }].map((m, i) => (
-              <div className={`em-inbox__mail${i === 0 ? ' unread' : ''}`} key={i}>
-                <span className="em-inbox__dot" />
-                <div><b>{m.s}</b><small>{m.o}</small></div>
-                <FiSend className="em-inbox__go" />
-              </div>
-            ))}
-            <div className="em-inbox__foot"><FiTrendingUp /> ₹42 back per ₹1 spent</div>
-          </div>
         </div>
       </section>
 

@@ -39,20 +39,6 @@ export default function Copywriting() {
               <Link to="/contact" className="cp-btn cp-btn--ghost">Free Copy Review</Link>
             </div>
           </div>
-          {/* before/after copy */}
-          <div className="cp-ba" data-aos="fade-left">
-            <div className="cp-ba__col cp-ba__col--before">
-              <span className="cp-ba__label">Before</span>
-              <p>"We sell quality shoes for everyone at good prices."</p>
-              <span className="cp-ba__stat">1.2% conversion</span>
-            </div>
-            <div className="cp-ba__arrow"><FiZap /></div>
-            <div className="cp-ba__col cp-ba__col--after">
-              <span className="cp-ba__label cp-ba__label--after">After</span>
-              <p>"Shoes so comfortable, you'll forget you're wearing them. Free returns."</p>
-              <span className="cp-ba__stat cp-ba__stat--after">4.8% conversion</span>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -39,16 +39,6 @@ export default function ContentMarketing() {
               <Link to="/contact" className="cm-btn cm-btn--ghost">Free Content Plan</Link>
             </div>
           </div>
-          {/* content stack */}
-          <div className="cm-stack" data-aos="fade-left">
-            <div className="cm-doc cm-doc--3"><span /><span className="s" /></div>
-            <div className="cm-doc cm-doc--2"><span /><span className="s" /></div>
-            <div className="cm-doc cm-doc--1">
-              <div className="cm-doc__head"><FiFileText /> Ultimate Guide</div>
-              <span /><span className="s" /><span /><span className="s" />
-              <div className="cm-doc__tag">Ranks #1 · 12k reads</div>
-            </div>
-          </div>
         </div>
       </section>
 

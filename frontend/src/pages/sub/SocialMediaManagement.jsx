@@ -39,16 +39,6 @@ export default function SocialMediaManagement() {
               <Link to="/contact" className="sm-btn sm-btn--ghost">See a Sample Plan</Link>
             </div>
           </div>
-          {/* calendar grid */}
-          <div className="sm-cal" data-aos="fade-left">
-            <div className="sm-cal__head"><FiCalendar /> Content Calendar</div>
-            <div className="sm-cal__grid">
-              {Array.from({ length: 21 }).map((_, i) => (
-                <span key={i} className={`sm-cal__cell${[2, 4, 8, 11, 15, 18].includes(i) ? ' post' : ''}${i === 8 ? ' today' : ''}`}>{[2, 4, 8, 11, 15, 18].includes(i) ? <FiCheckCircle /> : ''}</span>
-              ))}
-            </div>
-            <div className="sm-cal__foot"><FiClock /> 6 posts scheduled this week</div>
-          </div>
         </div>
       </section>
 

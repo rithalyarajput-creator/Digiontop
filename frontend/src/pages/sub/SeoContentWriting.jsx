@@ -39,17 +39,6 @@ export default function SeoContentWriting() {
               <Link to="/contact" className="cw-btn cw-btn--ghost">Free Sample</Link>
             </div>
           </div>
-          {/* article ranking mock */}
-          <div className="cw-rank" data-aos="fade-left">
-            <div className="cw-rank__head"><FiSearch /> your target keyword</div>
-            <div className="cw-rank__item cw-rank__item--top">
-              <span className="cw-rank__pos">1</span>
-              <div><b>Your Optimised Article</b><small><FiTrendingUp /> +320% organic traffic</small></div>
-              <FiCheckCircle className="cw-rank__ok" />
-            </div>
-            <div className="cw-rank__item"><span className="cw-rank__pos">2</span><div><b>Competitor</b><small>Ranking above you… not anymore</small></div></div>
-            <div className="cw-rank__item"><span className="cw-rank__pos">3</span><div><b>Competitor</b><small>Thin content</small></div></div>
-          </div>
         </div>
       </section>
 

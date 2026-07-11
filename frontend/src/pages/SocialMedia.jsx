@@ -38,7 +38,6 @@ import { MdOutlineAutoGraph, MdOutlineCampaign } from 'react-icons/md'
 import ServiceWork from '../components/ServiceWork'
 import ServiceFaq from '../components/ServiceFaq'
 import RelatedServices from '../components/RelatedServices'
-import ServiceHeroAnim from '../components/ServiceHeroAnim'
 import '../styles/Services.css'
 
 const SM_FAQS = [
@@ -136,10 +135,10 @@ export default function SocialMedia() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="svc-hero svc-hero--split">
+      <section className="svc-hero svc-hero--center">
         <div className="container">
-          <div className="svc-hero__split">
-            <div className="svc-hero__left" data-aos="fade-right">
+          <div className="svc-hero__centered" data-aos="fade-up">
+            <div>
               <div className="svc-hero__tag svc-hero__tag--purple">
                 <HiOutlineSpeakerphone size={13} /> Social Media Marketing
               </div>
@@ -173,7 +172,7 @@ export default function SocialMedia() {
                 </Link>
               </div>
 
-              <div className="svc-hero__stats svc-hero__stats--light" style={{ justifyContent: 'flex-start' }}>
+              <div className="svc-hero__stats svc-hero__stats--light">
                 {[
                   { num: '10M+', label: 'Total Reach' },
                   { num: '6', label: 'Platforms' },
@@ -185,10 +184,6 @@ export default function SocialMedia() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="svc-hero__right" data-aos="fade-left">
-              <ServiceHeroAnim variant="social" label="Social media growth illustration" />
             </div>
           </div>
         </div>

@@ -40,14 +40,6 @@ export default function SocialMediaMarketing() {
               <Link to="/contact" className="smm-btn smm-btn--ghost">Free Social Audit</Link>
             </div>
           </div>
-          {/* engagement card */}
-          <div className="smm-card" data-aos="fade-left">
-            <div className="smm-card__head"><span className="smm-card__ava" /><div><b>@yourbrand</b><small>+2,480 this month</small></div><FiTrendingUp className="smm-card__up" /></div>
-            <div className="smm-card__post"><FiShare2 /></div>
-            <div className="smm-card__acts"><span><FiHeart /> 4.2k</span><span><FiMessageCircle /> 318</span><span><FiShare2 /> 96</span></div>
-            <div className="smm-card__bars">{[40, 62, 55, 78, 70, 92].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}</div>
-            <div className="smm-card__foot"><FiBarChart2 /> Engagement up 5.4x</div>
-          </div>
         </div>
       </section>
 

@@ -38,17 +38,6 @@ export default function InfluencerMarketing() {
               <Link to="/contact" className="im-btn im-btn--ghost">Free Creator Match</Link>
             </div>
           </div>
-          {/* creator cards */}
-          <div className="im-creators" data-aos="fade-left">
-            {[{ f: '128k', e: '6.2%' }, { f: '54k', e: '8.1%' }, { f: '210k', e: '5.4%' }].map((c, i) => (
-              <div className={`im-creator im-creator--${i + 1}`} key={i}>
-                <span className="im-creator__ava" />
-                <b>@creator{i + 1}</b>
-                <div className="im-creator__stats"><span><FiUsers /> {c.f}</span><span><FiHeart /> {c.e}</span></div>
-                <span className="im-creator__badge"><FiAward /> Vetted</span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
