@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { FiTrash2, FiSearch, FiDownload, FiCheck, FiInbox, FiUserPlus, FiAward, FiPercent } from 'react-icons/fi';
+import { FiTrash2, FiSearch, FiDownload, FiCheck, FiInbox, FiUserPlus, FiAward, FiPercent, FiEye, FiX } from 'react-icons/fi';
 import { apiGet, apiPut, apiDelete } from '../api';
 
 const STATUSES = ['new', 'contacted', 'converted', 'closed'];
@@ -18,12 +18,20 @@ function fmtTime(iso) {
   return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
 }
 
+function truncateMessage(text, wordCount = 4) {
+  if (!text) return '—';
+  const words = text.split(/\s+/).slice(0, wordCount);
+  const truncated = words.join(' ');
+  return text.split(/\s+/).length > wordCount ? truncated + '...' : truncated;
+}
+
 export default function Leads() {
   const [leads, setLeads] = useState([]);
   const [filter, setFilter] = useState('');
   const [search, setSearch] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [selectedLead, setSelectedLead] = useState(null);
 
   async function load() {
     setLoading(true);
@@ -139,7 +147,7 @@ export default function Leads() {
       <div className="admin-table-wrap">
         <table className="admin-table admin-table--leads">
           <thead>
-            <tr><th>Name</th><th>Phone</th><th>Service</th><th>Status</th><th>Date</th><th>Actions</th></tr>
+            <tr><th>Name</th><th>Phone</th><th>Service</th><th>Message</th><th>Date</th><th>Actions</th></tr>
           </thead>
           <tbody>
             {loading && <tr><td colSpan="6" className="admin-table__empty">Loading…</td></tr>}
@@ -148,30 +156,20 @@ export default function Leads() {
             )}
             {filtered.map((l) => (
               <tr key={l.id}>
-                <td title={l.full_name + (l.business_name ? ' - ' + l.business_name : '') + '\n' + l.email}>{l.full_name || '—'}{l.business_name ? <span className="admin-muted"> · {l.business_name}</span> : null}</td>
-                <td title={l.phone}>{l.phone || '—'}</td>
-                <td title={l.service_interested}>{l.service_interested || '—'}</td>
-                <td>
-                  <select
-                    className={`admin-status-select admin-status-select--${l.status}`}
-                    value={l.status}
-                    onChange={(e) => updateStatus(l.id, e.target.value)}
-                  >
-                    {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
-                  </select>
-                </td>
-                <td className="admin-lead-date">
-                  <span className="admin-lead-date__day">{fmtDate(l.created_at)}</span>
-                  <span className="admin-lead-date__time">{fmtTime(l.created_at)}</span>
-                </td>
-                <td className="admin-actions">
-                  {l.status === 'new' && (
-                    <button className="admin-icon-btn" title="Mark as Contacted" onClick={() => updateStatus(l.id, 'contacted')}>
-                      <FiCheck />
-                    </button>
-                  )}
-                  <button className="admin-icon-btn admin-icon-btn--danger" onClick={() => remove(l.id)} title="Delete">
-                    <FiTrash2 />
+                <td><strong>{l.full_name || '—'}</strong></td>
+                <td>{l.phone || '—'}</td>
+                <td>{l.service_interested || '—'}</td>
+                <td className="admin-msg-preview">{truncateMessage(l.message)}</td>
+                <td>{fmtDate(l.created_at)}</td>
+                <td className="admin-actions-group">
+                  <button className="admin-action-btn admin-action-btn--view" title="View Details" onClick={() => setSelectedLead(l)}>
+                    <FiEye /> View
+                  </button>
+                  <button className="admin-action-btn admin-action-btn--convert" title="Mark as Converted" onClick={() => updateStatus(l.id, 'converted')}>
+                    <FiCheck /> Convert
+                  </button>
+                  <button className="admin-action-btn admin-action-btn--delete" title="Delete" onClick={() => remove(l.id)}>
+                    <FiTrash2/> Delete
                   </button>
                 </td>
               </tr>
@@ -179,6 +177,66 @@ export default function Leads() {
           </tbody>
         </table>
       </div>
+
+      {/* Lead Details Modal */}
+      {selectedLead && (
+        <div className="admin-modal-overlay" onClick={() => setSelectedLead(null)}>
+          <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="admin-modal__header">
+              <h2>Lead Details</h2>
+              <button className="admin-modal__close" onClick={() => setSelectedLead(null)}>
+                <FiX />
+              </button>
+            </div>
+            <div className="admin-modal__body">
+              <div className="admin-modal__row">
+                <strong>Name:</strong> {selectedLead.full_name || '—'}
+              </div>
+              {selectedLead.business_name && (
+                <div className="admin-modal__row">
+                  <strong>Business:</strong> {selectedLead.business_name}
+                </div>
+              )}
+              <div className="admin-modal__row">
+                <strong>Email:</strong> {selectedLead.email || '—'}
+              </div>
+              <div className="admin-modal__row">
+                <strong>Phone:</strong> {selectedLead.phone || '—'}
+              </div>
+              <div className="admin-modal__row">
+                <strong>Website:</strong> {selectedLead.website || '—'}
+              </div>
+              <div className="admin-modal__row">
+                <strong>Service:</strong> {selectedLead.service_interested || '—'}
+              </div>
+              <div className="admin-modal__row">
+                <strong>Budget:</strong> {selectedLead.budget_range || '—'}
+              </div>
+              <div className="admin-modal__row">
+                <strong>Message:</strong>
+                <p>{selectedLead.message || '—'}</p>
+              </div>
+              <div className="admin-modal__row">
+                <strong>Status:</strong>
+                <select
+                  className={`admin-status-select admin-status-select--${selectedLead.status}`}
+                  value={selectedLead.status}
+                  onChange={(e) => updateStatus(selectedLead.id, e.target.value)}
+                >
+                  {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+                </select>
+              </div>
+              <div className="admin-modal__row">
+                <strong>Date:</strong> {fmtDate(selectedLead.created_at)} {fmtTime(selectedLead.created_at)}
+              </div>
+            </div>
+            <div className="admin-modal__footer">
+              <button className="admin-btn admin-btn--primary" onClick={() => { updateStatus(selectedLead.id, 'converted'); setSelectedLead(null); }}>Mark as Converted</button>
+              <button className="admin-btn admin-btn--secondary" onClick={() => setSelectedLead(null)}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
