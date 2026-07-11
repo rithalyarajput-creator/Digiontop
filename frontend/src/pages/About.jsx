@@ -362,29 +362,8 @@ export default function About() {
 
       {/* ══ 7. FREE PROPOSAL LEAD FORM ══ */}
       <section className="about-lead" id="about-lead">
-        <div className="about-container about-lead__inner">
-          {/* left promo panel */}
-          <div className="about-lead__promo" data-aos="fade-up">
-            <span className="about-lead__promo-glow about-lead__promo-glow--1" aria-hidden="true" />
-            <span className="about-lead__promo-glow about-lead__promo-glow--2" aria-hidden="true" />
-            <div className="about-lead__promo-body">
-              <span className="about-lead__promo-badge"><span className="about-lead__promo-badge-dot" /> Free Proposal</span>
-              <h2>Get your <span>free proposal</span></h2>
-              <p>Tell us where you are and what you want to achieve. We reply within one business day with a clear plan and a quote.</p>
-              <ul className="about-lead__promo-perks">
-                <li><FiCheckCircle /> Reply within 1 business day</li>
-                <li><FiCheckCircle /> A clear 90-day growth plan</li>
-                <li><FiCheckCircle /> No commitment, no pressure</li>
-              </ul>
-            </div>
-            <div className="about-lead__promo-foot">
-              <div className="about-lead__promo-stat"><b>250+</b><span>Projects</span></div>
-              <div className="about-lead__promo-stat"><b>120+</b><span>Clients</span></div>
-              <div className="about-lead__promo-stat"><b>5★</b><span>Rating</span></div>
-            </div>
-          </div>
-
-          {/* right form */}
+        <div className="about-container about-lead__inner about-lead__inner--noPromo">
+          {/* form only (promo panel removed) */}
           <form className="about-lead__form" onSubmit={submit} data-aos="fade-up" data-aos-delay="100">
             {submitted ? (
               <div className="about-lead__success">

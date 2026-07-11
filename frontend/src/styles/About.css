@@ -467,6 +467,8 @@
   background: #fff; border-radius: 22px; overflow: hidden;
   box-shadow: 0 24px 60px rgba(0,0,0,0.12); border: 1px solid #eee;
 }
+/* form-only variant (promo panel removed) — single centered card */
+.about-lead__inner--noPromo { grid-template-columns: 1fr; max-width: 720px; }
 .about-lead__promo {
   position: relative; overflow: hidden;
   background: radial-gradient(130% 100% at 20% 0%, #221d0e 0%, #14151c 45%, #0b0c11 100%);
