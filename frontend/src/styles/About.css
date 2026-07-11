@@ -756,7 +756,36 @@
 }
 .ab-why2__inner { position: relative; z-index: 1; }
 
-.ab-why2__head { text-align: center; max-width: 640px; margin: 0 auto 54px; }
+/* header bar: title left, nav arrows right (carousel) */
+.ab-why2__bar {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; margin-bottom: 40px;
+}
+.ab-why2__nav { display: flex; gap: 10px; flex-shrink: 0; }
+.ab-why2__navbtn {
+  width: 46px; height: 46px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(245,168,0,0.35);
+  color: #F5A800; font-size: 1.2rem; cursor: pointer;
+  transition: background 0.2s, transform 0.2s, opacity 0.2s;
+}
+.ab-why2__navbtn:hover:not(:disabled) { background: #F5A800; color: #141414; transform: translateY(-2px); }
+.ab-why2__navbtn:disabled { opacity: 0.3; cursor: default; }
+
+/* carousel viewport + sliding track */
+.ab-why2__viewport { overflow: hidden; --why-gap: 20px; --why-card: calc((100% - 2 * var(--why-gap)) / 3); }
+.ab-why2__track {
+  display: flex; gap: var(--why-gap);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ab-why2__track > .ab-why2__card { flex: 0 0 var(--why-card); }
+
+/* dots */
+.ab-why2__dots { display: flex; gap: 8px; justify-content: center; margin-top: 30px; }
+.ab-why2__dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); border: none; cursor: pointer; padding: 0; transition: all 0.25s; }
+.ab-why2__dot--active { background: #F5A800; width: 24px; border-radius: 5px; }
+
+.ab-why2__head { text-align: left; max-width: 640px; }
 .ab-why2__eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
@@ -775,9 +804,6 @@
 }
 .ab-why2__sub { color: #9ca0ad; font-size: 1.02rem; line-height: 1.7; margin: 0; }
 
-.ab-why2__grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-}
 .ab-why2__card {
   position: relative; overflow: hidden;
   padding: 30px 24px 26px;
@@ -849,8 +875,16 @@
   max-width: 1000px; margin: 0 auto;
   background: linear-gradient(135deg, #16171f 0%, #1c1f2e 100%);
   border: 1px solid rgba(245,168,0,0.16);
-  border-radius: 22px; padding: 40px 44px;
+  border-left: 5px solid #F5A800;
+  border-radius: 22px; padding: 44px 48px;
   box-shadow: 0 20px 50px rgba(20,24,43,0.22);
+}
+.ab-goal2__left { position: relative; }
+/* big decorative quote mark for a distinct 'statement' feel */
+.ab-goal2__left::before {
+  content: '\201C'; position: absolute; top: -34px; left: -6px;
+  font-family: Georgia, serif; font-size: 5rem; line-height: 1;
+  color: rgba(245,168,0,0.16); pointer-events: none;
 }
 /* golden accent bar between the two halves */
 .ab-goal2__card::after {
@@ -878,7 +912,9 @@
 .ab-goal2__tagline svg { flex-shrink: 0; }
 
 @media (max-width: 1024px) {
-  .ab-why2__grid { grid-template-columns: repeat(2, 1fr); }
+  /* 2 cards per view on tablet */
+  .ab-why2__viewport { --why-card: calc((100% - var(--why-gap)) / 2); }
+  .ab-why2__track > .ab-why2__card { flex-basis: var(--why-card); }
 }
 @media (max-width: 900px) {
   .ab-intro__grid { grid-template-columns: 1fr; gap: 18px; }
@@ -892,15 +928,12 @@
   .ab-hero { padding: 56px 0 50px; }
   .ab-hero__stats { gap: 28px; }
   .ab-do__card { flex: 0 1 100%; }
-  /* Why-choose: clean single-column stack, compact cards */
-  .ab-why2 { padding: 68px 0; }
-  .ab-why2__head { margin-bottom: 38px; }
-  .ab-why2__grid { grid-template-columns: 1fr; gap: 14px; }
-  .ab-why2__card { padding: 22px 20px; }
-  .ab-why2__icon { width: 48px; height: 48px; font-size: 1.3rem; margin-bottom: 14px; }
-  .ab-why2__num { font-size: 2rem; }
-  /* on touch, keep the border ring visible so cards still feel premium */
-  .ab-why2__card::before { opacity: 0.5; }
+  /* Why-choose carousel: 1 card per view, stacked header + arrows */
+  .ab-why2 { padding: 60px 0; }
+  .ab-why2__bar { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 26px; }
+  .ab-why2__viewport { --why-gap: 14px; --why-card: 100%; }
+  .ab-why2__card { padding: 24px 22px; }
+  .ab-why2__card::before { opacity: 0.5; }   /* border ring visible on touch */
 }
 
 /* ============================================================
@@ -1113,16 +1146,8 @@
   /* ── Partner heading: keep on one line ── */
   .about-partner__heading { font-size: clamp(1.4rem, 6.4vw, 1.9rem) !important; white-space: nowrap; }
 
-  /* ── Why Choose: horizontal compact rows (distinct from desktop card grid) ── */
-  .ab-why2__grid { gap: 10px !important; }
-  .ab-why2__card {
-    display: grid !important; grid-template-columns: auto 1fr auto; align-items: center;
-    gap: 2px 14px; padding: 16px 16px !important; text-align: left;
-  }
-  .ab-why2__icon { grid-row: 1 / span 2; width: 44px !important; height: 44px !important; margin: 0 !important; font-size: 1.2rem !important; }
-  .ab-why2__card-title { grid-column: 2; margin: 0 !important; font-size: 0.95rem !important; }
-  .ab-why2__card-desc { grid-column: 2; font-size: 0.8rem !important; }
-  .ab-why2__num { position: static !important; grid-column: 3; grid-row: 1 / span 2; font-size: 1.6rem !important; align-self: center; color: rgba(245,168,0,0.25) !important; }
-  .ab-why2__shine { display: none; }
-  .ab-why2__card::after { display: none; }   /* top accent line off on mobile rows */
+  /* ── Why Choose carousel on small phones: full-width single card ── */
+  .ab-why2__viewport { --why-gap: 12px; --why-card: 100%; }
+  .ab-why2__icon { width: 50px; height: 50px; font-size: 1.35rem; }
+  .ab-why2__card::after { display: none; }
 }

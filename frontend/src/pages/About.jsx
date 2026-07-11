@@ -5,6 +5,7 @@ import {
   FiCheck, FiUsers, FiTarget, FiTrendingUp,
   FiArrowRight, FiArrowUpRight, FiStar, FiMapPin, FiBriefcase, FiCheckCircle,
   FiSettings, FiLayers, FiZap, FiMessageCircle, FiTag, FiLifeBuoy, FiHeart, FiAward,
+  FiChevronLeft, FiChevronRight,
 } from 'react-icons/fi';
 import { FaHandshake } from 'react-icons/fa';
 import '../styles/About.css';
@@ -129,6 +130,11 @@ export default function About() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [whyStart, setWhyStart] = useState(0);   // carousel start index for "Built on Trust"
+  const whyPer = 3;                               // cards visible per view (desktop)
+  const whyMax = Math.max(0, WHY_CHOOSE.length - whyPer);
+  const whyPrev = () => setWhyStart((s) => Math.max(0, s - 1));
+  const whyNext = () => setWhyStart((s) => Math.min(whyMax, s + 1));
 
   function change(e) {
     const { name, value, type, checked } = e.target;
@@ -327,31 +333,52 @@ export default function About() {
         </div>
       </section>
 
-      {/* ══ 5. WHY CHOOSE ══ */}
+      {/* ══ 5. WHY CHOOSE — carousel ══ */}
       <section className="ab-why2">
         <span className="ab-why2__glow ab-why2__glow--a" aria-hidden="true" />
         <span className="ab-why2__glow ab-why2__glow--b" aria-hidden="true" />
         <div className="about-container ab-why2__inner">
-          <div className="ab-why2__head" data-aos="fade-up">
-            <span className="ab-why2__eyebrow"><span className="ab-why2__eyebrow-dot" /> Why Businesses Choose DigionTop</span>
-            <h2 className="ab-why2__title">Built on <span>Trust</span>, Driven by <span>Results</span></h2>
-            <p className="ab-why2__sub">Eight reasons brands across India trust us to lead their digital growth.</p>
+          <div className="ab-why2__bar" data-aos="fade-up">
+            <div className="ab-why2__head">
+              <span className="ab-why2__eyebrow"><span className="ab-why2__eyebrow-dot" /> Why Businesses Choose DigionTop</span>
+              <h2 className="ab-why2__title">Built on <span>Trust</span>, Driven by <span>Results</span></h2>
+              <p className="ab-why2__sub">Eight reasons brands across India trust us to lead their digital growth.</p>
+            </div>
+            <div className="ab-why2__nav">
+              <button className="ab-why2__navbtn" onClick={whyPrev} disabled={whyStart === 0} aria-label="Previous"><FiChevronLeft /></button>
+              <button className="ab-why2__navbtn" onClick={whyNext} disabled={whyStart >= whyMax} aria-label="Next"><FiChevronRight /></button>
+            </div>
           </div>
 
-          <div className="ab-why2__grid">
-            {WHY_CHOOSE.map((w, i) => (
-              <article
-                className="ab-why2__card"
-                key={w.title}
-                data-aos="fade-up"
-                data-aos-delay={(i % 4) * 70}
-              >
-                <span className="ab-why2__num">{String(i + 1).padStart(2, '0')}</span>
-                <span className="ab-why2__icon">{w.icon}</span>
-                <h3 className="ab-why2__card-title">{w.title}</h3>
-                <p className="ab-why2__card-desc">{w.desc}</p>
-                <span className="ab-why2__shine" aria-hidden="true" />
-              </article>
+          <div className="ab-why2__viewport">
+            <div
+              className="ab-why2__track"
+              style={{ transform: `translateX(calc(${-whyStart} * (var(--why-card) + var(--why-gap))))` }}
+            >
+              {WHY_CHOOSE.map((w, i) => (
+                <article
+                  className={`ab-why2__card${i >= whyStart && i < whyStart + whyPer ? ' ab-why2__card--active' : ''}`}
+                  key={w.title}
+                  style={{ zIndex: WHY_CHOOSE.length - i }}
+                >
+                  <span className="ab-why2__num">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="ab-why2__icon">{w.icon}</span>
+                  <h3 className="ab-why2__card-title">{w.title}</h3>
+                  <p className="ab-why2__card-desc">{w.desc}</p>
+                  <span className="ab-why2__shine" aria-hidden="true" />
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="ab-why2__dots">
+            {Array.from({ length: whyMax + 1 }).map((_, i) => (
+              <button
+                key={i}
+                className={`ab-why2__dot${i === whyStart ? ' ab-why2__dot--active' : ''}`}
+                onClick={() => setWhyStart(i)}
+                aria-label={`Go to ${i + 1}`}
+              />
             ))}
           </div>
         </div>
@@ -410,8 +437,8 @@ export default function About() {
         <div className="about-container">
           <div className="ab-head about-lead__head" data-aos="fade-up">
             <span className="ab-eyebrow">Get Started</span>
-            <h2 className="ab-h2">Get Your Free Proposal</h2>
-            <p className="about-lead__head-sub">Tell us where you are — we reply within one business day with a clear plan &amp; quote.</p>
+            <h2 className="ab-h2">Get a Free Digital Marketing Consultation</h2>
+            <p className="about-lead__head-sub">Tell us about your business — we'll reply within one business day with a clear plan.</p>
           </div>
         </div>
         <div className="about-container about-lead__inner about-lead__inner--noPromo">
