@@ -2,8 +2,9 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiArrowRight, FiArrowUpRight, FiCheck, FiAward } from 'react-icons/fi'
+import { FiArrowRight, FiArrowUpRight, FiCheck, FiAward, FiPenTool, FiDroplet, FiType, FiBook, FiLayers } from 'react-icons/fi'
 import '../../styles/SubService.css'
+import ServiceFaq from '../../components/ServiceFaq'
 
 const SERVICES = [
   'Brand Identity Development', 'Brand Positioning Strategy', 'Brand Guidelines',
@@ -12,6 +13,22 @@ const SERVICES = [
 ]
 const WHY = ['Creates Trust & Credibility', 'Improves Brand Recognition', 'Helps Differentiate From Competitors', 'Builds Customer Loyalty', 'Supports Long-Term Growth']
 const STEPS = ['Research', 'Strategy', 'Design', 'Refinement', 'Delivery']
+
+const BRAND_SYSTEM = [
+  { icon: <FiPenTool />, label: 'Logo', desc: 'Primary mark, monogram & favicon variants' },
+  { icon: <FiDroplet />, label: 'Colour Palette', desc: 'Core, accent & tint/shade values with hex/RGB/CMYK' },
+  { icon: <FiType />, label: 'Typography', desc: 'Heading & body typefaces with weight & scale rules' },
+  { icon: <FiBook />, label: 'Brand Guide', desc: 'PDF rulebook for logo use, spacing, tone & imagery' },
+  { icon: <FiLayers />, label: 'Templates', desc: 'Business cards, letterhead, social & presentation kits' },
+]
+
+const FAQS = [
+  { q: 'What exactly is included in a Branding & Identity Design package?', a: 'You get a primary logo with variations (icon, wordmark, monogram), a documented colour system (primary, secondary and accent shades with hex/RGB/CMYK codes), a typography pairing for headings and body text, and a brand guidelines PDF that ties it all together. Most projects also include starter templates for business cards, letterhead and social profiles.' },
+  { q: 'How many logo concepts will I see, and how many revisions are included?', a: 'We typically present 2-3 distinct logo directions based on your brief, then refine your chosen direction through up to 3 rounds of revisions until it is ready to finalise. Additional rounds can be added if needed.' },
+  { q: 'Why do I need a colour system instead of just picking a few colours?', a: 'A colour system defines exact hex/RGB/CMYK values, tints and shades, and rules for where each colour is used — so your brand looks identical on your website, packaging, social ads and print. Picking colours ad-hoc leads to inconsistent, unrecognisable branding across touchpoints.' },
+  { q: 'What is a brand guidelines document and do I actually need one?', a: 'It is a rulebook covering logo clear-space and misuse, colour codes, typography hierarchy, imagery style and voice/tone. If you work with any designer, printer, or marketing freelancer in future, this document keeps your brand consistent without you having to explain it every time.' },
+  { q: 'Can you redesign our existing logo instead of starting from scratch?', a: 'Yes — we can evolve your current identity (a "rebrand refresh") to modernise it while keeping recognisable equity, or design a completely new system if you are repositioning the business. We will recommend the right approach after reviewing your current brand.' },
+]
 
 export default function BrandingIdentity() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
@@ -88,6 +105,33 @@ export default function BrandingIdentity() {
           </div>
         </div>
       </section>
+
+      {/* BRAND SYSTEM STRIP */}
+      <section className="bi-block">
+        <div className="ss-container">
+          <div className="bi-head" data-aos="fade-up">
+            <span className="ss-eyebrow">The Brand System</span>
+            <h2 className="ss-h2">Every Deliverable, Built To Work Together</h2>
+            <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginTop: 14, maxWidth: 680, marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
+              A logo alone isn't a brand. We design your mark, colour palette, and typography as one connected
+              system — documented in a brand guide and rolled out across ready-to-use templates — so everything
+              you publish looks unmistakably yours.
+            </p>
+          </div>
+          <div className="bi-strip" data-aos="fade-up">
+            {BRAND_SYSTEM.map((item, i) => (
+              <div className="bi-strip__item" key={item.label} data-aos="fade-up" data-aos-delay={i * 80}>
+                <span className="bi-strip__icon">{item.icon}</span>
+                <span className="bi-strip__label">{item.label}</span>
+                <span className="bi-strip__desc">{item.desc}</span>
+                {i < BRAND_SYSTEM.length - 1 && <span className="bi-strip__connector" />}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ServiceFaq service="Branding & Identity Design" faqs={FAQS} />
 
       {/* CTA */}
       <section className="ss-cta">

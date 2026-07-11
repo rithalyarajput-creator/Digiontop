@@ -2,8 +2,9 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { FiArrowRight, FiArrowUpRight, FiImage, FiCheck } from 'react-icons/fi'
+import { FiArrowRight, FiArrowUpRight, FiImage, FiCheck, FiInstagram, FiLayout, FiFileText, FiPrinter, FiMonitor, FiCreditCard } from 'react-icons/fi'
 import '../../styles/SubService.css'
+import ServiceFaq from '../../components/ServiceFaq'
 
 const SERVICES = ['Social Media Creatives', 'Advertising Banners', 'Brochure Design', 'Flyer Design', 'Business Cards', 'Marketing Materials', 'Presentation Design']
 
@@ -14,6 +15,23 @@ const GALLERY = [
   '/images/work/creative-2.webp',
   '/images/work/creative-hairclip.webp',
   '/images/work/creative-tradition.webp',
+]
+
+const DESIGN_TILES = [
+  { icon: <FiInstagram />, label: 'Social Posts' },
+  { icon: <FiLayout />, label: 'Ad Creatives' },
+  { icon: <FiFileText />, label: 'Brochures' },
+  { icon: <FiPrinter />, label: 'Print Design' },
+  { icon: <FiMonitor />, label: 'Digital Design' },
+  { icon: <FiCreditCard />, label: 'Business Cards' },
+]
+
+const FAQS = [
+  { q: 'What types of graphic design do you offer?', a: 'We design social media posts and reels covers, paid ad creatives for Meta and Google, brochures, flyers, business cards, packaging, and both print-ready and digital-format artwork tailored to your brand guidelines.' },
+  { q: 'How many social media creatives do I get per month?', a: 'Packages typically include a set number of post and story creatives per month based on your posting calendar — commonly 12 to 30 designs — with revisions included so every post matches your brand look.' },
+  { q: 'Can you design ad creatives for Meta and Google campaigns?', a: 'Yes. We create scroll-stopping ad creatives sized correctly for Facebook, Instagram, and Google Display placements, including static banners, carousel sets, and A/B variants to test what converts best.' },
+  { q: 'Do you handle print-ready files for brochures and flyers?', a: 'Yes. We deliver print-ready files with correct bleed, CMYK color profiles, and resolution for offline printing, along with matching digital versions (PDF/JPG) for email and web use.' },
+  { q: 'What is the typical turnaround time for a design request?', a: 'Simple social creatives are usually delivered within 24 to 48 hours, while brochures, packaging, or multi-page print collateral take 3 to 5 working days depending on complexity and revisions.' },
 ]
 
 export default function GraphicDesign() {
@@ -52,6 +70,26 @@ export default function GraphicDesign() {
           </div>
         </div>
       </section>
+
+      {/* Design categories — icon tile grid */}
+      <section className="gd-block">
+        <div className="ss-container">
+          <div className="gd-head" data-aos="fade-up">
+            <span className="ss-eyebrow">What We Design</span>
+            <h2 className="ss-h2">Every Format, On-Brand</h2>
+          </div>
+          <div className="gd-tiles">
+            {DESIGN_TILES.map((t, i) => (
+              <div className="gd-tile" key={t.label} data-aos="zoom-in" data-aos-delay={(i % 3) * 60}>
+                <span className="gd-tile__icon">{t.icon}</span>
+                <span className="gd-tile__label">{t.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ServiceFaq service="Graphic Design" faqs={FAQS} />
 
       <section className="ss-cta">
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">
