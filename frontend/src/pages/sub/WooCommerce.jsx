@@ -127,14 +127,6 @@ export default function WooCommerce() {
         </div>
       </section>
 
-      <section className="woo-band">
-        <div className="woo-container woo-band__inner" data-aos="fade-up">
-          <div><b>Zero</b><span>Monthly Platform Fees</span></div>
-          <div><b>Full</b><span>Store Ownership</span></div>
-          <div><b>Scalable</b><span>Catalogue & Traffic</span></div>
-        </div>
-      </section>
-
       <ServiceFaq service="WooCommerce Development" faqs={FAQS} />
 
       <section className="woo-cta">

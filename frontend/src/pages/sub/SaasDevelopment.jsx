@@ -103,7 +103,6 @@ export default function SaasDevelopment() {
           </div>
         </div>
       </section>
-      <section className="saas-band"><div className="saas-container saas-band__inner" data-aos="fade-up"><div><b>MVP</b><span>Launch Fast</span></div><div><b>Billing</b><span>Built In</span></div><div><b>Scales</b><span>With Your Users</span></div></div></section>
       <ServiceFaq service="SaaS Development" faqs={FAQS} />
       <section className="saas-cta"><div className="saas-container"><div className="saas-cta__box" data-aos="zoom-in"><FiLayers className="saas-cta__ic" /><h2>Have a SaaS Idea? Let's Build It.</h2><p>Tell us your idea — we'll map an MVP and a path to recurring revenue.</p><Link to="/contact" className="saas-btn saas-btn--light">Discuss My Project <FiArrowUpRight /></Link></div></div></section>
     </main>

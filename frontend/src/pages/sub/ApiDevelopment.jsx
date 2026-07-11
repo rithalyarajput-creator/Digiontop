@@ -104,7 +104,6 @@ export default function ApiDevelopment() {
           </div>
         </div>
       </section>
-      <section className="api-band"><div className="api-container api-band__inner" data-aos="fade-up"><div><b>&lt;80ms</b><span>Avg Response</span></div><div><b>Secure</b><span>Auth & Limits</span></div><div><b>Full</b><span>Documentation</span></div></div></section>
       <ServiceFaq service="API Development" faqs={FAQS} />
       <section className="api-cta"><div className="api-container"><div className="api-cta__box" data-aos="zoom-in"><FiCode className="api-cta__ic" /><h2>Need APIs That Just Work?</h2><p>Tell us what you're building — we'll design secure, fast APIs your product can rely on.</p><Link to="/contact" className="api-btn api-btn--light">Discuss My Project <FiArrowUpRight /></Link></div></div></section>
     </main>

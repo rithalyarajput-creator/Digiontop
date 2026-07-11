@@ -103,7 +103,6 @@ export default function IosApp() {
           </div>
         </div>
       </section>
-      <section className="ios-band"><div className="ios-container ios-band__inner" data-aos="fade-up"><div><b>Native</b><span>Swift Performance</span></div><div><b>Approved</b><span>App Store Ready</span></div><div><b>Secure</b><span>Face ID & Privacy</span></div></div></section>
       <ServiceFaq service="iOS App Development" faqs={FAQS} />
       <section className="ios-cta"><div className="ios-container"><div className="ios-cta__box" data-aos="zoom-in"><FiSmartphone className="ios-cta__ic" /><h2>Ready to Launch on the App Store?</h2><p>Get a free consultation — we'll plan your iOS app from idea to approved launch.</p><Link to="/contact" className="ios-btn ios-btn--light">Book Free Consultation <FiArrowUpRight /></Link></div></div></section>
     </main>

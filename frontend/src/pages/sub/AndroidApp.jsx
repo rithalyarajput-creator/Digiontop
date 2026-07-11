@@ -104,7 +104,6 @@ export default function AndroidApp() {
           </div>
         </div>
       </section>
-      <section className="and-band"><div className="and-container and-band__inner" data-aos="fade-up"><div><b>Kotlin</b><span>Modern Native</span></div><div><b>Billions</b><span>Of Devices</span></div><div><b>Play</b><span>Store Ready</span></div></div></section>
       <ServiceFaq service="Android App Development" faqs={FAQS} />
       <section className="and-cta"><div className="and-container"><div className="and-cta__box" data-aos="zoom-in"><FiSmartphone className="and-cta__ic" /><h2>Ready to Reach Millions?</h2><p>Get a free consultation — we'll plan your Android app from idea to Play Store launch.</p><Link to="/contact" className="and-btn and-btn--light">Discuss My Project <FiArrowUpRight /></Link></div></div></section>
     </main>

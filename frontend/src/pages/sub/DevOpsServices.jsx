@@ -104,7 +104,6 @@ export default function DevOpsServices() {
           </div>
         </div>
       </section>
-      <section className="dop-band"><div className="dop-container dop-band__inner" data-aos="fade-up"><div><b>Minutes</b><span>Not Days to Deploy</span></div><div><b>24/7</b><span>Monitoring</span></div><div><b>Zero</b><span>Downtime Releases</span></div></div></section>
       <ServiceFaq service="DevOps Services" faqs={FAQS} />
       <section className="dop-cta"><div className="dop-container"><div className="dop-cta__box" data-aos="zoom-in"><FiGitBranch className="dop-cta__ic" /><h2>Ready to Ship With Confidence?</h2><p>Get a free DevOps audit — we'll show you how to deploy faster and safer.</p><Link to="/contact" className="dop-btn dop-btn--light">Get My Free Audit <FiArrowUpRight /></Link></div></div></section>
     </main>

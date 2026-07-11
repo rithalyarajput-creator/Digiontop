@@ -104,7 +104,6 @@ export default function CloudSolutions() {
           </div>
         </div>
       </section>
-      <section className="cld-band"><div className="cld-container cld-band__inner" data-aos="fade-up"><div><b>99.99%</b><span>Uptime</span></div><div><b>Auto</b><span>Scaling</span></div><div><b>Zero</b><span>Downtime Migration</span></div></div></section>
       <ServiceFaq service="Cloud Solutions" faqs={FAQS} />
       <section className="cld-cta"><div className="cld-container"><div className="cld-cta__box" data-aos="zoom-in"><FiCloud className="cld-cta__ic" /><h2>Ready to Scale Without Limits?</h2><p>Get a free cloud audit — we'll show you how to cut costs and scale reliably.</p><Link to="/contact" className="cld-btn cld-btn--light">Get My Free Audit <FiArrowUpRight /></Link></div></div></section>
     </main>

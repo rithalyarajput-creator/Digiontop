@@ -125,14 +125,6 @@ export default function CustomWebsite() {
         </div>
       </section>
 
-      <section className="wd-band">
-        <div className="wd-container wd-band__inner" data-aos="fade-up">
-          <div><b>&lt;2s</b><span>Load Time</span></div>
-          <div><b>100%</b><span>Custom Code</span></div>
-          <div><b>Full</b><span>Ownership</span></div>
-        </div>
-      </section>
-
       <ServiceFaq service="Custom Website Development" faqs={FAQS} />
 
       <section className="wd-cta">

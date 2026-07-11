@@ -123,14 +123,6 @@ export default function WebsiteRedesign() {
         </div>
       </section>
 
-      <section className="rd-band">
-        <div className="rd-container rd-band__inner" data-aos="fade-up">
-          <div><b>+230%</b><span>Avg Conversion Lift</span></div>
-          <div><b>Zero</b><span>SEO Ranking Loss</span></div>
-          <div><b>Modern</b><span>Mobile-First Design</span></div>
-        </div>
-      </section>
-
       <ServiceFaq service="Website Redesign" faqs={FAQS} />
 
       <section className="rd-cta">

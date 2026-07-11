@@ -124,14 +124,6 @@ export default function BusinessWebsite() {
         </div>
       </section>
 
-      <section className="biz-band">
-        <div className="biz-container biz-band__inner" data-aos="fade-up">
-          <div><b>24/7</b><span>Working For You</span></div>
-          <div><b>Lead</b><span>Capture Built In</span></div>
-          <div><b>Local</b><span>SEO Ready</span></div>
-        </div>
-      </section>
-
       <ServiceFaq service="Business Website Development" faqs={FAQS} />
 
       <section className="biz-cta">

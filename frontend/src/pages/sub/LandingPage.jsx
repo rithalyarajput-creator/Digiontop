@@ -125,14 +125,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="lp-band">
-        <div className="lp-container lp-band__inner" data-aos="fade-up">
-          <div><b>1 Goal</b><span>Zero Distractions</span></div>
-          <div><b>3-7 Days</b><span>Fast Turnaround</span></div>
-          <div><b>A/B</b><span>Test Ready</span></div>
-        </div>
-      </section>
-
       <ServiceFaq service="Landing Page Design" faqs={FAQS} />
 
       <section className="lp-cta">

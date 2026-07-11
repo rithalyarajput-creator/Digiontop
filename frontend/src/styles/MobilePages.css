@@ -27,7 +27,7 @@
 :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-btn--light"]{background:#fff;color:var(--gold-d);}
 :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-btn--light"]:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.2);}
 
-:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-hero"]{padding:76px 24px 84px;position:relative;overflow:hidden;}
+.mob-hero,.ios-hero,.and-hero,.flt-hero,.cld-hero,.api-hero,.saas-hero,.dop-hero{padding:76px 24px 84px;position:relative;overflow:hidden;}
 :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class$="-hero--dark"]{background:radial-gradient(ellipse at 25% 10%,#1f1f1f,#141414 55%,#0b0b0b);}
 :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class$="-hero--light"]{background:linear-gradient(180deg,#FFF8EC,#fff);}
 :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class$="-hero__grid"]{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;mask:radial-gradient(ellipse 60% 60% at 60% 25%,#000,transparent 75%);}
@@ -43,13 +43,13 @@
 
 :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-features__grid"]{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
 .mob-features,.ios-features,.and-features,.flt-features,.cld-features,.api-features,.saas-features,.dop-features{padding:84px 0;}
-:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"]{border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden;}
-:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"]::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:linear-gradient(var(--gold-l),var(--gold));transform:scaleY(0);transform-origin:top;transition:transform .3s;}
-:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"]:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(245,168,0,.14);border-color:#FFE49A;}
-:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"]:hover::before{transform:scaleY(1);}
+.mob-feature,.ios-feature,.and-feature,.flt-feature,.cld-feature,.api-feature,.saas-feature,.dop-feature{border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden;}
+:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"]:not([class*="__"])::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:linear-gradient(var(--gold-l),var(--gold));transform:scaleY(0);transform-origin:top;transition:transform .3s;}
+:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"]:not([class*="__"]):hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(245,168,0,.14);border-color:#FFE49A;}
+:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"]:not([class*="__"]):hover::before{transform:scaleY(1);}
 :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature__icon"]{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:#FFF6E0;color:var(--gold-d);font-size:21px;margin-bottom:16px;}
-:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"] h3{font-size:1.05rem;margin:0 0 8px;}
-:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"] p{font-size:.9rem;color:var(--muted);line-height:1.6;margin:0;}
+:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"]:not([class*="__"]) h3{font-size:1.05rem;margin:0 0 8px;}
+:is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-feature"]:not([class*="__"]) p{font-size:.9rem;color:var(--muted);line-height:1.6;margin:0;}
 
 .mob-band,.ios-band,.and-band,.flt-band,.cld-band,.api-band,.saas-band,.dop-band{padding:0 0 84px;}
 .mob-band__inner,.ios-band__inner,.and-band__inner,.flt-band__inner,.cld-band__inner,.api-band__inner,.saas-band__inner,.dop-band__inner{position:relative;overflow:hidden;display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:radial-gradient(ellipse at 50% 0%,#242424,#101010 72%);border:1px solid rgba(245,168,0,.18);border-radius:24px;padding:46px 30px;text-align:center;color:#fff;box-shadow:0 26px 60px -30px rgba(0,0,0,.6);}

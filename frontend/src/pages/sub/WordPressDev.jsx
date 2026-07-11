@@ -128,14 +128,6 @@ export default function WordPressDev() {
         </div>
       </section>
 
-      <section className="wp-band">
-        <div className="wp-container wp-band__inner" data-aos="fade-up">
-          <div><b>40%+</b><span>Of the Web Runs WP</span></div>
-          <div><b>Self</b><span>Editable Content</span></div>
-          <div><b>SEO</b><span>Friendly Structure</span></div>
-        </div>
-      </section>
-
       <ServiceFaq service="WordPress Development" faqs={FAQS} />
 
       <section className="wp-cta">

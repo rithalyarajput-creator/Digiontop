@@ -125,14 +125,6 @@ export default function WebApp() {
         </div>
       </section>
 
-      <section className="cwa-band">
-        <div className="cwa-container cwa-band__inner" data-aos="fade-up">
-          <div><b>99.9%</b><span>Uptime</span></div>
-          <div><b>Secure</b><span>Auth & Roles</span></div>
-          <div><b>Cloud</b><span>Scalable</span></div>
-        </div>
-      </section>
-
       <ServiceFaq service="Custom Web Application" faqs={FAQS} />
 
       <section className="cwa-cta">

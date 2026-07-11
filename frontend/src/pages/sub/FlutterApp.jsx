@@ -103,7 +103,6 @@ export default function FlutterApp() {
           </div>
         </div>
       </section>
-      <section className="flt-band"><div className="flt-container flt-band__inner" data-aos="fade-up"><div><b>1</b><span>Codebase, 2 Platforms</span></div><div><b>~40%</b><span>Lower Cost</span></div><div><b>Faster</b><span>Time to Market</span></div></div></section>
       <ServiceFaq service="Flutter App Development" faqs={FAQS} />
       <section className="flt-cta"><div className="flt-container"><div className="flt-cta__box" data-aos="zoom-in"><FiCode className="flt-cta__ic" /><h2>Launch on Both Platforms — Faster</h2><p>Get a free consultation — we'll show you how Flutter gets you to market sooner and cheaper.</p><Link to="/contact" className="flt-btn flt-btn--light">Book Free Consultation <FiArrowUpRight /></Link></div></div></section>
     </main>

@@ -127,14 +127,6 @@ export default function MobileApp() {
         </div>
       </section>
 
-      <section className="mob-band">
-        <div className="mob-container mob-band__inner" data-aos="fade-up">
-          <div><b>iOS + Android</b><span>Both Platforms</span></div>
-          <div><b>Store</b><span>Publishing Handled</span></div>
-          <div><b>Ongoing</b><span>Support & Updates</span></div>
-        </div>
-      </section>
-
       <ServiceFaq service="Mobile App Development" faqs={FAQS} />
 
       <section className="mob-cta">
