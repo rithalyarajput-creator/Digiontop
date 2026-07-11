@@ -73,7 +73,7 @@ export default function BlogEdit() {
     setUploading(true);
     try {
       const { mime, base64 } = await compressImage(file);
-      const resp = await apiPost('/media', { filename: file.name, mime, data: base64 });
+      const resp = await apiPost('/cms?resource=media', { filename: file.name, mime, data: base64 });
       if (resp && resp.url) {
         setForm((p) => ({ ...p, image_url: resp.url }));
       } else {

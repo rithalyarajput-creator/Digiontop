@@ -132,6 +132,55 @@ async function newsletter(req, res) {
   return res.status(405).json({ error: 'Method not allowed' });
 }
 
+/* ─────────── MEDIA (uploaded images, stored in Postgres) ─────────── */
+async function media(req, res) {
+  // GET ?resource=media&id=N — serve the stored image (public)
+  if (req.method === 'GET') {
+    const { id } = req.query;
+    if (!id) return res.status(400).json({ error: 'id required' });
+    const rows = await sql`SELECT mime, data FROM media WHERE id = ${id} LIMIT 1`;
+    const m = rows[0];
+    if (!m) return res.status(404).json({ error: 'Not found' });
+    const buf = Buffer.from(m.data, 'base64');
+    res.setHeader('Content-Type', m.mime || 'image/jpeg');
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    return res.status(200).send(buf);
+  }
+  if (!isAuthed(req)) return res.status(401).json({ error: 'Unauthorized' });
+
+  // POST — upload an image (admin only)
+  if (req.method === 'POST') {
+    const { filename, mime, data } = req.body || {};
+    if (!data || !mime || !String(mime).startsWith('image/')) {
+      return res.status(400).json({ error: 'Invalid image payload' });
+    }
+    if (data.length > 3.5 * 1024 * 1024) {
+      return res.status(413).json({ error: 'Image too large' });
+    }
+    await sql`
+      CREATE TABLE IF NOT EXISTS media (
+        id SERIAL PRIMARY KEY,
+        filename VARCHAR(255),
+        mime VARCHAR(100),
+        data TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT NOW()
+      )`;
+    const rows = await sql`
+      INSERT INTO media (filename, mime, data)
+      VALUES (${filename || 'upload'}, ${mime}, ${data})
+      RETURNING id`;
+    return res.status(201).json({ id: rows[0].id, url: `/api/cms?resource=media&id=${rows[0].id}` });
+  }
+  // DELETE ?resource=media&id=N — remove an image (admin only)
+  if (req.method === 'DELETE') {
+    const { id } = req.query;
+    if (!id) return res.status(400).json({ error: 'id required' });
+    await sql`DELETE FROM media WHERE id = ${id}`;
+    return res.status(200).json({ success: true });
+  }
+  return res.status(405).json({ error: 'Method not allowed' });
+}
+
 export default async function handler(req, res) {
   setCors(res);
   if (req.method === 'OPTIONS') return res.status(200).end();
@@ -141,6 +190,7 @@ export default async function handler(req, res) {
     if (resource === 'authors') return await authors(req, res);
     if (resource === 'newsletter') return await newsletter(req, res);
     if (resource === 'categories') return await categories(req, res);
+    if (resource === 'media') return await media(req, res);
     return res.status(400).json({ error: 'Unknown resource' });
   } catch (err) {
     return res.status(500).json({ error: 'Internal server error' });
