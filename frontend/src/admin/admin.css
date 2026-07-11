@@ -719,14 +719,14 @@
 .admin-blog-title__text { font-weight: 600; line-height: 1.35; }
 
 /* Leads table — fit columns so Actions never gets cut */
-.admin-table--leads { table-layout: fixed; width: 100%; min-width: 700px; }
-.admin-table--leads th, .admin-table--leads td { word-break: break-word; }
-.admin-table--leads th:nth-child(1), .admin-table--leads td:nth-child(1) { width: 28%; }   /* Name */
-.admin-table--leads th:nth-child(2), .admin-table--leads td:nth-child(2) { width: 16%; }   /* Phone */
-.admin-table--leads th:nth-child(3), .admin-table--leads td:nth-child(3) { width: 20%; }   /* Service */
-.admin-table--leads th:nth-child(4), .admin-table--leads td:nth-child(4) { width: 14%; }   /* Status */
-.admin-table--leads th:nth-child(5), .admin-table--leads td:nth-child(5) { width: 14%; }   /* Date */
-.admin-table--leads th:nth-child(6), .admin-table--leads td:nth-child(6) { width: 8%; min-width: 80px; }  /* Actions */
+.admin-table--leads { table-layout: auto; width: 100%; }
+.admin-table--leads th, .admin-table--leads td { word-break: break-word; padding: 16px 12px; }
+.admin-table--leads th:nth-child(1), .admin-table--leads td:nth-child(1) { width: 15%; }   /* Name */
+.admin-table--leads th:nth-child(2), .admin-table--leads td:nth-child(2) { width: 18%; }   /* Phone */
+.admin-table--leads th:nth-child(3), .admin-table--leads td:nth-child(3) { width: 15%; }   /* Service */
+.admin-table--leads th:nth-child(4), .admin-table--leads td:nth-child(4) { width: 18%; }   /* Message */
+.admin-table--leads th:nth-child(5), .admin-table--leads td:nth-child(5) { width: 12%; }   /* Date */
+.admin-table--leads th:nth-child(6), .admin-table--leads td:nth-child(6) { width: 22%; min-width: 200px; }  /* Actions */
 .admin-table--leads .admin-status-select { width: 100%; min-width: 0; }
 .admin-lead-msg {
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
@@ -739,36 +739,56 @@
 .admin-table--leads .admin-actions { flex-wrap: wrap; gap: 6px; }
 
 /* New leads table styling */
-.admin-msg-preview { font-size: 13px; color: #666; font-style: italic; }
-.admin-actions-group { display: flex; gap: 8px; flex-wrap: wrap; }
+.admin-msg-preview { font-size: 13px; color: #666; font-style: italic; max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+.admin-actions-group {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+  width: 100%;
+}
 .admin-action-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 8px 12px;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
   border: none;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 .admin-action-btn--view {
-  background: #e8f4fd;
-  color: #0066cc;
+  background: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #90caf9;
 }
-.admin-action-btn--view:hover { background: #d0e8fb; }
+.admin-action-btn--view:hover {
+  background: #bbdefb;
+  border-color: #64b5f6;
+}
 .admin-action-btn--convert {
-  background: #e8f8f3;
-  color: #00a876;
+  background: #e8f5e9;
+  color: #388e3c;
+  border: 1px solid #81c784;
 }
-.admin-action-btn--convert:hover { background: #d0f0e7; }
+.admin-action-btn--convert:hover {
+  background: #c8e6c9;
+  border-color: #66bb6a;
+}
 .admin-action-btn--delete {
-  background: #ffe8e8;
-  color: #cc0000;
+  background: #ffebee;
+  color: #d32f2f;
+  border: 1px solid #ef5350;
 }
-.admin-action-btn--delete:hover { background: #ffd0d0; }
+.admin-action-btn--delete:hover {
+  background: #ffcdd2;
+  border-color: #e53935;
+}
 
 /* Modal styling */
 .admin-modal-overlay {
