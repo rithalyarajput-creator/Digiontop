@@ -27,7 +27,7 @@
 
 /* shared hero layout */
 :is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-hero"]{padding:74px 24px 84px;}
-:is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-hero__inner"]{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;}
+:is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-hero__inner"]{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;max-width:1160px;margin:0 auto;padding:0 24px;}
 :is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-hero__title"]{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:900;line-height:1.07;letter-spacing:-.03em;margin:0 0 18px;}
 :is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-hero__title"] span{background:linear-gradient(120deg,var(--gold),var(--gold-d));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 :is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-hero__sub"]{font-size:1.1rem;color:var(--muted);line-height:1.7;max-width:480px;margin:0 0 26px;}
