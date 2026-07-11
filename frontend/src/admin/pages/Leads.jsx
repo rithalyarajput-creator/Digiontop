@@ -139,20 +139,18 @@ export default function Leads() {
       <div className="admin-table-wrap">
         <table className="admin-table admin-table--leads">
           <thead>
-            <tr><th>Name</th><th>Email</th><th>Phone</th><th>Service</th><th>Message</th><th>Status</th><th>Date</th><th>Actions</th></tr>
+            <tr><th>Name</th><th>Phone</th><th>Service</th><th>Status</th><th>Date</th><th>Actions</th></tr>
           </thead>
           <tbody>
-            {loading && <tr><td colSpan="8" className="admin-table__empty">Loading…</td></tr>}
+            {loading && <tr><td colSpan="6" className="admin-table__empty">Loading…</td></tr>}
             {!loading && filtered.length === 0 && (
-              <tr><td colSpan="8" className="admin-table__empty">No leads found.</td></tr>
+              <tr><td colSpan="6" className="admin-table__empty">No leads found.</td></tr>
             )}
             {filtered.map((l) => (
               <tr key={l.id}>
-                <td>{l.full_name || '—'}{l.business_name ? <div className="admin-muted">{l.business_name}</div> : null}</td>
-                <td>{l.email}</td>
-                <td>{l.phone || '—'}</td>
-                <td>{l.service_interested || '—'}</td>
-                <td><div className="admin-lead-msg admin-muted" title={l.message}>{l.message || '—'}</div></td>
+                <td title={l.full_name + (l.business_name ? ' - ' + l.business_name : '') + '\n' + l.email}>{l.full_name || '—'}{l.business_name ? <span className="admin-muted"> · {l.business_name}</span> : null}</td>
+                <td title={l.phone}>{l.phone || '—'}</td>
+                <td title={l.service_interested}>{l.service_interested || '—'}</td>
                 <td>
                   <select
                     className={`admin-status-select admin-status-select--${l.status}`}
