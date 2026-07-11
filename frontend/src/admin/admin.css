@@ -734,8 +734,15 @@
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   overflow: hidden; line-height: 1.4;
 }
-/* clean stacked date + time */
-.admin-lead-date { white-space: nowrap; }
-.admin-lead-date__day { display: block; font-weight: 700; color: #1a2b4a; font-size: 13px; }
-.admin-lead-date__time { display: block; font-size: 11.5px; color: #9a9a9a; margin-top: 2px; }
+/* date + time on one line */
+.admin-lead-date { white-space: nowrap; display: inline-flex; gap: 8px; align-items: center; }
+.admin-lead-date__day { display: inline; font-weight: 700; color: #1a2b4a; font-size: 13px; }
+.admin-lead-date__time { display: inline; font-size: 11.5px; color: #9a9a9a; }
 .admin-table--leads .admin-actions { flex-wrap: wrap; gap: 6px; }
+
+/* Name with business on one line */
+.admin-table--leads td:nth-child(1) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.admin-muted { display: inline; margin-left: 6px; font-weight: 400; }
+.admin-table--leads td:nth-child(2) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.admin-table--leads td:nth-child(3) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.admin-table--leads td:nth-child(4) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
