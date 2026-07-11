@@ -33,39 +33,15 @@ export default function AdminLogin({ onLogin }) {
     <div className="admin-login">
       <div className="admin-login__shell">
 
-        {/* ── LEFT — animated brand panel ── */}
+        {/* ── LEFT — banner image panel ── */}
         <div className="admin-login__left">
-          <span className="admin-login__orb admin-login__orb--1" />
-          <span className="admin-login__orb admin-login__orb--2" />
-          <span className="admin-login__orb admin-login__orb--3" />
-          <span className="admin-login__stars" aria-hidden="true" />
-
-          <div className="admin-login__left-content">
-            <div className="admin-login__logo-card">
-              <img src="/favicon-192.png" alt="DigionTop" />
-            </div>
-            <h2 className="admin-login__left-title">
-              One Dashboard to <span>Stay On Top</span><br />of Your Entire Website
-            </h2>
-            <p className="admin-login__left-sub">
-              Manage blogs, leads, testimonials, portfolio &amp; settings —
-              everything for digiontop.com in one place.
-            </p>
-            <div className="admin-login__dots">
-              <span className="admin-login__dot admin-login__dot--active" />
-              <span className="admin-login__dot" />
-              <span className="admin-login__dot" />
-            </div>
-          </div>
+          <img src="/images/home-banner-mobile-v3.png" alt="DigionTop — Stay On Top" className="admin-login__banner" />
         </div>
 
         {/* ── RIGHT — form panel ── */}
         <div className="admin-login__right">
-          <div className="admin-login__right-top">
-            <img src="/favicon-192.png" alt="DigionTop" className="admin-login__mini-logo" />
-          </div>
-
           <form className="admin-login__form" onSubmit={handleSubmit}>
+            <img src="/images/logo-header.webp" alt="DigionTop" className="admin-login__header-logo" />
             <h1 className="admin-login__title">Welcome back to DigionTop!</h1>
             <p className="admin-login__subtitle">Please enter your details to sign in to the admin panel</p>
 
