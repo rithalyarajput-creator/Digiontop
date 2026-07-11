@@ -37,15 +37,6 @@ export default function FlutterApp() {
               <Link to="/contact" className="flt-btn flt-btn--ghost">Free Consultation</Link>
             </div>
           </div>
-          <div className="mp-phone" data-aos="fade-left">
-            <span className="mp-phone__notch" />
-            <div className="mp-phone__screen">
-              <div className="mp-phone__top"><span className="mp-phone__logo" /><b>Flutter App</b></div>
-              <div className="mp-phone__hero"><FiCode /></div>
-              <div className="mp-phone__cards"><span /><span /><span /><span /></div>
-              <div className="mp-phone__nav"><i /><i /><i /><i /></div>
-            </div>
-          </div>
         </div>
       </section>
       <section className="flt-features">

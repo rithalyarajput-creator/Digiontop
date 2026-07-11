@@ -37,15 +37,6 @@ export default function IosApp() {
               <Link to="/contact" className="ios-btn ios-btn--ghost">Free Consultation</Link>
             </div>
           </div>
-          <div className="mp-phone" data-aos="fade-left">
-            <span className="mp-phone__notch" />
-            <div className="mp-phone__screen">
-              <div className="mp-phone__top"><span className="mp-phone__logo" /><b>iOS App</b></div>
-              <div className="mp-phone__hero"><FiSmartphone /></div>
-              <div className="mp-phone__cards"><span /><span /><span /><span /></div>
-              <div className="mp-phone__nav"><i /><i /><i /><i /></div>
-            </div>
-          </div>
         </div>
       </section>
       <section className="ios-features">

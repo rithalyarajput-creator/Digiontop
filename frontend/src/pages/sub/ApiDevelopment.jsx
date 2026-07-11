@@ -38,13 +38,6 @@ export default function ApiDevelopment() {
               <Link to="/contact" className="api-btn api-btn--ghost-l">Discuss My Project</Link>
             </div>
           </div>
-          <div className="mv-card" data-aos="fade-left">
-            <div className="mv-card__top"><b>API Endpoints</b><span className="mv-card__live">● 200 OK</span></div>
-            <div className="mv-row"><FiCode /> GET /users <b className="g">200</b></div>
-            <div className="mv-row"><FiCode /> POST /orders <b className="g">201</b></div>
-            <div className="mv-row"><FiShield /> auth · rate-limit <b className="g">on</b></div>
-            <div className="mv-card__foot"><FiCheck /> Documented · Secure · &lt;80ms avg</div>
-          </div>
         </div>
       </section>
       <section className="api-features">

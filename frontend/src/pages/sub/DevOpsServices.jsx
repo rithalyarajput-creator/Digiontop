@@ -38,13 +38,6 @@ export default function DevOpsServices() {
               <Link to="/contact" className="dop-btn dop-btn--ghost-l">Free DevOps Audit</Link>
             </div>
           </div>
-          <div className="mv-card" data-aos="fade-left">
-            <div className="mv-card__top"><b>Deployment Pipeline</b><span className="mv-card__live">● Passing</span></div>
-            <div className="mv-row"><FiCheck /> build <b className="g">✓</b></div>
-            <div className="mv-row"><FiCheck /> test (128) <b className="g">✓</b></div>
-            <div className="mv-row"><FiRefreshCw /> deploy → prod <b className="g">live</b></div>
-            <div className="mv-card__foot"><FiActivity /> 4m 12s · zero downtime</div>
-          </div>
         </div>
       </section>
       <section className="dop-features">

@@ -38,13 +38,6 @@ export default function CloudSolutions() {
               <Link to="/contact" className="cld-btn cld-btn--ghost-l">Free Cloud Audit</Link>
             </div>
           </div>
-          <div className="mv-card" data-aos="fade-left">
-            <div className="mv-card__top"><b>Cloud Infrastructure</b><span className="mv-card__live">● Healthy</span></div>
-            <div className="mv-row"><FiServer /> app-server-01 <b className="g">running</b></div>
-            <div className="mv-row"><FiTrendingUp /> auto-scaling <b className="g">active</b></div>
-            <div className="mv-row"><FiShield /> ssl / firewall <b className="g">secure</b></div>
-            <div className="mv-card__foot"><FiCheck /> 99.99% uptime · auto-backup on</div>
-          </div>
         </div>
       </section>
       <section className="cld-features">

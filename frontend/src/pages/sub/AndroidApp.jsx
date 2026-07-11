@@ -38,15 +38,6 @@ export default function AndroidApp() {
               <Link to="/contact" className="and-btn and-btn--ghost-l">Discuss My Idea</Link>
             </div>
           </div>
-          <div className="mp-phone" data-aos="fade-left">
-            <span className="mp-phone__notch" />
-            <div className="mp-phone__screen">
-              <div className="mp-phone__top"><span className="mp-phone__logo" /><b>Android App</b></div>
-              <div className="mp-phone__hero"><FiSmartphone /></div>
-              <div className="mp-phone__cards"><span /><span /><span /><span /></div>
-              <div className="mp-phone__nav"><i /><i /><i /><i /></div>
-            </div>
-          </div>
         </div>
       </section>
       <section className="and-features">

@@ -37,13 +37,6 @@ export default function SaasDevelopment() {
               <Link to="/contact" className="saas-btn saas-btn--ghost">Discuss My Idea</Link>
             </div>
           </div>
-          <div className="mv-card" data-aos="fade-left" style={{ background: '#111' }}>
-            <div className="mv-card__top"><b>SaaS Dashboard</b><span className="mv-card__live">● Live</span></div>
-            <div className="mv-row"><FiUsers /> active subscribers <b>1,284</b></div>
-            <div className="mv-row"><FiCreditCard /> MRR <b className="g">₹6.4L</b></div>
-            <div className="mv-row"><FiTrendingUp /> churn <b>2.1%</b></div>
-            <div className="mv-card__foot"><FiCheck /> Multi-tenant · billing · analytics</div>
-          </div>
         </div>
       </section>
       <section className="saas-features">

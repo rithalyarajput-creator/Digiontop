@@ -8,7 +8,6 @@ import {
   FiTablet, FiCloud, FiCode, FiBox, FiLayers, FiServer, FiTrendingUp,
 } from 'react-icons/fi'
 import ServiceFaq from '../components/ServiceFaq'
-import ServiceHeroAnim from '../components/ServiceHeroAnim'
 import RelatedServices from '../components/RelatedServices'
 import '../styles/SubService.css'
 
@@ -53,18 +52,13 @@ export default function MobileSoftware() {
     <main className="ss">
       {/* HERO */}
       <section className="ss-hero ss-hero--white">
-        <div className="ss-container ds-hero" style={{ position: 'relative' }}>
-          <div data-aos="fade-right">
-            <span className="ss-tag"><FiSmartphone /> Mobile &amp; Software</span>
-            <h1 className="ss-hero__title">Powerful Apps &amp; Software <span>Built For Growth</span></h1>
-            <p className="ss-hero__sub">We design and develop custom mobile apps, SaaS platforms, APIs, and cloud solutions that improve efficiency, enhance experiences, and help you scale faster — secure, scalable & future-ready.</p>
-            <div className="ss-hero__actions">
-              <Link to="/contact" className="ss-btn ss-btn--primary">Start Your Project <FiArrowRight /></Link>
-              <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Consultation</Link>
-            </div>
-          </div>
-          <div className="ec-hero__media" data-aos="fade-left">
-            <ServiceHeroAnim variant="mobile" label="Mobile & software illustration" />
+        <div className="ss-container ss-hero__center" data-aos="fade-up">
+          <span className="ss-tag"><FiSmartphone /> Mobile &amp; Software</span>
+          <h1 className="ss-hero__title">Powerful Apps &amp; Software <span>Built For Growth</span></h1>
+          <p className="ss-hero__sub">We design and develop custom mobile apps, SaaS platforms, APIs, and cloud solutions that improve efficiency, enhance experiences, and help you scale faster — secure, scalable & future-ready.</p>
+          <div className="ss-hero__actions">
+            <Link to="/contact" className="ss-btn ss-btn--primary">Start Your Project <FiArrowRight /></Link>
+            <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Consultation</Link>
           </div>
         </div>
       </section>
