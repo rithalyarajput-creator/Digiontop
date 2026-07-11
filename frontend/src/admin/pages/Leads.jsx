@@ -183,51 +183,53 @@ export default function Leads() {
         <div className="admin-modal-overlay" onClick={() => setSelectedLead(null)}>
           <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
             <div className="admin-modal__header">
-              <h2>Lead Details</h2>
+              <div className="admin-modal__profile">
+                <span className="admin-modal__avatar">
+                  {(selectedLead.full_name || '?').trim().charAt(0).toUpperCase()}
+                </span>
+                <div>
+                  <h2>{selectedLead.full_name || 'Lead Details'}</h2>
+                  {selectedLead.business_name && (
+                    <p className="admin-modal__company">{selectedLead.business_name}</p>
+                  )}
+                </div>
+              </div>
               <button className="admin-modal__close" onClick={() => setSelectedLead(null)}>
                 <FiX />
               </button>
             </div>
             <div className="admin-modal__body">
-              <div className="admin-modal__row">
-                <strong>Name:</strong> {selectedLead.full_name || '—'}
-              </div>
-              {selectedLead.business_name && (
+              <div className="admin-modal__grid">
                 <div className="admin-modal__row">
-                  <strong>Business:</strong> {selectedLead.business_name}
+                  <strong>Email</strong>
+                  <a href={`mailto:${selectedLead.email}`} className="admin-modal__link">{selectedLead.email || '—'}</a>
                 </div>
-              )}
-              <div className="admin-modal__row">
-                <strong>Email:</strong> {selectedLead.email || '—'}
+                <div className="admin-modal__row">
+                  <strong>Phone</strong>
+                  <a href={`tel:${(selectedLead.phone || '').replace(/\s/g, '')}`} className="admin-modal__link">{selectedLead.phone || '—'}</a>
+                </div>
+                <div className="admin-modal__row">
+                  <strong>Service</strong>
+                  <span>{selectedLead.service_interested || '—'}</span>
+                </div>
+                <div className="admin-modal__row">
+                  <strong>Received On</strong>
+                  <span>{fmtDate(selectedLead.created_at)} · {fmtTime(selectedLead.created_at)}</span>
+                </div>
               </div>
-              <div className="admin-modal__row">
-                <strong>Phone:</strong> {selectedLead.phone || '—'}
+              <div className="admin-modal__row admin-modal__row--full">
+                <strong>Message</strong>
+                <p className="admin-modal__message">{selectedLead.message || '—'}</p>
               </div>
-              <div className="admin-modal__row">
-                <strong>Website:</strong> {selectedLead.website || '—'}
-              </div>
-              <div className="admin-modal__row">
-                <strong>Service:</strong> {selectedLead.service_interested || '—'}
-              </div>
-              <div className="admin-modal__row">
-                <strong>Budget:</strong> {selectedLead.budget_range || '—'}
-              </div>
-              <div className="admin-modal__row">
-                <strong>Message:</strong>
-                <p>{selectedLead.message || '—'}</p>
-              </div>
-              <div className="admin-modal__row">
-                <strong>Status:</strong>
+              <div className="admin-modal__row admin-modal__row--full">
+                <strong>Status</strong>
                 <select
                   className={`admin-status-select admin-status-select--${selectedLead.status}`}
                   value={selectedLead.status}
-                  onChange={(e) => updateStatus(selectedLead.id, e.target.value)}
+                  onChange={(e) => { updateStatus(selectedLead.id, e.target.value); setSelectedLead({ ...selectedLead, status: e.target.value }); }}
                 >
                   {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
-              </div>
-              <div className="admin-modal__row">
-                <strong>Date:</strong> {fmtDate(selectedLead.created_at)} {fmtTime(selectedLead.created_at)}
               </div>
             </div>
             <div className="admin-modal__footer">
