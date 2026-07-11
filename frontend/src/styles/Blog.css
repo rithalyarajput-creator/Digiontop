@@ -456,7 +456,7 @@
   box-shadow: 0 3px 8px rgba(245, 168, 0, 0.35);
   transition: transform 0.15s;
 }
-.blogpost2__socials a:hover { transform: translateY(-2px); }
+.blogpost2__socials a:hover { transform: translateY(-2px); color: #1a1a1a; }
 
 /* Featured image */
 .blogpost2__hero-img {

@@ -85,6 +85,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  overflow-x: clip;   /* hidden breaks position:sticky; clip doesn't */
 }
 
 /* ── Typography Defaults ────────────────────────────────────── */
@@ -118,8 +119,9 @@ a {
 }
 
 /* Only plain text links turn yellow on hover.
-   Buttons / CTAs keep their own hover styles (their text must NOT turn yellow). */
-a:hover:not([class*="btn"]):not([class*="button"]):not([class*="cta"]):not([class*="__btn"]):not([class*="-btn"]) {
+   Buttons / CTAs / icon circles keep their own hover styles.
+   :where() keeps specificity at zero so any component hover rule wins. */
+a:hover:where(:not([class*="btn"]):not([class*="button"]):not([class*="cta"]):not([class*="__btn"]):not([class*="-btn"]):not([class*="social"]):not([class*="icon"]):not([class*="navbar"])) {
   color: var(--primary);
 }
 
@@ -671,7 +673,8 @@ select {
 /* ============================================================
    GLOBAL MOBILE SAFETY NET — prevent horizontal overflow site-wide
    ============================================================ */
-html, body { max-width: 100%; overflow-x: hidden; }
+/* clip (not hidden) — hidden turns body into a scroll container and breaks position:sticky */
+html, body { max-width: 100%; overflow-x: hidden; overflow-x: clip; }
 @media (max-width: 768px) {
   /* nothing should push the page wider than the screen */
   img, video, table, pre, iframe { max-width: 100%; }
