@@ -347,16 +347,16 @@
 }
 .footer-bottom__link {
   font-size: 0.82rem;
-  color: #cfcfcf;
+  color: #1a1a1a;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s ease;
 }
-.footer-bottom__link:hover { color: #F5A800; }
-.footer-bottom__sep { color: #555; font-size: 0.7rem; }
+.footer-bottom__link:hover { color: #000; text-decoration: underline; }
+.footer-bottom__sep { color: #1a1a1a; font-size: 0.7rem; }
 .footer-bottom__flag {
   font-size: 0.8rem;
-  color: #cfcfcf;
+  color: #1a1a1a;
   font-weight: 600;
   white-space: nowrap;
 }
