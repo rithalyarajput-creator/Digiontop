@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 import {
@@ -47,9 +47,9 @@ const COMMITMENTS = [
 ];
 
 const STORY = [
-  { year: '2024', text: 'DigionTop started with a simple goal — make pro digital marketing affordable for Indian businesses.' },
-  { year: '2025', text: 'Grew into a full-service team — websites, SEO, social media, e-commerce & ads under one roof.' },
-  { year: '2026', text: 'Now a trusted growth partner for 120+ brands, delivering 250+ projects across India.' },
+  { year: '2025', text: 'DigionTop started with a simple goal — make pro digital marketing affordable for Indian businesses.' },
+  { year: '2026', text: 'Grew into a full-service team — websites, SEO, social media, e-commerce & ads under one roof.' },
+  { year: 'Today', text: 'Now a trusted growth partner for 120+ brands, delivering 250+ projects across India.' },
 ];
 
 const teamImages = [
@@ -82,6 +82,45 @@ const strengths = [
     desc: 'Proven results & 100% satisfaction',
   },
 ];
+
+/* Animated count-up that fires once when scrolled into view.
+   Splits a value like "250+" / "8M+" / "5★" into number + suffix. */
+function CountUpStat({ value, label }) {
+  const m = String(value).match(/^(\d+)(.*)$/);
+  const target = m ? parseInt(m[1], 10) : 0;
+  const suffix = m ? m[2] : value;
+  const [display, setDisplay] = useState(0);
+  const ref = useRef(null);
+  const done = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !done.current) {
+        done.current = true;
+        const dur = 1400;
+        const start = performance.now();
+        const tick = (now) => {
+          const p = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          setDisplay(Math.round(target * eased));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.4 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [target]);
+
+  return (
+    <div className="ab-hero__stat" ref={ref}>
+      <b>{display}{suffix}</b>
+      <span>{label}</span>
+    </div>
+  );
+}
 
 const INITIAL = { firstName: '', lastName: '', company: '', website: '', email: '', phone: '', service: '', message: '', consent: false };
 
@@ -156,7 +195,7 @@ export default function About() {
           </Link>
           <div className="ab-hero__stats" data-aos="fade-up" data-aos-delay="240">
             {ABOUT_STATS.map((s) => (
-              <div key={s.label}><b>{s.num}</b><span>{s.label}</span></div>
+              <CountUpStat key={s.label} value={s.num} label={s.label} />
             ))}
           </div>
         </div>
@@ -187,7 +226,7 @@ export default function About() {
           <div className="ab-split__media" data-aos="fade-right">
             <img src="/images/digiontop-office-wall.webp" alt="DigionTop office" loading="lazy" />
             <div className="ab-split__badge">
-              <b>Since 2024</b>
+              <b>Since 2025</b>
               <span>Delhi, India</span>
             </div>
           </div>
