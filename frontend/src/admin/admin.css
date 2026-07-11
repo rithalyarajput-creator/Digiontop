@@ -913,15 +913,15 @@
 .admin-btn--primary {
   background: #F5A800;
   color: #fff;
-  flex: 1;
 }
 .admin-btn--primary:hover { background: #e09700; }
 .admin-btn--secondary {
   background: #e8e8ec;
   color: #333;
-  flex: 1;
 }
 .admin-btn--secondary:hover { background: #d8d8dc; }
+/* only stretch buttons inside the modal footer */
+.admin-modal__footer .admin-btn { flex: 1; justify-content: center; }
 
 /* Name with business on one line */
 .admin-table--leads td:nth-child(1) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
