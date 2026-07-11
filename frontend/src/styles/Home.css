@@ -774,8 +774,37 @@ a {
 /* ── Industries + Process: mobile ── */
 @media (max-width: 560px) {
   .inds { padding: 64px 0; }
-  .inds__grid { grid-template-columns: 1fr; max-width: 420px; gap: 16px; }
-  .inds__head { margin-bottom: 38px; }
+  .inds__head { margin-bottom: 30px; }
+
+  /* Mobile-only look: compact 2-col icon grid (different from other sections) */
+  .inds__grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 420px;
+    gap: 12px;
+  }
+  .inds__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 22px 12px 18px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #FFFDF6 0%, #fff 100%);
+    border: 1px solid rgba(245,168,0,0.22);
+  }
+  .inds__card:nth-child(even) { background: linear-gradient(180deg, #FFFDF6 0%, #fff 100%); }
+  .inds__card-num,
+  .inds__card-desc,
+  .inds__card-arrow { display: none; }   /* keep it clean — icon + name only */
+  .inds__card-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(245,168,0,0.28);
+  }
+  .inds__card-title { font-size: 0.88rem; margin: 0; line-height: 1.35; }
   .proc { padding: 64px 0; }
   .proc__track { grid-template-columns: 1fr; max-width: 420px; gap: 16px; }
   .proc__cta { flex-direction: column; text-align: center; padding: 30px 24px; }
