@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
 import AOS from 'aos'
@@ -220,7 +221,7 @@ export default function CreativeBranding() {
       <section className="cbp-cta">
         <div className="cbp-container">
           <div className="cbp-cta__box" data-aos="zoom-in">
-            <span className="cbp-cta__emoji">🚀</span>
+            <span className="cbp-cta__emoji"><FaRocket /></span>
             <h2>Build A Brand People Trust</h2>
             <p>
               Your brand deserves more than ordinary design. We help businesses create impactful brand

@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import './ChatBot.css';
 
 const QUICK_REPLIES = [
-  { label: '💬 How can you help?', key: 'help' },
-  { label: '📞 Contact Number',    key: 'contact' },
-  { label: '🎁 Free Consultation', key: 'consultation' },
+  { label: 'How can you help?', key: 'help' },
+  { label: 'Contact Number',    key: 'contact' },
+  { label: 'Free Consultation', key: 'consultation' },
   { label: 'Website',              key: 'website' },
   { label: 'SEO',                  key: 'seo' },
   { label: 'Social Media',         key: 'social media' },
@@ -12,66 +12,66 @@ const QUICK_REPLIES = [
 ];
 
 const AUDIT_ACTION  = { label: 'Get Free Consultation', href: '/contact' };
-const CALL_ACTION   = { label: '📞 Call +91 92175 94664', href: 'tel:+919217594664' };
+const CALL_ACTION   = { label: 'Call +91 92175 94664', href: 'tel:+919217594664' };
 
 /* Short, website-only answers. Kept 1–3 lines each. */
 const REPLIES = {
   help: {
-    text: 'We help you grow online! 🚀\nWebsites, SEO, Social Media, Ads, E-Commerce & Branding.\nWhat are you looking for?',
+    text: 'We help you grow online!\nWebsites, SEO, Social Media, Ads, E-Commerce & Branding.\nWhat are you looking for?',
     action: AUDIT_ACTION,
   },
   website: {
-    text: 'We build fast, mobile-first websites that convert. 🌐\nGet a free quote — no obligation!',
+    text: 'We build fast, mobile-first websites that convert.\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   shopify: {
-    text: 'High-converting Shopify stores — setup, payments & speed. 🛍️\nGet a free quote — no obligation!',
+    text: 'High-converting Shopify stores — setup, payments & speed.\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   seo: {
-    text: 'We rank you #1 on Google — on-page, technical & local SEO. 📈\nGet a free quote — no obligation!',
+    text: 'We rank you #1 on Google — on-page, technical & local SEO.\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   'social media': {
-    text: 'Instagram, Facebook & more — content, reels & growth. 📱\nGet a free quote — no obligation!',
+    text: 'Instagram, Facebook & more — content, reels & growth.\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   'e-commerce': {
-    text: 'Amazon, Flipkart & Meesho — listings, SEO & ads. 🛒\nGet a free quote — no obligation!',
+    text: 'Amazon, Flipkart & Meesho — listings, SEO & ads.\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   ads: {
-    text: 'High-ROI Google & Meta ads that bring real leads. 🎯\nGet a free quote — no obligation!',
+    text: 'High-ROI Google & Meta ads that bring real leads.\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   branding: {
-    text: 'Logo, brand identity & creatives that stand out. 🎨\nGet a free quote — no obligation!',
+    text: 'Logo, brand identity & creatives that stand out.\nGet a free quote — no obligation!',
     action: AUDIT_ACTION,
   },
   pricing: {
-    text: 'Pricing depends on your needs and goals. 💰\nEvery business is unique!\nBook a free consultation to get a custom quote.',
+    text: 'Pricing depends on your needs and goals.\nEvery business is unique!\nBook a free consultation to get a custom quote.',
     action: AUDIT_ACTION,
   },
   consultation: {
-    text: 'Book a FREE 30-min strategy call. 🎁\nWe’ll share a clear plan to grow your business — no cost.',
+    text: 'Book a FREE 30-min strategy call.\nWe’ll share a clear plan to grow your business — no cost.',
     action: AUDIT_ACTION,
   },
   contact: {
-    text: '📞 +91 92175 94664\n📧 digiontop.agency@gmail.com\nMon–Sat, 10 AM – 7 PM.',
+    text: 'Phone: +91 92175 94664\nEmail: digiontop.agency@gmail.com\nMon–Sat, 10 AM – 7 PM.',
     action: CALL_ACTION,
   },
   timing: {
-    text: '🕒 We’re available Mon–Sat, 10 AM – 7 PM IST.\nFill the form anytime — we reply within 1 business day.',
+    text: 'We’re available Mon–Sat, 10 AM – 7 PM IST.\nFill the form anytime — we reply within 1 business day.',
     action: AUDIT_ACTION,
   },
   location: {
-    text: '📍 We’re a remote-first agency based in Delhi, serving businesses across all of India.',
+    text: 'We’re a remote-first agency based in Delhi, serving businesses across all of India.',
     action: AUDIT_ACTION,
   },
-  hello:  { text: 'Hi! 👋 I’m Digi. How can I help you today?', action: AUDIT_ACTION },
-  thanks: { text: 'You’re welcome! 😊 Anything else I can help with?', action: AUDIT_ACTION },
+  hello:  { text: 'Hi! I’m Digi. How can I help you today?', action: AUDIT_ACTION },
+  thanks: { text: 'You’re welcome! Anything else I can help with?', action: AUDIT_ACTION },
   default: {
-    text: 'I can help with Websites, SEO, Social Media, Ads & Pricing. 🙂\nWhat would you like to know?',
+    text: 'I can help with Websites, SEO, Social Media, Ads & Pricing.\nWhat would you like to know?',
     action: AUDIT_ACTION,
   },
 };
@@ -105,7 +105,7 @@ export default function ChatBot() {
   const [open, setOpen]     = useState(false);
   const [messages, setMessages] = useState([{
     from: 'bot',
-    text: 'Hi! 👋 I’m Digi from DigionTop.\nHow can I help you today?',
+    text: 'Hi! I’m Digi from DigionTop.\nHow can I help you today?',
     action: AUDIT_ACTION,
     time: getTime(),
     id: 0,

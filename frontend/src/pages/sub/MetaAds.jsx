@@ -52,7 +52,7 @@ export default function MetaAds() {
               <div className="meta-phone__top"><span className="meta-phone__ava" /><b>yourbrand</b><small>Sponsored</small></div>
               <div className="meta-phone__media"><FiInstagram /><span className="meta-phone__cta2">Shop Now</span></div>
               <div className="meta-phone__acts"><FiHeart /><FiMessageCircle /><FiSend /><FiBookmark className="save" /></div>
-              <div className="meta-phone__cap"><b>yourbrand</b> New drop is live 🔥 Tap to shop →</div>
+              <div className="meta-phone__cap"><b>yourbrand</b> New drop is live. Tap to shop →</div>
             </div>
           </div>
         </div>

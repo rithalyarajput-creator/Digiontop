@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { FiExternalLink } from 'react-icons/fi';
 import '../styles/Work.css';
@@ -140,7 +141,7 @@ export default function Work() {
         <div className="work-container">
           {filtered.length === 0 ? (
             <div className="work-coming-soon">
-              <div className="work-coming-soon__icon">🚀</div>
+              <div className="work-coming-soon__icon"><FaRocket /></div>
               <h2 className="work-coming-soon__heading">More Projects Coming Soon</h2>
               <p className="work-coming-soon__text">
                 We're adding more work to this category. Check back soon.

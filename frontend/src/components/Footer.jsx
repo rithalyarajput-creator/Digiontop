@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
-import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import { FiMail, FiPhone, FiMapPin, FiHeadphones, FiShield } from "react-icons/fi";
 import { useSettings } from "../context/SettingsContext";
 import "../styles/Footer.css";
 
@@ -97,7 +97,7 @@ const Footer = () => {
           <div className="footer-col">
             <h3 className="footer-heading">Get In Touch</h3>
             <div className="footer-touch-box">
-              <span className="footer-touch-icon">🎧</span>
+              <span className="footer-touch-icon"><FiHeadphones /></span>
               <div>
                 <p className="footer-touch-title">Have Questions?</p>
                 <p className="footer-touch-sub">We're here to help you!</p>
@@ -133,14 +133,14 @@ const Footer = () => {
         <div className="footer-bottom__inner">
           <span className="footer-bottom__copy">&copy; 2025 <strong>DigionTop</strong>. All Rights Reserved.</span>
           <span className="footer-bottom__mission">
-            <span className="footer-bottom__shield">🛡</span> Your Growth. Our Mission.
+            <span className="footer-bottom__shield"><FiShield /></span> Your Growth. Our Mission.
           </span>
           <span className="footer-bottom__links">
             <Link to="/about" className="footer-bottom__link">About</Link>
             <span className="footer-bottom__sep">•</span>
             <Link to="/contact" className="footer-bottom__link">Contact</Link>
             <span className="footer-bottom__sep">•</span>
-            <span className="footer-bottom__flag">🇮🇳 Proudly Made in India</span>
+            <span className="footer-bottom__flag">Proudly Made in India</span>
           </span>
         </div>
       </div>

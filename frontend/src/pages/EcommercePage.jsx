@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
 import AOS from 'aos'
@@ -152,7 +153,7 @@ export default function EcommercePage() {
       {/* CTA */}
       <section className="ss-cta">
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">
-          <span style={{ fontSize: '2.2rem', display: 'block', marginBottom: 8 }}>🚀</span>
+          <FaRocket style={{ fontSize: '2.2rem', display: 'block', margin: '0 auto 8px', color: '#F5A800' }} />
           <h2>Ready To Grow Your E-Commerce Business?</h2>
           <p>Whether you sell on Amazon, Flipkart, Meesho, Shopify, or multiple marketplaces — we'll help you build a stronger online presence and achieve sustainable growth.</p>
           <Link to="/contact" className="ss-btn">Start Selling Smarter <FiArrowUpRight /></Link>

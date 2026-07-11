@@ -92,7 +92,7 @@ export default function LeadPopup() {
         {done ? (
           <div className="lpop__done">
             <div className="lpop__done-icon">✓</div>
-            <h3>Thank you! 🎉</h3>
+            <h3>Thank you!</h3>
             <p>We’ve received your details and will reply within one business day with your free strategy audit.</p>
             <button className="lpop__btn" onClick={() => setOpen(false)}>Close</button>
           </div>

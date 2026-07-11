@@ -42,7 +42,7 @@ export default function EmailMarketing() {
           {/* inbox mock */}
           <div className="em-inbox" data-aos="fade-left">
             <div className="em-inbox__head"><FiInbox /> Inbox <span className="em-inbox__badge">3 new</span></div>
-            {[{ s: 'Your order is on the way 🎉', o: '68% open' }, { s: 'You left something behind…', o: '54% open' }, { s: 'Flat 30% OFF ends tonight ⏰', o: '61% open' }].map((m, i) => (
+            {[{ s: 'Your order is on the way', o: '68% open' }, { s: 'You left something behind…', o: '54% open' }, { s: 'Flat 30% OFF ends tonight', o: '61% open' }].map((m, i) => (
               <div className={`em-inbox__mail${i === 0 ? ' unread' : ''}`} key={i}>
                 <span className="em-inbox__dot" />
                 <div><b>{m.s}</b><small>{m.o}</small></div>

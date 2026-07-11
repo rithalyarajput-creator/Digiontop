@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -101,7 +102,7 @@ export default function PpcPage() {
 
       <section className="ss-cta">
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">
-          <span style={{ fontSize: '2.2rem', display: 'block', marginBottom: 8 }}>🚀</span>
+          <FaRocket style={{ fontSize: '2.2rem', display: 'block', margin: '0 auto 8px', color: '#F5A800' }} />
           <h2>Ready To Scale With Paid Ads?</h2>
           <p>Get a free ad audit and a campaign strategy built to deliver real, measurable ROI.</p>
           <Link to="/contact" className="ss-btn">Get Free Consultation <FiArrowUpRight /></Link>

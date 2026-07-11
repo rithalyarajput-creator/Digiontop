@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -149,7 +150,7 @@ export default function MobileSoftware() {
       {/* CTA */}
       <section className="ss-cta">
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">
-          <span style={{ fontSize: '2.2rem', display: 'block', marginBottom: 8 }}>🚀</span>
+          <FaRocket style={{ fontSize: '2.2rem', display: 'block', margin: '0 auto 8px', color: '#F5A800' }} />
           <h2>Ready To Build Your Next Digital Product?</h2>
           <p>Whether you need a mobile app, SaaS platform, cloud infrastructure, or custom software — we'll bring your vision to life.</p>
           <Link to="/contact" className="ss-btn">Start Your Project <FiArrowUpRight /></Link>

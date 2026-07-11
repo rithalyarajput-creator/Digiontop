@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -209,7 +210,7 @@ export default function ShopifyDevelopment() {
       <section className="sf-cta">
         <div className="sf-container">
           <div className="sf-cta__box" data-aos="zoom-in">
-            <span className="sf-cta__rocket">🚀</span>
+            <span className="sf-cta__rocket"><FaRocket /></span>
             <h2>Ready to Launch Your Shopify Store?</h2>
             <p>
               We don't just create Shopify websites — we build e-commerce experiences that help businesses

@@ -232,7 +232,7 @@ export default function BlogEdit() {
                   placeholder="Write your blog post here — select text and click B, H2, List… just like Word."
                 />
                 <p className="blogedit__hint">
-                  ✍️ Type or paste your text, select it, then click <b>B</b>, <b>H2</b>, <b>• List</b> etc.
+                  Type or paste your text, select it, then click <b>B</b>, <b>H2</b>, <b>• List</b> etc.
                   What you see here is exactly what appears on the blog.
                 </p>
               </>

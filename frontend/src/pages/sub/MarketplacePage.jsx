@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -87,7 +88,7 @@ export default function MarketplacePage({ tag, icon, titleA, titleB, intro, intr
       {/* CTA */}
       <section className="ss-cta">
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">
-          <span style={{ fontSize: '2.2rem', display: 'block', marginBottom: 8 }}>🚀</span>
+          <FaRocket style={{ fontSize: '2.2rem', display: 'block', margin: '0 auto 8px', color: '#F5A800' }} />
           <h2>{ctaTitle}</h2>
           <p>{ctaText}</p>
           <Link to="/contact" className="ss-btn">Get Free Consultation <FiArrowUpRight /></Link>
