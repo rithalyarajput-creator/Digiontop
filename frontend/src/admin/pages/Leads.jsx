@@ -163,13 +163,13 @@ export default function Leads() {
                 <td>{fmtDate(l.created_at)}</td>
                 <td className="admin-actions-group">
                   <button className="admin-action-btn admin-action-btn--view" title="View Details" onClick={() => setSelectedLead(l)}>
-                    <FiEye /> View
+                    <FiEye />
                   </button>
                   <button className="admin-action-btn admin-action-btn--convert" title="Mark as Converted" onClick={() => updateStatus(l.id, 'converted')}>
-                    <FiCheck /> Convert
+                    <FiCheck />
                   </button>
                   <button className="admin-action-btn admin-action-btn--delete" title="Delete" onClick={() => remove(l.id)}>
-                    <FiTrash2/> Delete
+                    <FiTrash2/>
                   </button>
                 </td>
               </tr>
