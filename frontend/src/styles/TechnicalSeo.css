@@ -57,7 +57,7 @@
 /* CWV band */
 .tseo-cwv{padding:80px 0;background:linear-gradient(135deg,#14182b,#1f2540);color:#fff;}
 .tseo-cwv__inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
-.tseo-cwv h2{font-size:clamp(1.6rem,3.2vw,2.3rem);font-weight:900;margin:10px 0 12px;}
+.tseo-cwv h2{font-size:clamp(1.6rem,3.2vw,2.3rem);font-weight:900;margin:10px 0 12px;color:#fff;}
 .tseo-cwv p{color:#aeb2c0;line-height:1.7;max-width:420px;}
 .tseo-meters{display:flex;flex-direction:column;gap:18px;}
 .tseo-meter__top{display:flex;justify-content:space-between;align-items:baseline;}

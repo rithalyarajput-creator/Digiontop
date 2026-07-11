@@ -107,7 +107,7 @@ export default function Navbar() {
                             key={col.heading}
                             className={`navbar__mega-cat${i === megaCat ? ' navbar__mega-cat--active' : ''}`}
                             onMouseEnter={() => setMegaCat(i)}
-                            onClick={() => { window.location.href = col.link; }}
+                            onClick={() => setMegaCat(i)}
                           >
                             <span className="navbar__mega-cat-ico"><CatIcon /></span>
                             <span className="navbar__mega-cat-info">
@@ -125,9 +125,9 @@ export default function Navbar() {
                       <div className="navbar__mega-panel-head">
                         <img src={servicesMenu[megaCat].image} alt="" className="navbar__mega-panel-img" />
                         <div>
-                          <Link to={servicesMenu[megaCat].link} className="navbar__mega-panel-title">
-                            {servicesMenu[megaCat].heading} <span>→</span>
-                          </Link>
+                          <span className="navbar__mega-panel-title navbar__mega-panel-title--static">
+                            {servicesMenu[megaCat].heading}
+                          </span>
                           <p className="navbar__mega-panel-tag">{servicesMenu[megaCat].tagline}</p>
                         </div>
                       </div>

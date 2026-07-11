@@ -55,7 +55,7 @@
 /* band */
 .ent-band{padding:0 0 84px;}
 .ent-band__inner{text-align:center;background:linear-gradient(135deg,#14182b,#1f2540);border-radius:22px;padding:52px 30px;color:#fff;}
-.ent-band__inner h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;margin:0 0 22px;}
+.ent-band__inner h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;margin:0 0 22px;color:#fff;}
 .ent-band__row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:20px;}
 .ent-band__row span{font-size:13px;font-weight:700;color:#14182b;background:linear-gradient(135deg,#FFD24A,#F5A800);padding:9px 18px;border-radius:50px;}
 .ent-band__inner p{color:#aeb2c0;max-width:520px;margin:0 auto;line-height:1.7;}

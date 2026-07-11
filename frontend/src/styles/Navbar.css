@@ -402,6 +402,8 @@
 }
 .navbar__mega-panel-title span { color: #F5A800; transition: transform 0.18s ease; }
 .navbar__mega-panel-title:hover span { transform: translateX(4px); }
+.navbar__mega-panel-title--static { cursor: default; }
+.navbar__mega-cat { cursor: default; }
 .navbar__mega-panel-tag { font-size: 0.88rem; color: #888; margin: 5px 0 0; }
 
 .navbar__mega-panel-label {

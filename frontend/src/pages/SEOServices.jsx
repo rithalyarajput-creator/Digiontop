@@ -313,14 +313,6 @@ export default function SEOServices() {
         </div>
       </section>
 
-      {/* ── Our Work (real reels + posts) ────────────────── */}
-      <ServiceWork
-        accent="#F5A800"
-        accentSoft="#FFF6E0"
-        heading="Content That Ranks & Converts"
-        subtitle="Real reels and creative posts we've produced for brands we help grow."
-      />
-
       {/* FAQ + lead form */}
       <ServiceFaq service="SEO Services" faqs={SEO_FAQS} />
 
