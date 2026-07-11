@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
+import ServiceHeroAnim from '../components/ServiceHeroAnim'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import {
@@ -59,7 +60,7 @@ export default function EcommercePage() {
             </div>
           </div>
           <div className="ec-hero__media" data-aos="fade-left">
-            <img src="/images/ecom-hero.webp" alt="E-Commerce across marketplaces" loading="eager" />
+            <ServiceHeroAnim variant="ecommerce" label="E-commerce marketplace illustration" />
           </div>
         </div>
       </section>

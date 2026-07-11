@@ -8,6 +8,7 @@ import {
   FiTablet, FiCloud, FiCode, FiBox, FiLayers, FiServer, FiTrendingUp,
 } from 'react-icons/fi'
 import ServiceFaq from '../components/ServiceFaq'
+import ServiceHeroAnim from '../components/ServiceHeroAnim'
 import RelatedServices from '../components/RelatedServices'
 import '../styles/SubService.css'
 
@@ -63,7 +64,7 @@ export default function MobileSoftware() {
             </div>
           </div>
           <div className="ec-hero__media" data-aos="fade-left">
-            <img src="/images/mobile-hero.webp" alt="Mobile & software solutions" loading="eager" />
+            <ServiceHeroAnim variant="mobile" label="Mobile & software illustration" />
           </div>
         </div>
       </section>

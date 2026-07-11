@@ -8,6 +8,7 @@ import {
   FiTarget, FiSearch, FiShare2, FiFacebook, FiLinkedin, FiYoutube,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import ServiceHeroAnim from '../../components/ServiceHeroAnim'
 import RelatedServices from '../../components/RelatedServices'
 import '../../styles/SubService.css'
 
@@ -46,7 +47,7 @@ export default function PpcPage() {
             </div>
           </div>
           <div className="ec-hero__media" data-aos="fade-left">
-            <img src="/images/ppc-hero.webp" alt="PPC & paid advertising" loading="eager" />
+            <ServiceHeroAnim variant="ads" label="PPC & paid advertising illustration" />
           </div>
         </div>
       </section>

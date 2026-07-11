@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
+import ServiceHeroAnim from '../components/ServiceHeroAnim'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import {
@@ -90,7 +91,7 @@ export default function CreativeBranding() {
             </div>
           </div>
           <div className="cbp-hero__media" data-aos="fade-left">
-            <img src="/images/creative-hero.webp" alt="Creative & branding" loading="eager" />
+            <ServiceHeroAnim variant="branding" label="Creative & branding illustration" />
           </div>
         </div>
       </section>
