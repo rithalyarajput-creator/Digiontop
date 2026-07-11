@@ -186,6 +186,8 @@
   :is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-pillars__grid"],:is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-types__grid"],:is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-inc__grid"],:is(.smm,.cm,.em,.sm,.im,.cw,.cp) [class$="-flows__grid"]{grid-template-columns:1fr;}
   .smm-band__inner,.em-band__inner,.im-band__inner,.cw-band__inner,.cp-band__inner,.sm-band__inner,.cm-band__stats,.li-band__stats{grid-template-columns:1fr;}
   .cp-ba{flex-direction:column;}
+  /* stats band hidden on phones */
+  .smm-band,.em-band,.im-band,.cw-band,.cp-band,.sm-band,.cm-band{display:none;}
 }
 
 /* mobile overflow + heading guard */
