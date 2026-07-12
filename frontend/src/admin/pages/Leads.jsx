@@ -176,13 +176,11 @@ export default function Leads() {
         </div>
 
         <div className="admin-card__scroll">
-          <table className="admin-shop-table">
+          <table className="admin-shop-table admin-table-leads">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Service</th>
-                <th>Message</th>
+                <th>Sender</th>
+                <th>Subject</th>
                 <th>Status</th>
                 <th>Date</th>
                 <th className="is-right">Actions</th>
@@ -190,11 +188,11 @@ export default function Leads() {
             </thead>
             <tbody>
               {loading && (
-                <tr><td colSpan="7" className="admin-shop-table__empty">Loading…</td></tr>
+                <tr><td colSpan="5" className="admin-shop-table__empty">Loading…</td></tr>
               )}
               {!loading && filtered.length === 0 && (
                 <tr>
-                  <td colSpan="7" className="admin-shop-table__empty">
+                  <td colSpan="5" className="admin-shop-table__empty">
                     <FiInbox style={{ fontSize: 32, color: '#c9cccf', display: 'block', margin: '0 auto 0.5rem' }} />
                     No leads found
                   </td>
@@ -208,9 +206,13 @@ export default function Leads() {
                     </button>
                     {l.email && <p className="admin-shop-table__sub">{l.email}</p>}
                   </td>
-                  <td className="is-muted">{l.phone || '—'}</td>
-                  <td>{l.service_interested || '—'}</td>
-                  <td className="is-muted admin-lead-snippet">{truncateMessage(l.message)}</td>
+                  <td>
+                    <p style={{ margin: 0, fontWeight: 500 }}>{l.service_interested || '—'}</p>
+                    <p className="admin-shop-table__sub admin-lead-snippet">
+                      {truncateMessage(l.message)}
+                      {l.phone ? ` · ${l.phone}` : ''}
+                    </p>
+                  </td>
                   <td><span className={statusBadgeClass(l.status)}>{l.status || 'new'}</span></td>
                   <td className="is-muted">
                     {fmtDate(l.created_at)}

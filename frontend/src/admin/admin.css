@@ -778,7 +778,7 @@ a.admin-metric:hover { background: #fafafa; }
 }
 
 /* Shopify-style tables inside cards */
-.admin-card__scroll { max-height: 400px; overflow-y: auto; }
+.admin-card__scroll { max-height: 400px; overflow-y: auto; overflow-x: auto; }
 .admin-shop-table { width: 100%; border-collapse: collapse; }
 .admin-shop-table thead tr { border-bottom: 1px solid #e3e3e3; }
 .admin-shop-table th {
@@ -1883,3 +1883,20 @@ select.admin-sbadge-select option { background: #fff; color: #303030; }
 
 /* ---- Image upload row (Authors / Categories forms) ---- */
 .admin-supload { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+
+/* ---- Leads table column sizing ----
+   Sender / Subject / Status / Date / Actions. Pin the narrow columns and let
+   Subject absorb the remaining width, so Date never wraps onto several lines
+   and Actions is never cut off. */
+.admin-table-leads { table-layout: fixed; min-width: 820px; }
+.admin-table-leads th:nth-child(1), .admin-table-leads td:nth-child(1) { width: 24%; }   /* Sender */
+.admin-table-leads th:nth-child(2), .admin-table-leads td:nth-child(2) { width: 34%; }   /* Subject */
+.admin-table-leads th:nth-child(3), .admin-table-leads td:nth-child(3) { width: 10%; }   /* Status */
+.admin-table-leads th:nth-child(4), .admin-table-leads td:nth-child(4) { width: 13%; white-space: nowrap; }  /* Date */
+.admin-table-leads th:nth-child(5), .admin-table-leads td:nth-child(5) { width: 19%; white-space: nowrap; }  /* Actions */
+/* keep long messages on one line with an ellipsis instead of blowing up row height */
+.admin-table-leads .admin-lead-snippet {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
