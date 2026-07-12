@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Routes, Route, NavLink, Navigate, useNavigate } from 'react-router-dom';
 import {
   FiGrid, FiInbox, FiFileText, FiStar, FiHelpCircle,
-  FiLogOut, FiMenu, FiChevronDown, FiUsers, FiTag, FiSettings, FiX, FiMail,
+  FiLogOut, FiMenu, FiUsers, FiTag, FiSettings, FiX, FiMail,
 } from 'react-icons/fi';
 import { getToken, clearToken } from './api';
 import AdminLogin from './AdminLogin';
@@ -22,8 +22,6 @@ import './admin.css';
 export default function AdminApp() {
   const [authed, setAuthed] = useState(!!getToken());
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [contentOpen, setContentOpen] = useState(true);
-  const [leadsOpen, setLeadsOpen] = useState(false);
 
   if (!authed) return <AdminLogin onLogin={() => setAuthed(true)} />;
 
@@ -44,52 +42,32 @@ export default function AdminApp() {
             <FiGrid /> <span>Dashboard</span>
           </NavLink>
 
-          {/* ── CONTENT dropdown ── */}
-          <button className="admin-navlink admin-navlink--group" onClick={() => setContentOpen(v => !v)}>
-            <FiFileText /> <span>Content</span>
-            <FiChevronDown className={`admin-navlink__arrow${contentOpen ? ' admin-navlink__arrow--open' : ''}`} />
-          </button>
-          {contentOpen && (
-            <div className="admin-subnav">
-              <NavLink to="/admin/blog" className={({ isActive }) => `admin-navlink admin-navlink--sub${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
-                <FiFileText /> <span>Blog Posts</span>
-              </NavLink>
-              <NavLink to="/admin/authors" className={({ isActive }) => `admin-navlink admin-navlink--sub${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
-                <FiUsers /> <span>Authors</span>
-              </NavLink>
-              <NavLink to="/admin/categories" className={({ isActive }) => `admin-navlink admin-navlink--sub${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
-                <FiTag /> <span>Categories</span>
-              </NavLink>
-            </div>
-          )}
+          <div className="admin-sidebar__label">Content</div>
+          <NavLink to="/admin/blog" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
+            <FiFileText /> <span>Blog Posts</span>
+          </NavLink>
+          <NavLink to="/admin/authors" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
+            <FiUsers /> <span>Authors</span>
+          </NavLink>
+          <NavLink to="/admin/categories" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
+            <FiTag /> <span>Categories</span>
+          </NavLink>
 
-          {/* ── LEADS dropdown ── */}
-          <button className="admin-navlink admin-navlink--group" onClick={() => setLeadsOpen(v => !v)}>
-            <FiInbox /> <span>Leads</span>
-            <FiChevronDown className={`admin-navlink__arrow${leadsOpen ? ' admin-navlink__arrow--open' : ''}`} />
-          </button>
-          {leadsOpen && (
-            <div className="admin-subnav">
-              <NavLink to="/admin/leads" className={({ isActive }) => `admin-navlink admin-navlink--sub${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
-                <FiInbox /> <span>Form Leads</span>
-              </NavLink>
-              <NavLink to="/admin/newsletter" className={({ isActive }) => `admin-navlink admin-navlink--sub${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
-                <FiMail /> <span>Newsletter</span>
-              </NavLink>
-            </div>
-          )}
+          <div className="admin-sidebar__label">Leads</div>
+          <NavLink to="/admin/leads" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
+            <FiInbox /> <span>Form Leads</span>
+          </NavLink>
+          <NavLink to="/admin/newsletter" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
+            <FiMail /> <span>Newsletter</span>
+          </NavLink>
 
-          {/* Testimonials */}
+          <div className="admin-sidebar__label">Site</div>
           <NavLink to="/admin/testimonials" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
             <FiStar /> <span>Testimonials</span>
           </NavLink>
-
-          {/* FAQ */}
           <NavLink to="/admin/faq" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
             <FiHelpCircle /> <span>FAQs</span>
           </NavLink>
-
-          {/* Settings */}
           <NavLink to="/admin/settings" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
             <FiSettings /> <span>Settings</span>
           </NavLink>
