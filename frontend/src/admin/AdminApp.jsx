@@ -31,8 +31,8 @@ export default function AdminApp() {
     <div className="admin-shell">
       {/* Sidebar */}
       <aside className={`admin-sidebar${sidebarOpen ? ' admin-sidebar--open' : ''}`}>
-        <div className="admin-sidebar__brand" style={{ display: 'flex', justifyContent: 'center' }}>
-          <img src="/images/logo-footer.webp" alt="DigionTop" style={{ height: '60px', width: 'auto', display: 'block' }} />
+        <div className="admin-sidebar__brand">
+          <img src="/images/logo-footer.webp" alt="DigionTop" style={{ height: '36px', width: 'auto', display: 'block' }} />
         </div>
 
         <nav className="admin-sidebar__nav">
