@@ -288,4 +288,9 @@
 @media (max-width:768px){
   .mob-band__inner,.ios-band__inner,.and-band__inner,.flt-band__inner,.cld-band__inner,.api-band__inner,.saas-band__inner,.dop-band__inner{grid-template-columns:1fr;padding:34px 22px;}
   .mob-band__inner > div + div,.ios-band__inner > div + div,.and-band__inner > div + div,.flt-band__inner > div + div,.cld-band__inner > div + div,.api-band__inner > div + div,.saas-band__inner > div + div,.dop-band__inner > div + div{border-left:none;border-top:1px solid rgba(255,255,255,.1);padding-top:22px;margin-top:6px;}
+
+  /* tech-stack chip grid: extra side gutter + tighter chip padding so it doesn't feel edge-hugging */
+  :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-container"]{padding:0 20px;}
+  :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-stack__grid"]{gap:10px;padding:0 6px;}
+  :is(.mob,.ios,.and,.flt,.cld,.api,.saas,.dop) [class*="-chip"]{padding:9px 16px;font-size:0.8rem;}
 }

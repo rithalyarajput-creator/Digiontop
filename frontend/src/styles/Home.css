@@ -1930,7 +1930,7 @@ a {
     min-height: 0;
   }
   .hero__bgimg {
-    content: url('/images/home-banner-mobile-v3.png');
+    content: url('/images/home-banner-mobile-v3.webp');
     object-fit: cover;
     object-position: center;
     width: 100%;

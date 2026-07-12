@@ -393,7 +393,7 @@ function Iphone({ items, active, accent, onScroll, onDot }) {
                       muted
                       loop
                       playsInline
-                      preload="auto"
+                      preload="metadata"
                     />
                   )
                 ) : (

@@ -166,7 +166,7 @@ export default function Work() {
                     {isReel ? (
                       /* ── Reel: vertical autoplay video ── */
                       <div className="work-card__reel">
-                        <video src={p.video} autoPlay loop muted playsInline />
+                        <video src={p.video} autoPlay loop muted playsInline preload="metadata" />
                         <span className="work-card__reel-badge">▶ Reel</span>
                       </div>
                     ) : isPost ? (

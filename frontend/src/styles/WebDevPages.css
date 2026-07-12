@@ -358,4 +358,9 @@
 @media (max-width:768px){
   .wd-band__inner,.biz-band__inner,.wp-band__inner,.cwa-band__inner,.woo-band__inner,.rd-band__inner,.lp-band__inner{grid-template-columns:1fr;padding:34px 22px;}
   .wd-band__inner > div + div,.biz-band__inner > div + div,.wp-band__inner > div + div,.cwa-band__inner > div + div,.woo-band__inner > div + div,.rd-band__inner > div + div,.lp-band__inner > div + div{border-left:none;border-top:1px solid rgba(255,255,255,.1);padding-top:22px;margin-top:6px;}
+
+  /* tech-stack chip grid: extra side gutter + tighter chip padding */
+  :is(.wd,.biz,.wp,.cwa,.woo,.rd,.lp) [class*="-container"]{padding:0 20px;}
+  :is(.wd,.biz,.wp,.cwa,.woo,.rd,.lp) [class*="-stack__grid"]{gap:10px;padding:0 6px;}
+  :is(.wd,.biz,.wp,.cwa,.woo,.rd,.lp) [class*="-chip"]{padding:9px 16px;font-size:0.8rem;}
 }

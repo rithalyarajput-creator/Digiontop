@@ -281,3 +281,10 @@
 .acc-why__card p{font-size:.9rem;color:#6b6b6b;line-height:1.6;margin:0;}
 @media (max-width:900px){ .acc-process__track,.acc-why__grid{grid-template-columns:1fr 1fr;} }
 @media (max-width:600px){ .acc-process__track,.acc-why__grid{grid-template-columns:1fr;} }
+
+/* tech-stack/tools chip grid: extra side gutter + tighter chip padding on mobile */
+@media (max-width:768px){
+  :is(.amz,.flp,.msh,.pse,.pim,.cat,.acc,.grw) [class*="-container"]{padding:0 20px;}
+  :is(.amz,.flp,.msh,.pse,.pim,.cat,.acc,.grw) [class*="-stack__grid"]{gap:10px;padding:0 6px;}
+  :is(.amz,.flp,.msh,.pse,.pim,.cat,.acc,.grw) [class*="-chip"]{padding:9px 16px;font-size:0.8rem;}
+}

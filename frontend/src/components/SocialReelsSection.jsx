@@ -47,6 +47,7 @@ const SocialReelsSection = () => (
               loop
               muted
               playsInline
+              preload="metadata"
             />
           </div>
         </div>
@@ -57,7 +58,7 @@ const SocialReelsSection = () => (
         {REELS.map(r => (
           <div key={r.id} className="home-reels__thumb">
             {r.video
-              ? <video src={r.video} autoPlay loop muted playsInline className="home-reels__thumb-video" />
+              ? <video src={r.video} autoPlay loop muted playsInline preload="metadata" className="home-reels__thumb-video" />
               : <img src={r.thumb} alt={r.label} />
             }
             <div className="home-reels__thumb-overlay">
