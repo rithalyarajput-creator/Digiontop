@@ -256,13 +256,17 @@
 
 .blogpost-content p { margin: 0 0 18px; }
 
+/* index.css globally sets `ul, ol { list-style: none }` for the site's nav/footer
+   lists — restore real bullets inside blog post content. */
 .blogpost-content ul,
 .blogpost-content ol {
   padding-left: 24px;
   margin-bottom: 18px;
 }
 
-.blogpost-content li { margin-bottom: 6px; }
+.blogpost-content ul { list-style: disc; }
+.blogpost-content ol { list-style: decimal; }
+.blogpost-content li { margin-bottom: 6px; display: list-item; }
 
 .blogpost-content a { color: #F5A800; text-decoration: underline; }
 

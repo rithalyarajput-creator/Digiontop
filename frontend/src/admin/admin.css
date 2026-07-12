@@ -358,7 +358,12 @@
 .richedit__area h2 { font-size: 1.35rem; font-weight: 800; margin: 18px 0 10px; color: #1a1a1a; padding-left: 12px; border-left: 4px solid #F5A800; }
 .richedit__area h3 { font-size: 1.12rem; font-weight: 800; margin: 16px 0 8px; color: #1a1a1a; }
 .richedit__area p { margin: 0 0 12px; }
+/* index.css globally kills list markers site-wide; restore them in the editor
+   so bullets/numbers look the same here as they do on the live blog. */
 .richedit__area ul, .richedit__area ol { padding-left: 22px; margin: 0 0 12px; }
+.richedit__area ul { list-style: disc; }
+.richedit__area ol { list-style: decimal; }
+.richedit__area li { display: list-item; }
 .richedit__area blockquote { border-left: 4px solid #F5A800; background: #fdf6e7; margin: 14px 0; padding: 10px 16px; border-radius: 0 8px 8px 0; font-style: italic; color: #555; }
 .richedit__area a { color: #c47f00; text-decoration: underline; }
 .blogedit__img-preview { margin-top: 10px; border-radius: 10px; overflow: hidden; max-height: 160px; }
@@ -1553,6 +1558,15 @@ button.admin-sbadge {
   object-fit: cover;
   border-radius: 0.5rem;
   border: 1px solid #e3e3e3;
+}
+
+/* Wide 16:9 preview — for banner/featured images, which should be seen in
+   full rather than cropped into a small square thumbnail. */
+.admin-sform__preview--wide img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 /* ===================================================================

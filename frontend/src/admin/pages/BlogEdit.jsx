@@ -335,7 +335,7 @@ export default function BlogEdit() {
                   Recommended: <strong>1200 × 630 px</strong> · <strong>16:9</strong> · JPG/PNG/WebP
                 </p>
                 {form.image_url && (
-                  <div className="admin-sform__preview">
+                  <div className="admin-sform__preview admin-sform__preview--wide">
                     <img src={form.image_url} alt="preview" />
                   </div>
                 )}
