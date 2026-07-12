@@ -39,50 +39,92 @@ export default function Testimonials() {
     catch (err) { alert(err.message); }
   }
 
+  function stars(n) {
+    const filled = Math.max(0, Math.min(5, Number(n) || 0));
+    return (
+      <span className="admin-shop-table__stars">
+        {'★'.repeat(filled)}
+        {filled < 5 && <i>{'★'.repeat(5 - filled)}</i>}
+      </span>
+    );
+  }
+
   return (
     <div>
-      <div className="admin-page-head">
-        <h1 className="admin-page-title">Testimonials</h1>
-        <button className="admin-btn admin-btn--primary" onClick={startNew}><FiPlus /> Add</button>
+      <div className="admin-shop-head">
+        <h1>Testimonials</h1>
+        <div className="admin-shop-head__actions">
+          <button className="admin-sbtn admin-sbtn--primary" onClick={startNew}><FiPlus /> Add testimonial</button>
+        </div>
       </div>
-      {error && <div className="admin-alert admin-alert--error">{error}</div>}
+
+      {error && <div className="admin-salert">{error}</div>}
 
       {showForm && (
-        <form className="admin-form admin-form--card" onSubmit={save}>
-          <label className="admin-field"><span>Client Name</span>
-            <input value={form.client_name} onChange={(e) => setForm({ ...form, client_name: e.target.value })} required /></label>
-          <label className="admin-field"><span>Role</span>
-            <input value={form.client_role || ''} onChange={(e) => setForm({ ...form, client_role: e.target.value })} /></label>
-          <label className="admin-field"><span>Location</span>
-            <input value={form.client_location || ''} onChange={(e) => setForm({ ...form, client_location: e.target.value })} /></label>
-          <label className="admin-field"><span>Testimonial</span>
-            <textarea rows="4" value={form.testimonial_text} onChange={(e) => setForm({ ...form, testimonial_text: e.target.value })} required /></label>
-          <label className="admin-field"><span>Rating (1-5)</span>
-            <input type="number" min="1" max="5" value={form.rating} onChange={(e) => setForm({ ...form, rating: Number(e.target.value) })} /></label>
-          <label className="admin-checkbox">
-            <input type="checkbox" checked={!!form.is_featured} onChange={(e) => setForm({ ...form, is_featured: e.target.checked })} /> Featured
-          </label>
-          <div className="admin-form__actions">
-            <button type="button" className="admin-btn" onClick={() => setShowForm(false)}>Cancel</button>
-            <button type="submit" className="admin-btn admin-btn--primary">Save</button>
+        <form className="admin-card admin-sform" onSubmit={save}>
+          <div className="admin-card__header">
+            <h2>{editId ? 'Edit testimonial' : 'New testimonial'}</h2>
+          </div>
+          <div className="admin-card__body">
+            <div className="admin-sform__grid">
+              <label className="admin-sfield"><span>Client Name</span>
+                <input value={form.client_name} onChange={(e) => setForm({ ...form, client_name: e.target.value })} required /></label>
+              <label className="admin-sfield"><span>Role</span>
+                <input value={form.client_role || ''} onChange={(e) => setForm({ ...form, client_role: e.target.value })} /></label>
+            </div>
+            <div className="admin-sform__grid">
+              <label className="admin-sfield"><span>Location</span>
+                <input value={form.client_location || ''} onChange={(e) => setForm({ ...form, client_location: e.target.value })} /></label>
+              <label className="admin-sfield"><span>Rating (1-5)</span>
+                <input type="number" min="1" max="5" value={form.rating} onChange={(e) => setForm({ ...form, rating: Number(e.target.value) })} /></label>
+            </div>
+            <label className="admin-sfield"><span>Testimonial</span>
+              <textarea rows="4" value={form.testimonial_text} onChange={(e) => setForm({ ...form, testimonial_text: e.target.value })} required /></label>
+            <label className="admin-scheck">
+              <input type="checkbox" checked={!!form.is_featured} onChange={(e) => setForm({ ...form, is_featured: e.target.checked })} />
+              <span>Featured</span>
+            </label>
+          </div>
+          <div className="admin-sform__actions">
+            <button type="button" className="admin-sbtn" onClick={() => setShowForm(false)}>Cancel</button>
+            <button type="submit" className="admin-sbtn admin-sbtn--primary">Save</button>
           </div>
         </form>
       )}
 
-      <div className="admin-table-wrap">
-        <table className="admin-table">
-          <thead><tr><th>Client</th><th>Role</th><th>Rating</th><th>Featured</th><th>Actions</th></tr></thead>
+      <div className="admin-card">
+        <table className="admin-shop-table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Role</th>
+              <th>Rating</th>
+              <th>Featured</th>
+              <th className="is-right">Actions</th>
+            </tr>
+          </thead>
           <tbody>
-            {items.length === 0 && <tr><td colSpan="5" className="admin-table__empty">None yet.</td></tr>}
+            {items.length === 0 && (
+              <tr><td colSpan="5" className="admin-shop-table__empty">No testimonials yet.</td></tr>
+            )}
             {items.map((t) => (
               <tr key={t.id}>
-                <td>{t.client_name}<div className="admin-muted">{t.client_location}</div></td>
-                <td>{t.client_role || '—'}</td>
-                <td>{'★'.repeat(t.rating)}</td>
-                <td>{t.is_featured ? 'Yes' : 'No'}</td>
-                <td className="admin-actions">
-                  <button className="admin-icon-btn" onClick={() => startEdit(t)}><FiEdit2 /></button>
-                  <button className="admin-icon-btn admin-icon-btn--danger" onClick={() => remove(t.id)}><FiTrash2 /></button>
+                <td>
+                  <p className="admin-shop-table__name">{t.client_name}</p>
+                  {t.client_location && <p className="admin-shop-table__sub">{t.client_location}</p>}
+                </td>
+                <td className="is-muted">{t.client_role || '—'}</td>
+                <td>{stars(t.rating)}</td>
+                <td>
+                  {t.is_featured
+                    ? <span className="admin-sbadge admin-sbadge--success">Featured</span>
+                    : <span className="admin-sbadge admin-sbadge--neutral">No</span>}
+                </td>
+                <td className="is-right">
+                  <div className="admin-srow-actions">
+                    <button className="admin-sicon" onClick={() => startEdit(t)} title="Edit"><FiEdit2 /></button>
+                    <button className="admin-sicon admin-sicon--danger" onClick={() => remove(t.id)} title="Delete"><FiTrash2 /></button>
+                  </div>
                 </td>
               </tr>
             ))}

@@ -98,98 +98,116 @@ export default function Authors() {
 
   return (
     <div>
-      <div className="admin-page-head">
-        <h1 className="admin-page-title">Authors</h1>
-        <button className="admin-btn admin-btn--primary" onClick={startNew}><FiPlus /> Add Author</button>
+      <div className="admin-shop-head">
+        <h1>Authors</h1>
+        <div className="admin-shop-head__actions">
+          <button className="admin-sbtn admin-sbtn--primary" onClick={startNew}><FiPlus /> Add author</button>
+        </div>
       </div>
 
-      {error && <div className="admin-alert admin-alert--error">{error}</div>}
+      {error && <div className="admin-salert">{error}</div>}
 
       {showForm && (
-        <form className="admin-form admin-form--card" onSubmit={handleSave}>
-          <div className="blogedit__row">
-            <label className="admin-field"><span>Author Name *</span>
-              <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
+        <form className="admin-card admin-sform" onSubmit={handleSave}>
+          <div className="admin-card__header">
+            <h2>{editId ? 'Edit author' : 'New author'}</h2>
+          </div>
+          <div className="admin-card__body">
+            <div className="admin-sform__grid">
+              <label className="admin-sfield"><span>Author Name *</span>
+                <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
+              </label>
+              <label className="admin-sfield"><span>Email</span>
+                <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+              </label>
+            </div>
+
+            <label className="admin-sfield"><span>Profile Image URL</span>
+              <input value={form.avatar_url} onChange={(e) => setForm({ ...form, avatar_url: e.target.value })} placeholder="https://…" />
             </label>
-            <label className="admin-field"><span>Email</span>
-              <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+            {form.avatar_url && (
+              <div className="admin-sform__preview"><img src={form.avatar_url} alt="preview" /></div>
+            )}
+
+            <label className="admin-sfield"><span>Bio</span>
+              <textarea rows="3" value={form.bio} onChange={(e) => setForm({ ...form, bio: e.target.value })} />
+            </label>
+
+            <p className="admin-sform__section">Social Media Links</p>
+            <div className="admin-sform__grid">
+              <label className="admin-sfield"><span>Instagram</span>
+                <input value={form.instagram} onChange={(e) => setForm({ ...form, instagram: e.target.value })} placeholder="https://instagram.com/…" />
+              </label>
+              <label className="admin-sfield"><span>Facebook</span>
+                <input value={form.facebook} onChange={(e) => setForm({ ...form, facebook: e.target.value })} placeholder="https://facebook.com/…" />
+              </label>
+            </div>
+            <div className="admin-sform__grid">
+              <label className="admin-sfield"><span>LinkedIn</span>
+                <input value={form.linkedin} onChange={(e) => setForm({ ...form, linkedin: e.target.value })} placeholder="https://linkedin.com/in/…" />
+              </label>
+              <label className="admin-sfield"><span>Twitter / X</span>
+                <input value={form.twitter} onChange={(e) => setForm({ ...form, twitter: e.target.value })} placeholder="https://x.com/…" />
+              </label>
+            </div>
+
+            <label className="admin-scheck">
+              <input type="checkbox" checked={form.is_active} onChange={(e) => setForm({ ...form, is_active: e.target.checked })} />
+              <span>Active (visible on website)</span>
             </label>
           </div>
-
-          <label className="admin-field"><span>Profile Image URL</span>
-            <input value={form.avatar_url} onChange={(e) => setForm({ ...form, avatar_url: e.target.value })} placeholder="https://…" />
-          </label>
-          {form.avatar_url && (
-            <div className="admin-avatar-preview"><img src={form.avatar_url} alt="preview" /></div>
-          )}
-
-          <label className="admin-field"><span>Bio</span>
-            <textarea rows="3" value={form.bio} onChange={(e) => setForm({ ...form, bio: e.target.value })} />
-          </label>
-
-          <p className="admin-section-title" style={{ fontSize: 14, marginBottom: 4 }}>Social Media Links</p>
-          <div className="blogedit__row">
-            <label className="admin-field"><span>Instagram</span>
-              <input value={form.instagram} onChange={(e) => setForm({ ...form, instagram: e.target.value })} placeholder="https://instagram.com/…" />
-            </label>
-            <label className="admin-field"><span>Facebook</span>
-              <input value={form.facebook} onChange={(e) => setForm({ ...form, facebook: e.target.value })} placeholder="https://facebook.com/…" />
-            </label>
-          </div>
-          <div className="blogedit__row">
-            <label className="admin-field"><span>LinkedIn</span>
-              <input value={form.linkedin} onChange={(e) => setForm({ ...form, linkedin: e.target.value })} placeholder="https://linkedin.com/in/…" />
-            </label>
-            <label className="admin-field"><span>Twitter / X</span>
-              <input value={form.twitter} onChange={(e) => setForm({ ...form, twitter: e.target.value })} placeholder="https://x.com/…" />
-            </label>
-          </div>
-
-          <label className="admin-checkbox">
-            <input type="checkbox" checked={form.is_active} onChange={(e) => setForm({ ...form, is_active: e.target.checked })} />
-            <span>Active (visible on website)</span>
-          </label>
-
-          <div className="admin-form__actions">
-            <button type="button" className="admin-btn" onClick={() => { setShowForm(false); setEditId(null); }}>Cancel</button>
-            <button type="submit" className="admin-btn admin-btn--primary">Save Author</button>
+          <div className="admin-sform__actions">
+            <button type="button" className="admin-sbtn" onClick={() => { setShowForm(false); setEditId(null); }}>Cancel</button>
+            <button type="submit" className="admin-sbtn admin-sbtn--primary">Save author</button>
           </div>
         </form>
       )}
 
-      <div className="admin-table-wrap">
-        <table className="admin-table">
-          <thead><tr><th>Author</th><th>Email</th><th>Blogs</th><th>Status</th><th>Actions</th></tr></thead>
+      <div className="admin-card">
+        <table className="admin-shop-table">
+          <thead>
+            <tr>
+              <th>Author</th>
+              <th>Email</th>
+              <th>Blogs</th>
+              <th>Status</th>
+              <th className="is-right">Actions</th>
+            </tr>
+          </thead>
           <tbody>
-            {loading && <tr><td colSpan="5" className="admin-table__empty">Loading…</td></tr>}
-            {!loading && items.length === 0 && <tr><td colSpan="5" className="admin-table__empty">No authors yet. Add one above.</td></tr>}
-            {items.map((a) => (
+            {loading && <tr><td colSpan="5" className="admin-shop-table__empty">Loading…</td></tr>}
+            {!loading && items.length === 0 && (
+              <tr><td colSpan="5" className="admin-shop-table__empty">No authors yet.</td></tr>
+            )}
+            {!loading && items.map((a) => (
               <tr key={a.id}>
                 <td>
-                  <div className="admin-author-cell">
-                    <div className="admin-avatar">
+                  <div className="admin-shop-table__media">
+                    <div className="admin-shop-table__thumb">
                       {a.avatar_url ? <img src={a.avatar_url} alt={a.name} /> : <FiUser />}
                     </div>
-                    <div>
-                      <div style={{ fontWeight: 700 }}>{a.name}</div>
-                      <div className="admin-muted" style={{ maxWidth: 220 }}>{a.bio || '—'}</div>
+                    <div style={{ minWidth: 0 }}>
+                      <p className="admin-shop-table__name">{a.name}</p>
+                      <p className="admin-shop-table__sub admin-shop-table__trunc">{a.bio || '—'}</p>
                     </div>
                   </div>
                 </td>
-                <td>{a.email || '—'}</td>
-                <td><span className="admin-badge admin-badge--contacted">{a.blog_count ?? 0} blogs</span></td>
+                <td className="is-muted">{a.email || '—'}</td>
+                <td className="is-muted">{a.blog_count ?? 0}</td>
                 <td>
                   <button
-                    className={`admin-badge admin-badge--${a.is_active ? 'converted' : 'closed'}`}
+                    className={`admin-sbadge admin-sbadge--${a.is_active ? 'success' : 'neutral'}`}
                     onClick={() => toggleStatus(a)}
                     title="Click to toggle"
                   >
                     {a.is_active ? 'Active' : 'Inactive'}
                   </button>
                 </td>
-                <td className="admin-actions">
-                  <button className="admin-icon-btn" onClick={() => startEdit(a)}><FiEdit2 /></button>
-                  <button className="admin-icon-btn admin-icon-btn--danger" onClick={() => remove(a)}><FiTrash2 /></button>
+                <td className="is-right">
+                  <div className="admin-srow-actions">
+                    <button className="admin-sicon" onClick={() => startEdit(a)} title="Edit"><FiEdit2 /></button>
+                    <button className="admin-sicon admin-sicon--danger" onClick={() => remove(a)} title="Delete"><FiTrash2 /></button>
+                  </div>
                 </td>
               </tr>
             ))}

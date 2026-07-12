@@ -1,8 +1,20 @@
 import { useEffect, useMemo, useState } from 'react';
-import { FiTrash2, FiSearch, FiDownload, FiCheck, FiInbox, FiUserPlus, FiAward, FiPercent, FiEye, FiX } from 'react-icons/fi';
+import { FiTrash2, FiSearch, FiDownload, FiCheck, FiEye, FiX, FiInbox } from 'react-icons/fi';
 import { apiGet, apiPut, apiDelete } from '../api';
 
 const STATUSES = ['new', 'contacted', 'converted', 'closed'];
+
+/* status → shopify pill badge tone */
+const STATUS_TONE = {
+  new: 'admin-sbadge--warning',
+  contacted: 'admin-sbadge--info',
+  converted: 'admin-sbadge--success',
+  closed: 'admin-sbadge--neutral',
+};
+
+function statusBadgeClass(status) {
+  return `admin-sbadge ${STATUS_TONE[status] || 'admin-sbadge--neutral'}`;
+}
 
 /* clean date/time: "10 Jul 2026" + "4:32 PM" */
 function fmtDate(iso) {
@@ -18,11 +30,11 @@ function fmtTime(iso) {
   return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
 }
 
-function truncateMessage(text, wordCount = 4) {
+function truncateMessage(text, wordCount = 8) {
   if (!text) return '—';
-  const words = text.split(/\s+/).slice(0, wordCount);
-  const truncated = words.join(' ');
-  return text.split(/\s+/).length > wordCount ? truncated + '...' : truncated;
+  const words = text.split(/\s+/);
+  const truncated = words.slice(0, wordCount).join(' ');
+  return words.length > wordCount ? truncated + '…' : truncated;
 }
 
 export default function Leads() {
@@ -95,146 +107,198 @@ export default function Leads() {
   }
 
   const counts = STATUSES.reduce((acc, s) => { acc[s] = leads.filter((l) => l.status === s).length; return acc; }, {});
+  const conversion = leads.length ? Math.round((counts.converted || 0) / leads.length * 100) : 0;
+
+  const tabs = [
+    { key: '', label: 'All', count: leads.length },
+    ...STATUSES.map((s) => ({ key: s, label: s.charAt(0).toUpperCase() + s.slice(1), count: counts[s] || 0 })),
+  ];
 
   return (
     <div>
-      <div className="admin-page-head">
-        <h1 className="admin-page-title">Contact Form Leads</h1>
-        <button className="admin-btn" onClick={exportCsv} disabled={!filtered.length}><FiDownload /> Export CSV</button>
-      </div>
-
-      {error && <div className="admin-alert admin-alert--error">{error}</div>}
-
-      {/* Analytics summary cards */}
-      <div className="admin-stats admin-stats--wide" style={{ marginBottom: 22 }}>
-        <div className="admin-stat-card">
-          <div className="admin-stat-card__icon"><FiInbox /></div>
-          <div><div className="admin-stat-card__value">{leads.length}</div><div className="admin-stat-card__label">Total Leads</div></div>
-        </div>
-        <div className="admin-stat-card">
-          <div className="admin-stat-card__icon"><FiUserPlus /></div>
-          <div><div className="admin-stat-card__value">{counts.new || 0}</div><div className="admin-stat-card__label">New Leads</div></div>
-        </div>
-        <div className="admin-stat-card">
-          <div className="admin-stat-card__icon"><FiAward /></div>
-          <div><div className="admin-stat-card__value">{counts.converted || 0}</div><div className="admin-stat-card__label">Converted</div></div>
-        </div>
-        <div className="admin-stat-card">
-          <div className="admin-stat-card__icon"><FiPercent /></div>
-          <div><div className="admin-stat-card__value">{leads.length ? Math.round((counts.converted || 0) / leads.length * 100) : 0}%</div><div className="admin-stat-card__label">Conversion Rate</div></div>
-        </div>
-      </div>
-
-      {/* Status tabs */}
-      <div className="admin-tabs">
-        <button className={`admin-tab${filter === '' ? ' admin-tab--active' : ''}`} onClick={() => setFilter('')}>
-          All <span className="admin-tab__count">{leads.length}</span>
-        </button>
-        {STATUSES.map((s) => (
-          <button key={s} className={`admin-tab${filter === s ? ' admin-tab--active' : ''}`} onClick={() => setFilter(s)}>
-            {s} <span className="admin-tab__count">{counts[s] || 0}</span>
+      <div className="admin-shop-head">
+        <h1>Contact Form Leads</h1>
+        <div className="admin-shop-head__actions">
+          <button type="button" className="admin-sbtn" onClick={exportCsv} disabled={!filtered.length}>
+            <FiDownload /> Export CSV
           </button>
-        ))}
-      </div>
-
-      <div className="admin-filterbar">
-        <div className="admin-search">
-          <FiSearch />
-          <input type="text" placeholder="Search name, email, phone, service…" value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
       </div>
 
-      <div className="admin-table-wrap">
-        <table className="admin-table admin-table--leads">
-          <thead>
-            <tr><th>Name</th><th>Phone</th><th>Service</th><th>Message</th><th>Date</th><th>Actions</th></tr>
-          </thead>
-          <tbody>
-            {loading && <tr><td colSpan="6" className="admin-table__empty">Loading…</td></tr>}
-            {!loading && filtered.length === 0 && (
-              <tr><td colSpan="6" className="admin-table__empty">No leads found.</td></tr>
-            )}
-            {filtered.map((l) => (
-              <tr key={l.id}>
-                <td><strong>{l.full_name || '—'}</strong></td>
-                <td>{l.phone || '—'}</td>
-                <td>{l.service_interested || '—'}</td>
-                <td className="admin-msg-preview">{truncateMessage(l.message)}</td>
-                <td>{fmtDate(l.created_at)}</td>
-                <td className="admin-actions-group">
-                  <button className="admin-action-btn admin-action-btn--view" title="View Details" onClick={() => setSelectedLead(l)}>
-                    <FiEye />
-                  </button>
-                  <button className="admin-action-btn admin-action-btn--convert" title="Mark as Converted" onClick={() => updateStatus(l.id, 'converted')}>
-                    <FiCheck />
-                  </button>
-                  <button className="admin-action-btn admin-action-btn--delete" title="Delete" onClick={() => remove(l.id)}>
-                    <FiTrash2/>
-                  </button>
-                </td>
+      {error && <div className="admin-salert">{error}</div>}
+
+      {/* Stats row — hairline grid */}
+      <div className="admin-metrics-grid">
+        <div className="admin-metric">
+          <p className="admin-metric__label">Total</p>
+          <p className="admin-metric__value">{leads.length}</p>
+        </div>
+        <div className="admin-metric">
+          <p className="admin-metric__label">New</p>
+          <p className="admin-metric__value" style={{ color: '#d72c0d' }}>{counts.new || 0}</p>
+        </div>
+        <div className="admin-metric">
+          <p className="admin-metric__label">Converted</p>
+          <p className="admin-metric__value" style={{ color: '#1a7a2e' }}>{counts.converted || 0}</p>
+        </div>
+        <div className="admin-metric">
+          <p className="admin-metric__label">Conversion Rate</p>
+          <p className="admin-metric__value" style={{ color: '#005bd3' }}>{conversion}%</p>
+        </div>
+      </div>
+
+      {/* Single card: tabs + search + table */}
+      <div className="admin-card">
+        <div className="admin-stabs">
+          {tabs.map((t) => (
+            <button
+              key={t.key || 'all'}
+              type="button"
+              className={`admin-stab${filter === t.key ? ' admin-stab--active' : ''}`}
+              onClick={() => setFilter(t.key)}
+            >
+              {t.label} <span className="admin-stab__count">({t.count})</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="admin-card__search">
+          <FiSearch />
+          <input
+            type="text"
+            placeholder="Search by name, email, phone or service..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          {search && (
+            <button type="button" className="admin-sfilter__clear" onClick={() => setSearch('')}>Clear</button>
+          )}
+        </div>
+
+        <div className="admin-card__scroll">
+          <table className="admin-shop-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Service</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th className="is-right">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {loading && (
+                <tr><td colSpan="7" className="admin-shop-table__empty">Loading…</td></tr>
+              )}
+              {!loading && filtered.length === 0 && (
+                <tr>
+                  <td colSpan="7" className="admin-shop-table__empty">
+                    <FiInbox style={{ fontSize: 32, color: '#c9cccf', display: 'block', margin: '0 auto 0.5rem' }} />
+                    No leads found
+                  </td>
+                </tr>
+              )}
+              {!loading && filtered.map((l) => (
+                <tr key={l.id}>
+                  <td>
+                    <button type="button" className="admin-shop-table__link" onClick={() => setSelectedLead(l)}>
+                      {l.full_name || '—'}
+                    </button>
+                    {l.email && <p className="admin-shop-table__sub">{l.email}</p>}
+                  </td>
+                  <td className="is-muted">{l.phone || '—'}</td>
+                  <td>{l.service_interested || '—'}</td>
+                  <td className="is-muted admin-lead-snippet">{truncateMessage(l.message)}</td>
+                  <td><span className={statusBadgeClass(l.status)}>{l.status || 'new'}</span></td>
+                  <td className="is-muted">
+                    {fmtDate(l.created_at)}
+                    <p className="admin-shop-table__sub">{fmtTime(l.created_at)}</p>
+                  </td>
+                  <td className="is-right">
+                    <div className="admin-srow-actions">
+                      <button type="button" className="admin-slink-btn" title="View details" onClick={() => setSelectedLead(l)}>
+                        <FiEye /> View
+                      </button>
+                      <button type="button" className="admin-slink-btn admin-slink-btn--muted" title="Mark as converted" onClick={() => updateStatus(l.id, 'converted')}>
+                        <FiCheck /> Convert
+                      </button>
+                      <button type="button" className="admin-slink-btn admin-slink-btn--danger" title="Delete" onClick={() => remove(l.id)}>
+                        <FiTrash2 />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Lead Details Modal */}
       {selectedLead && (
         <div className="admin-modal-overlay" onClick={() => setSelectedLead(null)}>
-          <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-            <div className="admin-modal__header">
-              <div className="admin-modal__profile">
-                <span className="admin-modal__avatar">
-                  {(selectedLead.full_name || '?').trim().charAt(0).toUpperCase()}
-                </span>
-                <div>
-                  <h2>{selectedLead.full_name || 'Lead Details'}</h2>
-                  {selectedLead.business_name && (
-                    <p className="admin-modal__company">{selectedLead.business_name}</p>
-                  )}
-                </div>
+          <div className="admin-smodal" onClick={(e) => e.stopPropagation()}>
+            <div className="admin-smodal__header">
+              <div>
+                <h2>{selectedLead.full_name || 'Lead details'}</h2>
+                {selectedLead.business_name && <p>{selectedLead.business_name}</p>}
               </div>
-              <button className="admin-modal__close" onClick={() => setSelectedLead(null)}>
+              <button type="button" className="admin-smodal__close" onClick={() => setSelectedLead(null)} title="Close">
                 <FiX />
               </button>
             </div>
-            <div className="admin-modal__body">
-              <div className="admin-modal__grid">
-                <div className="admin-modal__row">
-                  <strong>Email</strong>
-                  <a href={`mailto:${selectedLead.email}`} className="admin-modal__link">{selectedLead.email || '—'}</a>
+
+            <div className="admin-smodal__body">
+              <div className="admin-smodal__grid">
+                <div className="admin-smodal__field">
+                  <span className="admin-smodal__label">Email</span>
+                  <a href={`mailto:${selectedLead.email}`} className="admin-smodal__link">{selectedLead.email || '—'}</a>
                 </div>
-                <div className="admin-modal__row">
-                  <strong>Phone</strong>
-                  <a href={`tel:${(selectedLead.phone || '').replace(/\s/g, '')}`} className="admin-modal__link">{selectedLead.phone || '—'}</a>
+                <div className="admin-smodal__field">
+                  <span className="admin-smodal__label">Phone</span>
+                  <a href={`tel:${(selectedLead.phone || '').replace(/\s/g, '')}`} className="admin-smodal__link">{selectedLead.phone || '—'}</a>
                 </div>
-                <div className="admin-modal__row">
-                  <strong>Service</strong>
-                  <span>{selectedLead.service_interested || '—'}</span>
+                <div className="admin-smodal__field">
+                  <span className="admin-smodal__label">Service</span>
+                  <span className="admin-smodal__value">{selectedLead.service_interested || '—'}</span>
                 </div>
-                <div className="admin-modal__row">
-                  <strong>Received On</strong>
-                  <span>{fmtDate(selectedLead.created_at)} · {fmtTime(selectedLead.created_at)}</span>
+                <div className="admin-smodal__field">
+                  <span className="admin-smodal__label">Received on</span>
+                  <span className="admin-smodal__value">{fmtDate(selectedLead.created_at)} · {fmtTime(selectedLead.created_at)}</span>
                 </div>
               </div>
-              <div className="admin-modal__row admin-modal__row--full">
-                <strong>Message</strong>
-                <p className="admin-modal__message">{selectedLead.message || '—'}</p>
+
+              <div className="admin-smodal__field admin-smodal__field--full">
+                <span className="admin-smodal__label">Message</span>
+                <p className="admin-smodal__message">{selectedLead.message || '—'}</p>
               </div>
-              <div className="admin-modal__row admin-modal__row--full">
-                <strong>Status</strong>
-                <select
-                  className={`admin-status-select admin-status-select--${selectedLead.status}`}
-                  value={selectedLead.status}
-                  onChange={(e) => { updateStatus(selectedLead.id, e.target.value); setSelectedLead({ ...selectedLead, status: e.target.value }); }}
-                >
-                  {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
-                </select>
+
+              <div className="admin-smodal__field admin-smodal__field--full">
+                <span className="admin-smodal__label">Status</span>
+                <div className="admin-smodal__status">
+                  <span className={statusBadgeClass(selectedLead.status)}>{selectedLead.status || 'new'}</span>
+                  <select
+                    className="admin-sselect"
+                    value={selectedLead.status}
+                    onChange={(e) => { updateStatus(selectedLead.id, e.target.value); setSelectedLead({ ...selectedLead, status: e.target.value }); }}
+                  >
+                    {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                </div>
               </div>
             </div>
-            <div className="admin-modal__footer">
-              <button className="admin-btn admin-btn--primary" onClick={() => { updateStatus(selectedLead.id, 'converted'); setSelectedLead(null); }}>Mark as Converted</button>
-              <button className="admin-btn admin-btn--secondary" onClick={() => setSelectedLead(null)}>Close</button>
+
+            <div className="admin-smodal__footer">
+              <button type="button" className="admin-sbtn" onClick={() => setSelectedLead(null)}>Close</button>
+              <button
+                type="button"
+                className="admin-sbtn admin-sbtn--primary"
+                onClick={() => { updateStatus(selectedLead.id, 'converted'); setSelectedLead(null); }}
+              >
+                Mark as converted
+              </button>
             </div>
           </div>
         </div>

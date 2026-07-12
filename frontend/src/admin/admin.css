@@ -608,6 +608,248 @@
   .admin-stats--wide { grid-template-columns: 1fr; }
 }
 
+/* ===================================================================
+   SHOPIFY-STYLE DASHBOARD (matches admin-panel-ref design language)
+   =================================================================== */
+
+/* Greeting header */
+.admin-greeting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.admin-greeting h1 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #303030;
+  margin: 0;
+}
+
+/* Date-range pills */
+.admin-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.admin-pill {
+  padding: 0.375rem 0.75rem;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 50rem;
+  cursor: pointer;
+  background: #fff;
+  color: #616161;
+  border: 1px solid #d4d4d4;
+  font-family: inherit;
+  line-height: 1.4;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+.admin-pill:hover { background: #f7f7f7; }
+.admin-pill--active {
+  background: #303030;
+  color: #fff;
+  border: 1px solid #303030;
+}
+.admin-pill--active:hover { background: #1a1a1a; }
+.admin-pills__range {
+  font-size: 12px;
+  color: #616161;
+  margin: 0 0 1.25rem;
+}
+
+/* Card (Shopify) */
+.admin-card {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+.admin-card__header {
+  padding: 0.875rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid #e3e3e3;
+}
+.admin-card__header h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #303030;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.admin-card__header h2 svg { color: #616161; font-size: 14px; }
+.admin-card__link {
+  font-size: 12px;
+  font-weight: 500;
+  color: #005bd3;
+  text-decoration: none;
+}
+.admin-card__link:hover { text-decoration: underline; }
+.admin-card__note { font-size: 11px; color: #616161; }
+.admin-card__body { padding: 1rem; }
+
+/* Primary (headline) metric card */
+.admin-hero-card { margin-bottom: 1.25rem; }
+.admin-hero-card__label {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 0 0.25rem;
+  color: #616161;
+}
+.admin-hero-card__value {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #303030;
+  margin: 0;
+  line-height: 1.2;
+}
+.admin-hero-card__meta {
+  font-size: 11px;
+  font-weight: 500;
+  color: #616161;
+  margin: 0.25rem 0 0;
+}
+.admin-hero-card__chart { padding: 0 1rem 1rem; }
+.admin-hero-card__chart svg { display: block; width: 100%; height: 200px; }
+.admin-hero-card__empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 13px;
+  color: #616161;
+}
+
+/* 4-column metrics grid (1px gap "hairline" technique) */
+.admin-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-bottom: 1.25rem;
+  background: #e3e3e3;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #e3e3e3;
+}
+.admin-metric {
+  background: #fff;
+  padding: 1rem;
+  text-decoration: none;
+  display: block;
+  transition: background 0.1s ease;
+}
+a.admin-metric:hover { background: #fafafa; }
+.admin-metric__label {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 0 2px;
+  color: #616161;
+}
+.admin-metric__value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #303030;
+  margin: 0;
+  line-height: 1.3;
+}
+.admin-metric__hint {
+  font-size: 11px;
+  margin: 0.25rem 0 0;
+  font-weight: 500;
+  color: #b98900;
+}
+.admin-metric__sub {
+  font-size: 11px;
+  margin: 0.25rem 0 0;
+  color: #616161;
+}
+
+/* Shopify-style tables inside cards */
+.admin-card__scroll { max-height: 400px; overflow-y: auto; }
+.admin-shop-table { width: 100%; border-collapse: collapse; }
+.admin-shop-table thead tr { border-bottom: 1px solid #e3e3e3; }
+.admin-shop-table th {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 500;
+  color: #616161;
+  white-space: nowrap;
+}
+.admin-shop-table th.is-right { text-align: right; }
+.admin-shop-table tbody tr { border-bottom: 1px solid #f1f1f1; }
+.admin-shop-table tbody tr:last-child { border-bottom: none; }
+.admin-shop-table td {
+  padding: 0.625rem 1rem;
+  font-size: 13px;
+  color: #303030;
+  vertical-align: middle;
+}
+.admin-shop-table td.is-right { text-align: right; }
+.admin-shop-table td.is-muted { color: #616161; }
+.admin-shop-table__link {
+  font-size: 13px;
+  font-weight: 500;
+  color: #005bd3;
+  text-decoration: none;
+}
+.admin-shop-table__link:hover { text-decoration: underline; }
+.admin-shop-table__sub { font-size: 11px; color: #616161; margin: 0; }
+.admin-shop-table__empty {
+  padding: 2rem 1rem !important;
+  text-align: center;
+  font-size: 13px;
+  color: #616161 !important;
+}
+.admin-shop-table__rank {
+  font-size: 12px;
+  color: #616161;
+  width: 2rem;
+}
+
+/* Shopify pill badges */
+.admin-sbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 50rem;
+  padding: 0.0625rem 0.5rem;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-transform: capitalize;
+}
+.admin-sbadge--success { background: #cdfee1; color: #1a7a2e; }
+.admin-sbadge--warning { background: #fff3cd; color: #8a6d00; }
+.admin-sbadge--info    { background: #d4edfc; color: #0064a4; }
+.admin-sbadge--neutral { background: #ebebeb; color: #616161; }
+
+/* Dashboard two-column (2/3 + 1/3) */
+.admin-dash-cols {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  align-items: start;
+}
+.admin-dash-cols > * { min-width: 0; }
+
+@media (max-width: 1024px) {
+  .admin-dash-cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .admin-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .admin-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ── Author / Category cell with avatar ── */
 .admin-author-cell {
   display: flex;
@@ -1054,3 +1296,571 @@
 .admin-table--leads td:nth-child(2) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .admin-table--leads td:nth-child(3) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .admin-table--leads td:nth-child(4) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ===================================================================
+   SHOPIFY-STYLE CMS LIST PAGES
+   (Testimonials, FAQ, Newsletter, Authors, Categories)
+   Reuses .admin-card / .admin-shop-table / .admin-sbadge above.
+   =================================================================== */
+
+/* Page header */
+.admin-shop-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.admin-shop-head h1 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #303030;
+  margin: 0;
+}
+.admin-shop-head__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.admin-sbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 0.4375rem 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: 1px solid #d4d4d4;
+  background: #fff;
+  color: #303030;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  transition: background 0.1s ease, border-color 0.1s ease;
+  text-decoration: none;
+}
+.admin-sbtn:hover:not(:disabled) { background: #f7f7f7; border-color: #b5b5b5; }
+.admin-sbtn:disabled { opacity: 0.5; cursor: not-allowed; }
+.admin-sbtn svg { width: 14px; height: 14px; }
+.admin-sbtn--primary {
+  background: #303030;
+  border-color: #303030;
+  color: #fff;
+}
+.admin-sbtn--primary:hover:not(:disabled) { background: #1a1a1a; border-color: #1a1a1a; }
+.admin-sbtn--danger {
+  background: #d72c0d;
+  border-color: #d72c0d;
+  color: #fff;
+}
+.admin-sbtn--danger:hover:not(:disabled) { background: #bc2200; border-color: #bc2200; }
+.admin-sbtn--sm { font-size: 12px; padding: 0.25rem 0.5rem; border-radius: 0.375rem; }
+
+/* Icon buttons (in table rows) */
+.admin-sicon {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  background: transparent;
+  color: #616161;
+  cursor: pointer;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+.admin-sicon:hover { background: #f1f1f1; color: #303030; }
+.admin-sicon--danger { color: #d72c0d; }
+.admin-sicon--danger:hover { background: #ffe0db; color: #b71c00; }
+.admin-srow-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+/* Badge rendered as a clickable toggle button */
+button.admin-sbadge {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Alert banner */
+.admin-salert {
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 13px;
+  margin-bottom: 1rem;
+  background: #ffe0db;
+  border: 1px solid #e8c4c4;
+  color: #b71c00;
+}
+
+/* Search bar inside a card */
+.admin-card__search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e3e3e3;
+  color: #999;
+}
+.admin-card__search svg { width: 16px; height: 16px; flex-shrink: 0; }
+.admin-card__search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  color: #303030;
+}
+.admin-card__search input::placeholder { color: #999; }
+
+/* Bulk-action bar inside a card */
+.admin-card__bulk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: #f1f1f1;
+  border-bottom: 1px solid #e3e3e3;
+  font-size: 13px;
+  font-weight: 500;
+  color: #303030;
+}
+
+/* Media cell (avatar/thumb + name/sub) inside a shop table */
+.admin-shop-table__media {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+.admin-shop-table__thumb {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid #e3e3e3;
+  background: #f7f7f7;
+  color: #c9cccf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.admin-shop-table__thumb--square { border-radius: 0.5rem; }
+.admin-shop-table__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.admin-shop-table__name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #303030;
+  margin: 0;
+}
+.admin-shop-table__trunc {
+  max-width: 18rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.admin-shop-table__stars { color: #b98900; letter-spacing: 1px; }
+.admin-shop-table__stars i { color: #e3e3e3; font-style: normal; }
+
+/* Form inside a Shopify card */
+.admin-sform { margin-bottom: 1.25rem; }
+.admin-sform__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 640px) {
+  .admin-sform__grid { grid-template-columns: 1fr; }
+}
+.admin-sfield { display: block; margin-bottom: 1rem; }
+.admin-sfield > span {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #303030;
+  margin-bottom: 0.25rem;
+}
+.admin-sfield input,
+.admin-sfield textarea,
+.admin-sfield select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 13px;
+  color: #303030;
+  background: #fff;
+  border: 1px solid #c9cccf;
+  border-radius: 0.5rem;
+  padding: 0.4375rem 0.625rem;
+  line-height: 1.4;
+  transition: border-color 0.1s ease, box-shadow 0.1s ease;
+}
+.admin-sfield textarea { resize: vertical; }
+.admin-sfield input::placeholder,
+.admin-sfield textarea::placeholder { color: #999; }
+.admin-sfield input:focus,
+.admin-sfield textarea:focus,
+.admin-sfield select:focus {
+  outline: none;
+  border-color: #005bd3;
+  box-shadow: 0 0 0 1px #005bd3;
+}
+.admin-scheck {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 13px;
+  color: #303030;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.admin-scheck input { margin: 0; accent-color: #005bd3; }
+.admin-sform__section {
+  font-size: 13px;
+  font-weight: 600;
+  color: #303030;
+  margin: 0 0 0.5rem;
+}
+.admin-sform__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #e3e3e3;
+  background: #fafafa;
+}
+.admin-sform__preview {
+  margin-bottom: 1rem;
+}
+.admin-sform__preview img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid #e3e3e3;
+}
+
+/* ===================================================================
+   SHOPIFY-STYLE LEADS PAGE (matches admin-panel-ref enquiries design)
+   Reuses .admin-card, .admin-shop-table, .admin-sbadge, .admin-sbtn,
+   .admin-metrics-grid, .admin-shop-head, .admin-card__search,
+   .admin-salert, .admin-srow-actions from the blocks above.
+   =================================================================== */
+
+/* Underline tab filters inside a card */
+.admin-stabs {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 0 1rem;
+  overflow-x: auto;
+}
+.admin-stab {
+  padding: 0.625rem 0.75rem;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #616161;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.1s ease, border-color 0.1s ease;
+}
+.admin-stab:hover { color: #303030; }
+.admin-stab--active { color: #303030; border-bottom-color: #303030; }
+.admin-stab__count { color: #616161; font-size: 12px; font-weight: 400; }
+
+/* "Clear" link next to the card search input */
+.admin-sfilter__clear {
+  font-family: inherit;
+  font-size: 13px;
+  color: #616161;
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.admin-sfilter__clear:hover { color: #303030; text-decoration: underline; }
+
+/* Name cell rendered as a button that opens the details modal */
+button.admin-shop-table__link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.admin-lead-snippet {
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Inline row actions rendered as Shopify text-buttons */
+.admin-slink-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: #005bd3;
+  background: none;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.1s ease;
+}
+.admin-slink-btn svg { width: 14px; height: 14px; }
+.admin-slink-btn:hover { background: #e0f0ff; }
+.admin-slink-btn--muted { color: #616161; }
+.admin-slink-btn--muted:hover { background: #f1f1f1; }
+.admin-slink-btn--danger { color: #d72c0d; }
+.admin-slink-btn--danger:hover { background: #ffe0db; }
+
+/* Lead details modal (Shopify) */
+.admin-smodal {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 0.75rem;
+  max-width: 640px;
+  width: 92%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+.admin-smodal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid #e3e3e3;
+}
+.admin-smodal__header h2 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #303030;
+}
+.admin-smodal__header p { margin: 2px 0 0; font-size: 12px; color: #616161; }
+.admin-smodal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: none;
+  color: #616161;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+.admin-smodal__close:hover { background: #f1f1f1; color: #303030; }
+.admin-smodal__body { padding: 1.25rem; }
+.admin-smodal__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.admin-smodal__field { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.admin-smodal__field--full { margin-top: 1rem; }
+.admin-smodal__label { font-size: 11px; font-weight: 500; color: #616161; }
+.admin-smodal__value { font-size: 13px; color: #303030; }
+.admin-smodal__link { font-size: 13px; color: #005bd3; text-decoration: none; word-break: break-all; }
+.admin-smodal__link:hover { text-decoration: underline; }
+.admin-smodal__message {
+  margin: 0.25rem 0 0;
+  font-size: 13px;
+  color: #303030;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  background: #f7f7f7;
+  border: 1px solid #e3e3e3;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+.admin-smodal__status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.admin-sselect {
+  font-family: inherit;
+  font-size: 13px;
+  color: #303030;
+  border: 1px solid #c9cccf;
+  border-radius: 0.5rem;
+  padding: 0.3125rem 0.5rem;
+  background: #fff;
+  text-transform: capitalize;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.1s ease, box-shadow 0.1s ease;
+}
+.admin-sselect:focus { border-color: #005bd3; box-shadow: 0 0 0 1px #005bd3; }
+.admin-smodal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.875rem 1.25rem;
+  border-top: 1px solid #e3e3e3;
+  background: #fafafa;
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .admin-smodal__grid { grid-template-columns: 1fr; }
+  .admin-lead-snippet { max-width: 140px; }
+}
+
+/* ===================================================================
+   SHOPIFY-STYLE BLOG POSTS LIST (matches admin-panel-ref blog-posts index)
+   Reuses .admin-card, .admin-card__search, .admin-card__bulk,
+   .admin-shop-head, .admin-sbtn, .admin-sicon, .admin-srow-actions,
+   .admin-shop-table (+ __media/__thumb/__link/__sub/__trunc/__empty),
+   .admin-sbadge. Only the pieces below are new.
+   =================================================================== */
+
+/* Tab filters inside a card header */
+.admin-card__tabs {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid #e3e3e3;
+  overflow-x: auto;
+}
+.admin-card__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.625rem 1rem;
+  margin-bottom: -1px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #616161;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.admin-card__tab:hover { color: #303030; }
+.admin-card__tab--active,
+.admin-card__tab--active:hover {
+  color: #005bd3;
+  border-bottom-color: #005bd3;
+}
+.admin-card__tab-count {
+  background: #f1f1f1;
+  color: #616161;
+  padding: 1px 7px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+.admin-card__tab--active .admin-card__tab-count { background: #e3f0ff; color: #005bd3; }
+
+/* Extra filter selects sitting in the card search bar */
+.admin-card__filter {
+  flex-shrink: 0;
+  font-family: inherit;
+  font-size: 13px;
+  color: #303030;
+  background: #fff;
+  border: 1px solid #c9cccf;
+  border-radius: 0.5rem;
+  padding: 0.3125rem 0.5rem;
+  outline: none;
+  cursor: pointer;
+}
+.admin-card__filter:focus { border-color: #005bd3; }
+.admin-card__clear {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0 0.25rem;
+  font-family: inherit;
+  font-size: 13px;
+  color: #005bd3;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.admin-card__clear:hover { text-decoration: underline; }
+
+/* Horizontally scrollable table area inside a card */
+.admin-card__scrollx { overflow-x: auto; }
+
+/* Table extras */
+.admin-shop-table thead th { background: #fafafa; }
+.admin-shop-table tbody tr:hover { background: #f6f6f7; }
+.admin-shop-table__check { width: 36px; }
+.admin-shop-table__check input { cursor: pointer; margin: 0; accent-color: #005bd3; }
+
+/* Status badge rendered as an inline <select> */
+select.admin-sbadge-select {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0.125rem 0.5rem;
+}
+select.admin-sbadge-select option { background: #fff; color: #303030; }
+
+/* Rich empty state */
+.admin-shop-empty {
+  padding: 3rem 1rem !important;
+  text-align: center;
+}
+.admin-shop-empty__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  color: #8a8a8a;
+  font-size: 22px;
+}
+.admin-shop-empty__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #303030;
+  margin: 0 0 4px;
+}
+.admin-shop-empty__text {
+  font-size: 13px;
+  color: #616161;
+  margin: 0 0 1rem;
+}

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiEdit2, FiTrash2, FiPlus, FiSearch } from 'react-icons/fi';
+import { FiEdit2, FiTrash2, FiSearch, FiFileText } from 'react-icons/fi';
 import { apiGet, apiPut, apiDelete } from '../api';
 
 const STATUS_TABS = [
@@ -10,10 +10,10 @@ const STATUS_TABS = [
   { key: 'scheduled', label: 'Scheduled' },
 ];
 
-function statusClass(s) {
-  if (s === 'published') return 'converted';
-  if (s === 'scheduled') return 'contacted';
-  return 'new';
+function statusVariant(s) {
+  if (s === 'published') return 'success';
+  if (s === 'scheduled') return 'info';
+  return 'warning';
 }
 
 export default function BlogList() {
@@ -69,6 +69,15 @@ export default function BlogList() {
     });
     return list;
   }, [posts, statusTab, catFilter, authorFilter, search, sort]);
+
+  const hasFilters = Boolean(search.trim() || catFilter || authorFilter || statusTab !== 'all');
+
+  function clearFilters() {
+    setSearch('');
+    setCatFilter('');
+    setAuthorFilter('');
+    setStatusTab('all');
+  }
 
   async function changeStatus(post, status) {
     try {
@@ -129,119 +138,168 @@ export default function BlogList() {
 
   return (
     <div>
-      <div className="admin-page-head">
-        <h1 className="admin-page-title">Blog Posts</h1>
-        <Link to="/admin/blog/new" className="admin-btn admin-btn--primary"><FiPlus /> New Post</Link>
+      <div className="admin-shop-head">
+        <h1>Blog posts</h1>
+        <Link to="/admin/blog/new" className="admin-sbtn admin-sbtn--primary">Add blog post</Link>
       </div>
 
-      {error && <div className="admin-alert admin-alert--error">{error}</div>}
+      {error && <div className="admin-salert">{error}</div>}
 
-      {/* Status tabs */}
-      <div className="admin-tabs">
-        {STATUS_TABS.map((t) => {
-          const count = t.key === 'all' ? posts.length : posts.filter((p) => p.status === t.key).length;
-          return (
-            <button
-              key={t.key}
-              className={`admin-tab${statusTab === t.key ? ' admin-tab--active' : ''}`}
-              onClick={() => setStatusTab(t.key)}
-            >
-              {t.label} <span className="admin-tab__count">{count}</span>
-            </button>
-          );
-        })}
-      </div>
+      <div className="admin-card">
+        {/* Status tabs */}
+        <div className="admin-card__tabs">
+          {STATUS_TABS.map((t) => {
+            const count = t.key === 'all' ? posts.length : posts.filter((p) => p.status === t.key).length;
+            const active = statusTab === t.key;
+            return (
+              <button
+                key={t.key}
+                type="button"
+                className={`admin-card__tab${active ? ' admin-card__tab--active' : ''}`}
+                onClick={() => setStatusTab(t.key)}
+              >
+                {t.label}
+                <span className="admin-card__tab-count">{count}</span>
+              </button>
+            );
+          })}
+        </div>
 
-      {/* Filter bar */}
-      <div className="admin-filterbar">
-        <div className="admin-search">
+        {/* Search + filters */}
+        <div className="admin-card__search">
           <FiSearch />
           <input
             type="text"
-            placeholder="Search by title…"
+            placeholder="Search blog posts"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          <select value={catFilter} onChange={(e) => setCatFilter(e.target.value)} className="admin-card__filter">
+            <option value="">All categories</option>
+            {cats.map((c) => <option key={c.id} value={c.name}>{c.name}</option>)}
+          </select>
+          <select value={authorFilter} onChange={(e) => setAuthorFilter(e.target.value)} className="admin-card__filter">
+            <option value="">All authors</option>
+            {authors.map((a) => <option key={a.id} value={a.name}>{a.name}</option>)}
+          </select>
+          <select value={sort} onChange={(e) => setSort(e.target.value)} className="admin-card__filter">
+            <option value="latest">Latest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+          {hasFilters && (
+            <button type="button" className="admin-card__clear" onClick={clearFilters}>Clear</button>
+          )}
         </div>
-        <select value={catFilter} onChange={(e) => setCatFilter(e.target.value)} className="admin-select">
-          <option value="">All Categories</option>
-          {cats.map((c) => <option key={c.id} value={c.name}>{c.name}</option>)}
-        </select>
-        <select value={authorFilter} onChange={(e) => setAuthorFilter(e.target.value)} className="admin-select">
-          <option value="">All Authors</option>
-          {authors.map((a) => <option key={a.id} value={a.name}>{a.name}</option>)}
-        </select>
-        <select value={sort} onChange={(e) => setSort(e.target.value)} className="admin-select">
-          <option value="latest">Latest First</option>
-          <option value="oldest">Oldest First</option>
-        </select>
-      </div>
 
-      {/* Bulk action bar */}
-      {selected.size > 0 && (
-        <div className="admin-bulkbar">
-          <span>{selected.size} selected</span>
-          <button className="admin-btn admin-btn--sm" onClick={() => bulkStatus('published')}>Publish</button>
-          <button className="admin-btn admin-btn--sm" onClick={() => bulkStatus('draft')}>Draft</button>
-          <button className="admin-btn admin-btn--sm admin-btn--danger" onClick={bulkDelete}>Delete</button>
-        </div>
-      )}
+        {/* Bulk action bar */}
+        {selected.size > 0 && (
+          <div className="admin-card__bulk">
+            <span>{selected.size} selected</span>
+            <div className="admin-shop-head__actions">
+              <button type="button" className="admin-sbtn admin-sbtn--sm" onClick={() => bulkStatus('published')}>Publish</button>
+              <button type="button" className="admin-sbtn admin-sbtn--sm" onClick={() => bulkStatus('draft')}>Draft</button>
+              <button type="button" className="admin-sbtn admin-sbtn--sm admin-sbtn--danger" onClick={bulkDelete}>Delete</button>
+            </div>
+          </div>
+        )}
 
-      <div className="admin-table-wrap">
-        <table className="admin-table">
-          <thead>
-            <tr>
-              <th style={{ width: 36 }}>
-                <input
-                  type="checkbox"
-                  checked={filtered.length > 0 && selected.size === filtered.length}
-                  onChange={toggleSelectAll}
-                />
-              </th>
-              <th>Title</th><th>Category</th><th>Author</th><th>Status</th><th>Views</th><th>Date</th><th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading && <tr><td colSpan="8" className="admin-table__empty">Loading…</td></tr>}
-            {!loading && filtered.length === 0 && (
-              <tr><td colSpan="8" className="admin-table__empty">No posts found.</td></tr>
-            )}
-            {filtered.map((p) => (
-              <tr key={p.id}>
-                <td>
-                  <input type="checkbox" checked={selected.has(p.id)} onChange={() => toggleSelect(p.id)} />
-                </td>
-                <td>
-                  <div className="admin-blog-title">
-                    {p.image_url
-                      ? <img src={p.image_url} alt="" className="admin-blog-thumb" loading="lazy" />
-                      : <span className="admin-blog-thumb admin-blog-thumb--ph">IMG</span>}
-                    <span className="admin-blog-title__text">{p.title}</span>
-                  </div>
-                </td>
-                <td>{p.category || '—'}</td>
-                <td>{p.author || '—'}</td>
-                <td>
-                  <select
-                    className={`admin-status-select admin-status-select--${statusClass(p.status)}`}
-                    value={p.status}
-                    onChange={(e) => changeStatus(p, e.target.value)}
-                  >
-                    <option value="draft">draft</option>
-                    <option value="published">published</option>
-                    <option value="scheduled">scheduled</option>
-                  </select>
-                </td>
-                <td>{p.views ?? 0}</td>
-                <td>{new Date(p.created_at).toLocaleDateString()}</td>
-                <td className="admin-actions">
-                  <Link to={`/admin/blog/edit/${p.id}`} className="admin-icon-btn" title="Edit"><FiEdit2 /></Link>
-                  <button className="admin-icon-btn admin-icon-btn--danger" onClick={() => remove(p.id)} title="Delete"><FiTrash2 /></button>
-                </td>
+        <div className="admin-card__scrollx">
+          <table className="admin-shop-table">
+            <thead>
+              <tr>
+                <th className="admin-shop-table__check">
+                  <input
+                    type="checkbox"
+                    checked={filtered.length > 0 && selected.size === filtered.length}
+                    onChange={toggleSelectAll}
+                  />
+                </th>
+                <th>Post</th>
+                <th>Status</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th className="is-right">Views</th>
+                <th className="is-right">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {loading && (
+                <tr><td colSpan="7" className="admin-shop-table__empty">Loading…</td></tr>
+              )}
+              {!loading && filtered.length === 0 && (
+                <tr>
+                  <td colSpan="7" className="admin-shop-empty">
+                    <div className="admin-shop-empty__icon"><FiFileText /></div>
+                    <p className="admin-shop-empty__title">No blog posts found</p>
+                    <p className="admin-shop-empty__text">
+                      {hasFilters ? 'No posts match your current filters.' : 'Create your first blog post to get started.'}
+                    </p>
+                    {hasFilters ? (
+                      <button type="button" className="admin-sbtn" onClick={clearFilters}>Clear filters</button>
+                    ) : (
+                      <Link to="/admin/blog/new" className="admin-sbtn admin-sbtn--primary">Add blog post</Link>
+                    )}
+                  </td>
+                </tr>
+              )}
+              {!loading && filtered.map((p) => (
+                <tr key={p.id}>
+                  <td className="admin-shop-table__check">
+                    <input type="checkbox" checked={selected.has(p.id)} onChange={() => toggleSelect(p.id)} />
+                  </td>
+                  <td>
+                    <div className="admin-shop-table__media">
+                      <span className="admin-shop-table__thumb admin-shop-table__thumb--square">
+                        {p.image_url
+                          ? <img src={p.image_url} alt="" loading="lazy" />
+                          : <FiFileText />}
+                      </span>
+                      <div style={{ minWidth: 0 }}>
+                        <Link
+                          to={`/admin/blog/edit/${p.id}`}
+                          className="admin-shop-table__link admin-shop-table__trunc"
+                          style={{ display: 'block' }}
+                        >
+                          {p.title}
+                        </Link>
+                        {p.category && <p className="admin-shop-table__sub">{p.category}</p>}
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <select
+                      className={`admin-sbadge admin-sbadge--${statusVariant(p.status)} admin-sbadge-select`}
+                      value={p.status}
+                      onChange={(e) => changeStatus(p, e.target.value)}
+                    >
+                      <option value="draft">Draft</option>
+                      <option value="published">Published</option>
+                      <option value="scheduled">Scheduled</option>
+                    </select>
+                  </td>
+                  <td className="is-muted">{p.author || '—'}</td>
+                  <td className="is-muted">
+                    {new Date(p.created_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
+                  </td>
+                  <td className="is-right is-muted">{(p.views ?? 0).toLocaleString()}</td>
+                  <td className="is-right">
+                    <div className="admin-srow-actions">
+                      <Link to={`/admin/blog/edit/${p.id}`} className="admin-sicon" title="Edit"><FiEdit2 /></Link>
+                      <button
+                        type="button"
+                        className="admin-sicon admin-sicon--danger"
+                        onClick={() => remove(p.id)}
+                        title="Delete"
+                      >
+                        <FiTrash2 />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
