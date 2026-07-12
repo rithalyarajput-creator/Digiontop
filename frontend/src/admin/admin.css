@@ -1,6 +1,8 @@
 /* ========== DigionTop Admin Panel Styles ========== */
+/* The sidebar is position:fixed, so the shell must NOT be a flex row —
+   flex would reserve a column for it on top of .admin-main's margin-left,
+   leaving a dead gap between sidebar and content. */
 .admin-shell {
-  display: flex;
   min-height: 100vh;
   background: #f4f5f7;
   font-family: 'Inter', system-ui, sans-serif;
@@ -1864,3 +1866,6 @@ select.admin-sbadge-select option { background: #fff; color: #303030; }
   color: #616161;
   margin: 0 0 1rem;
 }
+
+/* ---- Image upload row (Authors / Categories forms) ---- */
+.admin-supload { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 6px; }

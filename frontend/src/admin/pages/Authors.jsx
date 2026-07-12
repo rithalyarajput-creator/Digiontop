@@ -1,6 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { FiPlus, FiTrash2, FiEdit2, FiUser } from 'react-icons/fi';
 import { apiGet, apiPost, apiPut, apiDelete } from '../api';
+
+/* Resize + compress an image file in the browser, return { mime, base64 } */
+function compressImage(file, maxWidth = 600, quality = 0.85) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale = Math.min(1, maxWidth / img.width);
+      const w = Math.round(img.width * scale);
+      const h = Math.round(img.height * scale);
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const dataUrl = canvas.toDataURL('image/jpeg', quality);
+      resolve({ mime: 'image/jpeg', base64: dataUrl.split(',')[1] });
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Could not read image')); };
+    img.src = url;
+  });
+}
 
 const EMPTY = {
   name: '', email: '', bio: '', avatar_url: '',
@@ -20,6 +42,30 @@ export default function Authors() {
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
+  const fileRef = useRef(null);
+
+  async function handleImageUpload(e) {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = '';
+    if (!file) return;
+    if (!file.type.startsWith('image/')) { setError('Please choose an image file.'); return; }
+    setError('');
+    setUploading(true);
+    try {
+      const { mime, base64 } = await compressImage(file);
+      const resp = await apiPost('/cms?resource=media', { filename: file.name, mime, data: base64 });
+      if (resp && resp.url) {
+        setForm((p) => ({ ...p, avatar_url: resp.url }));
+      } else {
+        setError('Upload failed. Please try again.');
+      }
+    } catch (err) {
+      setError(err.message || 'Upload failed.');
+    } finally {
+      setUploading(false);
+    }
+  }
 
   async function load() {
     setLoading(true);
@@ -122,12 +168,38 @@ export default function Authors() {
               </label>
             </div>
 
-            <label className="admin-sfield"><span>Profile Image URL</span>
+            <div className="admin-sfield">
+              <span>Profile Image</span>
+              {form.avatar_url && (
+                <div className="admin-sform__preview"><img src={form.avatar_url} alt="preview" /></div>
+              )}
+              <div className="admin-supload">
+                <input
+                  ref={fileRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  style={{ display: 'none' }}
+                />
+                <button
+                  type="button"
+                  className="admin-sbtn admin-sbtn--primary"
+                  onClick={() => fileRef.current && fileRef.current.click()}
+                  disabled={uploading}
+                >
+                  {uploading ? 'Uploading…' : 'Upload from Computer'}
+                </button>
+                {form.avatar_url && !uploading && (
+                  <button type="button" className="admin-sbtn" onClick={() => setForm({ ...form, avatar_url: '' })}>
+                    Remove
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <label className="admin-sfield"><span>Or paste an Image URL</span>
               <input value={form.avatar_url} onChange={(e) => setForm({ ...form, avatar_url: e.target.value })} placeholder="https://…" />
             </label>
-            {form.avatar_url && (
-              <div className="admin-sform__preview"><img src={form.avatar_url} alt="preview" /></div>
-            )}
 
             <label className="admin-sfield"><span>Bio</span>
               <textarea rows="3" value={form.bio} onChange={(e) => setForm({ ...form, bio: e.target.value })} />
