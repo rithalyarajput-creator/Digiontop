@@ -307,6 +307,14 @@
 /* ---- Blog Editor ---- */
 .blogedit__layout { display: flex; gap: 24px; align-items: flex-start; }
 .blogedit__form { flex: 1; min-width: 0; }
+.blogedit__cols { display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start; }
+.blogedit__col-main { min-width: 0; }
+.blogedit__col-side { min-width: 0; position: sticky; top: 20px; }
+.blogedit__col-side .blogedit__section { padding: 18px; }
+@media (max-width: 900px) {
+  .blogedit__cols { grid-template-columns: 1fr; }
+  .blogedit__col-side { position: static; }
+}
 .blogedit__section { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 20px; border: 1px solid #e8e8e8; }
 .blogedit__section-title { font-size: 14px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid #f0f0f0; }
 .blogedit__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }

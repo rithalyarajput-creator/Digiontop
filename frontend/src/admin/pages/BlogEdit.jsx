@@ -193,6 +193,8 @@ export default function BlogEdit() {
 
       <div className="blogedit__layout">
         <form className="blogedit__form admin-form" onSubmit={handleSubmit}>
+         <div className="blogedit__cols">
+          <div className="blogedit__col-main">
 
           {/* ── BASIC INFO ── */}
           <div className="blogedit__section">
@@ -202,26 +204,6 @@ export default function BlogEdit() {
               <span>Post Title <span style={{color:'#e53935'}}>*</span></span>
               <input value={form.title} onChange={(e) => update('title', e.target.value)} placeholder="Enter blog post title..." required />
             </label>
-
-            <div className="blogedit__row">
-              <label className="admin-field">
-                <span>Author</span>
-                <select value={form.author} onChange={(e) => update('author', e.target.value)}>
-                  <option value="">Select author…</option>
-                  {authors.map((a) => <option key={a.id} value={a.name}>{a.name}</option>)}
-                  {/* allow keeping an existing custom author value */}
-                  {form.author && !authors.some((a) => a.name === form.author) && (
-                    <option value={form.author}>{form.author}</option>
-                  )}
-                </select>
-              </label>
-              <label className="admin-field">
-                <span>Category</span>
-                <select value={form.category} onChange={(e) => update('category', e.target.value)}>
-                  {cats.map((c) => <option key={c} value={c}>{c}</option>)}
-                </select>
-              </label>
-            </div>
 
             <label className="admin-field">
               <span>Slug (URL)</span>
@@ -242,45 +224,6 @@ export default function BlogEdit() {
               <span>Tags (comma separated)</span>
               <input value={form.tags} onChange={(e) => update('tags', e.target.value)} placeholder="seo, marketing, tips" />
             </label>
-          </div>
-
-          {/* ── FEATURED IMAGE ── */}
-          <div className="blogedit__section">
-            <h2 className="blogedit__section-title">Featured Image</h2>
-            <div className="blogedit__img-guide">
-              Recommended: <strong>1200 × 630 px</strong> · Aspect ratio <strong>16:9</strong> · JPG/PNG/WebP
-            </div>
-            <div className="blogedit__upload-row">
-              <input
-                ref={fileRef}
-                type="file"
-                accept="image/*"
-                onChange={handleImageUpload}
-                style={{ display: 'none' }}
-              />
-              <button
-                type="button"
-                className="admin-btn admin-btn--primary"
-                onClick={() => fileRef.current && fileRef.current.click()}
-                disabled={uploading}
-              >
-                {uploading ? 'Uploading…' : 'Upload from Computer'}
-              </button>
-              {form.image_url && !uploading && (
-                <button type="button" className="admin-btn" onClick={() => update('image_url', '')}>
-                  Remove Image
-                </button>
-              )}
-            </div>
-            <label className="admin-field">
-              <span>Or paste an Image URL</span>
-              <input value={form.image_url} onChange={(e) => update('image_url', e.target.value)} placeholder="https://example.com/image.jpg" />
-            </label>
-            {form.image_url && (
-              <div className="blogedit__img-preview">
-                <img src={form.image_url} alt="preview" />
-              </div>
-            )}
           </div>
 
           {/* ── CONTENT ── */}
@@ -350,37 +293,100 @@ export default function BlogEdit() {
               <p className="blogedit__seo-desc">{seoDesc}</p>
             </div>
           </div>
+          </div>
 
-          {/* ── PUBLISH ── */}
-          <div className="blogedit__section blogedit__section--publish">
-            <h2 className="blogedit__section-title">Publish Settings</h2>
-            <label className="admin-field">
-              <span>Status</span>
-              <select value={form.status} onChange={(e) => update('status', e.target.value)}>
-                <option value="draft">Draft (not visible publicly)</option>
-                <option value="published">Published (live on website)</option>
-                <option value="scheduled">Scheduled (publish later)</option>
-              </select>
-            </label>
-
-            {form.status === 'scheduled' && (
+          {/* ── RIGHT SIDEBAR: Status → Featured Image → Author/Category ── */}
+          <div className="blogedit__col-side">
+            <div className="blogedit__section blogedit__section--publish">
+              <h2 className="blogedit__section-title">Status</h2>
               <label className="admin-field">
-                <span>Publish Date &amp; Time</span>
-                <input
-                  type="datetime-local"
-                  value={form.scheduled_at}
-                  onChange={(e) => update('scheduled_at', e.target.value)}
-                />
-                <small style={{ color: '#888' }}>Post will go live at this date &amp; time.</small>
+                <span>Post Status</span>
+                <select value={form.status} onChange={(e) => update('status', e.target.value)}>
+                  <option value="draft">Draft (not visible publicly)</option>
+                  <option value="published">Published (live on website)</option>
+                  <option value="scheduled">Scheduled (publish later)</option>
+                </select>
               </label>
-            )}
 
-            <div className="admin-form__actions">
-              <button type="button" className="admin-btn" onClick={() => navigate('/admin/blog')}>Cancel</button>
-              <button type="submit" className="admin-btn admin-btn--primary" disabled={saving}>
-                {saving ? 'Saving…' : id ? 'Update Post' : 'Save Post'}
-              </button>
+              {form.status === 'scheduled' && (
+                <label className="admin-field">
+                  <span>Publish Date &amp; Time</span>
+                  <input
+                    type="datetime-local"
+                    value={form.scheduled_at}
+                    onChange={(e) => update('scheduled_at', e.target.value)}
+                  />
+                  <small style={{ color: '#888' }}>Post will go live at this date &amp; time.</small>
+                </label>
+              )}
             </div>
+
+            <div className="blogedit__section">
+              <h2 className="blogedit__section-title">Featured Image</h2>
+              <div className="blogedit__img-guide">
+                Recommended: <strong>1200 × 630 px</strong> · <strong>16:9</strong> · JPG/PNG/WebP
+              </div>
+              {form.image_url && (
+                <div className="blogedit__img-preview">
+                  <img src={form.image_url} alt="preview" />
+                </div>
+              )}
+              <div className="blogedit__upload-row">
+                <input
+                  ref={fileRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  style={{ display: 'none' }}
+                />
+                <button
+                  type="button"
+                  className="admin-btn admin-btn--primary"
+                  onClick={() => fileRef.current && fileRef.current.click()}
+                  disabled={uploading}
+                >
+                  {uploading ? 'Uploading…' : 'Upload from Computer'}
+                </button>
+                {form.image_url && !uploading && (
+                  <button type="button" className="admin-btn" onClick={() => update('image_url', '')}>
+                    Remove
+                  </button>
+                )}
+              </div>
+              <label className="admin-field">
+                <span>Or paste an Image URL</span>
+                <input value={form.image_url} onChange={(e) => update('image_url', e.target.value)} placeholder="https://example.com/image.jpg" />
+              </label>
+            </div>
+
+            <div className="blogedit__section">
+              <h2 className="blogedit__section-title">Author &amp; Category</h2>
+              <label className="admin-field">
+                <span>Author</span>
+                <select value={form.author} onChange={(e) => update('author', e.target.value)}>
+                  <option value="">Select author…</option>
+                  {authors.map((a) => <option key={a.id} value={a.name}>{a.name}</option>)}
+                  {/* allow keeping an existing custom author value */}
+                  {form.author && !authors.some((a) => a.name === form.author) && (
+                    <option value={form.author}>{form.author}</option>
+                  )}
+                </select>
+              </label>
+              <label className="admin-field">
+                <span>Category</span>
+                <select value={form.category} onChange={(e) => update('category', e.target.value)}>
+                  {cats.map((c) => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </label>
+            </div>
+          </div>
+         </div>
+
+          <div className="admin-form__actions">
+            <button type="button" className="admin-btn" onClick={() => navigate('/admin/blog')}>Cancel</button>
+            <button type="submit" className="admin-btn admin-btn--primary" disabled={saving}>
+              {saving ? 'Saving…' : id ? 'Update Post' : 'Save Post'}
+            </button>
           </div>
         </form>
 
