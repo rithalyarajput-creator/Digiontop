@@ -53,13 +53,19 @@ export default async function handler(req, res) {
 
       const nextStatus = status === undefined ? row.status : status;
       const nextNotes = notes === undefined ? row.notes : (notes || null);
-      const nextFollowUp = follow_up_at === undefined ? row.follow_up_at : (follow_up_at || null);
+      const rawFollowUp = follow_up_at === undefined ? row.follow_up_at : follow_up_at;
+      // follow_up_at is a DATE. The row may hand it back as a Date object and the
+      // client sends "YYYY-MM-DD"; normalise both to a plain date string (or null),
+      // so the driver never has to guess a type for a bare NULL parameter.
+      const nextFollowUp = rawFollowUp
+        ? new Date(rawFollowUp).toISOString().slice(0, 10)
+        : null;
 
       const rows = await sql`
         UPDATE contact_leads
-        SET status = ${nextStatus},
-            notes = ${nextNotes},
-            follow_up_at = ${nextFollowUp}
+        SET status = ${nextStatus}::varchar,
+            notes = ${nextNotes}::text,
+            follow_up_at = ${nextFollowUp}::date
         WHERE id = ${id}
         RETURNING *
       `;
@@ -77,6 +83,9 @@ export default async function handler(req, res) {
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (err) {
-    return res.status(500).json({ error: 'Internal server error' });
+    // Log the real cause — swallowing it into a bare 500 left "notes won't save"
+    // undiagnosable from the client.
+    console.error(`/api/leads ${req.method} failed:`, err);
+    return res.status(500).json({ error: err.message || 'Internal server error' });
   }
 }
