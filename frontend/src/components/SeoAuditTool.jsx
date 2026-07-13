@@ -6,7 +6,7 @@ import {
 } from 'react-icons/fi'
 
 /* Free instant SEO audit — the lead magnet.
-   POSTs { url, name, email, phone } to /api/audit and renders exactly what comes back. */
+   POSTs { url, name, email, phone } to /api/contact?action=audit and renders exactly what comes back. */
 
 const INITIAL = { url: '', name: '', email: '', phone: '' }
 
@@ -76,7 +76,9 @@ export default function SeoAuditTool() {
     setError('')
     setLoading(true)
     try {
-      const res = await fetch('/api/audit', {
+      // Audit rides on the contact route: Vercel's Hobby plan caps the project
+      // at 12 serverless functions and we're at the ceiling.
+      const res = await fetch('/api/contact?action=audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

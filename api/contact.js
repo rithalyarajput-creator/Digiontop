@@ -1,5 +1,6 @@
 import { sql } from './_lib/db.js';
 import { setCors } from './_lib/auth.js';
+import { handleAudit } from './_lib/audit.js';
 
 /* Escape user-supplied text before dropping it into the notification HTML. */
 function esc(v) {
@@ -86,6 +87,12 @@ export default async function handler(req, res) {
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // The free SEO audit also captures a lead, so it rides along on this route
+  // rather than claiming a 13th serverless function (Hobby plan caps at 12).
+  if (req.query.action === 'audit') {
+    return handleAudit(req, res);
   }
 
   try {
