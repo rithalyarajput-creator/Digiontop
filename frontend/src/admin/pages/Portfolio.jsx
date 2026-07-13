@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FiTrash2, FiEdit2, FiPlus } from 'react-icons/fi';
 import { apiGet, apiPost, apiPut, apiDelete } from '../api';
+import { useConfirm } from '../components/useConfirm';
 
 const EMPTY = {
   title: '', category: 'General', description: '',
@@ -13,6 +14,7 @@ export default function Portfolio() {
   const [editId, setEditId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState('');
+  const { confirm, dialog } = useConfirm();
 
   async function load() {
     try { setItems(await apiGet('/portfolio')); }
@@ -29,14 +31,21 @@ export default function Portfolio() {
       if (editId) await apiPut('/portfolio', { id: editId, ...form });
       else await apiPost('/portfolio', form);
       setShowForm(false);
+      setError('');
       load();
-    } catch (err) { alert(err.message); }
+    } catch (err) { setError(err.message); }
   }
 
   async function remove(id) {
-    if (!confirm('Delete this item?')) return;
+    const ok = await confirm({
+      title: 'Delete this portfolio item?',
+      message: 'This project will be permanently removed from your portfolio. This action cannot be undone.',
+      confirmLabel: 'Delete item',
+      danger: true,
+    });
+    if (!ok) return;
     try { await apiDelete(`/portfolio?id=${id}`); load(); }
-    catch (err) { alert(err.message); }
+    catch (err) { setError(err.message); }
   }
 
   return (
@@ -91,6 +100,8 @@ export default function Portfolio() {
           </tbody>
         </table>
       </div>
+
+      {dialog}
     </div>
   );
 }

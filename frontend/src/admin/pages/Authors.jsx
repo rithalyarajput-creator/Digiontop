@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { FiPlus, FiTrash2, FiEdit2, FiUser } from 'react-icons/fi';
 import { apiGet, apiPost, apiPut, apiDelete } from '../api';
+import { useConfirm } from '../components/useConfirm';
 
 /* Resize + compress an image file in the browser, return { mime, base64 } */
 function compressImage(file, maxWidth = 600, quality = 0.85) {
@@ -44,6 +45,7 @@ export default function Authors() {
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const fileRef = useRef(null);
+  const { confirm, dialog } = useConfirm();
 
   async function handleImageUpload(e) {
     const file = e.target.files && e.target.files[0];
@@ -107,6 +109,7 @@ export default function Authors() {
 
   async function handleSave(e) {
     e.preventDefault();
+    setError('');
     try {
       if (editId) {
         const updated = await apiPut('/cms?resource=authors', { id: editId, ...buildPayload() });
@@ -119,7 +122,7 @@ export default function Authors() {
       setForm(EMPTY);
       setEditId(null);
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
@@ -128,17 +131,23 @@ export default function Authors() {
       const updated = await apiPut('/cms?resource=authors', { id: a.id, is_active: !a.is_active });
       setItems((prev) => prev.map((x) => (x.id === a.id ? updated : x)));
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
   async function remove(a) {
-    if (!confirm(`Delete author "${a.name}"?`)) return;
+    const ok = await confirm({
+      title: `Delete author "${a.name}"?`,
+      message: 'This author will be permanently removed. This action cannot be undone.',
+      confirmLabel: 'Delete author',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await apiDelete(`/cms?resource=authors&id=${a.id}`);
       setItems((prev) => prev.filter((x) => x.id !== a.id));
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
@@ -286,6 +295,8 @@ export default function Authors() {
           </tbody>
         </table>
       </div>
+
+      {dialog}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { FiTrash2, FiSearch, FiDownload, FiCheck, FiEye, FiX, FiInbox } from 'react-icons/fi';
 import { apiGet, apiPut, apiDelete } from '../api';
+import { useConfirm } from '../components/useConfirm';
 
 const STATUSES = ['new', 'contacted', 'converted', 'closed'];
 
@@ -45,6 +46,8 @@ export default function Leads() {
   const [loading, setLoading] = useState(true);
   const [selectedLead, setSelectedLead] = useState(null);
 
+  const { confirm, dialog } = useConfirm();
+
   async function load() {
     setLoading(true);
     try {
@@ -78,17 +81,23 @@ export default function Leads() {
       await apiPut('/leads', { id, status });
       setLeads((prev) => prev.map((l) => (l.id === id ? { ...l, status } : l)));
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
   async function remove(id) {
-    if (!confirm('Delete this lead?')) return;
+    const ok = await confirm({
+      title: 'Delete this lead?',
+      message: 'This contact lead will be permanently removed. This action cannot be undone.',
+      confirmLabel: 'Delete',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await apiDelete(`/leads?id=${id}`);
       setLeads((prev) => prev.filter((l) => l.id !== id));
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
@@ -305,6 +314,8 @@ export default function Leads() {
           </div>
         </div>
       )}
+
+      {dialog}
     </div>
   );
 }

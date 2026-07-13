@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FiTrash2, FiEdit2, FiPlus } from 'react-icons/fi';
 import { apiGet, apiPost, apiPut, apiDelete } from '../api';
+import { useConfirm } from '../components/useConfirm';
 
 const EMPTY = {
   client_name: '', client_role: '', client_location: '',
@@ -13,6 +14,7 @@ export default function Testimonials() {
   const [editId, setEditId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState('');
+  const { confirm, dialog } = useConfirm();
 
   async function load() {
     try { setItems(await apiGet('/testimonials')); }
@@ -29,14 +31,21 @@ export default function Testimonials() {
       if (editId) await apiPut('/testimonials', { id: editId, ...form });
       else await apiPost('/testimonials', form);
       setShowForm(false);
+      setError('');
       load();
-    } catch (err) { alert(err.message); }
+    } catch (err) { setError(err.message); }
   }
 
   async function remove(id) {
-    if (!confirm('Delete this testimonial?')) return;
+    const ok = await confirm({
+      title: 'Delete this testimonial?',
+      message: 'This testimonial will be permanently removed from your site. This action cannot be undone.',
+      confirmLabel: 'Delete testimonial',
+      danger: true,
+    });
+    if (!ok) return;
     try { await apiDelete(`/testimonials?id=${id}`); load(); }
-    catch (err) { alert(err.message); }
+    catch (err) { setError(err.message); }
   }
 
   function stars(n) {
@@ -131,6 +140,8 @@ export default function Testimonials() {
           </tbody>
         </table>
       </div>
+
+      {dialog}
     </div>
   );
 }

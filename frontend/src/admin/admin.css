@@ -184,6 +184,7 @@
 /* ---- Alerts ---- */
 .admin-alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 18px; font-size: 14px; }
 .admin-alert--error { background: #ffe5e5; color: #c00; border: 1px solid #ffcaca; }
+.admin-alert--success { background: #e3f5e9; color: #1a7a2e; border: 1px solid #b8e6c6; }
 
 /* ---- Login ---- */
 .admin-login {
@@ -1900,3 +1901,77 @@ select.admin-sbadge-select option { background: #fff; color: #303030; }
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/* ===================================================================
+   CONFIRM DIALOG — styled replacement for window.confirm()
+   =================================================================== */
+.admin-confirm {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: admin-confirm-fade 0.12s ease-out;
+}
+@keyframes admin-confirm-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.admin-confirm__box {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 26px 22px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+  animation: admin-confirm-pop 0.14s ease-out;
+}
+@keyframes admin-confirm-pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.admin-confirm__close {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: none; border-radius: 8px;
+  color: #8a8a8a; font-size: 17px; cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.admin-confirm__close:hover { background: #f1f1f1; color: #303030; }
+
+.admin-confirm__icon {
+  width: 52px; height: 52px;
+  margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: #f1f1f1;
+  color: #616161;
+  font-size: 24px;
+}
+.admin-confirm__icon--danger { background: #fdeceb; color: #d72c0d; }
+
+.admin-confirm__title {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.admin-confirm__text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #616161;
+}
+
+.admin-confirm__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+.admin-confirm__actions .admin-sbtn { flex: 1; justify-content: center; }

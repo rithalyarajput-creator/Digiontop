@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit2, FiTrash2, FiSearch, FiFileText } from 'react-icons/fi';
 import { apiGet, apiPut, apiDelete } from '../api';
+import { useConfirm } from '../components/useConfirm';
 
 const STATUS_TABS = [
   { key: 'all', label: 'All' },
@@ -32,6 +33,8 @@ export default function BlogList() {
 
   // bulk
   const [selected, setSelected] = useState(new Set());
+
+  const { confirm, dialog } = useConfirm();
 
   async function load() {
     setLoading(true);
@@ -84,17 +87,23 @@ export default function BlogList() {
       await apiPut('/blog', { id: post.id, status });
       setPosts((prev) => prev.map((p) => (p.id === post.id ? { ...p, status } : p)));
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
   async function remove(id) {
-    if (!confirm('Delete this post?')) return;
+    const ok = await confirm({
+      title: 'Delete this post?',
+      message: 'This blog post will be permanently removed. This action cannot be undone.',
+      confirmLabel: 'Delete',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await apiDelete(`/blog?id=${id}`);
       setPosts((prev) => prev.filter((p) => p.id !== id));
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
@@ -119,20 +128,26 @@ export default function BlogList() {
       setPosts((prev) => prev.map((p) => (selected.has(p.id) ? { ...p, status } : p)));
       setSelected(new Set());
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
   async function bulkDelete() {
     const ids = [...selected];
     if (!ids.length) return;
-    if (!confirm(`Delete ${ids.length} selected post(s)?`)) return;
+    const ok = await confirm({
+      title: `Delete ${ids.length} selected post${ids.length === 1 ? '' : 's'}?`,
+      message: 'These blog posts will be permanently removed. This action cannot be undone.',
+      confirmLabel: `Delete ${ids.length} post${ids.length === 1 ? '' : 's'}`,
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await Promise.all(ids.map((id) => apiDelete(`/blog?id=${id}`)));
       setPosts((prev) => prev.filter((p) => !selected.has(p.id)));
       setSelected(new Set());
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
@@ -301,6 +316,8 @@ export default function BlogList() {
           </table>
         </div>
       </div>
+
+      {dialog}
     </div>
   );
 }

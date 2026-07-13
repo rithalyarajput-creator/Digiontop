@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { FiPlus, FiTrash2, FiEdit2, FiTag } from 'react-icons/fi';
 import { apiGet, apiPost, apiPut, apiDelete } from '../api';
+import { useConfirm } from '../components/useConfirm';
 
 /* Resize + compress an image file in the browser, return { mime, base64 } */
 function compressImage(file, maxWidth = 600, quality = 0.85) {
@@ -40,6 +41,7 @@ export default function Categories() {
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const fileRef = useRef(null);
+  const { confirm, dialog } = useConfirm();
 
   async function handleImageUpload(e) {
     const file = e.target.files && e.target.files[0];
@@ -93,6 +95,7 @@ export default function Categories() {
   async function handleSave(e) {
     e.preventDefault();
     if (!form.name.trim()) return;
+    setError('');
     try {
       if (editId) {
         const updated = await apiPut('/cms?resource=categories', { id: editId, ...form });
@@ -103,7 +106,7 @@ export default function Categories() {
       }
       setShowForm(false); setForm(EMPTY); setEditId(null);
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
@@ -112,17 +115,23 @@ export default function Categories() {
       const updated = await apiPut('/cms?resource=categories', { id: c.id, is_active: !c.is_active });
       setItems((prev) => prev.map((x) => (x.id === c.id ? updated : x)));
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
   async function remove(c) {
-    if (!confirm(`Delete category "${c.name}"?`)) return;
+    const ok = await confirm({
+      title: `Delete category "${c.name}"?`,
+      message: 'This category will be permanently removed. This action cannot be undone.',
+      confirmLabel: 'Delete category',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await apiDelete(`/cms?resource=categories&id=${c.id}`);
       setItems((prev) => prev.filter((x) => x.id !== c.id));
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
@@ -252,6 +261,8 @@ export default function Categories() {
           </tbody>
         </table>
       </div>
+
+      {dialog}
     </div>
   );
 }

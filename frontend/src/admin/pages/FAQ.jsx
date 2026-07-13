@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FiPlus, FiEdit2, FiTrash2 } from 'react-icons/fi';
 import { apiGet, apiPost, apiPut, apiDelete } from '../api';
+import { useConfirm } from '../components/useConfirm';
 
 const EMPTY = {
   question: '', answer: '', category: 'General', sort_order: 0, is_active: true,
@@ -12,6 +13,7 @@ export default function FAQ() {
   const [editId, setEditId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState('');
+  const { confirm, dialog } = useConfirm();
 
   async function load() {
     try { setItems(await apiGet('/faq')); }
@@ -28,14 +30,21 @@ export default function FAQ() {
       if (editId) await apiPut('/faq', { id: editId, ...form });
       else await apiPost('/faq', form);
       setShowForm(false);
+      setError('');
       load();
-    } catch (err) { alert(err.message); }
+    } catch (err) { setError(err.message); }
   }
 
   async function remove(id) {
-    if (!confirm('Delete this FAQ?')) return;
+    const ok = await confirm({
+      title: 'Delete this FAQ?',
+      message: 'This question and its answer will be permanently removed from your site. This action cannot be undone.',
+      confirmLabel: 'Delete FAQ',
+      danger: true,
+    });
+    if (!ok) return;
     try { await apiDelete(`/faq?id=${id}`); load(); }
-    catch (err) { alert(err.message); }
+    catch (err) { setError(err.message); }
   }
 
   return (
@@ -118,6 +127,8 @@ export default function FAQ() {
           </tbody>
         </table>
       </div>
+
+      {dialog}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { FiTrash2, FiSearch, FiDownload } from 'react-icons/fi';
 import { apiGet, apiDelete } from '../api';
+import { useConfirm } from '../components/useConfirm';
 
 export default function Newsletter() {
   const [subs, setSubs] = useState([]);
@@ -8,6 +9,7 @@ export default function Newsletter() {
   const [selected, setSelected] = useState(new Set());
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const { confirm, dialog } = useConfirm();
 
   async function load() {
     setLoading(true);
@@ -44,25 +46,38 @@ export default function Newsletter() {
   }
 
   async function remove(id) {
-    if (!confirm('Remove this subscriber?')) return;
+    const sub = subs.find((s) => s.id === id);
+    const ok = await confirm({
+      title: sub ? `Remove subscriber "${sub.email}"?` : 'Remove this subscriber?',
+      message: 'They will be removed from the newsletter list. This action cannot be undone.',
+      confirmLabel: 'Remove',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await apiDelete(`/cms?resource=newsletter&id=${id}`);
       setSubs((prev) => prev.filter((s) => s.id !== id));
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
   async function bulkDelete() {
     const ids = [...selected];
     if (!ids.length) return;
-    if (!confirm(`Delete ${ids.length} selected subscriber(s)?`)) return;
+    const ok = await confirm({
+      title: `Delete ${ids.length} selected subscriber${ids.length === 1 ? '' : 's'}?`,
+      message: 'This action cannot be undone.',
+      confirmLabel: `Delete ${ids.length}`,
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await apiDelete(`/cms?resource=newsletter&ids=${ids.join(',')}`);
       setSubs((prev) => prev.filter((s) => !selected.has(s.id)));
       setSelected(new Set());
     } catch (err) {
-      alert(err.message);
+      setError(err.message);
     }
   }
 
@@ -161,6 +176,8 @@ export default function Newsletter() {
           </tbody>
         </table>
       </div>
+
+      {dialog}
     </div>
   );
 }

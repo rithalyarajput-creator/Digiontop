@@ -18,6 +18,7 @@ export default function Settings() {
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -61,9 +62,11 @@ export default function Settings() {
       try {
         const data = JSON.parse(reader.result);
         setForm((p) => ({ ...p, ...data }));
-        alert('Backup loaded into the form. Click "Save Settings" to apply.');
+        setError('');
+        setNotice('Backup loaded into the form. Click "Save Settings" to apply.');
       } catch {
-        alert('Invalid backup file.');
+        setNotice('');
+        setError('Invalid backup file.');
       }
     };
     reader.readAsText(file);
@@ -82,6 +85,7 @@ export default function Settings() {
       </div>
 
       {error && <div className="admin-alert admin-alert--error">{error}</div>}
+      {notice && <div className="admin-alert admin-alert--success">{notice}</div>}
       {saved && (
         <div style={{ background: '#d6f5dd', color: '#1a9e4b', padding: '12px 16px', borderRadius: 8, marginBottom: 20, fontWeight: 600 }}>
           Settings saved & applied across the website!
