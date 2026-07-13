@@ -15,6 +15,13 @@
  *
  * Dynamic routes (/blog/:slug) are intentionally skipped: their content lives
  * in the database, so they are crawled the ordinary way.
+ *
+ * WHY THIS RUNS LOCALLY, AND WHY dist/ IS COMMITTED:
+ * Vercel's build image downloads Chrome fine but lacks the shared libraries it
+ * links against (libnspr4.so), so Puppeteer cannot launch there — the build
+ * fails with code 127. So vercel.json runs no build at all: it serves the
+ * committed frontend/dist as-is. That means **any frontend change needs
+ * `npm run build` re-run and dist/ committed**, or the deploy ships stale HTML.
  */
 import fs from 'node:fs'
 import path from 'node:path'
