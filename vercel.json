@@ -1,6 +1,5 @@
 {
   "buildCommand": "echo 'Serving prerendered frontend/dist (see frontend/scripts/prerender.js)'",
-  "installCommand": "echo 'Skipping install — dist is prebuilt and committed'",
   "outputDirectory": "frontend/dist",
   "rewrites": [
     { "source": "/robots.txt", "destination": "/api/seo?type=robots" },
