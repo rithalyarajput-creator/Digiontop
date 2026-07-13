@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiPieChart, FiAlertTriangle,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import SeoAuditTool from '../../components/SeoAuditTool'
 import Seo from '../../components/Seo'
 import '../../styles/SeoAudit.css'
 
@@ -44,12 +45,17 @@ export default function SeoAudit() {
             <h1 className="aud-hero__title">Know Exactly Why<br /><span>You're Not Ranking</span></h1>
             <p className="aud-hero__sub">A 150-point deep-dive into your site's SEO — technical, content, links and competitors — with a clear, prioritised action plan you can actually act on.</p>
             <div className="aud-hero__cta">
-              <Link to="/contact" className="aud-btn aud-btn--solid">Get My Audit <FiArrowRight /></Link>
-              <Link to="/contact" className="aud-btn aud-btn--ghost">See a Sample Report</Link>
+              <a href="#free-seo-audit" className="aud-btn aud-btn--solid">Run My Free Audit <FiArrowRight /></a>
+              <Link to="/contact" className="aud-btn aud-btn--ghost">Talk to an Expert</Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* FREE INSTANT AUDIT TOOL */}
+      <div id="free-seo-audit">
+        <SeoAuditTool />
+      </div>
 
       {/* area scores */}
       <section className="aud-areas">

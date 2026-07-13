@@ -2048,3 +2048,77 @@ select.admin-sbadge-select option { background: #fff; color: #303030; }
   font-size: 13px;
   color: #616161;
 }
+
+/* ===================================================================
+   LEADS — WHATSAPP QUICK-CHAT + NOTES / FOLLOW-UP REMINDERS
+   Appended block. Reuses .admin-sbtn, .admin-slink-btn, .admin-sfield,
+   .admin-metric(s)-grid, .admin-smodal__* from the blocks above.
+   =================================================================== */
+
+/* 5-column metrics strip (Total / New / Converted / Rate / Follow-ups due) */
+.admin-metrics-grid--5 { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 1024px) {
+  .admin-metrics-grid--5 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .admin-metrics-grid--5 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* WhatsApp row action (text-button in the table) */
+.admin-slink-btn--wa {
+  color: #25D366;
+  text-decoration: none;
+}
+.admin-slink-btn--wa:hover { background: #e6f9ee; color: #128C4A; }
+.admin-slink-btn--wa svg { color: #25D366; }
+.admin-slink-btn--wa:hover svg { color: #128C4A; }
+
+/* WhatsApp button in the lead detail modal footer */
+.admin-sbtn--wa {
+  margin-right: auto;               /* push it to the left of Close / Convert */
+  background: #25D366;
+  border-color: #25D366;
+  color: #fff;
+}
+.admin-sbtn--wa:hover:not(:disabled) { background: #1eb757; border-color: #1eb757; color: #fff; }
+.admin-sbtn--wa svg { color: #fff; }
+
+/* Follow-up pill in the leads table (sits under the status badge) */
+.admin-followup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1875rem;
+  margin-top: 0.25rem;
+  padding: 0.0625rem 0.5rem;
+  border-radius: 50rem;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.6;
+  white-space: nowrap;
+  cursor: default;
+  background: #eef4ff;
+  color: #005bd3;
+  border: 1px solid #d4e4fb;
+}
+/* due today or overdue — this is the whole point of the feature */
+.admin-followup--due {
+  background: #ffe0db;
+  color: #b71c00;
+  border-color: #f3c4bc;
+  font-weight: 600;
+}
+
+/* Notes / follow-up editor inside the lead modal */
+.admin-lead-notes,
+.admin-lead-followup-date { margin-bottom: 0; }
+.admin-lead-notes { margin-top: 0.25rem; }
+.admin-lead-notes textarea { min-height: 4.5rem; }
+.admin-lead-followup-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+.admin-lead-followup-date { flex: 0 1 12rem; }
+.admin-lead-saved { font-size: 12px; color: #1a7a2e; font-weight: 500; }

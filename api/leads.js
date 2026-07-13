@@ -31,13 +31,28 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'PUT') {
-      const { id, status } = req.body || {};
-      if (!id || !status) {
-        return res.status(400).json({ error: 'id and status are required' });
+      const { id, status, notes, follow_up_at } = req.body || {};
+      if (!id) {
+        return res.status(400).json({ error: 'id is required' });
       }
+      if (status === undefined && notes === undefined && follow_up_at === undefined) {
+        return res.status(400).json({ error: 'nothing to update' });
+      }
+      // Only write the fields the caller actually sent, so saving a note can't
+      // wipe the status (and vice versa).
+      //
+      // A plain COALESCE(new, old) isn't enough for follow_up_at: clearing a
+      // reminder means sending null, which COALESCE would read as "leave it
+      // alone". So pass an explicit per-field flag and let SQL choose.
+      const setStatus = status !== undefined;
+      const setNotes = notes !== undefined;
+      const setFollowUp = follow_up_at !== undefined;
+
       const rows = await sql`
-        UPDATE contact_leads
-        SET status = ${status}
+        UPDATE contact_leads SET
+          status       = CASE WHEN ${setStatus}   THEN ${status ?? null}       ELSE status       END,
+          notes        = CASE WHEN ${setNotes}    THEN ${notes ?? null}        ELSE notes        END,
+          follow_up_at = CASE WHEN ${setFollowUp} THEN ${follow_up_at || null} ELSE follow_up_at END
         WHERE id = ${id}
         RETURNING *
       `;

@@ -156,9 +156,16 @@ export default async function handler(req, res) {
         message TEXT,
         source VARCHAR(100) DEFAULT 'website',
         status VARCHAR(20) DEFAULT 'new' CHECK (status IN ('new', 'contacted', 'converted', 'closed')),
+        notes TEXT,
+        follow_up_at DATE,
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
+
+    // Leads grew follow-up tracking after the table was first created, so
+    // back-fill the columns on existing databases.
+    await sql`ALTER TABLE contact_leads ADD COLUMN IF NOT EXISTS notes TEXT`;
+    await sql`ALTER TABLE contact_leads ADD COLUMN IF NOT EXISTS follow_up_at DATE`;
 
     await sql`
       CREATE TABLE IF NOT EXISTS testimonials (
