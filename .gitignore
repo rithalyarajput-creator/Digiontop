@@ -4,8 +4,11 @@ frontend/node_modules/
 
 # Build output
 dist/
-frontend/dist/
 build/
+
+# frontend/dist is deliberately NOT ignored: the site is prerendered to static
+# HTML locally (Vercel's build image can't run Chrome), and Vercel serves the
+# committed output. Run `npm run build` in frontend/ before pushing.
 
 # Environment files (keep .env.example)
 .env

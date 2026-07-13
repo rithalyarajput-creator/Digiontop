@@ -1,6 +1,8 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build",
+  "_comment": "No build step here on purpose. The site is prerendered to static HTML by `npm run build` locally (see frontend/scripts/prerender.js) and frontend/dist is committed. Vercel's build image lacks the system libraries Chrome needs (libnspr4.so), so Puppeteer cannot launch there — building on Vercel would overwrite the prerendered pages with the empty SPA shell.",
+  "buildCommand": "echo 'Serving prerendered frontend/dist (built locally)'",
   "outputDirectory": "frontend/dist",
+  "installCommand": "echo 'Skipping install — dist is prebuilt'",
   "rewrites": [
     { "source": "/robots.txt", "destination": "/api/seo?type=robots" },
     { "source": "/sitemap.xml", "destination": "/api/seo?type=sitemap" },
