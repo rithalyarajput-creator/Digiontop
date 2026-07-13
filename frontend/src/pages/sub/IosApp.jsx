@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiSmartphone, FiZap, FiShield, FiStar, FiTrendingUp, FiLayers, FiArrowRight, FiArrowUpRight, FiCheckCircle, FiUsers } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/MobilePages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function IosApp() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ios">
+      <Seo
+        title="iOS App Development Company"
+        description="Native Swift and SwiftUI apps for iPhone and iPad, built to Apple's HIG with TestFlight builds every sprint and full App Store submission. Book a free consultation."
+        path="/services/mobile/ios"
+      />
       <section className="ios-hero ios-hero--light">
         <div className="ios-container ios-hero__inner">
           <div className="ios-hero__text" data-aos="fade-right">

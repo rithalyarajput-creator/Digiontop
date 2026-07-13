@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Seo from '../../components/Seo'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -34,6 +35,11 @@ export default function BrandingIdentity() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="Branding & Identity Design Services"
+        description="Logo variations, a documented colour and typography system, brand guidelines and stationery templates that keep your brand consistent everywhere. Build your brand with us."
+        path="/services/branding-identity"
+      />
       {/* HERO — split */}
       <section className="ss-hero">
         <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />

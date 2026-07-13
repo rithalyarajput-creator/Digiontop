@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Seo from '../components/Seo'
 import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
@@ -50,6 +51,11 @@ export default function MobileSoftware() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="Mobile App & Software Development Company"
+        description="Custom mobile apps, SaaS platforms, APIs, cloud and DevOps built for iOS, Android and Flutter — scalable, secure and fully owned by you. Start your project today."
+        path="/services/mobile-software"
+      />
       {/* HERO */}
       <section className="ss-hero ss-hero--white">
         <div className="ss-container ss-hero__center" data-aos="fade-up">

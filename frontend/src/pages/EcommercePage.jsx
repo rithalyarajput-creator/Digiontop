@@ -45,7 +45,7 @@ export default function EcommercePage() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
-      <Seo title="E-Commerce Solutions — Amazon, Flipkart & Shopify | DigionTop" description="Scale your online sales on Amazon, Flipkart, Meesho & Shopify. Product listings, SEO, catalog & sponsored ads that drive growth. Get a free store audit." path="/services/ecommerce" />
+      <Seo title="E-Commerce Solutions — Amazon, Flipkart & Shopify | DigionTop" description="Scale your online sales on Amazon, Flipkart, Meesho & Shopify. Product listings, SEO, catalog & sponsored ads that drive growth. Get a free store audit." path="/services/ecommerce-solutions" />
       {/* HERO */}
       <section className="ss-hero ss-hero--white">
         <div className="ss-container ss-hero__center" data-aos="fade-up">

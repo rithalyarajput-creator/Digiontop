@@ -8,6 +8,7 @@ import {
   FiClock, FiUsers, FiCheckCircle,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
@@ -50,6 +51,11 @@ export default function WordPressDev() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="wp">
+      <Seo
+        title="WordPress Development Company in India"
+        description="Custom WordPress websites and themes that load fast, stay secure and rank well, with an editor your team can actually use. Get a free WordPress quote today."
+        path="/services/wordpress-development"
+      />
       <section className="wp-hero wp-hero--dark">
         <div className="wp-hero__grid" />
         <div className="wp-container wp-hero__inner">

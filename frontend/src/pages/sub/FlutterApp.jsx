@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiSmartphone, FiZap, FiCode, FiDollarSign, FiLayers, FiTrendingUp, FiArrowRight, FiArrowUpRight, FiRefreshCw, FiShield, FiUsers } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/MobilePages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function FlutterApp() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="flt">
+      <Seo
+        title="Flutter App Development Company"
+        description="Cross-platform Flutter apps built from one Dart codebase — near-native speed on iOS and Android, shipped in 6-12 weeks at half the cost. Book a free consultation today."
+        path="/services/mobile/flutter"
+      />
       <section className="flt-hero flt-hero--light">
         <div className="flt-container flt-hero__inner">
           <div className="flt-hero__text" data-aos="fade-right">

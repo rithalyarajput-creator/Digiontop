@@ -8,6 +8,7 @@ import {
   FiShield, FiUsers,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
@@ -47,6 +48,11 @@ export default function CustomWebsite() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="wd">
+      <Seo
+        title="Custom Website Development Services"
+        description="Bespoke websites built in React and Next.js — no templates, sub-2-second loads, SEO-ready and fully responsive, with the code handed over to you. Start your project today."
+        path="/services/custom-website"
+      />
       <section className="wd-hero wd-hero--dark">
         <div className="wd-hero__grid" />
         <div className="wd-container wd-hero__inner">

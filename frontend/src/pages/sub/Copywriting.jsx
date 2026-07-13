@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiFeather,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function Copywriting() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="cp">
+      <Seo
+        title="Conversion Copywriting Services"
+        description="Persuasive copy for landing pages, ads, emails and product descriptions — written in your brand voice to grab attention and drive action. Get a free copy review today."
+        path="/services/social/copywriting"
+      />
       <section className="cp-hero">
         <div className="cp-container cp-hero__inner">
           <div className="cp-hero__text" data-aos="fade-right">

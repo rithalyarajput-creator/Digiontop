@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Seo from '../../components/Seo'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -39,6 +40,11 @@ export default function AndroidApp() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="and">
+      <Seo
+        title="Android App Development Company"
+        description="Native Kotlin and Jetpack Compose Android apps built to Material 3 standards, fast on low-end phones and shipped to the Play Store for you. Discuss your app idea today."
+        path="/services/mobile/android"
+      />
       <section className="and-hero and-hero--dark">
         <div className="and-hero__grid" />
         <div className="and-container and-hero__inner">

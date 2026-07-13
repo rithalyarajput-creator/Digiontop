@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Seo from '../components/Seo';
+import JsonLd, { toPlainText } from '../components/JsonLd';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 import { FiCheckCircle, FiArrowRight, FiCalendar } from 'react-icons/fi';
@@ -55,8 +57,38 @@ export default function BlogPost() {
   const authorObj = authors.find((a) => a.name === post.author);
   const authorAvatar = authorObj?.avatar_url;
 
+  // BlogPosting schema — only real post data; fields are omitted when absent.
+  const SITE = 'https://www.digiontop.com';
+  const postDescription = toPlainText(post.meta_description || post.excerpt || '');
+  const postSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.slug || slug}` },
+    ...(postDescription ? { description: postDescription } : {}),
+    ...(post.image_url ? { image: post.image_url } : {}),
+    ...(post.created_at ? { datePublished: new Date(post.created_at).toISOString() } : {}),
+    ...(post.updated_at || post.created_at
+      ? { dateModified: new Date(post.updated_at || post.created_at).toISOString() }
+      : {}),
+    ...(post.author ? { author: { '@type': 'Person', name: post.author } } : {}),
+    publisher: {
+      '@type': 'Organization',
+      name: 'DigionTop',
+      logo: { '@type': 'ImageObject', url: `${SITE}/images/logo-header.webp` },
+    },
+  };
+
   return (
     <main className="blogpost-page2">
+      <JsonLd data={postSchema} />
+      <Seo
+        title={post.meta_title || post.title}
+        description={post.meta_description || post.excerpt || `Read "${post.title}" on the DigionTop blog — practical digital marketing insight for growing Indian businesses.`}
+        path={`/blog/${post.slug || slug}`}
+        type="article"
+        image={post.image_url || undefined}
+      />
       <div className="blogpost2">
 
         {/* ── LEFT: Article ── */}

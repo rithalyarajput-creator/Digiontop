@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiPieChart, FiAlertTriangle,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SeoAudit.css'
 
 const FAQS = [
@@ -30,6 +31,11 @@ export default function SeoAudit() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="aud">
+      <Seo
+        title="SEO Audit Services — 150-Point Site Audit"
+        description="A 150-point SEO audit of your technical health, content, backlinks, Core Web Vitals and competitor gaps, with a prioritised fix list. Get a free starter audit."
+        path="/services/seo-audit"
+      />
       {/* HERO — scorecard */}
       <section className="aud-hero">
         <div className="aud-container aud-hero__inner">

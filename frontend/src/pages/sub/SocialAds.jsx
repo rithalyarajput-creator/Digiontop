@@ -7,6 +7,7 @@ import {
   FiTrendingUp, FiCheck, FiArrowRight, FiArrowUpRight, FiLayers,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SocialAds.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function SocialAds() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="sa">
+      <Seo
+        title="Social Media Advertising Agency in India"
+        description="Paid social campaigns across Meta, LinkedIn, YouTube and X, with native creative, unified tracking and budget shifted to winners. Get a free paid-social audit."
+        path="/services/social-advertising"
+      />
       {/* HERO — orbiting platforms */}
       <section className="sa-hero">
         <div className="sa-container sa-hero__inner">

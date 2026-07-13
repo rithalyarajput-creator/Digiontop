@@ -67,7 +67,7 @@ export default function CreativeBranding() {
 
   return (
     <main className="cb-page">
-      <Seo title="Branding & Creative Design Services | DigionTop" description="Logos, brand identity, social creatives & marketing design that make your brand memorable. Premium branding from ₹4,000. Get a free brand review today." path="/services/branding" />
+      <Seo title="Branding & Creative Design Services | DigionTop" description="Logos, brand identity, social creatives & marketing design that make your brand memorable. Premium branding from ₹4,000. Get a free brand review today." path="/services/creative-branding" />
       {/* ── HERO ── */}
       <section className="cbp-hero cbp-hero--split">
         <div className="cbp-container cbp-hero__grid">

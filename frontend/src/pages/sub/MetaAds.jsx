@@ -7,6 +7,7 @@ import {
   FiTarget, FiCheck, FiArrowRight, FiArrowUpRight, FiUsers, FiZap,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/MetaAds.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function MetaAds() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="meta">
+      <Seo
+        title="Facebook & Instagram Ads Management"
+        description="Creative-led Meta campaigns with reels, carousels and instant lead forms, plus Pixel retargeting and lookalikes optimised daily for cheaper leads. Get a free ad review."
+        path="/services/meta-ads"
+      />
       {/* HERO */}
       <section className="meta-hero">
         <div className="meta-container meta-hero__inner">

@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiBarChart2, FiMousePointer,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/GoogleAds.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function GoogleAds() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="gads">
+      <Seo
+        title="Google Ads Management Services in India"
+        description="Search, Shopping, Performance Max and remarketing campaigns managed to lower your cost-per-lead and lift ROAS, with full conversion tracking. Get a free ad account audit."
+        path="/services/google-ads"
+      />
       {/* HERO — google search mock */}
       <section className="gads-hero">
         <div className="gads-container gads-hero__inner">

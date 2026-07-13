@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiCalendar, FiBarChart2,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function SocialMediaMarketing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="smm">
+      <Seo
+        title="Social Media Marketing Agency in India"
+        description="Strategy, reels, posts and community management that grow your following and turn engagement into paying customers across every platform. Free social audit."
+        path="/services/social/social-media-marketing"
+      />
       {/* HERO — engagement counters */}
       <section className="smm-hero">
         <div className="smm-container smm-hero__inner">

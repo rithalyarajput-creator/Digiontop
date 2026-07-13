@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiX, FiShield, FiClock,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
@@ -46,6 +47,11 @@ export default function WebsiteRedesign() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="rd">
+      <Seo
+        title="Website Redesign Services That Convert"
+        description="Turn a slow, dated site into a fast, mobile-first, high-converting one, with 301 redirects that protect your Google rankings. Get a free website review today."
+        path="/services/website-redesign"
+      />
       <section className="rd-hero rd-hero--light">
         <div className="rd-container rd-hero__inner">
           <div className="rd-hero__text" data-aos="fade-right">

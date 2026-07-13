@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiHash,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function SeoContentWriting() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="cw">
+      <Seo
+        title="SEO Content Writing Services for Websites"
+        description="Keyword-researched blogs, landing pages and product copy written to rank on Google and convert readers into leads. Request a free SEO content sample today."
+        path="/services/social/seo-content-writing"
+      />
       <section className="cw-hero">
         <div className="cw-container cw-hero__inner">
           <div className="cw-hero__text" data-aos="fade-right">

@@ -20,7 +20,13 @@ function buildFaqs(tag) {
 }
 
 /* Reusable layout for the E-Commerce / Mobile / Social sub-service pages.
-   Each page passes its own data — same animated structure, distinct content. */
+   Each page passes its own data — same animated structure, distinct content.
+
+   SEO note: this component is never routed directly — it is always rendered by a
+   routed wrapper (EcomServicePage / MobileServicePage / SocialServicePage). Only
+   those wrappers know the real URL for the current slug, so each one renders its
+   own <Seo> with a per-slug title, description and canonical. Deliberately no
+   <Seo> here: a shared template has no single canonical URL of its own. */
 export default function MarketplacePage({ tag, icon, titleA, titleB, intro, intro2, services, benefits, ctaTitle, ctaText, heroImg, category }) {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (

@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiGrid, FiEdit3, FiRefreshCw, FiPackage, FiCheckCircle, FiTrendingUp, FiArrowRight, FiArrowUpRight, FiDatabase, FiUploadCloud, FiLayers, FiShield } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function CatalogManagement() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="cat">
+      <Seo
+        title="E-Commerce Catalog Management Services"
+        description="Bulk product uploads, variation mapping and real-time stock sync across Amazon, Flipkart and Meesho. We keep your catalogue accurate and error-free. Get a free consultation."
+        path="/services/ecom/catalog-management"
+      />
       <section className="cat-hero cat-hero--dark">
         <div className="cat-container cat-hero__inner">
           <div className="cat-hero__text" data-aos="fade-right">

@@ -8,6 +8,7 @@ import {
   FiShield, FiUsers, FiUploadCloud,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/MobilePages.css'
 
 const FAQS = [
@@ -50,6 +51,11 @@ export default function MobileApp() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="mob">
+      <Seo
+        title="Mobile App Development Company"
+        description="Native and cross-platform apps for iOS and Android with secure APIs, push notifications and full App Store and Play Store launch support. Get your app blueprint free."
+        path="/services/mobile/mobile-app"
+      />
       <section className="mob-hero mob-hero--dark">
         <div className="mob-hero__grid" />
         <div className="mob-container mob-hero__inner">

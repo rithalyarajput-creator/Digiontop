@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiEdit3,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function SocialMediaManagement() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="sm">
+      <Seo
+        title="Social Media Management Services"
+        description="Content calendars, on-brand posts and reels, daily community replies and monthly reports: your social accounts fully handled. Get a free sample content plan."
+        path="/services/social/social-media-management"
+      />
       <section className="sm-hero">
         <div className="sm-container sm-hero__inner">
           <div className="sm-hero__text" data-aos="fade-right">

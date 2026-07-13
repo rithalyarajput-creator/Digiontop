@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiGitBranch, FiRefreshCw, FiActivity, FiShield, FiServer, FiZap, FiCheck, FiArrowRight, FiArrowUpRight, FiClock, FiTrendingUp } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/MobilePages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function DevOpsServices() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="dop">
+      <Seo
+        title="DevOps Services & CI/CD Automation"
+        description="CI/CD pipelines, Docker and Kubernetes, Terraform infrastructure-as-code and 24/7 monitoring — so your team deploys in minutes with one-click rollback. Get a free DevOps audit."
+        path="/services/mobile/devops"
+      />
       <section className="dop-hero dop-hero--dark">
         <div className="dop-hero__grid" />
         <div className="dop-container dop-hero__inner">

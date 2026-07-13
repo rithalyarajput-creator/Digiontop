@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiImage, FiCrop, FiLayers, FiZap, FiStar, FiTrendingUp, FiCheck, FiArrowRight, FiArrowUpRight, FiCamera, FiClock, FiRefreshCw, FiShield, FiAperture } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function ProductImage() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="pim">
+      <Seo
+        title="Product Photography & Infographics"
+        description="Studio product shots, lifestyle images, feature infographics and A+ content built to Amazon, Flipkart and Meesho specs so listings convert. See samples of our work."
+        path="/services/ecom/product-image"
+      />
       <section className="pim-hero pim-hero--light">
         <div className="pim-container pim-hero__inner">
           <div className="pim-hero__text" data-aos="fade-right">

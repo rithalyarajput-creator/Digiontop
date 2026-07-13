@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiSearch, FiClock } from 'react-icons/fi';
 import '../styles/Blog.css';
@@ -42,6 +43,11 @@ export default function Blog() {
 
   return (
     <main className="blog-page">
+      <Seo
+        title="Digital Marketing Blog — SEO, Social & E-Commerce Tips"
+        description="Practical digital marketing insights from DigionTop — SEO tactics, social media strategy, e-commerce growth tips and real case studies. Start reading today."
+        path="/blog"
+      />
       {/* Hero */}
       <section className="blog-hero">
         <div className="blog-hero__content">

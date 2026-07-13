@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 import '../styles/Testimonials.css';
 
@@ -47,6 +48,11 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <main className="testimonials-page">
+      <Seo
+        title="Client Testimonials & Reviews — Real Results"
+        description="Read honest reviews from Amazon sellers, restaurant owners, founders and consultants across India who grew their sales with DigionTop. See if we are the right fit."
+        path="/testimonials"
+      />
       {/* ══════════════════════════════════════
           1. PAGE HERO
       ══════════════════════════════════════ */}

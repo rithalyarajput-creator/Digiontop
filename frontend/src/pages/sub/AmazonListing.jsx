@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Seo from '../../components/Seo'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -39,6 +40,11 @@ export default function AmazonListing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="amz">
+      <Seo
+        title="Amazon Listing Optimization Services in India"
+        description="Rank higher and win the Buy Box with keyword-rich Amazon titles, SEO bullet points, backend search terms and A+ Content built to convert. Get a free listing review."
+        path="/services/ecom/amazon"
+      />
       <section className="amz-hero amz-hero--light">
         <div className="amz-container amz-hero__inner">
           <div className="amz-hero__text" data-aos="fade-right">

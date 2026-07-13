@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiShoppingBag, FiUploadCloud, FiGrid, FiZap, FiTrendingUp, FiTag, FiArrowRight, FiArrowUpRight, FiDollarSign, FiUsers, FiShield, FiHeadphones } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function MeeshoListing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="msh">
+      <Seo
+        title="Meesho Product Listing & Catalogue Services"
+        description="Supplier Panel setup, bulk catalogue upload and return-adjusted pricing that clears Meesho approval fast and appeals to its reseller network. Start listing on Meesho."
+        path="/services/ecom/meesho"
+      />
       <section className="msh-hero msh-hero--light">
         <div className="msh-container msh-hero__inner">
           <div className="msh-hero__text" data-aos="fade-right">

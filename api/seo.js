@@ -1,9 +1,44 @@
 import { sql } from './_lib/db.js';
 
+/**
+ * Every crawlable page on the site. This used to list only 13 routes, which
+ * quietly excluded ~54 service pages from the sitemap. Keep it in sync when
+ * routes are added to frontend/src/App.jsx.
+ */
 const STATIC_ROUTES = [
-  '', 'about', 'services/website-development', 'services/seo-services',
-  'services/social-media-marketing', 'services/ecommerce-solutions',
-  'why-us', 'industries', 'testimonials', 'faq', 'contact', 'work', 'blog',
+  '', 'about', 'why-us', 'industries', 'portfolio', 'work', 'blog', 'contact',
+  'faq', 'testimonials',
+  // Web development
+  'services/website-development', 'services/custom-website',
+  'services/business-website', 'services/wordpress-development',
+  'services/shopify-development', 'services/custom-web-application',
+  'services/woocommerce-development', 'services/website-redesign',
+  'services/landing-page-design',
+  // SEO
+  'services/seo-services', 'services/local-seo', 'services/technical-seo',
+  'services/ecommerce-seo', 'services/enterprise-seo', 'services/seo-audit',
+  'services/link-building',
+  // Paid ads
+  'services/ppc', 'services/google-ads', 'services/meta-ads',
+  'services/social-advertising', 'services/linkedin-ads', 'services/youtube-ads',
+  // Social & content
+  'services/social-media-marketing', 'services/social/social-media-marketing',
+  'services/social/content-marketing', 'services/social/email-marketing',
+  'services/social/social-media-management', 'services/social/influencer-marketing',
+  'services/social/seo-content-writing', 'services/social/copywriting',
+  // Mobile & software
+  'services/mobile-software', 'services/mobile/mobile-app', 'services/mobile/ios',
+  'services/mobile/android', 'services/mobile/flutter', 'services/mobile/cloud',
+  'services/mobile/api', 'services/mobile/saas', 'services/mobile/devops',
+  // E-commerce
+  'services/ecommerce-solutions', 'services/ecom/amazon', 'services/ecom/flipkart',
+  'services/ecom/meesho', 'services/ecom/product-seo', 'services/ecom/product-image',
+  'services/ecom/catalog-management', 'services/ecom/account-management',
+  'services/ecom/growth-consulting',
+  // Creative & branding
+  'services/creative-branding', 'services/branding-identity', 'services/ui-ux-design',
+  'services/video-production', 'services/digital-strategy', 'services/analytics-insights',
+  'services/logo-design', 'services/graphic-design', 'services/cro-services',
 ];
 
 async function robots(req, res) {

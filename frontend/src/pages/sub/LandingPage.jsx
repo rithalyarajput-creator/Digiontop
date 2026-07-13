@@ -8,6 +8,7 @@ import {
   FiClock, FiBarChart2, FiDollarSign, FiRepeat,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
@@ -47,6 +48,11 @@ export default function LandingPage() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="lp">
+      <Seo
+        title="High-Converting Landing Page Design"
+        description="Single-goal landing pages built for ad traffic: message match, persuasive copy, fast mobile builds and conversion tracking. Live in 3-7 days. Start your page today."
+        path="/services/landing-page-design"
+      />
       <section className="lp-hero lp-hero--dark">
         <div className="lp-hero__grid" />
         <div className="lp-container lp-hero__inner">

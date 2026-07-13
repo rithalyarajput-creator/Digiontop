@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiArrowRight, FiArrowUpRight, FiCheck, FiLayout, FiSmartphone, FiGrid, FiPenTool, FiSearch, FiMap, FiTarget, FiTrendingUp, FiX } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SubService.css'
 
 const SERVICES = [
@@ -42,6 +43,11 @@ export default function UiUxDesign() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="UI/UX Design Services for Web & Mobile Apps"
+        description="User research, wireframes, clickable prototypes and polished UI for websites, apps and dashboards, tested with real users. Book a free UI/UX consultation."
+        path="/services/ui-ux-design"
+      />
       <section className="ss-hero" style={{ textAlign: 'center' }}>
         <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />
         <div className="ss-container" style={{ position: 'relative' }} data-aos="fade-up">

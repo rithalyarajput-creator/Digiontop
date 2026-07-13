@@ -163,7 +163,7 @@ export default function SEOServices() {
 
   return (
     <>
-      <Seo title="SEO Services in India — Rank #1 on Google | DigionTop" description="Data-driven SEO services that rank your business #1 on Google. On-page, technical, local & content SEO with a 2x traffic lift in 90 days. Get a free SEO audit." path="/services/seo" />
+      <Seo title="SEO Services in India — Rank #1 on Google | DigionTop" description="Data-driven SEO services that rank your business #1 on Google. On-page, technical, local & content SEO with a 2x traffic lift in 90 days. Get a free SEO audit." path="/services/seo-services" />
       {/* ── Hero — simple centered ─────────────────────────── */}
       <section className="svc-hero svc-hero--center">
         <div className="container">

@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiGrid, FiDollarSign,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/EcommerceSeo.css'
 
 const FAQS = [
@@ -30,6 +31,11 @@ export default function EcommerceSeo() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="eseo">
+      <Seo
+        title="E-Commerce SEO Services for Online Stores"
+        description="Category and product page SEO, faceted navigation fixes and product schema that wins rich snippets — for Shopify, WooCommerce and Magento. Get a free store audit."
+        path="/services/ecommerce-seo"
+      />
       {/* HERO — search result with product cards */}
       <section className="eseo-hero">
         <div className="eseo-container eseo-hero__inner">

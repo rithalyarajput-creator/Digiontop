@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiTrendingUp, FiTarget, FiBarChart2, FiDollarSign, FiCompass, FiZap, FiCheck, FiArrowRight, FiArrowUpRight, FiSearch, FiPieChart, FiMap, FiShield } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function GrowthConsulting() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="grw">
+      <Seo
+        title="E-Commerce Growth Consulting Services"
+        description="Data-backed audits, pricing strategy and ad-spend optimisation that show online sellers exactly where the next rupee of revenue comes from. Book a free strategy call."
+        path="/services/ecom/growth-consulting"
+      />
       <section className="grw-hero grw-hero--dark">
         <div className="grw-container grw-hero__inner">
           <div className="grw-hero__text" data-aos="fade-right">

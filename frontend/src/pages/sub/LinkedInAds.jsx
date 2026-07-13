@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiAward,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/LinkedInAds.css'
 
 const FAQS = [
@@ -34,6 +35,11 @@ export default function LinkedInAds() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="li">
+      <Seo
+        title="LinkedIn Ads Agency for B2B Lead Gen"
+        description="Account-based LinkedIn campaigns targeted by job title, seniority and company, using lead-gen forms and sponsored content optimised for cost per qualified lead. Talk to us."
+        path="/services/linkedin-ads"
+      />
       {/* HERO — profile card theme */}
       <section className="li-hero">
         <div className="li-container li-hero__inner">

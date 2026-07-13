@@ -6,6 +6,7 @@
 //   import AOS from 'aos'; AOS.init({ duration: 700, once: true });
 
 import { useEffect } from 'react'
+import Seo from '../components/Seo'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -134,6 +135,11 @@ export default function SocialMedia() {
 
   return (
     <>
+      <Seo
+        title="Social Media Marketing Services in India"
+        description="Instagram, Facebook, LinkedIn and YouTube marketing done for you — strategy, reels, creative posts, community management and paid social. Grow your audience with us."
+        path="/services/social-media-marketing"
+      />
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="svc-hero svc-hero--center">
         <div className="container">

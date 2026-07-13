@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiCloud, FiServer, FiShield, FiZap, FiRefreshCw, FiTrendingUp, FiCheck, FiArrowRight, FiArrowUpRight, FiDollarSign, FiActivity } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/MobilePages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function CloudSolutions() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="cld">
+      <Seo
+        title="Cloud Migration & Hosting Solutions"
+        description="Zero-downtime cloud migration, auto-scaling and secure hosting on AWS, Azure and Google Cloud — with right-sizing that cuts your monthly bill. Book a free cloud audit."
+        path="/services/mobile/cloud"
+      />
       <section className="cld-hero cld-hero--dark">
         <div className="cld-hero__grid" />
         <div className="cld-container cld-hero__inner">

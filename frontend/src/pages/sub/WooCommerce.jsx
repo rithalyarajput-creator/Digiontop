@@ -8,6 +8,7 @@ import {
   FiShield, FiZap, FiSettings,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
@@ -50,6 +51,11 @@ export default function WooCommerce() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="woo">
+      <Seo
+        title="WooCommerce Development Company in India"
+        description="Custom WooCommerce stores on WordPress: branded storefront, Razorpay and Stripe checkout, shipping, taxes and easy product management. Get a free store plan."
+        path="/services/woocommerce-development"
+      />
       <section className="woo-hero woo-hero--light">
         <div className="woo-container woo-hero__inner">
           <div className="woo-hero__text" data-aos="fade-right">

@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiLayers,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function ContentMarketing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="cm">
+      <Seo
+        title="Content Marketing Services in India"
+        description="SEO-driven blogs, pillar pages, lead magnets and video scripts that build authority and turn readers into leads month after month. Get your free content plan today."
+        path="/services/social/content-marketing"
+      />
       <section className="cm-hero">
         <div className="cm-container cm-hero__inner">
           <div className="cm-hero__text" data-aos="fade-right">

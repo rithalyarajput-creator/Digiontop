@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiSearch, FiTag, FiTrendingUp, FiEye, FiEdit3, FiTarget, FiArrowRight, FiArrowUpRight, FiLayers, FiPenTool, FiBarChart2, FiRefreshCw } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function ProductSeo() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="pse">
+      <Seo
+        title="Product SEO for Amazon, Flipkart & Meesho"
+        description="Keyword-driven titles, bullets and backend search terms that lift product rankings on marketplaces and Google, tracked weekly. Get a free product listing SEO audit."
+        path="/services/ecom/product-seo"
+      />
       <section className="pse-hero pse-hero--dark">
         <div className="pse-container pse-hero__inner">
           <div className="pse-hero__text" data-aos="fade-right">

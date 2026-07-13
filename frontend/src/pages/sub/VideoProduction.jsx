@@ -5,6 +5,7 @@ import 'aos/dist/aos.css'
 import { FiArrowRight, FiArrowUpRight, FiPlay, FiVideo, FiFilm, FiCheck, FiEdit3, FiSend, FiEdit } from 'react-icons/fi'
 import ServiceWork from '../../components/ServiceWork'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SubService.css'
 
 const SERVICES = ['Promotional Videos', 'Product Videos', 'Social Media Reels', 'Corporate Videos', 'Motion Graphics', 'Advertisement Videos', 'Brand Story Videos']
@@ -29,6 +30,11 @@ export default function VideoProduction() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="Video Production Services for Brands & Ads"
+        description="Reels, product videos, ad films and motion graphics: scripted, shot, edited and delivered in every aspect ratio your platforms need. Start your video project."
+        path="/services/video-production"
+      />
       {/* dark cinematic hero */}
       <section className="vp-hero">
         <div className="vp-hero__glow" />

@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiArrowRight, FiArrowUpRight, FiTrendingUp, FiTarget, FiActivity, FiBarChart2, FiCheck } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SubService.css'
 
 const SERVICES = [
@@ -32,6 +33,11 @@ export default function CroServices() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="CRO Services — Conversion Rate Optimization"
+        description="A/B testing, funnel and heatmap analysis, and landing page optimization that turn more of your existing traffic into leads and sales. Book a free conversion audit."
+        path="/services/cro-services"
+      />
       <section className="ss-hero">
         <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />
         <div className="ss-container ds-hero" style={{ position: 'relative' }}>

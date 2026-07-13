@@ -18,3 +18,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </HelmetProvider>
   </React.StrictMode>,
 )
+
+// Tell the build-time prerenderer (see vite.config.js) that the app has painted
+// and its HTML is ready to be captured. Harmless in the browser.
+requestAnimationFrame(() => {
+  document.dispatchEvent(new Event('prerender-ready'))
+})

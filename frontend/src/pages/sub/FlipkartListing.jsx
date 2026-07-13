@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiShoppingBag, FiSearch, FiEdit3, FiGrid, FiTrendingUp, FiStar, FiCheck, FiArrowRight, FiArrowUpRight, FiShield, FiTarget, FiLayers, FiZap } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function FlipkartListing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="flp">
+      <Seo
+        title="Flipkart Product Listing & Optimisation Services"
+        description="Flipkart listing setup, category and GTIN mapping, search-weighted titles, F-Assured compliance and Flipkart Ads. Get discovered by more buyers — book a free listing review."
+        path="/services/ecom/flipkart"
+      />
       <section className="flp-hero flp-hero--dark">
         <div className="flp-container flp-hero__inner">
           <div className="flp-hero__text" data-aos="fade-right">

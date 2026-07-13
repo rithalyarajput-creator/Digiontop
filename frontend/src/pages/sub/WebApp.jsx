@@ -8,6 +8,7 @@ import {
   FiShield, FiTrendingUp, FiUsers,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
@@ -47,6 +48,11 @@ export default function WebApp() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="cwa">
+      <Seo
+        title="Custom Web Application Development Company"
+        description="Custom dashboards, portals, CRMs and booking systems built in React and Node, with secure roles, API integrations and cloud scaling. Discuss your app idea free."
+        path="/services/custom-web-application"
+      />
       <section className="cwa-hero cwa-hero--dark">
         <div className="cwa-hero__grid" />
         <div className="cwa-container cwa-hero__inner">

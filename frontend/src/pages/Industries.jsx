@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 import {
   FiShoppingCart,
@@ -81,6 +82,11 @@ const industries = [
 export default function Industries() {
   return (
     <main className="industries-page">
+      <Seo
+        title="Industries We Serve — Digital Marketing by Sector"
+        description="Retail, restaurants, healthcare, education, real estate, SaaS and more — see how DigionTop tailors websites, SEO and social campaigns to your industry. Find yours."
+        path="/industries"
+      />
       {/* ══════════════════════════════════════
           1. PAGE HERO
       ══════════════════════════════════════ */}

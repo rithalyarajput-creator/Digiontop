@@ -7,6 +7,7 @@ import {
   FiArrowUpRight, FiCpu, FiLayers, FiShield, FiRefreshCw,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/TechnicalSeo.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function TechnicalSeo() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="tseo">
+      <Seo
+        title="Technical SEO Services & Website Fixes"
+        description="Crawl, indexation, Core Web Vitals, schema, site architecture and HTTPS issues found and fixed so your rankings compound. Get a free technical health scan."
+        path="/services/technical-seo"
+      />
       {/* HERO — terminal theme */}
       <section className="tseo-hero">
         <div className="tseo-hero__grid" />

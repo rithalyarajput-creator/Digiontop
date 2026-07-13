@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
 import RelatedServices from '../../components/RelatedServices'
+import Seo from '../../components/Seo'
 import '../../styles/SubService.css'
 
 const FAQS = [
@@ -34,6 +35,11 @@ export default function PpcPage() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="PPC Management & Paid Advertising Agency"
+        description="Managed pay-per-click campaigns across Google, Meta, LinkedIn and YouTube, with retargeting and transparent reporting on spend, leads and ROAS. Get a free ad audit."
+        path="/services/ppc"
+      />
       <section className="ss-hero">
         <div className="ss-container ss-hero__center" data-aos="fade-up">
           <span className="ss-tag"><FiTrendingUp /> PPC &amp; Paid Advertising</span>

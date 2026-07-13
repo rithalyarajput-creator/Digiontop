@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import Seo from '../components/Seo';
 import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { FiExternalLink } from 'react-icons/fi';
@@ -100,6 +101,11 @@ export default function Work() {
 
   return (
     <main className="work-page">
+      <Seo
+        title="Our Work — Websites We've Designed & Built"
+        description="Explore live websites and reels DigionTop has delivered across education, e-commerce, healthcare and community projects in India. Hover any project to preview it."
+        path="/work"
+      />
       {/* Hero */}
       <section className="work-hero">
         <div className="work-hero__content">

@@ -5,6 +5,7 @@ import 'aos/dist/aos.css'
 import { FiArrowRight, FiArrowUpRight, FiImage, FiCheck, FiInstagram, FiLayout, FiFileText, FiPrinter, FiMonitor, FiCreditCard } from 'react-icons/fi'
 import '../../styles/SubService.css'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 
 const SERVICES = ['Social Media Creatives', 'Advertising Banners', 'Brochure Design', 'Flyer Design', 'Business Cards', 'Marketing Materials', 'Presentation Design']
 
@@ -38,6 +39,11 @@ export default function GraphicDesign() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="Graphic Design Services for Brands"
+        description="Social media creatives, ad banners, brochures, flyers and business cards designed on-brand and print-ready. Most designs land in 24-48 hours. Get your designs today."
+        path="/services/graphic-design"
+      />
       <section className="ss-hero" style={{ textAlign: 'center' }}>
         <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />
         <div className="ss-container" style={{ position: 'relative' }} data-aos="fade-up">

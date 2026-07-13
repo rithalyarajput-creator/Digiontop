@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiArrowRight, FiArrowUpRight, FiPenTool, FiCheck } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SubService.css'
 
 const SERVICES = ['Custom Logo Design', 'Modern Logo Concepts', 'Brand Marks', 'Icon Design', 'Typography Logos', 'Logo Usage Guidelines']
@@ -28,6 +29,11 @@ export default function LogoDesign() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="Custom Logo Design Services"
+        description="Distinct logo concepts refined over multiple revision rounds, delivered as scalable vector files with icon, horizontal and monochrome marks in 7-10 days. Design my logo."
+        path="/services/logo-design"
+      />
       <section className="ss-hero">
         <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />
         <div className="ss-container bi-hero" style={{ position: 'relative' }}>

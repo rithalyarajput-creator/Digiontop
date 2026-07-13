@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Seo from '../../components/Seo'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -39,6 +40,11 @@ export default function ApiDevelopment() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="api">
+      <Seo
+        title="API Development & Integration Services"
+        description="Contract-first REST and GraphQL APIs with OAuth 2.0 security, third-party integrations, Swagger docs and monitoring built in from day one. Talk to us about your API."
+        path="/services/mobile/api"
+      />
       <section className="api-hero api-hero--dark">
         <div className="api-hero__grid" />
         <div className="api-container api-hero__inner">

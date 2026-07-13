@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiHeart,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
@@ -27,6 +28,11 @@ export default function InfluencerMarketing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="im">
+      <Seo
+        title="Influencer Marketing Agency in India"
+        description="We vet creators on real engagement, not follower counts, then run outreach, briefs, contracts and tracked links end to end. Get a free creator match for your brand."
+        path="/services/social/influencer-marketing"
+      />
       <section className="im-hero">
         <div className="im-container im-hero__inner">
           <div className="im-hero__text" data-aos="fade-right">

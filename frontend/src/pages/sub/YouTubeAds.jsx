@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiVideo,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/YouTubeAds.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function YouTubeAds() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="yt">
+      <Seo
+        title="YouTube Ads Agency — Video Ad Campaigns"
+        description="YouTube and Shorts ad campaigns: skippable in-stream, bumper, in-feed and remarketing, with hooks that stop the skip. Get a free YouTube ads strategy today."
+        path="/services/youtube-ads"
+      />
       {/* HERO — video player theme */}
       <section className="yt-hero">
         <div className="yt-container yt-hero__inner">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 import { FiPlus, FiMinus, FiMessageCircle } from 'react-icons/fi';
 import '../styles/FAQ.css';
@@ -132,6 +133,11 @@ export default function FAQ() {
 
   return (
     <main className="faq-page">
+      <Seo
+        title="Digital Marketing FAQs — Pricing, Timelines & Process"
+        description="Answers to common questions about our website, SEO, social media and Amazon/Flipkart services — pricing, delivery timelines, contracts and reporting. Still unsure? Ask us."
+        path="/faq"
+      />
       {/* Hero */}
       <section className="faq-hero">
         <div className="faq-hero__content">

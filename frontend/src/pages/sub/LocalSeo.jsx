@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiClock, FiMessageSquare,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/LocalSeo.css'
 
 const FAQS = [
@@ -36,6 +37,11 @@ export default function LocalSeo() {
 
   return (
     <main className="lseo">
+      <Seo
+        title="Local SEO Services for Indian Businesses"
+        description="Rank in the Google Map Pack and near-me searches with full Google Business Profile optimisation, NAP citations and a review-generation system. Get a free local audit."
+        path="/services/local-seo"
+      />
       {/* ── HERO: map-panel split ── */}
       <section className="lseo-hero">
         <div className="lseo-hero__inner">

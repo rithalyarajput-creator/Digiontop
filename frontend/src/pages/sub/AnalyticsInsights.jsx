@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Seo from '../../components/Seo'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -37,6 +38,11 @@ export default function AnalyticsInsights() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="Analytics & Insights Services — GA4, Tracking, Reports"
+        description="GA4, Tag Manager and Meta Pixel setup with conversion tracking, custom dashboards and plain-language reports that tell you what to do next. Get your tracking fixed."
+        path="/services/analytics-insights"
+      />
       <section className="ss-hero" style={{ textAlign: 'center' }}>
         <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />
         <div className="ss-container" style={{ position: 'relative' }} data-aos="fade-up">

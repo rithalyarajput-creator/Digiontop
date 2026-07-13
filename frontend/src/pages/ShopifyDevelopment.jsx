@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Seo from '../components/Seo'
 import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
@@ -62,6 +63,11 @@ export default function ShopifyDevelopment() {
 
   return (
     <main className="sf">
+      <Seo
+        title="Shopify Development Company — Custom Store Design"
+        description="Custom Shopify stores built to sell: premium design, product setup, payment gateways, shipping, apps and SEO — launched in 2 to 4 weeks. Start your Shopify project."
+        path="/services/shopify-development"
+      />
       {/* ── HERO ── */}
       <section className="sf-hero">
         <div className="sf-hero__glow" />

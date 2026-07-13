@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Seo from '../../components/Seo'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -39,6 +40,11 @@ export default function AccountManagement() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="acc">
+      <Seo
+        title="Marketplace Seller Account Management Services"
+        description="End-to-end Amazon, Flipkart and Meesho seller account management — account health, case handling, pricing, listings and ads run by a dedicated manager. Get a free review."
+        path="/services/ecom/account-management"
+      />
       <section className="acc-hero acc-hero--dark">
         <div className="acc-container acc-hero__inner">
           <div className="acc-hero__text" data-aos="fade-right">

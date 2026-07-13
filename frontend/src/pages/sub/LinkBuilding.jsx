@@ -7,6 +7,7 @@ import {
   FiArrowRight, FiArrowUpRight, FiGlobe, FiFileText, FiUsers,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/LinkBuilding.css'
 
 const FAQS = [
@@ -34,6 +35,11 @@ export default function LinkBuilding() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="lb">
+      <Seo
+        title="White-Hat Link Building & Digital PR"
+        description="Editorial backlinks earned through guest posting, HARO pitching, broken-link reclamation and brand-mention outreach. No PBNs, full link reporting. See sample links."
+        path="/services/link-building"
+      />
       {/* HERO — network of nodes */}
       <section className="lb-hero">
         <div className="lb-container lb-hero__inner">

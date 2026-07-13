@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiArrowRight, FiArrowUpRight, FiCompass, FiTrendingUp, FiTarget, FiUsers, FiAward, FiCalendar, FiCheck } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SubService.css'
 
 const SERVICES = [
@@ -51,6 +52,11 @@ export default function DigitalStrategy() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
+      <Seo
+        title="Digital Marketing Strategy Consulting"
+        description="Competitor research, customer journey mapping and a 90-day growth roadmap with a KPI framework covering CAC, ROAS and revenue. Book a free strategy consultation."
+        path="/services/digital-strategy"
+      />
       <section className="ss-hero">
         <span className="ss-hero__orb ss-hero__orb--1" /><span className="ss-hero__orb ss-hero__orb--2" />
         <div className="ss-container ds-hero" style={{ position: 'relative' }}>

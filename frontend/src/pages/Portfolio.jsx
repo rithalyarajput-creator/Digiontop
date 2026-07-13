@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 import {
   FiArrowUpRight, FiPlay, FiVideo, FiShoppingBag, FiTrendingUp,
@@ -72,6 +73,11 @@ const SECTIONS = [
 export default function Portfolio() {
   return (
     <main className="pf">
+      <Seo
+        title="Our Portfolio — Websites, Stores, Reels & Creatives"
+        description="Browse DigionTop's portfolio: e-commerce stores, business websites, social media reels and product creatives built for real Indian brands. See what we can build for you."
+        path="/portfolio"
+      />
       {/* ── About / Hero ── */}
       <section className="pf-hero">
         {/* animated background */}

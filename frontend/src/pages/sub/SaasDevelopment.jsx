@@ -4,6 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { FiLayers, FiCreditCard, FiUsers, FiTrendingUp, FiShield, FiZap, FiCheck, FiArrowRight, FiArrowUpRight, FiRepeat, FiBarChart2 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/MobilePages.css'
 
 const FAQS = [
@@ -39,6 +40,11 @@ export default function SaasDevelopment() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="saas">
+      <Seo
+        title="SaaS Development Company — MVP to Scale"
+        description="We build subscription SaaS products: multi-tenant architecture, Stripe and Razorpay billing, dashboards and cloud hosting. Share your idea for an MVP plan."
+        path="/services/mobile/saas"
+      />
       <section className="saas-hero saas-hero--light">
         <div className="saas-container saas-hero__inner">
           <div className="saas-hero__text" data-aos="fade-right">

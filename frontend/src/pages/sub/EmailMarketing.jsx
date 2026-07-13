@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiInbox,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
@@ -28,6 +29,11 @@ export default function EmailMarketing() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="em">
+      <Seo
+        title="Email Marketing Services & Automation"
+        description="Done-for-you welcome, abandoned cart and re-engagement flows on Klaviyo, Mailchimp and Brevo — copy, design and testing included. Get a free email audit today."
+        path="/services/social/email-marketing"
+      />
       <section className="em-hero">
         <div className="em-container em-hero__inner">
           <div className="em-hero__text" data-aos="fade-right">

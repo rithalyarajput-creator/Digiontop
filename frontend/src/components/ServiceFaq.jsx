@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FiPlus, FiMinus, FiCheckCircle, FiArrowRight } from 'react-icons/fi'
+import JsonLd, { toPlainText } from './JsonLd'
 import './ServiceFaq.css'
 
 const INITIAL = { firstName: '', lastName: '', company: '', website: '', email: '', phone: '', message: '', consent: false }
@@ -46,8 +47,22 @@ export default function ServiceFaq({ service = 'this service', faqs = [] }) {
 
   if (!faqs.length) return null
 
+  // FAQPage schema, built from the exact Q&As rendered below (HTML stripped for the text value).
+  const entities = faqs
+    .map((f) => ({ name: toPlainText(f.q), text: toPlainText(f.a) }))
+    .filter((f) => f.name && f.text)
+    .map((f) => ({
+      '@type': 'Question',
+      name: f.name,
+      acceptedAnswer: { '@type': 'Answer', text: f.text },
+    }))
+  const faqSchema = entities.length
+    ? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: entities }
+    : null
+
   return (
     <section className="sfaq">
+      <JsonLd data={faqSchema} />
       <div className="sfaq__inner">
         {/* LEFT — FAQs */}
         <div className="sfaq__left" data-aos="fade-up">

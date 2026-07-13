@@ -7,6 +7,7 @@ import {
   FiCheck, FiArrowRight, FiArrowUpRight, FiBarChart2, FiDatabase,
 } from 'react-icons/fi'
 import ServiceFaq from '../../components/ServiceFaq'
+import Seo from '../../components/Seo'
 import '../../styles/EnterpriseSeo.css'
 
 const FAQS = [
@@ -30,6 +31,11 @@ export default function EnterpriseSeo() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ent">
+      <Seo
+        title="Enterprise SEO Services for Large Websites"
+        description="SEO at scale for 10k+ page sites — crawl-efficient architecture, hreflang and multi-region targeting, risk-managed migrations and revenue-tied reporting. Request a proposal."
+        path="/services/enterprise-seo"
+      />
       {/* HERO — dashboard theme */}
       <section className="ent-hero">
         <div className="ent-container ent-hero__inner">
