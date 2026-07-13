@@ -2064,14 +2064,13 @@ select.admin-sbadge-select option { background: #fff; color: #303030; }
   .admin-metrics-grid--5 { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* WhatsApp row action (text-button in the table) */
-.admin-slink-btn--wa {
+/* WhatsApp row action — icon only. The label is dropped in the table because
+   four labelled actions overflowed the column and collided with the Date cell. */
+.admin-sicon--wa {
   color: #25D366;
   text-decoration: none;
 }
-.admin-slink-btn--wa:hover { background: #e6f9ee; color: #128C4A; }
-.admin-slink-btn--wa svg { color: #25D366; }
-.admin-slink-btn--wa:hover svg { color: #128C4A; }
+.admin-sicon--wa:hover { background: #e6f9ee; color: #128C4A; }
 
 /* WhatsApp button in the lead detail modal footer */
 .admin-sbtn--wa {

@@ -41,24 +41,28 @@ export default async function handler(req, res) {
       // Only write the fields the caller actually sent, so saving a note can't
       // wipe the status (and vice versa).
       //
-      // A plain COALESCE(new, old) isn't enough for follow_up_at: clearing a
-      // reminder means sending null, which COALESCE would read as "leave it
-      // alone". So pass an explicit per-field flag and let SQL choose.
-      const setStatus = status !== undefined;
-      const setNotes = notes !== undefined;
-      const setFollowUp = follow_up_at !== undefined;
+      // Read-then-merge rather than a conditional UPDATE: Postgres can't infer
+      // a type for `CASE WHEN $1 THEN $2` when $2 may be NULL, and a plain
+      // COALESCE(new, old) can't express "clear this field" — sending null to
+      // drop a follow-up date would read as "leave it alone".
+      const current = await sql`SELECT * FROM contact_leads WHERE id = ${id}`;
+      if (current.length === 0) {
+        return res.status(404).json({ error: 'Lead not found' });
+      }
+      const row = current[0];
+
+      const nextStatus = status === undefined ? row.status : status;
+      const nextNotes = notes === undefined ? row.notes : (notes || null);
+      const nextFollowUp = follow_up_at === undefined ? row.follow_up_at : (follow_up_at || null);
 
       const rows = await sql`
-        UPDATE contact_leads SET
-          status       = CASE WHEN ${setStatus}   THEN ${status ?? null}       ELSE status       END,
-          notes        = CASE WHEN ${setNotes}    THEN ${notes ?? null}        ELSE notes        END,
-          follow_up_at = CASE WHEN ${setFollowUp} THEN ${follow_up_at || null} ELSE follow_up_at END
+        UPDATE contact_leads
+        SET status = ${nextStatus},
+            notes = ${nextNotes},
+            follow_up_at = ${nextFollowUp}
         WHERE id = ${id}
         RETURNING *
       `;
-      if (rows.length === 0) {
-        return res.status(404).json({ error: 'Lead not found' });
-      }
       return res.status(200).json(rows[0]);
     }
 

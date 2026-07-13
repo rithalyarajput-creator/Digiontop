@@ -359,10 +359,10 @@ export default function Leads() {
                             href={wa}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="admin-slink-btn admin-slink-btn--wa"
+                            className="admin-sicon admin-sicon--wa"
                             title={`WhatsApp ${l.full_name || l.phone}`}
                           >
-                            <FaWhatsapp /> WhatsApp
+                            <FaWhatsapp />
                           </a>
                         )}
                         <button type="button" className="admin-slink-btn" title="View details" onClick={() => openLead(l)}>
