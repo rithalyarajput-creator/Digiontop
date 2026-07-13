@@ -17,7 +17,16 @@ function timeAgo(dateStr) {
 export default function NotificationBell() {
   const [items, setItems] = useState([]);
   const [open, setOpen] = useState(false);
-  const [seenAt, setSeenAt] = useState(() => Number(localStorage.getItem(SEEN_KEY)) || 0);
+  // First visit on a device has no watermark. Starting at 0 would mark every
+  // historical lead as "new" (an 11-count badge on a fresh login), so treat
+  // everything that already exists as seen and only flag what arrives after.
+  const [seenAt, setSeenAt] = useState(() => {
+    const stored = Number(localStorage.getItem(SEEN_KEY));
+    if (stored) return stored;
+    const now = Date.now();
+    localStorage.setItem(SEEN_KEY, String(now));
+    return now;
+  });
   const ref = useRef(null);
 
   async function load() {
@@ -42,15 +51,23 @@ export default function NotificationBell() {
 
   const unseen = items.filter((n) => new Date(n.created_at).getTime() > seenAt).length;
 
+  // How many were unseen at the moment the panel was opened. Kept separate from
+  // `unseen` so the "N new" header and the highlighted rows don't vanish the
+  // instant you open the panel — you get to actually see what's new.
+  const [unseenOnOpen, setUnseenOnOpen] = useState(0);
+  const [seenAtOnOpen, setSeenAtOnOpen] = useState(0);
+
   function toggle() {
     const next = !open;
-    setOpen(next);
     if (next) {
-      // mark all as seen
+      // freeze the current unseen state for display, then mark everything seen
+      setUnseenOnOpen(unseen);
+      setSeenAtOnOpen(seenAt);
       const now = Date.now();
       localStorage.setItem(SEEN_KEY, String(now));
       setSeenAt(now);
     }
+    setOpen(next);
   }
 
   return (
@@ -58,19 +75,18 @@ export default function NotificationBell() {
       <button className="admin-notif__btn" onClick={toggle} aria-label="Notifications">
         <FiBell />
         {unseen > 0 && <span className="admin-notif__badge admin-notif__badge--unseen">{unseen}</span>}
-        {unseen === 0 && items.length > 0 && <span className="admin-notif__badge admin-notif__badge--seen" />}
       </button>
 
       {open && (
         <div className="admin-notif__panel">
           <div className="admin-notif__head">
             <span>Notifications</span>
-            {items.length > 0 && <span className="admin-notif__count">{items.length}</span>}
+            {unseenOnOpen > 0 && <span className="admin-notif__count">{unseenOnOpen} new</span>}
           </div>
           <div className="admin-notif__list">
             {items.length === 0 && <div className="admin-notif__empty">No notifications yet.</div>}
             {items.map((n, i) => {
-              const isUnseen = new Date(n.created_at).getTime() > seenAt;
+              const isUnseen = new Date(n.created_at).getTime() > seenAtOnOpen;
               return (
                 <div key={i} className={`admin-notif__item${isUnseen ? ' admin-notif__item--unseen' : ''}`}>
                   <span className={`admin-notif__icon admin-notif__icon--${n.type}`}>
