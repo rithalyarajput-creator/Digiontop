@@ -62,8 +62,8 @@ export default function AdminApp() {
           </NavLink>
 
           <div className="admin-sidebar__label">Site</div>
-          <NavLink to="/admin/testimonials" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
-            <FiStar /> <span>Testimonials</span>
+          <NavLink to="/admin/reviews" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
+            <FiStar /> <span>Reviews</span>
           </NavLink>
           <NavLink to="/admin/faq" className={({ isActive }) => `admin-navlink${isActive ? ' admin-navlink--active' : ''}`} onClick={() => setSidebarOpen(false)}>
             <FiHelpCircle /> <span>FAQs</span>
@@ -103,7 +103,7 @@ export default function AdminApp() {
             <Route path="authors" element={<Authors />} />
             <Route path="categories" element={<Categories />} />
             <Route path="newsletter" element={<Newsletter />} />
-            <Route path="testimonials" element={<TestimonialsAdmin />} />
+            <Route path="reviews" element={<TestimonialsAdmin />} />
             <Route path="faq" element={<FAQ />} />
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />

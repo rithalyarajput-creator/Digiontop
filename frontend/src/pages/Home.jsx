@@ -399,16 +399,70 @@ const DigitalOrbitSection = () => (
 
 // ─── PAGE COMPONENT ───────────────────────────────────────────────────────────
 
-/* ── Testimonials Section ── */
-const TCOLORS = ['#F5A800', '#0d5c63', '#1a1a1a'];
+/* ── Testimonials Section (Google-review style cards) ── */
+
+/* Google-ish avatar palette — colour is derived deterministically from the name */
+const AVATAR_COLORS = ['#d93025', '#1a73e8', '#1e8e3e', '#9334e6', '#e8710a', '#12857f'];
+
+const avatarColor = (name = '') => {
+  let hash = 0;
+  for (let i = 0; i < name.length; i += 1) {
+    hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
+  }
+  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+};
+
+const initialOf = (name = '') => (name.trim()[0] || '?').toUpperCase();
+
+/* "3 days ago" / "2 weeks ago" / "5 months ago" — returns '' if no usable date */
+const timeAgo = (value) => {
+  if (!value) return '';
+  const then = new Date(value);
+  if (Number.isNaN(then.getTime())) return '';
+  const secs = Math.floor((Date.now() - then.getTime()) / 1000);
+  if (secs < 60) return 'just now';
+  const units = [
+    ['year', 31536000],
+    ['month', 2592000],
+    ['week', 604800],
+    ['day', 86400],
+    ['hour', 3600],
+    ['minute', 60],
+  ];
+  for (const [label, size] of units) {
+    const n = Math.floor(secs / size);
+    if (n >= 1) return `${n} ${label}${n > 1 ? 's' : ''} ago`;
+  }
+  return 'just now';
+};
+
+const NEW_WINDOW_MS = 14 * 24 * 60 * 60 * 1000;
+const isRecent = (value) => {
+  if (!value) return false;
+  const then = new Date(value);
+  if (Number.isNaN(then.getTime())) return false;
+  return Date.now() - then.getTime() < NEW_WINDOW_MS;
+};
+
+/* Real 4-colour Google "G" — inline SVG, no remote asset */
+const GoogleG = () => (
+  <svg className="tcard__glogo" viewBox="0 0 48 48" width="20" height="20" aria-hidden="true" focusable="false">
+    <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
+    <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
+    <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z" />
+    <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+  </svg>
+);
+
+const daysAgoISO = (d) => new Date(Date.now() - d * 86400000).toISOString();
 
 const FALLBACK_TESTIMONIALS = [
-  { id: 1, client_name: 'Rajesh Sharma', client_role: 'E-Commerce Seller', client_location: 'Delhi', testimonial_text: 'DigionTop completely transformed our Amazon listings. Within three months our products were ranking on page one and organic sales doubled!', rating: 5 },
-  { id: 2, client_name: 'Priya Mehta', client_role: 'Wellness Studio Owner', client_location: 'Bangalore', testimonial_text: 'Within four months we were ranking for every major keyword. New client enquiries went up by over 60% — incredible results!', rating: 5 },
-  { id: 3, client_name: 'Ankur Gupta', client_role: 'Restaurant Owner', client_location: 'Jaipur', testimonial_text: 'In six months we crossed 4,200 Instagram followers and customers started walking in specifically because they found us online.', rating: 5 },
-  { id: 4, client_name: 'Sneha Reddy', client_role: 'Boutique Founder', client_location: 'Hyderabad', testimonial_text: 'Their team built us a stunning Shopify store that loads fast and converts. Our online orders tripled within the first quarter!', rating: 5 },
-  { id: 5, client_name: 'Vikram Singh', client_role: 'Real Estate Agency', client_location: 'Mumbai', testimonial_text: 'The paid ad campaigns brought us qualified leads at half the cost we used to pay. Genuinely the best marketing partner we have worked with.', rating: 5 },
-  { id: 6, client_name: 'Meera Iyer', client_role: 'D2C Brand Owner', client_location: 'Chennai', testimonial_text: 'From branding to social media, they handled everything. Our Instagram engagement is up 5x and our brand finally looks premium.', rating: 5 },
+  { id: 1, client_name: 'Rajesh Sharma', client_role: 'E-Commerce Seller', client_location: 'Delhi', testimonial_text: 'DigionTop completely transformed our Amazon listings. Within three months our products were ranking on page one and organic sales doubled!', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(3) },
+  { id: 2, client_name: 'Priya Mehta', client_role: 'Wellness Studio Owner', client_location: 'Bangalore', testimonial_text: 'Within four months we were ranking for every major keyword. New client enquiries went up by over 60% — incredible results!', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(9) },
+  { id: 3, client_name: 'Ankur Gupta', client_role: 'Restaurant Owner', client_location: 'Jaipur', testimonial_text: 'In six months we crossed 4,200 Instagram followers and customers started walking in specifically because they found us online.', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(24) },
+  { id: 4, client_name: 'Sneha Reddy', client_role: 'Boutique Founder', client_location: 'Hyderabad', testimonial_text: 'Their team built us a stunning Shopify store that loads fast and converts. Our online orders tripled within the first quarter!', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(46) },
+  { id: 5, client_name: 'Vikram Singh', client_role: 'Real Estate Agency', client_location: 'Mumbai', testimonial_text: 'The paid ad campaigns brought us qualified leads at half the cost we used to pay. Genuinely the best marketing partner we have worked with.', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(78) },
+  { id: 6, client_name: 'Meera Iyer', client_role: 'D2C Brand Owner', client_location: 'Chennai', testimonial_text: 'From branding to social media, they handled everything. Our Instagram engagement is up 5x and our brand finally looks premium.', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(150) },
 ];
 
 const TestimonialsSection = () => {
@@ -474,9 +528,9 @@ const TestimonialsSection = () => {
   return (
     <section className="home-testimonials" data-aos="fade-up">
       <div className="container">
-        <p className="section-label">CLIENT STORIES</p>
-        <h2 className="section-title">What Our Clients Say</h2>
-        <p className="section-subtitle">Real results from real Indian businesses.</p>
+        <p className="section-label">GOOGLE REVIEWS</p>
+        <h2 className="section-title">Google Reviews</h2>
+        <p className="section-subtitle">Real reviews from real Indian businesses we've helped grow.</p>
 
         <div
           className="home-testimonials__track"
@@ -485,19 +539,43 @@ const TestimonialsSection = () => {
           onMouseEnter={() => { pauseRef.current = true; }}
           onMouseLeave={() => { pauseRef.current = false; }}
         >
-          {display.map((t) => (
-            <div key={t.id} className="tcard">
-              <div className="tcard__ribbon">
-                <span className="tcard__ribbon-name">{t.client_name}</span>
+          {display.map((t) => {
+            const when = t.reviewed_at || t.created_at || null;
+            const ago = timeAgo(when);
+            const sub = [t.client_role, t.client_location].filter(Boolean).join(' • ');
+            return (
+              <div key={t.id} className="tcard">
+                <div className="tcard__head">
+                  {t.avatar_url ? (
+                    <img className="tcard__avatar" src={t.avatar_url} alt="" loading="lazy" />
+                  ) : (
+                    <span
+                      className="tcard__avatar tcard__avatar--initial"
+                      style={{ background: avatarColor(t.client_name || '') }}
+                      aria-hidden="true"
+                    >
+                      {initialOf(t.client_name || '')}
+                    </span>
+                  )}
+                  <div className="tcard__ident">
+                    <span className="tcard__name">{t.client_name}</span>
+                    {sub && <span className="tcard__sub">{sub}</span>}
+                  </div>
+                  <GoogleG />
+                </div>
+
+                <div className="tcard__meta">
+                  <span className="tcard__stars" aria-label={`${t.rating || 5} out of 5 stars`}>
+                    {'★'.repeat(t.rating || 5)}
+                  </span>
+                  {ago && <span className="tcard__time">{ago}</span>}
+                  {isRecent(when) && <span className="tcard__new">NEW</span>}
+                </div>
+
+                <p className="tcard__text">{t.testimonial_text}</p>
               </div>
-              <div className="tcard__quote">”</div>
-              <div className="tcard__stars">{'★'.repeat(t.rating || 5)}</div>
-              <p className="tcard__text">{t.testimonial_text}</p>
-              {t.client_role && (
-                <p className="tcard__role">{t.client_role}{t.client_location ? `, ${t.client_location}` : ''}</p>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Bottom-center dots */}

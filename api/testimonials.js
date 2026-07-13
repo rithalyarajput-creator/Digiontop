@@ -31,23 +31,23 @@ export default async function handler(req, res) {
     if (!auth) return;
 
     if (req.method === 'POST') {
-      const { client_name, client_role, client_location, testimonial_text, rating, is_featured } = req.body || {};
+      const { client_name, client_role, client_location, testimonial_text, rating, is_featured, avatar_url, reviewed_at } = req.body || {};
       if (!client_name || !testimonial_text) {
         return res.status(400).json({ error: 'client_name and testimonial_text are required' });
       }
       const rows = await sql`
         INSERT INTO testimonials
-          (client_name, client_role, client_location, testimonial_text, rating, is_featured)
+          (client_name, client_role, client_location, testimonial_text, rating, is_featured, avatar_url, reviewed_at)
         VALUES
           (${client_name}, ${client_role || null}, ${client_location || null}, ${testimonial_text},
-           ${rating ?? 5}, ${is_featured ?? false})
+           ${rating ?? 5}, ${is_featured ?? false}, ${avatar_url || null}, ${reviewed_at || null})
         RETURNING *
       `;
       return res.status(201).json(rows[0]);
     }
 
     if (req.method === 'PUT') {
-      const { id, client_name, client_role, client_location, testimonial_text, rating, is_featured } = req.body || {};
+      const { id, client_name, client_role, client_location, testimonial_text, rating, is_featured, avatar_url, reviewed_at } = req.body || {};
       if (!id) {
         return res.status(400).json({ error: 'id is required' });
       }
@@ -58,7 +58,9 @@ export default async function handler(req, res) {
           client_location = COALESCE(${client_location ?? null}, client_location),
           testimonial_text = COALESCE(${testimonial_text ?? null}, testimonial_text),
           rating = COALESCE(${rating ?? null}, rating),
-          is_featured = COALESCE(${is_featured ?? null}, is_featured)
+          is_featured = COALESCE(${is_featured ?? null}, is_featured),
+          avatar_url = COALESCE(${avatar_url ?? null}, avatar_url),
+          reviewed_at = COALESCE(${reviewed_at ?? null}, reviewed_at)
         WHERE id = ${id}
         RETURNING *
       `;

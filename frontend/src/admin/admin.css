@@ -1975,3 +1975,76 @@ select.admin-sbadge-select option { background: #fff; color: #303030; }
   margin-top: 22px;
 }
 .admin-confirm__actions .admin-sbtn { flex: 1; justify-content: center; }
+
+/* ==========================================================================
+   ADMIN REVIEWS PAGE (Google-review-style manager)  — appended block
+   ========================================================================== */
+
+/* Coloured initial-letter fallback avatar (used when no photo is uploaded) */
+.admin-review-initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  text-transform: uppercase;
+  user-select: none;
+}
+.admin-review-initial--lg {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  font-size: 28px;
+}
+
+.admin-review-avatar { margin-top: 6px; }
+.admin-review-avatar .admin-sform__preview img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-review-hint {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+/* Clickable 5-star rating picker */
+.admin-stars-pick {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+.admin-stars-pick__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: #d7d7d7;
+  transition: color 0.12s ease, transform 0.12s ease;
+}
+.admin-stars-pick__btn svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.75;
+}
+.admin-stars-pick__btn:hover { transform: scale(1.08); }
+.admin-stars-pick__btn.is-on {
+  color: #f0a500;
+}
+.admin-stars-pick__btn.is-on svg { fill: currentColor; }
+.admin-stars-pick__val {
+  margin-left: 8px;
+  font-size: 13px;
+  color: #616161;
+}

@@ -169,9 +169,16 @@ export default async function handler(req, res) {
         testimonial_text TEXT NOT NULL,
         rating SMALLINT DEFAULT 5,
         is_featured BOOLEAN DEFAULT false,
+        avatar_url TEXT,
+        reviewed_at TIMESTAMPTZ,
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
+
+    // Reviews grew an optional photo and a "reviewed on" date after the table
+    // was first created, so back-fill the columns on existing databases.
+    await sql`ALTER TABLE testimonials ADD COLUMN IF NOT EXISTS avatar_url TEXT`;
+    await sql`ALTER TABLE testimonials ADD COLUMN IF NOT EXISTS reviewed_at TIMESTAMPTZ`;
 
     await sql`
       CREATE TABLE IF NOT EXISTS portfolio_items (

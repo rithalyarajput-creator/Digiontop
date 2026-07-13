@@ -93,6 +93,8 @@ CREATE TABLE IF NOT EXISTS testimonials (
     testimonial_text TEXT NOT NULL,
     rating SMALLINT DEFAULT 5,
     is_featured BOOLEAN DEFAULT false,
+    avatar_url TEXT,
+    reviewed_at TIMESTAMPTZ,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 

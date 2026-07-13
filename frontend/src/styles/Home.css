@@ -1550,7 +1550,7 @@ a {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 30px 6px 40px;
+  padding: 14px 6px 30px;
   scroll-padding-left: 6px;
   margin-top: 30px;
 }
@@ -1577,103 +1577,123 @@ a {
   background: linear-gradient(90deg, #FFD24A, #F5A800);
 }
 
-/* ── Ribbon testimonial card (exact reference design) ── */
+/* ── Google-review style testimonial card ── */
 .tcard {
   position: relative;
   background: #fff;
-  border-radius: 18px;
-  padding: 44px 26px 28px;
-  margin-top: 22px;
-  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e8eaed;
+  border-radius: 16px;
+  padding: 22px 22px 24px;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.08), 0 6px 20px rgba(60, 64, 67, 0.08);
   display: flex;
   flex-direction: column;
   gap: 14px;
   transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 .tcard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 2px 6px rgba(60, 64, 67, 0.12), 0 14px 34px rgba(60, 64, 67, 0.14);
 }
 
-/* Yellow 3D ribbon banner with the client's name */
-.tcard__ribbon {
-  position: absolute;
-  top: -22px;
-  left: -14px;
-  right: auto;
-  width: max-content;
-  max-width: calc(100% - 40px);
-  height: 52px;
-  background: linear-gradient(135deg, #FFD24A 0%, #F5A800 55%, #E08E00 100%);
+/* Header row: avatar + name/sub + Google G */
+.tcard__head {
   display: flex;
   align-items: center;
-  padding: 0 40px 0 26px;
-  border-radius: 6px 0 0 6px;
-  /* 3D depth: layered shadows + subtle top highlight */
-  box-shadow:
-    0 10px 22px rgba(245, 168, 0, 0.45),
-    0 3px 6px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  /* arrow/chevron point on the right end */
-  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%);
-  z-index: 3;
+  gap: 12px;
 }
-/* folded corner under the ribbon's left edge (darker yellow) */
-.tcard__ribbon::before {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  border-width: 10px 14px 0 0;
-  border-style: solid;
-  border-color: #b56f00 transparent transparent transparent;
-  z-index: -1;
+.tcard__avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
-.tcard__ribbon-name {
-  color: #1a1a1a;
+.tcard__avatar--initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
   font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  user-select: none;
+}
+.tcard__ident {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+.tcard__name {
+  color: #1a73e8;
+  font-size: 0.875rem;   /* 14px */
+  font-weight: 500;
+  line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.tcard__sub {
+  color: #70757a;
+  font-size: 0.75rem;    /* 12px */
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tcard__glogo {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  align-self: flex-start;
+  margin-left: auto;
 }
 
-/* Quote mark, top-right, yellow */
-.tcard__quote {
-  position: absolute;
-  top: 40px;
-  right: 24px;
-  font-size: 2.2rem;
-  line-height: 1;
-  font-family: Georgia, serif;
-  font-weight: 900;
-  color: #F5A800;
-  opacity: 0.9;
-  user-select: none;
+/* Meta row: stars + relative time + NEW chip */
+.tcard__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-
 .tcard__stars {
-  color: #F5A800;
-  font-size: 1.05rem;
-  letter-spacing: 3px;
-  margin-top: 6px;
+  color: #fbbc04;
+  font-size: 0.9375rem;  /* 15px */
+  letter-spacing: 1.5px;
+  line-height: 1;
+}
+.tcard__time {
+  color: #70757a;
+  font-size: 0.75rem;
+}
+.tcard__new {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.625rem;   /* 10px */
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #5f6368;
+  line-height: 1.6;
 }
 
+/* Review body — clamped to keep card heights even */
 .tcard__text {
-  font-size: 0.9rem;
-  color: #444;
-  line-height: 1.8;
+  font-size: 0.9375rem;  /* 15px */
+  color: #3c4043;
+  line-height: 1.6;
   margin: 0;
   flex: 1;
-}
-
-.tcard__role {
-  font-size: 0.78rem;
-  color: #c47f00;
-  font-weight: 700;
-  margin: 4px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media (max-width: 900px) {
