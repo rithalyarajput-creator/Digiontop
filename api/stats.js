@@ -54,6 +54,18 @@ export default async function handler(req, res) {
     const totalViews = await sql`SELECT COALESCE(SUM(views),0)::int AS n FROM blog_posts`;
     const leadsNew = await sql`SELECT COUNT(*)::int AS n FROM contact_leads WHERE status = 'new'`;
 
+    // Per-day lead counts for the dashboard chart. The notifications feed below
+    // is capped at 15 rows, so deriving the chart from it silently under-counted
+    // any range with more leads than that — this counts in the database instead.
+    const leadsByDay = await sql`
+      SELECT (created_at AT TIME ZONE 'Asia/Kolkata')::date::text AS day,
+             COUNT(*)::int AS n
+      FROM contact_leads
+      WHERE created_at >= NOW() - INTERVAL '365 days'
+      GROUP BY day
+      ORDER BY day
+    `;
+
     // Notifications feed: recent leads + newsletter signups merged
     const [notifLeads, notifSubs] = await Promise.all([
       sql`SELECT id, full_name, email, source, created_at FROM contact_leads ORDER BY created_at DESC LIMIT 15`,
@@ -91,6 +103,7 @@ export default async function handler(req, res) {
       recentLeads,
       topBlogs,
       notifications,
+      leadsByDay,
     });
   } catch (err) {
     return res.status(500).json({ error: 'Internal server error' });

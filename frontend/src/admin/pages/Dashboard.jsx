@@ -55,21 +55,19 @@ export default function Dashboard() {
 
   const { start, end } = useMemo(() => rangeBounds(range), [range]);
 
-  // Lead activity for the selected range, derived client-side from the
-  // notifications feed that /stats already returns (no extra API calls).
+  // Lead activity for the selected range, from the per-day counts /stats
+  // returns. (Deriving this from the notifications feed under-counted, since
+  // that feed is capped at 15 rows.)
   const series = useMemo(() => {
-    const leads = (data?.notifications || []).filter((n) => n.type === 'lead');
+    const byDay = new Map((data?.leadsByDay || []).map((r) => [r.day, r.n]));
     const days = Math.max(1, Math.round((startOfDay(end) - start) / 86400000) + 1);
-    const buckets = Array.from({ length: Math.min(days, 31) }, (_, i) => {
-      const d = new Date(startOfDay(end).getTime() - (Math.min(days, 31) - 1 - i) * 86400000);
-      return { date: d, count: 0 };
+    const span = Math.min(days, 31);
+    return Array.from({ length: span }, (_, i) => {
+      const d = new Date(startOfDay(end).getTime() - (span - 1 - i) * 86400000);
+      // `day` comes back as a YYYY-MM-DD string; build the same key locally.
+      const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+      return { date: d, count: byDay.get(key) || 0 };
     });
-    leads.forEach((l) => {
-      const t = startOfDay(new Date(l.created_at)).getTime();
-      const b = buckets.find((x) => x.date.getTime() === t);
-      if (b) b.count += 1;
-    });
-    return buckets;
   }, [data, range, start, end]);
 
   const rangeLeads = series.reduce((s, b) => s + b.count, 0);
