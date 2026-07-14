@@ -454,23 +454,27 @@ const TestimonialsSection = () => {
     setActive(page);
   };
 
-  // Auto-slide every 8s (pauses on hover) — long enough to actually read a review.
+  // Auto-slide, pausing on hover. The first slide holds a beat longer than the
+  // rest: it carries the newest reviews, and it's what a visitor lands on.
+  // A setInterval can't vary its delay per slide, hence the chained timeout —
+  // and it re-arms on a paused tick rather than dropping the slide entirely.
   useEffect(() => {
-    const id = setInterval(() => {
-      if (pauseRef.current) return;
-      setActive((prev) => {
-        const next = (prev + 1) % pageCount;
-        const el = trackRef.current;
-        if (el) {
-          const card = el.querySelector('.tcard');
-          const step = card ? (card.offsetWidth + 28) * perPage() : el.clientWidth;
-          el.scrollTo({ left: step * next, behavior: 'smooth' });
-        }
-        return next;
-      });
-    }, 8000);
-    return () => clearInterval(id);
-  }, [pageCount]);
+    const delay = active === 0 ? 6000 : 5000;
+    let id;
+    const tick = () => {
+      if (pauseRef.current) { id = setTimeout(tick, 500); return; }
+      const next = (active + 1) % pageCount;
+      const el = trackRef.current;
+      if (el) {
+        const card = el.querySelector('.tcard');
+        const step = card ? (card.offsetWidth + 28) * perPage() : el.clientWidth;
+        el.scrollTo({ left: step * next, behavior: 'smooth' });
+      }
+      setActive(next);
+    };
+    id = setTimeout(tick, delay);
+    return () => clearTimeout(id);
+  }, [active, pageCount]);
 
   // Keep active dot in sync when user swipes manually
   const onScroll = () => {
@@ -484,7 +488,6 @@ const TestimonialsSection = () => {
   return (
     <section className="home-testimonials" data-aos="fade-up">
       <div className="container">
-        <p className="section-label">GOOGLE REVIEWS</p>
         <h2 className="section-title">Google Reviews</h2>
         <p className="section-subtitle">Real reviews from real Indian businesses we've helped grow.</p>
 
