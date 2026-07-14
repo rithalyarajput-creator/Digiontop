@@ -108,7 +108,9 @@ export default function Leads() {
   const [loading, setLoading] = useState(true);
   const [selectedLead, setSelectedLead] = useState(null);
 
-  /* notes + follow-up editor state (scoped to the open modal) */
+  /* modal editor state — everything is a draft until Save is pressed, so the
+     status dropdown, the note and the date all commit together */
+  const [statusDraft, setStatusDraft] = useState('new');
   const [noteDraft, setNoteDraft] = useState('');
   const [followUpDraft, setFollowUpDraft] = useState('');
   const [saving, setSaving] = useState(false);
@@ -118,6 +120,7 @@ export default function Leads() {
 
   function openLead(lead) {
     setSelectedLead(lead);
+    setStatusDraft(lead.status || 'new');
     setNoteDraft(lead.notes || '');
     setFollowUpDraft(toDateInput(lead.follow_up_at));
     setSavedAt(0);
@@ -166,17 +169,23 @@ export default function Leads() {
     }
   }
 
-  async function saveFollowUp() {
+  /* One save for the whole modal. Previously the status committed on change
+     while Save only sent the note and date — so saving reverted the status the
+     user had just picked. */
+  async function saveLead() {
     if (!selectedLead) return;
     const id = selectedLead.id;
-    const notes = noteDraft.trim() ? noteDraft : '';
-    const follow_up_at = followUpDraft ? followUpDraft : null;  // null clears the reminder
+    const patch = {
+      status: statusDraft,
+      notes: noteDraft.trim() ? noteDraft : '',
+      follow_up_at: followUpDraft || null,   // null clears the reminder
+    };
     setSaving(true);
     setError('');
     try {
-      await apiPut('/leads', { id, notes, follow_up_at });
-      setLeads((prev) => prev.map((l) => (l.id === id ? { ...l, notes, follow_up_at } : l)));
-      setSelectedLead((prev) => (prev && prev.id === id ? { ...prev, notes, follow_up_at } : prev));
+      await apiPut('/leads', { id, ...patch });
+      setLeads((prev) => prev.map((l) => (l.id === id ? { ...l, ...patch } : l)));
+      setSelectedLead((prev) => (prev && prev.id === id ? { ...prev, ...patch } : prev));
       setSavedAt(Date.now());
     } catch (err) {
       setError(err.message);
@@ -426,11 +435,11 @@ export default function Leads() {
               <div className="admin-smodal__field admin-smodal__field--full">
                 <span className="admin-smodal__label">Status</span>
                 <div className="admin-smodal__status">
-                  <span className={statusBadgeClass(selectedLead.status)}>{selectedLead.status || 'new'}</span>
+                  <span className={statusBadgeClass(statusDraft)}>{statusDraft}</span>
                   <select
                     className="admin-sselect"
-                    value={selectedLead.status}
-                    onChange={(e) => { updateStatus(selectedLead.id, e.target.value); setSelectedLead({ ...selectedLead, status: e.target.value }); }}
+                    value={statusDraft}
+                    onChange={(e) => { setStatusDraft(e.target.value); setSavedAt(0); }}
                   >
                     {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
                   </select>
@@ -469,17 +478,6 @@ export default function Leads() {
                       Clear
                     </button>
                   )}
-                  <button
-                    type="button"
-                    className="admin-sbtn admin-sbtn--primary admin-sbtn--sm"
-                    onClick={saveFollowUp}
-                    disabled={saving}
-                  >
-                    {saving ? 'Saving…' : 'Save'}
-                  </button>
-                  {savedAt > 0 && !saving && (
-                    <span className="admin-lead-saved">Saved</span>
-                  )}
                 </div>
               </div>
             </div>
@@ -495,13 +493,15 @@ export default function Leads() {
                   <FaWhatsapp /> WhatsApp
                 </a>
               )}
+              {savedAt > 0 && !saving && <span className="admin-lead-saved">Saved</span>}
               <button type="button" className="admin-sbtn" onClick={closeLead}>Close</button>
               <button
                 type="button"
                 className="admin-sbtn admin-sbtn--primary"
-                onClick={() => { updateStatus(selectedLead.id, 'converted'); closeLead(); }}
+                onClick={saveLead}
+                disabled={saving}
               >
-                Mark as converted
+                {saving ? 'Saving…' : 'Save changes'}
               </button>
             </div>
           </div>
