@@ -228,24 +228,47 @@ function vaultToken(user) {
   });
 }
 
-/** Owner + a valid, unexpired vault token. Sends its own errors. */
+/**
+ * Verify a vault token. It is only ever minted for the owner, after the
+ * passphrase, and is short-lived — so it stands on its own as proof.
+ */
+function readVault(req) {
+  const raw = req.headers['x-vault-token'] || req.query.vt || '';
+  if (!raw) return null;
+  try {
+    const v = jwt.verify(String(raw), process.env.JWT_SECRET);
+    return v.vault === true ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Serving a file is the one case the Authorization header can't reach us: the
+ * browser fetches it directly (a new tab, a download), and only carries what's
+ * in the URL. So a valid vault token alone authorises it — which is safe,
+ * because that token is owner-only, passphrase-gated and expires in 30 minutes.
+ */
+function requireVaultForFile(req, res) {
+  const v = readVault(req);
+  if (!v) {
+    res.status(401).json({ error: 'Vault session expired. Enter the passphrase again.', locked: true });
+    return null;
+  }
+  return v;
+}
+
+/** Owner session AND a valid vault token — for everything the app calls with fetch(). */
 function requireVault(req, res) {
   const me = requireSuper(req, res);
   if (!me) return null;
 
-  const raw = req.headers['x-vault-token'] || req.query.vt || '';
-  if (!raw) {
-    res.status(401).json({ error: 'Vault locked', locked: true });
-    return null;
-  }
-  try {
-    const v = jwt.verify(String(raw), process.env.JWT_SECRET);
-    if (!v.vault || v.uid !== me.uid) throw new Error('not a vault token');
-    return me;
-  } catch {
+  const v = readVault(req);
+  if (!v || v.uid !== me.uid) {
     res.status(401).json({ error: 'Vault session expired. Enter the passphrase again.', locked: true });
     return null;
   }
+  return me;
 }
 
 async function docs(req, res) {
@@ -288,12 +311,13 @@ async function docs(req, res) {
     return res.status(200).json({ success: true });
   }
 
-  // Everything below serves or mutates documents — vault token required.
-  const me = requireVault(req, res);
-  if (!me) return;
-
-  // Download one file.
+  // Serve one file. Checked BEFORE requireVault, because the browser fetches
+  // this URL itself — opening a tab or downloading — and carries no
+  // Authorization header, only what's in the query string. The vault token in
+  // the URL is the credential here; see requireVaultForFile.
   if (req.method === 'GET' && req.query.id) {
+    if (!requireVaultForFile(req, res)) return;
+
     const rows = await sql`SELECT filename, mime, data FROM documents WHERE id = ${req.query.id}`;
     const d = rows[0];
     if (!d) return res.status(404).json({ error: 'Not found' });
@@ -308,6 +332,11 @@ async function docs(req, res) {
     );
     return res.status(200).send(buf);
   }
+
+  // Everything below is called by the app with fetch(), which does send the
+  // Authorization header — so require the owner session as well as the vault.
+  const me = requireVault(req, res);
+  if (!me) return;
 
   // List — metadata only, never the file bytes.
   if (req.method === 'GET') {
