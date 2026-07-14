@@ -112,7 +112,9 @@ export default function ChatBot() {
   }]);
   const [input,   setInput]   = useState('');
   const [typing,  setTyping]  = useState(false);
-  const [unread,  setUnread]  = useState(1);
+  // Starts at 0: the badge should mean "someone replied to you", not sit at 1
+  // from the first page load counting a greeting nobody sent.
+  const [unread,  setUnread]  = useState(0);
   const [quickVisible, setQuickVisible] = useState(true);
   const bottomRef = useRef(null);
   const inputRef  = useRef(null);
