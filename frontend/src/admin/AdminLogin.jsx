@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FiArrowRight, FiEye, FiEyeOff } from 'react-icons/fi';
-import { apiPost, setToken } from './api';
+import { apiPost, setToken, setUser } from './api';
 import './admin.css';
 
 export default function AdminLogin({ onLogin }) {
@@ -18,6 +18,9 @@ export default function AdminLogin({ onLogin }) {
       const data = await apiPost('/auth/login', { username, password });
       if (data && data.token) {
         setToken(data.token);
+        // Who logged in + which sections they hold. setUser() tolerates a
+        // missing `user` (older API) — getUser() then falls back to the JWT.
+        setUser(data.user);
         if (onLogin) onLogin();
       } else {
         setError('Login failed. Please try again.');

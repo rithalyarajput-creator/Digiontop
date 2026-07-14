@@ -1,5 +1,6 @@
+import bcrypt from 'bcryptjs';
 import { sql } from './_lib/db.js';
-import { setCors, verifyToken } from './_lib/auth.js';
+import { setCors, requireSuper, requirePermission } from './_lib/auth.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -8,8 +9,17 @@ function slugify(text) {
     .replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
-function isAuthed(req) {
-  try { verifyToken(req); return true; } catch { return false; }
+/**
+ * Gate an admin-only branch on a section permission.
+ * Sends 401 (no/bad token) or 403 (valid token, wrong section) itself and
+ * returns false — the caller just bails out.
+ *
+ * Hiding a menu item in the admin UI is not access control: a restricted team
+ * member still holds a valid token and can call these endpoints directly, so
+ * every admin-only branch below has to be checked here, server-side.
+ */
+function allow(req, res, section) {
+  return requirePermission(req, res, section) !== null;
 }
 
 /* ─────────── CATEGORIES ─────────── */
@@ -20,7 +30,8 @@ async function categories(req, res) {
       FROM categories c ORDER BY c.name ASC`;
     return res.status(200).json(rows);
   }
-  if (!isAuthed(req)) return res.status(401).json({ error: 'Unauthorized' });
+  // GET above is public. Categories are blog-adjacent → writes need 'blog'.
+  if (!allow(req, res, 'blog')) return;
 
   if (req.method === 'POST') {
     const { name, slug, description, image_url, is_active } = req.body || {};
@@ -65,7 +76,9 @@ async function authors(req, res) {
       FROM authors a ORDER BY a.name ASC`;
     return res.status(200).json(rows);
   }
-  if (!isAuthed(req)) return res.status(401).json({ error: 'Unauthorized' });
+  // GET above is public (the public blog post page renders author bios).
+  // Authors are blog-adjacent → writes need 'blog'.
+  if (!allow(req, res, 'blog')) return;
 
   if (req.method === 'POST') {
     const { name, email, bio, avatar_url, social_links, is_active } = req.body || {};
@@ -112,7 +125,9 @@ async function newsletter(req, res) {
       ON CONFLICT (email) DO NOTHING`;
     return res.status(200).json({ success: true, message: 'Subscribed successfully!' });
   }
-  if (!isAuthed(req)) return res.status(401).json({ error: 'Unauthorized' });
+  // POST above is the public signup form and stays open. Reading or deleting
+  // the subscriber list is admin-only → 'newsletter'.
+  if (!allow(req, res, 'newsletter')) return;
 
   if (req.method === 'GET') {
     const rows = await sql`SELECT * FROM newsletter_subscribers ORDER BY created_at DESC`;
@@ -146,7 +161,13 @@ async function media(req, res) {
     res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
     return res.status(200).send(buf);
   }
-  if (!isAuthed(req)) return res.status(401).json({ error: 'Unauthorized' });
+  // GET above is public — it serves the actual image bytes to the live site.
+  //
+  // Upload/delete is admin-only. The uploader is shared by the blog editor,
+  // the reviews page and the authors page, so there is no single "correct"
+  // section for it; 'blog' is the pragmatic choice — it is the section that
+  // owns the media library and the one the image editor primarily serves.
+  if (!allow(req, res, 'blog')) return;
 
   // POST — upload an image (admin only)
   if (req.method === 'POST') {
@@ -181,6 +202,109 @@ async function media(req, res) {
   return res.status(405).json({ error: 'Method not allowed' });
 }
 
+/* ── Team accounts ─────────────────────────────────────────────────────────
+   Only the owner can reach any of this. A team member's own account is not
+   editable by them — passwords are reset by the owner. */
+const SECTIONS = ['blog', 'leads', 'reviews', 'faq', 'newsletter', 'settings'];
+
+async function users(req, res) {
+  const me = requireSuper(req, res);
+  if (!me) return;
+
+  if (req.method === 'GET') {
+    // Never return password hashes.
+    const rows = await sql`
+      SELECT id, username, full_name, is_super, permissions, is_active, created_at
+      FROM admin_users
+      ORDER BY is_super DESC, username
+    `;
+    return res.status(200).json(rows);
+  }
+
+  if (req.method === 'POST') {
+    const { username, password, full_name, permissions } = req.body || {};
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Username and password are required.' });
+    }
+    if (String(password).length < 8) {
+      return res.status(400).json({ error: 'Password must be at least 8 characters.' });
+    }
+    // Only ever store sections we actually recognise.
+    const perms = (Array.isArray(permissions) ? permissions : [])
+      .filter((p) => SECTIONS.includes(p));
+
+    const exists = await sql`SELECT id FROM admin_users WHERE username = ${username}`;
+    if (exists.length) {
+      return res.status(409).json({ error: 'That username is already taken.' });
+    }
+
+    const hash = await bcrypt.hash(String(password), 12);
+    const rows = await sql`
+      INSERT INTO admin_users (username, password, full_name, permissions, is_super, is_active)
+      VALUES (${username}, ${hash}, ${full_name || null}, ${perms.join(',')}, false, true)
+      RETURNING id, username, full_name, is_super, permissions, is_active, created_at
+    `;
+    return res.status(201).json(rows[0]);
+  }
+
+  if (req.method === 'PUT') {
+    const { id, full_name, permissions, is_active, password } = req.body || {};
+    if (!id) return res.status(400).json({ error: 'id is required' });
+
+    const found = await sql`SELECT * FROM admin_users WHERE id = ${id}`;
+    if (!found.length) return res.status(404).json({ error: 'User not found' });
+    const target = found[0];
+
+    // The owner's own account can't be demoted, disabled, or locked out of the
+    // one section that manages users — that would strand the site with no admin.
+    if (target.is_super) {
+      if (is_active === false) {
+        return res.status(400).json({ error: "The owner's account cannot be disabled." });
+      }
+      if (permissions !== undefined) {
+        return res.status(400).json({ error: "The owner always has every section." });
+      }
+    }
+
+    const nextName = full_name === undefined ? target.full_name : (full_name || null);
+    const nextPerms = permissions === undefined
+      ? target.permissions
+      : (Array.isArray(permissions) ? permissions : []).filter((p) => SECTIONS.includes(p)).join(',');
+    const nextActive = is_active === undefined ? target.is_active : !!is_active;
+    const nextHash = password ? await bcrypt.hash(String(password), 12) : target.password;
+
+    if (password && String(password).length < 8) {
+      return res.status(400).json({ error: 'Password must be at least 8 characters.' });
+    }
+
+    const rows = await sql`
+      UPDATE admin_users SET
+        full_name   = ${nextName},
+        permissions = ${nextPerms},
+        is_active   = ${nextActive},
+        password    = ${nextHash}
+      WHERE id = ${id}
+      RETURNING id, username, full_name, is_super, permissions, is_active, created_at
+    `;
+    return res.status(200).json(rows[0]);
+  }
+
+  if (req.method === 'DELETE') {
+    const { id } = req.query;
+    if (!id) return res.status(400).json({ error: 'id query parameter is required' });
+
+    const found = await sql`SELECT is_super FROM admin_users WHERE id = ${id}`;
+    if (!found.length) return res.status(404).json({ error: 'User not found' });
+    if (found[0].is_super) {
+      return res.status(400).json({ error: "The owner's account cannot be deleted." });
+    }
+    await sql`DELETE FROM admin_users WHERE id = ${id}`;
+    return res.status(200).json({ success: true });
+  }
+
+  return res.status(405).json({ error: 'Method not allowed' });
+}
+
 export default async function handler(req, res) {
   setCors(res);
   if (req.method === 'OPTIONS') return res.status(200).end();
@@ -191,8 +315,10 @@ export default async function handler(req, res) {
     if (resource === 'newsletter') return await newsletter(req, res);
     if (resource === 'categories') return await categories(req, res);
     if (resource === 'media') return await media(req, res);
+    if (resource === 'users') return await users(req, res);
     return res.status(400).json({ error: 'Unknown resource' });
   } catch (err) {
-    return res.status(500).json({ error: 'Internal server error' });
+    console.error(`/api/cms?resource=${resource} failed:`, err);
+    return res.status(500).json({ error: err.message || 'Internal server error' });
   }
 }

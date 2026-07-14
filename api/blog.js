@@ -1,5 +1,5 @@
 import { sql } from './_lib/db.js';
-import { setCors, verifyToken } from './_lib/auth.js';
+import { setCors, verifyToken, hasPermission } from './_lib/auth.js';
 
 function slugify(text) {
   return String(text)
@@ -10,12 +10,17 @@ function slugify(text) {
     .replace(/^-+|-+$/g, '');
 }
 
-function isAuthed(req) {
+/**
+ * Can the caller see unpublished posts (drafts / scheduled)?
+ * A valid token is not enough — the caller must actually hold the 'blog'
+ * section. Anyone else (public, or an admin restricted to e.g. leads) gets
+ * exactly the published-only view the live website gets.
+ */
+function canSeeUnpublished(req) {
   try {
-    verifyToken(req);
-    return true;
+    return hasPermission(req, 'blog');
   } catch {
-    return false;
+    return false; // no/invalid token → public reader
   }
 }
 
@@ -29,7 +34,11 @@ export default async function handler(req, res) {
   try {
     if (req.method === 'GET') {
       const { slug, id, published } = req.query;
-      const authed = isAuthed(req);
+      // Only a caller holding the 'blog' section gets the admin view.
+      const canSeeDrafts = canSeeUnpublished(req);
+      // Any signed-in admin is "not the public" for view-counting purposes.
+      let signedIn = false;
+      try { verifyToken(req); signedIn = true; } catch { signedIn = false; }
 
       // Auto-publish any scheduled posts whose time has arrived.
       try {
@@ -51,17 +60,17 @@ export default async function handler(req, res) {
         if (!post) {
           return res.status(404).json({ error: 'Post not found' });
         }
-        if (!authed && post.status !== 'published') {
+        if (!canSeeDrafts && post.status !== 'published') {
           return res.status(404).json({ error: 'Post not found' });
         }
         // Count a view for public reads of a published post (by slug only)
-        if (!authed && slug && post.status === 'published') {
+        if (!signedIn && slug && post.status === 'published') {
           try { await sql`UPDATE blog_posts SET views = COALESCE(views, 0) + 1 WHERE id = ${post.id}`; } catch {}
         }
         return res.status(200).json(post);
       }
 
-      if (!authed || published === '1') {
+      if (!canSeeDrafts || published === '1') {
         const rows = await sql`
           SELECT * FROM blog_posts
           WHERE status = 'published'
@@ -70,7 +79,7 @@ export default async function handler(req, res) {
         return res.status(200).json(rows);
       }
 
-      // Admin: return everything (drafts, scheduled, published)
+      // Admin with the 'blog' section: return everything (drafts, scheduled, published)
       const rows = await sql`
         SELECT * FROM blog_posts
         ORDER BY created_at DESC
@@ -78,9 +87,11 @@ export default async function handler(req, res) {
       return res.status(200).json(rows);
     }
 
-    let auth;
+    // Every write below is admin-only and requires the 'blog' section.
     try {
-      auth = verifyToken(req);
+      if (!hasPermission(req, 'blog')) {
+        return res.status(403).json({ error: 'You do not have access to this section.' });
+      }
     } catch {
       return res.status(401).json({ error: 'Unauthorized' });
     }

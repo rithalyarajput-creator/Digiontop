@@ -1,5 +1,5 @@
 import { sql } from './_lib/db.js';
-import { setCors, requireAuth } from './_lib/auth.js';
+import { setCors, requirePermission } from './_lib/auth.js';
 
 export default async function handler(req, res) {
   setCors(res);
@@ -8,7 +8,9 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const auth = requireAuth(req, res);
+  // Hiding the Leads menu isn't access control — a restricted user could still
+  // call this endpoint directly. Enforce the section server-side.
+  const auth = requirePermission(req, res, 'leads');
   if (!auth) return;
 
   try {

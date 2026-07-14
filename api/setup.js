@@ -24,9 +24,23 @@ export default async function handler(req, res) {
         id SERIAL PRIMARY KEY,
         username VARCHAR(80) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL,
+        full_name VARCHAR(120),
+        is_super BOOLEAN DEFAULT false,
+        permissions TEXT DEFAULT '',
+        is_active BOOLEAN DEFAULT true,
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
+
+    // Team accounts arrived after the table existed: each user now carries the
+    // set of admin sections they may open. `is_super` marks the owner, who has
+    // every section and is the only one who can manage users.
+    await sql`ALTER TABLE admin_users ADD COLUMN IF NOT EXISTS full_name VARCHAR(120)`;
+    await sql`ALTER TABLE admin_users ADD COLUMN IF NOT EXISTS is_super BOOLEAN DEFAULT false`;
+    await sql`ALTER TABLE admin_users ADD COLUMN IF NOT EXISTS permissions TEXT DEFAULT ''`;
+    await sql`ALTER TABLE admin_users ADD COLUMN IF NOT EXISTS is_active BOOLEAN DEFAULT true`;
+    // The original account is the owner.
+    await sql`UPDATE admin_users SET is_super = true WHERE username = 'digiontop@2026'`;
 
     await sql`
       CREATE TABLE IF NOT EXISTS blog_posts (

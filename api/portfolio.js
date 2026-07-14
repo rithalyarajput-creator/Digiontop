@@ -1,5 +1,5 @@
 import { sql } from './_lib/db.js';
-import { setCors, requireAuth } from './_lib/auth.js';
+import { setCors, requirePermission } from './_lib/auth.js';
 
 export default async function handler(req, res) {
   setCors(res);
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
       return res.status(200).json(rows);
     }
 
-    const auth = requireAuth(req, res);
+    const auth = requirePermission(req, res, 'reviews');
     if (!auth) return;
 
     if (req.method === 'POST') {

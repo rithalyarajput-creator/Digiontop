@@ -1,5 +1,5 @@
 import { sql } from './_lib/db.js';
-import { setCors, verifyToken } from './_lib/auth.js';
+import { setCors, verifyToken, hasPermission } from './_lib/auth.js';
 
 const DEFAULTS = {
   site_name: 'DigionTop',
@@ -36,9 +36,14 @@ export default async function handler(req, res) {
       return res.status(200).json({ ...DEFAULTS, ...data });
     }
 
+    // GET above stays public — the live website reads site settings on every
+    // page load. The PUT below requires the 'settings' section.
     let auth;
     try {
       auth = verifyToken(req);
+      if (!hasPermission(req, 'settings')) {
+        return res.status(403).json({ error: 'You do not have access to this section.' });
+      }
     } catch {
       return res.status(401).json({ error: 'Unauthorized' });
     }

@@ -1,5 +1,5 @@
 import { sql } from './_lib/db.js';
-import { setCors, verifyToken } from './_lib/auth.js';
+import { setCors, hasPermission } from './_lib/auth.js';
 
 export default async function handler(req, res) {
   setCors(res);
@@ -17,8 +17,12 @@ export default async function handler(req, res) {
       return res.status(200).json(rows);
     }
 
+    // GET above stays public (the live website renders the FAQ list).
+    // Every write below requires the 'faq' section.
     try {
-      verifyToken(req);
+      if (!hasPermission(req, 'faq')) {
+        return res.status(403).json({ error: 'You do not have access to this section.' });
+      }
     } catch {
       return res.status(401).json({ error: 'Unauthorized' });
     }
