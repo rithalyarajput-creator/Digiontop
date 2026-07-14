@@ -1,0 +1,122 @@
+/* ── Google-review style testimonial card ──────────────────────────────────
+   Owned by GoogleReviewCard.jsx and shared by every page that renders one
+   (homepage slider + /testimonials grid). Layout/sizing of the *container*
+   (flex-basis in a carousel, grid-template-columns in a grid) stays with the
+   page — this file only styles the card itself.                             */
+.tcard {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 16px;
+  padding: 22px 22px 24px;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.08), 0 6px 20px rgba(60, 64, 67, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.tcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 2px 6px rgba(60, 64, 67, 0.12), 0 14px 34px rgba(60, 64, 67, 0.14);
+}
+
+/* Header row: avatar + name/sub + Google G */
+.tcard__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tcard__avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+.tcard__avatar--initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  user-select: none;
+}
+.tcard__ident {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+.tcard__name {
+  color: #1a73e8;
+  font-size: 0.875rem;   /* 14px */
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tcard__sub {
+  color: #70757a;
+  font-size: 0.75rem;    /* 12px */
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tcard__glogo {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  align-self: flex-start;
+  margin-left: auto;
+}
+
+/* Meta row: stars + relative time + NEW chip */
+.tcard__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tcard__stars {
+  color: #fbbc04;
+  font-size: 0.9375rem;  /* 15px */
+  letter-spacing: 1.5px;
+  line-height: 1;
+}
+.tcard__time {
+  color: #70757a;
+  font-size: 0.75rem;
+}
+.tcard__new {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.625rem;   /* 10px */
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #5f6368;
+  line-height: 1.6;
+}
+
+/* Review body — clamped to keep card heights even */
+.tcard__text {
+  font-size: 0.9375rem;  /* 15px */
+  color: #3c4043;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

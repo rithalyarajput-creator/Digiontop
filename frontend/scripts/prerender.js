@@ -48,9 +48,35 @@ function staticRoutes() {
   return [...new Set(found)].filter((r) => !r.includes(':') && !r.includes('*'))
 }
 
-/** Serve dist/ with SPA fallback, mirroring how Vercel serves the site. */
+/**
+ * Serve dist/ with SPA fallback, mirroring how Vercel serves the site.
+ *
+ * Public /api reads are proxied to production. Without this, a page whose
+ * content comes from the database (the reviews page, say) would prerender its
+ * empty state — so a crawler, which doesn't run JS, would see a page with no
+ * reviews on it. Only public GETs are proxied; nothing here is authenticated,
+ * and a failure degrades to the empty state rather than failing the build.
+ */
+const API_ORIGIN = process.env.PRERENDER_API || 'https://www.digiontop.com'
+
 function serve(port) {
-  const server = http.createServer((req, res) => {
+  const server = http.createServer(async (req, res) => {
+    if (req.url.startsWith('/api/')) {
+      try {
+        const upstream = await fetch(`${API_ORIGIN}${req.url}`, {
+          headers: { Accept: 'application/json' },
+        })
+        const body = await upstream.text()
+        res.writeHead(upstream.status, {
+          'Content-Type': upstream.headers.get('content-type') || 'application/json',
+        })
+        return res.end(body)
+      } catch {
+        res.writeHead(200, { 'Content-Type': 'application/json' })
+        return res.end('[]')
+      }
+    }
+
     const url = decodeURIComponent(req.url.split('?')[0])
     let file = path.join(dist, url)
     if (!fs.existsSync(file) || fs.statSync(file).isDirectory()) {

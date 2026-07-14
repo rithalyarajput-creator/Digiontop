@@ -143,7 +143,12 @@
 }
 
 /* ============================================================
-   2. TESTIMONIALS GRID
+   2. GOOGLE REVIEWS GRID
+
+   The card itself is the shared <GoogleReviewCard /> — identical to the one on
+   the homepage slider. Its styles live in components/GoogleReviewCard.css and
+   are deliberately NOT overridden here; this page only lays the cards out.
+   The homepage slides 3 at a time; this page shows every review at once.
    ============================================================ */
 .testimonials-grid-section {
   padding: 96px 0;
@@ -154,92 +159,47 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
+  /* Cards in a row match height — .tcard is a column flexbox that stretches to
+     fill its grid area, and .tcard__text has flex:1, so the meta/footer of every
+     card in a row lines up. */
+  align-items: stretch;
 }
 
-.testimonial-card {
+/* ── Empty state — shown when there are genuinely no reviews yet.
+      We never fill this page with invented ones. ── */
+.testimonials-empty {
+  text-align: center;
   background: #fff;
-  border-radius: 18px;
-  padding: 22px 22px 18px;
-  border: 1.5px solid #f0f0f0;
-  border-top: 4px solid var(--accent, #F5A800);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px dashed #d6d9e0;
+  border-radius: 16px;
+  padding: 56px 24px;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.12);
-}
-
-/* Big opening quote */
-.testimonial-card__quote-icon {
-  font-size: 3.2rem;
-  font-family: Georgia, serif;
-  font-weight: 900;
-  line-height: 0.8;
-  color: var(--accent, #F5A800);
-  opacity: 0.35;
-  margin-bottom: -2px;
-  user-select: none;
-}
-
-/* Yellow stars */
-.testimonial-card__stars {
-  color: #F5A800;
-  font-size: 1rem;
-  letter-spacing: 2px;
-}
-
-/* Review text */
-.testimonial-card__text {
-  font-size: 0.875rem;
-  color: #444;
-  line-height: 1.78;
-  margin: 0;
-  flex: 1;
-}
-
-/* Person row at bottom */
-.testimonial-card__person {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-top: 14px;
-  border-top: 1px solid #f0f0f0;
-  margin-top: auto;
-}
-
-/* Avatar circle */
-.testimonial-card__avatar {
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
-  border-radius: 50%;
-  background: var(--accent, #F5A800);
-  color: #fff;
-  font-size: 1.05rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-
-.testimonial-card__name {
-  font-size: 0.9rem;
+.testimonials-empty__title {
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #1a1a1a;
-  margin: 0 0 2px;
+  color: #1f2540;
+  margin: 0 0 10px;
 }
 
-.testimonial-card__role {
-  font-size: 0.75rem;
-  color: #888;
-  margin: 0;
+.testimonials-empty__sub {
+  font-size: 1rem;
+  color: #70757a;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.testimonials-empty__link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #1a73e8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.testimonials-empty__link:hover {
+  text-decoration: underline;
 }
 
 /* ============================================================
@@ -367,9 +327,6 @@
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
-  .testimonial-card {
-    padding: 18px 18px 14px;
-  }
 
   .testimonials-hero {
     min-height: 300px;
@@ -388,10 +345,7 @@
     margin-bottom: 40px;
   }
 
-  .testimonial-card__avatar {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    font-size: 0.9rem;
+  .testimonials-empty {
+    padding: 40px 18px;
   }
 }
