@@ -125,7 +125,11 @@ export default function Navbar() {
                     {/* RIGHT — selected category detail */}
                     <div className="navbar__mega-panel" key={servicesMenu[megaCat].heading}>
                       <div className="navbar__mega-panel-head">
-                        <img src={servicesMenu[megaCat].image} alt="" className="navbar__mega-panel-img" />
+                        {/* Only render when the category actually has artwork —
+                            an <img> with no src shows a broken-image icon. */}
+                        {servicesMenu[megaCat].image && (
+                          <img src={servicesMenu[megaCat].image} alt="" className="navbar__mega-panel-img" />
+                        )}
                         <div>
                           <span className="navbar__mega-panel-title navbar__mega-panel-title--static">
                             {servicesMenu[megaCat].heading}
