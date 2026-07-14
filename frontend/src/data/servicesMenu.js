@@ -38,7 +38,7 @@ export const SERVICES_MENU = [
     heading: 'Social Media & Content',
     icon: 'social',
     tagline: 'Grow & engage your audience on every platform.',
-    image: '/images/service-social.webp',
+    image: '/images/social-hero.webp',
     link: '/services/social-media-marketing',
     items: [
       { label: 'Social Media Marketing', path: '/services/social/social-media-marketing' },
@@ -54,7 +54,7 @@ export const SERVICES_MENU = [
     heading: 'Web Development',
     icon: 'web',
     tagline: 'High-converting websites & web apps.',
-    image: '/images/service-web.webp',
+    image: '/images/webdev-hero.webp',
     link: '/services/website-development',
     items: [
       { label: 'Custom Website Development', path: '/services/custom-website' },
@@ -71,6 +71,7 @@ export const SERVICES_MENU = [
     heading: 'Mobile & Software',
     icon: 'app',
     tagline: 'Apps & software built to scale your business.',
+    image: '/images/mobile-hero.webp',
     link: '/services/mobile-software',
     items: [
       { label: 'Mobile App Development', path: '/services/mobile/mobile-app' },
@@ -87,7 +88,7 @@ export const SERVICES_MENU = [
     heading: 'E-Commerce Solutions',
     icon: 'ecommerce',
     tagline: 'Sell more on Amazon, Flipkart, Meesho & Shopify.',
-    image: '/images/service-ecommerce.webp',
+    image: '/images/ecom-hero.webp',
     link: '/services/ecommerce-solutions',
     items: [
       { label: 'Amazon Product Listing', path: '/services/ecom/amazon' },
@@ -104,6 +105,7 @@ export const SERVICES_MENU = [
     heading: 'Creative & Branding',
     icon: 'branding',
     tagline: 'Brands & creatives people remember.',
+    image: '/images/creative-hero.webp',
     link: '/services/creative-branding',
     items: [
       { label: 'Branding & Identity', path: '/services/branding-identity' },
