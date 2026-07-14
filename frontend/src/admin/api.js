@@ -111,10 +111,15 @@ export function isOwner() {
   return !!(user && user.super);
 }
 
-function authHeaders() {
+/**
+ * @param {string} [vaultToken] the short-lived document-vault token. Held in
+ *   React state only — never read from storage, and never persisted here.
+ */
+function authHeaders(vaultToken) {
   const token = getToken();
   const headers = { 'Content-Type': 'application/json' };
   if (token) headers['Authorization'] = `Bearer ${token}`;
+  if (vaultToken) headers['X-Vault-Token'] = vaultToken;
   return headers;
 }
 
@@ -129,9 +134,24 @@ async function handle(res) {
     }
   }
   if (!res.ok) {
-    // 401 → the session is gone. Clear it and bounce to login.
+    // 401 + { locked: true } → the *document vault* is locked or its short-lived
+    //   token expired. The admin session itself is perfectly valid, so this must
+    //   NOT clear the token or bounce to login. The Documents page catches
+    //   err.locked and drops back to its passphrase screen.
+    // 401 → the admin session is gone. Clear it and bounce to login.
     // 403 → the session is fine, the user simply lacks this section. Surface
     //       the server's message; do NOT log them out.
+    const vaultLocked = res.status === 401 && !!(data && data.locked);
+
+    if (vaultLocked) {
+      const err = new Error(
+        (data && data.error) || 'Vault locked. Enter the passphrase again.'
+      );
+      err.status = 401;
+      err.locked = true;
+      throw err;
+    }
+
     if (res.status === 401) {
       clearToken();
       if (typeof window !== 'undefined' && !window.location.pathname.endsWith('/admin')) {
@@ -160,30 +180,33 @@ async function handle(res) {
   return data;
 }
 
-export async function apiGet(path) {
-  const res = await fetch(`/api${path}`, { method: 'GET', headers: authHeaders() });
+/* Each verb takes an optional trailing `vaultToken`. Only the Documents page
+   passes one; every other call site is unaffected. */
+
+export async function apiGet(path, vaultToken) {
+  const res = await fetch(`/api${path}`, { method: 'GET', headers: authHeaders(vaultToken) });
   return handle(res);
 }
 
-export async function apiPost(path, body) {
+export async function apiPost(path, body, vaultToken) {
   const res = await fetch(`/api${path}`, {
     method: 'POST',
-    headers: authHeaders(),
+    headers: authHeaders(vaultToken),
     body: JSON.stringify(body || {}),
   });
   return handle(res);
 }
 
-export async function apiPut(path, body) {
+export async function apiPut(path, body, vaultToken) {
   const res = await fetch(`/api${path}`, {
     method: 'PUT',
-    headers: authHeaders(),
+    headers: authHeaders(vaultToken),
     body: JSON.stringify(body || {}),
   });
   return handle(res);
 }
 
-export async function apiDelete(path) {
-  const res = await fetch(`/api${path}`, { method: 'DELETE', headers: authHeaders() });
+export async function apiDelete(path, vaultToken) {
+  const res = await fetch(`/api${path}`, { method: 'DELETE', headers: authHeaders(vaultToken) });
   return handle(res);
 }

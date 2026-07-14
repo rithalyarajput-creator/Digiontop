@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import { sql } from './_lib/db.js';
 import { setCors, requireSuper, requirePermission } from './_lib/auth.js';
 
@@ -202,6 +203,170 @@ async function media(req, res) {
   return res.status(405).json({ error: 'Method not allowed' });
 }
 
+/* ── Private document vault ────────────────────────────────────────────────
+   Proformas, invoices, agreements. Owner-only AND behind its own passphrase,
+   so an unattended logged-in laptop still doesn't expose them.
+
+   The passphrase is exchanged for a short-lived token. That token is required
+   on every read — the file bytes are never served on the strength of the admin
+   session alone, which is the whole point of the second lock. */
+const VAULT_TTL_MS = 30 * 60 * 1000; // re-enter the passphrase every 30 minutes
+
+const DOC_TYPES = [
+  'application/pdf',
+  'image/jpeg', 'image/png', 'image/webp', 'image/gif',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  'application/vnd.ms-excel',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+];
+
+/** Mint a vault token bound to this user. */
+function vaultToken(user) {
+  return jwt.sign({ uid: user.uid, vault: true }, process.env.JWT_SECRET, {
+    expiresIn: Math.floor(VAULT_TTL_MS / 1000),
+  });
+}
+
+/** Owner + a valid, unexpired vault token. Sends its own errors. */
+function requireVault(req, res) {
+  const me = requireSuper(req, res);
+  if (!me) return null;
+
+  const raw = req.headers['x-vault-token'] || req.query.vt || '';
+  if (!raw) {
+    res.status(401).json({ error: 'Vault locked', locked: true });
+    return null;
+  }
+  try {
+    const v = jwt.verify(String(raw), process.env.JWT_SECRET);
+    if (!v.vault || v.uid !== me.uid) throw new Error('not a vault token');
+    return me;
+  } catch {
+    res.status(401).json({ error: 'Vault session expired. Enter the passphrase again.', locked: true });
+    return null;
+  }
+}
+
+async function docs(req, res) {
+  const action = req.query.action;
+
+  // Unlock: exchange the passphrase for a short-lived vault token.
+  if (action === 'unlock') {
+    const me = requireSuper(req, res);
+    if (!me) return;
+    if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+    const { passphrase } = req.body || {};
+    const rows = await sql`SELECT passphrase FROM doc_vault WHERE id = 1`;
+    if (!rows.length) return res.status(500).json({ error: 'Vault is not set up.' });
+
+    const ok = await bcrypt.compare(String(passphrase || ''), rows[0].passphrase);
+    if (!ok) return res.status(401).json({ error: 'Wrong passphrase.' });
+
+    return res.status(200).json({ token: vaultToken(me), expiresIn: VAULT_TTL_MS });
+  }
+
+  // Change the passphrase (requires the current one).
+  if (action === 'passphrase') {
+    const me = requireVault(req, res);
+    if (!me) return;
+    if (req.method !== 'PUT') return res.status(405).json({ error: 'Method not allowed' });
+
+    const { current, next } = req.body || {};
+    if (!next || String(next).length < 6) {
+      return res.status(400).json({ error: 'New passphrase must be at least 6 characters.' });
+    }
+    const rows = await sql`SELECT passphrase FROM doc_vault WHERE id = 1`;
+    const ok = await bcrypt.compare(String(current || ''), rows[0].passphrase);
+    if (!ok) return res.status(401).json({ error: 'Current passphrase is wrong.' });
+
+    await sql`
+      UPDATE doc_vault SET passphrase = ${await bcrypt.hash(String(next), 12)}, updated_at = NOW()
+      WHERE id = 1
+    `;
+    return res.status(200).json({ success: true });
+  }
+
+  // Everything below serves or mutates documents — vault token required.
+  const me = requireVault(req, res);
+  if (!me) return;
+
+  // Download one file.
+  if (req.method === 'GET' && req.query.id) {
+    const rows = await sql`SELECT filename, mime, data FROM documents WHERE id = ${req.query.id}`;
+    const d = rows[0];
+    if (!d) return res.status(404).json({ error: 'Not found' });
+
+    const buf = Buffer.from(d.data, 'base64');
+    res.setHeader('Content-Type', d.mime || 'application/octet-stream');
+    // Private: never let a proxy or the browser cache a document.
+    res.setHeader('Cache-Control', 'private, no-store');
+    res.setHeader(
+      'Content-Disposition',
+      `${req.query.download ? 'attachment' : 'inline'}; filename="${(d.filename || 'document').replace(/"/g, '')}"`
+    );
+    return res.status(200).send(buf);
+  }
+
+  // List — metadata only, never the file bytes.
+  if (req.method === 'GET') {
+    const rows = await sql`
+      SELECT id, title, category, notes, filename, mime, size_bytes, created_at
+      FROM documents ORDER BY created_at DESC
+    `;
+    return res.status(200).json(rows);
+  }
+
+  if (req.method === 'POST') {
+    const { title, category, notes, filename, mime, data } = req.body || {};
+    if (!title || !data || !mime) {
+      return res.status(400).json({ error: 'Title and a file are required.' });
+    }
+    if (!DOC_TYPES.includes(String(mime))) {
+      return res.status(415).json({ error: 'Only PDF, image, Word and Excel files are allowed.' });
+    }
+    // Vercel caps a request body at 4.5MB; base64 inflates by ~33%, so this is
+    // the real ceiling on the original file (~3MB).
+    if (String(data).length > 4 * 1024 * 1024) {
+      return res.status(413).json({ error: 'File is too large. Maximum is about 3 MB.' });
+    }
+    const size = Math.round((String(data).length * 3) / 4);
+
+    const rows = await sql`
+      INSERT INTO documents (title, category, notes, filename, mime, size_bytes, data)
+      VALUES (${title}, ${category || null}, ${notes || null}, ${filename || 'document'},
+              ${mime}, ${size}, ${data})
+      RETURNING id, title, category, notes, filename, mime, size_bytes, created_at
+    `;
+    return res.status(201).json(rows[0]);
+  }
+
+  if (req.method === 'PUT') {
+    const { id, title, category, notes } = req.body || {};
+    if (!id) return res.status(400).json({ error: 'id is required' });
+    const rows = await sql`
+      UPDATE documents SET
+        title = COALESCE(${title ?? null}, title),
+        category = ${category ?? null},
+        notes = ${notes ?? null}
+      WHERE id = ${id}
+      RETURNING id, title, category, notes, filename, mime, size_bytes, created_at
+    `;
+    if (!rows.length) return res.status(404).json({ error: 'Document not found' });
+    return res.status(200).json(rows[0]);
+  }
+
+  if (req.method === 'DELETE') {
+    const { id } = req.query;
+    if (!id) return res.status(400).json({ error: 'id query parameter is required' });
+    await sql`DELETE FROM documents WHERE id = ${id}`;
+    return res.status(200).json({ success: true });
+  }
+
+  return res.status(405).json({ error: 'Method not allowed' });
+}
+
 /* ── Team accounts ─────────────────────────────────────────────────────────
    Only the owner can reach any of this. A team member's own account is not
    editable by them — passwords are reset by the owner. */
@@ -316,6 +481,7 @@ export default async function handler(req, res) {
     if (resource === 'categories') return await categories(req, res);
     if (resource === 'media') return await media(req, res);
     if (resource === 'users') return await users(req, res);
+    if (resource === 'docs') return await docs(req, res);
     return res.status(400).json({ error: 'Unknown resource' });
   } catch (err) {
     console.error(`/api/cms?resource=${resource} failed:`, err);

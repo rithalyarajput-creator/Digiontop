@@ -3,6 +3,7 @@ import { Routes, Route, NavLink, Navigate, Link } from 'react-router-dom';
 import {
   FiGrid, FiInbox, FiFileText, FiStar, FiHelpCircle,
   FiLogOut, FiMenu, FiUsers, FiTag, FiSettings, FiX, FiMail, FiLock, FiShield,
+  FiFolder,
 } from 'react-icons/fi';
 import { getToken, clearToken, getUser, can, isOwner } from './api';
 import AdminLogin from './AdminLogin';
@@ -18,6 +19,7 @@ import Categories from './pages/Categories';
 import Newsletter from './pages/Newsletter';
 import Settings from './pages/Settings';
 import Users from './pages/Users';
+import Documents from './pages/Documents';
 import './admin.css';
 
 /* Shown when someone reaches a route they don't hold. The menu never links here,
@@ -136,8 +138,14 @@ export default function AdminApp() {
             </NavLink>
           )}
 
-          {/* Team — owner only. Never grantable. */}
-          {owner && <div className="admin-sidebar__label">Team</div>}
+          {/* Private — owner only. Never grantable. Documents sits behind a
+              second passphrase lock of its own on top of this. */}
+          {owner && <div className="admin-sidebar__label">Private</div>}
+          {owner && (
+            <NavLink to="/admin/documents" className={linkClass} onClick={close}>
+              <FiFolder /> <span>Documents</span>
+            </NavLink>
+          )}
           {owner && (
             <NavLink to="/admin/users" className={linkClass} onClick={close}>
               <FiShield /> <span>Users</span>
@@ -181,6 +189,7 @@ export default function AdminApp() {
             <Route path="reviews" element={<Protected section="reviews"><TestimonialsAdmin /></Protected>} />
             <Route path="faq" element={<Protected section="faq"><FAQ /></Protected>} />
             <Route path="settings" element={<Protected section="settings"><Settings /></Protected>} />
+            <Route path="documents" element={<Protected owner><Documents /></Protected>} />
             <Route path="users" element={<Protected owner><Users /></Protected>} />
             <Route path="*" element={<Navigate to="/admin" replace />} />
           </Routes>

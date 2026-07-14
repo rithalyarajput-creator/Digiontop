@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 import { sql } from './_lib/db.js';
 
 /**
@@ -30,6 +31,41 @@ export default async function handler(req, res) {
         is_active BOOLEAN DEFAULT true,
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
+    `;
+
+    // Private document vault — proformas, invoices, agreements. Owner-only, and
+    // additionally gated behind its own passphrase, so someone who walks up to an
+    // already-logged-in laptop still can't read them. Files are stored base64 in
+    // Postgres, like the existing media table; Vercel caps a request body at
+    // 4.5MB, which is what bounds the file size.
+    await sql`
+      CREATE TABLE IF NOT EXISTS documents (
+        id SERIAL PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        category VARCHAR(80),
+        notes TEXT,
+        filename VARCHAR(255),
+        mime VARCHAR(120),
+        size_bytes INTEGER,
+        data TEXT NOT NULL,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+
+    // The vault passphrase, hashed — never stored in plain text, and never sent
+    // to the browser. Seeded once; change it from the Documents page.
+    await sql`
+      CREATE TABLE IF NOT EXISTS doc_vault (
+        id INT PRIMARY KEY DEFAULT 1,
+        passphrase VARCHAR(255) NOT NULL,
+        updated_at TIMESTAMPTZ DEFAULT NOW(),
+        CONSTRAINT doc_vault_single_row CHECK (id = 1)
+      )
+    `;
+    await sql`
+      INSERT INTO doc_vault (id, passphrase)
+      VALUES (1, ${bcrypt.hashSync('Sssstk', 12)})
+      ON CONFLICT (id) DO NOTHING
     `;
 
     // Team accounts arrived after the table existed: each user now carries the
