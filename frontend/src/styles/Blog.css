@@ -701,7 +701,8 @@
    ============================================================ */
 .blog-featured {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
+  /* Stacked: image on top, yellow content strip below it. */
+  grid-template-columns: 1fr;
   gap: 0;
   border-radius: 20px;
   overflow: hidden;
@@ -718,9 +719,19 @@
 }
 .blog-featured:hover { transform: translateY(-4px); box-shadow: 0 26px 56px rgba(245, 168, 0, 0.36); }
 
-.blog-featured__media { position: relative; min-height: 280px; background: #14182b; display: flex; align-items: center; }
-.blog-featured__media img { width: 100%; height: auto; max-height: 100%; object-fit: contain; display: block; }
-.blog-featured__placeholder { width: 100%; height: 100%; min-height: 280px; background: linear-gradient(135deg, #1a2b4a, #14182b); }
+/* Image floats on the yellow with padding all round, so a strip of yellow shows
+   above and to the right of it (matching the reference design). */
+.blog-featured__media {
+  position: relative;
+  margin: 20px 20px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #14182b;
+  box-shadow: 0 10px 26px rgba(20, 24, 43, 0.22);
+}
+.blog-featured__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-featured__placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #1a2b4a, #14182b); }
 .blog-featured__badge {
   position: absolute; top: 16px; left: 16px;
   background: #14182b; color: #fff;
@@ -728,7 +739,7 @@
   padding: 6px 14px; border-radius: 50px;
 }
 
-.blog-featured__body { padding: 38px 40px; display: flex; flex-direction: column; justify-content: center; }
+.blog-featured__body { padding: 22px 24px 26px; display: flex; flex-direction: column; }
 .blog-featured__meta { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
 .blog-featured__cat {
   background: rgba(20, 24, 43, 0.14); color: #14182b;
@@ -737,8 +748,10 @@
 }
 .blog-featured__date { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: #5a3d00; }
 .blog-featured__title {
-  font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 900; color: #14182b;
-  line-height: 1.2; margin: 0 0 14px;
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 900; color: #14182b;
+  line-height: 1.25; margin: 0 0 16px;
+  /* Keep the headline to two lines so the card height stays predictable. */
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .blog-featured__excerpt {
   font-size: 0.95rem; color: #4a3500; line-height: 1.65; margin: 0 0 22px;

@@ -132,7 +132,6 @@ function FeaturedPost({ post }) {
           <span className="blog-featured__date"><FiClock /> {date}</span>
         </div>
         <h2 className="blog-featured__title">{post.title}</h2>
-        {post.excerpt && <p className="blog-featured__excerpt">{post.excerpt}</p>}
         <span className="blog-featured__read">Read More <FiArrowRight /></span>
       </div>
     </Link>
