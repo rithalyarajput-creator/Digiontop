@@ -123,6 +123,7 @@ export function BlogCard({ post }) {
       </div>
       <div className="blog-card__yellow">
         <h3 className="blog-card__title">{post.title}</h3>
+        <span className="blog-card__read">Read More</span>
       </div>
     </Link>
   );
