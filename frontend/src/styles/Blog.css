@@ -124,13 +124,17 @@
 }
 
 .blog-card__read {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
   font-size: 0.85rem;
   font-weight: 800;
   color: #14182b;
 }
 .blog-card:hover .blog-card__read { text-decoration: underline; }
+.blog-card:hover .blog-card__read svg { transform: translateX(3px); }
+.blog-card__read svg { transition: transform 0.2s ease; }
 
 /* =============================================
    Blog Post Page

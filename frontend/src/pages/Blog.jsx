@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
-import { FiSearch } from 'react-icons/fi';
+import { FiSearch, FiArrowRight } from 'react-icons/fi';
 import '../styles/Blog.css';
 
 export default function Blog() {
@@ -131,7 +131,7 @@ export function BlogCard({ post }) {
       </div>
       <div className="blog-card__yellow">
         <h3 className="blog-card__title">{post.title}</h3>
-        <span className="blog-card__read">Read More</span>
+        <span className="blog-card__read">Read More <FiArrowRight /></span>
       </div>
     </Link>
   );
