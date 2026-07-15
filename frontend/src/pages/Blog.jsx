@@ -4,6 +4,18 @@ import { Link } from 'react-router-dom';
 import { FiSearch, FiArrowRight } from 'react-icons/fi';
 import '../styles/Blog.css';
 
+/* ~200 words/minute, stripped of HTML tags — matches typical blog read-time estimates. */
+function readTime(html) {
+  const words = (html || '').replace(/<[^>]+>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
+function formatDate(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return '';
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
 export default function Blog() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,6 +44,9 @@ export default function Blog() {
   );
   // Every post uses the same card now — no separate featured banner.
   const rest = sorted;
+  // The newest post also gets a wide banner above the grid — desktop only,
+  // hidden on mobile where there isn't room for it (see .blog-featured2 CSS).
+  const newest = sorted[0];
 
   // category list from posts
   const categories = useMemo(() => {
@@ -69,6 +84,31 @@ export default function Blog() {
         </div>
       </section>
 
+      {/* Newest post — wide banner, desktop only (see .blog-featured2 CSS). */}
+      {!loading && newest && (
+        <section className="blog-featured2">
+          <div className="blog-container">
+            <Link to={`/blog/${newest.slug || newest.id}`} className="blog-featured2__card">
+              <div className="blog-featured2__media">
+                {newest.image_url
+                  ? <img src={newest.image_url} alt={newest.title} loading="lazy" />
+                  : <div className="blog-featured2__placeholder" />}
+              </div>
+              <div className="blog-featured2__body">
+                <div className="blog-featured2__meta">
+                  <span>{formatDate(newest.created_at)}</span>
+                  <span className="blog-featured2__dot" aria-hidden="true">·</span>
+                  <span>{readTime(newest.content)} min read</span>
+                </div>
+                <h2 className="blog-featured2__title">{newest.title}</h2>
+                {newest.excerpt && <p className="blog-featured2__excerpt">{newest.excerpt}</p>}
+                <span className="blog-featured2__read">Read More <FiArrowRight /></span>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
+
       <section className="blog-section">
         <div className="blog-container">
           {loading && <p className="blog-loading">Loading posts…</p>}
@@ -80,6 +120,8 @@ export default function Blog() {
           {/* ── Filter + search bar ── */}
           {!loading && posts.length > 1 && (
             <div className="blog-filterbar">
+              {/* Chips on desktop; a single dropdown on mobile, where a row of
+                  chips wrapped onto several lines. */}
               <div className="blog-filterbar__cats">
                 {categories.map((c) => (
                   <button
@@ -91,6 +133,16 @@ export default function Blog() {
                   </button>
                 ))}
               </div>
+              <select
+                className="blog-cat-select"
+                value={cat}
+                onChange={(e) => setCat(e.target.value)}
+                aria-label="Filter by category"
+              >
+                {categories.map((c) => (
+                  <option key={c} value={c}>{c === 'all' ? 'All Categories' : c}</option>
+                ))}
+              </select>
               <div className="blog-search">
                 <FiSearch />
                 <input

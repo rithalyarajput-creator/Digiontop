@@ -37,11 +37,66 @@
 .blog-bc-cur { color: rgba(255,255,255,0.5); }
 
 /* ── Section ── */
-/* No top padding: the featured card is pulled up into the hero and supplies its
-   own spacing (see .blog-featured). When there's no featured card — no posts, or
-   still loading — restore it, or the content would sit flush against the hero. */
 .blog-section { padding: 56px 0 80px; background: #f5f5f5; }
 .blog-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Newest-post banner — desktop only ──
+   Dark image on the left, yellow gradient detail panel on the right. Hidden on
+   mobile/tablet: read-time + a long excerpt need width this layout doesn't have
+   below ~900px, and the post is already the first card in the grid underneath. */
+.blog-featured2 { display: none; }
+@media (min-width: 900px) {
+  .blog-featured2 {
+    display: block;
+    padding: 40px 0 0;
+    background: #f5f5f5;
+  }
+  .blog-featured2__card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    text-decoration: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 18px 44px rgba(20, 24, 43, 0.16);
+  }
+  .blog-featured2__media { background: #0d0d0d; min-height: 320px; position: relative; }
+  .blog-featured2__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .blog-featured2__placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #1a2b4a, #0d0d0d); }
+  .blog-featured2__body {
+    background: linear-gradient(135deg, #FFD24A 0%, #F5A800 60%, #E08E00 100%);
+    padding: 44px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-featured2__meta {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.85rem; font-weight: 700; color: rgba(20,24,43,0.75);
+    margin-bottom: 14px;
+  }
+  .blog-featured2__dot { opacity: 0.6; }
+  .blog-featured2__title {
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    font-weight: 900; color: #14182b; line-height: 1.25;
+    margin: 0 0 14px;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .blog-featured2__excerpt {
+    font-size: 0.95rem; color: #4a3500; line-height: 1.65; margin: 0 0 26px;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .blog-featured2__read {
+    display: inline-flex; align-items: center; gap: 8px;
+    align-self: flex-start;
+    background: #14182b; color: #fff;
+    font-size: 0.88rem; font-weight: 800;
+    padding: 12px 26px; border-radius: 50px;
+    transition: gap 0.2s ease;
+  }
+  .blog-featured2__card:hover .blog-featured2__read { gap: 12px; }
+}
 
 .blog-loading, .blog-empty {
   text-align: center;
@@ -768,6 +823,24 @@
   border-bottom: 1px solid #eef0f4;
 }
 .blog-filterbar__cats { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Dropdown swap-in for mobile — hidden on desktop, where the chip row fits. */
+.blog-cat-select {
+  display: none;
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  background: #fff;
+  border: 1.5px solid #e6e8ee;
+  border-radius: 12px;
+  padding: 10px 14px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235a6273' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
 .blog-chip {
   border: 1.5px solid #e6e8ee; background: #fff;
   color: #5a6273; font-size: 0.82rem; font-weight: 700;
@@ -786,6 +859,8 @@
 
 @media (max-width: 720px) {
   .blog-filterbar { flex-direction: column; align-items: stretch; }
+  .blog-filterbar__cats { display: none; }
+  .blog-cat-select { display: block; }
   .blog-search { min-width: 0; }
   .blog-hero { padding: 56px 20px 44px; }
 }
