@@ -108,7 +108,7 @@
 .blog-card__yellow {
   position: relative;
   margin: -34px 14px 0 0;      /* pull up under the image; a little right inset */
-  padding: 48px 20px 22px;     /* top padding clears the overlapping image */
+  padding: 54px 22px 34px;     /* taller strip — sits just shy of the image height */
   background: #F5BE1E;
   border-radius: 18px;
   z-index: 1;
