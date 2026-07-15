@@ -4,9 +4,12 @@ import Seo from '../components/Seo';
 import GoogleReviewCard, { sortNewestFirst } from '../components/GoogleReviewCard';
 import '../styles/Testimonials.css';
 
+const PER_PAGE = 9;
+
 export default function Testimonials() {
   const [items, setItems] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     let alive = true;
@@ -29,6 +32,17 @@ export default function Testimonials() {
   // in the admin), but what a visitor reads is reviewed_at (when it was actually
   // left) — so an older review typed in today must not jump to the front.
   const reviews = useMemo(() => sortNewestFirst(items), [items]);
+
+  const pageCount = Math.max(1, Math.ceil(reviews.length / PER_PAGE));
+  // Clamp in case the list shrank (e.g. reviews deleted) while on a later page.
+  const current = Math.min(page, pageCount);
+  const pageReviews = reviews.slice((current - 1) * PER_PAGE, current * PER_PAGE);
+
+  function goToPage(p) {
+    setPage(p);
+    // Jump back up to the first card so the new page starts at the top.
+    document.querySelector('.testimonials-grid-section')?.scrollIntoView({ behavior: 'smooth' });
+  }
 
   return (
     <main className="testimonials-page">
@@ -74,11 +88,47 @@ export default function Testimonials() {
           </div>
 
           {reviews.length > 0 ? (
-            <div className="testimonials-grid">
-              {reviews.map((r) => (
-                <GoogleReviewCard key={r.id} review={r} />
-              ))}
-            </div>
+            <>
+              <div className="testimonials-grid">
+                {pageReviews.map((r) => (
+                  <GoogleReviewCard key={r.id} review={r} />
+                ))}
+              </div>
+
+              {pageCount > 1 && (
+                <nav className="testimonials-pager" aria-label="Reviews pages">
+                  <button
+                    type="button"
+                    className="testimonials-pager__btn testimonials-pager__btn--arrow"
+                    onClick={() => goToPage(current - 1)}
+                    disabled={current === 1}
+                    aria-label="Previous page"
+                  >
+                    ‹
+                  </button>
+                  {Array.from({ length: pageCount }, (_, i) => i + 1).map((p) => (
+                    <button
+                      key={p}
+                      type="button"
+                      className={`testimonials-pager__btn${p === current ? ' testimonials-pager__btn--active' : ''}`}
+                      onClick={() => goToPage(p)}
+                      aria-current={p === current ? 'page' : undefined}
+                    >
+                      {p}
+                    </button>
+                  ))}
+                  <button
+                    type="button"
+                    className="testimonials-pager__btn testimonials-pager__btn--arrow"
+                    onClick={() => goToPage(current + 1)}
+                    disabled={current === pageCount}
+                    aria-label="Next page"
+                  >
+                    ›
+                  </button>
+                </nav>
+              )}
+            </>
           ) : (
             <div className="testimonials-empty">
               {loaded ? (
