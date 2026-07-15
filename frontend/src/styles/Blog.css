@@ -5,9 +5,7 @@
 /* ── Hero ── */
 .blog-hero {
   background: #0d0d0d;
-  /* Extra bottom padding leaves room for the featured card, which is pulled up
-     to overlap this band (see .blog-featured). */
-  padding: 80px 24px 150px;
+  padding: 80px 24px 64px;
   text-align: center;
 }
 .blog-hero__label {
@@ -42,10 +40,7 @@
 /* No top padding: the featured card is pulled up into the hero and supplies its
    own spacing (see .blog-featured). When there's no featured card — no posts, or
    still loading — restore it, or the content would sit flush against the hero. */
-.blog-section { padding: 0 0 80px; background: #f5f5f5; }
-.blog-section > .blog-container > .blog-loading,
-.blog-section > .blog-container > .blog-empty,
-.blog-section > .blog-container > .blog-filterbar:first-child { margin-top: 72px; }
+.blog-section { padding: 56px 0 80px; background: #f5f5f5; }
 .blog-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
 .blog-loading, .blog-empty {
@@ -786,13 +781,7 @@
 .blog-search input { border: none; background: none; outline: none; font-size: 0.88rem; width: 100%; font-family: inherit; color: #1a1a1a; }
 
 @media (max-width: 720px) {
-  .blog-featured { grid-template-columns: 1fr; }
-  .blog-featured__media { min-height: 200px; }
-  .blog-featured__body { padding: 26px 22px; }
   .blog-filterbar { flex-direction: column; align-items: stretch; }
   .blog-search { min-width: 0; }
-
-  /* The hero is shorter on a phone, so a 110px overlap would eat the subtitle. */
-  .blog-hero { padding: 60px 20px 110px; }
-  .blog-featured { margin-top: -70px; }
+  .blog-hero { padding: 56px 20px 44px; }
 }

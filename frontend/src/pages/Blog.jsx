@@ -18,8 +18,16 @@ export default function Blog() {
   }, []);
 
   // newest first
+  // Sort by whichever is more recent — updated_at (bumped when a post is
+  // edited or auto-published from a schedule) or created_at. Sorting by
+  // created_at alone left a scheduled post's original draft date in place,
+  // so it could publish without ever reaching the top of the list.
   const sorted = useMemo(
-    () => [...posts].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)),
+    () => [...posts].sort((a, b) => {
+      const aTime = Math.max(new Date(a.updated_at || 0), new Date(a.created_at || 0));
+      const bTime = Math.max(new Date(b.updated_at || 0), new Date(b.created_at || 0));
+      return bTime - aTime;
+    }),
     [posts]
   );
   // Every post uses the same card now — no separate featured banner.
