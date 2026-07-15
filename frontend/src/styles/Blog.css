@@ -680,7 +680,23 @@
 
   .blog-leadform { padding: 22px 18px; }
   .blog-related { padding-top: 28px; }
-  .blog-related__grid { grid-template-columns: 1fr; gap: 16px; }
+
+  /* Horizontal swipe instead of stacking one-per-row on a phone. */
+  .blog-related__grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .blog-related__grid::-webkit-scrollbar { display: none; }
+  .blog-related__card {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+  }
 }
 
 /* ============================================================
