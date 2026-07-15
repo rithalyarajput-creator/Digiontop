@@ -286,8 +286,8 @@ export default function Testimonials() {
         </form>
       )}
 
-      <div className="admin-card">
-        <table className="admin-shop-table">
+      <div className="admin-card admin-card__scroll">
+        <table className="admin-shop-table admin-table-reviews">
           <thead>
             <tr>
               <th>Reviewer</th>
@@ -316,7 +316,9 @@ export default function Testimonials() {
                         )}
                     </div>
                     <div style={{ minWidth: 0 }}>
-                      <p className="admin-shop-table__name">{t.client_name}</p>
+                      <p className="admin-shop-table__name admin-shop-table__trunc">
+                        {/^https?:\/\//i.test(t.client_name || '') ? 'Google reviewer' : (t.client_name || '—')}
+                      </p>
                       <p className="admin-shop-table__sub admin-shop-table__trunc">
                         {[t.client_role, t.client_location].filter(Boolean).join(' · ') || '—'}
                       </p>

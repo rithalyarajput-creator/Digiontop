@@ -2372,3 +2372,15 @@ select.admin-sbadge-select option { background: #fff; color: #303030; }
   gap: 0.5rem;
   flex-wrap: wrap;
 }
+
+/* ---- Reviews table column sizing ----
+   The Reviewer and Review columns will each expand to fill a table and push
+   Actions off-screen; pin the narrow columns and cap the wide two so the
+   edit/delete buttons always stay visible. */
+.admin-table-reviews { table-layout: fixed; min-width: 900px; }
+.admin-table-reviews th:nth-child(1), .admin-table-reviews td:nth-child(1) { width: 24%; }  /* Reviewer */
+.admin-table-reviews th:nth-child(2), .admin-table-reviews td:nth-child(2) { width: 11%; white-space: nowrap; }  /* Rating */
+.admin-table-reviews th:nth-child(3), .admin-table-reviews td:nth-child(3) { width: 32%; }  /* Review */
+.admin-table-reviews th:nth-child(4), .admin-table-reviews td:nth-child(4) { width: 12%; white-space: nowrap; }  /* Date */
+.admin-table-reviews th:nth-child(5), .admin-table-reviews td:nth-child(5) { width: 11%; }  /* Featured */
+.admin-table-reviews th:nth-child(6), .admin-table-reviews td:nth-child(6) { width: 10%; white-space: nowrap; }  /* Actions */
