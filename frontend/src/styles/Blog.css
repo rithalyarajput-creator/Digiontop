@@ -70,22 +70,22 @@
   position: relative;
 }
 
-/* White rounded image box.
-   Banners are authored 16:9 (1200×630). A fixed height forced object-fit:cover
-   to crop them — the right edge of the artwork was being cut off. Match the
-   box to the image's own ratio instead, so nothing is lost. */
-/* Image floats on top of the yellow box, inset from the left so a corner of
-   yellow peeks out at the top-left — matching the reference card. */
+/* Two overlapping cards, like the reference:
+   - a full YELLOW card sits behind, offset down-and-right;
+   - the IMAGE card sits on top, offset up-and-left.
+   So the yellow peeks out top-left and bottom-right, and the yellow card's own
+   height is a little shorter than the image card. The title lives in the yellow
+   strip that shows below the image. */
 .blog-card__img-wrap {
-  width: 100%;
-  margin-left: 14px;           /* let the yellow show on the left edge */
-  aspect-ratio: 16 / 9;
-  background: #14182b;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 12px 28px rgba(20, 24, 43, 0.22);
   position: relative;
   z-index: 2;
+  /* Offset up and to the left of the yellow card behind it. */
+  margin: 0 24px 0 0;
+  aspect-ratio: 16 / 9;
+  background: #14182b;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(20, 24, 43, 0.24);
 }
 
 .blog-card__img {
@@ -103,16 +103,16 @@
   background: #f0f0f0;
 }
 
-/* Yellow box below the image. The image overlaps it (pulled up), so a strip of
-   yellow shows above and to the right of the image, and the title sits below. */
+/* Yellow card behind: pulled up under the image, and inset from the left so the
+   image overhangs it there. Its bottom (with the title) extends past the image. */
 .blog-card__yellow {
   position: relative;
-  margin: -34px 14px 0 0;      /* pull up under the image; a little right inset */
-  padding: 54px 22px 34px;     /* taller strip — sits just shy of the image height */
+  z-index: 1;
+  margin: -78px 0 0 24px;      /* overlap up into the image; inset from left */
+  padding: 96px 22px 22px;     /* top padding clears the overlapping image */
   background: #F5BE1E;
   border-radius: 18px;
-  z-index: 1;
-  box-shadow: 0 10px 26px rgba(245, 168, 0, 0.28);
+  box-shadow: 0 12px 28px rgba(245, 168, 0, 0.30);
 }
 
 /* Title — always visible, exactly two lines. */
