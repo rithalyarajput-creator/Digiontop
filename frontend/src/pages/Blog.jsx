@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
-import { FiArrowRight, FiSearch, FiClock } from 'react-icons/fi';
+import { FiSearch } from 'react-icons/fi';
 import '../styles/Blog.css';
 
 export default function Blog() {
@@ -22,8 +22,8 @@ export default function Blog() {
     () => [...posts].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)),
     [posts]
   );
-  const featured = sorted[0];
-  const rest = sorted.slice(1);
+  // Every post uses the same card now — no separate featured banner.
+  const rest = sorted;
 
   // category list from posts
   const categories = useMemo(() => {
@@ -69,9 +69,6 @@ export default function Blog() {
             <div className="blog-empty"><p>No blog posts published yet. Check back soon!</p></div>
           )}
 
-          {/* ── Featured (newest) post ── */}
-          {!loading && featured && <FeaturedPost post={featured} />}
-
           {/* ── Filter + search bar ── */}
           {!loading && posts.length > 1 && (
             <div className="blog-filterbar">
@@ -113,35 +110,8 @@ export default function Blog() {
   );
 }
 
-/* ── Featured big post (yellow gradient banner) ── */
-function FeaturedPost({ post }) {
-  const date = new Date(post.created_at).toLocaleDateString('en-GB', {
-    day: 'numeric', month: 'short', year: 'numeric',
-  });
-  return (
-    <Link to={`/blog/${post.slug || post.id}`} className="blog-featured">
-      <div className="blog-featured__media">
-        {post.image_url
-          ? <img src={post.image_url} alt={post.title} loading="lazy" />
-          : <div className="blog-featured__placeholder" />}
-        <span className="blog-featured__badge">Latest</span>
-      </div>
-      <div className="blog-featured__body">
-        <div className="blog-featured__meta">
-          {post.category && <span className="blog-featured__cat">{post.category}</span>}
-          <span className="blog-featured__date"><FiClock /> {date}</span>
-        </div>
-        <h2 className="blog-featured__title">{post.title}</h2>
-        <span className="blog-featured__read">Read More <FiArrowRight /></span>
-      </div>
-    </Link>
-  );
-}
 
 export function BlogCard({ post }) {
-  const date = new Date(post.created_at).toLocaleDateString('en-GB', {
-    day: 'numeric', month: 'long', year: 'numeric',
-  });
   return (
     <Link to={`/blog/${post.slug || post.id}`} className="blog-card">
       <div className="blog-card__img-wrap">
@@ -153,10 +123,6 @@ export function BlogCard({ post }) {
       </div>
       <div className="blog-card__yellow">
         <h3 className="blog-card__title">{post.title}</h3>
-        <div className="blog-card__meta">
-          <span className="blog-card__date"><strong>Date -</strong> {date}</span>
-          <span className="blog-card__read">Read More</span>
-        </div>
       </div>
     </Link>
   );

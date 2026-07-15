@@ -74,14 +74,16 @@
    Banners are authored 16:9 (1200×630). A fixed height forced object-fit:cover
    to crop them — the right edge of the artwork was being cut off. Match the
    box to the image's own ratio instead, so nothing is lost. */
+/* Image floats on top of the yellow box, inset from the left so a corner of
+   yellow peeks out at the top-left — matching the reference card. */
 .blog-card__img-wrap {
   width: 100%;
+  margin-left: 14px;           /* let the yellow show on the left edge */
   aspect-ratio: 16 / 9;
-  height: auto;
-  background: #ffffff;
+  background: #14182b;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 28px rgba(20, 24, 43, 0.22);
   position: relative;
   z-index: 2;
 }
@@ -89,7 +91,7 @@
 .blog-card__img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -101,64 +103,30 @@
   background: #f0f0f0;
 }
 
-/* Yellow box below the image — narrower than the image, centered */
+/* Yellow box below the image. The image overlaps it (pulled up), so a strip of
+   yellow shows above and to the right of the image, and the title sits below. */
 .blog-card__yellow {
   position: relative;
-  width: 90%;
-  margin: -14px auto 0;
+  margin: -34px 14px 0 0;      /* pull up under the image; a little right inset */
+  padding: 48px 20px 22px;     /* top padding clears the overlapping image */
   background: #F5BE1E;
-  border-radius: 0 0 16px 16px;
-  padding: 14px 18px 14px;
+  border-radius: 18px;
   z-index: 1;
-  box-shadow: 0 8px 20px rgba(245, 168, 0, 0.25);
-  transition: padding-top 0.35s ease;
+  box-shadow: 0 10px 26px rgba(245, 168, 0, 0.28);
 }
 
-/* Title — hidden by default, slides open on hover (always 2 lines) */
+/* Title — always visible, exactly two lines. */
 .blog-card__title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  color: #1a1a1a;
+  color: #14182b;
   line-height: 1.35;
   margin: 0;
-  /* clamp to exactly 2 lines */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  /* collapsed state */
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-6px);
-  transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.35s ease, margin-bottom 0.35s ease;
 }
-.blog-card:hover .blog-card__title {
-  max-height: 3.2em;        /* ~2 lines */
-  opacity: 1;
-  transform: translateY(0);
-  margin-bottom: 12px;
-}
-
-/* Bottom row: Date (left) + Read More (right) */
-.blog-card__meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.blog-card__date {
-  font-size: 0.82rem;
-  color: #1a1a1a;
-}
-.blog-card__date strong { font-weight: 800; }
-.blog-card__read {
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: #1a1a1a;
-  white-space: nowrap;
-  transition: gap 0.2s;
-}
-.blog-card:hover .blog-card__read { text-decoration: underline; }
 
 /* =============================================
    Blog Post Page
