@@ -24,19 +24,6 @@ import '../styles/Portfolio.css';
 
 const SECTIONS = [
   {
-    id: 'ecommerce',
-    eyebrow: 'E-Commerce',
-    title: 'Online Stores That Sell',
-    text: 'High-converting product pages & stores built on Shopify, WooCommerce & more.',
-    Icon: FiShoppingBag,
-    accent: '#5b3bff',
-    ratio: 'wide',
-    mockup: 'ecommerce',
-    items: [
-      { id: 'e1', title: 'Amshine Jewels', tag: 'Jewellery E-Commerce', image: '/images/work/amshine-jewels.webp', link: 'https://amshinejewels.com' },
-    ],
-  },
-  {
     id: 'posts',
     eyebrow: 'Social Media Posts',
     title: 'Creative Posts That Convert',
@@ -64,6 +51,7 @@ const SECTIONS = [
     mockup: 'landing',
     /* Real client websites — `link` makes the card clickable. */
     items: [
+      { id: 'p5', title: 'Amshine Jewels', tag: 'Jewellery E-Commerce', image: '/images/work/amshine-jewels.webp', link: 'https://amshinejewels.com' },
       { id: 'p6', title: 'Stressless Learner', tag: 'Education', image: '/images/work/stressless-learner.webp' },
       { id: 'p7', title: 'Rithala Village', tag: 'Information & Community', image: '/images/work/rithala-village.webp' },
     ],
