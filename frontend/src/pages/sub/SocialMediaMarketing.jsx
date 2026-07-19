@@ -11,11 +11,11 @@ import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
-  { q: 'Which platforms do you manage?', a: 'Instagram, Facebook, LinkedIn, YouTube and X — we focus on where your audience actually is and where growth is fastest.' },
-  { q: 'Do you create the content too?', a: 'Yes — strategy, posts, reels, captions and a content calendar are all included. We handle end-to-end.' },
-  { q: 'How fast will my followers grow?', a: 'Organic growth compounds — most brands see meaningful engagement lifts in 4–8 weeks with consistent, strategic content.' },
-  { q: 'Do you run paid ads too?', a: 'We can — organic + a smart paid boost is often the fastest route. It\'s tailored to your goals and budget.' },
-  { q: 'Will I get performance reports?', a: 'Absolutely — clear monthly reports on reach, engagement, growth and what\'s driving results.' },
+  { q: 'Which platforms do you manage?', a: 'Instagram, Facebook, LinkedIn, YouTube and X, we focus on where your audience actually is and where growth is fastest.' },
+  { q: 'Do you create the content too?', a: 'Yes, strategy, posts, reels, captions and a content calendar are all included. We handle end-to-end.' },
+  { q: 'How fast will my followers grow?', a: 'Organic growth compounds, most brands see meaningful engagement lifts in 4–8 weeks with consistent, strategic content.' },
+  { q: 'Do you run paid ads too?', a: 'We can, organic + a smart paid boost is often the fastest route. It\'s tailored to your goals and budget.' },
+  { q: 'Will I get performance reports?', a: 'Absolutely, clear monthly reports on reach, engagement, growth and what\'s driving results.' },
 ]
 
 const PILLARS = [
@@ -40,7 +40,7 @@ export default function SocialMediaMarketing() {
           <div className="smm-hero__text" data-aos="fade-right">
             <span className="smm-tag"><FiShare2 /> Social Media Marketing</span>
             <h1 className="smm-hero__title">Turn Followers Into <span>Customers</span></h1>
-            <p className="smm-hero__sub">Strategy, content and community management that grows your audience and turns engagement into real business — across every platform.</p>
+            <p className="smm-hero__sub">Strategy, content and community management that grows your audience and turns engagement into real business, across every platform.</p>
             <div className="smm-hero__cta">
               <Link to="/contact" className="smm-btn smm-btn--solid">Grow My Socials <FiArrowRight /></Link>
               <Link to="/contact" className="smm-btn smm-btn--ghost">Free Social Audit</Link>
@@ -83,7 +83,7 @@ export default function SocialMediaMarketing() {
           <div className="smm-cta__box" data-aos="zoom-in">
             <FiShare2 className="smm-cta__ic" />
             <h2>Ready to Grow Your Audience?</h2>
-            <p>Get a free social media audit — we'll show you exactly how to grow and convert your following.</p>
+            <p>Get a free social media audit, we'll show you exactly how to grow and convert your following.</p>
             <Link to="/contact" className="smm-btn smm-btn--light">Get My Free Audit <FiArrowUpRight /></Link>
           </div>
         </div>

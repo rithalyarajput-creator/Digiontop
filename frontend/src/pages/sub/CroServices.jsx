@@ -22,10 +22,10 @@ const CRO_MINI_STATS = [
 ]
 
 const FAQS = [
-  { q: 'What exactly does CRO (Conversion Rate Optimization) involve?', a: 'CRO is the process of systematically improving your website so more visitors take the action you want — buying, signing up, or requesting a quote. It combines funnel analysis, user behavior data (heatmaps, session recordings), and structured A/B testing to find and fix the exact points where people drop off.' },
-  { q: 'How do you decide what to A/B test first?', a: 'We start with a funnel and heatmap audit to find the highest-drop-off, highest-traffic pages — usually landing pages, product pages, or checkout steps. Tests are prioritized by potential impact and traffic volume so we validate the biggest wins first instead of testing button colors.' },
-  { q: 'How long does an A/B test need to run before we trust the result?', a: 'It depends on your traffic, but most tests need 2-4 weeks and enough conversions per variant to reach statistical significance (typically 95% confidence). We never call a winner early — a test stopped too soon is often just noise.' },
-  { q: 'What is a landing page audit and what do I get from it?', a: 'We review your page against CRO best practices — headline clarity, page speed, form friction, trust signals, and mobile experience — combined with real user behavior data. You get a prioritized list of fixes ranked by expected conversion impact, not just a generic checklist.' },
+  { q: 'What exactly does CRO (Conversion Rate Optimization) involve?', a: 'CRO is the process of systematically improving your website so more visitors take the action you want, buying, signing up, or requesting a quote. It combines funnel analysis, user behavior data (heatmaps, session recordings), and structured A/B testing to find and fix the exact points where people drop off.' },
+  { q: 'How do you decide what to A/B test first?', a: 'We start with a funnel and heatmap audit to find the highest-drop-off, highest-traffic pages, usually landing pages, product pages, or checkout steps. Tests are prioritized by potential impact and traffic volume so we validate the biggest wins first instead of testing button colors.' },
+  { q: 'How long does an A/B test need to run before we trust the result?', a: 'It depends on your traffic, but most tests need 2-4 weeks and enough conversions per variant to reach statistical significance (typically 95% confidence). We never call a winner early, a test stopped too soon is often just noise.' },
+  { q: 'What is a landing page audit and what do I get from it?', a: 'We review your page against CRO best practices, headline clarity, page speed, form friction, trust signals, and mobile experience, combined with real user behavior data. You get a prioritized list of fixes ranked by expected conversion impact, not just a generic checklist.' },
   { q: 'Do you need a minimum amount of traffic to run CRO effectively?', a: 'A/B testing works best with meaningful monthly traffic to reach significance quickly, but lower-traffic sites still benefit from funnel analysis, heatmap reviews, and best-practice landing page fixes that lift conversions without needing a split test to prove it.' },
 ]
 
@@ -34,7 +34,7 @@ export default function CroServices() {
   return (
     <main className="ss">
       <Seo
-        title="CRO Services — Conversion Rate Optimization"
+        title="CRO Services, Conversion Rate Optimization"
         description="A/B testing, funnel and heatmap analysis, and landing page optimization that turn more of your existing traffic into leads and sales. Book a free conversion audit."
         path="/services/cro-services"
       />
@@ -82,7 +82,7 @@ export default function CroServices() {
             <div className="cro-strip__main">
               <span className="cro-strip__value">+38%</span>
               <span className="cro-strip__label">Avg. conversion lift</span>
-              <p className="cro-strip__desc">Across client A/B tests on landing pages and checkout flows — measured against the original control, not vanity metrics.</p>
+              <p className="cro-strip__desc">Across client A/B tests on landing pages and checkout flows, measured against the original control, not vanity metrics.</p>
             </div>
             <div className="cro-strip__mini-list">
               {CRO_MINI_STATS.map((s) => (
@@ -101,7 +101,7 @@ export default function CroServices() {
       <section className="ss-cta">
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">
           <h2>Convert More, Earn More</h2>
-          <p>Stop losing visitors — let's optimize your funnel to turn traffic into real customers.</p>
+          <p>Stop losing visitors, let's optimize your funnel to turn traffic into real customers.</p>
           <Link to="/contact" className="ss-btn">Start CRO Optimization <FiArrowUpRight /></Link>
         </div></div>
       </section>

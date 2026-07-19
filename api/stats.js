@@ -77,13 +77,13 @@ async function analyticsReport(req, res) {
       sql`SELECT path, COUNT(*)::int AS views, COUNT(DISTINCT session_id)::int AS visitors
           FROM analytics_events WHERE created_at >= ${since} AND path IS NOT NULL
           GROUP BY path ORDER BY views DESC LIMIT 12`,
-      sql`SELECT COALESCE(country,'—') AS country, COUNT(*)::int AS views
+      sql`SELECT COALESCE(country,'-') AS country, COUNT(*)::int AS views
           FROM analytics_events WHERE created_at >= ${since}
           GROUP BY country ORDER BY views DESC LIMIT 10`,
-      sql`SELECT COALESCE(device,'—') AS device, COUNT(*)::int AS views
+      sql`SELECT COALESCE(device,'-') AS device, COUNT(*)::int AS views
           FROM analytics_events WHERE created_at >= ${since}
           GROUP BY device ORDER BY views DESC`,
-      sql`SELECT COALESCE(browser,'—') AS browser, COUNT(*)::int AS views
+      sql`SELECT COALESCE(browser,'-') AS browser, COUNT(*)::int AS views
           FROM analytics_events WHERE created_at >= ${since}
           GROUP BY browser ORDER BY views DESC`,
       sql`SELECT COALESCE(NULLIF(referrer,''),'Direct') AS referrer, COUNT(*)::int AS views

@@ -38,7 +38,7 @@ export default function AdminLogin({ onLogin }) {
 
         {/* ── LEFT — banner image panel ── */}
         <div className="admin-login__left">
-          <img src="/images/home-banner-mobile-v3.webp" alt="DigionTop — Stay On Top" className="admin-login__banner" />
+          <img src="/images/home-banner-mobile-v3.webp" alt="DigionTop, Stay On Top" className="admin-login__banner" />
         </div>
 
         {/* ── RIGHT — form panel ── */}

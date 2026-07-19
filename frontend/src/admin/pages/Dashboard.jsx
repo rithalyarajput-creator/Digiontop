@@ -243,7 +243,7 @@ export default function Dashboard() {
                 {data?.recentLeads?.map((l) => (
                   <tr key={l.id}>
                     <td>
-                      <span style={{ fontWeight: 500 }}>{l.full_name || '—'}</span>
+                      <span style={{ fontWeight: 500 }}>{l.full_name || '-'}</span>
                       <p className="admin-shop-table__sub">{l.service_interested || 'General enquiry'}</p>
                     </td>
                     <td className="is-right">
@@ -284,7 +284,7 @@ export default function Dashboard() {
                 <td>
                   <Link to={`/admin/blog/edit/${b.id}`} className="admin-shop-table__link">{b.title}</Link>
                 </td>
-                <td className="is-muted">{b.category || '—'}</td>
+                <td className="is-muted">{b.category || '-'}</td>
                 <td className="is-right" style={{ fontWeight: 500 }}>{fmt(b.views)}</td>
               </tr>
             ))}

@@ -8,10 +8,10 @@ import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
-  { q: 'What is e-commerce growth consulting?', a: 'Strategic guidance to scale your online business — analysing your data, finding opportunities and building a clear roadmap to more revenue.' },
+  { q: 'What is e-commerce growth consulting?', a: 'Strategic guidance to scale your online business, analysing your data, finding opportunities and building a clear roadmap to more revenue.' },
   { q: 'Who is it for?', a: 'Sellers and brands who want to scale but aren\'t sure what\'s holding them back or where to invest next.' },
   { q: 'What do you actually deliver?', a: 'A data-backed audit, prioritised growth roadmap, channel strategy and hands-on guidance to execute it.' },
-  { q: 'Do you look at ads and pricing?', a: 'Yes — ads, pricing, listings, catalogue and channel mix are all analysed for growth opportunities.' },
+  { q: 'Do you look at ads and pricing?', a: 'Yes, ads, pricing, listings, catalogue and channel mix are all analysed for growth opportunities.' },
   { q: 'How is progress measured?', a: 'Clear KPIs and regular reviews tie every recommendation to real revenue impact.' },
 ]
 const FEATURES = [
@@ -50,7 +50,7 @@ export default function GrowthConsulting() {
           <div className="grw-hero__text" data-aos="fade-right">
             <span className="grw-tag grw-tag--light"><FiTrendingUp /> E-Commerce Growth Consulting</span>
             <h1 className="grw-hero__title grw-hero__title--light">A Clear Roadmap to<br /><span>More Revenue</span></h1>
-            <p className="grw-hero__sub grw-hero__sub--light">Data-backed strategy to scale your online business — we find what's holding you back, map the opportunities and give you a clear plan to grow.</p>
+            <p className="grw-hero__sub grw-hero__sub--light">Data-backed strategy to scale your online business, we find what's holding you back, map the opportunities and give you a clear plan to grow.</p>
             <div className="grw-hero__cta">
               <Link to="/contact" className="grw-btn grw-btn--solid">Get My Growth Plan <FiArrowRight /></Link>
               <Link to="/contact" className="grw-btn grw-btn--ghost-l">Free Strategy Call</Link>
@@ -110,7 +110,7 @@ export default function GrowthConsulting() {
         </div>
       </section>
       <ServiceFaq service="E-Commerce Growth Consulting" faqs={FAQS} />
-      <section className="grw-cta"><div className="grw-container"><div className="grw-cta__box" data-aos="zoom-in"><FiTrendingUp className="grw-cta__ic" /><h2>Ready to Scale Your Store?</h2><p>Get a free strategy call — we'll show you the biggest opportunities to grow your revenue.</p><Link to="/contact" className="grw-btn grw-btn--light">Book Free Strategy Call <FiArrowUpRight /></Link></div></div></section>
+      <section className="grw-cta"><div className="grw-container"><div className="grw-cta__box" data-aos="zoom-in"><FiTrendingUp className="grw-cta__ic" /><h2>Ready to Scale Your Store?</h2><p>Get a free strategy call, we'll show you the biggest opportunities to grow your revenue.</p><Link to="/contact" className="grw-btn grw-btn--light">Book Free Strategy Call <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

@@ -12,18 +12,18 @@ import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
-  { q: 'What is a custom web application?', a: 'Software that runs in the browser — dashboards, portals, booking systems, CRMs — built specifically to automate and power your business.' },
-  { q: 'What tech do you build with?', a: 'Modern stacks — React, Node, and scalable databases — chosen for performance, security and long-term maintainability.' },
-  { q: 'Can it integrate with our tools?', a: 'Yes — payment gateways, CRMs, APIs and third-party services all integrate seamlessly.' },
+  { q: 'What is a custom web application?', a: 'Software that runs in the browser, dashboards, portals, booking systems, CRMs, built specifically to automate and power your business.' },
+  { q: 'What tech do you build with?', a: 'Modern stacks, React, Node, and scalable databases, chosen for performance, security and long-term maintainability.' },
+  { q: 'Can it integrate with our tools?', a: 'Yes, payment gateways, CRMs, APIs and third-party services all integrate seamlessly.' },
   { q: 'Is it secure and scalable?', a: 'Built with authentication, role management and cloud scalability so it grows safely with your business.' },
-  { q: 'Do you maintain it after launch?', a: 'Yes — we offer ongoing support, updates and feature additions as your needs evolve.' },
+  { q: 'Do you maintain it after launch?', a: 'Yes, we offer ongoing support, updates and feature additions as your needs evolve.' },
 ]
 
 const FEATURES = [
   { icon: <FiGrid />, t: 'Custom Dashboards', d: 'Real-time dashboards and portals tailored to your workflow.' },
   { icon: <FiDatabase />, t: 'Scalable Databases', d: 'Robust data architecture that handles growth without slowing down.' },
   { icon: <FiLock />, t: 'Auth & Roles', d: 'Secure login, permissions and role management built in.' },
-  { icon: <FiRefreshCw />, t: 'API Integrations', d: 'Connect any tool — payments, CRMs, third-party services.' },
+  { icon: <FiRefreshCw />, t: 'API Integrations', d: 'Connect any tool, payments, CRMs, third-party services.' },
   { icon: <FiZap />, t: 'Fast & Reliable', d: 'Optimised performance so your app stays quick under load.' },
   { icon: <FiLayers />, t: 'Cloud Ready', d: 'Deployed on scalable cloud infrastructure with monitoring.' },
 ]
@@ -38,10 +38,10 @@ const PROCESS = [
 const STACK = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Redis', 'Docker', 'AWS']
 
 const WHY = [
-  { icon: <FiUsers />, t: 'Built Around Your Workflow', d: 'No forced templates — every dashboard, portal and role is modelled on how your team actually works.' },
+  { icon: <FiUsers />, t: 'Built Around Your Workflow', d: 'No forced templates, every dashboard, portal and role is modelled on how your team actually works.' },
   { icon: <FiShield />, t: 'Security From Day One', d: 'Role-based access, encrypted data and audited authentication are engineered in, not bolted on later.' },
   { icon: <FiTrendingUp />, t: 'Scales With Your Users', d: 'Cloud-native architecture and tuned queries keep the app fast whether you have 50 users or 50,000.' },
-  { icon: <FiCheck />, t: 'You Own The Code', d: 'Clean, documented repositories handed to you in full — no vendor lock-in, no licence traps.' },
+  { icon: <FiCheck />, t: 'You Own The Code', d: 'Clean, documented repositories handed to you in full, no vendor lock-in, no licence traps.' },
 ]
 
 export default function WebApp() {
@@ -138,7 +138,7 @@ export default function WebApp() {
           <div className="cwa-cta__box" data-aos="zoom-in">
             <FiCpu className="cwa-cta__ic" />
             <h2>Have an App Idea? Let's Build It.</h2>
-            <p>Tell us your idea — we'll map the tech, timeline and cost to bring your web app to life.</p>
+            <p>Tell us your idea, we'll map the tech, timeline and cost to bring your web app to life.</p>
             <Link to="/contact" className="cwa-btn cwa-btn--light">Discuss My Project <FiArrowUpRight /></Link>
           </div>
         </div>

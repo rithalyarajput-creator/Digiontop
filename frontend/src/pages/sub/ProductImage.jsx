@@ -8,10 +8,10 @@ import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
-  { q: 'Why do product images matter?', a: 'Images are the #1 driver of conversions online — great visuals and infographics build trust and dramatically lift sales.' },
+  { q: 'Why do product images matter?', a: 'Images are the #1 driver of conversions online, great visuals and infographics build trust and dramatically lift sales.' },
   { q: 'What do you create?', a: 'Clean product shots, lifestyle images, infographics, comparison charts and A+ / EBC content for marketplaces.' },
-  { q: 'Do the images meet marketplace rules?', a: 'Yes — every image follows Amazon, Flipkart and Meesho guidelines so they\'re accepted and rank well.' },
-  { q: 'Can you edit my existing photos?', a: 'Absolutely — background removal, retouching, resizing and enhancement of your existing images.' },
+  { q: 'Do the images meet marketplace rules?', a: 'Yes, every image follows Amazon, Flipkart and Meesho guidelines so they\'re accepted and rank well.' },
+  { q: 'Can you edit my existing photos?', a: 'Absolutely, background removal, retouching, resizing and enhancement of your existing images.' },
   { q: 'Will it increase conversions?', a: 'Strong visuals and infographics consistently lift click-through and conversion rates.' },
 ]
 const FEATURES = [
@@ -50,7 +50,7 @@ export default function ProductImage() {
           <div className="pim-hero__text" data-aos="fade-right">
             <span className="pim-tag"><FiImage /> Product Image &amp; Infographics</span>
             <h1 className="pim-hero__title">Visuals That<br /><span>Sell Themselves</span></h1>
-            <p className="pim-hero__sub">Scroll-stopping product images and infographics — marketplace-compliant, conversion-focused visuals that build trust and drive more orders.</p>
+            <p className="pim-hero__sub">Scroll-stopping product images and infographics, marketplace-compliant, conversion-focused visuals that build trust and drive more orders.</p>
             <div className="pim-hero__cta">
               <Link to="/contact" className="pim-btn pim-btn--solid">Upgrade My Images <FiArrowRight /></Link>
               <Link to="/contact" className="pim-btn pim-btn--ghost">See Samples</Link>
@@ -110,7 +110,7 @@ export default function ProductImage() {
         </div>
       </section>
       <ServiceFaq service="Product Image & Infographics" faqs={FAQS} />
-      <section className="pim-cta"><div className="pim-container"><div className="pim-cta__box" data-aos="zoom-in"><FiImage className="pim-cta__ic" /><h2>Make Your Products Irresistible</h2><p>Get sample visuals — see how better images will lift your conversions.</p><Link to="/contact" className="pim-btn pim-btn--light">Get Free Samples <FiArrowUpRight /></Link></div></div></section>
+      <section className="pim-cta"><div className="pim-container"><div className="pim-cta__box" data-aos="zoom-in"><FiImage className="pim-cta__ic" /><h2>Make Your Products Irresistible</h2><p>Get sample visuals, see how better images will lift your conversions.</p><Link to="/contact" className="pim-btn pim-btn--light">Get Free Samples <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

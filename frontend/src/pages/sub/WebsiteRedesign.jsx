@@ -11,16 +11,16 @@ import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
-  { q: 'When should I redesign my website?', a: 'If it looks dated, loads slowly, isn\'t mobile-friendly, or isn\'t converting — a redesign modernises it and boosts results.' },
-  { q: 'Will I lose my Google rankings?', a: 'No — we preserve SEO, set up proper redirects and migrate content carefully so rankings stay safe and often improve.' },
-  { q: 'How long does a redesign take?', a: 'Typically 2–5 weeks depending on size — with a clear plan and milestones shared upfront.' },
-  { q: 'Can you keep my content?', a: 'Yes — we retain and improve your existing content, or refresh it as part of the redesign.' },
-  { q: 'Will it convert better?', a: 'That\'s the goal — modern design, faster speed and clear CTAs are proven to lift conversions.' },
+  { q: 'When should I redesign my website?', a: 'If it looks dated, loads slowly, isn\'t mobile-friendly, or isn\'t converting, a redesign modernises it and boosts results.' },
+  { q: 'Will I lose my Google rankings?', a: 'No, we preserve SEO, set up proper redirects and migrate content carefully so rankings stay safe and often improve.' },
+  { q: 'How long does a redesign take?', a: 'Typically 2–5 weeks depending on size, with a clear plan and milestones shared upfront.' },
+  { q: 'Can you keep my content?', a: 'Yes, we retain and improve your existing content, or refresh it as part of the redesign.' },
+  { q: 'Will it convert better?', a: 'That\'s the goal, modern design, faster speed and clear CTAs are proven to lift conversions.' },
 ]
 
 const FEATURES = [
   { icon: <FiEye />, t: 'Modern Look', d: 'A fresh, current design that builds instant credibility.' },
-  { icon: <FiZap />, t: 'Faster Speed', d: 'Rebuilt for performance — no more slow, clunky pages.' },
+  { icon: <FiZap />, t: 'Faster Speed', d: 'Rebuilt for performance, no more slow, clunky pages.' },
   { icon: <FiSmartphone />, t: 'Mobile-First', d: 'Perfect on every device, where most visitors are today.' },
   { icon: <FiTrendingUp />, t: 'Higher Conversions', d: 'Clear structure and CTAs that turn visitors into customers.' },
   { icon: <FiThumbsUp />, t: 'SEO Preserved', d: 'Rankings kept safe with proper redirects and migration.' },
@@ -30,7 +30,7 @@ const FEATURES = [
 const PROCESS = [
   { n: '01', t: 'Audit The Old Site', d: 'We benchmark your current Core Web Vitals, crawl every URL and study heatmaps to pinpoint exactly where visitors drop off.' },
   { n: '02', t: 'Rearchitect For Conversion', d: 'New sitemap, sharper messaging and wireframes that push offers, proof and CTAs above the fold instead of burying them.' },
-  { n: '03', t: 'Rebuild Lean & Fast', d: 'A ground-up mobile-first build with compressed media, lazy loading and clean code — no bloated legacy themes or plugin sprawl.' },
+  { n: '03', t: 'Rebuild Lean & Fast', d: 'A ground-up mobile-first build with compressed media, lazy loading and clean code, no bloated legacy themes or plugin sprawl.' },
   { n: '04', t: 'Migrate & Measure', d: 'We map 301 redirects for every old URL, launch without ranking loss, then track conversion lift and tune what the data shows.' },
 ]
 
@@ -57,7 +57,7 @@ export default function WebsiteRedesign() {
           <div className="rd-hero__text" data-aos="fade-right">
             <span className="rd-tag"><FiRefreshCw /> Website Redesign</span>
             <h1 className="rd-hero__title">From Outdated to <span>Outstanding</span></h1>
-            <p className="rd-hero__sub">Transform your old, slow website into a modern, fast, high-converting site — without losing your Google rankings.</p>
+            <p className="rd-hero__sub">Transform your old, slow website into a modern, fast, high-converting site, without losing your Google rankings.</p>
             <div className="rd-hero__cta">
               <Link to="/contact" className="rd-btn rd-btn--solid">Redesign My Site <FiArrowRight /></Link>
               <Link to="/contact" className="rd-btn rd-btn--ghost">Free Site Review</Link>
@@ -136,7 +136,7 @@ export default function WebsiteRedesign() {
           <div className="rd-cta__box" data-aos="zoom-in">
             <FiRefreshCw className="rd-cta__ic" />
             <h2>Ready for a Website Glow-Up?</h2>
-            <p>Get a free site review — we'll show you exactly what to improve and how a redesign will pay off.</p>
+            <p>Get a free site review, we'll show you exactly what to improve and how a redesign will pay off.</p>
             <Link to="/contact" className="rd-btn rd-btn--light">Get My Free Review <FiArrowUpRight /></Link>
           </div>
         </div>

@@ -8,14 +8,14 @@ import Seo from '../../components/Seo'
 import '../../styles/MobilePages.css'
 
 const FAQS = [
-  { q: 'What is Flutter?', a: 'Google\'s framework that builds one codebase running on both iOS and Android — faster to build and cheaper to maintain.' },
-  { q: 'Is Flutter as good as native?', a: 'For most apps, yes — near-native performance with a beautiful, consistent UI on both platforms.' },
-  { q: 'Will it save me money?', a: 'Significantly — one codebase for both platforms means less development time and lower maintenance cost.' },
-  { q: 'Can it access device features?', a: 'Yes — camera, GPS, notifications, payments and more all work through Flutter plugins.' },
-  { q: 'How fast can you build it?', a: 'Flutter speeds things up — typical apps ship in 6–12 weeks for both platforms.' },
+  { q: 'What is Flutter?', a: 'Google\'s framework that builds one codebase running on both iOS and Android, faster to build and cheaper to maintain.' },
+  { q: 'Is Flutter as good as native?', a: 'For most apps, yes, near-native performance with a beautiful, consistent UI on both platforms.' },
+  { q: 'Will it save me money?', a: 'Significantly, one codebase for both platforms means less development time and lower maintenance cost.' },
+  { q: 'Can it access device features?', a: 'Yes, camera, GPS, notifications, payments and more all work through Flutter plugins.' },
+  { q: 'How fast can you build it?', a: 'Flutter speeds things up, typical apps ship in 6–12 weeks for both platforms.' },
 ]
 const FEATURES = [
-  { icon: <FiCode />, t: 'One Codebase', d: 'Build once, run on iOS and Android — no duplicate work.' },
+  { icon: <FiCode />, t: 'One Codebase', d: 'Build once, run on iOS and Android, no duplicate work.' },
   { icon: <FiDollarSign />, t: 'Cost-Effective', d: 'Lower development and maintenance costs than two native apps.' },
   { icon: <FiZap />, t: 'Fast Performance', d: 'Compiled to native code for smooth, responsive apps.' },
   { icon: <FiLayers />, t: 'Beautiful UI', d: 'Pixel-perfect, expressive interfaces on every platform.' },
@@ -24,16 +24,16 @@ const FEATURES = [
 ]
 const PROCESS = [
   { n: '01', t: 'Scope & Platform Audit', d: 'We map your feature list against Flutter\'s widget set and plugin ecosystem, flagging anything that needs native iOS or Android channel code before a line of Dart is written.' },
-  { n: '02', t: 'Dart Architecture', d: 'We set up the single codebase with a clean layered structure — Riverpod or Bloc state management, repository pattern, and separate dev/staging/prod flavours.' },
+  { n: '02', t: 'Dart Architecture', d: 'We set up the single codebase with a clean layered structure, Riverpod or Bloc state management, repository pattern, and separate dev/staging/prod flavours.' },
   { n: '03', t: 'Widget Build & Hot Reload', d: 'Screens are built as reusable Flutter widgets and reviewed with you weekly, with hot reload letting us apply your feedback live in the same session.' },
-  { n: '04', t: 'Dual-Store Release', d: 'We run the same build through integration tests, then ship signed releases to the App Store and Google Play together — and keep both updated from one repo.' },
+  { n: '04', t: 'Dual-Store Release', d: 'We run the same build through integration tests, then ship signed releases to the App Store and Google Play together, and keep both updated from one repo.' },
 ]
 const STACK = ['Flutter', 'Dart', 'Riverpod', 'Bloc', 'Firebase', 'Dio / REST', 'GraphQL', 'Hive', 'Melos', 'Codemagic CI/CD']
 const WHY = [
   { icon: <FiCode />, t: 'One Team, Two Stores', d: 'A single Dart codebase means one team, one backlog and one release cycle instead of separate iOS and Android squads drifting apart.' },
-  { icon: <FiRefreshCw />, t: 'Pixel-Identical Updates', d: 'Flutter draws its own UI, so a design tweak lands the same way on an iPhone 15 and a three-year-old Android — no per-platform patching.' },
+  { icon: <FiRefreshCw />, t: 'Pixel-Identical Updates', d: 'Flutter draws its own UI, so a design tweak lands the same way on an iPhone 15 and a three-year-old Android, no per-platform patching.' },
   { icon: <FiShield />, t: 'Production-Grade Quality', d: 'Widget, unit and integration tests run on every commit through Codemagic, so what reaches the stores is the build we actually tested.' },
-  { icon: <FiUsers />, t: 'Code You Can Keep', d: 'Documented, modular Dart with clear state management — your in-house team can pick it up without reverse-engineering our shortcuts.' },
+  { icon: <FiUsers />, t: 'Code You Can Keep', d: 'Documented, modular Dart with clear state management, your in-house team can pick it up without reverse-engineering our shortcuts.' },
 ]
 
 export default function FlutterApp() {
@@ -42,7 +42,7 @@ export default function FlutterApp() {
     <main className="flt">
       <Seo
         title="Flutter App Development Company"
-        description="Cross-platform Flutter apps built from one Dart codebase — near-native speed on iOS and Android, shipped in 6-12 weeks at half the cost. Book a free consultation today."
+        description="Cross-platform Flutter apps built from one Dart codebase, near-native speed on iOS and Android, shipped in 6-12 weeks at half the cost. Book a free consultation today."
         path="/services/mobile/flutter"
       />
       <section className="flt-hero flt-hero--light">
@@ -50,7 +50,7 @@ export default function FlutterApp() {
           <div className="flt-hero__text" data-aos="fade-right">
             <span className="flt-tag"><FiCode /> Flutter App Development</span>
             <h1 className="flt-hero__title">One Codebase.<br /><span>Both Platforms.</span></h1>
-            <p className="flt-hero__sub">Flutter apps that run beautifully on iOS and Android from a single codebase — faster to build, cheaper to maintain, gorgeous everywhere.</p>
+            <p className="flt-hero__sub">Flutter apps that run beautifully on iOS and Android from a single codebase, faster to build, cheaper to maintain, gorgeous everywhere.</p>
             <div className="flt-hero__cta">
               <Link to="/contact" className="flt-btn flt-btn--solid">Build with Flutter <FiArrowRight /></Link>
               <Link to="/contact" className="flt-btn flt-btn--ghost">Free Consultation</Link>
@@ -110,7 +110,7 @@ export default function FlutterApp() {
         </div>
       </section>
       <ServiceFaq service="Flutter App Development" faqs={FAQS} />
-      <section className="flt-cta"><div className="flt-container"><div className="flt-cta__box" data-aos="zoom-in"><FiCode className="flt-cta__ic" /><h2>Launch on Both Platforms — Faster</h2><p>Get a free consultation — we'll show you how Flutter gets you to market sooner and cheaper.</p><Link to="/contact" className="flt-btn flt-btn--light">Book Free Consultation <FiArrowUpRight /></Link></div></div></section>
+      <section className="flt-cta"><div className="flt-container"><div className="flt-cta__box" data-aos="zoom-in"><FiCode className="flt-cta__ic" /><h2>Launch on Both Platforms, Faster</h2><p>Get a free consultation, we'll show you how Flutter gets you to market sooner and cheaper.</p><Link to="/contact" className="flt-btn flt-btn--light">Book Free Consultation <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

@@ -31,11 +31,11 @@ const WITH_UX = [
 ]
 
 const FAQS = [
-  { q: 'What is the difference between UI and UX design?', a: 'UX (user experience) is the research, wireframing and flow-planning that makes a product easy and logical to use. UI (user interface) is the visual layer — colours, typography, spacing and components. We handle both, starting with UX so the interface is built on a foundation that actually works.' },
+  { q: 'What is the difference between UI and UX design?', a: 'UX (user experience) is the research, wireframing and flow-planning that makes a product easy and logical to use. UI (user interface) is the visual layer, colours, typography, spacing and components. We handle both, starting with UX so the interface is built on a foundation that actually works.' },
   { q: 'Do you create wireframes before the final design?', a: 'Yes. Every project starts with low-fidelity wireframes that map out layout, hierarchy and user flow. This lets you approve structure and navigation before we invest time in visual design, saving revisions later.' },
   { q: 'What is a clickable prototype and do I get one?', a: 'A clickable prototype is an interactive mockup you can click through like a real app or website before development starts. We build these for key flows so you and your team can experience the product and catch issues early.' },
-  { q: 'How does user research work — do you talk to my actual customers?', a: 'Where possible, yes. We run user interviews, surveys and review analytics/heatmaps from your existing product. If you\'re pre-launch, we use competitor analysis and target-persona research to guide decisions instead.' },
-  { q: 'What is usability testing and why does it matter?', a: 'Usability testing means putting real users (or target-persona testers) in front of the design and watching them try to complete tasks. It reveals confusing steps, unclear labels and drop-off points before launch — issues that are far cheaper to fix in design than after development.' },
+  { q: 'How does user research work, do you talk to my actual customers?', a: 'Where possible, yes. We run user interviews, surveys and review analytics/heatmaps from your existing product. If you\'re pre-launch, we use competitor analysis and target-persona research to guide decisions instead.' },
+  { q: 'What is usability testing and why does it matter?', a: 'Usability testing means putting real users (or target-persona testers) in front of the design and watching them try to complete tasks. It reveals confusing steps, unclear labels and drop-off points before launch, issues that are far cheaper to fix in design than after development.' },
   { q: 'How long does a typical UI/UX project take?', a: 'A single landing page or small app flow usually takes 1-2 weeks from research to final UI. Full websites or multi-screen apps typically take 3-6 weeks depending on the number of flows, revision rounds and whether user testing is included.' },
 ]
 
@@ -53,7 +53,7 @@ export default function UiUxDesign() {
         <div className="ss-container" style={{ position: 'relative' }} data-aos="fade-up">
           <span className="ss-tag"><FiLayout /> UI/UX Design</span>
           <h1 className="ss-hero__title" style={{ maxWidth: 820, margin: '0 auto 18px' }}>Design Experiences That <span>Users Love</span></h1>
-          <p className="ss-hero__sub" style={{ margin: '0 auto 28px' }}>A great digital product isn't just about looks — it's about seamless experiences that help users find what they need quickly. We design intuitive interfaces that boost satisfaction and results.</p>
+          <p className="ss-hero__sub" style={{ margin: '0 auto 28px' }}>A great digital product isn't just about looks, it's about seamless experiences that help users find what they need quickly. We design intuitive interfaces that boost satisfaction and results.</p>
           <div className="ss-hero__actions" style={{ justifyContent: 'center' }}>
             <Link to="/contact" className="ss-btn ss-btn--primary">Design My Product <FiArrowRight /></Link>
             <Link to="/contact" className="ss-btn ss-btn--ghost">Free Consultation</Link>

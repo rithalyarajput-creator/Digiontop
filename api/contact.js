@@ -4,7 +4,7 @@ import { handleAudit } from './_lib/audit.js';
 
 /* Escape user-supplied text before dropping it into the notification HTML. */
 function esc(v) {
-  return String(v ?? '—')
+  return String(v ?? '-')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -43,7 +43,7 @@ async function sendLeadEmail(lead) {
   const html = `
     <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;">
       <div style="background:#1a1a1a;padding:18px 22px;border-radius:12px 12px 0 0;">
-        <h1 style="margin:0;color:#f5a800;font-size:17px;">New enquiry — DigionTop</h1>
+        <h1 style="margin:0;color:#f5a800;font-size:17px;">New enquiry, DigionTop</h1>
       </div>
       <div style="border:1px solid #e3e3e3;border-top:none;border-radius:0 0 12px 12px;padding:6px 8px 18px;">
         <table style="width:100%;border-collapse:collapse;">${rows}</table>
@@ -66,7 +66,7 @@ async function sendLeadEmail(lead) {
         from: process.env.LEADS_EMAIL_FROM || 'DigionTop <onboarding@resend.dev>',
         to: [to],
         reply_to: lead.email,
-        subject: `New lead: ${lead.fullName}${lead.service ? ` — ${lead.service}` : ''}`,
+        subject: `New lead: ${lead.fullName}${lead.service ? ` (${lead.service})` : ''}`,
         html,
       }),
     });

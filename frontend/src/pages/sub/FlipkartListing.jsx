@@ -8,10 +8,10 @@ import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
-  { q: 'How is Flipkart listing different?', a: 'Flipkart has its own catalogue structure, category mapping and search algorithm — we optimise specifically for its ecosystem.' },
+  { q: 'How is Flipkart listing different?', a: 'Flipkart has its own catalogue structure, category mapping and search algorithm, we optimise specifically for its ecosystem.' },
   { q: 'What does the service include?', a: 'Listing setup, title optimisation, category mapping, descriptions, specifications and product SEO.' },
-  { q: 'Will it improve discoverability?', a: 'Yes — correct mapping and keywords help your products surface in more relevant Flipkart searches.' },
-  { q: 'Can you manage bulk listings?', a: 'Absolutely — we handle large catalogues with accurate, optimised bulk listing.' },
+  { q: 'Will it improve discoverability?', a: 'Yes, correct mapping and keywords help your products surface in more relevant Flipkart searches.' },
+  { q: 'Can you manage bulk listings?', a: 'Absolutely, we handle large catalogues with accurate, optimised bulk listing.' },
   { q: 'How soon will I see results?', a: 'Improved discoverability and orders typically follow within a few weeks.' },
 ]
 const FEATURES = [
@@ -42,7 +42,7 @@ export default function FlipkartListing() {
     <main className="flp">
       <Seo
         title="Flipkart Product Listing & Optimisation Services"
-        description="Flipkart listing setup, category and GTIN mapping, search-weighted titles, F-Assured compliance and Flipkart Ads. Get discovered by more buyers — book a free listing review."
+        description="Flipkart listing setup, category and GTIN mapping, search-weighted titles, F-Assured compliance and Flipkart Ads. Get discovered by more buyers, book a free listing review."
         path="/services/ecom/flipkart"
       />
       <section className="flp-hero flp-hero--dark">
@@ -50,7 +50,7 @@ export default function FlipkartListing() {
           <div className="flp-hero__text" data-aos="fade-right">
             <span className="flp-tag flp-tag--light"><FiShoppingBag /> Flipkart Product Listing</span>
             <h1 className="flp-hero__title flp-hero__title--light">Get Discovered on<br /><span>Flipkart</span></h1>
-            <p className="flp-hero__sub flp-hero__sub--light">Optimised Flipkart listings that improve discoverability, presentation and sales — mapped correctly and built to convert browsers into buyers.</p>
+            <p className="flp-hero__sub flp-hero__sub--light">Optimised Flipkart listings that improve discoverability, presentation and sales, mapped correctly and built to convert browsers into buyers.</p>
             <div className="flp-hero__cta">
               <Link to="/contact" className="flp-btn flp-btn--solid">Optimise My Listings <FiArrowRight /></Link>
               <Link to="/contact" className="flp-btn flp-btn--ghost-l">Free Review</Link>
@@ -110,7 +110,7 @@ export default function FlipkartListing() {
         </div>
       </section>
       <ServiceFaq service="Flipkart Product Listing" faqs={FAQS} />
-      <section className="flp-cta"><div className="flp-container"><div className="flp-cta__box" data-aos="zoom-in"><FiShoppingBag className="flp-cta__ic" /><h2>Grow Your Sales on Flipkart</h2><p>Get a free listing review — we'll show you how to reach more buyers on Flipkart.</p><Link to="/contact" className="flp-btn flp-btn--light">Get My Free Review <FiArrowUpRight /></Link></div></div></section>
+      <section className="flp-cta"><div className="flp-container"><div className="flp-cta__box" data-aos="zoom-in"><FiShoppingBag className="flp-cta__ic" /><h2>Grow Your Sales on Flipkart</h2><p>Get a free listing review, we'll show you how to reach more buyers on Flipkart.</p><Link to="/contact" className="flp-btn flp-btn--light">Get My Free Review <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

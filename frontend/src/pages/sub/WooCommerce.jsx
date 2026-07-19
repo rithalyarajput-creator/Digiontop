@@ -12,15 +12,15 @@ import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
-  { q: 'Why WooCommerce?', a: 'It turns WordPress into a full online store — flexible, fully owned, no monthly platform fees, with endless customisation.' },
-  { q: 'Can you set up payments & shipping?', a: 'Yes — Razorpay, Stripe, PayPal and shipping zones, taxes and delivery are all configured for you.' },
-  { q: 'Is it good for large catalogues?', a: 'WooCommerce scales well — with the right hosting and optimisation it handles thousands of products.' },
-  { q: 'Can I manage products myself?', a: 'Absolutely — an easy dashboard lets you add products, run sales and manage orders without a developer.' },
+  { q: 'Why WooCommerce?', a: 'It turns WordPress into a full online store, flexible, fully owned, no monthly platform fees, with endless customisation.' },
+  { q: 'Can you set up payments & shipping?', a: 'Yes, Razorpay, Stripe, PayPal and shipping zones, taxes and delivery are all configured for you.' },
+  { q: 'Is it good for large catalogues?', a: 'WooCommerce scales well, with the right hosting and optimisation it handles thousands of products.' },
+  { q: 'Can I manage products myself?', a: 'Absolutely, an easy dashboard lets you add products, run sales and manage orders without a developer.' },
   { q: 'Will it be mobile-friendly and fast?', a: 'Every store is responsive and speed-optimised so shoppers buy smoothly on any device.' },
 ]
 
 const FEATURES = [
-  { icon: <FiGrid />, t: 'Custom Store Design', d: 'A branded, conversion-focused storefront — not a generic template.' },
+  { icon: <FiGrid />, t: 'Custom Store Design', d: 'A branded, conversion-focused storefront, not a generic template.' },
   { icon: <FiCreditCard />, t: 'Payment Integration', d: 'Razorpay, Stripe, PayPal and more, set up and tested.' },
   { icon: <FiTruck />, t: 'Shipping & Tax Setup', d: 'Zones, rates, taxes and delivery configured correctly.' },
   { icon: <FiPackage />, t: 'Product Management', d: 'Easy catalogue, variants and inventory you control yourself.' },
@@ -41,10 +41,10 @@ const STACK = [
 ]
 
 const WHY = [
-  { icon: <FiCreditCard />, t: 'Payments That Just Work', d: 'UPI, cards, netbanking and wallets are configured and tested with real transactions — no failed payments on day one.' },
+  { icon: <FiCreditCard />, t: 'Payments That Just Work', d: 'UPI, cards, netbanking and wallets are configured and tested with real transactions, no failed payments on day one.' },
   { icon: <FiZap />, t: 'Checkout Built to Convert', d: 'A short, distraction-free checkout with saved addresses and guest buying, so fewer carts get abandoned at the final step.' },
   { icon: <FiShield />, t: 'Secure & PCI-Safe', d: 'SSL, hardened WordPress, gateway-hosted card handling and regular updates keep customer payment data out of harm’s way.' },
-  { icon: <FiSettings />, t: 'You Own Everything', d: 'No monthly platform cut, no locked catalogue — your store, your data, your hosting, edited from a dashboard you actually control.' },
+  { icon: <FiSettings />, t: 'You Own Everything', d: 'No monthly platform cut, no locked catalogue, your store, your data, your hosting, edited from a dashboard you actually control.' },
 ]
 
 export default function WooCommerce() {
@@ -61,7 +61,7 @@ export default function WooCommerce() {
           <div className="woo-hero__text" data-aos="fade-right">
             <span className="woo-tag"><FiShoppingCart /> WooCommerce Development</span>
             <h1 className="woo-hero__title">Your Own Store,<br /><span>Fully Owned</span></h1>
-            <p className="woo-hero__sub">Custom WooCommerce stores on WordPress — no monthly platform fees, full control, and everything you need to sell online and scale.</p>
+            <p className="woo-hero__sub">Custom WooCommerce stores on WordPress, no monthly platform fees, full control, and everything you need to sell online and scale.</p>
             <div className="woo-hero__cta">
               <Link to="/contact" className="woo-btn woo-btn--solid">Launch My Store <FiArrowRight /></Link>
               <Link to="/contact" className="woo-btn woo-btn--ghost">Free Store Plan</Link>
@@ -140,7 +140,7 @@ export default function WooCommerce() {
           <div className="woo-cta__box" data-aos="zoom-in">
             <FiShoppingCart className="woo-cta__ic" />
             <h2>Ready to Own Your Online Store?</h2>
-            <p>Get a free store plan — we'll map the design, features and setup to get you selling.</p>
+            <p>Get a free store plan, we'll map the design, features and setup to get you selling.</p>
             <Link to="/contact" className="woo-btn woo-btn--light">Get My Free Plan <FiArrowUpRight /></Link>
           </div>
         </div>

@@ -47,9 +47,9 @@ function toDateInput(value) {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 function formatDate(value) {
-  if (!value) return '—';
+  if (!value) return '-';
   const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return '—';
+  if (Number.isNaN(d.getTime())) return '-';
   return d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
@@ -317,10 +317,10 @@ export default function Testimonials() {
                     </div>
                     <div style={{ minWidth: 0 }}>
                       <p className="admin-shop-table__name admin-shop-table__trunc">
-                        {/^https?:\/\//i.test(t.client_name || '') ? 'Google reviewer' : (t.client_name || '—')}
+                        {/^https?:\/\//i.test(t.client_name || '') ? 'Google reviewer' : (t.client_name || '-')}
                       </p>
                       <p className="admin-shop-table__sub admin-shop-table__trunc">
-                        {[t.client_role, t.client_location].filter(Boolean).join(' · ') || '—'}
+                        {[t.client_role, t.client_location].filter(Boolean).join(' · ') || '-'}
                       </p>
                     </div>
                   </div>

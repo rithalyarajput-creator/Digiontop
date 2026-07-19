@@ -45,7 +45,7 @@ const industries = [
     icon: <FiStar size={32} />,
     title: 'Fashion & Beauty',
     description:
-      'We craft compelling brand stories for fashion labels, beauty studios, and personal care brands — from Instagram-worthy content and influencer tie-ups to Myntra-optimised listings and D2C website design.',
+      'We craft compelling brand stories for fashion labels, beauty studios, and personal care brands, from Instagram-worthy content and influencer tie-ups to Myntra-optimised listings and D2C website design.',
   },
   {
     icon: <FiHome size={32} />,
@@ -75,7 +75,7 @@ const industries = [
     icon: <FiUser size={32} />,
     title: 'Personal Brands',
     description:
-      'Coaches, speakers, consultants, and creators trust us to build powerful personal brands — with polished websites, strategic social media presence, content that positions them as authorities, and funnels that convert followers into paying clients.',
+      'Coaches, speakers, consultants, and creators trust us to build powerful personal brands, with polished websites, strategic social media presence, content that positions them as authorities, and funnels that convert followers into paying clients.',
   },
 ];
 
@@ -83,8 +83,8 @@ export default function Industries() {
   return (
     <main className="industries-page">
       <Seo
-        title="Industries We Serve — Digital Marketing by Sector"
-        description="Retail, restaurants, healthcare, education, real estate, SaaS and more — see how DigionTop tailors websites, SEO and social campaigns to your industry. Find yours."
+        title="Industries We Serve, Digital Marketing by Sector"
+        description="Retail, restaurants, healthcare, education, real estate, SaaS and more, see how DigionTop tailors websites, SEO and social campaigns to your industry. Find yours."
         path="/industries"
       />
       {/* ══════════════════════════════════════
@@ -99,7 +99,7 @@ export default function Industries() {
           </h1>
           <p className="industries-hero__sub">
             Sector-specific digital strategies built for the way your business
-            actually works — not generic templates.
+            actually works, not generic templates.
           </p>
           <div className="industries-hero__stats">
             <div className="industries-hero__stat"><b>10+</b><span>Industries Served</span></div>
@@ -157,7 +157,7 @@ export default function Industries() {
               <p className="industries-cta__sub">
                 We work with businesses across dozens of categories. Tell us
                 what you do and we'll tell you exactly how we can help you grow
-                — with a free, no-obligation consultation.
+, with a free, no-obligation consultation.
               </p>
             </div>
             <Link to="/contact" className="industries-cta__btn">

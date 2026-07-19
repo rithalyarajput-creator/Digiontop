@@ -89,7 +89,7 @@ export default function Portfolio() {
               <tr key={p.id}>
                 <td>{p.title}</td>
                 <td>{p.category}</td>
-                <td>{p.client_name || '—'}</td>
+                <td>{p.client_name || '-'}</td>
                 <td>{p.is_featured ? 'Yes' : 'No'}</td>
                 <td className="admin-actions">
                   <button className="admin-icon-btn" onClick={() => startEdit(p)}><FiEdit2 /></button>

@@ -29,7 +29,7 @@ const DESIGN_TILES = [
 
 const FAQS = [
   { q: 'What types of graphic design do you offer?', a: 'We design social media posts and reels covers, paid ad creatives for Meta and Google, brochures, flyers, business cards, packaging, and both print-ready and digital-format artwork tailored to your brand guidelines.' },
-  { q: 'How many social media creatives do I get per month?', a: 'Packages typically include a set number of post and story creatives per month based on your posting calendar — commonly 12 to 30 designs — with revisions included so every post matches your brand look.' },
+  { q: 'How many social media creatives do I get per month?', a: 'Packages typically include a set number of post and story creatives per month based on your posting calendar, commonly 12 to 30 designs, with revisions included so every post matches your brand look.' },
   { q: 'Can you design ad creatives for Meta and Google campaigns?', a: 'Yes. We create scroll-stopping ad creatives sized correctly for Facebook, Instagram, and Google Display placements, including static banners, carousel sets, and A/B variants to test what converts best.' },
   { q: 'Do you handle print-ready files for brochures and flyers?', a: 'Yes. We deliver print-ready files with correct bleed, CMYK color profiles, and resolution for offline printing, along with matching digital versions (PDF/JPG) for email and web use.' },
   { q: 'What is the typical turnaround time for a design request?', a: 'Simple social creatives are usually delivered within 24 to 48 hours, while brochures, packaging, or multi-page print collateral take 3 to 5 working days depending on complexity and revisions.' },

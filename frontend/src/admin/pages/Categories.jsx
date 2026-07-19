@@ -235,11 +235,11 @@ export default function Categories() {
                     </div>
                     <div style={{ minWidth: 0 }}>
                       <p className="admin-shop-table__name">{c.name}</p>
-                      <p className="admin-shop-table__sub admin-shop-table__trunc">{c.description || '—'}</p>
+                      <p className="admin-shop-table__sub admin-shop-table__trunc">{c.description || '-'}</p>
                     </div>
                   </div>
                 </td>
-                <td className="is-muted">{c.slug || '—'}</td>
+                <td className="is-muted">{c.slug || '-'}</td>
                 <td className="is-muted">{c.blog_count ?? 0}</td>
                 <td>
                   <button

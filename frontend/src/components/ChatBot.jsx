@@ -21,31 +21,31 @@ const REPLIES = {
     action: AUDIT_ACTION,
   },
   website: {
-    text: 'We build fast, mobile-first websites that convert.\nGet a free quote — no obligation!',
+    text: 'We build fast, mobile-first websites that convert.\nGet a free quote, no obligation!',
     action: AUDIT_ACTION,
   },
   shopify: {
-    text: 'High-converting Shopify stores — setup, payments & speed.\nGet a free quote — no obligation!',
+    text: 'High-converting Shopify stores, setup, payments & speed.\nGet a free quote, no obligation!',
     action: AUDIT_ACTION,
   },
   seo: {
-    text: 'We rank you #1 on Google — on-page, technical & local SEO.\nGet a free quote — no obligation!',
+    text: 'We rank you #1 on Google, on-page, technical & local SEO.\nGet a free quote, no obligation!',
     action: AUDIT_ACTION,
   },
   'social media': {
-    text: 'Instagram, Facebook & more — content, reels & growth.\nGet a free quote — no obligation!',
+    text: 'Instagram, Facebook & more, content, reels & growth.\nGet a free quote, no obligation!',
     action: AUDIT_ACTION,
   },
   'e-commerce': {
-    text: 'Amazon, Flipkart & Meesho — listings, SEO & ads.\nGet a free quote — no obligation!',
+    text: 'Amazon, Flipkart & Meesho, listings, SEO & ads.\nGet a free quote, no obligation!',
     action: AUDIT_ACTION,
   },
   ads: {
-    text: 'High-ROI Google & Meta ads that bring real leads.\nGet a free quote — no obligation!',
+    text: 'High-ROI Google & Meta ads that bring real leads.\nGet a free quote, no obligation!',
     action: AUDIT_ACTION,
   },
   branding: {
-    text: 'Logo, brand identity & creatives that stand out.\nGet a free quote — no obligation!',
+    text: 'Logo, brand identity & creatives that stand out.\nGet a free quote, no obligation!',
     action: AUDIT_ACTION,
   },
   pricing: {
@@ -53,7 +53,7 @@ const REPLIES = {
     action: AUDIT_ACTION,
   },
   consultation: {
-    text: 'Book a FREE 30-min strategy call.\nWe’ll share a clear plan to grow your business — no cost.',
+    text: 'Book a FREE 30-min strategy call.\nWe’ll share a clear plan to grow your business, no cost.',
     action: AUDIT_ACTION,
   },
   contact: {
@@ -61,7 +61,7 @@ const REPLIES = {
     action: CALL_ACTION,
   },
   timing: {
-    text: 'We’re available Mon–Sat, 10 AM – 7 PM IST.\nFill the form anytime — we reply within 1 business day.',
+    text: 'We’re available Mon–Sat, 10 AM – 7 PM IST.\nFill the form anytime, we reply within 1 business day.',
     action: AUDIT_ACTION,
   },
   location: {
@@ -172,7 +172,7 @@ export default function ChatBot() {
               <p className="cb-header__name">Digi</p>
               <p className="cb-header__status">
                 <span className="cb-header__status-dot" />
-                Online — DigionTop Assistant
+                Online, DigionTop Assistant
               </p>
             </div>
           </div>

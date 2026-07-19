@@ -8,9 +8,9 @@ import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
-  { q: 'Why does Amazon listing optimisation matter?', a: 'A great listing means more visibility, trust and conversions — the difference between page 1 and invisible on Amazon.' },
+  { q: 'Why does Amazon listing optimisation matter?', a: 'A great listing means more visibility, trust and conversions, the difference between page 1 and invisible on Amazon.' },
   { q: 'What does the service include?', a: 'Keyword-rich titles, bullet points, descriptions, backend search terms, category selection and A+ content guidance.' },
-  { q: 'Will it improve my ranking?', a: 'Yes — proper keywords and optimisation help you rank higher in Amazon search and win the Buy Box.' },
+  { q: 'Will it improve my ranking?', a: 'Yes, proper keywords and optimisation help you rank higher in Amazon search and win the Buy Box.' },
   { q: 'Do you handle images too?', a: 'We advise on and can arrange optimised product images and infographics that boost conversions.' },
   { q: 'How soon will I see results?', a: 'Optimised listings often lift visibility and sales within a few weeks as Amazon re-indexes.' },
 ]
@@ -50,7 +50,7 @@ export default function AmazonListing() {
           <div className="amz-hero__text" data-aos="fade-right">
             <span className="amz-tag"><FiShoppingBag /> Amazon Product Listing</span>
             <h1 className="amz-hero__title">Listings That<br /><span>Rank &amp; Sell on Amazon</span></h1>
-            <p className="amz-hero__sub">Professionally optimised Amazon listings — better visibility, higher trust and more conversions in the world's biggest marketplace.</p>
+            <p className="amz-hero__sub">Professionally optimised Amazon listings, better visibility, higher trust and more conversions in the world's biggest marketplace.</p>
             <div className="amz-hero__cta">
               <Link to="/contact" className="amz-btn amz-btn--solid">Optimise My Listings <FiArrowRight /></Link>
               <Link to="/contact" className="amz-btn amz-btn--ghost">Free Listing Review</Link>
@@ -110,7 +110,7 @@ export default function AmazonListing() {
         </div>
       </section>
       <ServiceFaq service="Amazon Product Listing" faqs={FAQS} />
-      <section className="amz-cta"><div className="amz-container"><div className="amz-cta__box" data-aos="zoom-in"><FiShoppingBag className="amz-cta__ic" /><h2>Win More Sales on Amazon</h2><p>Get a free listing review — we'll show you exactly what's holding your products back.</p><Link to="/contact" className="amz-btn amz-btn--light">Get My Free Review <FiArrowUpRight /></Link></div></div></section>
+      <section className="amz-cta"><div className="amz-container"><div className="amz-cta__box" data-aos="zoom-in"><FiShoppingBag className="amz-cta__ic" /><h2>Win More Sales on Amazon</h2><p>Get a free listing review, we'll show you exactly what's holding your products back.</p><Link to="/contact" className="amz-btn amz-btn--light">Get My Free Review <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

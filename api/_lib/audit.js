@@ -55,13 +55,13 @@ function audit(html, url, headers) {
   // Title
   const title = textOf(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
   if (!title) {
-    add('Page title', 'fail', 'No title tag found.', 'Add a unique <title> — this is what Google shows in search results.');
+    add('Page title', 'fail', 'No title tag found.', 'Add a unique <title>: this is what Google shows in search results.');
   } else if (title.length > 60) {
-    add('Page title', 'warn', `${title.length} characters — Google truncates around 60.`, 'Shorten it so the whole title shows in search results.');
+    add('Page title', 'warn', `${title.length} characters, Google truncates around 60.`, 'Shorten it so the whole title shows in search results.');
   } else if (title.length < 20) {
-    add('Page title', 'warn', `Only ${title.length} characters — too short to describe the page.`, 'Expand it to 40–60 characters with your main keyword.');
+    add('Page title', 'warn', `Only ${title.length} characters, too short to describe the page.`, 'Expand it to 40–60 characters with your main keyword.');
   } else {
-    add('Page title', 'pass', `${title.length} characters — good length.`, '');
+    add('Page title', 'pass', `${title.length} characters, good length.`, '');
   }
 
   // Meta description
@@ -70,11 +70,11 @@ function audit(html, url, headers) {
   if (!desc) {
     add('Meta description', 'fail', 'Missing.', 'Add a 150–160 character description. It is your ad copy in search results.');
   } else if (desc.length > 160) {
-    add('Meta description', 'warn', `${desc.length} characters — will be cut off.`, 'Trim to under 160 characters.');
+    add('Meta description', 'warn', `${desc.length} characters, will be cut off.`, 'Trim to under 160 characters.');
   } else if (desc.length < 70) {
-    add('Meta description', 'warn', `Only ${desc.length} characters — wasting space.`, 'Expand to 150–160 characters.');
+    add('Meta description', 'warn', `Only ${desc.length} characters, wasting space.`, 'Expand to 150–160 characters.');
   } else {
-    add('Meta description', 'pass', `${desc.length} characters — good length.`, '');
+    add('Meta description', 'pass', `${desc.length} characters, good length.`, '');
   }
 
   // H1
@@ -82,7 +82,7 @@ function audit(html, url, headers) {
   if (h1s.length === 0) {
     add('H1 heading', 'fail', 'No H1 on the page.', 'Add exactly one H1 stating what the page is about.');
   } else if (h1s.length > 1) {
-    add('H1 heading', 'warn', `${h1s.length} H1 tags — should be one.`, 'Keep a single H1; make the rest H2/H3.');
+    add('H1 heading', 'warn', `${h1s.length} H1 tags, should be one.`, 'Keep a single H1; make the rest H2/H3.');
   } else {
     add('H1 heading', 'pass', 'Exactly one H1.', '');
   }
@@ -93,7 +93,7 @@ function audit(html, url, headers) {
   if (imgs.length === 0) {
     add('Image alt text', 'warn', 'No images found on the page.', '');
   } else if (noAlt.length) {
-    add('Image alt text', 'fail', `${noAlt.length} of ${imgs.length} images have no alt text.`, 'Describe each image in its alt attribute — Google reads it, and screen readers need it.');
+    add('Image alt text', 'fail', `${noAlt.length} of ${imgs.length} images have no alt text.`, 'Describe each image in its alt attribute: Google reads it, and screen readers need it.');
   } else {
     add('Image alt text', 'pass', `All ${imgs.length} images have alt text.`, '');
   }
@@ -109,7 +109,7 @@ function audit(html, url, headers) {
   if (/<meta[^>]+name=["']viewport["']/i.test(html)) {
     add('Mobile friendly', 'pass', 'Viewport tag present.', '');
   } else {
-    add('Mobile friendly', 'fail', 'No viewport meta tag — the site will not scale on phones.', 'Add <meta name="viewport" content="width=device-width, initial-scale=1">. Most of your traffic is mobile.');
+    add('Mobile friendly', 'fail', 'No viewport meta tag, the site will not scale on phones.', 'Add <meta name="viewport" content="width=device-width, initial-scale=1">. Most of your traffic is mobile.');
   }
 
   // Canonical
@@ -136,7 +136,7 @@ function audit(html, url, headers) {
   // Page weight
   const kb = Math.round(html.length / 1024);
   if (kb > 200) {
-    add('Page size', 'warn', `HTML alone is ${kb} KB.`, 'Trim unused markup and inline styles — heavy pages lose mobile visitors.');
+    add('Page size', 'warn', `HTML alone is ${kb} KB.`, 'Trim unused markup and inline styles: heavy pages lose mobile visitors.');
   } else {
     add('Page size', 'pass', `HTML is ${kb} KB.`, '');
   }
@@ -149,7 +149,7 @@ function audit(html, url, headers) {
     .split(/\s+/)
     .filter((w) => w.length > 2).length;
   if (words < 300) {
-    add('Content depth', 'fail', `About ${words} words — thin for ranking.`, 'Aim for 600+ words of genuinely useful content on key pages.');
+    add('Content depth', 'fail', `About ${words} words, thin for ranking.`, 'Aim for 600+ words of genuinely useful content on key pages.');
   } else if (words < 600) {
     add('Content depth', 'warn', `About ${words} words.`, 'Pages with 600+ words tend to rank better for competitive terms.');
   } else {
@@ -203,7 +203,7 @@ export async function handleAudit(req, res) {
     html = (await resp.text()).slice(0, MAX_BYTES);
   } catch (err) {
     const msg = err.name === 'AbortError'
-      ? 'That site took too long to respond — it may be down or very slow.'
+      ? 'That site took too long to respond, it may be down or very slow.'
       : 'Could not reach that site. Check the address and try again.';
     return res.status(400).json({ error: msg });
   }
@@ -219,7 +219,7 @@ export async function handleAudit(req, res) {
         (full_name, email, phone, service_interested, message, source)
       VALUES
         (${name}, ${email}, ${phone || null}, 'Free SEO Audit',
-         ${`Requested a free SEO audit for ${target.href} — scored ${report.score}/100.`},
+         ${`Requested a free SEO audit for ${target.href}, scored ${report.score}/100.`},
          'seo-audit')
     `;
   } catch (err) {

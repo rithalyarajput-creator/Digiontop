@@ -11,11 +11,11 @@ import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
-  { q: 'What is content marketing exactly?', a: 'Creating valuable content — blogs, videos, guides — that attracts, educates and converts your ideal customers over time, building trust and authority.' },
+  { q: 'What is content marketing exactly?', a: 'Creating valuable content, blogs, videos, guides, that attracts, educates and converts your ideal customers over time, building trust and authority.' },
   { q: 'How long until content drives results?', a: 'Content compounds. You\'ll see early traction in 6–10 weeks, with authority and organic traffic growing steadily from there.' },
-  { q: 'Do you handle SEO for the content?', a: 'Yes — every piece is keyword-researched and SEO-optimised so it ranks and pulls in qualified traffic.' },
-  { q: 'What content formats do you produce?', a: 'Blogs, pillar pages, guides, infographics, video scripts and social content — a full multi-format strategy.' },
-  { q: 'Can content really generate leads?', a: 'Absolutely — with the right topics, CTAs and lead magnets, content becomes a compounding lead-gen engine.' },
+  { q: 'Do you handle SEO for the content?', a: 'Yes, every piece is keyword-researched and SEO-optimised so it ranks and pulls in qualified traffic.' },
+  { q: 'What content formats do you produce?', a: 'Blogs, pillar pages, guides, infographics, video scripts and social content, a full multi-format strategy.' },
+  { q: 'Can content really generate leads?', a: 'Absolutely, with the right topics, CTAs and lead magnets, content becomes a compounding lead-gen engine.' },
 ]
 
 const TYPES = [
@@ -39,7 +39,7 @@ export default function ContentMarketing() {
           <div className="cm-hero__text" data-aos="fade-right">
             <span className="cm-tag"><FiFileText /> Content Marketing</span>
             <h1 className="cm-hero__title">Content That <span>Compounds</span></h1>
-            <p className="cm-hero__sub">Strategic, SEO-driven content that attracts your ideal customers, builds authority and turns readers into leads — month after month.</p>
+            <p className="cm-hero__sub">Strategic, SEO-driven content that attracts your ideal customers, builds authority and turns readers into leads, month after month.</p>
             <div className="cm-hero__cta">
               <Link to="/contact" className="cm-btn cm-btn--solid">Build My Content Engine <FiArrowRight /></Link>
               <Link to="/contact" className="cm-btn cm-btn--ghost">Free Content Plan</Link>
@@ -83,7 +83,7 @@ export default function ContentMarketing() {
           <div className="cm-cta__box" data-aos="zoom-in">
             <FiFileText className="cm-cta__ic" />
             <h2>Ready to Own Your Topic?</h2>
-            <p>Get a free content plan — we'll map the exact topics and formats to grow your traffic and leads.</p>
+            <p>Get a free content plan, we'll map the exact topics and formats to grow your traffic and leads.</p>
             <Link to="/contact" className="cm-btn cm-btn--light">Get My Free Plan <FiArrowUpRight /></Link>
           </div>
         </div>

@@ -14,9 +14,9 @@ function parsePerms(str) {
 }
 
 function formatDate(v) {
-  if (!v) return '—';
+  if (!v) return '-';
   const d = new Date(v);
-  if (Number.isNaN(d.getTime())) return '—';
+  if (Number.isNaN(d.getTime())) return '-';
   return d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
@@ -215,7 +215,7 @@ export default function Users() {
           </div>
           <div className="admin-card__body">
             <p className="admin-users-cred__note">
-              Copy these now and hand them over — the password is shown <strong>once</strong> and cannot be
+              Copy these now and hand them over, the password is shown <strong>once</strong> and cannot be
               retrieved again. If it is lost, use “Reset password” to set a new one.
             </p>
             <div className="admin-users-cred__grid">
@@ -243,7 +243,7 @@ export default function Users() {
       {showForm && (
         <form className="admin-card admin-sform" onSubmit={handleSave}>
           <div className="admin-card__header">
-            <h2>{editId ? `Edit user${editingUser ? ` — ${editingUser.username}` : ''}` : 'New user'}</h2>
+            <h2>{editId ? `Edit user${editingUser ? `, ${editingUser.username}` : ''}` : 'New user'}</h2>
           </div>
           <div className="admin-card__body">
             <div className="admin-sform__grid">

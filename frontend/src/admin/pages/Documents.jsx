@@ -62,16 +62,16 @@ function DocIcon({ mime }) {
 
 function formatSize(bytes) {
   const n = Number(bytes);
-  if (!n || n < 0) return '—';
+  if (!n || n < 0) return '-';
   if (n < 1024) return `${n} B`;
   if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`;
   return `${(n / (1024 * 1024)).toFixed(1)} MB`;
 }
 
 function formatDate(value) {
-  if (!value) return '—';
+  if (!value) return '-';
   const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return '—';
+  if (Number.isNaN(d.getTime())) return '-';
   return d.toLocaleDateString(undefined, { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
@@ -125,13 +125,13 @@ function LockScreen({ onUnlock, expired }) {
           <div className="admin-docs-lock__badge"><FiLock /></div>
           <h2 className="admin-docs-lock__title">This vault is locked</h2>
           <p className="admin-docs-lock__text">
-            Your private business documents — proformas, invoices and agreements — are kept
+            Your private business documents, proformas, invoices and agreements, are kept
             behind a second passphrase, separate from your admin login.
           </p>
 
           {expired && (
             <div className="admin-salert admin-docs-lock__alert">
-              Session expired — enter the passphrase again.
+              Session expired, enter the passphrase again.
             </div>
           )}
           {error && <div className="admin-salert admin-docs-lock__alert">{error}</div>}
@@ -503,7 +503,7 @@ export default function Documents() {
                 <input
                   value={form.title}
                   onChange={(e) => setForm({ ...form, title: e.target.value })}
-                  placeholder="e.g. Proforma — Acme Pvt Ltd"
+                  placeholder="e.g. Proforma, Acme Pvt Ltd"
                   required
                 />
               </label>
@@ -648,7 +648,7 @@ export default function Documents() {
                   <td>
                     {d.category
                       ? <span className="admin-sbadge admin-sbadge--info">{d.category}</span>
-                      : <span className="is-muted">—</span>}
+                      : <span className="is-muted">, </span>}
                   </td>
                   <td className="is-right is-muted">{formatSize(d.size_bytes)}</td>
                   <td className="is-muted">{formatDate(d.created_at)}</td>

@@ -11,10 +11,10 @@ import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
-  { q: 'Does email marketing still work?', a: 'It\'s one of the highest-ROI channels there is — often ₹40+ back for every ₹1 spent. It nurtures leads and drives repeat sales like nothing else.' },
-  { q: 'Do you build the email flows?', a: 'Yes — welcome series, abandoned cart, re-engagement and promotional flows are all set up and automated.' },
-  { q: 'Which platforms do you use?', a: 'Mailchimp, Klaviyo, Brevo and more — we work with your stack or recommend the best fit.' },
-  { q: 'Will you write and design the emails?', a: 'Completely done-for-you — copy, design and testing so your emails get opened and clicked.' },
+  { q: 'Does email marketing still work?', a: 'It\'s one of the highest-ROI channels there is, often ₹40+ back for every ₹1 spent. It nurtures leads and drives repeat sales like nothing else.' },
+  { q: 'Do you build the email flows?', a: 'Yes, welcome series, abandoned cart, re-engagement and promotional flows are all set up and automated.' },
+  { q: 'Which platforms do you use?', a: 'Mailchimp, Klaviyo, Brevo and more, we work with your stack or recommend the best fit.' },
+  { q: 'Will you write and design the emails?', a: 'Completely done-for-you, copy, design and testing so your emails get opened and clicked.' },
   { q: 'How do you grow my list?', a: 'Lead magnets, popups and opt-in strategy that turn website visitors into subscribers you can sell to.' },
 ]
 
@@ -31,7 +31,7 @@ export default function EmailMarketing() {
     <main className="em">
       <Seo
         title="Email Marketing Services & Automation"
-        description="Done-for-you welcome, abandoned cart and re-engagement flows on Klaviyo, Mailchimp and Brevo — copy, design and testing included. Get a free email audit today."
+        description="Done-for-you welcome, abandoned cart and re-engagement flows on Klaviyo, Mailchimp and Brevo, copy, design and testing included. Get a free email audit today."
         path="/services/social/email-marketing"
       />
       <section className="em-hero">
@@ -39,7 +39,7 @@ export default function EmailMarketing() {
           <div className="em-hero__text" data-aos="fade-right">
             <span className="em-tag"><FiMail /> Email Marketing</span>
             <h1 className="em-hero__title">The Channel That <span>Pays You Back</span></h1>
-            <p className="em-hero__sub">Automated email flows and campaigns that nurture leads, recover lost sales and drive repeat revenue — the highest-ROI channel, done for you.</p>
+            <p className="em-hero__sub">Automated email flows and campaigns that nurture leads, recover lost sales and drive repeat revenue, the highest-ROI channel, done for you.</p>
             <div className="em-hero__cta">
               <Link to="/contact" className="em-btn em-btn--solid">Start Emailing <FiArrowRight /></Link>
               <Link to="/contact" className="em-btn em-btn--ghost">Free Email Audit</Link>
@@ -80,7 +80,7 @@ export default function EmailMarketing() {
           <div className="em-cta__box" data-aos="zoom-in">
             <FiMail className="em-cta__ic" />
             <h2>Ready to Turn Emails Into Revenue?</h2>
-            <p>Get a free email audit — we'll show you the flows and campaigns leaking money and how to fix them.</p>
+            <p>Get a free email audit, we'll show you the flows and campaigns leaking money and how to fix them.</p>
             <Link to="/contact" className="em-btn em-btn--light">Get My Free Audit <FiArrowUpRight /></Link>
           </div>
         </div>

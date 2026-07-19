@@ -8,11 +8,11 @@ import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
-  { q: 'What is catalog management?', a: 'Keeping your entire product catalogue accurate, complete and up-to-date across marketplaces — listings, pricing, stock and content.' },
-  { q: 'Can you manage large catalogues?', a: 'Yes — from dozens to thousands of SKUs, kept accurate and optimised across every platform.' },
-  { q: 'Do you handle updates and pricing?', a: 'Absolutely — price changes, stock updates, new launches and content edits are all managed for you.' },
-  { q: 'Which marketplaces do you cover?', a: 'Amazon, Flipkart, Meesho and your own store — a single, consistent catalogue everywhere.' },
-  { q: 'Will this save me time?', a: 'Hugely — we take catalogue chaos off your plate so you can focus on growing sales.' },
+  { q: 'What is catalog management?', a: 'Keeping your entire product catalogue accurate, complete and up-to-date across marketplaces, listings, pricing, stock and content.' },
+  { q: 'Can you manage large catalogues?', a: 'Yes, from dozens to thousands of SKUs, kept accurate and optimised across every platform.' },
+  { q: 'Do you handle updates and pricing?', a: 'Absolutely, price changes, stock updates, new launches and content edits are all managed for you.' },
+  { q: 'Which marketplaces do you cover?', a: 'Amazon, Flipkart, Meesho and your own store, a single, consistent catalogue everywhere.' },
+  { q: 'Will this save me time?', a: 'Hugely, we take catalogue chaos off your plate so you can focus on growing sales.' },
 ]
 const FEATURES = [
   { icon: <FiPackage />, t: 'Product Onboarding', d: 'Fast, accurate addition of new products across platforms.' },
@@ -50,7 +50,7 @@ export default function CatalogManagement() {
           <div className="cat-hero__text" data-aos="fade-right">
             <span className="cat-tag cat-tag--light"><FiGrid /> Catalog Management</span>
             <h1 className="cat-hero__title cat-hero__title--light">Your Catalogue,<br /><span>Always Accurate</span></h1>
-            <p className="cat-hero__sub cat-hero__sub--light">We keep your entire product catalogue accurate, optimised and up-to-date across every marketplace — so nothing is ever missed and everything sells.</p>
+            <p className="cat-hero__sub cat-hero__sub--light">We keep your entire product catalogue accurate, optimised and up-to-date across every marketplace, so nothing is ever missed and everything sells.</p>
             <div className="cat-hero__cta">
               <Link to="/contact" className="cat-btn cat-btn--solid">Manage My Catalogue <FiArrowRight /></Link>
               <Link to="/contact" className="cat-btn cat-btn--ghost-l">Free Consultation</Link>
@@ -110,7 +110,7 @@ export default function CatalogManagement() {
         </div>
       </section>
       <ServiceFaq service="Catalog Management" faqs={FAQS} />
-      <section className="cat-cta"><div className="cat-container"><div className="cat-cta__box" data-aos="zoom-in"><FiGrid className="cat-cta__ic" /><h2>Take Catalogue Chaos Off Your Plate</h2><p>Get a free consultation — we'll keep your catalogue accurate so you can focus on selling.</p><Link to="/contact" className="cat-btn cat-btn--light">Get Started <FiArrowUpRight /></Link></div></div></section>
+      <section className="cat-cta"><div className="cat-container"><div className="cat-cta__box" data-aos="zoom-in"><FiGrid className="cat-cta__ic" /><h2>Take Catalogue Chaos Off Your Plate</h2><p>Get a free consultation, we'll keep your catalogue accurate so you can focus on selling.</p><Link to="/contact" className="cat-btn cat-btn--light">Get Started <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

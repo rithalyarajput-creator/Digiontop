@@ -26,9 +26,9 @@ const BRAND_SYSTEM = [
 const FAQS = [
   { q: 'What exactly is included in a Branding & Identity Design package?', a: 'You get a primary logo with variations (icon, wordmark, monogram), a documented colour system (primary, secondary and accent shades with hex/RGB/CMYK codes), a typography pairing for headings and body text, and a brand guidelines PDF that ties it all together. Most projects also include starter templates for business cards, letterhead and social profiles.' },
   { q: 'How many logo concepts will I see, and how many revisions are included?', a: 'We typically present 2-3 distinct logo directions based on your brief, then refine your chosen direction through up to 3 rounds of revisions until it is ready to finalise. Additional rounds can be added if needed.' },
-  { q: 'Why do I need a colour system instead of just picking a few colours?', a: 'A colour system defines exact hex/RGB/CMYK values, tints and shades, and rules for where each colour is used — so your brand looks identical on your website, packaging, social ads and print. Picking colours ad-hoc leads to inconsistent, unrecognisable branding across touchpoints.' },
+  { q: 'Why do I need a colour system instead of just picking a few colours?', a: 'A colour system defines exact hex/RGB/CMYK values, tints and shades, and rules for where each colour is used, so your brand looks identical on your website, packaging, social ads and print. Picking colours ad-hoc leads to inconsistent, unrecognisable branding across touchpoints.' },
   { q: 'What is a brand guidelines document and do I actually need one?', a: 'It is a rulebook covering logo clear-space and misuse, colour codes, typography hierarchy, imagery style and voice/tone. If you work with any designer, printer, or marketing freelancer in future, this document keeps your brand consistent without you having to explain it every time.' },
-  { q: 'Can you redesign our existing logo instead of starting from scratch?', a: 'Yes — we can evolve your current identity (a "rebrand refresh") to modernise it while keeping recognisable equity, or design a completely new system if you are repositioning the business. We will recommend the right approach after reviewing your current brand.' },
+  { q: 'Can you redesign our existing logo instead of starting from scratch?', a: 'Yes, we can evolve your current identity (a "rebrand refresh") to modernise it while keeping recognisable equity, or design a completely new system if you are repositioning the business. We will recommend the right approach after reviewing your current brand.' },
 ]
 
 export default function BrandingIdentity() {
@@ -47,7 +47,7 @@ export default function BrandingIdentity() {
           <div data-aos="fade-right">
             <span className="ss-tag"><FiAward /> Branding &amp; Identity</span>
             <h1 className="ss-hero__title">Build A Brand That <span>People Remember</span></h1>
-            <p className="ss-hero__sub">Your brand is more than a logo — it's the personality, reputation, and experience customers associate with your business. We create memorable identities that build trust and recognition.</p>
+            <p className="ss-hero__sub">Your brand is more than a logo, it's the personality, reputation, and experience customers associate with your business. We create memorable identities that build trust and recognition.</p>
             <div className="ss-hero__actions">
               <Link to="/contact" className="ss-btn ss-btn--primary">Build My Brand <FiArrowRight /></Link>
               <Link to="/contact" className="ss-btn ss-btn--ghost">Free Consultation</Link>
@@ -120,7 +120,7 @@ export default function BrandingIdentity() {
             <h2 className="ss-h2">Every Deliverable, Built To Work Together</h2>
             <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginTop: 14, maxWidth: 680, marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
               A logo alone isn't a brand. We design your mark, colour palette, and typography as one connected
-              system — documented in a brand guide and rolled out across ready-to-use templates — so everything
+              system, documented in a brand guide and rolled out across ready-to-use templates, so everything
               you publish looks unmistakably yours.
             </p>
           </div>

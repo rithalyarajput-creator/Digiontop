@@ -19,13 +19,13 @@ const FAQ_DATA = [
         id: 2,
         question: 'Is DigionTop a remote agency?',
         answer:
-          'Yes — DigionTop is 100% remote-first. Our specialists are distributed across India, which means we can serve clients in any city or town without location constraints. All communication, reporting, and collaboration happens online through calls, emails, and shared dashboards.',
+          'Yes, DigionTop is 100% remote-first. Our specialists are distributed across India, which means we can serve clients in any city or town without location constraints. All communication, reporting, and collaboration happens online through calls, emails, and shared dashboards.',
       },
       {
         id: 3,
         question: 'What makes DigionTop different from other agencies?',
         answer:
-          'Three things set us apart: (1) Remote-first lean structure — every rupee goes into actual work, not office rent. (2) Full-service under one roof — no fragmented vendors. (3) Radical transparency — real reports, honest advice, no lock-in contracts. We grow when you grow.',
+          'Three things set us apart: (1) Remote-first lean structure, every rupee goes into actual work, not office rent. (2) Full-service under one roof, no fragmented vendors. (3) Radical transparency, real reports, honest advice, no lock-in contracts. We grow when you grow.',
       },
     ],
   },
@@ -36,13 +36,13 @@ const FAQ_DATA = [
         id: 4,
         question: 'What platforms do you build websites on?',
         answer:
-          'We build on WordPress (business websites, blogs), Shopify (e-commerce), and custom HTML/CSS/JS (landing pages, unique requirements). We assess your goals during the consultation and recommend the right platform — we never push a technology that does not serve your business.',
+          'We build on WordPress (business websites, blogs), Shopify (e-commerce), and custom HTML/CSS/JS (landing pages, unique requirements). We assess your goals during the consultation and recommend the right platform, we never push a technology that does not serve your business.',
       },
       {
         id: 5,
         question: 'Do you manage Amazon and Flipkart accounts?',
         answer:
-          'Yes — end-to-end. We handle account setup, product listing creation and optimisation, keyword research, A+ content, sponsored ad campaigns (PPC), review management, and monthly performance reporting. You stay informed without managing the complexity yourself.',
+          'Yes, end-to-end. We handle account setup, product listing creation and optimisation, keyword research, A+ content, sponsored ad campaigns (PPC), review management, and monthly performance reporting. You stay informed without managing the complexity yourself.',
       },
     ],
   },
@@ -53,7 +53,7 @@ const FAQ_DATA = [
         id: 6,
         question: 'Do I need to sign a long-term contract?',
         answer:
-          'No. We believe in earning your business every month — not locking you in. Our services run on a flexible monthly retainer model. If you ever decide to pause or stop, all we ask for is 15 days notice. Your campaigns, reports, and assets always remain yours.',
+          'No. We believe in earning your business every month, not locking you in. Our services run on a flexible monthly retainer model. If you ever decide to pause or stop, all we ask for is 15 days notice. Your campaigns, reports, and assets always remain yours.',
       },
       {
         id: 7,
@@ -70,7 +70,7 @@ const FAQ_DATA = [
         id: 8,
         question: 'Do you offer a free consultation?',
         answer:
-          'Yes, absolutely. Every new client engagement starts with a free 30-minute strategy call. We listen to your business goals, assess your current digital presence, and identify the highest-impact areas. There is no sales pressure — just an honest conversation.',
+          'Yes, absolutely. Every new client engagement starts with a free 30-minute strategy call. We listen to your business goals, assess your current digital presence, and identify the highest-impact areas. There is no sales pressure, just an honest conversation.',
       },
       {
         id: 9,
@@ -134,8 +134,8 @@ export default function FAQ() {
   return (
     <main className="faq-page">
       <Seo
-        title="Digital Marketing FAQs — Pricing, Timelines & Process"
-        description="Answers to common questions about our website, SEO, social media and Amazon/Flipkart services — pricing, delivery timelines, contracts and reporting. Still unsure? Ask us."
+        title="Digital Marketing FAQs, Pricing, Timelines & Process"
+        description="Answers to common questions about our website, SEO, social media and Amazon/Flipkart services, pricing, delivery timelines, contracts and reporting. Still unsure? Ask us."
         path="/faq"
       />
       {/* Hero */}

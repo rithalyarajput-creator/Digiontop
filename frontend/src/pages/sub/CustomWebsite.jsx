@@ -12,15 +12,15 @@ import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
-  { q: 'What is a custom website?', a: 'A site built from scratch to fit your exact brand, goals and features — no templates, no compromises. Fully yours, fully flexible.' },
+  { q: 'What is a custom website?', a: 'A site built from scratch to fit your exact brand, goals and features, no templates, no compromises. Fully yours, fully flexible.' },
   { q: 'How long does it take to build?', a: 'Most custom sites take 3–6 weeks depending on pages, features and integrations. We share a clear timeline upfront.' },
-  { q: 'Will my site be fast and SEO-ready?', a: 'Yes — clean code, optimised images and SEO best-practices are built in so you rank and load fast from day one.' },
-  { q: 'Is it mobile-friendly?', a: 'Every site is fully responsive — pixel-perfect on phones, tablets and desktops.' },
-  { q: 'Do I own the website fully?', a: 'Completely — full ownership of code, design and content, with no lock-ins.' },
+  { q: 'Will my site be fast and SEO-ready?', a: 'Yes, clean code, optimised images and SEO best-practices are built in so you rank and load fast from day one.' },
+  { q: 'Is it mobile-friendly?', a: 'Every site is fully responsive, pixel-perfect on phones, tablets and desktops.' },
+  { q: 'Do I own the website fully?', a: 'Completely, full ownership of code, design and content, with no lock-ins.' },
 ]
 
 const FEATURES = [
-  { icon: <FiFeather />, t: 'Bespoke Design', d: 'A unique design crafted around your brand — not a recycled template.' },
+  { icon: <FiFeather />, t: 'Bespoke Design', d: 'A unique design crafted around your brand, not a recycled template.' },
   { icon: <FiZap />, t: 'Blazing Fast', d: 'Clean, optimised code that loads in under 2 seconds.' },
   { icon: <FiSmartphone />, t: 'Fully Responsive', d: 'Pixel-perfect across every screen size and device.' },
   { icon: <FiTrendingUp />, t: 'SEO-Ready', d: 'Built to rank with clean structure and on-page SEO baked in.' },
@@ -30,7 +30,7 @@ const FEATURES = [
 
 const PROCESS = [
   { n: '01', t: 'Discovery & Wireframes', d: 'We map your pages, user journeys and conversion goals, then wireframe every screen before a single line of code is written.' },
-  { n: '02', t: 'Bespoke UI Design', d: 'Your brand becomes a real design system — type scale, colour tokens and components — signed off in Figma before build.' },
+  { n: '02', t: 'Bespoke UI Design', d: 'Your brand becomes a real design system, type scale, colour tokens and components, signed off in Figma before build.' },
   { n: '03', t: 'React / Next.js Build', d: 'We code it as reusable components with server-side rendering, clean semantic markup and a headless CMS you can actually edit.' },
   { n: '04', t: 'QA, Launch & Handover', d: 'Lighthouse, cross-browser and mobile testing, then deploy to Vercel with analytics, sitemaps and full code ownership handed to you.' },
 ]
@@ -38,9 +38,9 @@ const PROCESS = [
 const STACK = ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Framer Motion', 'Sanity CMS', 'Vercel', 'Figma', 'Vite']
 
 const WHY = [
-  { icon: <FiFeather />, t: 'Zero Templates', d: 'Every layout is designed from a blank canvas around your brand — no WordPress theme wearing your logo.' },
+  { icon: <FiFeather />, t: 'Zero Templates', d: 'Every layout is designed from a blank canvas around your brand, no WordPress theme wearing your logo.' },
   { icon: <FiZap />, t: 'Next.js Performance', d: 'SSR, image optimisation and code-splitting give you Core Web Vitals scores in the green from launch day.' },
-  { icon: <FiShield />, t: 'You Own the Code', d: 'The full React codebase is pushed to your repo — no page-builder lock-in, no licence fees, no hostage situation.' },
+  { icon: <FiShield />, t: 'You Own the Code', d: 'The full React codebase is pushed to your repo, no page-builder lock-in, no licence fees, no hostage situation.' },
   { icon: <FiUsers />, t: 'One Dedicated Team', d: 'The same designer and developer stay on your project end to end, so nothing gets lost in a hand-off.' },
 ]
 
@@ -50,7 +50,7 @@ export default function CustomWebsite() {
     <main className="wd">
       <Seo
         title="Custom Website Development Services"
-        description="Bespoke websites built in React and Next.js — no templates, sub-2-second loads, SEO-ready and fully responsive, with the code handed over to you. Start your project today."
+        description="Bespoke websites built in React and Next.js, no templates, sub-2-second loads, SEO-ready and fully responsive, with the code handed over to you. Start your project today."
         path="/services/custom-website"
       />
       <section className="wd-hero wd-hero--dark">
@@ -59,7 +59,7 @@ export default function CustomWebsite() {
           <div className="wd-hero__text" data-aos="fade-right">
             <span className="wd-tag wd-tag--light"><FiCode /> Custom Website Development</span>
             <h1 className="wd-hero__title wd-hero__title--light">Websites Built<br /><span>Exactly for You</span></h1>
-            <p className="wd-hero__sub wd-hero__sub--light">No templates. We design and code custom, high-converting websites tailored to your brand, your goals and your customers — fast, secure and SEO-ready.</p>
+            <p className="wd-hero__sub wd-hero__sub--light">No templates. We design and code custom, high-converting websites tailored to your brand, your goals and your customers, fast, secure and SEO-ready.</p>
             <div className="wd-hero__cta">
               <Link to="/contact" className="wd-btn wd-btn--solid">Start My Website <FiArrowRight /></Link>
               <Link to="/contact" className="wd-btn wd-btn--ghost-l">Get a Free Quote</Link>
@@ -138,7 +138,7 @@ export default function CustomWebsite() {
           <div className="wd-cta__box" data-aos="zoom-in">
             <FiCode className="wd-cta__ic" />
             <h2>Ready to Build Something Great?</h2>
-            <p>Get a free quote and timeline for your custom website — no obligation, just a clear plan.</p>
+            <p>Get a free quote and timeline for your custom website, no obligation, just a clear plan.</p>
             <Link to="/contact" className="wd-btn wd-btn--light">Get My Free Quote <FiArrowUpRight /></Link>
           </div>
         </div>

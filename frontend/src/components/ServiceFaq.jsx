@@ -92,7 +92,7 @@ export default function ServiceFaq({ service = 'this service', faqs = [] }) {
           ) : (
             <form className="sfaq__form" onSubmit={submit}>
               <h3 className="sfaq__form-title">Get a Free {service} Consultation</h3>
-              <p className="sfaq__form-sub">Tell us about your business — we'll reply within one business day with a clear plan.</p>
+              <p className="sfaq__form-sub">Tell us about your business, we'll reply within one business day with a clear plan.</p>
               <div className="sfaq__row">
                 <input name="firstName" value={form.firstName} onChange={change} placeholder="First Name*" required />
                 <input name="lastName" value={form.lastName} onChange={change} placeholder="Last Name*" required />

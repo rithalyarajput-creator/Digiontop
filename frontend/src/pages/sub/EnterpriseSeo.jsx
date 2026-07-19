@@ -12,10 +12,10 @@ import '../../styles/EnterpriseSeo.css'
 
 const FAQS = [
   { q: 'What counts as "enterprise" SEO?', a: 'Large sites (10k+ pages), multiple teams or stakeholders, complex tech stacks, or multi-region/brand operations that need SEO at scale with governance.' },
-  { q: 'Can you work with our dev and content teams?', a: 'Yes — we integrate into your workflow with clear specs, tickets and documentation so your internal teams can execute confidently.' },
-  { q: 'Do you handle multi-region / multi-language?', a: 'Absolutely — hreflang, international targeting, and localised content strategy are core to enterprise engagements.' },
+  { q: 'Can you work with our dev and content teams?', a: 'Yes, we integrate into your workflow with clear specs, tickets and documentation so your internal teams can execute confidently.' },
+  { q: 'Do you handle multi-region / multi-language?', a: 'Absolutely, hreflang, international targeting, and localised content strategy are core to enterprise engagements.' },
   { q: 'How do you prove ROI at scale?', a: 'Executive dashboards tie rankings and traffic to revenue and pipeline, with forecasting so leadership sees the business impact.' },
-  { q: 'How do you manage large-scale changes safely?', a: 'Prioritised roadmaps, staging tests, phased rollouts and monitoring — so big changes ship without risking traffic.' },
+  { q: 'How do you manage large-scale changes safely?', a: 'Prioritised roadmaps, staging tests, phased rollouts and monitoring, so big changes ship without risking traffic.' },
 ]
 
 const CAPS = [
@@ -23,7 +23,7 @@ const CAPS = [
   { icon: <FiGlobe />, t: 'International & Multi-Region', d: 'Hreflang, geo-targeting and localisation strategy across markets and languages.' },
   { icon: <FiGitBranch />, t: 'Process & Governance', d: 'SEO playbooks, QA gates and workflows so quality holds across large teams.' },
   { icon: <FiBarChart2 />, t: 'Executive Reporting', d: 'Revenue-tied dashboards and forecasting built for leadership decisions.' },
-  { icon: <FiShield />, t: 'Risk-Managed Migrations', d: 'Replatforms and redesigns without losing rankings — phased and monitored.' },
+  { icon: <FiShield />, t: 'Risk-Managed Migrations', d: 'Replatforms and redesigns without losing rankings, phased and monitored.' },
   { icon: <FiUsers />, t: 'Cross-Team Enablement', d: 'We upskill your content, dev and product teams to execute SEO at scale.' },
 ]
 
@@ -33,7 +33,7 @@ export default function EnterpriseSeo() {
     <main className="ent">
       <Seo
         title="Enterprise SEO Services for Large Websites"
-        description="SEO at scale for 10k+ page sites — crawl-efficient architecture, hreflang and multi-region targeting, risk-managed migrations and revenue-tied reporting. Request a proposal."
+        description="SEO at scale for 10k+ page sites, crawl-efficient architecture, hreflang and multi-region targeting, risk-managed migrations and revenue-tied reporting. Request a proposal."
         path="/services/enterprise-seo"
       />
       {/* HERO — dashboard theme */}
@@ -42,7 +42,7 @@ export default function EnterpriseSeo() {
           <div className="ent-hero__text" data-aos="fade-right">
             <span className="ent-tag"><FiLayers /> Enterprise SEO</span>
             <h1 className="ent-hero__title">SEO That Scales With <span>Your Business</span></h1>
-            <p className="ent-hero__sub">For large sites, multiple teams and complex stacks — we bring the strategy, governance and reporting to grow organic revenue at enterprise scale.</p>
+            <p className="ent-hero__sub">For large sites, multiple teams and complex stacks, we bring the strategy, governance and reporting to grow organic revenue at enterprise scale.</p>
             <div className="ent-hero__cta">
               <Link to="/contact" className="ent-btn ent-btn--solid">Book a Strategy Call <FiArrowRight /></Link>
               <Link to="/contact" className="ent-btn ent-btn--ghost">Request a Proposal</Link>
@@ -77,7 +77,7 @@ export default function EnterpriseSeo() {
           <div className="ent-band__row">
             <span>C-Suite</span><span>Marketing</span><span>Product</span><span>Engineering</span><span>Content</span>
           </div>
-          <p>From boardroom forecasts to developer tickets — we speak every team's language and keep SEO moving.</p>
+          <p>From boardroom forecasts to developer tickets, we speak every team's language and keep SEO moving.</p>
         </div>
       </section>
 
@@ -88,7 +88,7 @@ export default function EnterpriseSeo() {
           <div className="ent-cta__box" data-aos="zoom-in">
             <FiLayers className="ent-cta__ic" />
             <h2>Scale Organic Growth Across Your Business</h2>
-            <p>Let's map an enterprise SEO strategy tied to real revenue — starting with a free opportunity assessment.</p>
+            <p>Let's map an enterprise SEO strategy tied to real revenue, starting with a free opportunity assessment.</p>
             <Link to="/contact" className="ent-btn ent-btn--light">Get an Enterprise Assessment <FiArrowUpRight /></Link>
           </div>
         </div>

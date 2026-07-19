@@ -17,10 +17,10 @@ import '../styles/ShopifyDevelopment.css'
 
 const FAQS = [
   { q: 'How long does a Shopify store take to build?', a: 'A complete Shopify store typically takes 2–4 weeks depending on products, features, and design needs.' },
-  { q: 'Do you set up payments and shipping?', a: 'Yes — secure payment gateways (Razorpay, Stripe & more), shipping zones, and delivery integrations are all handled.' },
+  { q: 'Do you set up payments and shipping?', a: 'Yes, secure payment gateways (Razorpay, Stripe & more), shipping zones, and delivery integrations are all handled.' },
   { q: 'Will my store be mobile-friendly?', a: 'Absolutely. Every Shopify store we build is fully responsive and optimized for mobile shopping.' },
   { q: 'Can you redesign my existing Shopify store?', a: 'Yes, we redesign and optimize existing stores to improve conversions and speed.' },
-  { q: 'Do I own the store fully?', a: 'Yes — full ownership of your Shopify store, theme, and content.' },
+  { q: 'Do I own the store fully?', a: 'Yes, full ownership of your Shopify store, theme, and content.' },
 ]
 
 const OFFER = [
@@ -64,8 +64,8 @@ export default function ShopifyDevelopment() {
   return (
     <main className="sf">
       <Seo
-        title="Shopify Development Company — Custom Store Design"
-        description="Custom Shopify stores built to sell: premium design, product setup, payment gateways, shipping, apps and SEO — launched in 2 to 4 weeks. Start your Shopify project."
+        title="Shopify Development Company, Custom Store Design"
+        description="Custom Shopify stores built to sell: premium design, product setup, payment gateways, shipping, apps and SEO, launched in 2 to 4 weeks. Start your Shopify project."
         path="/services/shopify-development"
       />
       {/* ── HERO ── */}
@@ -102,7 +102,7 @@ export default function ShopifyDevelopment() {
             <span className="sf-eyebrow">Why It Matters</span>
             <h2 className="sf-h2">High-Converting Shopify Stores <span>Built for Modern Brands</span></h2>
             <p className="sf-intro__lead">
-              Your Shopify store is more than just a website — it's the foundation of your online business.
+              Your Shopify store is more than just a website, it's the foundation of your online business.
               We design and develop professional Shopify stores that help brands create a strong online
               presence, improve customer experience, and increase sales.
             </p>
@@ -203,7 +203,7 @@ export default function ShopifyDevelopment() {
             <span className="sf-cta__rocket"><FaRocket /></span>
             <h2>Ready to Launch Your Shopify Store?</h2>
             <p>
-              We don't just create Shopify websites — we build e-commerce experiences that help businesses
+              We don't just create Shopify websites, we build e-commerce experiences that help businesses
               attract customers, strengthen their brand image, and achieve sustainable online growth.
             </p>
             <Link to="/contact" className="sf-btn sf-btn--light">Start Your Shopify Project Today <FiArrowUpRight /></Link>

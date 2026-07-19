@@ -19,7 +19,7 @@ const METRICS = [
     label: 'Conversion Rate Tracking',
     value: '100%',
     sub: 'of funnel steps mapped',
-    desc: 'Every form fill, checkout, call click, and sign-up wired to GA4 and Meta/Google Ads so you know exactly which channel, keyword, and creative drives real conversions — not just clicks.',
+    desc: 'Every form fill, checkout, call click, and sign-up wired to GA4 and Meta/Google Ads so you know exactly which channel, keyword, and creative drives real conversions, not just clicks.',
   },
   { value: '15+', label: 'Tracked Events', sub: 'Custom goals, scroll depth, button clicks & more' },
   { value: 'Weekly', label: 'Reporting Cadence', sub: 'Plain-language performance summaries, no jargon' },
@@ -27,11 +27,11 @@ const METRICS = [
 ]
 
 const FAQS = [
-  { q: 'What analytics tools do you set up?', a: 'We configure Google Analytics 4, Google Tag Manager, Meta Pixel, and Google Ads/Search Console linking, plus call and WhatsApp tracking where relevant — so every lead source is captured accurately from day one.' },
+  { q: 'What analytics tools do you set up?', a: 'We configure Google Analytics 4, Google Tag Manager, Meta Pixel, and Google Ads/Search Console linking, plus call and WhatsApp tracking where relevant, so every lead source is captured accurately from day one.' },
   { q: 'How is tracking set up without slowing down my website?', a: 'We deploy everything through Google Tag Manager with asynchronous, lightweight tags and test load impact before going live, so tracking never adds noticeable page load time.' },
-  { q: 'What kind of reports will I actually receive?', a: 'You get a plain-language weekly or monthly report covering traffic sources, conversion rate, cost per lead, and top-performing campaigns — plus a live dashboard you can check anytime, not just a spreadsheet dump.' },
+  { q: 'What kind of reports will I actually receive?', a: 'You get a plain-language weekly or monthly report covering traffic sources, conversion rate, cost per lead, and top-performing campaigns, plus a live dashboard you can check anytime, not just a spreadsheet dump.' },
   { q: 'Can you fix analytics that were set up incorrectly before?', a: 'Yes. We regularly audit and rebuild broken GA4 properties, duplicate tags, and misfiring conversion events left behind by previous agencies or DIY setups.' },
-  { q: 'How do you turn data into actual decisions, not just charts?', a: 'Every report includes clear recommendations — which channels to scale, which pages are losing visitors, and what to test next — so the numbers translate directly into next steps for your budget and content.' },
+  { q: 'How do you turn data into actual decisions, not just charts?', a: 'Every report includes clear recommendations, which channels to scale, which pages are losing visitors, and what to test next, so the numbers translate directly into next steps for your budget and content.' },
 ]
 
 export default function AnalyticsInsights() {
@@ -39,7 +39,7 @@ export default function AnalyticsInsights() {
   return (
     <main className="ss">
       <Seo
-        title="Analytics & Insights Services — GA4, Tracking, Reports"
+        title="Analytics & Insights Services, GA4, Tracking, Reports"
         description="GA4, Tag Manager and Meta Pixel setup with conversion tracking, custom dashboards and plain-language reports that tell you what to do next. Get your tracking fixed."
         path="/services/analytics-insights"
       />

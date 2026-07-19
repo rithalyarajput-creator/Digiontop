@@ -35,7 +35,7 @@ export default function CarouselShowcase({
       <div className="cshow__head">
         <span className="cshow__eyebrow">Carousel Posts</span>
         <h2 className="cshow__title">Swipeable Carousels That Tell a Story</h2>
-        <p className="cshow__text">Multi-slide Instagram carousels designed to hook, inform and convert — swipe through a real one below.</p>
+        <p className="cshow__text">Multi-slide Instagram carousels designed to hook, inform and convert, swipe through a real one below.</p>
       </div>
 
       <div className="cshow__stage">

@@ -14,8 +14,8 @@ import RelatedServices from '../components/RelatedServices'
 import '../styles/SubService.css'
 
 const FAQS = [
-  { q: 'Which marketplaces do you manage?', a: 'Amazon, Flipkart, Meesho, Shopify, WooCommerce, and independent stores — listing, optimization, and full account management.' },
-  { q: 'Can you improve my existing product listings?', a: 'Yes — we audit and optimize titles, descriptions, keywords, images, and infographics to boost ranking and conversions.' },
+  { q: 'Which marketplaces do you manage?', a: 'Amazon, Flipkart, Meesho, Shopify, WooCommerce, and independent stores, listing, optimization, and full account management.' },
+  { q: 'Can you improve my existing product listings?', a: 'Yes, we audit and optimize titles, descriptions, keywords, images, and infographics to boost ranking and conversions.' },
   { q: 'How soon will I see more sales?', a: 'Most sellers see improved visibility and conversions within 30–60 days of optimization, depending on category and competition.' },
   { q: 'Do you handle product images & infographics?', a: 'Yes, we create high-quality, marketplace-compliant product images and infographics that build trust and increase sales.' },
   { q: 'Is there a long-term contract?', a: 'No lock-in. We work flexibly and earn your trust with measurable marketplace growth.' },
@@ -28,7 +28,7 @@ const SERVICES = [
   { icon: <FiSearch />, t: 'Product SEO Optimization', d: 'Keyword-focused optimization to improve ranking and visibility across marketplaces.' },
   { icon: <FiImage />, t: 'Product Image & Infographics', d: 'High-quality images & infographics that build trust and improve conversions.' },
   { icon: <FiGrid />, t: 'Catalog Management', d: 'Catalog organization, product updates, inventory & listing maintenance.' },
-  { icon: <FiUserCheck />, t: 'Marketplace Account Management', d: 'Complete account handling — uploads, optimization, updates & support.' },
+  { icon: <FiUserCheck />, t: 'Marketplace Account Management', d: 'Complete account handling, uploads, optimization, updates & support.' },
   { icon: <FiTrendingUp />, t: 'E-Commerce Growth Consulting', d: 'Strategic guidance to improve sales, optimize operations, and scale.' },
 ]
 const WHY = [
@@ -45,13 +45,13 @@ export default function EcommercePage() {
   useEffect(() => { AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 }) }, [])
   return (
     <main className="ss">
-      <Seo title="E-Commerce Solutions — Amazon, Flipkart & Shopify | DigionTop" description="Scale your online sales on Amazon, Flipkart, Meesho & Shopify. Product listings, SEO, catalog & sponsored ads that drive growth. Get a free store audit." path="/services/ecommerce-solutions" />
+      <Seo title="E-Commerce Solutions, Amazon, Flipkart & Shopify | DigionTop" description="Scale your online sales on Amazon, Flipkart, Meesho & Shopify. Product listings, SEO, catalog & sponsored ads that drive growth. Get a free store audit." path="/services/ecommerce-solutions" />
       {/* HERO */}
       <section className="ss-hero ss-hero--white">
         <div className="ss-container ss-hero__center" data-aos="fade-up">
           <span className="ss-tag"><FiShoppingBag /> E-Commerce Solutions</span>
           <h1 className="ss-hero__title">Sell More. Scale Faster. <span>Grow Across Every Marketplace.</span></h1>
-          <p className="ss-hero__sub">Listing products online isn't enough. We help businesses build, manage, and grow on Amazon, Flipkart, Meesho & Shopify — more visibility, more conversions, more sales.</p>
+          <p className="ss-hero__sub">Listing products online isn't enough. We help businesses build, manage, and grow on Amazon, Flipkart, Meesho & Shopify, more visibility, more conversions, more sales.</p>
           <div className="ss-hero__actions">
             <Link to="/contact" className="ss-btn ss-btn--primary">Grow My Marketplace Sales <FiArrowRight /></Link>
             <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Consultation</Link>
@@ -150,7 +150,7 @@ export default function EcommercePage() {
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">
           <FaRocket style={{ fontSize: '2.2rem', display: 'block', margin: '0 auto 8px', color: '#F5A800' }} />
           <h2>Ready To Grow Your E-Commerce Business?</h2>
-          <p>Whether you sell on Amazon, Flipkart, Meesho, Shopify, or multiple marketplaces — we'll help you build a stronger online presence and achieve sustainable growth.</p>
+          <p>Whether you sell on Amazon, Flipkart, Meesho, Shopify, or multiple marketplaces, we'll help you build a stronger online presence and achieve sustainable growth.</p>
           <Link to="/contact" className="ss-btn">Start Selling Smarter <FiArrowUpRight /></Link>
         </div></div>
       </section>

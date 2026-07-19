@@ -102,7 +102,7 @@ export default function Work() {
   return (
     <main className="work-page">
       <Seo
-        title="Our Work — Websites We've Designed & Built"
+        title="Our Work, Websites We've Designed & Built"
         description="Explore live websites and reels DigionTop has delivered across education, e-commerce, healthcare and community projects in India. Hover any project to preview it."
         path="/work"
       />

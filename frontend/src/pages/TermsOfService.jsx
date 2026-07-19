@@ -30,7 +30,7 @@ export default function TermsOfService() {
             social media marketing, website development, e-commerce marketing and paid
             advertising. Specific service scope, deliverables, timelines and pricing for
             any engagement are agreed separately in writing (proposal, quote or contract)
-            with each client — this website provides general information only and is not
+            with each client, this website provides general information only and is not
             itself a service agreement.
           </p>
 
@@ -44,8 +44,8 @@ export default function TermsOfService() {
 
           <h2>4. Content &amp; Intellectual Property</h2>
           <p>
-            All content on this website — including text, graphics, logos, and blog
-            articles — is the property of DigionTop unless otherwise stated, and is
+            All content on this website, including text, graphics, logos, and blog
+            articles, is the property of DigionTop unless otherwise stated, and is
             protected by applicable copyright and intellectual property laws. You may not
             use our content for commercial purposes without our written consent.
           </p>

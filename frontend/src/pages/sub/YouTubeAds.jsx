@@ -11,15 +11,15 @@ import Seo from '../../components/Seo'
 import '../../styles/YouTubeAds.css'
 
 const FAQS = [
-  { q: 'How are YouTube ads priced?', a: 'You typically pay only when someone watches or engages — so budget goes to genuinely interested viewers, not wasted impressions.' },
-  { q: 'Do you produce the video ad?', a: 'We can create or guide your video creative — a strong hook in the first 5 seconds is the difference between skipped and watched.' },
-  { q: 'What ad formats do you use?', a: 'Skippable in-stream, non-skippable, bumper (6s), in-feed and Shorts ads — matched to your goal, from awareness to conversions.' },
-  { q: 'Can YouTube ads drive sales, not just views?', a: 'Yes — with proper targeting, remarketing and clear CTAs, YouTube drives measurable leads and sales, not just brand awareness.' },
+  { q: 'How are YouTube ads priced?', a: 'You typically pay only when someone watches or engages, so budget goes to genuinely interested viewers, not wasted impressions.' },
+  { q: 'Do you produce the video ad?', a: 'We can create or guide your video creative, a strong hook in the first 5 seconds is the difference between skipped and watched.' },
+  { q: 'What ad formats do you use?', a: 'Skippable in-stream, non-skippable, bumper (6s), in-feed and Shorts ads, matched to your goal, from awareness to conversions.' },
+  { q: 'Can YouTube ads drive sales, not just views?', a: 'Yes, with proper targeting, remarketing and clear CTAs, YouTube drives measurable leads and sales, not just brand awareness.' },
   { q: 'How do you target viewers?', a: 'By interests, keywords, topics, specific channels/videos, and remarketing to people who visited your site or watched your content.' },
 ]
 
 const FORMATS = [
-  { icon: <FiPlay />, t: 'Skippable In-Stream', d: 'Ads before/during videos — you pay when viewers actually watch or click.' },
+  { icon: <FiPlay />, t: 'Skippable In-Stream', d: 'Ads before/during videos, you pay when viewers actually watch or click.' },
   { icon: <FiSkipForward />, t: 'Bumper Ads (6s)', d: 'Short, punchy, unskippable brand moments that stick in memory.' },
   { icon: <FiVideo />, t: 'In-Feed & Shorts', d: 'Native discovery ads in search, feed and the fast-growing Shorts surface.' },
   { icon: <FiTarget />, t: 'Remarketing Ads', d: 'Re-engage people who watched your videos or visited your site.' },
@@ -30,7 +30,7 @@ export default function YouTubeAds() {
   return (
     <main className="yt">
       <Seo
-        title="YouTube Ads Agency — Video Ad Campaigns"
+        title="YouTube Ads Agency, Video Ad Campaigns"
         description="YouTube and Shorts ad campaigns: skippable in-stream, bumper, in-feed and remarketing, with hooks that stop the skip. Get a free YouTube ads strategy today."
         path="/services/youtube-ads"
       />
@@ -40,7 +40,7 @@ export default function YouTubeAds() {
           <div className="yt-hero__text" data-aos="fade-right">
             <span className="yt-tag"><FiYoutube /> YouTube Advertising</span>
             <h1 className="yt-hero__title">Get Watched.<br /><span>Get Remembered.</span></h1>
-            <p className="yt-hero__sub">Video ad campaigns that grab attention in the first 5 seconds, build your brand and drive real action — across YouTube and Shorts.</p>
+            <p className="yt-hero__sub">Video ad campaigns that grab attention in the first 5 seconds, build your brand and drive real action, across YouTube and Shorts.</p>
             <div className="yt-hero__cta">
               <Link to="/contact" className="yt-btn yt-btn--solid">Launch Video Ads <FiArrowRight /></Link>
               <Link to="/contact" className="yt-btn yt-btn--ghost">Free Video Strategy</Link>
@@ -83,7 +83,7 @@ export default function YouTubeAds() {
           <div className="yt-cta__box" data-aos="zoom-in">
             <FiYoutube className="yt-cta__ic" />
             <h2>Ready to Go Viral With Purpose?</h2>
-            <p>Get a free YouTube ads strategy — we'll map the formats, targeting and creative to grow your brand.</p>
+            <p>Get a free YouTube ads strategy, we'll map the formats, targeting and creative to grow your brand.</p>
             <Link to="/contact" className="yt-btn yt-btn--light">Get My Free Strategy <FiArrowUpRight /></Link>
           </div>
         </div>

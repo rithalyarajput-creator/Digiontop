@@ -47,8 +47,8 @@ export default function Testimonials() {
   return (
     <main className="testimonials-page">
       <Seo
-        title="Google Reviews — What Our Clients Say About DigionTop"
-        description="Read the Google reviews left by DigionTop clients — Amazon sellers, restaurant owners, founders and consultants across India. Real, unedited feedback from the businesses we've grown."
+        title="Google Reviews, What Our Clients Say About DigionTop"
+        description="Read the Google reviews left by DigionTop clients, Amazon sellers, restaurant owners, founders and consultants across India. Real, unedited feedback from the businesses we've grown."
         path="/testimonials"
       />
 
@@ -61,7 +61,7 @@ export default function Testimonials() {
           <h1 className="testimonials-hero__heading">Our Google Reviews</h1>
           <p className="testimonials-hero__sub">
             Every review below was left on Google by a real DigionTop client.
-            Nothing edited, nothing cherry-picked — just what they said.
+            Nothing edited, nothing cherry-picked, just what they said.
           </p>
           <nav className="testimonials-hero__breadcrumb" aria-label="Breadcrumb">
             <Link to="/" className="testimonials-hero__breadcrumb-link">Home</Link>
@@ -192,7 +192,7 @@ export default function Testimonials() {
               <p className="testimonials-cta__sub">
                 Join 200+ Indian businesses that chose DigionTop for honest
                 digital marketing that actually delivers. Start with a free
-                consultation — zero pressure, real advice.
+                consultation, zero pressure, real advice.
               </p>
             </div>
             <Link to="/contact" className="testimonials-cta__btn">

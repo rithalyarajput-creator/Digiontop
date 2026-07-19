@@ -20,9 +20,9 @@ function statusBadgeClass(status) {
 
 /* clean date/time: "10 Jul 2026" + "4:32 PM" */
 function fmtDate(iso) {
-  if (!iso) return '—';
+  if (!iso) return '-';
   const d = new Date(iso);
-  if (isNaN(d)) return '—';
+  if (isNaN(d)) return '-';
   return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 function fmtTime(iso) {
@@ -33,7 +33,7 @@ function fmtTime(iso) {
 }
 
 function truncateMessage(text, wordCount = 8) {
-  if (!text) return '—';
+  if (!text) return '-';
   const words = text.split(/\s+/);
   const truncated = words.slice(0, wordCount).join(' ');
   return words.length > wordCount ? truncated + '…' : truncated;
@@ -332,12 +332,12 @@ export default function Leads() {
                   <tr key={l.id}>
                     <td>
                       <button type="button" className="admin-shop-table__link" onClick={() => openLead(l)}>
-                        {l.full_name || '—'}
+                        {l.full_name || '-'}
                       </button>
                       {l.email && <p className="admin-shop-table__sub">{l.email}</p>}
                     </td>
                     <td>
-                      <p style={{ margin: 0, fontWeight: 500 }}>{l.service_interested || '—'}</p>
+                      <p style={{ margin: 0, fontWeight: 500 }}>{l.service_interested || '-'}</p>
                       <p className="admin-shop-table__sub admin-lead-snippet">
                         {truncateMessage(l.message)}
                         {l.phone ? ` · ${l.phone}` : ''}
@@ -411,15 +411,15 @@ export default function Leads() {
               <div className="admin-smodal__grid">
                 <div className="admin-smodal__field">
                   <span className="admin-smodal__label">Email</span>
-                  <a href={`mailto:${selectedLead.email}`} className="admin-smodal__link">{selectedLead.email || '—'}</a>
+                  <a href={`mailto:${selectedLead.email}`} className="admin-smodal__link">{selectedLead.email || '-'}</a>
                 </div>
                 <div className="admin-smodal__field">
                   <span className="admin-smodal__label">Phone</span>
-                  <a href={`tel:${(selectedLead.phone || '').replace(/\s/g, '')}`} className="admin-smodal__link">{selectedLead.phone || '—'}</a>
+                  <a href={`tel:${(selectedLead.phone || '').replace(/\s/g, '')}`} className="admin-smodal__link">{selectedLead.phone || '-'}</a>
                 </div>
                 <div className="admin-smodal__field">
                   <span className="admin-smodal__label">Service</span>
-                  <span className="admin-smodal__value">{selectedLead.service_interested || '—'}</span>
+                  <span className="admin-smodal__value">{selectedLead.service_interested || '-'}</span>
                 </div>
                 <div className="admin-smodal__field">
                   <span className="admin-smodal__label">Received on</span>
@@ -429,7 +429,7 @@ export default function Leads() {
 
               <div className="admin-smodal__field admin-smodal__field--full">
                 <span className="admin-smodal__label">Message</span>
-                <p className="admin-smodal__message">{selectedLead.message || '—'}</p>
+                <p className="admin-smodal__message">{selectedLead.message || '-'}</p>
               </div>
 
               <div className="admin-smodal__field admin-smodal__field--full">

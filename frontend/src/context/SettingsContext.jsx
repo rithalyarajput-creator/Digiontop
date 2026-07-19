@@ -17,7 +17,7 @@ export const DEFAULT_SETTINGS = {
   social_linkedin: 'https://www.linkedin.com/company/digiontop/',
   social_twitter: 'https://x.com/digiontopagency',
   social_youtube: 'https://www.youtube.com/@digiontop',
-  seo_meta_title: 'DigionTop — #1 Digital Marketing Agency in India',
+  seo_meta_title: 'DigionTop, #1 Digital Marketing Agency in India',
   seo_meta_description: 'Result-driven SEO, social media, web development & e-commerce marketing for businesses across India.',
 };
 
@@ -44,7 +44,7 @@ function withUtm(url, source) {
     }
     return u.toString();
   } catch {
-    return url; // not a valid absolute URL — leave it untouched
+    return url; // not a valid absolute URL, leave it untouched
   }
 }
 

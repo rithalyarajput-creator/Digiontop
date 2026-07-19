@@ -19,7 +19,7 @@ const STAGES = [
   'Inspecting HTTPS, mobile and canonical tags…',
   'Looking for schema and social previews…',
   'Scoring your page…',
-  'Almost there — building your report…',
+  'Almost there, building your report…',
 ]
 
 const RANK = { fail: 0, warn: 1, pass: 2 }
@@ -37,9 +37,9 @@ function band(score) {
 }
 
 function verdict(score) {
-  if (score >= 80) return 'Strong — a few easy wins left.'
-  if (score >= 50) return 'Needs work — fixable issues are costing you rankings.'
-  return 'Critical — your page has serious SEO problems.'
+  if (score >= 80) return 'Strong, a few easy wins left.'
+  if (score >= 50) return 'Needs work, fixable issues are costing you rankings.'
+  return 'Critical, your page has serious SEO problems.'
 }
 
 export default function SeoAuditTool() {
@@ -167,7 +167,7 @@ export default function SeoAuditTool() {
             {/* CTA */}
             <div className="aud-report__cta">
               <h3>Want us to fix these for you?</h3>
-              <p>Our SEO team can implement every fix above — and go far deeper with a full 150-point audit.</p>
+              <p>Our SEO team can implement every fix above, and go far deeper with a full 150-point audit.</p>
               <div className="aud-report__actions">
                 <Link to="/contact" className="aud-btn aud-btn--solid">Talk to an SEO Expert <FiArrowRight /></Link>
                 <button type="button" className="aud-btn aud-btn--ghost" onClick={reset}>
@@ -189,7 +189,7 @@ export default function SeoAuditTool() {
           <div className="aud-tool__head">
             <span className="aud-tag"><FiZap /> Free &amp; Instant</span>
             <h2>Get Your Free SEO Report in Seconds</h2>
-            <p>Enter your website and we&apos;ll scan it live — score out of 100, every issue we find, and exactly how to fix it. No cost, no credit card.</p>
+            <p>Enter your website and we&apos;ll scan it live, score out of 100, every issue we find, and exactly how to fix it. No cost, no credit card.</p>
           </div>
 
           <form className="aud-form" onSubmit={submit}>
@@ -237,7 +237,7 @@ export default function SeoAuditTool() {
               <div className="aud-progress" aria-live="polite">
                 <div className="aud-progress__bar"><span /></div>
                 <p className="aud-progress__stage">{STAGES[stage]}</p>
-                <p className="aud-progress__note">This takes up to 15 seconds — we&apos;re loading your real page, not a cached copy.</p>
+                <p className="aud-progress__note">This takes up to 15 seconds, we&apos;re loading your real page, not a cached copy.</p>
               </div>
             ) : (
               <p className="aud-form__note">Your report appears on this page instantly. We&apos;ll never spam you.</p>

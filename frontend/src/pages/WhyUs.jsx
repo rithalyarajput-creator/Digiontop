@@ -10,12 +10,12 @@ import '../styles/WhyUs.css';
 
 const reasons = [
   { icon: <FaMapMarkerAlt />, num: '01', title: 'Remote-First, India-Wide', description: 'We serve clients across every corner of India without geographic limits. Our fully remote team delivers the same high-quality digital marketing whether you are in Mumbai, Jaipur, or a tier-3 city.' },
-  { icon: <FaLayerGroup />, num: '02', title: 'One Team, All Services', description: 'From SEO and social media to web development and e-commerce, we handle it all under one roof. No need to juggle multiple vendors — your entire digital strategy is managed by a single unified team.' },
+  { icon: <FaLayerGroup />, num: '02', title: 'One Team, All Services', description: 'From SEO and social media to web development and e-commerce, we handle it all under one roof. No need to juggle multiple vendors, your entire digital strategy is managed by a single unified team.' },
   { icon: <FaChartBar />, num: '03', title: 'Transparent Reporting', description: 'We believe clarity builds trust. You receive detailed, easy-to-read reports on a regular schedule so you always know where your budget is going and what results it is driving.' },
   { icon: <FaTags />, num: '04', title: 'Affordable Without Compromise', description: 'Premium digital marketing should not be reserved for big corporations. Our pricing is structured to give growing businesses enterprise-level strategy at a cost that makes sense.' },
-  { icon: <FaUnlock />, num: '05', title: 'No Long-Term Lock-Ins', description: 'We earn your business every month. Our flexible engagement models mean you are never trapped in a lengthy contract — you stay because of the results, not because you signed away your options.' },
+  { icon: <FaUnlock />, num: '05', title: 'No Long-Term Lock-Ins', description: 'We earn your business every month. Our flexible engagement models mean you are never trapped in a lengthy contract, you stay because of the results, not because you signed away your options.' },
   { icon: <FaUserTie />, num: '06', title: 'Dedicated Account Manager', description: 'Every client gets a single point of contact who understands your goals, your brand, and your industry. Your account manager coordinates everything so communication is always fast and aligned.' },
-  { icon: <FaBullseye />, num: '07', title: 'Results-Oriented Approach', description: 'Vanity metrics do not pay bills. We focus on KPIs that move the needle — leads generated, conversions achieved, revenue influenced — and align our efforts around what actually matters.' },
+  { icon: <FaBullseye />, num: '07', title: 'Results-Oriented Approach', description: 'Vanity metrics do not pay bills. We focus on KPIs that move the needle, leads generated, conversions achieved, revenue influenced, and align our efforts around what actually matters.' },
   { icon: <FaFlask />, num: '08', title: 'Tested Strategies, Real Outcomes', description: 'Every tactic we deploy has been refined through real campaigns across diverse industries. We combine data-backed best practices with continuous testing so your campaigns improve over time.' },
 ];
 
@@ -23,14 +23,14 @@ const reasons = [
 const steps = [
   { number: '01', title: 'Discovery Call', description: 'We begin with a no-obligation consultation to understand your business, goals, target audience, and current digital footprint.' },
   { number: '02', title: 'Custom Strategy', description: 'Our team builds a tailored roadmap covering the right channels, messaging, timelines, and budgets specific to your growth objectives.' },
-  { number: '03', title: 'Execution & Launch', description: 'We activate your campaigns with precision — building assets, setting up tracking, and going live while keeping you informed at every milestone.' },
+  { number: '03', title: 'Execution & Launch', description: 'We activate your campaigns with precision, building assets, setting up tracking, and going live while keeping you informed at every milestone.' },
   { number: '04', title: 'Optimise & Scale', description: 'Using live data and regular audits, we continuously refine performance, cut what does not work, and scale what delivers the best returns.' },
 ];
 
 export default function WhyUs() {
   return (
     <main className="whyus">
-      <Seo title="Why Choose DigionTop — 8 Reasons We Grow Your Business" description="Senior-led teams, transparent reporting and measurable results. See the 8 reasons Indian businesses choose DigionTop as their digital marketing partner." path="/why-us" />
+      <Seo title="Why Choose DigionTop, 8 Reasons We Grow Your Business" description="Senior-led teams, transparent reporting and measurable results. See the 8 reasons Indian businesses choose DigionTop as their digital marketing partner." path="/why-us" />
 
       {/* ── Hero ── */}
       <section className="whyus__hero">
@@ -39,7 +39,7 @@ export default function WhyUs() {
           <h1 className="whyus__hero-title">Why Choose DigionTop?</h1>
           <p className="whyus__hero-subtitle">
             Hundreds of agencies promise results. We build the systems, transparency, and
-            partnerships that actually deliver them — for businesses of every size, across India.
+            partnerships that actually deliver them, for businesses of every size, across India.
           </p>
         </div>
       </section>
@@ -51,7 +51,7 @@ export default function WhyUs() {
             <span className="whyus__badge">8 Reasons</span>
             <h2 className="whyus__section-title">What Sets Us Apart</h2>
             <p className="whyus__section-sub">
-              These are not talking points — they are the principles that shape every project,
+              These are not talking points, they are the principles that shape every project,
               every report, and every client relationship at DigionTop.
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function WhyUs() {
           <div className="whyus__cta-inner">
             <span className="whyus__cta-eyebrow"><FaStar /> Let’s Build Something Great</span>
             <h2 className="whyus__cta-title">Ready to Experience the <span>DigionTop Difference?</span></h2>
-            <p className="whyus__cta-sub">Book a free strategy call and let us show you exactly how we will grow your business — no pressure, no jargon, just a clear plan.</p>
+            <p className="whyus__cta-sub">Book a free strategy call and let us show you exactly how we will grow your business, no pressure, no jargon, just a clear plan.</p>
             <div className="whyus__cta-actions">
               <Link to="/contact" className="whyus__cta-btn whyus__cta-btn--primary">Get Free Consultation <FaArrowRight /></Link>
               <Link to="/services" className="whyus__cta-btn whyus__cta-btn--outline">Explore Our Services</Link>

@@ -340,7 +340,7 @@ export default function BlogList() {
                       <option value="scheduled">Scheduled</option>
                     </select>
                   </td>
-                  <td className="is-muted">{p.author || '—'}</td>
+                  <td className="is-muted">{p.author || '-'}</td>
                   <td className="is-muted">
                     {new Date(p.created_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
                   </td>

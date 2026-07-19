@@ -11,17 +11,17 @@ import Seo from '../../components/Seo'
 import '../../styles/MetaAds.css'
 
 const FAQS = [
-  { q: 'Do Facebook & Instagram ads still work?', a: 'Absolutely — with the right creative and targeting, Meta ads deliver some of the cheapest, highest-quality leads and sales available today.' },
-  { q: 'Do you make the ad creatives?', a: 'Yes — scroll-stopping images, carousels and reels are part of the service. Great targeting fails without great creative.' },
-  { q: 'How do you target the right people?', a: 'Interest, lookalike, retargeting and custom audiences — refined continuously using real performance data.' },
+  { q: 'Do Facebook & Instagram ads still work?', a: 'Absolutely, with the right creative and targeting, Meta ads deliver some of the cheapest, highest-quality leads and sales available today.' },
+  { q: 'Do you make the ad creatives?', a: 'Yes, scroll-stopping images, carousels and reels are part of the service. Great targeting fails without great creative.' },
+  { q: 'How do you target the right people?', a: 'Interest, lookalike, retargeting and custom audiences, refined continuously using real performance data.' },
   { q: 'What budget do I need to start?', a: 'We can start lean, prove what works, then scale. Our fee is separate from your ad spend and scales with results.' },
-  { q: 'Can you retarget my website visitors?', a: 'Yes — we set up the Meta Pixel and run retargeting campaigns that bring back visitors who didn\'t convert.' },
+  { q: 'Can you retarget my website visitors?', a: 'Yes, we set up the Meta Pixel and run retargeting campaigns that bring back visitors who didn\'t convert.' },
 ]
 
 const FORMATS = [
   { icon: <FiZap />, t: 'Reels & Video Ads', d: 'Short-form video built to stop the scroll and drive action in the first second.' },
   { icon: <FiInstagram />, t: 'Story & Carousel Ads', d: 'Immersive full-screen and swipeable formats that showcase products beautifully.' },
-  { icon: <FiTarget />, t: 'Lead-Gen Campaigns', d: 'Instant forms that capture leads without leaving the app — lower cost, higher volume.' },
+  { icon: <FiTarget />, t: 'Lead-Gen Campaigns', d: 'Instant forms that capture leads without leaving the app, lower cost, higher volume.' },
   { icon: <FiUsers />, t: 'Retargeting & Lookalikes', d: 'Re-engage warm visitors and find new buyers who look just like your best customers.' },
 ]
 
@@ -40,7 +40,7 @@ export default function MetaAds() {
           <div className="meta-hero__text" data-aos="fade-right">
             <span className="meta-tag"><FiInstagram /> Facebook &amp; Instagram Ads</span>
             <h1 className="meta-hero__title">Ads That Stop the <span>Scroll</span></h1>
-            <p className="meta-hero__sub">Creative-led Meta ad campaigns across Facebook &amp; Instagram — built to grab attention, capture leads and drive sales at a cost that makes sense.</p>
+            <p className="meta-hero__sub">Creative-led Meta ad campaigns across Facebook &amp; Instagram, built to grab attention, capture leads and drive sales at a cost that makes sense.</p>
             <div className="meta-hero__cta">
               <Link to="/contact" className="meta-btn meta-btn--solid">Run My Meta Ads <FiArrowRight /></Link>
               <Link to="/contact" className="meta-btn meta-btn--ghost">Free Ad Review</Link>
@@ -88,7 +88,7 @@ export default function MetaAds() {
           <div className="meta-cta__box" data-aos="zoom-in">
             <FiInstagram className="meta-cta__ic" />
             <h2>Ready to Turn Scrolls Into Sales?</h2>
-            <p>Get a free Meta ads review — we'll show you what's working, what's wasting money, and how to scale.</p>
+            <p>Get a free Meta ads review, we'll show you what's working, what's wasting money, and how to scale.</p>
             <Link to="/contact" className="meta-btn meta-btn--light">Get My Free Ad Review <FiArrowUpRight /></Link>
           </div>
         </div>

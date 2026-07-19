@@ -57,7 +57,7 @@ const SECTIONS = [
     id: 'landing',
     eyebrow: 'Websites',
     title: 'Websites We\'ve Built',
-    text: 'Live websites we\'ve designed & developed for real businesses — click any to visit.',
+    text: 'Live websites we\'ve designed & developed for real businesses, click any to visit.',
     Icon: FiMonitor,
     accent: '#00c2ff',
     ratio: 'wide',
@@ -74,7 +74,7 @@ export default function Portfolio() {
   return (
     <main className="pf">
       <Seo
-        title="Our Portfolio — Websites, Stores, Reels & Creatives"
+        title="Our Portfolio, Websites, Stores, Reels & Creatives"
         description="Browse DigionTop's portfolio: e-commerce stores, business websites, social media reels and product creatives built for real Indian brands. See what we can build for you."
         path="/portfolio"
       />
@@ -169,7 +169,7 @@ export default function Portfolio() {
               your business <strong className="pf-hero__hl">digitally ON TOP</strong>.
             </p>
             <p>
-              We're a full-service digital marketing agency. Your growth is our top priority —
+              We're a full-service digital marketing agency. Your growth is our top priority, 
               through websites, reels, SEO, branding and e-commerce, we put your brand
               <strong className="pf-hero__hl"> #1</strong> on Google and across social media.
             </p>
@@ -317,7 +317,7 @@ function ReelsSection({ section }) {
         <div className="pf-reels__nav">
           <button className="pf-reels__navbtn" onClick={() => go(-1)} aria-label="Previous reel"><FiChevronUp /></button>
           <span className="pf-reels__scrollhint">
-            Reel <b>{active + 1}</b> / {total} — scroll to see more
+            Reel <b>{active + 1}</b> / {total}, scroll to see more
           </span>
           <button className="pf-reels__navbtn" onClick={() => go(1)} aria-label="Next reel"><FiChevronDown /></button>
         </div>

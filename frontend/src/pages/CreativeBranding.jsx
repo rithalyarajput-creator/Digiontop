@@ -16,9 +16,9 @@ import RelatedServices from '../components/RelatedServices'
 import '../styles/CreativeBranding.css'
 
 const FAQS = [
-  { q: 'What does your branding service include?', a: 'Logo, brand identity, visual systems, guidelines, social creatives, and marketing collateral — everything to make your brand memorable.' },
+  { q: 'What does your branding service include?', a: 'Logo, brand identity, visual systems, guidelines, social creatives, and marketing collateral, everything to make your brand memorable.' },
   { q: 'How long does a branding project take?', a: 'A complete brand identity typically takes 2–4 weeks depending on scope. Logos and single creatives are faster.' },
-  { q: 'Do I get editable source files?', a: 'Yes — you receive full ownership of all design files and brand assets.' },
+  { q: 'Do I get editable source files?', a: 'Yes, you receive full ownership of all design files and brand assets.' },
   { q: 'Can you redesign my existing brand?', a: 'Absolutely. We refresh and modernize existing brands while keeping what makes you recognizable.' },
   { q: 'Why choose DigionTop for creative work?', a: 'Strategy-first, custom designs (no templates), and visuals aligned with real business goals.' },
 ]
@@ -46,7 +46,7 @@ const MATTERS = [
 const APPROACH = [
   { n: '01', title: 'Strategy First', desc: 'Every project begins with understanding your business goals, audience, and market position.' },
   { n: '02', title: 'Design With Purpose', desc: 'We create visuals that are attractive and aligned with your business objectives.' },
-  { n: '03', title: 'Consistent Brand Experience', desc: 'From logos to websites & campaigns — consistency across every customer touchpoint.' },
+  { n: '03', title: 'Consistent Brand Experience', desc: 'From logos to websites & campaigns, consistency across every customer touchpoint.' },
   { n: '04', title: 'Growth-Focused Execution', desc: 'Every creative asset is designed to support visibility, engagement, and growth.' },
 ]
 
@@ -103,7 +103,7 @@ export default function CreativeBranding() {
           <div className="cbp-intro__grid">
             <p data-aos="fade-up">
               At DigionTop Agency, we help businesses create powerful brand experiences through strategic
-              design, creative content, and performance-driven branding solutions — so your business looks
+              design, creative content, and performance-driven branding solutions, so your business looks
               professional, communicates effectively, and leaves a lasting impression.
             </p>
             <p data-aos="fade-up" data-aos-delay="100">
@@ -148,7 +148,7 @@ export default function CreativeBranding() {
             ))}
           </div>
           <p className="cbp-matters__note" data-aos="fade-up">
-            Your brand is often the first thing customers notice — and the reason they remember your business.
+            Your brand is often the first thing customers notice, and the reason they remember your business.
           </p>
         </div>
       </section>

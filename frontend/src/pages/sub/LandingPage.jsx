@@ -12,15 +12,15 @@ import Seo from '../../components/Seo'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
-  { q: 'What is a landing page?', a: 'A single, focused page built for one goal — a lead or sale. No distractions, just persuasion and a clear call-to-action.' },
+  { q: 'What is a landing page?', a: 'A single, focused page built for one goal, a lead or sale. No distractions, just persuasion and a clear call-to-action.' },
   { q: 'Why not just use my homepage?', a: 'Homepages have many goals. A dedicated landing page focused on one offer converts far better for ads and campaigns.' },
-  { q: 'How fast can it be built?', a: 'Most landing pages are ready in 3–7 days — perfect for launching a campaign quickly.' },
-  { q: 'Will it work with my ads?', a: 'Yes — it\'s designed to match your ad message and maximise conversions from paid traffic.' },
-  { q: 'Do you write the copy too?', a: 'We can — persuasive, conversion-focused copy and design together for the best results.' },
+  { q: 'How fast can it be built?', a: 'Most landing pages are ready in 3–7 days, perfect for launching a campaign quickly.' },
+  { q: 'Will it work with my ads?', a: 'Yes, it\'s designed to match your ad message and maximise conversions from paid traffic.' },
+  { q: 'Do you write the copy too?', a: 'We can, persuasive, conversion-focused copy and design together for the best results.' },
 ]
 
 const FEATURES = [
-  { icon: <FiTarget />, t: 'Single Focused Goal', d: 'One clear objective — no distractions, maximum conversions.' },
+  { icon: <FiTarget />, t: 'Single Focused Goal', d: 'One clear objective, no distractions, maximum conversions.' },
   { icon: <FiMousePointer />, t: 'Strong CTAs', d: 'Compelling calls-to-action placed exactly where they convert.' },
   { icon: <FiZap />, t: 'Fast Loading', d: 'Lightning-fast pages so you never lose a click to slow speed.' },
   { icon: <FiSmartphone />, t: 'Mobile Optimised', d: 'Perfect on phones where most paid traffic lands.' },
@@ -59,7 +59,7 @@ export default function LandingPage() {
           <div className="lp-hero__text" data-aos="fade-right">
             <span className="lp-tag lp-tag--light"><FiTarget /> Landing Page Design</span>
             <h1 className="lp-hero__title lp-hero__title--light">Pages Built to<br /><span>Convert</span></h1>
-            <p className="lp-hero__sub lp-hero__sub--light">High-converting landing pages designed for one goal — turning your ad clicks and campaign traffic into leads and sales.</p>
+            <p className="lp-hero__sub lp-hero__sub--light">High-converting landing pages designed for one goal, turning your ad clicks and campaign traffic into leads and sales.</p>
             <div className="lp-hero__cta">
               <Link to="/contact" className="lp-btn lp-btn--solid">Build My Landing Page <FiArrowRight /></Link>
               <Link to="/contact" className="lp-btn lp-btn--ghost-l">See Examples</Link>
@@ -138,7 +138,7 @@ export default function LandingPage() {
           <div className="lp-cta__box" data-aos="zoom-in">
             <FiTarget className="lp-cta__ic" />
             <h2>Ready to Convert More Clicks?</h2>
-            <p>Get a high-converting landing page for your next campaign — request a free quote today.</p>
+            <p>Get a high-converting landing page for your next campaign, request a free quote today.</p>
             <Link to="/contact" className="lp-btn lp-btn--light">Get My Free Quote <FiArrowUpRight /></Link>
           </div>
         </div>

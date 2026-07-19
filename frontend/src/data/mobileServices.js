@@ -4,7 +4,7 @@ export const MOBILE_SERVICES = {
     tag: 'Mobile App Development',
     titleA: 'Custom Mobile Apps Built For', titleB: 'Business Growth',
     intro: 'Transform your ideas into powerful mobile apps designed to engage users, streamline operations, and support business growth.',
-    intro2: 'We develop scalable, secure, and user-friendly mobile applications tailored to your objectives — from startups to enterprises.',
+    intro2: 'We develop scalable, secure, and user-friendly mobile applications tailored to your objectives, from startups to enterprises.',
     services: ['Custom Mobile Applications', 'Business Apps', 'E-Commerce Apps', 'Service Booking Apps', 'Enterprise Solutions', 'Cross-Platform Development'],
     benefits: ['Exceptional User Experiences', 'Scalable & Secure', 'Built For Your Goals', 'Long-Term Value'],
     ctaTitle: 'Ready To Build Your App?', ctaText: 'Turn your idea into a powerful mobile application built for growth.',

@@ -9,10 +9,10 @@ import '../../styles/EcomPages.css'
 
 const FAQS = [
   { q: 'What is product SEO?', a: 'Optimising your product listings with the right keywords, titles and content so they rank higher in marketplace and Google search.' },
-  { q: 'Does it work on all marketplaces?', a: 'Yes — Amazon, Flipkart, Meesho and your own store all benefit from proper product SEO.' },
+  { q: 'Does it work on all marketplaces?', a: 'Yes, Amazon, Flipkart, Meesho and your own store all benefit from proper product SEO.' },
   { q: 'How do you find the keywords?', a: 'We research the exact terms buyers use, including long-tail and high-intent phrases that convert.' },
-  { q: 'Will it increase sales?', a: 'Higher rankings mean more views from ready-to-buy shoppers — which directly lifts sales.' },
-  { q: 'How soon do rankings improve?', a: 'Marketplaces re-index optimised listings quickly — often within a few weeks.' },
+  { q: 'Will it increase sales?', a: 'Higher rankings mean more views from ready-to-buy shoppers, which directly lifts sales.' },
+  { q: 'How soon do rankings improve?', a: 'Marketplaces re-index optimised listings quickly, often within a few weeks.' },
 ]
 const FEATURES = [
   { icon: <FiSearch />, t: 'Keyword Research', d: 'The exact terms buyers search, mapped to your products.' },
@@ -50,7 +50,7 @@ export default function ProductSeo() {
           <div className="pse-hero__text" data-aos="fade-right">
             <span className="pse-tag pse-tag--light"><FiSearch /> Product SEO Optimization</span>
             <h1 className="pse-hero__title pse-hero__title--light">Get Your Products<br /><span>Found First</span></h1>
-            <p className="pse-hero__sub pse-hero__sub--light">Rank your products higher on Amazon, Flipkart, Meesho and Google — with keyword-driven optimisation that puts you in front of ready-to-buy shoppers.</p>
+            <p className="pse-hero__sub pse-hero__sub--light">Rank your products higher on Amazon, Flipkart, Meesho and Google, with keyword-driven optimisation that puts you in front of ready-to-buy shoppers.</p>
             <div className="pse-hero__cta">
               <Link to="/contact" className="pse-btn pse-btn--solid">Rank My Products <FiArrowRight /></Link>
               <Link to="/contact" className="pse-btn pse-btn--ghost-l">Free SEO Audit</Link>
@@ -110,7 +110,7 @@ export default function ProductSeo() {
         </div>
       </section>
       <ServiceFaq service="Product SEO Optimization" faqs={FAQS} />
-      <section className="pse-cta"><div className="pse-container"><div className="pse-cta__box" data-aos="zoom-in"><FiSearch className="pse-cta__ic" /><h2>Ready to Rank Higher?</h2><p>Get a free product SEO audit — we'll show you exactly how to climb the rankings.</p><Link to="/contact" className="pse-btn pse-btn--light">Get My Free Audit <FiArrowUpRight /></Link></div></div></section>
+      <section className="pse-cta"><div className="pse-container"><div className="pse-cta__box" data-aos="zoom-in"><FiSearch className="pse-cta__ic" /><h2>Ready to Rank Higher?</h2><p>Get a free product SEO audit, we'll show you exactly how to climb the rankings.</p><Link to="/contact" className="pse-btn pse-btn--light">Get My Free Audit <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

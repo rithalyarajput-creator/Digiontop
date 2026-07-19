@@ -38,9 +38,9 @@ import '../styles/Services.css'
 const SEO_FAQS = [
   { q: 'How long before SEO shows results?', a: 'Most clients see first measurable movement in 30–90 days; full compounding growth typically lands by month 3–6 depending on competition.' },
   { q: 'Do you guarantee #1 rankings?', a: 'No honest agency can guarantee exact positions, but our data-driven SEO consistently drives 2x+ organic traffic growth for clients.' },
-  { q: 'What does your SEO include?', a: 'On-page, technical, local & content SEO — keyword research, optimization, link building, Search Console setup, and performance tracking.' },
+  { q: 'What does your SEO include?', a: 'On-page, technical, local & content SEO, keyword research, optimization, link building, Search Console setup, and performance tracking.' },
   { q: 'Do you require a long-term contract?', a: 'No lock-in. SEO compounds over time, and clients stay because the results keep growing.' },
-  { q: 'Will I get reports?', a: 'Yes — clear monthly reports on rankings, traffic, and what we did to grow them.' },
+  { q: 'Will I get reports?', a: 'Yes, clear monthly reports on rankings, traffic, and what we did to grow them.' },
 ]
 
 /* ── SEO Services Data ── */
@@ -58,7 +58,7 @@ const SEO_SERVICES = [
     iconBg: '#FFF6E0',
     iconColor: '#C78700',
     title: 'Keyword Research & Mapping',
-    desc: 'Data-driven keyword discovery using intent clustering to map the right terms to the right pages — driving qualified traffic that converts.',
+    desc: 'Data-driven keyword discovery using intent clustering to map the right terms to the right pages, driving qualified traffic that converts.',
     features: ['Competitor gap analysis', 'Long-tail keyword discovery', 'Search intent classification', 'Content cluster mapping'],
   },
   {
@@ -66,7 +66,7 @@ const SEO_SERVICES = [
     iconBg: '#FFF6E0',
     iconColor: '#C78700',
     title: 'On-Page Optimisation',
-    desc: 'Every meta tag, heading structure, and internal link optimised to signal relevance and authority to Google — systematically, at scale.',
+    desc: 'Every meta tag, heading structure, and internal link optimised to signal relevance and authority to Google, systematically, at scale.',
     features: ['Title & meta description rewrites', 'Heading hierarchy (H1–H4)', 'Image alt text & compression', 'Internal linking strategy'],
   },
   {
@@ -133,7 +133,7 @@ const SEO_PROCESS = [
     step: '03',
     label: 'Step Three',
     title: 'On-Page Fixes',
-    desc: 'We systematically optimise every page — titles, meta descriptions, headings, internal links, structured data — ensuring Google fully understands your content.',
+    desc: 'We systematically optimise every page, titles, meta descriptions, headings, internal links, structured data, ensuring Google fully understands your content.',
     tags: ['Title Tags', 'Schema Markup', 'Internal Links', 'Image SEO'],
     accent: '#C78700',
   },
@@ -141,7 +141,7 @@ const SEO_PROCESS = [
     step: '04',
     label: 'Step Four',
     title: 'Content Creation',
-    desc: 'Expert SEO writers produce authoritative, search-optimised content — blogs, pillar pages, and landing pages — that attract backlinks and rank for target keywords.',
+    desc: 'Expert SEO writers produce authoritative, search-optimised content, blogs, pillar pages, and landing pages, that attract backlinks and rank for target keywords.',
     tags: ['Pillar Pages', 'Blog Articles', 'FAQ Content', 'Link Bait Assets'],
     accent: '#F5A800',
   },
@@ -163,7 +163,7 @@ export default function SEOServices() {
 
   return (
     <>
-      <Seo title="SEO Services in India — Rank #1 on Google | DigionTop" description="Data-driven SEO services that rank your business #1 on Google. On-page, technical, local & content SEO with a 2x traffic lift in 90 days. Get a free SEO audit." path="/services/seo-services" />
+      <Seo title="SEO Services in India, Rank #1 on Google | DigionTop" description="Data-driven SEO services that rank your business #1 on Google. On-page, technical, local & content SEO with a 2x traffic lift in 90 days. Get a free SEO audit." path="/services/seo-services" />
       {/* ── Hero — simple centered ─────────────────────────── */}
       <section className="svc-hero svc-hero--center">
         <div className="container">
@@ -180,7 +180,7 @@ export default function SEOServices() {
 
             <p className="svc-hero__subtitle svc-hero__subtitle--slate">
               Data-driven SEO strategies that push your website to Page 1, drive qualified
-              organic traffic, and compound your growth month after month — without paid ads.
+              organic traffic, and compound your growth month after month, without paid ads.
             </p>
 
             <div className="svc-hero__actions">
@@ -218,7 +218,7 @@ export default function SEOServices() {
               Full-Spectrum SEO, Zero Guesswork
             </h2>
             <p className="body-md" style={{ maxWidth: '560px', margin: '0 auto' }}>
-              Every angle of your search visibility covered — from technical foundations
+              Every angle of your search visibility covered, from technical foundations
               to content authority to local dominance.
             </p>
           </div>
@@ -330,7 +330,7 @@ export default function SEOServices() {
                 <HiOutlinePresentationChartLine size={14} /> Free SEO Report
               </div>
               <h2 className="svc-cta__title">
-                See Exactly Why You Are<br />Not Ranking — For Free
+                See Exactly Why You Are<br />Not Ranking, For Free
               </h2>
               <p className="svc-cta__subtitle">
                 We will run a full technical SEO audit on your website and send you a

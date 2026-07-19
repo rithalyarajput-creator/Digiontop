@@ -19,7 +19,7 @@ const WHAT_WE_DO = [
   { icon: <FiTrendingUp />, title: 'Website Development & Digital Solutions', desc: 'Custom websites, WordPress, Shopify stores, e-commerce platforms, web apps, landing pages, and business management systems.' },
   { icon: <FiTarget />, title: 'Search Engine Optimization (SEO)', desc: 'Strategies that improve visibility, increase organic traffic, and help businesses rank higher on search engines.' },
   { icon: <FiUsers />, title: 'Social Media Marketing', desc: 'Content creation, social media management, branding, reels, influencer collaborations, and audience engagement.' },
-  { icon: <FiTrendingUp />, title: 'E-Commerce Growth Solutions', desc: 'Amazon, Flipkart, Meesho & Shopify management — product listings, product SEO, catalog optimization, and growth.' },
+  { icon: <FiTrendingUp />, title: 'E-Commerce Growth Solutions', desc: 'Amazon, Flipkart, Meesho & Shopify management, product listings, product SEO, catalog optimization, and growth.' },
   { icon: <FiTarget />, title: 'Performance Marketing', desc: 'Google Ads, Meta Ads, lead generation campaigns, conversion optimization, and customer acquisition strategies.' },
 ];
 
@@ -27,11 +27,11 @@ const WHY_CHOOSE = [
   { icon: <FiSettings />,      title: 'Customized Solutions',      desc: 'Tailor-made strategies built around your business, not templates.' },
   { icon: <FiLayers />,        title: 'Modern Standards',          desc: 'Latest design & development practices for a future-ready brand.' },
   { icon: <FiTrendingUp />,    title: 'Growth-Focused',            desc: 'Every move is engineered to drive real, measurable growth.' },
-  { icon: <FiMessageCircle />, title: 'Transparent Communication', desc: 'Clear, honest updates — you always know exactly what we do.' },
+  { icon: <FiMessageCircle />, title: 'Transparent Communication', desc: 'Clear, honest updates, you always know exactly what we do.' },
   { icon: <FiTag />,           title: 'Competitive Pricing',       desc: 'Premium quality work at prices that make sense for you.' },
-  { icon: <FiLifeBuoy />,      title: 'Dedicated Support',         desc: 'Real people, real guidance — whenever you need us.' },
+  { icon: <FiLifeBuoy />,      title: 'Dedicated Support',         desc: 'Real people, real guidance, whenever you need us.' },
   { icon: <FiHeart />,         title: 'Long-Term Partnership',     desc: 'We grow with you, invested in your success for the long run.' },
-  { icon: <FiAward />,         title: 'Results-Driven Execution',  desc: 'We obsess over outcomes — traffic, leads and revenue.' },
+  { icon: <FiAward />,         title: 'Results-Driven Execution',  desc: 'We obsess over outcomes, traffic, leads and revenue.' },
 ];
 
 const ABOUT_STATS = [
@@ -42,14 +42,14 @@ const ABOUT_STATS = [
 ];
 
 const COMMITMENTS = [
-  { icon: <FiUsers />, title: 'A Dedicated Team On Every Project', desc: 'A senior specialist owns your project from day one — no juniors learning on your budget.' },
-  { icon: <FiTrendingUp />, title: 'Regular Progress Reports', desc: 'Clear, honest updates on what we did, what worked, and what comes next — every step.' },
-  { icon: <FiCheckCircle />, title: 'Results You Can Measure', desc: 'Every campaign is built around real KPIs — leads, traffic, and revenue you can track.' },
+  { icon: <FiUsers />, title: 'A Dedicated Team On Every Project', desc: 'A senior specialist owns your project from day one, no juniors learning on your budget.' },
+  { icon: <FiTrendingUp />, title: 'Regular Progress Reports', desc: 'Clear, honest updates on what we did, what worked, and what comes next, every step.' },
+  { icon: <FiCheckCircle />, title: 'Results You Can Measure', desc: 'Every campaign is built around real KPIs, leads, traffic, and revenue you can track.' },
 ];
 
 const STORY = [
-  { year: '2025', text: 'DigionTop started with a simple goal — make pro digital marketing affordable for Indian businesses.' },
-  { year: '2026', text: 'Grew into a full-service team — websites, SEO, social media, e-commerce & ads under one roof.' },
+  { year: '2025', text: 'DigionTop started with a simple goal, make pro digital marketing affordable for Indian businesses.' },
+  { year: '2026', text: 'Grew into a full-service team, websites, SEO, social media, e-commerce & ads under one roof.' },
   { year: 'Today', text: 'Now a trusted growth partner for 120+ brands, delivering 250+ projects across India.' },
 ];
 
@@ -182,7 +182,7 @@ export default function About() {
 
   return (
     <main className="about-page">
-      <Seo title="About DigionTop — Your Digital Growth Partner in India" description="DigionTop is a results-driven digital marketing agency in India. We build websites, run SEO, social media & ad campaigns that grow real businesses. Meet the team." path="/about" />
+      <Seo title="About DigionTop, Your Digital Growth Partner in India" description="DigionTop is a results-driven digital marketing agency in India. We build websites, run SEO, social media & ad campaigns that grow real businesses. Meet the team." path="/about" />
 
       {/* ══ 1. HERO ══ */}
       <section className="ab-hero">
@@ -212,7 +212,7 @@ export default function About() {
         <div className="about-container">
           <div className="ab-head" data-aos="fade-up">
             <span className="ab-eyebrow">Three Commitments</span>
-            <h2 className="ab-h2">What Every Client Gets — In Writing</h2>
+            <h2 className="ab-h2">What Every Client Gets, In Writing</h2>
           </div>
           <div className="ab-commit__grid">
             {COMMITMENTS.map((c, i) => (
@@ -245,7 +245,7 @@ export default function About() {
             </p>
             <p>
               We combine creativity, technology, and marketing expertise to deliver solutions that not
-              only look professional but also generate measurable business results — understand your
+              only look professional but also generate measurable business results, understand your
               business, identify growth opportunities, and build digital solutions that create real impact.
             </p>
             <ul className="ab-split__points">
@@ -292,7 +292,7 @@ export default function About() {
               innovation, and long-term success.
             </p>
             <p>
-              We don't believe in delivering ordinary services — we aim to be the growth partner that
+              We don't believe in delivering ordinary services, we aim to be the growth partner that
               helps your business hit its targets and reach the top.
             </p>
             <ul className="ab-mission__points">
@@ -394,7 +394,7 @@ export default function About() {
             </div>
             <div className="ab-goal2__right">
               <p className="ab-goal2__text">
-                Our goal isn't simply to build websites, manage social media, or run campaigns —
+                Our goal isn't simply to build websites, manage social media, or run campaigns, 
                 it's to help businesses create a strong digital presence, attract the right
                 audience, and achieve meaningful growth.
               </p>
@@ -412,7 +412,7 @@ export default function About() {
             <h2 className="about-partner__heading">Ready to <span>partner with us</span>?</h2>
             <p>
               Whether you're scaling a D2C brand, rebuilding a marketing operation, or launching a
-              new website — we run senior-led teams that own the outcome.
+              new website, we run senior-led teams that own the outcome.
             </p>
             <p>Tell us where you are; we'll show up with a clear 90-day plan and real results.</p>
             <div className="about-partner__btns">
@@ -438,7 +438,7 @@ export default function About() {
           <div className="ab-head about-lead__head" data-aos="fade-up">
             <span className="ab-eyebrow">Get Started</span>
             <h2 className="ab-h2">Get a Free Digital Marketing Consultation</h2>
-            <p className="about-lead__head-sub">Tell us about your business — we'll reply within one business day with a clear plan.</p>
+            <p className="about-lead__head-sub">Tell us about your business, we'll reply within one business day with a clear plan.</p>
           </div>
         </div>
         <div className="about-container about-lead__inner about-lead__inner--noPromo">

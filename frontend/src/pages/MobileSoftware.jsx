@@ -14,8 +14,8 @@ import '../styles/SubService.css'
 
 const FAQS = [
   { q: 'How long does it take to build an app or software?', a: 'Most mobile apps take 4–10 weeks; larger SaaS or custom systems can take longer depending on scope. We share a clear timeline upfront.' },
-  { q: 'Do you build for both iOS and Android?', a: 'Yes — native iOS, native Android, or cross-platform with Flutter for faster delivery and lower cost across both.' },
-  { q: 'Will I own the source code?', a: 'Absolutely. You get full ownership of your code, assets, and accounts — no lock-ins.' },
+  { q: 'Do you build for both iOS and Android?', a: 'Yes, native iOS, native Android, or cross-platform with Flutter for faster delivery and lower cost across both.' },
+  { q: 'Will I own the source code?', a: 'Absolutely. You get full ownership of your code, assets, and accounts, no lock-ins.' },
   { q: 'Do you provide support after launch?', a: 'Yes, we offer ongoing maintenance, updates, monitoring, and DevOps support after deployment.' },
   { q: 'Can you scale the app as my business grows?', a: 'Every solution is built on a scalable architecture designed to grow with your business.' },
 ]
@@ -44,7 +44,7 @@ const CHOOSE = [
   { t: 'Scalable Architecture', d: 'Every application is designed to support future growth.' },
   { t: 'Modern Technologies', d: 'Industry-leading frameworks, tools & development standards.' },
   { t: 'Dedicated Support', d: 'Continuous assistance before, during & after deployment.' },
-  { t: 'Custom-Built Solutions', d: 'No templates — every project is tailored to your business.' },
+  { t: 'Custom-Built Solutions', d: 'No templates, every project is tailored to your business.' },
 ]
 
 export default function MobileSoftware() {
@@ -53,7 +53,7 @@ export default function MobileSoftware() {
     <main className="ss">
       <Seo
         title="Mobile App & Software Development Company"
-        description="Custom mobile apps, SaaS platforms, APIs, cloud and DevOps built for iOS, Android and Flutter — scalable, secure and fully owned by you. Start your project today."
+        description="Custom mobile apps, SaaS platforms, APIs, cloud and DevOps built for iOS, Android and Flutter, scalable, secure and fully owned by you. Start your project today."
         path="/services/mobile-software"
       />
       {/* HERO */}
@@ -61,7 +61,7 @@ export default function MobileSoftware() {
         <div className="ss-container ss-hero__center" data-aos="fade-up">
           <span className="ss-tag"><FiSmartphone /> Mobile &amp; Software</span>
           <h1 className="ss-hero__title">Powerful Apps &amp; Software <span>Built For Growth</span></h1>
-          <p className="ss-hero__sub">We design and develop custom mobile apps, SaaS platforms, APIs, and cloud solutions that improve efficiency, enhance experiences, and help you scale faster — secure, scalable & future-ready.</p>
+          <p className="ss-hero__sub">We design and develop custom mobile apps, SaaS platforms, APIs, and cloud solutions that improve efficiency, enhance experiences, and help you scale faster, secure, scalable & future-ready.</p>
           <div className="ss-hero__actions">
             <Link to="/contact" className="ss-btn ss-btn--primary">Start Your Project <FiArrowRight /></Link>
             <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Consultation</Link>
@@ -153,7 +153,7 @@ export default function MobileSoftware() {
         <div className="ss-container"><div className="ss-cta__box" data-aos="zoom-in">
           <FaRocket style={{ fontSize: '2.2rem', display: 'block', margin: '0 auto 8px', color: '#F5A800' }} />
           <h2>Ready To Build Your Next Digital Product?</h2>
-          <p>Whether you need a mobile app, SaaS platform, cloud infrastructure, or custom software — we'll bring your vision to life.</p>
+          <p>Whether you need a mobile app, SaaS platform, cloud infrastructure, or custom software, we'll bring your vision to life.</p>
           <Link to="/contact" className="ss-btn">Start Your Project <FiArrowUpRight /></Link>
         </div></div>
       </section>

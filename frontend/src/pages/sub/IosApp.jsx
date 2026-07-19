@@ -8,10 +8,10 @@ import Seo from '../../components/Seo'
 import '../../styles/MobilePages.css'
 
 const FAQS = [
-  { q: 'Do you build native iOS apps?', a: 'Yes — native Swift apps that feel right at home on iPhone and iPad, following Apple\'s design guidelines.' },
+  { q: 'Do you build native iOS apps?', a: 'Yes, native Swift apps that feel right at home on iPhone and iPad, following Apple\'s design guidelines.' },
   { q: 'Will it pass App Store review?', a: 'We build to Apple\'s guidelines and handle submission, so your app gets approved smoothly.' },
-  { q: 'Do you support the latest iOS?', a: 'Always — we build for current iOS versions and keep your app updated with new releases.' },
-  { q: 'Can it use iPhone features?', a: 'Yes — camera, notifications, Face ID, Apple Pay, HealthKit and more integrate natively.' },
+  { q: 'Do you support the latest iOS?', a: 'Always, we build for current iOS versions and keep your app updated with new releases.' },
+  { q: 'Can it use iPhone features?', a: 'Yes, camera, notifications, Face ID, Apple Pay, HealthKit and more integrate natively.' },
   { q: 'How long does an iOS app take?', a: 'Typically 8–14 weeks depending on features, with clear milestones along the way.' },
 ]
 const FEATURES = [
@@ -26,13 +26,13 @@ const PROCESS = [
   { n: '01', t: 'Discovery & App Store Fit', d: 'We map your user journeys, check your idea against Apple\'s App Review Guidelines early, and lock the feature set for v1.' },
   { n: '02', t: 'SwiftUI Design & Architecture', d: 'Screens designed to Apple\'s Human Interface Guidelines, then structured in SwiftUI with a clean MVVM and Swift Concurrency foundation.' },
   { n: '03', t: 'Swift Build & TestFlight', d: 'Native Swift development in two-week sprints, with each build shipped to TestFlight so you can tap through real progress on your own iPhone.' },
-  { n: '04', t: 'Submission & Launch', d: 'App Store Connect setup, screenshots, ASO metadata and privacy nutrition labels — we handle review and stay on for post-launch updates.' },
+  { n: '04', t: 'Submission & Launch', d: 'App Store Connect setup, screenshots, ASO metadata and privacy nutrition labels, we handle review and stay on for post-launch updates.' },
 ]
 const STACK = ['Swift', 'SwiftUI', 'UIKit', 'Xcode', 'Swift Concurrency', 'Core Data', 'CloudKit', 'TestFlight', 'App Store Connect', 'Firebase']
 const WHY = [
-  { icon: <FiStar />, t: 'Apple-Native Craft', d: 'Every screen is built in Swift and SwiftUI to Apple\'s HIG, so your app feels like it belongs on iOS — not like a wrapped website.' },
+  { icon: <FiStar />, t: 'Apple-Native Craft', d: 'Every screen is built in Swift and SwiftUI to Apple\'s HIG, so your app feels like it belongs on iOS, not like a wrapped website.' },
   { icon: <FiCheckCircle />, t: 'Approved First Time', d: 'We pre-check privacy labels, permissions and payment rules against App Review Guidelines, so submissions clear review without weeks of rejections.' },
-  { icon: <FiUsers />, t: 'TestFlight Transparency', d: 'You get a working build on your iPhone every sprint via TestFlight — no black-box development, no surprises at handover.' },
+  { icon: <FiUsers />, t: 'TestFlight Transparency', d: 'You get a working build on your iPhone every sprint via TestFlight, no black-box development, no surprises at handover.' },
   { icon: <FiTrendingUp />, t: 'Built to Rank & Retain', d: 'ASO-ready listings, App Store screenshots and in-app analytics that turn installs into active, paying users.' },
 ]
 
@@ -50,7 +50,7 @@ export default function IosApp() {
           <div className="ios-hero__text" data-aos="fade-right">
             <span className="ios-tag"><FiSmartphone /> iOS App Development</span>
             <h1 className="ios-hero__title">Premium Apps for<br /><span>iPhone &amp; iPad</span></h1>
-            <p className="ios-hero__sub">Native iOS apps built in Swift — fast, secure and beautiful, following Apple's guidelines for a premium experience your users will love.</p>
+            <p className="ios-hero__sub">Native iOS apps built in Swift, fast, secure and beautiful, following Apple's guidelines for a premium experience your users will love.</p>
             <div className="ios-hero__cta">
               <Link to="/contact" className="ios-btn ios-btn--solid">Build My iOS App <FiArrowRight /></Link>
               <Link to="/contact" className="ios-btn ios-btn--ghost">Free Consultation</Link>
@@ -110,7 +110,7 @@ export default function IosApp() {
         </div>
       </section>
       <ServiceFaq service="iOS App Development" faqs={FAQS} />
-      <section className="ios-cta"><div className="ios-container"><div className="ios-cta__box" data-aos="zoom-in"><FiSmartphone className="ios-cta__ic" /><h2>Ready to Launch on the App Store?</h2><p>Get a free consultation — we'll plan your iOS app from idea to approved launch.</p><Link to="/contact" className="ios-btn ios-btn--light">Book Free Consultation <FiArrowUpRight /></Link></div></div></section>
+      <section className="ios-cta"><div className="ios-container"><div className="ios-cta__box" data-aos="zoom-in"><FiSmartphone className="ios-cta__ic" /><h2>Ready to Launch on the App Store?</h2><p>Get a free consultation, we'll plan your iOS app from idea to approved launch.</p><Link to="/contact" className="ios-btn ios-btn--light">Book Free Consultation <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

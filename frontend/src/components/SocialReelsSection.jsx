@@ -20,7 +20,7 @@ const SocialReelsSection = () => (
           <span className="home-reels__heading-yellow">That Go Viral</span>
         </h2>
         <p className="home-reels__sub">
-          From brand storytelling to UGC content and influencer reels — we produce
+          From brand storytelling to UGC content and influencer reels, we produce
           short-form videos that stop the scroll, grow your audience, and drive
           real engagement across Instagram, YouTube & Facebook.
         </p>

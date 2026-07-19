@@ -28,16 +28,16 @@ export default function PrivacyPolicy() {
           <h2>2. Information We Collect</h2>
           <p>When you use our website, we may collect:</p>
           <ul>
-            <li><strong>Information you provide</strong> — your name, email, phone number, business name and message when you fill out our contact form, request a consultation, or use our free SEO Audit tool.</li>
-            <li><strong>Automatic information</strong> — pages visited, time spent on pages, device type, browser, and approximate location (city/country), collected to understand how visitors use our site.</li>
-            <li><strong>Newsletter signups</strong> — your email address, if you choose to subscribe.</li>
+            <li><strong>Information you provide</strong>, your name, email, phone number, business name and message when you fill out our contact form, request a consultation, or use our free SEO Audit tool.</li>
+            <li><strong>Automatic information</strong>, pages visited, time spent on pages, device type, browser, and approximate location (city/country), collected to understand how visitors use our site.</li>
+            <li><strong>Newsletter signups</strong>, your email address, if you choose to subscribe.</li>
           </ul>
-          <p>We do not collect payment information — we do not process payments on this website.</p>
+          <p>We do not collect payment information, we do not process payments on this website.</p>
 
           <h2>3. How We Use Your Information</h2>
           <ul>
             <li>To respond to your enquiries and provide the services you request.</li>
-            <li>To send you updates or marketing communications, only if you've opted in (e.g. newsletter signup) — you can unsubscribe anytime.</li>
+            <li>To send you updates or marketing communications, only if you've opted in (e.g. newsletter signup), you can unsubscribe anytime.</li>
             <li>To understand website traffic and improve our content and services.</li>
             <li>To comply with legal obligations where required.</li>
           </ul>

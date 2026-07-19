@@ -8,15 +8,15 @@ import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/MobilePages.css'
 
 const FAQS = [
-  { q: 'Do you build native Android apps?', a: 'Yes — native Kotlin apps optimised for the huge range of Android devices and versions.' },
+  { q: 'Do you build native Android apps?', a: 'Yes, native Kotlin apps optimised for the huge range of Android devices and versions.' },
   { q: 'Will it work on all Android phones?', a: 'We build responsive, adaptive apps tested across screen sizes and Android versions for wide reach.' },
-  { q: 'Do you publish to Play Store?', a: 'Absolutely — we handle Play Store submission, policies and approval.' },
-  { q: 'Can it use device features?', a: 'Yes — camera, GPS, notifications, biometrics, payments and more integrate natively.' },
+  { q: 'Do you publish to Play Store?', a: 'Absolutely, we handle Play Store submission, policies and approval.' },
+  { q: 'Can it use device features?', a: 'Yes, camera, GPS, notifications, biometrics, payments and more integrate natively.' },
   { q: 'How long does an Android app take?', a: 'Typically 8–14 weeks depending on features, with a clear roadmap shared upfront.' },
 ]
 const FEATURES = [
   { icon: <FiSmartphone />, t: 'Native Kotlin', d: 'Modern, performant apps built the right way for Android.' },
-  { icon: <FiUsers />, t: 'Widest Reach', d: 'Android powers billions of devices — reach them all.' },
+  { icon: <FiUsers />, t: 'Widest Reach', d: 'Android powers billions of devices, reach them all.' },
   { icon: <FiZap />, t: 'Optimised Performance', d: 'Smooth, fast apps across the full device range.' },
   { icon: <FiShield />, t: 'Secure & Compliant', d: 'Best-practice security and Play policy compliance.' },
   { icon: <FiLayers />, t: 'Material Design', d: 'Clean, intuitive UI following Google\'s design system.' },
@@ -30,10 +30,10 @@ const PROCESS = [
 ]
 const STACK = ['Kotlin', 'Jetpack Compose', 'Material 3', 'Coroutines & Flow', 'Hilt', 'Room', 'Retrofit', 'Firebase', 'Play Console', 'Android Studio']
 const WHY = [
-  { icon: <FiCode />, t: '100% Kotlin & Compose', d: 'No legacy XML layouts or Java debt — a modern declarative codebase your next developer will actually enjoy inheriting.' },
+  { icon: <FiCode />, t: '100% Kotlin & Compose', d: 'No legacy XML layouts or Java debt, a modern declarative codebase your next developer will actually enjoy inheriting.' },
   { icon: <FiCheckCircle />, t: 'Play Policy Handled', d: 'Data safety, target API levels, permissions and billing rules are handled for you, so your release is not rejected at the last hurdle.' },
   { icon: <FiZap />, t: 'Fast on Cheap Phones', d: 'We profile with Baseline Profiles and Android Vitals so the app stays smooth on the low-end devices most of your users actually own.' },
-  { icon: <FiClock />, t: 'Ship Every Sprint', d: 'You get a working build on your own phone every two weeks — no black box, no six-month wait to see progress.' },
+  { icon: <FiClock />, t: 'Ship Every Sprint', d: 'You get a working build on your own phone every two weeks, no black box, no six-month wait to see progress.' },
 ]
 
 export default function AndroidApp() {
@@ -51,7 +51,7 @@ export default function AndroidApp() {
           <div className="and-hero__text" data-aos="fade-right">
             <span className="and-tag and-tag--light"><FiSmartphone /> Android App Development</span>
             <h1 className="and-hero__title and-hero__title--light">Reach Billions on<br /><span>Android</span></h1>
-            <p className="and-hero__sub and-hero__sub--light">Native Kotlin Android apps — fast, secure and Material-designed, built to reach the widest possible audience and scale with you.</p>
+            <p className="and-hero__sub and-hero__sub--light">Native Kotlin Android apps, fast, secure and Material-designed, built to reach the widest possible audience and scale with you.</p>
             <div className="and-hero__cta">
               <Link to="/contact" className="and-btn and-btn--solid">Build My Android App <FiArrowRight /></Link>
               <Link to="/contact" className="and-btn and-btn--ghost-l">Discuss My Idea</Link>
@@ -111,7 +111,7 @@ export default function AndroidApp() {
         </div>
       </section>
       <ServiceFaq service="Android App Development" faqs={FAQS} />
-      <section className="and-cta"><div className="and-container"><div className="and-cta__box" data-aos="zoom-in"><FiSmartphone className="and-cta__ic" /><h2>Ready to Reach Millions?</h2><p>Get a free consultation — we'll plan your Android app from idea to Play Store launch.</p><Link to="/contact" className="and-btn and-btn--light">Discuss My Project <FiArrowUpRight /></Link></div></div></section>
+      <section className="and-cta"><div className="and-container"><div className="and-cta__box" data-aos="zoom-in"><FiSmartphone className="and-cta__ic" /><h2>Ready to Reach Millions?</h2><p>Get a free consultation, we'll plan your Android app from idea to Play Store launch.</p><Link to="/contact" className="and-btn and-btn--light">Discuss My Project <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

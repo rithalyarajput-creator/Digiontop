@@ -39,7 +39,7 @@ const services = [
     icon: <FaCode />,
     title: "Website Development",
     description:
-      "We build fast, modern, mobile-first websites and landing pages that convert visitors into customers — on every device.",
+      "We build fast, modern, mobile-first websites and landing pages that convert visitors into customers on every device.",
     link: "/services/website-development",
     image: "/images/service-web.webp",
   },
@@ -55,7 +55,7 @@ const services = [
     icon: <FaBullhorn />,
     title: "Social Media Marketing",
     description:
-      "Strategic content, paid ads and community management across Instagram, Facebook, LinkedIn and more — built to grow your audience.",
+      "Strategic content, paid ads and community management across Instagram, Facebook, LinkedIn and more, built to grow your audience.",
     link: "/services/social-media-marketing",
     image: "/images/service-social.webp",
   },
@@ -63,7 +63,7 @@ const services = [
     icon: <FaShoppingCart />,
     title: "E-Commerce Solutions",
     description:
-      "End-to-end marketplace management on Amazon, Flipkart and Meesho — from listing optimisation to sponsored ads and account health.",
+      "End-to-end marketplace management on Amazon, Flipkart and Meesho, from listing optimisation to sponsored ads and account health.",
     link: "/services/ecommerce-solutions",
     image: "/images/service-ecommerce.webp",
   },
@@ -88,13 +88,13 @@ const whyUs = [
     icon: <FaChartLine />,
     title: "Transparent Reporting",
     description:
-      "Real-time dashboards and monthly reports in plain language — you always know exactly where your budget is going and what it's delivering.",
+      "Real-time dashboards and monthly reports in plain language, so you always know exactly where your budget is going and what it's delivering.",
   },
   {
     icon: <FaHandshake />,
     title: "No Long-Term Lock-Ins",
     description:
-      "Month-to-month engagements that earn your loyalty through results, not contracts. Scale up, down or pause — on your terms.",
+      "Month-to-month engagements that earn your loyalty through results, not contracts. Scale up, down or pause, on your terms.",
   },
 ];
 
@@ -108,10 +108,10 @@ const industries = [
 ];
 
 const processSteps = [
-  { icon: <FaComments />, title: "Discovery Call", desc: "We learn your business, goals and audience — then map the fastest path to growth." },
-  { icon: <FaPencilRuler />, title: "Strategy & Design", desc: "A tailored plan plus designs built to convert — approved by you before we build." },
-  { icon: <FaRocket />, title: "Build & Launch", desc: "We develop, test and launch — websites, campaigns and content that go live fast." },
-  { icon: <FaChartBar />, title: "Grow & Optimise", desc: "We track real KPIs and keep improving — more traffic, leads and revenue every month." },
+  { icon: <FaComments />, title: "Discovery Call", desc: "We learn your business, goals and audience, then map the fastest path to growth." },
+  { icon: <FaPencilRuler />, title: "Strategy & Design", desc: "A tailored plan plus designs built to convert, approved by you before we build." },
+  { icon: <FaRocket />, title: "Build & Launch", desc: "We develop, test and launch: websites, campaigns and content that go live fast." },
+  { icon: <FaChartBar />, title: "Grow & Optimise", desc: "We track real KPIs and keep improving, driving more traffic, leads and revenue every month." },
 ];
 
 const stats = [
@@ -132,7 +132,7 @@ const heroStats = [
 const HeroSection = () => (
   <section className="hero hero--bgimg">
     {/* full designed image as the background */}
-    <img src="/images/home-banner.webp" alt="DigionTop — #1 Digital Marketing Agency in India" className="hero__bgimg" />
+    <img src="/images/home-banner.webp" alt="DigionTop: #1 Digital Marketing Agency in India" className="hero__bgimg" />
     <div className="hero__bgimg-shade" aria-hidden="true" />
 
     <div className="container hero__bgimg-inner">
@@ -149,7 +149,7 @@ const HeroSection = () => (
           <span className="hero__subheadline--yellow">More Revenue.</span>
         </p>
         <p className="hero__lead">
-          From websites and SEO to social media, ads and e-commerce — one full-service
+          From websites and SEO to social media, ads and e-commerce, one full-service
           digital agency that puts your brand #1 on Google and across social media.
         </p>
         <div className="hero__ctas">
@@ -183,7 +183,7 @@ const ServicesSection = () => (
         Everything Your Business Needs to Grow Online
       </h2>
       <p className="section-subtitle" data-aos="fade-up" data-aos-delay="120">
-        From building your website to ranking it on Google — we handle it all.
+        From building your website to ranking it on Google, we handle it all.
       </p>
       <div className="services__grid">
         {services.map((service, i) => (
@@ -214,7 +214,7 @@ const WhyUsSection = () => (
         <p className="section-label">WHY CHOOSE US</p>
         <h2 className="whyx__title">The DigionTop Difference</h2>
         <p className="whyx__lead">
-          We don't just run campaigns — we build a transparent, results-first
+          We don't just run campaigns, we build a transparent, results-first
           partnership your business can actually rely on.
         </p>
         <Link to="/why-us" className="whyx__cta">
@@ -251,7 +251,7 @@ const IndustriesSection = () => (
       <div className="inds__head" data-aos="fade-up">
         <span className="inds__eyebrow"><span className="inds__eyebrow-dot" /> Industries We Serve</span>
         <h2 className="inds__title">Built for Businesses Across <span>Every Sector</span></h2>
-        <p className="inds__sub">Whatever your field, we craft a digital strategy that fits it — and helps you outgrow the competition.</p>
+        <p className="inds__sub">Whatever your field, we craft a digital strategy that fits it and helps you outgrow the competition.</p>
       </div>
 
       <div className="inds__grid">
@@ -273,7 +273,7 @@ const IndustriesSection = () => (
 
       <div className="inds__foot" data-aos="fade-up">
         <span>Don’t see your industry?</span>
-        <Link to="/contact" className="inds__foot-link">We work with all of them — let’s talk <FaArrowRight /></Link>
+        <Link to="/contact" className="inds__foot-link">We work with all of them, let’s talk <FaArrowRight /></Link>
       </div>
     </div>
   </section>
@@ -285,7 +285,7 @@ const ProcessSection = () => (
       <div className="proc__head" data-aos="fade-up">
         <span className="proc__eyebrow"><span className="proc__eyebrow-dot" /> How We Work</span>
         <h2 className="proc__title">From Idea to Impact in <span>4 Simple Steps</span></h2>
-        <p className="proc__sub">A clear, proven process — no confusion, no surprises. Just results you can measure.</p>
+        <p className="proc__sub">A clear, proven process, no confusion, no surprises. Just results you can measure.</p>
       </div>
 
       <div className="proc__track">
@@ -305,7 +305,7 @@ const ProcessSection = () => (
       <div className="proc__cta" data-aos="zoom-in">
         <div>
           <h3>Ready to start your growth journey?</h3>
-          <p>Book a free strategy call — we’ll show you exactly where to begin.</p>
+          <p>Book a free strategy call and we’ll show you exactly where to begin.</p>
         </div>
         <Link to="/contact" className="proc__cta-btn">Get Started Free <FaArrowRight /></Link>
       </div>
@@ -408,7 +408,7 @@ const daysAgoISO = (d) => new Date(Date.now() - d * 86400000).toISOString();
 
 const FALLBACK_TESTIMONIALS = [
   { id: 1, client_name: 'Rajesh Sharma', client_role: 'E-Commerce Seller', client_location: 'Delhi', testimonial_text: 'DigionTop completely transformed our Amazon listings. Within three months our products were ranking on page one and organic sales doubled!', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(3) },
-  { id: 2, client_name: 'Priya Mehta', client_role: 'Wellness Studio Owner', client_location: 'Bangalore', testimonial_text: 'Within four months we were ranking for every major keyword. New client enquiries went up by over 60% — incredible results!', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(9) },
+  { id: 2, client_name: 'Priya Mehta', client_role: 'Wellness Studio Owner', client_location: 'Bangalore', testimonial_text: 'Within four months we were ranking for every major keyword. New client enquiries went up by over 60%, incredible results!', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(9) },
   { id: 3, client_name: 'Ankur Gupta', client_role: 'Restaurant Owner', client_location: 'Jaipur', testimonial_text: 'In six months we crossed 4,200 Instagram followers and customers started walking in specifically because they found us online.', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(24) },
   { id: 4, client_name: 'Sneha Reddy', client_role: 'Boutique Founder', client_location: 'Hyderabad', testimonial_text: 'Their team built us a stunning Shopify store that loads fast and converts. Our online orders tripled within the first quarter!', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(46) },
   { id: 5, client_name: 'Vikram Singh', client_role: 'Real Estate Agency', client_location: 'Mumbai', testimonial_text: 'The paid ad campaigns brought us qualified leads at half the cost we used to pay. Genuinely the best marketing partner we have worked with.', rating: 5, avatar_url: null, reviewed_at: daysAgoISO(78) },
@@ -571,7 +571,7 @@ const OurWorkSection = () => {
           <p className="section-label showcase__label">OUR WORK</p>
           <h2 className="section-title showcase__title-h">Work We're Proud Of</h2>
           <p className="section-subtitle showcase__sub">
-            Websites, creatives and reels — real projects we've delivered for real brands.
+            Websites, creatives and reels: real projects we've delivered for real brands.
           </p>
         </div>
 
@@ -653,11 +653,11 @@ const OurWorkSection = () => {
 };
 
 const HOME_FAQS = [
-  { q: 'What services does DigionTop offer?', a: 'We are a full-service digital marketing agency — websites & Shopify stores, social media & reels, SEO, paid ads (Google/Meta), branding, and e-commerce marketplace management. One team handles your entire digital presence.' },
-  { q: 'How soon can we get started?', a: 'Usually within 2–3 days of your consultation. We start with a discovery call, map a custom strategy, and begin execution — keeping you updated at every milestone.' },
-  { q: 'Do you work with small businesses and startups?', a: 'Absolutely. From new startups to growing brands, we tailor our plans to your budget and goals. No project is too small — we grow with you.' },
+  { q: 'What services does DigionTop offer?', a: 'We are a full-service digital marketing agency: websites & Shopify stores, social media & reels, SEO, paid ads (Google/Meta), branding, and e-commerce marketplace management. One team handles your entire digital presence.' },
+  { q: 'How soon can we get started?', a: 'Usually within 2–3 days of your consultation. We start with a discovery call, map a custom strategy, and begin execution, keeping you updated at every milestone.' },
+  { q: 'Do you work with small businesses and startups?', a: 'Absolutely. From new startups to growing brands, we tailor our plans to your budget and goals. No project is too small, we grow with you.' },
   { q: 'How much do your services cost?', a: 'Pricing depends on your goals and the services you need. We offer flexible, transparent packages with no long-term lock-ins. Book a free consultation and we\'ll share a clear quote.' },
-  { q: 'Will I get regular reports on results?', a: 'Yes — you receive clear, plain-language reports so you always know exactly where your budget goes and what results it\'s driving. Full transparency, always.' },
+  { q: 'Will I get regular reports on results?', a: 'Yes, you receive clear, plain-language reports so you always know exactly where your budget goes and what results it\'s driving. Full transparency, always.' },
   { q: 'Do you offer a free consultation?', a: 'Yes! We offer a free, no-obligation strategy consultation. Fill the form and we\'ll reply within one business day with a clear plan to grow your business.' },
 ];
 
@@ -669,8 +669,8 @@ const Home = () => {
   return (
     <main className="home-page">
       <Seo
-        title="DigionTop — #1 Digital Marketing Agency in India"
-        description="Rank higher & grow faster with DigionTop — India's full-service digital marketing agency. Websites, SEO, social media, ads & e-commerce. Get a free strategy call today!"
+        title="DigionTop: #1 Digital Marketing Agency in India"
+        description="Rank higher & grow faster with DigionTop, India's full-service digital marketing agency. Websites, SEO, social media, ads & e-commerce. Get a free strategy call today!"
         path="/"
       />
       <HeroSection />

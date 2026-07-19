@@ -47,7 +47,7 @@ const PROCESS = [
 const FAQS = [
   { q: 'How long does it take to build a website?', a: 'Most business websites take 2–4 weeks. Larger e-commerce stores or custom web apps may take 4–8 weeks depending on scope and features.' },
   { q: 'Will my website be mobile-friendly?', a: 'Absolutely. Every website we build is fully responsive and tested across mobiles, tablets, and desktops for a seamless experience.' },
-  { q: 'Do I own my website after it is built?', a: 'Yes — you get complete ownership of your website, content, and assets. No platform lock-ins or hidden restrictions.' },
+  { q: 'Do I own my website after it is built?', a: 'Yes, you get complete ownership of your website, content, and assets. No platform lock-ins or hidden restrictions.' },
   { q: 'Is the website SEO-ready?', a: 'Yes. We build with clean code, fast loading, and SEO best practices so your site is ready to rank and grow.' },
   { q: 'Do you provide support after launch?', a: 'Yes, we offer ongoing maintenance, updates, and guidance whenever your business needs it.' },
 ]

@@ -58,7 +58,7 @@ const WHAT_WE_BUILD = [
     iconBg: '#F5F3FF',
     iconColor: '#7C3AED',
     title: 'Landing Pages & Funnels',
-    desc: 'Laser-focused landing pages engineered for one goal — maximum conversion — whether it is leads, sign-ups, or sales.',
+    desc: 'Laser-focused landing pages engineered for one goal, maximum conversion, whether it is leads, sign-ups, or sales.',
     features: ['A/B test-ready architecture', 'Heatmap & analytics ready', 'CRM integration', 'Fast load < 2s'],
   },
   {
@@ -66,7 +66,7 @@ const WHAT_WE_BUILD = [
     iconBg: '#F0FDF4',
     iconColor: '#059669',
     title: 'Progressive Web Apps (PWA)',
-    desc: 'App-like experiences on the web — offline-capable, installable, and blazing fast across every device and connection speed.',
+    desc: 'App-like experiences on the web, offline-capable, installable, and blazing fast across every device and connection speed.',
     features: ['Service worker setup', 'Push notification support', 'Offline first architecture', 'App-store quality UX'],
   },
   {
@@ -74,7 +74,7 @@ const WHAT_WE_BUILD = [
     iconBg: '#FFF0F6',
     iconColor: '#DB2777',
     title: 'Custom Web Applications',
-    desc: 'Tailor-made web platforms — dashboards, portals, SaaS tools, booking systems — built to your exact workflow.',
+    desc: 'Tailor-made web platforms, dashboards, portals, SaaS tools, booking systems, built to your exact workflow.',
     features: ['React / Next.js front-end', 'Node.js / Python back-end', 'REST & GraphQL APIs', 'Role-based access control'],
   },
   {
@@ -109,7 +109,7 @@ const WHY_RANK_CONVERT = [
   {
     icon: <FiSmartphone size={20} />,
     label: 'Mobile-First by Default',
-    detail: 'Designed on the smallest screen first — every breakpoint is pixel-perfect on any device.',
+    detail: 'Designed on the smallest screen first, every breakpoint is pixel-perfect on any device.',
   },
   {
     icon: <HiOutlineShieldCheck size={20} />,
@@ -124,7 +124,7 @@ const WHY_RANK_CONVERT = [
   {
     icon: <HiOutlineColorSwatch size={20} />,
     label: 'Brand-Consistent Design',
-    detail: 'Every pixel reflects your brand guidelines — typography, colours, and tone of voice stay cohesive.',
+    detail: 'Every pixel reflects your brand guidelines, typography, colours, and tone of voice stay cohesive.',
   },
   {
     icon: <HiOutlineCursorClick size={20} />,
@@ -205,7 +205,7 @@ export default function WebsiteDevelopment() {
               Every Type of Web Presence, Done Right
             </h2>
             <p className="body-md" style={{ maxWidth: '560px', margin: '0 auto' }}>
-              From simple brochure sites to complex SaaS platforms — we build digital products
+              From simple brochure sites to complex SaaS platforms, we build digital products
               that are fast, accessible, and built to grow.
             </p>
           </div>
@@ -305,7 +305,7 @@ export default function WebsiteDevelopment() {
               </h2>
               <p className="svc-cta__subtitle">
                 Book a free 30-minute discovery call. We will audit your current site,
-                identify quick wins, and outline a custom build plan — no obligation.
+                identify quick wins, and outline a custom build plan, no obligation.
               </p>
               <div className="svc-cta__actions">
                 <Link

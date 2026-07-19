@@ -12,10 +12,10 @@ import '../../styles/SubService.css'
 function buildFaqs(tag) {
   return [
     { q: `How soon will I see results from ${tag}?`, a: `Most ${tag.toLowerCase()} projects show first measurable results within 30–90 days, depending on your starting point, scope, and goals. We focus on real, trackable outcomes.` },
-    { q: `How much does ${tag} cost?`, a: `Pricing depends on your needs and scope. After a free consultation we send a clear, custom quote — no hidden charges, no long lock-in contracts.` },
+    { q: `How much does ${tag} cost?`, a: `Pricing depends on your needs and scope. After a free consultation we send a clear, custom quote, no hidden charges, no long lock-in contracts.` },
     { q: `Do I need a long-term contract?`, a: `No. We work in flexible engagements and earn your trust with results. You stay because it works, not because of a contract.` },
-    { q: `Will I get regular updates and reports?`, a: `Yes — you get clear, honest progress reports so you always know what we did, what worked, and what's next.` },
-    { q: `Why should I choose DigionTop for ${tag}?`, a: `A senior specialist owns your project, we focus on measurable business growth, and every solution is custom-built for your goals — not templated.` },
+    { q: `Will I get regular updates and reports?`, a: `Yes, you get clear, honest progress reports so you always know what we did, what worked, and what's next.` },
+    { q: `Why should I choose DigionTop for ${tag}?`, a: `A senior specialist owns your project, we focus on measurable business growth, and every solution is custom-built for your goals, not templated.` },
   ]
 }
 

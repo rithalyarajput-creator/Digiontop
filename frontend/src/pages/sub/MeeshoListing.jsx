@@ -8,10 +8,10 @@ import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
-  { q: 'Why sell on Meesho?', a: 'Meesho is one of India\'s fastest-growing marketplaces — great for reaching value-conscious buyers across tier-2 and tier-3 cities.' },
+  { q: 'Why sell on Meesho?', a: 'Meesho is one of India\'s fastest-growing marketplaces, great for reaching value-conscious buyers across tier-2 and tier-3 cities.' },
   { q: 'What does the service include?', a: 'Product uploading, catalogue setup, information optimisation, category selection and listing management.' },
-  { q: 'Will my products get approved faster?', a: 'Yes — accurate, complete listings help you clear Meesho\'s approval process quickly.' },
-  { q: 'Can you handle a large catalogue?', a: 'Absolutely — we upload and optimise bulk catalogues efficiently and accurately.' },
+  { q: 'Will my products get approved faster?', a: 'Yes, accurate, complete listings help you clear Meesho\'s approval process quickly.' },
+  { q: 'Can you handle a large catalogue?', a: 'Absolutely, we upload and optimise bulk catalogues efficiently and accurately.' },
   { q: 'How soon will I see sales?', a: 'Optimised, approved listings start reaching buyers within days of going live.' },
 ]
 const FEATURES = [
@@ -24,7 +24,7 @@ const FEATURES = [
 ]
 const PROCESS = [
   { n: '01', t: 'Catalogue Audit', d: 'We review your product range, images and current pricing to spot gaps against top-selling Meesho catalogues.' },
-  { n: '02', t: 'Supplier Panel Setup', d: 'Your Meesho Supplier Panel is configured correctly — GST, bank details, shipping preferences and category permissions.' },
+  { n: '02', t: 'Supplier Panel Setup', d: 'Your Meesho Supplier Panel is configured correctly, GST, bank details, shipping preferences and category permissions.' },
   { n: '03', t: 'Bulk Upload & Pricing', d: 'Products are uploaded in bulk with competitive pricing strategy built around Meesho\'s commission and margin structure.' },
   { n: '04', t: 'Reseller Network Push', d: 'Listings are optimised to appeal to Meesho\'s reseller network, driving repeat orders and wider organic reach.' },
 ]
@@ -50,7 +50,7 @@ export default function MeeshoListing() {
           <div className="msh-hero__text" data-aos="fade-right">
             <span className="msh-tag"><FiShoppingBag /> Meesho Product Listing</span>
             <h1 className="msh-hero__title">Scale Fast on<br /><span>Meesho</span></h1>
-            <p className="msh-hero__sub">Reach millions of value-conscious buyers with accurate, optimised Meesho listings — uploaded fast, approved quickly and built to sell.</p>
+            <p className="msh-hero__sub">Reach millions of value-conscious buyers with accurate, optimised Meesho listings, uploaded fast, approved quickly and built to sell.</p>
             <div className="msh-hero__cta">
               <Link to="/contact" className="msh-btn msh-btn--solid">List on Meesho <FiArrowRight /></Link>
               <Link to="/contact" className="msh-btn msh-btn--ghost">Free Consultation</Link>
@@ -110,7 +110,7 @@ export default function MeeshoListing() {
         </div>
       </section>
       <ServiceFaq service="Meesho Product Listing" faqs={FAQS} />
-      <section className="msh-cta"><div className="msh-container"><div className="msh-cta__box" data-aos="zoom-in"><FiShoppingBag className="msh-cta__ic" /><h2>Scale Faster on Meesho</h2><p>Get a free consultation — we'll get your catalogue live and selling on Meesho.</p><Link to="/contact" className="msh-btn msh-btn--light">Get Started <FiArrowUpRight /></Link></div></div></section>
+      <section className="msh-cta"><div className="msh-container"><div className="msh-cta__box" data-aos="zoom-in"><FiShoppingBag className="msh-cta__ic" /><h2>Scale Faster on Meesho</h2><p>Get a free consultation, we'll get your catalogue live and selling on Meesho.</p><Link to="/contact" className="msh-btn msh-btn--light">Get Started <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }

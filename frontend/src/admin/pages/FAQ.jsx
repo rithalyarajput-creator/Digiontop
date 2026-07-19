@@ -105,7 +105,7 @@ export default function FAQ() {
                 <td>
                   <p className="admin-shop-table__name admin-shop-table__trunc">{f.question}</p>
                   <p className="admin-shop-table__sub admin-shop-table__trunc">
-                    {f.answer ? f.answer.slice(0, 80) + (f.answer.length > 80 ? '…' : '') : '—'}
+                    {f.answer ? f.answer.slice(0, 80) + (f.answer.length > 80 ? '…' : '') : '-'}
                   </p>
                 </td>
                 <td>

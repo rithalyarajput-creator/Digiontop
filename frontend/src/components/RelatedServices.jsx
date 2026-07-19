@@ -28,7 +28,7 @@ export default function RelatedServices({ categoryHeading, activePath }) {
       <div className="rels__inner" data-aos="fade-up">
         <span className="rels__pill"><Icon /> Other {cat.heading} Services</span>
         <p className="rels__intro">
-          Explore the full range of {cat.heading.toLowerCase()} services we offer — most clients
+          Explore the full range of {cat.heading.toLowerCase()} services we offer, most clients
           grow into more as their business scales.
         </p>
         <div className="rels__grid">

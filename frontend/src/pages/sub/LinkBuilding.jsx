@@ -11,11 +11,11 @@ import Seo from '../../components/Seo'
 import '../../styles/LinkBuilding.css'
 
 const FAQS = [
-  { q: 'Are your links safe / white-hat?', a: 'Completely. We only earn editorial links from real, relevant, high-authority sites — no PBNs, no link farms, no penalties.' },
+  { q: 'Are your links safe / white-hat?', a: 'Completely. We only earn editorial links from real, relevant, high-authority sites, no PBNs, no link farms, no penalties.' },
   { q: 'How many links will I get?', a: 'Quality over quantity. Depending on your plan we secure a set number of high-DA links per month, each manually vetted for relevance.' },
-  { q: 'How do you get the links?', a: 'Guest posting, digital PR, HARO journalist pitching, broken-link reclamation and brand-mention outreach — all done manually by our outreach team.' },
-  { q: 'Do backlinks still matter in 2026?', a: 'Yes — authoritative backlinks remain one of Google\'s strongest ranking signals. They build trust and topical authority that content alone can\'t.' },
-  { q: 'Will you share the links you build?', a: 'Absolutely. You get a full report of every live link, its authority score and the anchor used — total transparency.' },
+  { q: 'How do you get the links?', a: 'Guest posting, digital PR, HARO journalist pitching, broken-link reclamation and brand-mention outreach, all done manually by our outreach team.' },
+  { q: 'Do backlinks still matter in 2026?', a: 'Yes, authoritative backlinks remain one of Google\'s strongest ranking signals. They build trust and topical authority that content alone can\'t.' },
+  { q: 'Will you share the links you build?', a: 'Absolutely. You get a full report of every live link, its authority score and the anchor used, total transparency.' },
 ]
 
 const TACTICS = [
@@ -46,7 +46,7 @@ export default function LinkBuilding() {
           <div className="lb-hero__text" data-aos="fade-right">
             <span className="lb-tag"><FiLink /> Link Building & Digital PR</span>
             <h1 className="lb-hero__title">Authority That<br /><span>Moves Rankings</span></h1>
-            <p className="lb-hero__sub">Google trusts sites other trusted sites link to. We earn you real, editorial backlinks from high-authority domains — the safe, white-hat way.</p>
+            <p className="lb-hero__sub">Google trusts sites other trusted sites link to. We earn you real, editorial backlinks from high-authority domains, the safe, white-hat way.</p>
             <div className="lb-hero__cta">
               <Link to="/contact" className="lb-btn lb-btn--solid">Build My Authority <FiArrowRight /></Link>
               <Link to="/contact" className="lb-btn lb-btn--ghost">See Sample Links</Link>
@@ -102,7 +102,7 @@ export default function LinkBuilding() {
           <div className="lb-cta__box" data-aos="zoom-in">
             <FiLink className="lb-cta__ic" />
             <h2>Ready to Build Real Authority?</h2>
-            <p>Get a free backlink gap analysis — see who links to your competitors and how we get you those links too.</p>
+            <p>Get a free backlink gap analysis, see who links to your competitors and how we get you those links too.</p>
             <Link to="/contact" className="lb-btn lb-btn--light">Get Free Link Analysis <FiArrowUpRight /></Link>
           </div>
         </div>

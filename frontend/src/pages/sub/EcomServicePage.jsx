@@ -21,7 +21,7 @@ const ICONS = {
 const SEO_META = {
   amazon: {
     title: 'Amazon Product Listing Services',
-    description: 'Optimised Amazon listings — keyword-rich titles, bullet points, descriptions, backend search terms and category setup that win the buy box. Get your products selling today.',
+    description: 'Optimised Amazon listings, keyword-rich titles, bullet points, descriptions, backend search terms and category setup that win the buy box. Get your products selling today.',
   },
   flipkart: {
     title: 'Flipkart Product Listing Services',
@@ -41,15 +41,15 @@ const SEO_META = {
   },
   'catalog-management': {
     title: 'E-Commerce Catalog Management Services',
-    description: 'Bulk product uploads, catalog optimisation, inventory updates and ongoing data maintenance across every marketplace — fully managed for you. Keep your catalog effortless.',
+    description: 'Bulk product uploads, catalog optimisation, inventory updates and ongoing data maintenance across every marketplace, fully managed for you. Keep your catalog effortless.',
   },
   'account-management': {
     title: 'Marketplace Account Management Services',
-    description: 'End-to-end seller account management — setup, product uploads, listing maintenance and performance monitoring on Amazon, Flipkart and Meesho. Let us run your marketplace.',
+    description: 'End-to-end seller account management, setup, product uploads, listing maintenance and performance monitoring on Amazon, Flipkart and Meesho. Let us run your marketplace.',
   },
   'growth-consulting': {
     title: 'E-Commerce Growth Consulting Services',
-    description: 'Data-driven marketplace growth strategy — competitor analysis, product performance reviews and sales scaling plans for online sellers. Build a smarter growth plan with us.',
+    description: 'Data-driven marketplace growth strategy, competitor analysis, product performance reviews and sales scaling plans for online sellers. Build a smarter growth plan with us.',
   },
 }
 

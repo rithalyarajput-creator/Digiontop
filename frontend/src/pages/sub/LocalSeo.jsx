@@ -12,10 +12,10 @@ import '../../styles/LocalSeo.css'
 
 const FAQS = [
   { q: 'How long until I rank in the local pack?', a: 'Most local businesses start seeing movement in the Google Map Pack within 6–10 weeks, depending on competition and your current Google Business Profile health.' },
-  { q: 'Do you optimize my Google Business Profile?', a: 'Yes — full GBP optimization is core to local SEO: categories, services, photos, posts, Q&A, and review strategy all get handled.' },
-  { q: 'What are citations and do I need them?', a: 'Citations are consistent listings of your Name, Address & Phone (NAP) across directories. They build trust signals that help you rank in local results — yes, they matter.' },
+  { q: 'Do you optimize my Google Business Profile?', a: 'Yes, full GBP optimization is core to local SEO: categories, services, photos, posts, Q&A, and review strategy all get handled.' },
+  { q: 'What are citations and do I need them?', a: 'Citations are consistent listings of your Name, Address & Phone (NAP) across directories. They build trust signals that help you rank in local results, yes, they matter.' },
   { q: 'Can you help with customer reviews?', a: 'Absolutely. We set up a review-generation system that gets more genuine 5-star reviews and helps you respond to them professionally.' },
-  { q: 'I have multiple locations — can you handle that?', a: 'Yes, we run multi-location local SEO with dedicated location pages, individual GBP optimization, and geo-targeted content for each area.' },
+  { q: 'I have multiple locations, can you handle that?', a: 'Yes, we run multi-location local SEO with dedicated location pages, individual GBP optimization, and geo-targeted content for each area.' },
 ]
 
 const RANK_FACTORS = [
@@ -26,7 +26,7 @@ const RANK_FACTORS = [
 ]
 
 const STEPS = [
-  { icon: <FiMapPin />, t: 'Claim & Optimize GBP', d: 'We fully optimize your Google Business Profile — categories, services, photos, hours & posts.' },
+  { icon: <FiMapPin />, t: 'Claim & Optimize GBP', d: 'We fully optimize your Google Business Profile, categories, services, photos, hours & posts.' },
   { icon: <FiNavigation />, t: 'Build Local Citations', d: 'Consistent NAP across 50+ trusted directories to earn local trust signals.' },
   { icon: <FiStar />, t: 'Grow Real Reviews', d: 'A simple review-generation system that brings in genuine 5-star ratings.' },
   { icon: <FiTrendingUp />, t: 'Rank & Report', d: 'Track your Map Pack positions and calls, and refine month after month.' },
@@ -49,8 +49,8 @@ export default function LocalSeo() {
             <span className="lseo-tag"><FiMapPin /> Local SEO</span>
             <h1 className="lseo-hero__title">Get Found by Customers <span>Near You</span></h1>
             <p className="lseo-hero__sub">
-              Dominate the Google Map Pack and "near me" searches. We put your business on the map —
-              literally — so nearby customers call, visit and buy.
+              Dominate the Google Map Pack and "near me" searches. We put your business on the map, 
+              literally, so nearby customers call, visit and buy.
             </p>
             <div className="lseo-hero__cta">
               <Link to="/contact" className="lseo-btn lseo-btn--solid">Rank My Business <FiArrowRight /></Link>
@@ -119,7 +119,7 @@ export default function LocalSeo() {
         <div className="lseo-container lseo-gbp__inner">
           <div className="lseo-gbp__text" data-aos="fade-right">
             <span className="lseo-eyebrow">Google Business Profile</span>
-            <h2>Your Storefront on Google — Fully Tuned</h2>
+            <h2>Your Storefront on Google, Fully Tuned</h2>
             <p>Your GBP is the single biggest local ranking factor. We optimize every part of it so you show up more often, look more trustworthy, and win the click.</p>
             <Link to="/contact" className="lseo-btn lseo-btn--solid">Optimize My Profile <FiArrowUpRight /></Link>
           </div>
@@ -139,7 +139,7 @@ export default function LocalSeo() {
           <div className="lseo-cta__box" data-aos="zoom-in">
             <FiMapPin className="lseo-cta__pin" />
             <h2>Ready to Own Your Local Market?</h2>
-            <p>Get a free local audit — we'll show you exactly where you rank now and how to reach the top 3.</p>
+            <p>Get a free local audit, we'll show you exactly where you rank now and how to reach the top 3.</p>
             <Link to="/contact" className="lseo-btn lseo-btn--light">Get My Free Local Audit <FiArrowRight /></Link>
           </div>
         </div>

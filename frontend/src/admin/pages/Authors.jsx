@@ -269,11 +269,11 @@ export default function Authors() {
                     </div>
                     <div style={{ minWidth: 0 }}>
                       <p className="admin-shop-table__name">{a.name}</p>
-                      <p className="admin-shop-table__sub admin-shop-table__trunc">{a.bio || '—'}</p>
+                      <p className="admin-shop-table__sub admin-shop-table__trunc">{a.bio || '-'}</p>
                     </div>
                   </div>
                 </td>
-                <td className="is-muted">{a.email || '—'}</td>
+                <td className="is-muted">{a.email || '-'}</td>
                 <td className="is-muted">{a.blog_count ?? 0}</td>
                 <td>
                   <button

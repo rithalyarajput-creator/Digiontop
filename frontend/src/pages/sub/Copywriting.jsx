@@ -11,11 +11,11 @@ import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
-  { q: 'What is copywriting exactly?', a: 'Persuasive writing that sells — headlines, landing pages, ads and emails crafted to make people take action, not just read.' },
-  { q: 'What can you write copy for?', a: 'Landing pages, websites, ads, emails, product descriptions, sales pages and social captions — anything that needs to convert.' },
-  { q: 'How is this different from content writing?', a: 'Content writing builds trust over time; copywriting drives immediate action. We do both — this service focuses on conversion.' },
-  { q: 'Will the copy match my brand voice?', a: 'Yes — we study your brand and audience so every word sounds like you and speaks to your customer.' },
-  { q: 'Can better copy really increase sales?', a: 'Dramatically — the right headline or CTA can multiply conversions on the same traffic. Words are your cheapest growth lever.' },
+  { q: 'What is copywriting exactly?', a: 'Persuasive writing that sells, headlines, landing pages, ads and emails crafted to make people take action, not just read.' },
+  { q: 'What can you write copy for?', a: 'Landing pages, websites, ads, emails, product descriptions, sales pages and social captions, anything that needs to convert.' },
+  { q: 'How is this different from content writing?', a: 'Content writing builds trust over time; copywriting drives immediate action. We do both, this service focuses on conversion.' },
+  { q: 'Will the copy match my brand voice?', a: 'Yes, we study your brand and audience so every word sounds like you and speaks to your customer.' },
+  { q: 'Can better copy really increase sales?', a: 'Dramatically, the right headline or CTA can multiply conversions on the same traffic. Words are your cheapest growth lever.' },
 ]
 
 const TYPES = [
@@ -31,7 +31,7 @@ export default function Copywriting() {
     <main className="cp">
       <Seo
         title="Conversion Copywriting Services"
-        description="Persuasive copy for landing pages, ads, emails and product descriptions — written in your brand voice to grab attention and drive action. Get a free copy review today."
+        description="Persuasive copy for landing pages, ads, emails and product descriptions, written in your brand voice to grab attention and drive action. Get a free copy review today."
         path="/services/social/copywriting"
       />
       <section className="cp-hero">
@@ -39,7 +39,7 @@ export default function Copywriting() {
           <div className="cp-hero__text" data-aos="fade-right">
             <span className="cp-tag"><FiFeather /> Copywriting Services</span>
             <h1 className="cp-hero__title">Words That<br /><span>Make People Buy</span></h1>
-            <p className="cp-hero__sub">Persuasive copy for landing pages, ads and emails — crafted to grab attention, build desire and drive action. Your cheapest lever for more sales.</p>
+            <p className="cp-hero__sub">Persuasive copy for landing pages, ads and emails, crafted to grab attention, build desire and drive action. Your cheapest lever for more sales.</p>
             <div className="cp-hero__cta">
               <Link to="/contact" className="cp-btn cp-btn--solid">Get Copy That Converts <FiArrowRight /></Link>
               <Link to="/contact" className="cp-btn cp-btn--ghost">Free Copy Review</Link>
@@ -80,7 +80,7 @@ export default function Copywriting() {
           <div className="cp-cta__box" data-aos="zoom-in">
             <FiEdit3 className="cp-cta__ic" />
             <h2>Ready to Sell With Words?</h2>
-            <p>Get a free copy review — we'll show you exactly where your words are losing sales and how to fix them.</p>
+            <p>Get a free copy review, we'll show you exactly where your words are losing sales and how to fix them.</p>
             <Link to="/contact" className="cp-btn cp-btn--light">Get My Free Review <FiArrowUpRight /></Link>
           </div>
         </div>

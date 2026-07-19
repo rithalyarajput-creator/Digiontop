@@ -44,7 +44,7 @@ const ECOMMERCE_SERVICES = [
     iconBg: '#FEF3C7',
     iconColor: '#D97706',
     title: 'Custom E-Commerce Store Development',
-    desc: 'Fully bespoke online stores designed from scratch around your brand, product catalogue, and customer journey — no cookie-cutter templates.',
+    desc: 'Fully bespoke online stores designed from scratch around your brand, product catalogue, and customer journey, no cookie-cutter templates.',
     features: ['Custom UI/UX design', 'Scalable product catalogue', 'Wishlist & comparison features', 'Multi-currency & multi-lingual'],
   },
   {
@@ -52,7 +52,7 @@ const ECOMMERCE_SERVICES = [
     iconBg: '#F0FDF4',
     iconColor: '#96bf48',
     title: 'Shopify Development & Migration',
-    desc: 'Expert Shopify store builds, theme customisation, and seamless migrations from any platform — with zero downtime and full data integrity.',
+    desc: 'Expert Shopify store builds, theme customisation, and seamless migrations from any platform, with zero downtime and full data integrity.',
     features: ['Custom Shopify theme development', 'App integration & customisation', 'Platform migration (WooCommerce, Magento)', 'Shopify Plus solutions'],
   },
   {
@@ -68,7 +68,7 @@ const ECOMMERCE_SERVICES = [
     iconBg: '#EBF2FF',
     iconColor: '#1A56DB',
     title: 'Payment Gateway Integration',
-    desc: 'Seamless, secure payment setup with every major gateway — Razorpay, Stripe, PayPal, UPI, BNPL — reducing friction at checkout.',
+    desc: 'Seamless, secure payment setup with every major gateway, Razorpay, Stripe, PayPal, UPI, BNPL, reducing friction at checkout.',
     features: ['Razorpay & Stripe setup', 'UPI & net banking (India)', 'Buy Now Pay Later (BNPL)', 'Auto-refund & webhook config'],
   },
   {
@@ -76,7 +76,7 @@ const ECOMMERCE_SERVICES = [
     iconBg: '#F0F9FF',
     iconColor: '#0891B2',
     title: 'E-Commerce SEO',
-    desc: 'Rank product and category pages for high-intent buyer keywords — driving organic traffic that converts without ongoing ad spend.',
+    desc: 'Rank product and category pages for high-intent buyer keywords, driving organic traffic that converts without ongoing ad spend.',
     features: ['Product schema & rich snippets', 'Category page optimisation', 'Faceted URL management', 'Keyword-to-page mapping'],
   },
   {
@@ -92,7 +92,7 @@ const ECOMMERCE_SERVICES = [
     iconBg: '#FFF8F0',
     iconColor: '#F97316',
     title: 'E-Commerce Email & Automation',
-    desc: 'Revenue-generating email flows — abandoned cart recovery, post-purchase sequences, back-in-stock alerts, and VIP loyalty campaigns.',
+    desc: 'Revenue-generating email flows, abandoned cart recovery, post-purchase sequences, back-in-stock alerts, and VIP loyalty campaigns.',
     features: ['Abandoned cart recovery series', 'Welcome & onboarding flows', 'Win-back campaigns', 'Klaviyo / Mailchimp integration'],
   },
   {
@@ -171,7 +171,7 @@ export default function ECommerce() {
             </h1>
 
             <p className="svc-hero__subtitle svc-hero__subtitle--slate">
-              From store build to SEO to email automation — we design, develop, and market
+              From store build to SEO to email automation, we design, develop, and market
               high-converting e-commerce experiences that turn browsers into buyers and buyers
               into loyal repeat customers.
             </p>
@@ -260,7 +260,7 @@ export default function ECommerce() {
               End-to-End E-Commerce, Done for You
             </h2>
             <p className="body-md" style={{ maxWidth: '560px', margin: '0 auto' }}>
-              Everything your online store needs to launch, grow, and dominate your category —
+              Everything your online store needs to launch, grow, and dominate your category, 
               under one roof, with one accountable team.
             </p>
           </div>
@@ -311,7 +311,7 @@ export default function ECommerce() {
               Why Brands Choose DigionTop for E-Commerce
             </h2>
             <p className="body-md" style={{ maxWidth: '560px', margin: '0 auto' }}>
-              We are not just developers — we are growth partners who understand product,
+              We are not just developers, we are growth partners who understand product,
               marketing, and customer psychology.
             </p>
           </div>
@@ -326,7 +326,7 @@ export default function ECommerce() {
               {
                 icon: <HiOutlineLightningBolt size={20} />,
                 label: 'Speed-Optimised by Default',
-                detail: 'Sub-2-second load times on mobile — because 53% of shoppers abandon slow sites.',
+                detail: 'Sub-2-second load times on mobile, because 53% of shoppers abandon slow sites.',
               },
               {
                 icon: <FiSearch size={20} />,
@@ -341,12 +341,12 @@ export default function ECommerce() {
               {
                 icon: <FiRefreshCw size={20} />,
                 label: 'Full Lifecycle Support',
-                detail: 'We stay with you post-launch — ongoing CRO, email flows, and performance monitoring included.',
+                detail: 'We stay with you post-launch, ongoing CRO, email flows, and performance monitoring included.',
               },
               {
                 icon: <FiPackage size={20} />,
                 label: 'Seamless Third-Party Integrations',
-                detail: 'CRMs, ERPs, shipping partners, analytics tools — we connect everything so your store runs on autopilot.',
+                detail: 'CRMs, ERPs, shipping partners, analytics tools, we connect everything so your store runs on autopilot.',
               },
             ].map((item, i) => (
               <div
@@ -394,7 +394,7 @@ export default function ECommerce() {
                 Ready to Build an E-Commerce<br />Store That Actually Sells?
               </h2>
               <p className="svc-cta__subtitle">
-                Get a free e-commerce audit — we will review your current store (or brief),
+                Get a free e-commerce audit, we will review your current store (or brief),
                 identify conversion blockers, and outline a custom growth plan with projected revenue impact.
               </p>
               <div className="svc-cta__actions">

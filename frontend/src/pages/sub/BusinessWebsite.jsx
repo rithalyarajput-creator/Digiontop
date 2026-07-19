@@ -12,10 +12,10 @@ import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/WebDevPages.css'
 
 const FAQS = [
-  { q: 'What is a business website?', a: 'A professional online presence that builds trust, showcases your services and turns visitors into enquiries — your 24/7 digital storefront.' },
-  { q: 'How many pages will it have?', a: 'Typically Home, About, Services, Contact and more — we tailor the structure to your business and goals.' },
-  { q: 'Will it generate leads?', a: 'Yes — clear calls-to-action, contact forms and WhatsApp integration are built in to capture enquiries.' },
-  { q: 'Can customers find me on Google?', a: 'Absolutely — local SEO and Google Business setup help nearby customers discover you.' },
+  { q: 'What is a business website?', a: 'A professional online presence that builds trust, showcases your services and turns visitors into enquiries, your 24/7 digital storefront.' },
+  { q: 'How many pages will it have?', a: 'Typically Home, About, Services, Contact and more, we tailor the structure to your business and goals.' },
+  { q: 'Will it generate leads?', a: 'Yes, clear calls-to-action, contact forms and WhatsApp integration are built in to capture enquiries.' },
+  { q: 'Can customers find me on Google?', a: 'Absolutely, local SEO and Google Business setup help nearby customers discover you.' },
   { q: 'How soon can it go live?', a: 'Most business sites are ready in 2–4 weeks, fully responsive and lead-ready.' },
 ]
 
@@ -29,7 +29,7 @@ const FEATURES = [
 ]
 
 const PROCESS = [
-  { n: '01', t: 'Business Discovery', d: 'We map your services, ideal customer and the questions that stop them from enquiring — so every page has a job to do.' },
+  { n: '01', t: 'Business Discovery', d: 'We map your services, ideal customer and the questions that stop them from enquiring, so every page has a job to do.' },
   { n: '02', t: 'Structure & Wireframes', d: 'We plan the sitemap, service pages and enquiry paths, then wireframe each screen around a single clear call-to-action.' },
   { n: '03', t: 'Design & Build', d: 'Your brand becomes a fast, responsive site with trust signals, service detail and forms wired to your inbox and WhatsApp.' },
   { n: '04', t: 'Launch & Lead Tracking', d: 'We ship with local SEO, Google Business and analytics in place, then track which pages actually produce enquiries.' },
@@ -50,7 +50,7 @@ export default function BusinessWebsite() {
     <main className="biz">
       <Seo
         title="Business Website Development Services in India"
-        description="Professional business websites built to win enquiries — clear service pages, contact forms, WhatsApp and click-to-call, local SEO ready, live in 2 to 4 weeks. Get started."
+        description="Professional business websites built to win enquiries, clear service pages, contact forms, WhatsApp and click-to-call, local SEO ready, live in 2 to 4 weeks. Get started."
         path="/services/business-website"
       />
       <section className="biz-hero biz-hero--light">
@@ -58,7 +58,7 @@ export default function BusinessWebsite() {
           <div className="biz-hero__text" data-aos="fade-right">
             <span className="biz-tag"><FiBriefcase /> Business Website Development</span>
             <h1 className="biz-hero__title">Your 24/7 <span>Digital Storefront</span></h1>
-            <p className="biz-hero__sub">A professional business website that builds trust, showcases your services and turns visitors into real enquiries — working for you around the clock.</p>
+            <p className="biz-hero__sub">A professional business website that builds trust, showcases your services and turns visitors into real enquiries, working for you around the clock.</p>
             <div className="biz-hero__cta">
               <Link to="/contact" className="biz-btn biz-btn--solid">Build My Business Site <FiArrowRight /></Link>
               <Link to="/contact" className="biz-btn biz-btn--ghost">Free Consultation</Link>
@@ -137,7 +137,7 @@ export default function BusinessWebsite() {
           <div className="biz-cta__box" data-aos="zoom-in">
             <FiBriefcase className="biz-cta__ic" />
             <h2>Ready to Look Professional Online?</h2>
-            <p>Get a free consultation — we'll plan a business website that builds trust and brings you leads.</p>
+            <p>Get a free consultation, we'll plan a business website that builds trust and brings you leads.</p>
             <Link to="/contact" className="biz-btn biz-btn--light">Book Free Consultation <FiArrowUpRight /></Link>
           </div>
         </div>

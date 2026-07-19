@@ -16,7 +16,7 @@ const DEFAULTS = {
   social_linkedin: '',
   social_twitter: '',
   social_youtube: 'https://www.youtube.com/@digiontop',
-  seo_meta_title: 'DigionTop — #1 Digital Marketing Agency in India',
+  seo_meta_title: 'DigionTop: #1 Digital Marketing Agency in India',
   seo_meta_description: 'Result-driven SEO, social media, web development & e-commerce marketing for businesses across India.',
   seo_og_image: '',
   seo_twitter_handle: '',

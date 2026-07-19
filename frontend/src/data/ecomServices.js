@@ -3,7 +3,7 @@ export const ECOM_SERVICES = {
   amazon: {
     tag: 'Amazon Product Listing',
     titleA: 'Professional Amazon Listings That', titleB: 'Drive Sales',
-    intro: 'Success on Amazon starts with a professionally optimized listing — better visibility, customer trust, and higher conversions.',
+    intro: 'Success on Amazon starts with a professionally optimized listing, better visibility, customer trust, and higher conversions.',
     intro2: 'We create Amazon product listings designed to maximize exposure and help businesses compete effectively in one of the world\'s largest marketplaces.',
     services: ['Product Listing Creation', 'Product Title Optimization', 'SEO-Friendly Bullet Points', 'Product Description Writing', 'Backend Search Terms Optimization', 'Category Selection', 'Product Attribute Optimization', 'Amazon Listing Enhancement'],
     benefits: ['Better Product Visibility', 'Higher Conversion Rates', 'Improved Customer Trust', 'Marketplace Compliance'],
@@ -52,13 +52,13 @@ export const ECOM_SERVICES = {
     intro2: 'From bulk uploads to data management and ongoing maintenance, we handle your catalog so you can focus on growth.',
     services: ['Product Catalog Setup', 'Product Data Management', 'Inventory Updates', 'Catalog Optimization', 'Bulk Product Uploads', 'Product Information Maintenance'],
     benefits: ['Organized Product Catalogs', 'Improved Operational Efficiency', 'Accurate Product Information', 'Better Marketplace Performance'],
-    ctaTitle: 'Keep Your Catalog Effortless', ctaText: 'Accurate, optimized catalogs across every marketplace — fully managed by us.',
+    ctaTitle: 'Keep Your Catalog Effortless', ctaText: 'Accurate, optimized catalogs across every marketplace, fully managed by us.',
   },
   'account-management': {
     tag: 'Marketplace Account Management',
     titleA: 'Complete Marketplace Management For', titleB: 'Sustainable Growth',
     intro: 'Marketplace operations need continuous monitoring, updates, and optimization. We handle the daily work while you grow.',
-    intro2: 'Our account management covers setup, uploads, listing management, and performance monitoring — end to end.',
+    intro2: 'Our account management covers setup, uploads, listing management, and performance monitoring, end to end.',
     services: ['Account Setup & Configuration', 'Product Uploading', 'Listing Management', 'Catalog Maintenance', 'Performance Monitoring', 'Marketplace Support'],
     benefits: ['Professional Account Management', 'Time-Saving Operations', 'Better Marketplace Performance', 'Consistent Growth Support'],
     ctaTitle: 'Let Us Run Your Marketplace', ctaText: 'Focus on your business while we handle daily marketplace operations and growth.',
@@ -66,7 +66,7 @@ export const ECOM_SERVICES = {
   'growth-consulting': {
     tag: 'E-Commerce Growth Consulting',
     titleA: 'Strategic Guidance To', titleB: 'Scale Your E-Commerce Business',
-    intro: 'Growing online needs more than listings — it needs strategy, optimization, and continuous improvement.',
+    intro: 'Growing online needs more than listings, it needs strategy, optimization, and continuous improvement.',
     intro2: 'We help you identify opportunities, improve performance, and achieve long-term marketplace success with data-driven consulting.',
     services: ['Marketplace Growth Strategy', 'Competitor Analysis', 'Product Performance Review', 'Sales Growth Planning', 'Catalog Optimization Strategy', 'Business Scaling Consultation'],
     benefits: ['Data-Driven Growth Decisions', 'Improved Sales Performance', 'Better Marketplace Positioning', 'Long-Term Business Growth'],

@@ -11,18 +11,18 @@ import '../../styles/SubService.css'
 const SERVICES = ['Promotional Videos', 'Product Videos', 'Social Media Reels', 'Corporate Videos', 'Motion Graphics', 'Advertisement Videos', 'Brand Story Videos']
 
 const STAGES = [
-  { icon: <FiEdit />, title: 'Script', desc: 'We start with a tight, hook-first script — the first 3 seconds are written to stop the scroll, with a clear message and call-to-action mapped to your goal (reel, ad film, or product video).' },
-  { icon: <FiVideo />, title: 'Shoot', desc: 'Production day with proper lighting, framing, and multiple takes/angles — studio or on-location — covering B-roll, product close-ups, talking-head, and lifestyle shots as the concept demands.' },
-  { icon: <FiEdit3 />, title: 'Edit', desc: 'Pacing, sound design, colour grading, captions, and motion graphics are layered in — cutting for retention on Reels/Shorts or for persuasion on ad films and product videos.' },
+  { icon: <FiEdit />, title: 'Script', desc: 'We start with a tight, hook-first script, the first 3 seconds are written to stop the scroll, with a clear message and call-to-action mapped to your goal (reel, ad film, or product video).' },
+  { icon: <FiVideo />, title: 'Shoot', desc: 'Production day with proper lighting, framing, and multiple takes/angles, studio or on-location, covering B-roll, product close-ups, talking-head, and lifestyle shots as the concept demands.' },
+  { icon: <FiEdit3 />, title: 'Edit', desc: 'Pacing, sound design, colour grading, captions, and motion graphics are layered in, cutting for retention on Reels/Shorts or for persuasion on ad films and product videos.' },
   { icon: <FiSend />, title: 'Deliver', desc: 'Final files exported in platform-ready formats and aspect ratios (9:16, 1:1, 16:9) with captions, thumbnails, and revision rounds so it\'s ready to publish or run as an ad.' },
 ]
 
 const FAQS = [
-  { q: 'What types of videos do you produce?', a: 'We produce Instagram/YouTube Reels, paid ad films, product demo and showcase videos, brand story and corporate videos, and motion graphics/explainer animations — each edited for the platform it\'s built for.' },
+  { q: 'What types of videos do you produce?', a: 'We produce Instagram/YouTube Reels, paid ad films, product demo and showcase videos, brand story and corporate videos, and motion graphics/explainer animations, each edited for the platform it\'s built for.' },
   { q: 'How long does a video project take?', a: 'A single reel or short product video typically takes 3-5 business days from script to final delivery. Ad films or multi-video packages with on-location shoots usually take 1-2 weeks depending on shoot days and revision rounds.' },
-  { q: 'Do you handle filming, or only editing?', a: 'Both. We can shoot from scratch — script, on-location or studio filming, lighting, and direction — or work purely on post-production if you already have raw footage that needs editing, grading, and motion graphics.' },
-  { q: 'Can you edit raw footage we already shot?', a: 'Yes. Send us your raw clips and we\'ll handle the full edit — cutting, pacing, colour correction, sound design, captions, and motion graphics — to turn it into a polished, publish-ready video.' },
-  { q: 'What formats and aspect ratios do you deliver?', a: 'We deliver in whatever your platforms need — vertical 9:16 for Reels/Shorts/Stories, square 1:1 for feed posts, and horizontal 16:9 for YouTube and websites — plus caption files and thumbnails on request.' },
+  { q: 'Do you handle filming, or only editing?', a: 'Both. We can shoot from scratch, script, on-location or studio filming, lighting, and direction, or work purely on post-production if you already have raw footage that needs editing, grading, and motion graphics.' },
+  { q: 'Can you edit raw footage we already shot?', a: 'Yes. Send us your raw clips and we\'ll handle the full edit, cutting, pacing, colour correction, sound design, captions, and motion graphics, to turn it into a polished, publish-ready video.' },
+  { q: 'What formats and aspect ratios do you deliver?', a: 'We deliver in whatever your platforms need, vertical 9:16 for Reels/Shorts/Stories, square 1:1 for feed posts, and horizontal 16:9 for YouTube and websites, plus caption files and thumbnails on request.' },
   { q: 'How many revisions are included?', a: 'Every video package includes revision rounds so we can fine-tune pacing, music, text, and colour before final delivery. We work with you until the video matches the brief and is ready to publish or run as an ad.' },
 ]
 

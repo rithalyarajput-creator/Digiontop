@@ -3,7 +3,7 @@ export const SOCIAL_SERVICES = {
   'social-media-marketing': {
     tag: 'Social Media Marketing',
     titleA: 'Grow Your Brand', titleB: 'Across Every Social Platform',
-    intro: 'Social media is more than posting — it\'s about building relationships, increasing visibility, and driving business growth.',
+    intro: 'Social media is more than posting, it\'s about building relationships, increasing visibility, and driving business growth.',
     intro2: 'We create strategic campaigns that help businesses attract customers, build trust, and generate meaningful engagement across platforms.',
     services: ['Social Media Strategy', 'Content Planning', 'Brand Awareness Campaigns', 'Engagement Growth', 'Audience Targeting', 'Social Media Advertising Support'],
     benefits: ['Increased Brand Visibility', 'Higher Audience Engagement', 'Better Customer Relationships', 'Business Growth Opportunities'],

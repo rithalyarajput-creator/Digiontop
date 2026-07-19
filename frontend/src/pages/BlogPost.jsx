@@ -84,7 +84,7 @@ export default function BlogPost() {
       <JsonLd data={postSchema} />
       <Seo
         title={post.meta_title || post.title}
-        description={post.meta_description || post.excerpt || `Read "${post.title}" on the DigionTop blog — practical digital marketing insight for growing Indian businesses.`}
+        description={post.meta_description || post.excerpt || `Read "${post.title}" on the DigionTop blog, practical digital marketing insight for growing Indian businesses.`}
         path={`/blog/${post.slug || slug}`}
         type="article"
         image={post.image_url || undefined}

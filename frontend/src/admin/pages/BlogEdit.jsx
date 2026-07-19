@@ -242,7 +242,7 @@ export default function BlogEdit() {
                   <RichEditor
                     value={/<(p|h[1-6]|ul|ol|li|blockquote|div|table|pre)\b/i.test(form.content || '') ? form.content : renderBlogContent(form.content)}
                     onChange={(html) => update('content', html)}
-                    placeholder="Write your blog post here — select text and click B, H2, List… just like Word."
+                    placeholder="Write your blog post here, select text and click B, H2, List… just like Word."
                   />
                   <p className="blogedit__hint">
                     Type or paste your text, select it, then click <b>B</b>, <b>H2</b>, <b>• List</b> etc.

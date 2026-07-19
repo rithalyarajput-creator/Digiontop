@@ -11,11 +11,11 @@ import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
-  { q: 'How do you find the right influencers?', a: 'We vet by audience fit, engagement quality (not just follower count), and past performance — so your budget reaches real, relevant buyers.' },
-  { q: 'Do you handle outreach and contracts?', a: 'Fully — from finding creators to negotiation, briefs, contracts and content approval. It\'s completely managed.' },
-  { q: 'Micro or macro influencers — which is better?', a: 'Often micro & nano creators deliver higher engagement and better ROI. We build the right mix for your goals.' },
+  { q: 'How do you find the right influencers?', a: 'We vet by audience fit, engagement quality (not just follower count), and past performance, so your budget reaches real, relevant buyers.' },
+  { q: 'Do you handle outreach and contracts?', a: 'Fully, from finding creators to negotiation, briefs, contracts and content approval. It\'s completely managed.' },
+  { q: 'Micro or macro influencers, which is better?', a: 'Often micro & nano creators deliver higher engagement and better ROI. We build the right mix for your goals.' },
   { q: 'How do you measure results?', a: 'Reach, engagement, clicks and conversions are tracked with unique links and codes so you see real ROI, not vanity metrics.' },
-  { q: 'What niches do you cover?', a: 'Fashion, beauty, food, tech, fitness, D2C and more — we source creators that match your brand and audience.' },
+  { q: 'What niches do you cover?', a: 'Fashion, beauty, food, tech, fitness, D2C and more, we source creators that match your brand and audience.' },
 ]
 
 const STEPS = [
@@ -38,7 +38,7 @@ export default function InfluencerMarketing() {
           <div className="im-hero__text" data-aos="fade-right">
             <span className="im-tag"><FiStar /> Influencer Marketing</span>
             <h1 className="im-hero__title">Real Creators.<br /><span>Real Trust. Real Sales.</span></h1>
-            <p className="im-hero__sub">We connect your brand with the right creators — vetted for real, engaged audiences — and manage everything from outreach to results.</p>
+            <p className="im-hero__sub">We connect your brand with the right creators, vetted for real, engaged audiences, and manage everything from outreach to results.</p>
             <div className="im-hero__cta">
               <Link to="/contact" className="im-btn im-btn--solid">Launch a Campaign <FiArrowRight /></Link>
               <Link to="/contact" className="im-btn im-btn--ghost">Free Creator Match</Link>
@@ -80,7 +80,7 @@ export default function InfluencerMarketing() {
           <div className="im-cta__box" data-aos="zoom-in">
             <FiStar className="im-cta__ic" />
             <h2>Ready to Borrow Some Trust?</h2>
-            <p>Get a free creator match — we'll show you the perfect influencers for your brand and budget.</p>
+            <p>Get a free creator match, we'll show you the perfect influencers for your brand and budget.</p>
             <Link to="/contact" className="im-btn im-btn--light">Get My Creator Match <FiArrowUpRight /></Link>
           </div>
         </div>

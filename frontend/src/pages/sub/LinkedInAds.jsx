@@ -11,11 +11,11 @@ import Seo from '../../components/Seo'
 import '../../styles/LinkedInAds.css'
 
 const FAQS = [
-  { q: 'Is LinkedIn worth it for B2B?', a: 'For B2B, it\'s unmatched — you can target by job title, company, industry and seniority, putting your offer in front of exact decision-makers.' },
+  { q: 'Is LinkedIn worth it for B2B?', a: 'For B2B, it\'s unmatched, you can target by job title, company, industry and seniority, putting your offer in front of exact decision-makers.' },
   { q: 'What campaign types work best?', a: 'Lead-gen forms, sponsored content and message ads. We pick the mix that fits your funnel and sales cycle.' },
-  { q: 'LinkedIn ads are expensive — is the ROI there?', a: 'Cost-per-click is higher, but lead quality is far better. We optimise for cost-per-qualified-lead, not vanity clicks.' },
-  { q: 'Do you write the ad copy and creative?', a: 'Yes — professional, on-brand copy and creative tuned for a B2B audience is included.' },
-  { q: 'Can you target specific companies?', a: 'Absolutely — account-based targeting lets us reach named companies and the exact roles you sell to.' },
+  { q: 'LinkedIn ads are expensive, is the ROI there?', a: 'Cost-per-click is higher, but lead quality is far better. We optimise for cost-per-qualified-lead, not vanity clicks.' },
+  { q: 'Do you write the ad copy and creative?', a: 'Yes, professional, on-brand copy and creative tuned for a B2B audience is included.' },
+  { q: 'Can you target specific companies?', a: 'Absolutely, account-based targeting lets us reach named companies and the exact roles you sell to.' },
 ]
 
 const TARGETS = [
@@ -46,7 +46,7 @@ export default function LinkedInAds() {
           <div className="li-hero__text" data-aos="fade-right">
             <span className="li-tag"><FiLinkedin /> LinkedIn Advertising</span>
             <h1 className="li-hero__title">Reach the People Who <span>Sign the Deal</span></h1>
-            <p className="li-hero__sub">Precision B2B campaigns that put your offer in front of exact decision-makers — by title, company and industry — and turn them into qualified leads.</p>
+            <p className="li-hero__sub">Precision B2B campaigns that put your offer in front of exact decision-makers, by title, company and industry, and turn them into qualified leads.</p>
             <div className="li-hero__cta">
               <Link to="/contact" className="li-btn li-btn--solid">Generate B2B Leads <FiArrowRight /></Link>
               <Link to="/contact" className="li-btn li-btn--ghost">Free B2B Strategy Call</Link>
@@ -76,7 +76,7 @@ export default function LinkedInAds() {
       {/* band */}
       <section className="li-band">
         <div className="li-container li-band__inner" data-aos="fade-up">
-          <h2>Fewer, Better Leads — Straight to Sales</h2>
+          <h2>Fewer, Better Leads, Straight to Sales</h2>
           <div className="li-band__stats">
             <div><b>2.4x</b><span>Higher Lead Quality</span></div>
             <div><b>ABM</b><span>Account Targeting</span></div>
@@ -92,7 +92,7 @@ export default function LinkedInAds() {
           <div className="li-cta__box" data-aos="zoom-in">
             <FiBriefcase className="li-cta__ic" />
             <h2>Ready to Fill Your Pipeline?</h2>
-            <p>Get a free B2B strategy call — we'll map exactly how to reach and convert your ideal customers on LinkedIn.</p>
+            <p>Get a free B2B strategy call, we'll map exactly how to reach and convert your ideal customers on LinkedIn.</p>
             <Link to="/contact" className="li-btn li-btn--light">Book Free Strategy Call <FiArrowUpRight /></Link>
           </div>
         </div>

@@ -43,8 +43,8 @@ import '../styles/Services.css'
 
 const SM_FAQS = [
   { q: 'How soon will social media marketing show results?', a: 'Engagement and reach often improve within the first 30 days; consistent growth and conversions build over 60–90 days.' },
-  { q: 'Which platforms do you manage?', a: 'Instagram, Facebook, LinkedIn, YouTube, X and more — content, reels, posts, community and paid campaigns.' },
-  { q: 'Do you create the content too?', a: 'Yes — strategy, creative posts, reels, captions, and scheduling are all handled by our team.' },
+  { q: 'Which platforms do you manage?', a: 'Instagram, Facebook, LinkedIn, YouTube, X and more, content, reels, posts, community and paid campaigns.' },
+  { q: 'Do you create the content too?', a: 'Yes, strategy, creative posts, reels, captions, and scheduling are all handled by our team.' },
   { q: 'Do you run paid ad campaigns?', a: 'Yes, we run high-ROAS paid social campaigns alongside organic growth.' },
   { q: 'Is there a long-term contract?', a: 'No lock-in. We work flexibly and earn your trust with real engagement and growth.' },
 ]
@@ -56,7 +56,7 @@ const SOCIAL_SERVICES = [
     iconBg: '#FFF0F6',
     iconColor: '#DB2777',
     title: 'Social Media Strategy & Planning',
-    desc: 'A custom 90-day social strategy aligned to your business goals — platform selection, content pillars, posting cadence, and KPIs defined upfront.',
+    desc: 'A custom 90-day social strategy aligned to your business goals, platform selection, content pillars, posting cadence, and KPIs defined upfront.',
     features: ['Platform audit & competitor analysis', 'Audience persona development', 'Content pillar framework', 'Monthly content calendars'],
   },
   {
@@ -104,7 +104,7 @@ const SOCIAL_SERVICES = [
     iconBg: '#FFF3CC',
     iconColor: '#c47f00',
     title: 'Influencer Marketing',
-    desc: 'End-to-end influencer campaign management — from finding the right creators to negotiating deals, briefing, and measuring real-world ROI.',
+    desc: 'End-to-end influencer campaign management, from finding the right creators to negotiating deals, briefing, and measuring real-world ROI.',
     features: ['Micro & macro influencer outreach', 'Campaign briefing & management', 'UGC (user-generated content)', 'Performance tracking'],
   },
   {
@@ -112,7 +112,7 @@ const SOCIAL_SERVICES = [
     iconBg: '#F0FDF4',
     iconColor: '#059669',
     title: 'Paid Social Campaigns',
-    desc: 'Full-funnel paid social across Meta, TikTok, LinkedIn, and Pinterest — creative-led campaigns optimised for your specific conversion objective.',
+    desc: 'Full-funnel paid social across Meta, TikTok, LinkedIn, and Pinterest, creative-led campaigns optimised for your specific conversion objective.',
     features: ['Creative design & copywriting', 'Audience & lookalike targeting', 'A/B ad testing', 'ROAS-focused optimisation'],
   },
 ]
@@ -137,7 +137,7 @@ export default function SocialMedia() {
     <>
       <Seo
         title="Social Media Marketing Services in India"
-        description="Instagram, Facebook, LinkedIn and YouTube marketing done for you — strategy, reels, creative posts, community management and paid social. Grow your audience with us."
+        description="Instagram, Facebook, LinkedIn and YouTube marketing done for you, strategy, reels, creative posts, community management and paid social. Grow your audience with us."
         path="/services/social-media-marketing"
       />
       {/* ── Hero ─────────────────────────────────────────── */}
@@ -207,7 +207,7 @@ export default function SocialMedia() {
               Every Platform. Every Format. Every Result.
             </h2>
             <p className="body-md" style={{ maxWidth: '560px', margin: '0 auto' }}>
-              From organic content strategy to high-ROAS paid campaigns — we manage your
+              From organic content strategy to high-ROAS paid campaigns, we manage your
               complete social media presence so you can focus on running your business.
             </p>
           </div>
@@ -260,7 +260,7 @@ export default function SocialMedia() {
               Social Media is Where Decisions Are Made
             </h2>
             <p className="body-md" style={{ maxWidth: '560px', margin: '0 auto' }}>
-              Your customers scroll before they buy. Be where they scroll — with content that
+              Your customers scroll before they buy. Be where they scroll, with content that
               stops the thumb, builds trust, and drives action.
             </p>
           </div>
@@ -285,12 +285,12 @@ export default function SocialMedia() {
               {
                 icon: <HiOutlineLightBulb size={20} />,
                 label: 'Compound Brand Awareness',
-                detail: 'Consistent organic presence compounds over time — a single viral post can reach millions for zero ad spend.',
+                detail: 'Consistent organic presence compounds over time, a single viral post can reach millions for zero ad spend.',
               },
               {
                 icon: <MdOutlineAutoGraph size={20} />,
                 label: 'Measurable ROI',
-                detail: 'Every impression, click, and conversion tracked — know exactly what your social spend is returning.',
+                detail: 'Every impression, click, and conversion tracked, know exactly what your social spend is returning.',
               },
               {
                 icon: <HiOutlineUserGroup size={20} />,
@@ -349,7 +349,7 @@ export default function SocialMedia() {
                 Stop Posting &amp; Hoping.<br />Start Growing with a Strategy.
               </h2>
               <p className="svc-cta__subtitle">
-                Get a free social media audit — we will analyse your current profiles,
+                Get a free social media audit, we will analyse your current profiles,
                 identify content gaps, and show you exactly how to grow your audience in 30 days.
               </p>
               <div className="svc-cta__actions">

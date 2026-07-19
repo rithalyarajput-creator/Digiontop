@@ -16,7 +16,7 @@ const FAQS = [
   { q: 'How soon do paid ads deliver results?', a: 'Paid ads can drive leads from day one. We optimize over the first 2–4 weeks to maximize ROI and lower cost-per-lead.' },
   { q: 'Which platforms do you run ads on?', a: 'Google Ads (search, display, shopping), Meta (Facebook/Instagram), LinkedIn, and YouTube.' },
   { q: 'Is ad spend included in your pricing?', a: 'Our management fee is separate from your ad budget. We help you set a budget that fits your goals.' },
-  { q: 'Will I see where my money goes?', a: 'Yes — full transparency with clear reports on spend, leads, conversions, and ROAS.' },
+  { q: 'Will I see where my money goes?', a: 'Yes, full transparency with clear reports on spend, leads, conversions, and ROAS.' },
   { q: 'Do you need a long contract?', a: 'No lock-in. We earn your trust with measurable campaign performance.' },
 ]
 
@@ -44,7 +44,7 @@ export default function PpcPage() {
         <div className="ss-container ss-hero__center" data-aos="fade-up">
           <span className="ss-tag"><FiTrendingUp /> PPC &amp; Paid Advertising</span>
           <h1 className="ss-hero__title">High-ROI Paid Campaigns <span>Across Every Platform</span></h1>
-          <p className="ss-hero__sub">Google Ads, Meta Ads, lead generation & retargeting campaigns that actually deliver customers — built around real KPIs and measurable ROI.</p>
+          <p className="ss-hero__sub">Google Ads, Meta Ads, lead generation & retargeting campaigns that actually deliver customers, built around real KPIs and measurable ROI.</p>
           <div className="ss-hero__actions">
             <Link to="/contact" className="ss-btn ss-btn--primary">Launch My Campaign <FiArrowRight /></Link>
             <Link to="/contact" className="ss-btn ss-btn--ghost">Get Free Ad Audit</Link>
@@ -58,7 +58,7 @@ export default function PpcPage() {
           <h2 className="ss-h2">Paid Ads That Pay For Themselves</h2>
           <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginTop: 14 }}>
             We plan, launch, and optimize paid campaigns that put your brand in front of the right
-            audience at the right time — turning ad spend into real, trackable business growth.
+            audience at the right time, turning ad spend into real, trackable business growth.
           </p>
         </div>
       </section>

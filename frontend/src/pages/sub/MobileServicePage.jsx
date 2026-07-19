@@ -22,7 +22,7 @@ const ICONS = {
 const SEO_META = {
   'mobile-app': {
     title: 'Mobile App Development Company',
-    description: 'Custom mobile apps for business, e-commerce and service booking — scalable, secure and cross-platform, built around your goals. Book a free app consultation.',
+    description: 'Custom mobile apps for business, e-commerce and service booking, scalable, secure and cross-platform, built around your goals. Book a free app consultation.',
   },
   ios: {
     title: 'iOS App Development for iPhone & iPad',
@@ -30,11 +30,11 @@ const SEO_META = {
   },
   android: {
     title: 'Android App Development Company',
-    description: 'Feature-rich Android apps built for performance, security and reach — business apps, customer portals and API integrations, shipped to the Play Store. Talk to us.',
+    description: 'Feature-rich Android apps built for performance, security and reach, business apps, customer portals and API integrations, shipped to the Play Store. Talk to us.',
   },
   flutter: {
     title: 'Flutter App Development Services',
-    description: 'One Flutter codebase running natively on Android and iOS — faster launches, lower cost and a consistent experience on every device. Get a free Flutter consultation.',
+    description: 'One Flutter codebase running natively on Android and iOS, faster launches, lower cost and a consistent experience on every device. Get a free Flutter consultation.',
   },
   cloud: {
     title: 'Cloud Solutions & Migration Services',

@@ -11,17 +11,17 @@ import Seo from '../../components/Seo'
 import '../../styles/SmmPages.css'
 
 const FAQS = [
-  { q: 'How is SEO content different from normal writing?', a: 'It\'s written to rank AND read well — keyword-researched, structured for search intent, and optimised so Google and humans both love it.' },
-  { q: 'Do you do keyword research?', a: 'Yes — every piece starts with intent-based keyword and competitor research so you target terms that actually drive traffic.' },
-  { q: 'Will the content sound robotic?', a: 'Never — our writers craft natural, engaging copy. SEO is the foundation, not the voice.' },
-  { q: 'How many words per article?', a: 'We match length to search intent and competition — usually 800–2,000+ words for pieces built to rank.' },
-  { q: 'Do you optimise existing content too?', a: 'Absolutely — we refresh and re-optimise old pages to recover and grow rankings.' },
+  { q: 'How is SEO content different from normal writing?', a: 'It\'s written to rank AND read well, keyword-researched, structured for search intent, and optimised so Google and humans both love it.' },
+  { q: 'Do you do keyword research?', a: 'Yes, every piece starts with intent-based keyword and competitor research so you target terms that actually drive traffic.' },
+  { q: 'Will the content sound robotic?', a: 'Never, our writers craft natural, engaging copy. SEO is the foundation, not the voice.' },
+  { q: 'How many words per article?', a: 'We match length to search intent and competition, usually 800–2,000+ words for pieces built to rank.' },
+  { q: 'Do you optimise existing content too?', a: 'Absolutely, we refresh and re-optimise old pages to recover and grow rankings.' },
 ]
 
 const INCLUDES = [
-  { icon: <FiSearch />, t: 'Keyword & Intent Research', d: 'We target the terms your buyers actually search — mapped to intent.' },
+  { icon: <FiSearch />, t: 'Keyword & Intent Research', d: 'We target the terms your buyers actually search, mapped to intent.' },
   { icon: <FiHash />, t: 'On-Page Optimisation', d: 'Titles, headings, meta and internal links tuned to rank.' },
-  { icon: <FiEdit3 />, t: 'Natural, Engaging Copy', d: 'Content people actually want to read — not keyword-stuffed filler.' },
+  { icon: <FiEdit3 />, t: 'Natural, Engaging Copy', d: 'Content people actually want to read, not keyword-stuffed filler.' },
   { icon: <FiTarget />, t: 'Conversion-Focused', d: 'Clear CTAs and structure that turn readers into leads.' },
 ]
 
@@ -80,7 +80,7 @@ export default function SeoContentWriting() {
           <div className="cw-cta__box" data-aos="zoom-in">
             <FiFileText className="cw-cta__ic" />
             <h2>Ready to Rank Higher?</h2>
-            <p>Get a free content sample — see the quality and SEO structure that gets our clients to Page 1.</p>
+            <p>Get a free content sample, see the quality and SEO structure that gets our clients to Page 1.</p>
             <Link to="/contact" className="cw-btn cw-btn--light">Get My Free Sample <FiArrowUpRight /></Link>
           </div>
         </div>

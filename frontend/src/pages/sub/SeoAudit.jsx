@@ -12,11 +12,11 @@ import Seo from '../../components/Seo'
 import '../../styles/SeoAudit.css'
 
 const FAQS = [
-  { q: 'What does the SEO audit cover?', a: 'Technical health, on-page, content, backlinks, Core Web Vitals, mobile, indexation and competitor gaps — a full 150-point review.' },
+  { q: 'What does the SEO audit cover?', a: 'Technical health, on-page, content, backlinks, Core Web Vitals, mobile, indexation and competitor gaps, a full 150-point review.' },
   { q: 'How long does an audit take?', a: 'A complete audit is delivered in 3–5 business days, with a walkthrough call to explain findings and priorities.' },
-  { q: 'Do I get a prioritised action plan?', a: 'Yes — not just problems, but a ranked fix-list showing what to do first for the biggest ranking impact.' },
+  { q: 'Do I get a prioritised action plan?', a: 'Yes, not just problems, but a ranked fix-list showing what to do first for the biggest ranking impact.' },
   { q: 'Is the audit really free?', a: 'We offer a free starter audit that highlights your biggest issues. A full deep-dive audit is a paid, in-depth deliverable.' },
-  { q: 'Can you also fix what you find?', a: 'Absolutely — we can hand off the report to your team or implement every fix ourselves as an ongoing engagement.' },
+  { q: 'Can you also fix what you find?', a: 'Absolutely, we can hand off the report to your team or implement every fix ourselves as an ongoing engagement.' },
 ]
 
 const AREAS = [
@@ -33,7 +33,7 @@ export default function SeoAudit() {
   return (
     <main className="aud">
       <Seo
-        title="SEO Audit Services — 150-Point Site Audit"
+        title="SEO Audit Services, 150-Point Site Audit"
         description="A 150-point SEO audit of your technical health, content, backlinks, Core Web Vitals and competitor gaps, with a prioritised fix list. Get a free starter audit."
         path="/services/seo-audit"
       />
@@ -43,7 +43,7 @@ export default function SeoAudit() {
           <div className="aud-hero__text" data-aos="fade-right">
             <span className="aud-tag"><FiClipboard /> SEO Audit Services</span>
             <h1 className="aud-hero__title">Know Exactly Why<br /><span>You're Not Ranking</span></h1>
-            <p className="aud-hero__sub">A 150-point deep-dive into your site's SEO — technical, content, links and competitors — with a clear, prioritised action plan you can actually act on.</p>
+            <p className="aud-hero__sub">A 150-point deep-dive into your site's SEO, technical, content, links and competitors, with a clear, prioritised action plan you can actually act on.</p>
             <div className="aud-hero__cta">
               <a href="#free-seo-audit" className="aud-btn aud-btn--solid">Run My Free Audit <FiArrowRight /></a>
               <Link to="/contact" className="aud-btn aud-btn--ghost">Talk to an Expert</Link>
@@ -84,7 +84,7 @@ export default function SeoAudit() {
         <div className="aud-container aud-deliver__inner">
           <div data-aos="fade-right">
             <span className="aud-eyebrow aud-eyebrow--light">What You Get</span>
-            <h2>Not Just Problems — a Plan</h2>
+            <h2>Not Just Problems, a Plan</h2>
             <p>Every audit ends with a prioritised roadmap: what to fix first, the expected impact, and exactly how to do it.</p>
             <Link to="/contact" className="aud-btn aud-btn--solid">Request Full Audit <FiArrowUpRight /></Link>
           </div>
@@ -103,7 +103,7 @@ export default function SeoAudit() {
           <div className="aud-cta__box" data-aos="zoom-in">
             <FiAlertTriangle className="aud-cta__ic" />
             <h2>Find Out What's Holding You Back</h2>
-            <p>Get a free starter SEO audit — we'll reveal your biggest ranking issues and how to fix them.</p>
+            <p>Get a free starter SEO audit, we'll reveal your biggest ranking issues and how to fix them.</p>
             <Link to="/contact" className="aud-btn aud-btn--light">Get My Free Audit <FiArrowRight /></Link>
           </div>
         </div>

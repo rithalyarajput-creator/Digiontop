@@ -8,10 +8,10 @@ import ServiceFaq from '../../components/ServiceFaq'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
-  { q: 'What is marketplace account management?', a: 'End-to-end management of your seller account — listings, ads, pricing, health, cases and growth — so you sell more with less hassle.' },
-  { q: 'Do you handle account health issues?', a: 'Yes — we monitor and resolve policy warnings, suppressed listings and performance metrics to keep your account safe.' },
+  { q: 'What is marketplace account management?', a: 'End-to-end management of your seller account, listings, ads, pricing, health, cases and growth, so you sell more with less hassle.' },
+  { q: 'Do you handle account health issues?', a: 'Yes, we monitor and resolve policy warnings, suppressed listings and performance metrics to keep your account safe.' },
   { q: 'Will you run ads too?', a: 'We manage sponsored ads and promotions alongside listings for a complete growth strategy.' },
-  { q: 'Which marketplaces do you manage?', a: 'Amazon, Flipkart, Meesho and more — a dedicated manager handles it all.' },
+  { q: 'Which marketplaces do you manage?', a: 'Amazon, Flipkart, Meesho and more, a dedicated manager handles it all.' },
   { q: 'How do I stay updated?', a: 'Regular reports and reviews keep you informed on sales, health and growth.' },
 ]
 const FEATURES = [
@@ -42,7 +42,7 @@ export default function AccountManagement() {
     <main className="acc">
       <Seo
         title="Marketplace Seller Account Management Services"
-        description="End-to-end Amazon, Flipkart and Meesho seller account management — account health, case handling, pricing, listings and ads run by a dedicated manager. Get a free review."
+        description="End-to-end Amazon, Flipkart and Meesho seller account management, account health, case handling, pricing, listings and ads run by a dedicated manager. Get a free review."
         path="/services/ecom/account-management"
       />
       <section className="acc-hero acc-hero--dark">
@@ -50,7 +50,7 @@ export default function AccountManagement() {
           <div className="acc-hero__text" data-aos="fade-right">
             <span className="acc-tag acc-tag--light"><FiSettings /> Marketplace Account Management</span>
             <h1 className="acc-hero__title acc-hero__title--light">Your Seller Account,<br /><span>Fully Managed</span></h1>
-            <p className="acc-hero__sub acc-hero__sub--light">End-to-end management of your Amazon, Flipkart and Meesho accounts — health, listings, ads and growth handled by a dedicated expert, so you just watch sales grow.</p>
+            <p className="acc-hero__sub acc-hero__sub--light">End-to-end management of your Amazon, Flipkart and Meesho accounts, health, listings, ads and growth handled by a dedicated expert, so you just watch sales grow.</p>
             <div className="acc-hero__cta">
               <Link to="/contact" className="acc-btn acc-btn--solid">Manage My Account <FiArrowRight /></Link>
               <Link to="/contact" className="acc-btn acc-btn--ghost-l">Free Account Review</Link>
@@ -110,7 +110,7 @@ export default function AccountManagement() {
         </div>
       </section>
       <ServiceFaq service="Marketplace Account Management" faqs={FAQS} />
-      <section className="acc-cta"><div className="acc-container"><div className="acc-cta__box" data-aos="zoom-in"><FiSettings className="acc-cta__ic" /><h2>Let Us Run Your Marketplace</h2><p>Get a free account review — we'll show you exactly how to grow and protect your seller account.</p><Link to="/contact" className="acc-btn acc-btn--light">Get My Free Review <FiArrowUpRight /></Link></div></div></section>
+      <section className="acc-cta"><div className="acc-container"><div className="acc-cta__box" data-aos="zoom-in"><FiSettings className="acc-cta__ic" /><h2>Let Us Run Your Marketplace</h2><p>Get a free account review, we'll show you exactly how to grow and protect your seller account.</p><Link to="/contact" className="acc-btn acc-btn--light">Get My Free Review <FiArrowUpRight /></Link></div></div></section>
     </main>
   )
 }
