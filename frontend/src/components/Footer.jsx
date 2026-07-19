@@ -131,7 +131,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="footer-bottom">
         <div className="footer-bottom__inner">
-          <span className="footer-bottom__copy">&copy; 2025 <strong>DigionTop</strong>. All Rights Reserved.</span>
+          <span className="footer-bottom__copy">&copy; {new Date().getFullYear()} <strong>DigionTop</strong>. All Rights Reserved.</span>
           <span className="footer-bottom__mission">
             <span className="footer-bottom__shield"><FiShield /></span> Your Growth. Our Mission.
           </span>
@@ -139,6 +139,10 @@ const Footer = () => {
             <Link to="/about" className="footer-bottom__link">About</Link>
             <span className="footer-bottom__sep">•</span>
             <Link to="/contact" className="footer-bottom__link">Contact</Link>
+            <span className="footer-bottom__sep">•</span>
+            <Link to="/privacy-policy" className="footer-bottom__link">Privacy Policy</Link>
+            <span className="footer-bottom__sep">•</span>
+            <Link to="/terms-of-service" className="footer-bottom__link">Terms of Service</Link>
             <span className="footer-bottom__sep">•</span>
             <span className="footer-bottom__flag">Proudly Made in India</span>
           </span>

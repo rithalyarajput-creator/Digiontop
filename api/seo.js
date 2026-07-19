@@ -7,7 +7,7 @@ import { sql } from './_lib/db.js';
  */
 const STATIC_ROUTES = [
   '', 'about', 'why-us', 'industries', 'portfolio', 'work', 'blog', 'contact',
-  'faq', 'testimonials',
+  'faq', 'testimonials', 'privacy-policy', 'terms-of-service',
   // Web development
   'services/website-development', 'services/custom-website',
   'services/business-website', 'services/wordpress-development',

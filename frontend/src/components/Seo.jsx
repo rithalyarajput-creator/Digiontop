@@ -8,7 +8,7 @@ const DEFAULT_IMG = `${SITE}/images/home-banner.webp`;
  * Open Graph + Twitter tags. Keeps titles under ~60 chars and
  * descriptions ~150-160 chars for best CTR in search results.
  */
-export default function Seo({ title, description, path = '', image = DEFAULT_IMG, type = 'website' }) {
+export default function Seo({ title = 'DigionTop', description = '', path = '', image = DEFAULT_IMG, type = 'website', noIndex = false }) {
   const url = `${SITE}${path}`;
   const fullTitle = title.includes('DigionTop') ? title : `${title} | DigionTop`;
   return (
@@ -16,6 +16,7 @@ export default function Seo({ title, description, path = '', image = DEFAULT_IMG
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content="DigionTop" />
