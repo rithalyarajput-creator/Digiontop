@@ -1,5 +1,47 @@
 import { sql } from './_lib/db.js';
-import { setCors, verifyToken, hasPermission } from './_lib/auth.js';
+import { setCors, verifyToken, hasPermission, requireSuper } from './_lib/auth.js';
+
+/**
+ * Full-site backup: every table dumped to one JSON file, images included as
+ * the base64 already stored in `media`. Owner-only — this is the entire
+ * business's data in one download.
+ */
+async function fullBackup(req, res) {
+  const user = requireSuper(req, res);
+  if (!user) return;
+
+  const [
+    blog_posts, categories, authors, contact_leads, testimonials,
+    portfolio_items, faqs, newsletter_subscribers, site_settings, media,
+  ] = await Promise.all([
+    sql`SELECT * FROM blog_posts ORDER BY id`,
+    sql`SELECT * FROM categories ORDER BY id`,
+    sql`SELECT * FROM authors ORDER BY id`,
+    sql`SELECT * FROM contact_leads ORDER BY id`,
+    sql`SELECT * FROM testimonials ORDER BY id`,
+    sql`SELECT * FROM portfolio_items ORDER BY id`,
+    sql`SELECT * FROM faqs ORDER BY id`,
+    sql`SELECT * FROM newsletter_subscribers ORDER BY id`,
+    sql`SELECT * FROM site_settings ORDER BY id`,
+    sql`SELECT * FROM media ORDER BY id`,
+  ]);
+
+  const backup = {
+    exported_at: new Date().toISOString(),
+    site: 'digiontop.com',
+    tables: {
+      blog_posts, categories, authors, contact_leads, testimonials,
+      portfolio_items, faqs, newsletter_subscribers, site_settings, media,
+    },
+  };
+
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader(
+    'Content-Disposition',
+    `attachment; filename="digiontop-full-backup-${new Date().toISOString().slice(0, 10)}.json"`
+  );
+  return res.status(200).send(JSON.stringify(backup));
+}
 
 const DEFAULTS = {
   site_name: 'DigionTop',
@@ -8,13 +50,13 @@ const DEFAULTS = {
   contact_email: 'digiontop.agency@gmail.com',
   contact_phone: '+91 9217594664',
   contact_phone2: '+91 7303769921',
-  logo_header: '/images/logo-header.png',
-  logo_footer: '/images/logo-footer.png',
-  favicon: '/vite.svg',
+  logo_header: '/images/logo-header.webp',
+  logo_footer: '/images/logo-footer.webp',
+  favicon: '/favicon.png',
   social_facebook: 'https://www.facebook.com/share/14eaPvHNx9A/',
   social_instagram: 'https://www.instagram.com/digiontop.agency',
-  social_linkedin: '',
-  social_twitter: '',
+  social_linkedin: 'https://www.linkedin.com/company/digiontop/',
+  social_twitter: 'https://x.com/digiontopagency',
   social_youtube: 'https://www.youtube.com/@digiontop',
   seo_meta_title: 'DigionTop: #1 Digital Marketing Agency in India',
   seo_meta_description: 'Result-driven SEO, social media, web development & e-commerce marketing for businesses across India.',
@@ -30,6 +72,10 @@ export default async function handler(req, res) {
   }
 
   try {
+    if (req.method === 'GET' && req.query.action === 'full-backup') {
+      return await fullBackup(req, res);
+    }
+
     if (req.method === 'GET') {
       const rows = await sql`SELECT data FROM site_settings WHERE id = 1`;
       const data = rows[0]?.data || {};

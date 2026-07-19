@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import {
-  FiSave, FiImage, FiInfo, FiShare2, FiSearch, FiSettings, FiDownload, FiUpload,
+  FiSave, FiImage, FiInfo, FiShare2, FiSearch, FiSettings, FiDownload, FiUpload, FiDatabase,
 } from 'react-icons/fi';
-import { apiGet, apiPut } from '../api';
+import { apiGet, apiPut, getToken, isOwner } from '../api';
 
 const TABS = [
   { key: 'branding', label: 'Branding', icon: <FiImage /> },
@@ -20,6 +20,7 @@ export default function Settings() {
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [loading, setLoading] = useState(true);
+  const [backingUp, setBackingUp] = useState(false);
 
   useEffect(() => {
     apiGet('/settings')
@@ -52,6 +53,34 @@ export default function Settings() {
     const a = document.createElement('a');
     a.href = url; a.download = `digiontop-settings-backup.json`; a.click();
     URL.revokeObjectURL(url);
+  }
+
+  /* The full-site backup is large and needs the admin Authorization header
+     (unlike a plain <a href>), so it's fetched as a blob and saved manually
+     rather than reusing apiGet, which parses the response as JSON. */
+  async function downloadFullBackup() {
+    setBackingUp(true);
+    setError('');
+    try {
+      const res = await fetch('/api/settings?action=full-backup', {
+        headers: { Authorization: `Bearer ${getToken()}` },
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || `Backup failed (${res.status})`);
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `digiontop-full-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setBackingUp(false);
+    }
   }
 
   function importBackup(e) {
@@ -212,6 +241,19 @@ export default function Settings() {
                 </label>
               </div>
             </div>
+
+            {isOwner() && (
+              <div className="admin-form--card">
+                <h2 className="blogedit__section-title">Full Website Backup</h2>
+                <p className="admin-muted" style={{ marginBottom: 14 }}>
+                  Download everything, blog posts, leads, reviews, FAQs, categories, authors,
+                  settings and all uploaded images, as one file. Owner only.
+                </p>
+                <button type="button" className="admin-btn admin-btn--primary" onClick={downloadFullBackup} disabled={backingUp}>
+                  <FiDatabase /> {backingUp ? 'Preparing backup…' : 'Download Full Backup'}
+                </button>
+              </div>
+            )}
 
             <div className="admin-form--card">
               <h2 className="blogedit__section-title">Security &amp; Performance</h2>
