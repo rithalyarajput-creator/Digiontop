@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiEdit2, FiTrash2, FiSearch, FiFileText } from 'react-icons/fi';
+import { FiEdit2, FiTrash2, FiSearch, FiFileText, FiCheckCircle, FiEdit3, FiEye } from 'react-icons/fi';
 import { apiGet, apiPut, apiDelete } from '../api';
 import { useConfirm } from '../components/useConfirm';
+
+const fmt = (n) => (n ?? 0).toLocaleString('en-IN');
 
 const STATUS_TABS = [
   { key: 'all', label: 'All' },
@@ -34,6 +36,11 @@ export default function BlogList() {
   // bulk
   const [selected, setSelected] = useState(new Set());
 
+  // Total views comes from /stats (a plain SUM across all posts) rather than
+  // summing `posts` client-side, so the card stays accurate even when a
+  // status/category filter narrows what's in the table below.
+  const [totalViews, setTotalViews] = useState(0);
+
   const { confirm, dialog } = useConfirm();
 
   async function load() {
@@ -54,7 +61,17 @@ export default function BlogList() {
     }
   }
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    load();
+    apiGet('/stats').then((d) => setTotalViews(d?.counts?.totalViews ?? 0)).catch(() => {});
+  }, []);
+
+  const statCounts = useMemo(() => ({
+    total: posts.length,
+    published: posts.filter((p) => p.status === 'published').length,
+    draft: posts.filter((p) => p.status === 'draft').length,
+    scheduled: posts.filter((p) => p.status === 'scheduled').length,
+  }), [posts]);
 
   const filtered = useMemo(() => {
     let list = [...posts];
@@ -156,6 +173,37 @@ export default function BlogList() {
       <div className="admin-shop-head">
         <h1>Blog posts</h1>
         <Link to="/admin/blog/new" className="admin-sbtn admin-sbtn--primary">Add blog post</Link>
+      </div>
+
+      <div className="admin-stats">
+        <div className="admin-stat-card">
+          <span className="admin-stat-card__icon"><FiFileText /></span>
+          <div>
+            <div className="admin-stat-card__value">{fmt(statCounts.total)}</div>
+            <div className="admin-stat-card__label">Total Blogs</div>
+          </div>
+        </div>
+        <div className="admin-stat-card">
+          <span className="admin-stat-card__icon"><FiCheckCircle /></span>
+          <div>
+            <div className="admin-stat-card__value">{fmt(statCounts.published)}</div>
+            <div className="admin-stat-card__label">Published</div>
+          </div>
+        </div>
+        <div className="admin-stat-card">
+          <span className="admin-stat-card__icon"><FiEdit3 /></span>
+          <div>
+            <div className="admin-stat-card__value">{fmt(statCounts.draft)}</div>
+            <div className="admin-stat-card__label">Drafts</div>
+          </div>
+        </div>
+        <div className="admin-stat-card">
+          <span className="admin-stat-card__icon"><FiEye /></span>
+          <div>
+            <div className="admin-stat-card__value">{fmt(totalViews)}</div>
+            <div className="admin-stat-card__label">Total Traffic (Views)</div>
+          </div>
+        </div>
       </div>
 
       {error && <div className="admin-salert">{error}</div>}
