@@ -91,7 +91,11 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Instant, not smooth: a smooth scroll animates up from wherever the
+    // previous page had scrolled to, so the new page briefly renders
+    // mid-way down before sliding into view. Every navigation should land
+    // at the top immediately.
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;
