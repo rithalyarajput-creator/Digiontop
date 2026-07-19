@@ -280,27 +280,6 @@ export default async function handler(req, res) {
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
-    // Social posts tracker — a manual log of what we posted where and how it
-    // did. Free/API-less: the owner types each post's stats in. Lets us see, in
-    // one place, per-platform which post did well.
-    await sql`
-      CREATE TABLE IF NOT EXISTS social_posts (
-        id SERIAL PRIMARY KEY,
-        platform VARCHAR(30) NOT NULL,
-        caption TEXT,
-        post_url VARCHAR(500),
-        posted_at DATE,
-        likes INTEGER DEFAULT 0,
-        views INTEGER DEFAULT 0,
-        comments INTEGER DEFAULT 0,
-        shares INTEGER DEFAULT 0,
-        notes TEXT,
-        created_at TIMESTAMPTZ DEFAULT NOW()
-      )
-    `;
-    await sql`CREATE INDEX IF NOT EXISTS idx_social_posts_posted_at ON social_posts (posted_at)`;
-    await sql`CREATE INDEX IF NOT EXISTS idx_social_posts_platform ON social_posts (platform)`;
-
     await sql`CREATE INDEX IF NOT EXISTS idx_analytics_created_at ON analytics_events (created_at)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_analytics_path ON analytics_events (path)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_analytics_session ON analytics_events (session_id)`;

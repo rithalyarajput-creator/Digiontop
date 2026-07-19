@@ -10,7 +10,6 @@ export const SECTIONS = [
   { key: 'faq', label: 'FAQs', hint: 'Frequently asked questions' },
   { key: 'newsletter', label: 'Newsletter', hint: 'Newsletter subscriber list' },
   { key: 'analytics', label: 'Analytics', hint: 'Website visitor and traffic reports' },
-  { key: 'social', label: 'Social Posts', hint: 'Track social media posts and their performance' },
   { key: 'settings', label: 'Settings', hint: 'Site-wide settings' },
 ];
 
