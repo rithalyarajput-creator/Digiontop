@@ -147,7 +147,7 @@ export default function Analytics() {
       </div>
 
       {/* Top pages + Top blogs */}
-      <div className="admin-dash-cols">
+      <div className="admin-dash-cols admin-dash-cols--even">
         <div className="admin-card">
           <div className="admin-card__header">
             <h2><FiFileText /> Top pages</h2>
@@ -163,9 +163,9 @@ export default function Analytics() {
                 )}
                 {(data?.topPages || []).map((p) => (
                   <tr key={p.path}>
-                    <td className="admin-shop-table__trunc" style={{ maxWidth: 220 }}>{p.path}</td>
-                    <td className="is-right is-muted">{fmt(p.visitors)}</td>
-                    <td className="is-right">{fmt(p.views)}</td>
+                    <td className="admin-shop-table__trunc">{p.path}</td>
+                    <td className="is-right is-muted" style={{ width: 70 }}>{fmt(p.visitors)}</td>
+                    <td className="is-right" style={{ width: 60 }}>{fmt(p.views)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -189,14 +189,14 @@ export default function Analytics() {
                 )}
                 {(data?.topBlogs || []).map((b, i) => (
                   <tr key={b.id}>
-                    <td className="is-muted">{i + 1}</td>
+                    <td className="is-muted" style={{ width: 28 }}>{i + 1}</td>
                     <td>
-                      <Link to={`/admin/blog/edit/${b.id}`} className="admin-shop-table__link admin-shop-table__trunc" style={{ display: 'block', maxWidth: 200 }}>
+                      <Link to={`/admin/blog/edit/${b.id}`} className="admin-shop-table__link admin-shop-table__trunc" style={{ display: 'block' }}>
                         {b.title}
                       </Link>
                       {b.category && <p className="admin-shop-table__sub">{b.category}</p>}
                     </td>
-                    <td className="is-right">{fmt(b.views)}</td>
+                    <td className="is-right" style={{ width: 60 }}>{fmt(b.views)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -206,7 +206,7 @@ export default function Analytics() {
       </div>
 
       {/* Countries + Devices/Browsers */}
-      <div className="admin-dash-cols">
+      <div className="admin-dash-cols admin-dash-cols--even">
         <div className="admin-card">
           <div className="admin-card__header">
             <h2><FiGlobe /> Where visitors come from</h2>

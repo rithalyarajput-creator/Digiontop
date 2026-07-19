@@ -857,8 +857,14 @@ a.admin-metric:hover { background: #fafafa; }
 }
 .admin-dash-cols > * { min-width: 0; }
 
+/* Analytics uses equal halves (both sides hold a real table) rather than the
+   Dashboard's wide-left / narrow-right split, so neither table gets squeezed
+   into a horizontal scroll. */
+.admin-dash-cols--even { grid-template-columns: 1fr 1fr; }
+
 @media (max-width: 1024px) {
-  .admin-dash-cols { grid-template-columns: 1fr; }
+  .admin-dash-cols,
+  .admin-dash-cols--even { grid-template-columns: 1fr; }
 }
 @media (max-width: 860px) {
   .admin-metrics-grid { grid-template-columns: repeat(2, 1fr); }
