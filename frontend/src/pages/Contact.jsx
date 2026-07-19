@@ -9,8 +9,6 @@ import { useSettings } from '../context/SettingsContext';
 import '../styles/About.css';   /* Contact form reuses the .about-lead__* base styles */
 import '../styles/Contact.css';
 
-const X_LINK = 'https://x.com/digiontopagency';
-
 const SERVICE_OPTIONS = [
   'Website Development', 'Shopify Store', 'SEO Services', 'Social Media Marketing',
   'Performance Ads', 'Branding & Design', 'E-Commerce Solutions',
@@ -189,7 +187,7 @@ export default function Contact() {
                 {settings.social_facebook && <a href={settings.social_facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><FiFacebook /></a>}
                 {settings.social_instagram && <a href={settings.social_instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FiInstagram /></a>}
                 {settings.social_linkedin && <a href={settings.social_linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FiLinkedin /></a>}
-                <a href={settings.social_twitter || X_LINK} target="_blank" rel="noreferrer" aria-label="X (Twitter)"><FaXTwitter /></a>
+                {settings.social_twitter && <a href={settings.social_twitter} target="_blank" rel="noreferrer" aria-label="X (Twitter)"><FaXTwitter /></a>}
                 {settings.social_youtube && <a href={settings.social_youtube} target="_blank" rel="noreferrer" aria-label="YouTube"><FiYoutube /></a>}
               </div>
             </div>

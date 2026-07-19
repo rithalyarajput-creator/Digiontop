@@ -69,7 +69,7 @@ const Footer = () => {
                 {settings.social_instagram && <a href={settings.social_instagram} target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Instagram"><FaInstagram /></a>}
                 {settings.social_facebook && <a href={settings.social_facebook} target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Facebook"><FaFacebookF /></a>}
                 {settings.social_linkedin && <a href={settings.social_linkedin} target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="LinkedIn"><FaLinkedinIn /></a>}
-                <a href={settings.social_twitter || "https://x.com/digiontopagency"} target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="X"><FaXTwitter /></a>
+                {settings.social_twitter && <a href={settings.social_twitter} target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="X"><FaXTwitter /></a>}
                 {settings.social_youtube && <a href={settings.social_youtube} target="_blank" rel="noopener noreferrer" className="footer-social-icon footer-social-icon--yt" aria-label="YouTube"><FaYoutube /></a>}
               </div>
             </div>
