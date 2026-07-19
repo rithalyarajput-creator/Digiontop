@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { trackLead } from '../utils/metaPixel'
 import {
   FiCheckCircle, FiAlertTriangle, FiXCircle, FiArrowRight,
   FiSearch, FiRefreshCw, FiZap,
@@ -94,6 +95,7 @@ export default function SeoAuditTool() {
         setError((data && data.error) || 'Something went wrong. Please try again.')
         return
       }
+      trackLead()
       setReport(data)
     } catch {
       setError('Could not reach our server. Please check your connection and try again.')

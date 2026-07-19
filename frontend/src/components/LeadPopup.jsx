@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { trackLead } from '../utils/metaPixel';
 import './LeadPopup.css';
 
 const SERVICES = [
@@ -72,6 +73,7 @@ export default function LeadPopup() {
         }),
       });
       if (!res.ok) throw new Error();
+      trackLead();
       setDone(true);
     } catch {
       setError('Something went wrong. Please try again or call us.');

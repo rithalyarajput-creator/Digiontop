@@ -6,6 +6,7 @@ import {
 } from 'react-icons/fi';
 import { FaXTwitter } from 'react-icons/fa6';
 import { useSettings } from '../context/SettingsContext';
+import { trackLead } from '../utils/metaPixel';
 import '../styles/About.css';   /* Contact form reuses the .about-lead__* base styles */
 import '../styles/Contact.css';
 
@@ -76,6 +77,7 @@ export default function Contact() {
         }),
       });
       if (!res.ok) throw new Error();
+      trackLead();
       setSubmitted(true);
       setForm(INITIAL);
     } catch {
