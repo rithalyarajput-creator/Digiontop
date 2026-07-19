@@ -499,6 +499,73 @@ async function users(req, res) {
   return res.status(405).json({ error: 'Method not allowed' });
 }
 
+/* ─────────── SOCIAL POSTS (manual tracker) ─────────── */
+const SOCIAL_PLATFORMS = ['instagram', 'facebook', 'linkedin', 'youtube', 'twitter', 'other'];
+
+async function social(req, res) {
+  // Entirely admin-only — nothing here is public. Gated on the 'social' section.
+  if (!allow(req, res, 'social')) return;
+
+  if (req.method === 'GET') {
+    const rows = await sql`SELECT * FROM social_posts ORDER BY posted_at DESC NULLS LAST, id DESC`;
+    return res.status(200).json(rows);
+  }
+
+  const num = (v) => {
+    const n = parseInt(v, 10);
+    return Number.isFinite(n) && n >= 0 ? n : 0;
+  };
+
+  if (req.method === 'POST') {
+    const b = req.body || {};
+    const platform = String(b.platform || '').toLowerCase();
+    if (!SOCIAL_PLATFORMS.includes(platform)) {
+      return res.status(400).json({ error: 'Valid platform is required' });
+    }
+    const rows = await sql`
+      INSERT INTO social_posts (platform, caption, post_url, posted_at, likes, views, comments, shares, notes)
+      VALUES (
+        ${platform}, ${b.caption || null}, ${b.post_url || null},
+        ${b.posted_at || null},
+        ${num(b.likes)}, ${num(b.views)}, ${num(b.comments)}, ${num(b.shares)},
+        ${b.notes || null}
+      ) RETURNING *`;
+    return res.status(201).json(rows[0]);
+  }
+
+  if (req.method === 'PUT') {
+    const b = req.body || {};
+    if (!b.id) return res.status(400).json({ error: 'id is required' });
+    const platform = b.platform ? String(b.platform).toLowerCase() : null;
+    if (platform && !SOCIAL_PLATFORMS.includes(platform)) {
+      return res.status(400).json({ error: 'Invalid platform' });
+    }
+    const rows = await sql`
+      UPDATE social_posts SET
+        platform  = COALESCE(${platform}, platform),
+        caption   = ${b.caption ?? null},
+        post_url  = ${b.post_url ?? null},
+        posted_at = ${b.posted_at || null},
+        likes     = ${num(b.likes)},
+        views     = ${num(b.views)},
+        comments  = ${num(b.comments)},
+        shares    = ${num(b.shares)},
+        notes     = ${b.notes ?? null}
+      WHERE id = ${b.id} RETURNING *`;
+    if (rows.length === 0) return res.status(404).json({ error: 'Post not found' });
+    return res.status(200).json(rows[0]);
+  }
+
+  if (req.method === 'DELETE') {
+    const { id } = req.query;
+    if (!id) return res.status(400).json({ error: 'id query parameter is required' });
+    await sql`DELETE FROM social_posts WHERE id = ${id}`;
+    return res.status(200).json({ success: true });
+  }
+
+  return res.status(405).json({ error: 'Method not allowed' });
+}
+
 export default async function handler(req, res) {
   setCors(res);
   if (req.method === 'OPTIONS') return res.status(200).end();
@@ -511,6 +578,7 @@ export default async function handler(req, res) {
     if (resource === 'media') return await media(req, res);
     if (resource === 'users') return await users(req, res);
     if (resource === 'docs') return await docs(req, res);
+    if (resource === 'social') return await social(req, res);
     return res.status(400).json({ error: 'Unknown resource' });
   } catch (err) {
     console.error(`/api/cms?resource=${resource} failed:`, err);

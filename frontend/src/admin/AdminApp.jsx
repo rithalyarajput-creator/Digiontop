@@ -3,7 +3,7 @@ import { Routes, Route, NavLink, Navigate, Link } from 'react-router-dom';
 import {
   FiGrid, FiInbox, FiFileText, FiStar, FiHelpCircle,
   FiLogOut, FiMenu, FiUsers, FiTag, FiSettings, FiX, FiMail, FiLock, FiShield,
-  FiFolder, FiBarChart2,
+  FiFolder, FiBarChart2, FiShare2,
 } from 'react-icons/fi';
 import { getToken, clearToken, getUser, can, isOwner } from './api';
 import AdminLogin from './AdminLogin';
@@ -21,6 +21,7 @@ import Settings from './pages/Settings';
 import Users from './pages/Users';
 import Documents from './pages/Documents';
 import Analytics from './pages/Analytics';
+import SocialPosts from './pages/SocialPosts';
 import './admin.css';
 
 /* Shown when someone reaches a route they don't hold. The menu never links here,
@@ -74,6 +75,7 @@ export default function AdminApp() {
   const showReviews = can('reviews');
   const showFaq = can('faq');
   const showAnalytics = can('analytics');
+  const showSocial = can('social');
   const showSettings = can('settings');
 
   // Don't leave an orphan group heading with nothing under it.
@@ -98,6 +100,11 @@ export default function AdminApp() {
           {showAnalytics && (
             <NavLink to="/admin/analytics" className={linkClass} onClick={close}>
               <FiBarChart2 /> <span>Analytics</span>
+            </NavLink>
+          )}
+          {showSocial && (
+            <NavLink to="/admin/social" className={linkClass} onClick={close}>
+              <FiShare2 /> <span>Social Posts</span>
             </NavLink>
           )}
 
@@ -187,6 +194,7 @@ export default function AdminApp() {
           <Routes>
             <Route index element={<Dashboard />} />
             <Route path="analytics" element={<Protected section="analytics"><Analytics /></Protected>} />
+            <Route path="social" element={<Protected section="social"><SocialPosts /></Protected>} />
             <Route path="leads" element={<Protected section="leads"><Leads /></Protected>} />
             <Route path="blog" element={<Protected section="blog"><BlogList /></Protected>} />
             <Route path="blog/new" element={<Protected section="blog"><BlogEdit /></Protected>} />
