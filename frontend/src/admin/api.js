@@ -9,6 +9,7 @@ export const SECTIONS = [
   { key: 'reviews', label: 'Reviews', hint: 'Customer testimonials shown on the site' },
   { key: 'faq', label: 'FAQs', hint: 'Frequently asked questions' },
   { key: 'newsletter', label: 'Newsletter', hint: 'Newsletter subscriber list' },
+  { key: 'analytics', label: 'Analytics', hint: 'Website visitor and traffic reports' },
   { key: 'settings', label: 'Settings', hint: 'Site-wide settings' },
 ];
 

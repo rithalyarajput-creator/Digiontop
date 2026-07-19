@@ -10,6 +10,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import MobileCTABar from './components/MobileCTABar';
 import LeadPopup from './components/LeadPopup';
 import AdminApp from './admin/AdminApp';
+import usePageTracking from './hooks/usePageTracking';
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
@@ -94,6 +95,7 @@ function ScrollToTop() {
 }
 
 function PublicSite() {
+  usePageTracking();
   return (
     <>
       <Navbar />

@@ -1,6 +1,111 @@
 import { sql } from './_lib/db.js';
 import { setCors, verifyToken, hasPermission } from './_lib/auth.js';
 
+// ── Visitor tracking (public POST) ──
+// The site posts one of these per page view. No auth: it's called by every
+// visitor's browser. We keep only anonymous data — a random session id the
+// browser makes up, the path, referrer, and Vercel's coarse geo/device hints.
+async function recordPageview(req, res) {
+  try {
+    const b = typeof req.body === 'object' && req.body ? req.body : {};
+    const clip = (v, n) => (typeof v === 'string' ? v.slice(0, n) : null);
+
+    // Vercel injects these edge headers for free — no geo-IP service needed.
+    const country = clip(req.headers['x-vercel-ip-country'], 80);
+    const city = decodeURIComponent(clip(req.headers['x-vercel-ip-city'], 120) || '') || null;
+
+    const ua = req.headers['user-agent'] || '';
+    const device = /mobile|android|iphone|ipad|ipod/i.test(ua) ? 'mobile' : 'desktop';
+    const browser = /edg/i.test(ua) ? 'Edge'
+      : /chrome/i.test(ua) ? 'Chrome'
+      : /safari/i.test(ua) ? 'Safari'
+      : /firefox/i.test(ua) ? 'Firefox'
+      : 'Other';
+
+    await sql`
+      INSERT INTO analytics_events (session_id, path, referrer, country, city, device, browser, duration_ms)
+      VALUES (
+        ${clip(b.sid, 40)},
+        ${clip(b.path, 500)},
+        ${clip(b.ref, 500)},
+        ${country},
+        ${city},
+        ${device},
+        ${browser},
+        ${Number.isFinite(b.duration) ? Math.max(0, Math.min(b.duration | 0, 3600000)) : 0}
+      )
+    `;
+    return res.status(204).end();
+  } catch {
+    // Tracking must never break a page — swallow and 204.
+    return res.status(204).end();
+  }
+}
+
+// ── Analytics report (GET ?type=analytics) — admin only ──
+async function analyticsReport(req, res) {
+  try {
+    verifyToken(req);
+    if (!hasPermission(req, 'analytics')) {
+      return res.status(403).json({ error: 'You do not have access to Analytics.' });
+    }
+  } catch {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  const days = Math.min(Math.max(parseInt(req.query.days, 10) || 30, 1), 365);
+
+  try {
+    // Compute the cutoff in JS and pass it as a plain timestamp parameter —
+    // neon doesn't reliably support a nested sql`` fragment or a parameterised
+    // INTERVAL, so this keeps every query a simple bound comparison.
+    const since = new Date(Date.now() - days * 86400000).toISOString();
+
+    const [
+      totals, byDay, topPages, topCountries, byDevice, byBrowser,
+      topReferrers, recent, topBlogs,
+    ] = await Promise.all([
+      sql`SELECT COUNT(*)::int AS views,
+                 COUNT(DISTINCT session_id)::int AS visitors,
+                 COALESCE(AVG(NULLIF(duration_ms,0)),0)::int AS avg_ms
+          FROM analytics_events WHERE created_at >= ${since}`,
+      sql`SELECT (created_at AT TIME ZONE 'Asia/Kolkata')::date::text AS day,
+                 COUNT(*)::int AS views,
+                 COUNT(DISTINCT session_id)::int AS visitors
+          FROM analytics_events WHERE created_at >= ${since}
+          GROUP BY day ORDER BY day`,
+      sql`SELECT path, COUNT(*)::int AS views, COUNT(DISTINCT session_id)::int AS visitors
+          FROM analytics_events WHERE created_at >= ${since} AND path IS NOT NULL
+          GROUP BY path ORDER BY views DESC LIMIT 12`,
+      sql`SELECT COALESCE(country,'—') AS country, COUNT(*)::int AS views
+          FROM analytics_events WHERE created_at >= ${since}
+          GROUP BY country ORDER BY views DESC LIMIT 10`,
+      sql`SELECT COALESCE(device,'—') AS device, COUNT(*)::int AS views
+          FROM analytics_events WHERE created_at >= ${since}
+          GROUP BY device ORDER BY views DESC`,
+      sql`SELECT COALESCE(browser,'—') AS browser, COUNT(*)::int AS views
+          FROM analytics_events WHERE created_at >= ${since}
+          GROUP BY browser ORDER BY views DESC`,
+      sql`SELECT COALESCE(NULLIF(referrer,''),'Direct') AS referrer, COUNT(*)::int AS views
+          FROM analytics_events WHERE created_at >= ${since}
+          GROUP BY referrer ORDER BY views DESC LIMIT 10`,
+      sql`SELECT path, country, city, device, browser, referrer, duration_ms, created_at
+          FROM analytics_events WHERE created_at >= ${since}
+          ORDER BY created_at DESC LIMIT 30`,
+      sql`SELECT id, title, slug, views, category FROM blog_posts
+          WHERE status = 'published' ORDER BY COALESCE(views,0) DESC LIMIT 10`,
+    ]);
+
+    return res.status(200).json({
+      days,
+      totals: totals[0],
+      byDay, topPages, topCountries, byDevice, byBrowser, topReferrers, recent, topBlogs,
+    });
+  } catch (err) {
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
 export default async function handler(req, res) {
   setCors(res);
 
@@ -8,8 +113,18 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
+  // Public visitor tracking write.
+  if (req.method === 'POST' && req.query.type === 'track') {
+    return recordPageview(req, res);
+  }
+
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Full analytics report for the admin Analytics page.
+  if (req.query.type === 'analytics') {
+    return analyticsReport(req, res);
   }
 
   // The Dashboard is shown to everyone who can log in, so this endpoint stays

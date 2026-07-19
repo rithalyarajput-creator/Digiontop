@@ -263,6 +263,27 @@ export default async function handler(req, res) {
       )
     `;
 
+    // Visitor analytics — one row per page view. Kept deliberately lightweight
+    // (no personal data, just anonymous session id + coarse location/device) so
+    // it's our own free traffic tracker without needing Google Analytics.
+    await sql`
+      CREATE TABLE IF NOT EXISTS analytics_events (
+        id SERIAL PRIMARY KEY,
+        session_id VARCHAR(40),
+        path VARCHAR(500),
+        referrer VARCHAR(500),
+        country VARCHAR(80),
+        city VARCHAR(120),
+        device VARCHAR(20),
+        browser VARCHAR(40),
+        duration_ms INTEGER DEFAULT 0,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+    await sql`CREATE INDEX IF NOT EXISTS idx_analytics_created_at ON analytics_events (created_at)`;
+    await sql`CREATE INDEX IF NOT EXISTS idx_analytics_path ON analytics_events (path)`;
+    await sql`CREATE INDEX IF NOT EXISTS idx_analytics_session ON analytics_events (session_id)`;
+
     await sql`CREATE INDEX IF NOT EXISTS idx_blog_posts_status ON blog_posts (status)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_blog_posts_slug ON blog_posts (slug)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_contact_leads_status ON contact_leads (status)`;
