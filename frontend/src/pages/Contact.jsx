@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Seo from '../components/Seo';
 import {
   FiPhone, FiMail, FiMessageCircle, FiFacebook,
-  FiInstagram, FiYoutube, FiCheckCircle,
+  FiInstagram, FiYoutube, FiCheckCircle, FiLinkedin,
 } from 'react-icons/fi';
 import { FaXTwitter } from 'react-icons/fa6';
 import { useSettings } from '../context/SettingsContext';
@@ -188,6 +188,7 @@ export default function Contact() {
               <div className="contact-info-card__socials">
                 {settings.social_facebook && <a href={settings.social_facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><FiFacebook /></a>}
                 {settings.social_instagram && <a href={settings.social_instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FiInstagram /></a>}
+                {settings.social_linkedin && <a href={settings.social_linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FiLinkedin /></a>}
                 <a href={settings.social_twitter || X_LINK} target="_blank" rel="noreferrer" aria-label="X (Twitter)"><FaXTwitter /></a>
                 {settings.social_youtube && <a href={settings.social_youtube} target="_blank" rel="noreferrer" aria-label="YouTube"><FiYoutube /></a>}
               </div>

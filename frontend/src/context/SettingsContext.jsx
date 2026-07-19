@@ -14,7 +14,7 @@ export const DEFAULT_SETTINGS = {
   favicon: '/favicon.png',
   social_facebook: 'https://www.facebook.com/share/14eaPvHNx9A/',
   social_instagram: 'https://www.instagram.com/digiontop.agency',
-  social_linkedin: '',
+  social_linkedin: 'https://www.linkedin.com/company/digiontop/',
   social_twitter: '',
   social_youtube: 'https://www.youtube.com/@digiontop',
   seo_meta_title: 'DigionTop — #1 Digital Marketing Agency in India',
@@ -28,7 +28,18 @@ export function SettingsProvider({ children }) {
   useEffect(() => {
     fetch('/api/settings')
       .then((r) => (r.ok ? r.json() : null))
-      .then((data) => { if (data) setSettings((prev) => ({ ...prev, ...data })); })
+      .then((data) => {
+        if (!data) return;
+        // Only let the saved settings override a default when they actually
+        // carry a value. A blank field in the DB (e.g. social_linkedin never
+        // filled in the admin) must NOT wipe out a sensible default like our
+        // LinkedIn URL — otherwise the icon would silently disappear again.
+        const merged = { ...DEFAULT_SETTINGS };
+        for (const [k, v] of Object.entries(data)) {
+          if (v !== '' && v !== null && v !== undefined) merged[k] = v;
+        }
+        setSettings(merged);
+      })
       .catch(() => {})
       .finally(() => setLoaded(true));
   }, []);
