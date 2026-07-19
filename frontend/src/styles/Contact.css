@@ -341,6 +341,37 @@
   transform: translateY(-3px);
 }
 
+.contact-info-card__review {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.12);
+  border: 1.5px solid rgba(0, 0, 0, 0.18);
+  border-radius: 12px;
+  color: #1a1a1a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.contact-info-card__review:hover {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #F5A800;
+}
+.contact-info-card__review-g {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ══ RESPONSIVE ══ */
 @media (max-width: 860px) {
   .contact-wrap__inner {
