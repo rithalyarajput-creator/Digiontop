@@ -24,3 +24,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 requestAnimationFrame(() => {
   document.dispatchEvent(new Event('prerender-ready'))
 })
+
+// Registering a service worker is what makes browsers offer "Install app" /
+// "Add to Home Screen" for the site (a PWA requirement alongside the
+// manifest). See public/sw.js for why it doesn't cache anything.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {})
+  })
+}

@@ -1,0 +1,45 @@
+.install-fab {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px 12px 14px;
+  border: none;
+  border-radius: 50px;
+  background: #14182b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(20, 24, 43, 0.35);
+  z-index: 998;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.install-fab:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(20, 24, 43, 0.45);
+}
+.install-fab svg { font-size: 18px; color: #F5A800; flex-shrink: 0; }
+
+.install-fab__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+.install-fab__close:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+
+@media (max-width: 768px) {
+  .install-fab { bottom: calc(96px + env(safe-area-inset-bottom)); left: 16px; padding: 10px 14px 10px 12px; font-size: 13px; }
+  .install-fab span:not(.install-fab__close) { display: none; }
+}

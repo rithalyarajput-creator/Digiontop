@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
 import WhatsAppButton from './components/WhatsAppButton';
 import MobileCTABar from './components/MobileCTABar';
+import InstallAppButton from './components/InstallAppButton';
 import LeadPopup from './components/LeadPopup';
 import AdminApp from './admin/AdminApp';
 import usePageTracking from './hooks/usePageTracking';
@@ -189,6 +190,7 @@ function PublicSite() {
       <Footer />
       <ChatBot />
       <WhatsAppButton />
+      <InstallAppButton />
       <MobileCTABar />
       <LeadPopup />
     </>
