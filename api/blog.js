@@ -109,6 +109,7 @@ export default async function handler(req, res) {
             ADD COLUMN IF NOT EXISTS scheduled_at TIMESTAMPTZ,
             ADD COLUMN IF NOT EXISTS views INTEGER DEFAULT 0,
             ADD COLUMN IF NOT EXISTS image_url VARCHAR(500),
+            ADD COLUMN IF NOT EXISTS image_alt VARCHAR(255),
             ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ DEFAULT NOW()
         `;
         // content must allow empty inserts (we default '' in code, but drop
@@ -119,7 +120,7 @@ export default async function handler(req, res) {
 
     if (req.method === 'POST') {
       const {
-        title, slug, author, excerpt, content, category, image_url,
+        title, slug, author, excerpt, content, category, image_url, image_alt,
         meta_title, meta_description, tags, scheduled_at, status,
       } = req.body || {};
       if (!title || !String(title).trim()) {
@@ -143,11 +144,11 @@ export default async function handler(req, res) {
       } catch {}
       const rows = await sql`
         INSERT INTO blog_posts
-          (title, slug, author, excerpt, content, category, image_url,
+          (title, slug, author, excerpt, content, category, image_url, image_alt,
            meta_title, meta_description, tags, scheduled_at, status)
         VALUES
           (${title}, ${finalSlug}, ${author || null}, ${excerpt || null}, ${finalContent},
-           ${category || null}, ${image_url || null}, ${meta_title || null}, ${meta_description || null},
+           ${category || null}, ${image_url || null}, ${image_alt || null}, ${meta_title || null}, ${meta_description || null},
            ${tags || null}, ${finalStatus === 'scheduled' ? (scheduled_at || null) : null}, ${finalStatus})
         RETURNING *
       `;
@@ -156,7 +157,7 @@ export default async function handler(req, res) {
 
     if (req.method === 'PUT') {
       const {
-        id, title, slug, author, excerpt, content, category, image_url,
+        id, title, slug, author, excerpt, content, category, image_url, image_alt,
         meta_title, meta_description, tags, scheduled_at, status,
       } = req.body || {};
       if (!id) {
@@ -171,6 +172,7 @@ export default async function handler(req, res) {
           content = COALESCE(${content ?? null}, content),
           category = COALESCE(${category ?? null}, category),
           image_url = COALESCE(${image_url ?? null}, image_url),
+          image_alt = CASE WHEN ${image_alt !== undefined} THEN ${image_alt || null} ELSE image_alt END,
           meta_title = COALESCE(${meta_title ?? null}, meta_title),
           meta_description = COALESCE(${meta_description ?? null}, meta_description),
           tags = COALESCE(${tags ?? null}, tags),

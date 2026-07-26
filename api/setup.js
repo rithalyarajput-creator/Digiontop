@@ -102,6 +102,7 @@ export default async function handler(req, res) {
     await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS tags TEXT`;
     await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS scheduled_at TIMESTAMPTZ`;
     await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS views INTEGER DEFAULT 0`;
+    await sql`ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS image_alt VARCHAR(255)`;
 
     // Allow 'scheduled' status: drop old CHECK constraint then re-add with the extra value.
     await sql`ALTER TABLE blog_posts DROP CONSTRAINT IF EXISTS blog_posts_status_check`;

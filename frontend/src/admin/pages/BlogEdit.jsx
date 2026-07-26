@@ -5,22 +5,47 @@ import { apiGet, apiPost, apiPut } from '../api';
 import { renderBlogContent } from '../../utils/renderBlog';
 import RichEditor from '../components/RichEditor';
 
-/* Resize + compress an image file in the browser, return { mime, base64 } */
-function compressImage(file, maxWidth = 1600, quality = 0.85) {
+/* Featured images must be a consistent 16:9 so blog cards never letterbox
+   or crop unpredictably. Whatever the source photo's own ratio is, draw it
+   into a fixed 1200x675 canvas with a center cover-crop (same behaviour as
+   CSS object-fit: cover), then export WebP — smaller file, sharper than
+   re-compressed JPEG, and every upload ends up identical in shape. */
+const FEATURED_W = 1200;
+const FEATURED_H = 675; // 1200 / 675 = 16:9
+
+function toFeaturedWebp(file, quality = 0.85) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     const url = URL.createObjectURL(file);
     img.onload = () => {
       URL.revokeObjectURL(url);
-      const scale = Math.min(1, maxWidth / img.width);
-      const w = Math.round(img.width * scale);
-      const h = Math.round(img.height * scale);
       const canvas = document.createElement('canvas');
-      canvas.width = w;
-      canvas.height = h;
-      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      const dataUrl = canvas.toDataURL('image/jpeg', quality);
-      resolve({ mime: 'image/jpeg', base64: dataUrl.split(',')[1] });
+      canvas.width = FEATURED_W;
+      canvas.height = FEATURED_H;
+      const ctx = canvas.getContext('2d');
+
+      const srcRatio = img.width / img.height;
+      const targetRatio = FEATURED_W / FEATURED_H;
+      let sx = 0, sy = 0, sw = img.width, sh = img.height;
+      if (srcRatio > targetRatio) {
+        // source is wider than 16:9 — crop the sides
+        sw = img.height * targetRatio;
+        sx = (img.width - sw) / 2;
+      } else if (srcRatio < targetRatio) {
+        // source is taller than 16:9 — crop top/bottom
+        sh = img.width / targetRatio;
+        sy = (img.height - sh) / 2;
+      }
+      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, FEATURED_W, FEATURED_H);
+
+      const dataUrl = canvas.toDataURL('image/webp', quality);
+      // Older browsers without WebP encoding silently return a PNG data URL;
+      // fall back to JPEG so the upload never fails or mislabels its mime.
+      const isWebp = dataUrl.startsWith('data:image/webp');
+      resolve({
+        mime: isWebp ? 'image/webp' : 'image/jpeg',
+        base64: dataUrl.split(',')[1],
+      });
     };
     img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Could not read image')); };
     img.src = url;
@@ -42,6 +67,7 @@ const EMPTY = {
   excerpt: '',
   content: '',
   image_url: '',
+  image_alt: '',
   meta_title: '',
   meta_description: '',
   tags: '',
@@ -73,8 +99,8 @@ export default function BlogEdit() {
     setError('');
     setUploading(true);
     try {
-      const { mime, base64 } = await compressImage(file);
-      const resp = await apiPost('/cms?resource=media', { filename: file.name, mime, data: base64 });
+      const { mime, base64 } = await toFeaturedWebp(file);
+      const resp = await apiPost('/cms?resource=media', { filename: 'featured.webp', mime, data: base64 });
       if (resp && resp.url) {
         setForm((p) => ({ ...p, image_url: resp.url }));
       } else {
@@ -332,7 +358,8 @@ export default function BlogEdit() {
               <div className="admin-card__header"><h2>Featured image</h2></div>
               <div className="admin-card__body">
                 <p className="admin-card__note" style={{ margin: '0 0 0.75rem' }}>
-                  Recommended: <strong>1200 × 630 px</strong> · <strong>16:9</strong> · JPG/PNG/WebP
+                  Any photo works, it's automatically cropped and saved as a <strong>1200 × 675 px WebP</strong> (16:9),
+                  so every blog card looks identical. Center-crops the image if it isn't already 16:9.
                 </p>
                 {form.image_url && (
                   <div className="admin-sform__preview admin-sform__preview--wide">
@@ -361,9 +388,17 @@ export default function BlogEdit() {
                     </button>
                   )}
                 </div>
-                <label className="admin-sfield" style={{ marginBottom: 0 }}>
+                <label className="admin-sfield" style={{ marginBottom: 12 }}>
                   <span>Or paste an Image URL</span>
                   <input value={form.image_url} onChange={(e) => update('image_url', e.target.value)} placeholder="https://example.com/image.jpg" />
+                </label>
+                <label className="admin-sfield" style={{ marginBottom: 0 }}>
+                  <span>Alt text (for SEO &amp; screen readers)</span>
+                  <input
+                    value={form.image_alt}
+                    onChange={(e) => update('image_alt', e.target.value)}
+                    placeholder="e.g. Team reviewing Google Ads dashboard on a laptop"
+                  />
                 </label>
               </div>
             </div>

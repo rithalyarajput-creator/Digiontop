@@ -124,7 +124,7 @@ export default function BlogPost() {
           {/* Featured image */}
           {post.image_url && (
             <div className="blogpost2__hero-img">
-              <img src={post.image_url} alt={post.title} />
+              <img src={post.image_url} alt={post.image_alt || post.title} />
             </div>
           )}
 
@@ -154,7 +154,7 @@ export default function BlogPost() {
             {related.map((r) => (
               <Link key={r.id} to={`/blog/${r.slug || r.id}`} className="blog-related__card">
                 {r.image_url
-                  ? <img src={r.image_url} alt={r.title} className="blog-related__img" />
+                  ? <img src={r.image_url} alt={r.image_alt || r.title} className="blog-related__img" />
                   : <div className="blog-related__img" />}
                 <div className="blog-related__body">
                   {r.category && <span className="blog-related__cat">{r.category}</span>}

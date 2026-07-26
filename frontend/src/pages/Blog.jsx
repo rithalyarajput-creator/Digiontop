@@ -91,7 +91,7 @@ export default function Blog() {
             <Link to={`/blog/${newest.slug || newest.id}`} className="blog-featured2__card">
               <div className="blog-featured2__media">
                 {newest.image_url
-                  ? <img src={newest.image_url} alt={newest.title} loading="lazy" />
+                  ? <img src={newest.image_url} alt={newest.image_alt || newest.title} loading="lazy" />
                   : <div className="blog-featured2__placeholder" />}
               </div>
               <div className="blog-featured2__body">
@@ -176,7 +176,7 @@ export function BlogCard({ post }) {
     <Link to={`/blog/${post.slug || post.id}`} className="blog-card">
       <div className="blog-card__img-wrap">
         {post.image_url ? (
-          <img src={post.image_url} alt={post.title} className="blog-card__img" loading="lazy" />
+          <img src={post.image_url} alt={post.image_alt || post.title} className="blog-card__img" loading="lazy" />
         ) : (
           <div className="blog-card__img-placeholder" />
         )}
