@@ -135,6 +135,20 @@ export default async function handler(req, res) {
     `;
     await sql`ALTER TABLE authors ADD COLUMN IF NOT EXISTS social_links TEXT`;
     await sql`ALTER TABLE authors ADD COLUMN IF NOT EXISTS is_active BOOLEAN DEFAULT true`;
+    // The admin "Add author" form had no duplicate guard, so re-submitting (or
+    // double-clicking) silently created a fresh row every time instead of
+    // reusing the existing one — a unique index closes that off going forward.
+    // Existing duplicate rows are cleaned up separately, this only prevents new ones.
+    // One-time cleanup for the duplicate rows the missing guard above already
+    // let through (e.g. several identical "DigionTop Team" rows). Blog posts
+    // reference an author by name (text), not by id, so removing the extra
+    // rows and keeping the oldest one is safe, no post ends up pointing at a
+    // deleted author.
+    await sql`
+      DELETE FROM authors a USING authors b
+      WHERE a.name = b.name AND a.id > b.id
+    `;
+    await sql`CREATE UNIQUE INDEX IF NOT EXISTS idx_authors_name_unique ON authors (name)`;
 
     // Category extra columns
     await sql`ALTER TABLE categories ADD COLUMN IF NOT EXISTS description TEXT`;

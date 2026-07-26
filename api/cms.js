@@ -87,7 +87,8 @@ async function authors(req, res) {
     const rows = await sql`
       INSERT INTO authors (name, email, bio, avatar_url, social_links, is_active)
       VALUES (${name.trim()}, ${email || null}, ${bio || null}, ${avatar_url || null}, ${social_links || null}, ${is_active ?? true})
-      RETURNING *`;
+      ON CONFLICT (name) DO NOTHING RETURNING *`;
+    if (rows.length === 0) return res.status(409).json({ error: 'An author with this name already exists' });
     return res.status(201).json({ ...rows[0], blog_count: 0 });
   }
   if (req.method === 'PUT') {
