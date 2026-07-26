@@ -64,9 +64,13 @@ function audit(html, url, headers) {
     add('Page title', 'pass', `${title.length} characters, good length.`, '');
   }
 
-  // Meta description
-  const desc = textOf(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/i) ||
-               textOf(html, /<meta[^>]+content=["']([^"']*)["'][^>]+name=["']description["']/i);
+  // Meta description. content="..." commonly contains an apostrophe (e.g.
+  // "India's"), so a shared [^"']* class for both quote styles truncates at
+  // the apostrophe. Match each quote style against only its own delimiter.
+  const desc = textOf(html, /<meta[^>]+name=["']description["'][^>]+content="([^"]*)"/i) ||
+               textOf(html, /<meta[^>]+name=["']description["'][^>]+content='([^']*)'/i) ||
+               textOf(html, /<meta[^>]+content="([^"]*)"[^>]+name=["']description["']/i) ||
+               textOf(html, /<meta[^>]+content='([^']*)'[^>]+name=["']description["']/i);
   if (!desc) {
     add('Meta description', 'fail', 'Missing.', 'Add a 150–160 character description. It is your ad copy in search results.');
   } else if (desc.length > 160) {
