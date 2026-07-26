@@ -155,12 +155,16 @@ async function media(req, res) {
   if (req.method === 'GET') {
     const { id } = req.query;
     if (!id) return res.status(400).json({ error: 'id required' });
-    const rows = await sql`SELECT mime, data FROM media WHERE id = ${id} LIMIT 1`;
+    const rows = await sql`SELECT filename, mime, data FROM media WHERE id = ${id} LIMIT 1`;
     const m = rows[0];
     if (!m) return res.status(404).json({ error: 'Not found' });
     const buf = Buffer.from(m.data, 'base64');
     res.setHeader('Content-Type', m.mime || 'image/jpeg');
     res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    // Without this, "Save image as…" names the download after the URL's own
+    // last path segment ("cms") instead of anything meaningful.
+    const safeName = (m.filename || 'image').replace(/["\\]/g, '');
+    res.setHeader('Content-Disposition', `inline; filename="${safeName}"`);
     return res.status(200).send(buf);
   }
   // GET above is public — it serves the actual image bytes to the live site.

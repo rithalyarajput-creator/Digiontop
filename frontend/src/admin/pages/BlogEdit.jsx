@@ -100,7 +100,11 @@ export default function BlogEdit() {
     setUploading(true);
     try {
       const { mime, base64 } = await toFeaturedWebp(file);
-      const resp = await apiPost('/cms?resource=media', { filename: 'featured.webp', mime, data: base64 });
+      // Keep the photographer's original name (so downloads are still
+      // identifiable later) but swap the extension since the bytes are now
+      // WebP no matter what was uploaded.
+      const baseName = file.name.replace(/\.[^.]+$/, '') || 'featured';
+      const resp = await apiPost('/cms?resource=media', { filename: `${baseName}.webp`, mime, data: base64 });
       if (resp && resp.url) {
         setForm((p) => ({ ...p, image_url: resp.url }));
       } else {
