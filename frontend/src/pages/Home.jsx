@@ -443,6 +443,20 @@ const TestimonialsSection = () => {
     if (window.innerWidth <= 900) return 2;
     return 3;
   };
+
+  // On mobile perPage is 1, so with e.g. 20 reviews pageCount is 20 — a full
+  // row of 20 dots doesn't fit and isn't readable. Cap how many dots render
+  // at once to a small window centered on the active page (matches the
+  // "sliding dots" pattern iOS/most apps use for long carousels); desktop
+  // rarely needs this since 3-per-page already keeps pageCount small.
+  const MAX_DOTS = 3;
+  function visibleDotIndexes() {
+    if (pageCount <= MAX_DOTS) return Array.from({ length: pageCount }, (_, i) => i);
+    let start = active - 1;
+    if (start < 0) start = 0;
+    if (start + MAX_DOTS > pageCount) start = pageCount - MAX_DOTS;
+    return Array.from({ length: MAX_DOTS }, (_, i) => start + i);
+  }
   const pageCount = Math.max(1, Math.ceil(display.length / perPage()));
 
   const goTo = (page) => {
@@ -505,7 +519,7 @@ const TestimonialsSection = () => {
 
         {/* Bottom-center dots */}
         <div className="tslide__dots">
-          {Array.from({ length: pageCount }).map((_, i) => (
+          {visibleDotIndexes().map((i) => (
             <button
               key={i}
               className={`tslide__dot${i === active ? ' tslide__dot--active' : ''}`}
