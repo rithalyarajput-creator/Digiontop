@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FiTrash2, FiEdit2, FiPlus, FiEye, FiEyeOff } from 'react-icons/fi';
+import { FiTrash2, FiEdit2, FiPlus, FiEye, FiEyeOff, FiUpload } from 'react-icons/fi';
 import { apiGet, apiPost, apiPut, apiDelete } from '../api';
 import { useConfirm } from '../components/useConfirm';
 
@@ -9,16 +9,50 @@ const EMPTY = {
   sort_order: 0, is_active: true,
 };
 
-const TAGS = ['Instagram', 'Reels', 'YouTube', 'Facebook'];
+const MAX_VIDEO_BYTES = 3 * 1024 * 1024; // ~3MB — the serverless upload ceiling
+
+/* Read a file as base64 (no compression — used for videos) */
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result).split(',')[1]);
+    reader.onerror = () => reject(new Error('Could not read file'));
+    reader.readAsDataURL(file);
+  });
+}
+
+/* Resize + compress an image file in the browser, return { mime, base64 } */
+function compressImage(file, maxWidth = 480, quality = 0.85) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale = Math.min(1, maxWidth / img.width);
+      const w = Math.round(img.width * scale);
+      const h = Math.round(img.height * scale);
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const dataUrl = canvas.toDataURL('image/jpeg', quality);
+      resolve({ mime: 'image/jpeg', base64: dataUrl.split(',')[1] });
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Could not read image')); };
+    img.src = url;
+  });
+}
 
 /* Manages the reels shown in the "We Create Reels That Go Viral" section.
-   Add as many as you like — on mobile the strip scrolls through all of them. */
+   Add as many as you like — the site pages through them with arrows on
+   desktop and swipes through them on mobile. */
 export default function Reels() {
   const [items, setItems] = useState([]);
   const [form, setForm] = useState(EMPTY);
   const [editId, setEditId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState('');
+  const [uploading, setUploading] = useState('');
   const { confirm, dialog } = useConfirm();
 
   async function load() {
@@ -30,10 +64,56 @@ export default function Reels() {
   function startNew() { setForm(EMPTY); setEditId(null); setShowForm(true); }
   function startEdit(r) { setForm({ ...EMPTY, ...r }); setEditId(r.id); setShowForm(true); }
 
+  async function handleVideoUpload(e) {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = '';
+    if (!file) return;
+    if (!file.type.startsWith('video/')) { setError('Please choose a video file (mp4).'); return; }
+    if (file.size > MAX_VIDEO_BYTES) {
+      setError('Video is too large — keep it under 3 MB (compress it or trim the length).');
+      return;
+    }
+    setError('');
+    setUploading('video');
+    try {
+      const base64 = await fileToBase64(file);
+      const resp = await apiPost('/cms?resource=media', { filename: file.name, mime: file.type, data: base64 });
+      if (resp && resp.url) setForm((p) => ({ ...p, video_url: resp.url }));
+      else setError('Upload failed. Please try again.');
+    } catch (err) {
+      setError(err.message || 'Upload failed.');
+    } finally {
+      setUploading('');
+    }
+  }
+
+  async function handleThumbUpload(e) {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = '';
+    if (!file) return;
+    if (!file.type.startsWith('image/')) { setError('Please choose an image file.'); return; }
+    setError('');
+    setUploading('thumb');
+    try {
+      const { mime, base64 } = await compressImage(file);
+      const resp = await apiPost('/cms?resource=media', { filename: file.name, mime, data: base64 });
+      if (resp && resp.url) setForm((p) => ({ ...p, thumb_url: resp.url }));
+      else setError('Upload failed. Please try again.');
+    } catch (err) {
+      setError(err.message || 'Upload failed.');
+    } finally {
+      setUploading('');
+    }
+  }
+
   async function save(e) {
     e.preventDefault();
+    if (!form.video_url && !form.thumb_url) {
+      setError('Upload a reel video (or at least a thumbnail image) first.');
+      return;
+    }
     try {
-      const body = { ...form, sort_order: Number(form.sort_order) || 0 };
+      const body = { ...form, title: form.title.trim() || 'Reel', sort_order: Number(form.sort_order) || 0 };
       if (editId) await apiPut('/cms?resource=reels', { id: editId, ...body });
       else await apiPost('/cms?resource=reels', body);
       setShowForm(false);
@@ -68,53 +148,53 @@ export default function Reels() {
         <button className="admin-btn admin-btn--primary" onClick={startNew}><FiPlus /> Add Reel</button>
       </div>
       <p className="admin-page-sub">
-        These reels appear in the “We Create Reels That Go Viral” section. Add as many as
-        you like — on mobile, visitors scroll sideways through all of them.
+        These reels appear in the “We Create Reels That Go Viral” section. Upload the reel
+        video and paste its Instagram link — that's it.
       </p>
       {error && <div className="admin-alert admin-alert--error">{error}</div>}
 
       {showForm && (
         <form className="admin-form admin-form--card" onSubmit={save}>
-          <label className="admin-field"><span>Title</span>
-            <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required placeholder="e.g. Brand Reel" /></label>
-          <label className="admin-field"><span>Platform Tag</span>
-            <select value={form.tag} onChange={(e) => setForm({ ...form, tag: e.target.value })}>
-              {TAGS.map((t) => <option key={t} value={t}>{t}</option>)}
-            </select></label>
-          <label className="admin-field"><span>Views (shown on the card, e.g. 12K)</span>
-            <input value={form.views || ''} onChange={(e) => setForm({ ...form, views: e.target.value })} placeholder="12K" /></label>
-          <label className="admin-field"><span>Video URL (mp4 — plays automatically on the card)</span>
-            <input value={form.video_url || ''} onChange={(e) => setForm({ ...form, video_url: e.target.value })} placeholder="https://… or /reel2.mp4" /></label>
-          <label className="admin-field"><span>Thumbnail Image URL (used if there is no video)</span>
-            <input value={form.thumb_url || ''} onChange={(e) => setForm({ ...form, thumb_url: e.target.value })} placeholder="https://…" /></label>
-          {form.thumb_url && (
-            <img src={form.thumb_url} alt="Thumbnail preview" style={{ maxWidth: 120, borderRadius: 8, border: '1px solid #e3e6ee' }} />
-          )}
-          <label className="admin-field"><span>Instagram Reel Link (optional — clicking the card opens it)</span>
-            <input value={form.instagram_url || ''} onChange={(e) => setForm({ ...form, instagram_url: e.target.value })} placeholder="https://www.instagram.com/reel/…" /></label>
-          <label className="admin-field"><span>Sort Order (lower = shown first)</span>
-            <input type="number" value={form.sort_order} onChange={(e) => setForm({ ...form, sort_order: e.target.value })} /></label>
-          <label className="admin-checkbox">
-            <input type="checkbox" checked={!!form.is_active} onChange={(e) => setForm({ ...form, is_active: e.target.checked })} /> Visible on website
+          <label className="admin-field"><span>Reel Video (mp4, under 3 MB)</span>
+            <label className="admin-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, cursor: 'pointer', width: 'fit-content' }}>
+              <FiUpload /> {uploading === 'video' ? 'Uploading…' : (form.video_url ? 'Change Video' : 'Upload Video')}
+              <input type="file" accept="video/mp4,video/webm,video/quicktime" onChange={handleVideoUpload} style={{ display: 'none' }} />
+            </label>
           </label>
+          {form.video_url && (
+            <video src={form.video_url} muted loop autoPlay playsInline style={{ maxWidth: 140, borderRadius: 8, border: '1px solid #e3e6ee' }} />
+          )}
+          <label className="admin-field"><span>Instagram Reel Link (clicking the reel opens it)</span>
+            <input value={form.instagram_url || ''} onChange={(e) => setForm({ ...form, instagram_url: e.target.value })} placeholder="https://www.instagram.com/reel/…" /></label>
+          <label className="admin-field"><span>Thumbnail Image (optional — used if there is no video)</span>
+            <label className="admin-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, cursor: 'pointer', width: 'fit-content' }}>
+              <FiUpload /> {uploading === 'thumb' ? 'Uploading…' : (form.thumb_url ? 'Change Image' : 'Upload Image')}
+              <input type="file" accept="image/*" onChange={handleThumbUpload} style={{ display: 'none' }} />
+            </label>
+          </label>
+          {form.thumb_url && (
+            <img src={form.thumb_url} alt="Thumbnail preview" style={{ maxWidth: 100, borderRadius: 8, border: '1px solid #e3e6ee' }} />
+          )}
+          <label className="admin-field"><span>Title (optional)</span>
+            <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} placeholder="e.g. Brand Reel" /></label>
           <div className="admin-form__actions">
             <button type="button" className="admin-btn" onClick={() => setShowForm(false)}>Cancel</button>
-            <button type="submit" className="admin-btn admin-btn--primary">Save</button>
+            <button type="submit" className="admin-btn admin-btn--primary" disabled={!!uploading}>Save</button>
           </div>
         </form>
       )}
 
       <div className="admin-table-wrap">
         <table className="admin-table">
-          <thead><tr><th>Title</th><th>Tag</th><th>Views</th><th>Media</th><th>Visible</th><th>Actions</th></tr></thead>
+          <thead><tr><th>Title</th><th>Tag</th><th>Media</th><th>Instagram</th><th>Visible</th><th>Actions</th></tr></thead>
           <tbody>
             {items.length === 0 && <tr><td colSpan="6" className="admin-table__empty">None yet. Click “Add Reel” to add your first one.</td></tr>}
             {items.map((r) => (
               <tr key={r.id}>
                 <td>{r.title}</td>
                 <td>{r.tag}</td>
-                <td>{r.views || '-'}</td>
                 <td>{r.video_url ? 'Video' : (r.thumb_url ? 'Image' : '-')}</td>
+                <td>{r.instagram_url ? <a href={r.instagram_url} target="_blank" rel="noopener noreferrer">Open</a> : '-'}</td>
                 <td>
                   <button
                     className="admin-icon-btn"

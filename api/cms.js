@@ -227,14 +227,18 @@ async function media(req, res) {
   // owns the media library and the one the image editor primarily serves.
   if (!allow(req, res, 'blog')) return;
 
-  // POST — upload an image (admin only)
+  // POST — upload an image or a short video (admin only). Videos serve the
+  // reels section; Vercel caps the request body at 4.5MB, so ~3MB is the real
+  // ceiling on the original file after base64 inflation.
   if (req.method === 'POST') {
     const { filename, mime, data } = req.body || {};
-    if (!data || !mime || !String(mime).startsWith('image/')) {
-      return res.status(400).json({ error: 'Invalid image payload' });
+    const isImage = String(mime || '').startsWith('image/');
+    const isVideo = ['video/mp4', 'video/webm', 'video/quicktime'].includes(String(mime || ''));
+    if (!data || !mime || (!isImage && !isVideo)) {
+      return res.status(400).json({ error: 'Invalid media payload' });
     }
-    if (data.length > 3.5 * 1024 * 1024) {
-      return res.status(413).json({ error: 'Image too large' });
+    if (data.length > 4 * 1024 * 1024) {
+      return res.status(413).json({ error: 'File too large. Maximum is about 3 MB.' });
     }
     await sql`
       CREATE TABLE IF NOT EXISTS media (
