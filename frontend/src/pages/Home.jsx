@@ -5,6 +5,37 @@ import "aos/dist/aos.css";
 import SocialReelsSection from "../components/SocialReelsSection";
 import ServiceFaq from "../components/ServiceFaq";
 import Seo from "../components/Seo";
+import JsonLd from "../components/JsonLd";
+
+/* Organization + WebSite structured data — tells Google who DigionTop is,
+   links the social profiles, and enables the site-name rich result. */
+const ORG_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.digiontop.com/#organization",
+      name: "DigionTop",
+      url: "https://www.digiontop.com/",
+      logo: "https://www.digiontop.com/images/logo-header.webp",
+      description:
+        "DigionTop is a full-service digital marketing agency in India offering website development, SEO, social media marketing, paid ads and e-commerce solutions.",
+      areaServed: "IN",
+      sameAs: [
+        "https://www.instagram.com/digiontop.agency",
+        "https://www.facebook.com/share/14eaPvHNx9A/",
+        "https://www.youtube.com/@digiontop",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.digiontop.com/#website",
+      url: "https://www.digiontop.com/",
+      name: "DigionTop",
+      publisher: { "@id": "https://www.digiontop.com/#organization" },
+    },
+  ],
+};
 import GoogleReviewCard, { sortNewestFirst } from "../components/GoogleReviewCard";
 import {
   FaCode,
@@ -687,6 +718,7 @@ const Home = () => {
         description="Rank higher & grow faster with DigionTop, India's full-service digital marketing agency. Websites, SEO, social media, ads & e-commerce. Get a free strategy call today!"
         path="/"
       />
+      <JsonLd data={ORG_SCHEMA} />
       <HeroSection />
       <ServicesSection />
       <WhyUsSection />
