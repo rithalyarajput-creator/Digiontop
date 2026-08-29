@@ -502,9 +502,23 @@
 
 .pf-card__body {
   display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+}
+.pf-card__bodytext {
+  display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 16px 18px;
+  min-width: 0;
+}
+.pf-card__logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background: #fff;
 }
 .pf-card__title { font-weight: 700; font-size: 1rem; }
 .pf-card__tag { font-size: 12px; font-weight: 600; letter-spacing: .04em; }

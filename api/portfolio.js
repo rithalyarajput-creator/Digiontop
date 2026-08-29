@@ -31,23 +31,24 @@ export default async function handler(req, res) {
     if (!auth) return;
 
     if (req.method === 'POST') {
-      const { title, category, description, image_url, client_name, results, is_featured } = req.body || {};
+      const { title, category, description, image_url, client_name, results, is_featured, link_url, logo_url } = req.body || {};
       if (!title) {
         return res.status(400).json({ error: 'title is required' });
       }
       const rows = await sql`
         INSERT INTO portfolio_items
-          (title, category, description, image_url, client_name, results, is_featured)
+          (title, category, description, image_url, client_name, results, is_featured, link_url, logo_url)
         VALUES
           (${title}, ${category || null}, ${description || null}, ${image_url || null},
-           ${client_name || null}, ${results || null}, ${is_featured ?? false})
+           ${client_name || null}, ${results || null}, ${is_featured ?? false},
+           ${link_url || null}, ${logo_url || null})
         RETURNING *
       `;
       return res.status(201).json(rows[0]);
     }
 
     if (req.method === 'PUT') {
-      const { id, title, category, description, image_url, client_name, results, is_featured } = req.body || {};
+      const { id, title, category, description, image_url, client_name, results, is_featured, link_url, logo_url } = req.body || {};
       if (!id) {
         return res.status(400).json({ error: 'id is required' });
       }
@@ -59,7 +60,9 @@ export default async function handler(req, res) {
           image_url = COALESCE(${image_url ?? null}, image_url),
           client_name = COALESCE(${client_name ?? null}, client_name),
           results = COALESCE(${results ?? null}, results),
-          is_featured = COALESCE(${is_featured ?? null}, is_featured)
+          is_featured = COALESCE(${is_featured ?? null}, is_featured),
+          link_url = COALESCE(${link_url ?? null}, link_url),
+          logo_url = COALESCE(${logo_url ?? null}, logo_url)
         WHERE id = ${id}
         RETURNING *
       `;

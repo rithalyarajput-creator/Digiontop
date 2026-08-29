@@ -83,6 +83,7 @@
 .admin-page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
 .admin-page-head .admin-page-title { margin: 0; }
 .admin-section-title { font-size: 18px; font-weight: 700; margin: 28px 0 14px; }
+.admin-page-sub { font-size: 13px; color: #777; margin: -8px 0 18px; }
 .admin-muted { font-size: 12px; color: #888; }
 
 /* ---- Stat cards ---- */

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 import {
@@ -59,6 +59,29 @@ const SECTIONS = [
 ];
 
 export default function Portfolio() {
+  // The "Websites We've Built" cards come from the database (managed in the
+  // admin panel under Site → Websites). The hardcoded items above stay as a
+  // fallback while the API loads or if it has nothing yet.
+  const [sections, setSections] = useState(SECTIONS);
+
+  useEffect(() => {
+    fetch('/api/portfolio')
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((rows) => {
+        if (!Array.isArray(rows) || rows.length === 0) return;
+        const items = rows.map((r) => ({
+          id: 'db-' + r.id,
+          title: r.title,
+          tag: r.category || 'Website',
+          image: r.image_url || '',
+          link: r.link_url || '',
+          logo: r.logo_url || '',
+        }));
+        setSections((prev) => prev.map((s) => (s.id === 'landing' ? { ...s, items } : s)));
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <main className="pf">
       <Seo
@@ -184,7 +207,7 @@ export default function Portfolio() {
       </section>
 
       {/* ── Sections ── */}
-      {SECTIONS.map((sec) => (
+      {sections.map((sec) => (
         <Section key={sec.id} section={sec} />
       ))}
 
@@ -564,8 +587,11 @@ function Card({ item, section, fromLeft }) {
         <span className="pf-card__shine" />
       </div>
       <div className="pf-card__body">
-        <span className="pf-card__title">{item.title}</span>
-        <span className="pf-card__tag" style={{ color: accent }}>{item.tag}</span>
+        {item.logo && <img src={item.logo} alt="" className="pf-card__logo" loading="lazy" decoding="async" />}
+        <div className="pf-card__bodytext">
+          <span className="pf-card__title">{item.title}</span>
+          <span className="pf-card__tag" style={{ color: accent }}>{item.tag}</span>
+        </div>
       </div>
     </Tag>
   );

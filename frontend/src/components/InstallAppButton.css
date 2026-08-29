@@ -1,6 +1,8 @@
+/* Sits directly ABOVE the chatbot mascot (.cb-fab: bottom 28px, 80px tall),
+   never on top of it. */
 .install-fab {
   position: fixed;
-  bottom: 28px;
+  bottom: 124px;
   left: 28px;
   display: flex;
   align-items: center;
@@ -40,6 +42,8 @@
 .install-fab__close:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
 
 @media (max-width: 768px) {
-  .install-fab { bottom: calc(96px + env(safe-area-inset-bottom)); left: 16px; padding: 10px 14px 10px 12px; font-size: 13px; }
+  /* Mobile chatbot FAB sits at calc(96px + safe-area) and is 80px tall —
+     stack the install button above it, clear of the sticky CTA bar too. */
+  .install-fab { bottom: calc(186px + env(safe-area-inset-bottom)); left: 16px; padding: 10px 14px 10px 12px; font-size: 13px; }
   .install-fab span:not(.install-fab__close) { display: none; }
 }

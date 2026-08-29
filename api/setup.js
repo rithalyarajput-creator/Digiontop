@@ -266,6 +266,51 @@ export default async function handler(req, res) {
       )
     `;
 
+    // The websites showcase grew a live link and a logo after the table was
+    // first created, so back-fill the columns on existing databases.
+    await sql`ALTER TABLE portfolio_items ADD COLUMN IF NOT EXISTS link_url VARCHAR(500)`;
+    await sql`ALTER TABLE portfolio_items ADD COLUMN IF NOT EXISTS logo_url VARCHAR(500)`;
+
+    // Seed the websites that used to be hardcoded on /portfolio so the admin
+    // panel starts with them. Only on an empty table — never re-added after
+    // the owner edits or deletes them.
+    const pfCount = await sql`SELECT COUNT(*)::int AS n FROM portfolio_items`;
+    if (pfCount[0].n === 0) {
+      await sql`
+        INSERT INTO portfolio_items (title, category, image_url, link_url) VALUES
+        ('Amshine Jewels', 'Jewellery E-Commerce', '/images/work/amshine-jewels.webp', 'https://amshinejewels.com'),
+        ('Stressless Learner', 'Education', '/images/work/stressless-learner.webp', NULL),
+        ('Rithala Village', 'Information & Community', '/images/work/rithala-village.webp', NULL)
+      `;
+    }
+
+    // Instagram reels shown in the "We Create Reels" section — fully managed
+    // from the admin panel (any number of them).
+    await sql`
+      CREATE TABLE IF NOT EXISTS reels (
+        id SERIAL PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        tag VARCHAR(100) DEFAULT 'Instagram',
+        views VARCHAR(40),
+        video_url VARCHAR(500),
+        thumb_url VARCHAR(500),
+        instagram_url VARCHAR(500),
+        sort_order INTEGER DEFAULT 0,
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+    const reelCount = await sql`SELECT COUNT(*)::int AS n FROM reels`;
+    if (reelCount[0].n === 0) {
+      await sql`
+        INSERT INTO reels (title, tag, views, video_url, thumb_url, sort_order) VALUES
+        ('Brand Reel', 'Instagram', '12K', '/reel2.mp4', NULL, 1),
+        ('Product Shoot', 'Reels', '8.4K', '/reel3.mp4', NULL, 2),
+        ('Client Story', 'YouTube', '21K', '/reel4.mp4', NULL, 3),
+        ('UGC Content', 'Facebook', '5.6K', NULL, 'https://images.unsplash.com/photo-1598128558393-70ff21433be0?w=200&h=356&fit=crop', 4)
+      `;
+    }
+
     await sql`
       CREATE TABLE IF NOT EXISTS faqs (
         id SERIAL PRIMARY KEY,

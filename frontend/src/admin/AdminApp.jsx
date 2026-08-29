@@ -3,7 +3,7 @@ import { Routes, Route, NavLink, Navigate, Link } from 'react-router-dom';
 import {
   FiGrid, FiInbox, FiFileText, FiStar, FiHelpCircle,
   FiLogOut, FiMenu, FiUsers, FiTag, FiSettings, FiX, FiMail, FiLock, FiShield,
-  FiFolder, FiBarChart2,
+  FiFolder, FiBarChart2, FiMonitor, FiVideo,
 } from 'react-icons/fi';
 import { getToken, clearToken, getUser, can, isOwner } from './api';
 import AdminLogin from './AdminLogin';
@@ -21,6 +21,8 @@ import Settings from './pages/Settings';
 import Users from './pages/Users';
 import Documents from './pages/Documents';
 import Analytics from './pages/Analytics';
+import PortfolioAdmin from './pages/Portfolio';
+import ReelsAdmin from './pages/Reels';
 import './admin.css';
 
 /* Shown when someone reaches a route they don't hold. The menu never links here,
@@ -134,6 +136,16 @@ export default function AdminApp() {
               <FiStar /> <span>Reviews</span>
             </NavLink>
           )}
+          {showReviews && (
+            <NavLink to="/admin/websites" className={linkClass} onClick={close}>
+              <FiMonitor /> <span>Websites</span>
+            </NavLink>
+          )}
+          {showReviews && (
+            <NavLink to="/admin/reels" className={linkClass} onClick={close}>
+              <FiVideo /> <span>Reels</span>
+            </NavLink>
+          )}
           {showFaq && (
             <NavLink to="/admin/faq" className={linkClass} onClick={close}>
               <FiHelpCircle /> <span>FAQs</span>
@@ -195,6 +207,8 @@ export default function AdminApp() {
             <Route path="categories" element={<Protected section="blog"><Categories /></Protected>} />
             <Route path="newsletter" element={<Protected section="newsletter"><Newsletter /></Protected>} />
             <Route path="reviews" element={<Protected section="reviews"><TestimonialsAdmin /></Protected>} />
+            <Route path="websites" element={<Protected section="reviews"><PortfolioAdmin /></Protected>} />
+            <Route path="reels" element={<Protected section="reviews"><ReelsAdmin /></Protected>} />
             <Route path="faq" element={<Protected section="faq"><FAQ /></Protected>} />
             <Route path="settings" element={<Protected section="settings"><Settings /></Protected>} />
             <Route path="documents" element={<Protected owner><Documents /></Protected>} />
