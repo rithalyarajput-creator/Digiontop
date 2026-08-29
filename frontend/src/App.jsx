@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from 'react';
+﻿import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -8,7 +8,6 @@ import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
 import WhatsAppButton from './components/WhatsAppButton';
 import MobileCTABar from './components/MobileCTABar';
-import InstallAppButton from './components/InstallAppButton';
 import LeadPopup from './components/LeadPopup';
 import AdminApp from './admin/AdminApp';
 import usePageTracking from './hooks/usePageTracking';
@@ -190,7 +189,6 @@ function PublicSite() {
       <Footer />
       <ChatBot />
       <WhatsAppButton />
-      <InstallAppButton />
       <MobileCTABar />
       <LeadPopup />
     </>
