@@ -82,6 +82,16 @@ async function sitemap(req, res) {
     `;
   } catch {}
 
+  // Each client website has its own case-study page.
+  let studies = [];
+  try {
+    studies = await sql`
+      SELECT slug FROM portfolio_items
+      WHERE slug IS NOT NULL AND slug <> ''
+      ORDER BY created_at DESC
+    `;
+  } catch {}
+
   const urls = [];
   for (const route of STATIC_ROUTES) {
     urls.push(`  <url>\n    <loc>${base}/${route}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${route === '' ? '1.0' : '0.7'}</priority>\n  </url>`);
@@ -89,6 +99,10 @@ async function sitemap(req, res) {
   for (const p of posts) {
     const lastmod = p.updated_at ? new Date(p.updated_at).toISOString().split('T')[0] : '';
     urls.push(`  <url>\n    <loc>${base}/blog/${p.slug}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`);
+  }
+
+  for (const s of studies) {
+    urls.push(`  <url>\n    <loc>${base}/case-study/${s.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`);
   }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>`;

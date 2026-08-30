@@ -76,6 +76,7 @@ export default function Portfolio() {
           image: r.image_url || '',
           link: r.link_url || '',
           logo: r.logo_url || '',
+          slug: r.slug || '',
         }));
         setSections((prev) => prev.map((s) => (s.id === 'landing' ? { ...s, items } : s)));
       })
@@ -556,22 +557,31 @@ function LogoSection({ section }) {
 }
 
 /* ── Single card: slides in from left or right ───────────────── */
+const MotionLink = motion(Link);
+
 function Card({ item, section, fromLeft }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.25 });
   const accent = section.accent;
   const isLive = Boolean(item.link);
+  // A website with a case study opens that page; anything else keeps the old
+  // behaviour of linking straight to the live site.
+  const hasStudy = Boolean(item.slug);
 
-  const Tag = isLive ? motion.a : motion.div;
-  const linkProps = isLive
-    ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' }
-    : {};
+  const Tag = hasStudy ? MotionLink : (isLive ? motion.a : motion.div);
+  const linkProps = hasStudy
+    ? { to: `/case-study/${item.slug}` }
+    : (isLive ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' } : {});
+
+  // Website cards show the full-page screenshot scrolling up on hover, the
+  // same way the home page showcase does.
+  const isSiteShot = section.ratio === 'wide' && Boolean(item.image);
 
   return (
     <Tag
       ref={ref}
       {...linkProps}
-      className={`pf-card pf-card--${section.ratio} pf-card--${section.mockup}${isLive ? ' pf-card--live' : ''}`}
+      className={`pf-card pf-card--${section.ratio} pf-card--${section.mockup}${isLive ? ' pf-card--live' : ''}${isSiteShot ? ' pf-card--scroll' : ''}`}
       initial={{ opacity: 0, x: fromLeft ? -90 : 90 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -579,7 +589,13 @@ function Card({ item, section, fromLeft }) {
     >
       <div className="pf-card__media">
         {item.image ? (
-          <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+          <img
+            src={item.image}
+            alt={item.title}
+            className={isSiteShot ? 'pf-card__shot' : undefined}
+            loading="lazy"
+            decoding="async"
+          />
         ) : (
           <Mockup type={section.mockup} item={item} accent={accent} Icon={section.Icon} />
         )}

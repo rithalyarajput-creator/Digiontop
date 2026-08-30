@@ -271,6 +271,21 @@ export default async function handler(req, res) {
     await sql`ALTER TABLE portfolio_items ADD COLUMN IF NOT EXISTS link_url VARCHAR(500)`;
     await sql`ALTER TABLE portfolio_items ADD COLUMN IF NOT EXISTS logo_url VARCHAR(500)`;
 
+    // Each website now has its own case-study page: a slug for the URL, a
+    // feature image for the hero, and the write-up itself.
+    await sql`ALTER TABLE portfolio_items ADD COLUMN IF NOT EXISTS slug VARCHAR(255)`;
+    await sql`ALTER TABLE portfolio_items ADD COLUMN IF NOT EXISTS feature_image_url VARCHAR(500)`;
+    await sql`ALTER TABLE portfolio_items ADD COLUMN IF NOT EXISTS content TEXT`;
+    await sql`ALTER TABLE portfolio_items ADD COLUMN IF NOT EXISTS sort_order INTEGER DEFAULT 0`;
+
+    // Rows created before slugs existed get one derived from their title.
+    await sql`
+      UPDATE portfolio_items SET slug = regexp_replace(
+        regexp_replace(lower(title), '[^a-z0-9]+', '-', 'g'), '(^-|-$)', '', 'g')
+      WHERE slug IS NULL OR slug = ''
+    `;
+    await sql`CREATE UNIQUE INDEX IF NOT EXISTS idx_portfolio_slug ON portfolio_items (slug)`;
+
     // Seed the websites that used to be hardcoded on /portfolio so the admin
     // panel starts with them. Only on an empty table — never re-added after
     // the owner edits or deletes them.

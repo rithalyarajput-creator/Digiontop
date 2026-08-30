@@ -81,6 +81,7 @@ const FAQ = lazy(() => import('./pages/FAQ'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Work = lazy(() => import('./pages/Work'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
+const CaseStudy = lazy(() => import('./pages/CaseStudy'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -179,6 +180,7 @@ function PublicSite() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/work" element={<Work />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/case-study/:slug" element={<CaseStudy />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

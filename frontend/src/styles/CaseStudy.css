@@ -1,0 +1,269 @@
+/* ══════════════════════════════════════════════════════════════
+   Case study page — /case-study/:slug
+   Light, editorial layout on the DigionTop yellow + black palette.
+   ══════════════════════════════════════════════════════════════ */
+.cs {
+  background: #fff;
+  color: #14182b;
+  font-family: inherit;
+}
+
+.cs__inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cs__loading,
+.cs__missing {
+  min-height: 60vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 14px;
+  padding: 80px 24px;
+}
+.cs__missing h1 { font-size: 1.8rem; font-weight: 800; }
+.cs__missing p { color: #6b7280; }
+
+/* ── Hero ── */
+.cs__hero {
+  padding: 56px 0 40px;
+  background: linear-gradient(180deg, #fdf7e8 0%, #fff 100%);
+  border-bottom: 1px solid #f0f1f5;
+}
+
+.cs__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-decoration: none;
+  margin-bottom: 26px;
+  transition: color 0.2s ease;
+}
+.cs__back:hover { color: #14182b; }
+
+.cs__heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.cs__logo {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #eceef3;
+  padding: 6px;
+  flex-shrink: 0;
+}
+.cs__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F5A800;
+  margin-bottom: 6px;
+}
+.cs__title {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.cs__lead {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #4b5162;
+  max-width: 720px;
+  margin-bottom: 26px;
+}
+
+.cs__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 24px;
+  border-radius: 50px;
+  background: #14182b;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease, color 0.25s ease;
+}
+.cs__btn:hover { background: #F5A800; color: #14182b; transform: translateY(-2px); }
+.cs__btn--lg { padding: 16px 32px; font-size: 1rem; }
+
+/* ── Feature image ── */
+.cs__feature { padding: 44px 0 8px; }
+.cs__feature img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+  box-shadow: 0 22px 60px rgba(20, 24, 43, 0.14);
+}
+
+/* ── Write-up ── */
+.cs__body { padding: 46px 0 10px; }
+.cs__content {
+  max-width: 780px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #33384a;
+}
+.cs__content h2 {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #14182b;
+  margin: 38px 0 14px;
+  letter-spacing: -0.01em;
+}
+.cs__content h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #14182b;
+  margin: 28px 0 10px;
+}
+.cs__content p { margin-bottom: 18px; }
+.cs__content ul,
+.cs__content ol { margin: 0 0 18px 22px; }
+.cs__content li { margin-bottom: 9px; }
+.cs__content a { color: #14182b; text-decoration: underline; text-decoration-color: #F5A800; }
+.cs__content img { max-width: 100%; border-radius: 12px; margin: 18px 0; }
+.cs__content blockquote {
+  border-left: 4px solid #F5A800;
+  padding: 4px 0 4px 20px;
+  margin: 22px 0;
+  color: #4b5162;
+  font-style: italic;
+}
+.cs__content strong { color: #14182b; }
+
+/* ── Full-page mockup in a browser frame ── */
+.cs__shot { padding: 46px 0; }
+.cs__h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+.cs__browser {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e6e8ef;
+  box-shadow: 0 22px 60px rgba(20, 24, 43, 0.12);
+  background: #fff;
+}
+.cs__bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  background: #f3f4f8;
+  border-bottom: 1px solid #e6e8ef;
+}
+.cs__bar span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #d6d9e2;
+  flex-shrink: 0;
+}
+.cs__bar em {
+  margin-left: 12px;
+  font-style: normal;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #8b90a0;
+}
+.cs__scroll {
+  max-height: 620px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.cs__scroll img { width: 100%; display: block; }
+
+/* ── More work ── */
+.cs__more { padding: 24px 0 56px; }
+.cs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.cs__card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #eceef3;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.cs__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(20, 24, 43, 0.13);
+}
+.cs__card-shot {
+  height: 165px;
+  overflow: hidden;
+  background: #eef0f4;
+  display: grid;
+  place-items: center;
+}
+.cs__card-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateY(0);
+  transition: transform 9s ease-in-out;
+}
+.cs__card:hover .cs__card-shot img { transform: translateY(calc(-100% + 165px)); }
+.cs__card-blank { font-size: 2rem; font-weight: 900; color: #b9bdcb; }
+.cs__card-body { padding: 15px 17px; }
+.cs__card-title { display: block; font-weight: 800; font-size: 0.98rem; }
+.cs__card-tag { display: block; font-size: 0.8rem; font-weight: 700; color: #F5A800; margin-top: 3px; }
+
+/* ── CTA ── */
+.cs__cta { padding: 10px 24px 76px; }
+.cs__cta-box {
+  max-width: 1060px;
+  margin: 0 auto;
+  background: #14182b;
+  border-radius: 22px;
+  padding: 52px 32px;
+  text-align: center;
+  color: #fff;
+}
+.cs__cta-box h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.cs__cta-box p { color: rgba(255, 255, 255, 0.75); margin-bottom: 26px; }
+.cs__cta-box .cs__btn { background: #F5A800; color: #14182b; }
+.cs__cta-box .cs__btn:hover { background: #fff; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .cs__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .cs__hero { padding: 36px 0 30px; }
+  .cs__heading { gap: 13px; }
+  .cs__logo { width: 48px; height: 48px; }
+  .cs__lead { font-size: 1rem; }
+  .cs__grid { grid-template-columns: 1fr; }
+  .cs__scroll { max-height: 420px; }
+  .cs__cta-box { padding: 40px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs__card-shot img { transition: none; }
+}

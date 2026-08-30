@@ -984,3 +984,42 @@
 @media (prefers-reduced-motion: reduce) {
   .pf-hero__scroll, .pf-card__shine { animation: none; transition: none; }
 }
+
+/* ── Website cards: full-page screenshot scrolls up on hover ──────────────
+   Same behaviour as the home page showcase. Overrides the older object-position
+   pan for cards that carry a real full-page mockup. */
+.pf-card--scroll .pf-card__media {
+  height: 260px;
+  aspect-ratio: auto;
+  overflow: hidden;
+  display: block;
+}
+.pf-card--scroll .pf-card__media .pf-card__shot {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  display: block;
+  object-fit: fill;
+  object-position: top center;
+  transform: translateY(0);
+  transition: transform 12s ease-in-out;
+  will-change: transform;
+}
+.pf-card--scroll:hover .pf-card__media .pf-card__shot {
+  transform: translateY(calc(-100% + 260px));
+}
+
+@media (max-width: 768px) {
+  .pf .pf-card--scroll .pf-card__media { height: 220px !important; aspect-ratio: auto !important; }
+  .pf .pf-card--scroll .pf-card__media .pf-card__shot {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: fill !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-card--scroll .pf-card__media .pf-card__shot { transition: none; }
+}
