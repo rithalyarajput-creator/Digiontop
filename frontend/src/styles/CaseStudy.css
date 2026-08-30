@@ -68,10 +68,11 @@
   text-align: center;
 }
 
-/* ── Feature image: 16:9, overlapping the hero's bottom edge ── */
+/* ── Feature image: 16:9, sitting on the seam — the dark hero runs behind
+   its top half, white behind the bottom half. ── */
 .cs__feature {
   padding-top: 44px;
-  margin-bottom: -110px;   /* pulls the white body up behind the image */
+  background: linear-gradient(to bottom, #14182b 0, #14182b 50%, #fff 50%, #fff 100%);
 }
 .cs__feature img {
   width: 100%;
@@ -84,9 +85,8 @@
 
 /* ── Body: content + sticky form ── */
 .cs__body {
-  padding: 150px 0 60px;   /* clears the overlapping feature image */
+  padding: 60px 0;
 }
-.cs__hero:not(:has(.cs__feature)) + .cs__body { padding-top: 60px; }
 
 .cs__split {
   display: grid;
@@ -289,8 +289,8 @@
 @media (max-width: 640px) {
   .cs__hero { padding-top: 32px; }
   .cs__crumbs { font-size: 0.8rem; gap: 6px; }
-  .cs__feature { padding-top: 30px; margin-bottom: -60px; }
-  .cs__body { padding: 92px 0 48px; }
+  .cs__feature { padding-top: 30px; }
+  .cs__body { padding: 44px 0 48px; }
   .cs__grid { grid-template-columns: 1fr; }
   .cs-lead { padding: 24px 20px; }
 }
