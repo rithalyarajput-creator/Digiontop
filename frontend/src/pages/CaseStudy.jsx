@@ -1,9 +1,62 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FiArrowLeft, FiArrowUpRight, FiExternalLink } from 'react-icons/fi';
+import { FiChevronRight, FiArrowRight, FiArrowUpRight, FiExternalLink, FiCheckCircle } from 'react-icons/fi';
 import Seo from '../components/Seo';
 import JsonLd from '../components/JsonLd';
 import '../styles/CaseStudy.css';
+
+/* Sidebar lead form — same offer as the blog sidebar, styled for this page. */
+function LeadForm({ source }) {
+  const [form, setForm] = useState({ name: '', phone: '', email: '' });
+  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  async function submit(e) {
+    e.preventDefault();
+    setSending(true);
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: form.name, phone: form.phone, email: form.email,
+          message: `Lead from case study: ${source}`, source: 'case-study',
+        }),
+      });
+    } catch {
+      /* The lead is lost, but never leave the visitor staring at a dead form. */
+    } finally {
+      setSent(true);
+      setSending(false);
+    }
+  }
+
+  return (
+    <div className="cs-lead">
+      <h3 className="cs-lead__title">Grow Your Business</h3>
+      <p className="cs-lead__sub">Get a free marketing strategy. No commitment needed.</p>
+      {sent ? (
+        <div className="cs-lead__success">
+          <FiCheckCircle size={20} /> <span>Thanks! We'll reach out soon.</span>
+        </div>
+      ) : (
+        <form onSubmit={submit} className="cs-lead__form">
+          <input type="text" placeholder="Full Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
+          <input type="tel" placeholder="Mobile Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} required />
+          <input type="email" placeholder="Email Address" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required />
+          <button type="submit" disabled={sending}>
+            {sending ? 'Sending…' : <>Get Free Strategy <FiArrowRight /></>}
+          </button>
+        </form>
+      )}
+      <ul className="cs-lead__perks">
+        <li><FiCheckCircle /> Free Consultation</li>
+        <li><FiCheckCircle /> No Commitment</li>
+        <li><FiCheckCircle /> Expert Team</li>
+      </ul>
+    </div>
+  );
+}
 
 /* One client project, written up in the admin panel under
    Projects → Websites. Route: /case-study/:slug */
@@ -54,6 +107,7 @@ export default function CaseStudy() {
   }
 
   const host = (item.link_url || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
+  const hero = item.feature_image_url || item.image_url || '';
 
   return (
     <main className="cs">
@@ -61,7 +115,7 @@ export default function CaseStudy() {
         title={`${item.title} Case Study`}
         description={item.description || `How DigionTop designed and built ${item.title}${item.category ? ` — a ${item.category} project` : ''}.`}
         path={`/case-study/${item.slug}`}
-        image={item.feature_image_url || item.image_url || undefined}
+        image={hero || undefined}
         type="article"
       />
       <JsonLd
@@ -72,69 +126,62 @@ export default function CaseStudy() {
           description: item.description || '',
           genre: item.category || 'Web Development',
           url: `https://www.digiontop.com/case-study/${item.slug}`,
-          image: item.feature_image_url || item.image_url || undefined,
+          image: hero || undefined,
           creator: { '@type': 'Organization', name: 'DigionTop', url: 'https://www.digiontop.com/' },
         }}
       />
 
-      {/* ── Hero ── */}
+      {/* ── Dark hero: breadcrumbs, brand name, one-line description ── */}
       <header className="cs__hero">
         <div className="cs__inner">
-          <Link to="/portfolio" className="cs__back"><FiArrowLeft /> All Projects</Link>
+          <nav className="cs__crumbs" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <FiChevronRight />
+            <Link to="/portfolio">Case Studies</Link>
+            {item.category && (
+              <>
+                <FiChevronRight />
+                <span>{item.category}</span>
+              </>
+            )}
+            <FiChevronRight />
+            <span className="cs__crumbs-current">{item.title}</span>
+          </nav>
 
-          <div className="cs__heading">
-            {item.logo_url && <img src={item.logo_url} alt="" className="cs__logo" />}
-            <div>
-              {item.category && <span className="cs__eyebrow">{item.category}</span>}
-              <h1 className="cs__title">{item.title}</h1>
+          <h1 className="cs__title">{item.title}</h1>
+          {item.description && <p className="cs__lead">{item.description}</p>}
+        </div>
+
+        {/* Feature image overlaps the hero, the way the reference does */}
+        {hero && (
+          <div className="cs__feature">
+            <div className="cs__inner">
+              <img src={hero} alt={item.title} width="1200" height="675" />
             </div>
           </div>
-
-          {item.description && <p className="cs__lead">{item.description}</p>}
-
-          {item.link_url && (
-            <a className="cs__btn" href={item.link_url} target="_blank" rel="noopener noreferrer">
-              Visit {host || 'the live site'} <FiExternalLink />
-            </a>
-          )}
-        </div>
+        )}
       </header>
 
-      {/* ── Feature image ── */}
-      {item.feature_image_url && (
-        <section className="cs__feature">
-          <div className="cs__inner">
-            <img src={item.feature_image_url} alt={item.title} loading="lazy" />
-          </div>
-        </section>
-      )}
+      {/* ── Body: write-up on the left, lead form on the right ── */}
+      <section className="cs__body">
+        <div className="cs__inner cs__split">
+          <div className="cs__content-col">
+            {item.content
+              ? <div className="cs__content" dangerouslySetInnerHTML={{ __html: item.content }} />
+              : <p className="cs__content cs__content--empty">The write-up for this project is coming soon.</p>}
 
-      {/* ── Write-up ── */}
-      {item.content && (
-        <section className="cs__body">
-          <div className="cs__inner">
-            <div className="cs__content" dangerouslySetInnerHTML={{ __html: item.content }} />
+            {item.link_url && (
+              <a className="cs__btn" href={item.link_url} target="_blank" rel="noopener noreferrer">
+                Visit {host || 'the live site'} <FiExternalLink />
+              </a>
+            )}
           </div>
-        </section>
-      )}
 
-      {/* ── Full-page mockup ── */}
-      {item.image_url && (
-        <section className="cs__shot">
-          <div className="cs__inner">
-            <h2 className="cs__h2">The full page</h2>
-            <div className="cs__browser">
-              <div className="cs__bar">
-                <span /><span /><span />
-                <em>{host || 'digiontop.com'}</em>
-              </div>
-              <div className="cs__scroll">
-                <img src={item.image_url} alt={`${item.title} full page`} loading="lazy" />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+          <aside className="cs__side">
+            <LeadForm source={item.title} />
+          </aside>
+        </div>
+      </section>
 
       {/* ── More work ── */}
       {more.length > 0 && (
@@ -145,8 +192,8 @@ export default function CaseStudy() {
               {more.map((m) => (
                 <Link key={m.id} to={`/case-study/${m.slug}`} className="cs__card">
                   <div className="cs__card-shot">
-                    {m.image_url
-                      ? <img src={m.image_url} alt={m.title} loading="lazy" />
+                    {m.feature_image_url || m.image_url
+                      ? <img src={m.feature_image_url || m.image_url} alt={m.title} loading="lazy" />
                       : <span className="cs__card-blank">{(m.title || '?')[0]}</span>}
                   </div>
                   <div className="cs__card-body">
@@ -156,18 +203,10 @@ export default function CaseStudy() {
                 </Link>
               ))}
             </div>
+            <Link to="/portfolio" className="cs__morelink">See all projects <FiArrowUpRight /></Link>
           </div>
         </section>
       )}
-
-      {/* ── CTA ── */}
-      <section className="cs__cta">
-        <div className="cs__cta-box">
-          <h2>Want a website like this?</h2>
-          <p>Tell us about your business and we'll show you exactly what we'd build.</p>
-          <Link to="/contact" className="cs__btn cs__btn--lg">Start Your Project <FiArrowUpRight /></Link>
-        </div>
-      </section>
     </main>
   );
 }
