@@ -52,6 +52,7 @@ import {
   FaTshirt,
   FaBuilding,
   FaArrowRight,
+  FaArrowLeft,
   FaComments,
   FaPencilRuler,
   FaRocket,
@@ -606,8 +607,36 @@ const WORK_TABS = [
   { key: 'reels', label: 'Reels' },
 ];
 
+const SITES_PER_PAGE = 3;
+
 const OurWorkSection = () => {
   const [tab, setTab] = useState('websites');
+  const [sites, setSites] = useState(showcaseSites);
+  const [sitePage, setSitePage] = useState(0);
+
+  // Websites come from the admin "Projects → Websites" menu; the hardcoded
+  // list above stays as a fallback while loading / if the API is down.
+  useEffect(() => {
+    fetch('/api/portfolio')
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((rows) => {
+        if (!Array.isArray(rows) || rows.length === 0) return;
+        setSites(rows.map((r) => ({
+          key: 'db-' + r.id,
+          title: r.title,
+          tag: r.category || 'Website',
+          url: (r.link_url || '').replace(/^https?:\/\//, '').replace(/\/$/, ''),
+          link: r.link_url || '',
+          image: r.image_url || '',
+        })));
+        setSitePage(0);
+      })
+      .catch(() => {});
+  }, []);
+
+  const sitePages = Math.max(1, Math.ceil(sites.length / SITES_PER_PAGE));
+  const goSites = (dir) => setSitePage((p) => (p + dir + sitePages) % sitePages);
+  const visibleSites = sites.slice(sitePage * SITES_PER_PAGE, sitePage * SITES_PER_PAGE + SITES_PER_PAGE);
 
   return (
     <section className="showcase" id="our-work">
@@ -633,24 +662,39 @@ const OurWorkSection = () => {
           ))}
         </div>
 
-        {/* WEBSITES */}
+        {/* WEBSITES — from the admin panel, paged with arrows */}
         {tab === 'websites' && (
-          <div className="showcase__grid">
-            {showcaseSites.map((s, i) => (
-              <div className="showcase__card" key={s.key} data-aos="fade-up" data-aos-delay={(i % 3) * 90}>
-                <div className="showcase__window">
-                  <img src={s.image} alt={s.title} className="showcase__shot" loading="lazy" />
-                </div>
-                <div className="showcase__caption">
-                  <div>
-                    <span className="showcase__title">{s.title}</span>
-                    <span className="showcase__tag">{s.tag}</span>
-                  </div>
-                  <span className="showcase__arrow"><FaArrowRight /></span>
-                </div>
+          <>
+            <div className="showcase__grid">
+              {visibleSites.map((s) => {
+                const Card = s.link ? 'a' : 'div';
+                const cardProps = s.link
+                  ? { href: s.link, target: '_blank', rel: 'noopener noreferrer', style: { textDecoration: 'none', color: 'inherit' } }
+                  : {};
+                return (
+                  <Card className="showcase__card" key={s.key} {...cardProps}>
+                    <div className="showcase__window">
+                      <img src={s.image} alt={s.title} className="showcase__shot" loading="lazy" />
+                    </div>
+                    <div className="showcase__caption">
+                      <div>
+                        <span className="showcase__title">{s.title}</span>
+                        <span className="showcase__tag">{s.tag}</span>
+                      </div>
+                      <span className="showcase__arrow"><FaArrowRight /></span>
+                    </div>
+                  </Card>
+                );
+              })}
+            </div>
+            {sitePages > 1 && (
+              <div className="showcase__nav">
+                <button type="button" className="showcase__navbtn" onClick={() => goSites(-1)} aria-label="Previous websites"><FaArrowLeft /></button>
+                <span className="showcase__navcount">{sitePage + 1} / {sitePages}</span>
+                <button type="button" className="showcase__navbtn" onClick={() => goSites(1)} aria-label="More websites"><FaArrowRight /></button>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
 
         {/* GRAPHICS / POSTS */}

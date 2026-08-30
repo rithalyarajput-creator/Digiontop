@@ -130,12 +130,8 @@ export default function AdminApp() {
             </NavLink>
           )}
 
-          {showSiteGroup && <div className="admin-sidebar__label">Site</div>}
-          {showReviews && (
-            <NavLink to="/admin/reviews" className={linkClass} onClick={close}>
-              <FiStar /> <span>Reviews</span>
-            </NavLink>
-          )}
+          {/* Projects — the portfolio content shown on the public site */}
+          {showReviews && <div className="admin-sidebar__label">Projects</div>}
           {showReviews && (
             <NavLink to="/admin/websites" className={linkClass} onClick={close}>
               <FiMonitor /> <span>Websites</span>
@@ -144,6 +140,13 @@ export default function AdminApp() {
           {showReviews && (
             <NavLink to="/admin/reels" className={linkClass} onClick={close}>
               <FiVideo /> <span>Reels</span>
+            </NavLink>
+          )}
+
+          {showSiteGroup && <div className="admin-sidebar__label">Site</div>}
+          {showReviews && (
+            <NavLink to="/admin/reviews" className={linkClass} onClick={close}>
+              <FiStar /> <span>Reviews</span>
             </NavLink>
           )}
           {showFaq && (
