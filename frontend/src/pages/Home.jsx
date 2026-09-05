@@ -126,20 +126,20 @@ const stats = [
 const heroStats = [
   { value: "500+", label: "Happy Clients", icon: <FaHandshake /> },
   { value: "2X+", label: "Average Growth", icon: <FaChartLine /> },
-  { value: "#1", label: "Client Satisfaction", icon: <FaTrophy /> },
+  { value: "98%", label: "Client Satisfaction", icon: <FaTrophy /> },
 ];
 
 const HeroSection = () => (
   <section className="hero hero--bgimg">
     {/* full designed image as the background */}
-    <img src="/images/home-banner.webp" alt="DigionTop: #1 Digital Marketing Agency in India" className="hero__bgimg" />
+    <img src="/images/home-banner.webp" alt="DigionTop: Digital Marketing Agency in India" className="hero__bgimg" />
     <div className="hero__bgimg-shade" aria-hidden="true" />
 
     <div className="container hero__bgimg-inner">
       {/* text + buttons on the LEFT (dark) area of the image */}
       <div className="hero__bgimg-text" data-aos="fade-right">
         <div className="hero__badge">
-          <span className="hero__badge-star">★</span> #1 Digital Marketing Agency
+          <span className="hero__badge-star">★</span> Full-Service Digital Marketing Agency
         </div>
         <h1 className="hero__headline">
           Stay On <span className="hero__headline--yellow">Top.</span>
@@ -150,7 +150,7 @@ const HeroSection = () => (
         </p>
         <p className="hero__lead">
           From websites and SEO to social media, ads and e-commerce, one full-service
-          digital agency that puts your brand #1 on Google and across social media.
+          digital agency that puts your brand in front of customers on Google and across social media.
         </p>
         <div className="hero__ctas">
           <Link to="/contact" className="btn btn--yellow hero__btn-call">
@@ -713,7 +713,7 @@ const Home = () => {
   return (
     <main className="home-page">
       <Seo
-        title="DigionTop: #1 Digital Marketing Agency in India"
+        title="DigionTop: Digital Marketing Agency in India"
         description="Rank higher & grow faster with DigionTop, India's digital marketing agency: websites, SEO, social media, ads & e-commerce. Free strategy call today!"
         path="/"
       />

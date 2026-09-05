@@ -181,9 +181,9 @@ export default function Portfolio() {
               your business <strong className="pf-hero__hl">digitally ON TOP</strong>.
             </p>
             <p>
-              We're a full-service digital marketing agency. Your growth is our top priority, 
+              We're a full-service digital marketing agency. Your growth is our top priority,
               through websites, reels, SEO, branding and e-commerce, we put your brand
-              <strong className="pf-hero__hl"> #1</strong> on Google and across social media.
+              <strong className="pf-hero__hl"> in front of customers</strong> on Google and across social media.
             </p>
             <p className="pf-hero__tagline">“Your Business, Our Top Priority.”</p>
           </motion.div>

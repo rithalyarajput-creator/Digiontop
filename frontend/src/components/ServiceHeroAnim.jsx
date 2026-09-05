@@ -33,7 +33,7 @@ function renderVariant(v) {
             <span className="sha-rankbar" style={{ '--h': '80%', '--d': '.3s' }} />
             <span className="sha-rankbar" style={{ '--h': '100%', '--d': '.45s' }} />
           </div>
-          <div className="sha-badge sha-badge--num">#1</div>
+          <div className="sha-badge sha-badge--num">TOP</div>
           <div className="sha-chip sha-chip--float"><Arrow /> +34%</div>
         </>
       );

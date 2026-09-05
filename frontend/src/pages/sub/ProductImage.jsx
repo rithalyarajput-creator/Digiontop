@@ -8,7 +8,7 @@ import Seo from '../../components/Seo'
 import '../../styles/EcomPages.css'
 
 const FAQS = [
-  { q: 'Why do product images matter?', a: 'Images are the #1 driver of conversions online, great visuals and infographics build trust and dramatically lift sales.' },
+  { q: 'Why do product images matter?', a: 'Images are one of the biggest drivers of conversions online, great visuals and infographics build trust and dramatically lift sales.' },
   { q: 'What do you create?', a: 'Clean product shots, lifestyle images, infographics, comparison charts and A+ / EBC content for marketplaces.' },
   { q: 'Do the images meet marketplace rules?', a: 'Yes, every image follows Amazon, Flipkart and Meesho guidelines so they\'re accepted and rank well.' },
   { q: 'Can you edit my existing photos?', a: 'Absolutely, background removal, retouching, resizing and enhancement of your existing images.' },

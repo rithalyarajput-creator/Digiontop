@@ -71,7 +71,7 @@ export default function LocalSeo() {
         <div className="lseo-stats__inner">
           <div data-aos="fade-up"><b>46%</b><span>of all Google searches are local</span></div>
           <div data-aos="fade-up" data-aos-delay="80"><b>88%</b><span>call or visit within 24 hrs</span></div>
-          <div data-aos="fade-up" data-aos-delay="160"><b>#1</b><span>Map Pack gets ~45% of clicks</span></div>
+          <div data-aos="fade-up" data-aos-delay="160"><b>~45%</b><span>Of clicks go to the Map Pack</span></div>
         </div>
       </section>
 
@@ -99,7 +99,7 @@ export default function LocalSeo() {
         <div className="lseo-container">
           <div className="lseo-head lseo-head--light" data-aos="fade-up">
             <span className="lseo-eyebrow lseo-eyebrow--light">How We Do It</span>
-            <h2>From Invisible to #1 Near You</h2>
+            <h2>From Invisible to Found Near You</h2>
           </div>
           <div className="lseo-steps__grid">
             {STEPS.map((s, i) => (

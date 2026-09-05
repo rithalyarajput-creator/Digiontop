@@ -70,7 +70,7 @@ export default function DigitalStrategy() {
             <div className="ds-stat"><b>2x</b><span>Avg Growth</span></div>
             <div className="ds-stat"><b>90d</b><span>Roadmap</span></div>
             <div className="ds-stat"><b>360°</b><span>Approach</span></div>
-            <div className="ds-stat"><b>#1</b><span>Goal: Top</span></div>
+            <div className="ds-stat"><b>2X+</b><span>Growth Focused</span></div>
           </div>
         </div>
       </section>

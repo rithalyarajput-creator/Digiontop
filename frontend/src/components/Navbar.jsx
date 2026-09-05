@@ -312,7 +312,7 @@ export default function Navbar() {
           <Link to="/contact" className="navbar__drawer-cta" onClick={() => setMenuOpen(false)}>
             <span>&#8594;</span> Get Free Consultation
           </Link>
-          <p className="navbar__drawer-tagline">India's #1 Digital Marketing Agency</p>
+          <p className="navbar__drawer-tagline">India's Full-Service Digital Marketing Agency</p>
         </div>
       </div>
         </>,

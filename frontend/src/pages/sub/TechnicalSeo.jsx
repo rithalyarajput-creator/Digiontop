@@ -68,8 +68,8 @@ const serviceSchema = {
   '@type': 'Service',
   serviceType: 'Technical SEO',
   provider: { '@type': 'ProfessionalService', name: 'DigionTop', url: 'https://www.digiontop.com' },
-  areaServed: 'IN',
-  description: 'Technical SEO services covering crawling, indexing, canonicalization, redirects, sitemap, internal linking and website speed optimization for businesses across India.',
+  areaServed: 'Delhi, India',
+  description: 'Technical SEO services covering crawling, indexing, canonicalization, redirects, sitemap, internal linking and website speed optimization for businesses in Delhi.',
 }
 
 export default function TechnicalSeo() {
@@ -77,8 +77,8 @@ export default function TechnicalSeo() {
   return (
     <main className="tseo">
       <Seo
-        title="Technical SEO Services in India | DigionTop"
-        description="Fix crawling, indexing, site speed & structure issues with DigionTop's technical SEO services in India. Get a detailed technical SEO audit today."
+        title="Technical SEO Services in Delhi - Fix Website Issues"
+        description="Improve crawling, indexing, website structure, speed, and technical health with professional technical SEO services in Delhi."
         path="/services/technical-seo"
       />
       <Helmet>
@@ -91,8 +91,8 @@ export default function TechnicalSeo() {
         <div className="tseo-container tseo-hero__inner">
           <div className="tseo-hero__text" data-aos="fade-right">
             <span className="tseo-tag"><FiTerminal /> Technical SEO</span>
-            <h1 className="tseo-hero__title">Technical SEO Services for a <span>Stronger Website</span></h1>
-            <p className="tseo-hero__sub">A technically healthy website gives search engines a better foundation to crawl, understand and index your important pages. DigionTop's technical SEO service focuses on identifying website issues that may affect search visibility, user experience and organic performance.</p>
+            <h1 className="tseo-hero__title">Technical SEO Service in Delhi for a <span>Stronger Website</span></h1>
+            <p className="tseo-hero__sub">A technically healthy website gives search engines a better foundation to crawl, understand and index your important pages. DigionTop's technical SEO service in Delhi focuses on identifying website issues that may affect search visibility, user experience and organic performance.</p>
             <div className="tseo-hero__cta">
               <Link to="/contact" className="tseo-btn tseo-btn--solid">Get a Technical SEO Audit <FiArrowRight /></Link>
               <Link to="/contact" className="tseo-btn tseo-btn--ghost">Talk to an SEO Expert</Link>
@@ -256,7 +256,7 @@ export default function TechnicalSeo() {
           <div className="tseo-cta__box" data-aos="zoom-in">
             <FiActivity className="tseo-cta__ic" />
             <h2>Build a Stronger Technical Foundation</h2>
-            <p>Your website needs more than attractive design and good content. It also needs a strong technical foundation that lets search engines access and understand your important pages. DigionTop's technical SEO service is designed to identify technical problems, prioritize improvements and create a healthier foundation for long-term organic visibility.</p>
+            <p>Your website needs more than attractive design and good content. It also needs a strong technical foundation that allows search engines to access and understand your important pages. Our technical SEO service in Delhi is designed to identify technical problems, prioritize improvements, and create a healthier foundation for long-term organic visibility.</p>
             <div className="tseo-hero__cta" style={{ justifyContent: 'center' }}>
               <Link to="/contact" className="tseo-btn tseo-btn--light">Get Your Technical SEO Audit <FiArrowUpRight /></Link>
               <Link to="/contact" className="tseo-btn tseo-btn--ghost">Contact Our SEO Team</Link>

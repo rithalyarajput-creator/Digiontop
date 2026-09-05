@@ -29,7 +29,7 @@ const REPLIES = {
     action: AUDIT_ACTION,
   },
   seo: {
-    text: 'We rank you #1 on Google, on-page, technical & local SEO.\nGet a free quote, no obligation!',
+    text: 'We help you rank higher on Google, on-page, technical & local SEO.\nGet a free quote, no obligation!',
     action: AUDIT_ACTION,
   },
   'social media': {

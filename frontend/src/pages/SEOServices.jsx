@@ -37,7 +37,7 @@ import '../styles/Services.css'
 
 const SEO_FAQS = [
   { q: 'How long before SEO shows results?', a: 'Most clients see first measurable movement in 30–90 days; full compounding growth typically lands by month 3–6 depending on competition.' },
-  { q: 'Do you guarantee #1 rankings?', a: 'No honest agency can guarantee exact positions, but our data-driven SEO consistently drives 2x+ organic traffic growth for clients.' },
+  { q: 'Do you guarantee top rankings?', a: 'No honest agency can guarantee exact positions, but our data-driven SEO consistently drives 2x+ organic traffic growth for clients.' },
   { q: 'What does your SEO include?', a: 'On-page, technical, local & content SEO, keyword research, optimization, link building, Search Console setup, and performance tracking.' },
   { q: 'Do you require a long-term contract?', a: 'No lock-in. SEO compounds over time, and clients stay because the results keep growing.' },
   { q: 'Will I get reports?', a: 'Yes, clear monthly reports on rankings, traffic, and what we did to grow them.' },
@@ -163,7 +163,7 @@ export default function SEOServices() {
 
   return (
     <>
-      <Seo title="SEO Services in India, Rank #1 on Google | DigionTop" description="Data-driven SEO services that rank your business #1 on Google. On-page, technical, local & content SEO with a 2x traffic lift in 90 days. Get a free SEO audit." path="/services/seo-services" />
+      <Seo title="SEO Services in India, Rank Higher on Google | DigionTop" description="Data-driven SEO services that rank your business higher on Google. On-page, technical, local & content SEO with a 2x traffic lift in 90 days. Get a free SEO audit." path="/services/seo-services" />
       {/* ── Hero — simple centered ─────────────────────────── */}
       <section className="svc-hero svc-hero--center">
         <div className="container">
@@ -196,7 +196,7 @@ export default function SEOServices() {
               {[
                 { num: '500%', label: 'Avg Traffic Growth' },
                 { num: '90 Days', label: 'First Results' },
-                { num: '#1', label: 'Rankings Achieved' },
+                { num: '2X+', label: 'Traffic Growth' },
               ].map((s) => (
                 <div key={s.num} style={{ textAlign: 'center' }}>
                   <div className="svc-hero__stat-num svc-hero__stat-num--dark">{s.num}</div>

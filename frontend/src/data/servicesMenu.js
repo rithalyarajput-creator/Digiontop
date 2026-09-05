@@ -6,7 +6,7 @@ export const SERVICES_MENU = [
   {
     heading: 'SEO & Search Marketing',
     icon: 'seo',
-    tagline: 'Rank #1 on Google with data-driven SEO.',
+    tagline: 'Rank higher on Google with data-driven SEO.',
     image: '/images/seo-hero.webp',
     link: '/services/seo-services',
     items: [
