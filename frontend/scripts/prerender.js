@@ -13,8 +13,14 @@
  * `dist/<route>/index.html`. React then hydrates over that markup at runtime,
  * so behaviour in the browser is unchanged.
  *
- * Dynamic routes (/blog/:slug) are intentionally skipped: their content lives
- * in the database, so they are crawled the ordinary way.
+ * Dynamic routes (/blog/:slug, /case-study/:slug) are fetched from the live
+ * API (see dynamicRoutes below) and prerendered like any other route. They
+ * used to be skipped on the assumption that Google would crawl them the
+ * ordinary way, but Vercel's SPA rewrite serves the prerendered dist/index.html
+ * for any path with no matching dist/<route>/index.html — so every one of
+ * these URLs was silently serving the homepage's title and canonical instead
+ * of an empty shell, which is worse: crawlers saw 19 "duplicate" pages, not
+ * 19 unrendered ones.
  *
  * WHY THIS RUNS LOCALLY, AND WHY dist/ IS COMMITTED:
  * Vercel's build image downloads Chrome fine but lacks the shared libraries it
@@ -89,7 +95,34 @@ function serve(port) {
   return new Promise((resolve) => server.listen(port, () => resolve(server)))
 }
 
-const routes = staticRoutes()
+/** Blog post and case-study slugs, fetched from the live API (published data only). */
+async function dynamicRoutes() {
+  const routes = []
+
+  try {
+    const res = await fetch(`${API_ORIGIN}/api/blog?published=1`)
+    const posts = res.ok ? await res.json() : []
+    if (Array.isArray(posts)) {
+      for (const p of posts) if (p.slug) routes.push(`/blog/${p.slug}`)
+    }
+  } catch {
+    console.error('Could not fetch blog slugs for prerendering — blog posts will be skipped this build.')
+  }
+
+  try {
+    const res = await fetch(`${API_ORIGIN}/api/portfolio`)
+    const items = res.ok ? await res.json() : []
+    if (Array.isArray(items)) {
+      for (const it of items) if (it.slug) routes.push(`/case-study/${it.slug}`)
+    }
+  } catch {
+    console.error('Could not fetch case-study slugs for prerendering — case studies will be skipped this build.')
+  }
+
+  return routes
+}
+
+const routes = [...staticRoutes(), ...(await dynamicRoutes())]
 const PORT = 5111
 const server = await serve(PORT)
 const browser = await puppeteer.launch({

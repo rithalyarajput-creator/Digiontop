@@ -1,0 +1,25 @@
+# DigionTop
+
+> DigionTop is a full-service digital marketing agency in India, offering SEO, Google Ads, Meta Ads, social media marketing, website development, and e-commerce solutions for businesses across every industry and city in India.
+
+DigionTop works with clients pan-India on a remote-first basis, with one team handling SEO, paid ads, social media, branding, and web development under a single engagement — transparent reporting, no long-term contracts.
+
+## Company
+
+- [About DigionTop](https://www.digiontop.com/about): Who we are and how we work.
+- [Why Choose DigionTop](https://www.digiontop.com/why-us): What sets us apart as a digital marketing agency.
+- [Industries We Serve](https://www.digiontop.com/industries): Sector-specific digital marketing for retail, healthcare, education, real estate, SaaS, and more.
+- [Contact](https://www.digiontop.com/contact): Book a free consultation.
+
+## Services
+
+- [Website Development](https://www.digiontop.com/services/website-development)
+- [SEO Services](https://www.digiontop.com/services/seo-services)
+- [Google Ads](https://www.digiontop.com/services/google-ads)
+- [Social Media Marketing](https://www.digiontop.com/services/social-media-marketing)
+- [E-Commerce Solutions](https://www.digiontop.com/services/ecommerce-solutions)
+
+## Work
+
+- [Case Studies & Portfolio](https://www.digiontop.com/portfolio): Client projects and results.
+- [Blog](https://www.digiontop.com/blog): Digital marketing insights, SEO tactics, and case studies.

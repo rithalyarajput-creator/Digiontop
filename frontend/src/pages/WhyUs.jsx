@@ -98,7 +98,7 @@ export default function WhyUs() {
           </p>
           <div className="whyus__hero-actions">
             <Link to="/contact" className="whyus__cta-btn whyus__cta-btn--primary">Get Free Consultation <FaArrowRight /></Link>
-            <Link to="/services" className="whyus__cta-btn whyus__cta-btn--outline">Explore Our Services</Link>
+            <Link to="/services/website-development" className="whyus__cta-btn whyus__cta-btn--outline">Explore Our Services</Link>
           </div>
         </div>
       </section>
@@ -176,7 +176,7 @@ export default function WhyUs() {
             </p>
             <div className="whyus__cta-actions">
               <Link to="/contact" className="whyus__cta-btn whyus__cta-btn--primary">Get Free Consultation <FaArrowRight /></Link>
-              <Link to="/services" className="whyus__cta-btn whyus__cta-btn--outline">Explore Our Services</Link>
+              <Link to="/services/website-development" className="whyus__cta-btn whyus__cta-btn--outline">Explore Our Services</Link>
             </div>
 
             <div className="whyus__cta-trust">
