@@ -111,7 +111,6 @@ export default function TechnicalSeo() {
       <section className="tseo-fixes">
         <div className="tseo-container">
           <div className="tseo-head" data-aos="fade-up">
-            <span className="tseo-eyebrow">// solutions</span>
             <h2>Complete Technical SEO Solutions for Your Website</h2>
             <p className="tseo-head__sub">Technical SEO involves the behind-the-scenes elements that help search engines access and understand your website. DigionTop's approach starts with identifying technical problems and then prioritizing improvements according to their potential impact.</p>
           </div>
@@ -130,7 +129,6 @@ export default function TechnicalSeo() {
       <section className="tseo-fixes tseo-fixes--alt">
         <div className="tseo-container">
           <div className="tseo-head" data-aos="fade-up">
-            <span className="tseo-eyebrow">// audit &amp; speed</span>
             <h2>Technical SEO Services That Fix Website Issues</h2>
             <p className="tseo-head__sub">
               DigionTop's technical SEO services focus on the technical foundation of your website rather than simply adding more keywords. We review crawling, indexing, redirects, canonicalization, sitemap configuration, internal linking, structured data and other relevant technical elements based on your website's requirements. Google explains that canonicalization helps determine the representative URL when multiple URLs contain similar or duplicate content.
@@ -155,7 +153,6 @@ export default function TechnicalSeo() {
       <section className="tseo-fixes">
         <div className="tseo-container">
           <div className="tseo-head" data-aos="fade-up">
-            <span className="tseo-eyebrow">// why us</span>
             <h2>Why Choose Our Technical SEO Approach?</h2>
           </div>
           <div className="tseo-fixes__grid">
@@ -173,7 +170,6 @@ export default function TechnicalSeo() {
       <section className="tseo-process">
         <div className="tseo-container">
           <div className="tseo-head" data-aos="fade-up">
-            <span className="tseo-eyebrow">// how it works</span>
             <h2>Our Technical SEO Process</h2>
           </div>
           <div className="tseo-process__grid">
@@ -192,7 +188,6 @@ export default function TechnicalSeo() {
       <section className="tseo-fixes tseo-fixes--alt">
         <div className="tseo-container">
           <div className="tseo-head" data-aos="fade-up">
-            <span className="tseo-eyebrow">// coverage</span>
             <h2>Technical Areas We Can Improve</h2>
           </div>
           <div className="tseo-mini-grid">
@@ -213,7 +208,6 @@ export default function TechnicalSeo() {
       <section className="tseo-fixes">
         <div className="tseo-container">
           <div className="tseo-head" data-aos="fade-up">
-            <span className="tseo-eyebrow">// who it is for</span>
             <h2>Who Can Benefit From Technical SEO?</h2>
           </div>
           <div className="tseo-benefits">
@@ -232,7 +226,6 @@ export default function TechnicalSeo() {
       <section className="tseo-cwv">
         <div className="tseo-container tseo-cwv__inner">
           <div data-aos="fade-right">
-            <span className="tseo-eyebrow tseo-eyebrow--light">// core web vitals</span>
             <h2>We Get You Into the Green</h2>
             <p>Page experience is a confirmed ranking factor. We push every metric past Google's threshold, measurably.</p>
           </div>
