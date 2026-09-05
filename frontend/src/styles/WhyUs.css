@@ -641,6 +641,10 @@
    Why Us — pinned sticky-note cards (brand black/yellow/white)
    ============================================================ */
 .whyus__notes-section { padding: 80px 0; background: linear-gradient(180deg, #fafafb, #fff); }
+/* Light section: the shared header text is styled for the dark sections
+   by default (near-white), which is invisible on this white background. */
+.whyus__notes-section .whyus__section-title { color: #14182b; }
+.whyus__notes-section .whyus__section-sub { color: #5b6270; }
 .whyus__notes {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
