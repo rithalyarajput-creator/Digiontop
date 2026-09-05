@@ -49,7 +49,9 @@
   .blog-featured2 {
     display: block;
     padding: 40px 0 0;
-    background: #f5f5f5;
+    /* Card sits on the seam: hero's dark background runs behind its top
+       half, the light section's background behind its bottom half. */
+    background: linear-gradient(to bottom, #0d0d0d 0, #0d0d0d 50%, #f5f5f5 50%, #f5f5f5 100%);
   }
   .blog-featured2__card {
     display: grid;

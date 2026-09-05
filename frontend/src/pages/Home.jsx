@@ -6,6 +6,9 @@ import SocialReelsSection from "../components/SocialReelsSection";
 import ServiceFaq from "../components/ServiceFaq";
 import Seo from "../components/Seo";
 import GoogleReviewCard, { sortNewestFirst } from "../components/GoogleReviewCard";
+import { BlogCard } from "./Blog";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import "../styles/Blog.css";
 import {
   FaCode,
   FaSearch,
@@ -533,6 +536,113 @@ const TestimonialsSection = () => {
   );
 };
 
+// ─── OUR BLOG (folder showcase) ─────────────────────────────────────────────
+// Shown while the API loads, and on local dev where /api/* isn't proxied
+// (see prerender.js) — same fallback-then-replace pattern as OurWorkSection.
+const FALLBACK_BLOG_POSTS = [
+  { id: 'f1', slug: 'gucci-marketing-strategy-connecting-with-modern-consumers', title: 'Gucci Marketing Strategy: How It Connects With Modern Consumers', image_url: '' },
+  { id: 'f2', slug: 'why-are-my-reels-not-getting-views', title: 'Why Are My Reels Not Getting Views? 12 Reasons Explained', image_url: '' },
+  { id: 'f3', slug: 'red-bull-marketing-strategy-how-red-bull-became-a-global-lifestyle-brand', title: 'Red Bull Marketing Strategy: How It Became a Global Lifestyle Brand', image_url: '' },
+  { id: 'f4', slug: 'karan-aujla-on-indias-got-latent-marketing-lessons', title: 'Karan Aujla on Indias Got Latent: Marketing Lessons', image_url: '' },
+];
+
+const BLOG_VISIBLE_COUNT = 3;
+
+const BlogFolderSection = () => {
+  const [posts, setPosts] = useState(FALLBACK_BLOG_POSTS);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    fetch('/api/blog?published=1')
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((rows) => {
+        if (!Array.isArray(rows) || rows.length === 0) return;
+        const sorted = [...rows].sort(
+          (a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0)
+        );
+        setPosts(sorted);
+      })
+      .catch(() => {});
+  }, []);
+
+  // No scrolling and no card ever passes behind the folder art — the row
+  // always renders exactly BLOG_VISIBLE_COUNT posts, and the nav buttons
+  // just swap which slice of `posts` that is.
+  const maxIndex = Math.max(0, posts.length - BLOG_VISIBLE_COUNT);
+  const visible = posts.slice(index, index + BLOG_VISIBLE_COUNT);
+
+  const go = (dir) => setIndex((i) => Math.min(maxIndex, Math.max(0, i + dir)));
+
+  // Mouse/touch swipe as an alternative to the nav buttons. Still index-based
+  // (no scroll container), so a card can never end up half-hidden mid-drag —
+  // it only reacts once the drag ends and passed the distance threshold.
+  const dragRef = useRef({ x: 0, dragging: false });
+  const onDragStart = (e) => {
+    dragRef.current = { x: e.touches ? e.touches[0].clientX : e.clientX, dragging: true };
+  };
+  const onDragEnd = (e) => {
+    if (!dragRef.current.dragging) return;
+    dragRef.current.dragging = false;
+    const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+    const delta = endX - dragRef.current.x;
+    if (Math.abs(delta) < 40) return;
+    go(delta < 0 ? 1 : -1);
+  };
+
+  return (
+    <section className="blogfolder" data-aos="fade-up">
+      <div className="container">
+        <h2 className="section-title">Our Blog</h2>
+        <p className="section-subtitle">Insights, strategies and case studies to help your business grow online.</p>
+      </div>
+
+      <div className="blogfolder__container">
+        <img
+          src="/images/blog-showcase-folder.webp"
+          alt=""
+          className="blogfolder__art"
+          aria-hidden="true"
+        />
+        <div
+          className="blogfolder__row"
+          onMouseDown={onDragStart}
+          onMouseUp={onDragEnd}
+          onMouseLeave={() => { dragRef.current.dragging = false; }}
+          onTouchStart={onDragStart}
+          onTouchEnd={onDragEnd}
+        >
+          {visible.map((p) => (
+            <div className="blogfolder__card" key={`${index}-${p.id}`}>
+              <BlogCard post={p} />
+            </div>
+          ))}
+        </div>
+
+        <div className="blogfolder__nav">
+          <button
+            type="button"
+            className="blogfolder__navbtn"
+            onClick={() => go(-1)}
+            disabled={index === 0}
+            aria-label="Previous posts"
+          >
+            <FiChevronLeft />
+          </button>
+          <button
+            type="button"
+            className="blogfolder__navbtn"
+            onClick={() => go(1)}
+            disabled={index >= maxIndex}
+            aria-label="Next posts"
+          >
+            <FiChevronRight />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ─── OUR WORK ────────────────────────────────────────────────────────────────
 const showcaseSites = [
   {
@@ -724,6 +834,7 @@ const Home = () => {
       <IndustriesSection />
       <ProcessSection />
       <TestimonialsSection />
+      <BlogFolderSection />
       <ServiceFaq service="Digital Marketing" faqs={HOME_FAQS} />
       <CtaBanner />
     </main>
