@@ -127,6 +127,14 @@
   margin: 0 auto;
 }
 
+.whyus__hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
 /* Bottom divider */
 .whyus__hero::after {
   content: '';
@@ -331,51 +339,55 @@
 .whyus__steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  gap: 24px;
   position: relative;
 }
 
-/* Horizontal connector line between steps */
-.whyus__steps::before {
-  content: '';
-  position: absolute;
-  top: 52px;
-  left: calc(12.5% + 24px);
-  right: calc(12.5% + 24px);
-  height: 2px;
-  background: linear-gradient(90deg, var(--yellow), rgba(245, 197, 24, 0.2));
-  z-index: 0;
-}
 
 .whyus__step {
   position: relative;
-  padding: 0 20px;
+  padding: 0 12px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 1;
 }
 
-.whyus__step-number {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  border: 2px solid var(--yellow);
-  background: var(--dark-1);
-  color: var(--yellow);
-  font-size: 1.4rem;
-  font-weight: 900;
+.whyus__step-number-wrap {
+  width: 100%;
+  height: 1.6rem;
+  overflow: hidden;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: 0 auto 24px;
-  position: relative;
-  z-index: 2;
-  transition: background 0.25s ease, color 0.25s ease;
-  box-shadow: 0 0 0 6px var(--dark-1);
+  align-items: flex-start;
+  margin: 0 0 12px;
+}
+
+.whyus__step:hover .whyus__step-number-wrap {
+  overflow: visible;
+}
+
+.whyus__step-number {
+  position: static;
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.18);
+  font-size: 3.4rem;
+  line-height: 1;
+  font-weight: 900;
+  transform: translateY(0);
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .whyus__step:hover .whyus__step-number {
-  background: var(--yellow);
-  color: var(--dark-0);
+  color: var(--yellow);
+  transform: translateY(-14px);
+}
+
+.whyus__step-body {
+  position: static;
+  margin-top: 0;
 }
 
 .whyus__step-title {
@@ -590,14 +602,22 @@
   }
 
   .whyus__step-number {
+    position: static;
+    transform: none;
     flex-shrink: 0;
-    width: 56px;
-    height: 56px;
-    font-size: 1.1rem;
+    width: auto;
+    height: auto;
+    font-size: 2.5rem;
     margin: 0;
   }
 
+  .whyus__step:hover .whyus__step-number {
+    transform: none;
+  }
+
   .whyus__step-body {
+    position: static;
+    margin-top: 0;
     padding-top: 4px;
   }
 
