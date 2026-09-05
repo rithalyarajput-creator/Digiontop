@@ -833,8 +833,8 @@ const Home = () => {
       <OurWorkSection />
       <IndustriesSection />
       <ProcessSection />
-      <TestimonialsSection />
       <BlogFolderSection />
+      <TestimonialsSection />
       <ServiceFaq service="Digital Marketing" faqs={HOME_FAQS} />
       <CtaBanner />
     </main>

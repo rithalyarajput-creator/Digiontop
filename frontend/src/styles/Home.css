@@ -1622,7 +1622,7 @@ a {
    OUR BLOG — folder art overlaps the left edge of a horizontal
    scroller; cards slide behind it (higher z-index) as you scroll.
    ============================================================ */
-.blogfolder { padding: 70px 0 90px; background: #fafafb; overflow: hidden; }
+.blogfolder { padding: 80px 0 100px; background: linear-gradient(180deg, #fafafb 0%, #f3f3f5 100%); overflow: hidden; }
 .blogfolder .section-title,
 .blogfolder .section-subtitle { text-align: center; }
 .blogfolder .section-subtitle { margin-left: auto; margin-right: auto; }
@@ -1630,7 +1630,7 @@ a {
 .blogfolder__container {
   position: relative;
   max-width: 1440px;
-  margin: 40px auto 0;
+  margin: 48px auto 0;
   padding: 0 24px;
 }
 .blogfolder__art {
@@ -1641,23 +1641,30 @@ a {
   width: 440px;
   z-index: 3;
   pointer-events: none;
-  filter: drop-shadow(0 25px 40px rgba(20, 24, 43, 0.18));
+  filter: drop-shadow(0 30px 50px rgba(20, 24, 43, 0.22));
 }
 /* No scrolling: exactly BLOG_VISIBLE_COUNT cards render at a time, so no
    card ever sits behind the folder art — margin-left just clears it. */
 .blogfolder__row {
   display: flex;
-  align-items: stretch;
-  gap: 22px;
+  align-items: flex-start;
+  gap: 30px;
   margin-left: 460px;
-  padding: 12px 4px 20px;
+  padding: 16px 6px 26px;
   cursor: grab;
   user-select: none;
 }
 .blogfolder__row:active { cursor: grabbing; }
 /* Sizing wrapper only — the card itself is the real .blog-card component
    (see Blog.jsx/Blog.css), reused here so it matches /blog exactly. */
-.blogfolder__card { flex: 1 1 0; min-width: 320px; animation: blogfolder-fade 0.35s ease; }
+.blogfolder__card {
+  flex: 1 1 0;
+  min-width: 320px;
+  animation: blogfolder-fade 0.35s ease;
+  border-radius: 18px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.blogfolder__card:hover { transform: translateY(-8px); filter: drop-shadow(0 20px 34px rgba(245, 168, 0, 0.28)); }
 @keyframes blogfolder-fade {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -1668,8 +1675,8 @@ a {
 .blogfolder__nav {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 14px;
+  margin-top: 26px;
 }
 .blogfolder__navbtn {
   display: grid;
@@ -1682,17 +1689,22 @@ a {
   color: #14182b;
   font-size: 28px;
   cursor: pointer;
+  box-shadow: 0 8px 20px rgba(20, 24, 43, 0.08);
   transition: all 0.2s ease;
 }
-.blogfolder__navbtn:hover:not(:disabled) { background: #14182b; color: #FFD874; border-color: #14182b; }
-.blogfolder__navbtn:disabled { opacity: 0.35; cursor: not-allowed; }
+.blogfolder__navbtn:hover:not(:disabled) {
+  background: #14182b;
+  color: #FFD874;
+  border-color: #14182b;
+  box-shadow: 0 12px 28px rgba(20, 24, 43, 0.22);
+  transform: translateY(-2px);
+}
+.blogfolder__navbtn:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; }
 
 @media (max-width: 760px) {
-  /* No room to reserve a fixed left lane for the folder art on small
-     screens, so drop the overlap effect and just show plain cards. */
-  .blogfolder__art { display: none; }
-  .blogfolder__row { margin-left: 0; flex-direction: column; }
-  .blogfolder__container { padding: 0 16px; }
+  /* Whole section hidden on mobile — the folder-overlap layout only makes
+     sense on wider screens. */
+  .blogfolder { display: none; }
 }
 
 /* ============================================================
