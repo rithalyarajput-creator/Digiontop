@@ -5,6 +5,7 @@
 .tseo-container{max-width:1160px;margin:0 auto;padding:0 24px;}
 .tseo-head{text-align:center;max-width:620px;margin:0 auto 46px;}
 .tseo-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:900;letter-spacing:-.02em;margin:8px 0 0;}
+.tseo-head__sub{color:var(--muted);line-height:1.7;margin:14px 0 0;}
 .tseo-eyebrow{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--gold-d);}
 .tseo-eyebrow--light{color:#FFD874;}
 .tseo-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.1em;
@@ -25,6 +26,8 @@
 .tseo-hero__title span{color:var(--gold);}
 .tseo-hero__sub{font-size:1.08rem;color:#aeb2c0;line-height:1.7;max-width:480px;margin:0 0 26px;margin-left:auto;margin-right:auto;}
 .tseo-hero__cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+.tseo-hero__trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px;font-size:.85rem;color:#aeb2c0;}
+.tseo-hero__dot{color:var(--gold);}
 
 /* terminal window */
 .tseo-term{border-radius:14px;overflow:hidden;background:#0b0e1a;border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 70px -30px rgba(0,0,0,.8);font-family:'Space Mono',monospace;}
@@ -45,7 +48,9 @@
 
 /* fixes grid */
 .tseo-fixes{padding:84px 0;}
+.tseo-fixes--alt{background:#FAFAFB;}
 .tseo-fixes__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.tseo-fixes__grid--2{grid-template-columns:repeat(2,1fr);max-width:900px;margin:0 auto;}
 .tseo-fix{border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden;}
 .tseo-fix::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:linear-gradient(#FFD24A,#F5A800);transform:scaleY(0);transform-origin:top;transition:transform .3s;}
 .tseo-fix:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(245,168,0,.14);border-color:#FFE49A;}
@@ -53,6 +58,28 @@
 .tseo-fix__icon{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:#FFF6E0;color:var(--gold-d);font-size:21px;margin-bottom:16px;}
 .tseo-fix h3{font-size:1.05rem;margin:0 0 8px;}
 .tseo-fix p{font-size:.9rem;color:var(--muted);line-height:1.6;margin:0;}
+
+/* process timeline */
+.tseo-process{padding:84px 0;}
+.tseo-process__grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;}
+.tseo-process__step{text-align:center;padding:0 6px;}
+.tseo-process__num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,#FFD24A,#F5A800);color:#1a1a1a;font-family:'Space Mono',monospace;font-weight:800;font-size:.95rem;margin-bottom:14px;}
+.tseo-process__step h3{font-size:.95rem;margin:0 0 8px;}
+.tseo-process__step p{font-size:.82rem;color:var(--muted);line-height:1.6;margin:0;}
+
+/* compact icon-card grid */
+.tseo-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.tseo-mini{display:flex;gap:14px;align-items:flex-start;padding:20px;border-radius:14px;background:#fff;border:1px solid var(--line);}
+.tseo-mini__icon{flex-shrink:0;display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:#FFF6E0;color:var(--gold-d);font-size:17px;}
+.tseo-mini h3{font-size:.95rem;margin:0 0 4px;}
+.tseo-mini p{font-size:.85rem;color:var(--muted);line-height:1.55;margin:0;}
+
+/* benefits list */
+.tseo-benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 40px;}
+.tseo-benefit h3{font-size:1rem;margin:0 0 6px;color:var(--gold-d);}
+.tseo-benefit p{font-size:.9rem;color:var(--muted);line-height:1.6;margin:0;}
+.tseo-benefits__note{margin:32px 0 0;font-size:.85rem;color:var(--muted);text-align:center;}
 
 /* CWV band */
 .tseo-cwv{padding:80px 0;background:linear-gradient(135deg,#14182b,#1f2540);color:#fff;}
@@ -77,8 +104,13 @@
 @media(max-width:900px){
   .tseo-hero__inner,.tseo-cwv__inner{grid-template-columns:1fr;gap:36px;}
   .tseo-fixes__grid{grid-template-columns:1fr 1fr;}
+  .tseo-process__grid{grid-template-columns:repeat(3,1fr);gap:28px 18px;}
+  .tseo-mini-grid{grid-template-columns:1fr 1fr;}
 }
-@media(max-width:560px){.tseo-fixes__grid{grid-template-columns:1fr;}}
+@media(max-width:560px){
+  .tseo-fixes__grid,.tseo-fixes__grid--2,.tseo-mini-grid,.tseo-benefits{grid-template-columns:1fr;}
+  .tseo-process__grid{grid-template-columns:1fr 1fr;}
+}
 
 /* mobile overflow + heading guard */
 @media (max-width: 768px) {
