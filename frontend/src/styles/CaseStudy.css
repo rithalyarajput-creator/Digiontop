@@ -76,6 +76,8 @@
 }
 .cs__feature img {
   width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
