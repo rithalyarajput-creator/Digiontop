@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import {
-  FiTerminal, FiCode, FiZap, FiActivity, FiArrowRight,
+  FiZap, FiActivity, FiArrowRight,
   FiArrowUpRight, FiCpu, FiLayers, FiShield, FiRefreshCw,
   FiCompass, FiGitBranch, FiAlertTriangle, FiSmartphone,
   FiSearch, FiGitPullRequest, FiMap, FiLink2, FiCheckCircle,
@@ -90,7 +90,6 @@ export default function TechnicalSeo() {
         <div className="tseo-hero__grid" />
         <div className="tseo-container tseo-hero__inner">
           <div className="tseo-hero__text" data-aos="fade-right">
-            <span className="tseo-tag"><FiTerminal /> Technical SEO</span>
             <h1 className="tseo-hero__title">Technical SEO Service in Delhi for a <span>Stronger Website</span></h1>
             <p className="tseo-hero__sub">A technically healthy website gives search engines a better foundation to crawl, understand and index your important pages. DigionTop's technical SEO service in Delhi focuses on identifying website issues that may affect search visibility, user experience and organic performance.</p>
             <div className="tseo-hero__cta">
