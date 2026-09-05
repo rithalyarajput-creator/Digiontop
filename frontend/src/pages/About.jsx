@@ -182,7 +182,7 @@ export default function About() {
 
   return (
     <main className="about-page">
-      <Seo title="About DigionTop, Your Digital Growth Partner in India" description="DigionTop is a results-driven digital marketing agency in India. We build websites, run SEO, social media & ad campaigns that grow real businesses. Meet the team." path="/about" />
+      <Seo title="About DigionTop, Your Digital Growth Partner in India" description="DigionTop is a results-driven digital marketing agency in India: websites, SEO, social media & ad campaigns that grow real businesses." path="/about" />
 
       {/* ══ 1. HERO ══ */}
       <section className="ab-hero">

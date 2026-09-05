@@ -37,7 +37,7 @@ export default function LinkedInAds() {
     <main className="li">
       <Seo
         title="LinkedIn Ads Agency for B2B Lead Gen"
-        description="Account-based LinkedIn campaigns targeted by job title, seniority and company, using lead-gen forms and sponsored content optimised for cost per qualified lead. Talk to us."
+        description="Account-based LinkedIn campaigns targeted by job title, seniority and company, using lead-gen forms and sponsored content optimised for cost per qualified lead."
         path="/services/linkedin-ads"
       />
       {/* HERO — profile card theme */}

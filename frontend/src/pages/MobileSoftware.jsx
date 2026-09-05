@@ -53,7 +53,7 @@ export default function MobileSoftware() {
     <main className="ss">
       <Seo
         title="Mobile App & Software Development Company"
-        description="Custom mobile apps, SaaS platforms, APIs, cloud and DevOps built for iOS, Android and Flutter, scalable, secure and fully owned by you. Start your project today."
+        description="Custom mobile apps, SaaS platforms, APIs, cloud and DevOps built for iOS, Android and Flutter, scalable, secure and fully owned by you."
         path="/services/mobile-software"
       />
       {/* HERO */}

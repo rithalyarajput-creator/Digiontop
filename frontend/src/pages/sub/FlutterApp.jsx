@@ -42,7 +42,7 @@ export default function FlutterApp() {
     <main className="flt">
       <Seo
         title="Flutter App Development Company"
-        description="Cross-platform Flutter apps built from one Dart codebase, near-native speed on iOS and Android, shipped in 6-12 weeks at half the cost. Book a free consultation today."
+        description="Cross-platform Flutter apps built from one Dart codebase, near-native speed on iOS and Android, shipped in 6-12 weeks at half the cost."
         path="/services/mobile/flutter"
       />
       <section className="flt-hero flt-hero--light">

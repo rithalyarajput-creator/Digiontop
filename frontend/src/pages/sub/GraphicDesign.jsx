@@ -41,7 +41,7 @@ export default function GraphicDesign() {
     <main className="ss">
       <Seo
         title="Graphic Design Services for Brands"
-        description="Social media creatives, ad banners, brochures, flyers and business cards designed on-brand and print-ready. Most designs land in 24-48 hours. Get your designs today."
+        description="Social media creatives, ad banners, brochures, flyers and business cards designed on-brand and print-ready. Most designs land in 24-48 hours."
         path="/services/graphic-design"
       />
       <section className="ss-hero" style={{ textAlign: 'center' }}>

@@ -42,7 +42,7 @@ export default function MeeshoListing() {
     <main className="msh">
       <Seo
         title="Meesho Product Listing & Catalogue Services"
-        description="Supplier Panel setup, bulk catalogue upload and return-adjusted pricing that clears Meesho approval fast and appeals to its reseller network. Start listing on Meesho."
+        description="Supplier Panel setup, bulk catalogue upload and return-adjusted pricing that clears Meesho approval fast and appeals to its reseller network."
         path="/services/ecom/meesho"
       />
       <section className="msh-hero msh-hero--light">

@@ -31,7 +31,7 @@ export default function GoogleAds() {
     <main className="gads">
       <Seo
         title="Google Ads Management Services in India"
-        description="Search, Shopping, Performance Max and remarketing campaigns managed to lower your cost-per-lead and lift ROAS, with full conversion tracking. Get a free ad account audit."
+        description="Search, Shopping, Performance Max and remarketing campaigns managed to lower your cost-per-lead and lift ROAS, with full conversion tracking."
         path="/services/google-ads"
       />
       {/* HERO — google search mock */}

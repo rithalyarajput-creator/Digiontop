@@ -50,7 +50,7 @@ export default function CustomWebsite() {
     <main className="wd">
       <Seo
         title="Custom Website Development Services"
-        description="Bespoke websites built in React and Next.js, no templates, sub-2-second loads, SEO-ready and fully responsive, with the code handed over to you. Start your project today."
+        description="Bespoke websites built in React and Next.js, no templates, sub-2-second loads, SEO-ready and fully responsive, with the code handed over to you."
         path="/services/custom-website"
       />
       <section className="wd-hero wd-hero--dark">

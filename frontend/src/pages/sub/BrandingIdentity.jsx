@@ -37,7 +37,7 @@ export default function BrandingIdentity() {
     <main className="ss">
       <Seo
         title="Branding & Identity Design Services"
-        description="Logo variations, a documented colour and typography system, brand guidelines and stationery templates that keep your brand consistent everywhere. Build your brand with us."
+        description="Logo variations, a documented colour and typography system, brand guidelines and stationery templates that keep your brand consistent everywhere."
         path="/services/branding-identity"
       />
       {/* HERO — split */}

@@ -31,7 +31,7 @@ export default function LogoDesign() {
     <main className="ss">
       <Seo
         title="Custom Logo Design Services"
-        description="Distinct logo concepts refined over multiple revision rounds, delivered as scalable vector files with icon, horizontal and monochrome marks in 7-10 days. Design my logo."
+        description="Distinct logo concepts refined over multiple revision rounds, delivered as scalable vector files with icon, horizontal and monochrome marks in 7-10 days."
         path="/services/logo-design"
       />
       <section className="ss-hero">

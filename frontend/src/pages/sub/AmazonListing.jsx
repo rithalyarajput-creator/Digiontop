@@ -42,7 +42,7 @@ export default function AmazonListing() {
     <main className="amz">
       <Seo
         title="Amazon Listing Optimization Services in India"
-        description="Rank higher and win the Buy Box with keyword-rich Amazon titles, SEO bullet points, backend search terms and A+ Content built to convert. Get a free listing review."
+        description="Rank higher and win the Buy Box with keyword-rich Amazon titles, SEO bullet points, backend search terms and A+ Content built to convert."
         path="/services/ecom/amazon"
       />
       <section className="amz-hero amz-hero--light">

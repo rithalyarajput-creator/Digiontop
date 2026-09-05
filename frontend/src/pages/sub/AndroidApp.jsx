@@ -42,7 +42,7 @@ export default function AndroidApp() {
     <main className="and">
       <Seo
         title="Android App Development Company"
-        description="Native Kotlin and Jetpack Compose Android apps built to Material 3 standards, fast on low-end phones and shipped to the Play Store for you. Discuss your app idea today."
+        description="Native Kotlin and Jetpack Compose Android apps built to Material 3 standards, fast on low-end phones and shipped to the Play Store for you."
         path="/services/mobile/android"
       />
       <section className="and-hero and-hero--dark">

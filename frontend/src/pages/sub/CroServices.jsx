@@ -35,7 +35,7 @@ export default function CroServices() {
     <main className="ss">
       <Seo
         title="CRO Services, Conversion Rate Optimization"
-        description="A/B testing, funnel and heatmap analysis, and landing page optimization that turn more of your existing traffic into leads and sales. Book a free conversion audit."
+        description="A/B testing, funnel and heatmap analysis, and landing page optimization that turn more of your existing traffic into leads and sales."
         path="/services/cro-services"
       />
       <section className="ss-hero">

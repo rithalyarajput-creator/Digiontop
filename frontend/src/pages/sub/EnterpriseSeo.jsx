@@ -33,7 +33,7 @@ export default function EnterpriseSeo() {
     <main className="ent">
       <Seo
         title="Enterprise SEO Services for Large Websites"
-        description="SEO at scale for 10k+ page sites, crawl-efficient architecture, hreflang and multi-region targeting, risk-managed migrations and revenue-tied reporting. Request a proposal."
+        description="SEO at scale for 10k+ page sites, crawl-efficient architecture, hreflang and multi-region targeting, risk-managed migrations and revenue-tied reporting."
         path="/services/enterprise-seo"
       />
       {/* HERO — dashboard theme */}

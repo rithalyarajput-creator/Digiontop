@@ -39,7 +39,7 @@ export default function LocalSeo() {
     <main className="lseo">
       <Seo
         title="Local SEO Services for Indian Businesses"
-        description="Rank in the Google Map Pack and near-me searches with full Google Business Profile optimisation, NAP citations and a review-generation system. Get a free local audit."
+        description="Rank in the Google Map Pack and near-me searches with full Google Business Profile optimisation, NAP citations and a review-generation system."
         path="/services/local-seo"
       />
       {/* ── HERO: map-panel split ── */}

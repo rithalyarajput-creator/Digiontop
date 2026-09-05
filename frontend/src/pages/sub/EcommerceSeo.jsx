@@ -33,7 +33,7 @@ export default function EcommerceSeo() {
     <main className="eseo">
       <Seo
         title="E-Commerce SEO Services for Online Stores"
-        description="Category and product page SEO, faceted navigation fixes and product schema that wins rich snippets, for Shopify, WooCommerce and Magento. Get a free store audit."
+        description="Category and product page SEO, faceted navigation fixes and product schema that wins rich snippets, for Shopify, WooCommerce and Magento."
         path="/services/ecommerce-seo"
       />
       {/* HERO — search result with product cards */}

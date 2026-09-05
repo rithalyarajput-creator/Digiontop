@@ -50,7 +50,7 @@ export default function LandingPage() {
     <main className="lp">
       <Seo
         title="High-Converting Landing Page Design"
-        description="Single-goal landing pages built for ad traffic: message match, persuasive copy, fast mobile builds and conversion tracking. Live in 3-7 days. Start your page today."
+        description="Single-goal landing pages built for ad traffic: message match, persuasive copy, fast mobile builds and conversion tracking. Live in 3-7 days."
         path="/services/landing-page-design"
       />
       <section className="lp-hero lp-hero--dark">

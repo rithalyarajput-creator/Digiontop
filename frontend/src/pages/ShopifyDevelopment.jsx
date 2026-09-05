@@ -65,7 +65,7 @@ export default function ShopifyDevelopment() {
     <main className="sf">
       <Seo
         title="Shopify Development Company, Custom Store Design"
-        description="Custom Shopify stores built to sell: premium design, product setup, payment gateways, shipping, apps and SEO, launched in 2 to 4 weeks. Start your Shopify project."
+        description="Custom Shopify stores built to sell: premium design, product setup, payment gateways, shipping, apps and SEO, launched in 2 to 4 weeks."
         path="/services/shopify-development"
       />
       {/* ── HERO ── */}

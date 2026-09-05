@@ -42,7 +42,7 @@ export default function IosApp() {
     <main className="ios">
       <Seo
         title="iOS App Development Company"
-        description="Native Swift and SwiftUI apps for iPhone and iPad, built to Apple's HIG with TestFlight builds every sprint and full App Store submission. Book a free consultation."
+        description="Native Swift and SwiftUI apps for iPhone and iPad, built to Apple's HIG with TestFlight builds every sprint and full App Store submission."
         path="/services/mobile/ios"
       />
       <section className="ios-hero ios-hero--light">

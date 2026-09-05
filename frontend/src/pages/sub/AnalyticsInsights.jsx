@@ -39,8 +39,8 @@ export default function AnalyticsInsights() {
   return (
     <main className="ss">
       <Seo
-        title="Analytics & Insights Services, GA4, Tracking, Reports"
-        description="GA4, Tag Manager and Meta Pixel setup with conversion tracking, custom dashboards and plain-language reports that tell you what to do next. Get your tracking fixed."
+        title="Analytics & Insights Services, GA4"
+        description="GA4, Tag Manager and Meta Pixel setup with conversion tracking, custom dashboards and plain-language reports that tell you what to do next."
         path="/services/analytics-insights"
       />
       <section className="ss-hero" style={{ textAlign: 'center' }}>

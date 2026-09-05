@@ -42,7 +42,7 @@ export default function DevOpsServices() {
     <main className="dop">
       <Seo
         title="DevOps Services & CI/CD Automation"
-        description="CI/CD pipelines, Docker and Kubernetes, Terraform infrastructure-as-code and 24/7 monitoring, so your team deploys in minutes with one-click rollback. Get a free DevOps audit."
+        description="CI/CD pipelines, Docker and Kubernetes, Terraform infrastructure-as-code and 24/7 monitoring, so your team deploys in minutes with one-click rollback."
         path="/services/mobile/devops"
       />
       <section className="dop-hero dop-hero--dark">

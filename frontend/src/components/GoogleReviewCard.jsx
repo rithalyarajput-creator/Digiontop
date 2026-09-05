@@ -78,7 +78,7 @@ const GoogleReviewCard = ({ review: t }) => {
     <div className="tcard">
       <div className="tcard__head">
         {t.avatar_url ? (
-          <img className="tcard__avatar" src={t.avatar_url} alt="" loading="lazy" />
+          <img className="tcard__avatar" src={t.avatar_url} alt={`Photo of ${t.client_name || 'client'}`} loading="lazy" />
         ) : (
           <span
             className="tcard__avatar tcard__avatar--initial"

@@ -42,7 +42,7 @@ export default function ApiDevelopment() {
     <main className="api">
       <Seo
         title="API Development & Integration Services"
-        description="Contract-first REST and GraphQL APIs with OAuth 2.0 security, third-party integrations, Swagger docs and monitoring built in from day one. Talk to us about your API."
+        description="Contract-first REST and GraphQL APIs with OAuth 2.0 security, third-party integrations, Swagger docs and monitoring built in from day one."
         path="/services/mobile/api"
       />
       <section className="api-hero api-hero--dark">

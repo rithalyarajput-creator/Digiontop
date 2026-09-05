@@ -42,7 +42,7 @@ export default function AccountManagement() {
     <main className="acc">
       <Seo
         title="Marketplace Seller Account Management Services"
-        description="End-to-end Amazon, Flipkart and Meesho seller account management, account health, case handling, pricing, listings and ads run by a dedicated manager. Get a free review."
+        description="End-to-end Amazon, Flipkart and Meesho seller account management, account health, case handling, pricing, listings and ads run by a dedicated manager."
         path="/services/ecom/account-management"
       />
       <section className="acc-hero acc-hero--dark">

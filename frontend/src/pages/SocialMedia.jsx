@@ -137,7 +137,7 @@ export default function SocialMedia() {
     <>
       <Seo
         title="Social Media Marketing Services in India"
-        description="Instagram, Facebook, LinkedIn and YouTube marketing done for you, strategy, reels, creative posts, community management and paid social. Grow your audience with us."
+        description="Instagram, Facebook, LinkedIn and YouTube marketing done for you, strategy, reels, creative posts, community management and paid social."
         path="/services/social-media-marketing"
       />
       {/* ── Hero ─────────────────────────────────────────── */}

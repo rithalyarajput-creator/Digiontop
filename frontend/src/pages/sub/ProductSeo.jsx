@@ -42,7 +42,7 @@ export default function ProductSeo() {
     <main className="pse">
       <Seo
         title="Product SEO for Amazon, Flipkart & Meesho"
-        description="Keyword-driven titles, bullets and backend search terms that lift product rankings on marketplaces and Google, tracked weekly. Get a free product listing SEO audit."
+        description="Keyword-driven titles, bullets and backend search terms that lift product rankings on marketplaces and Google, tracked weekly."
         path="/services/ecom/product-seo"
       />
       <section className="pse-hero pse-hero--dark">

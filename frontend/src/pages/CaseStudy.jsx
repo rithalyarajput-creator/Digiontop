@@ -108,12 +108,14 @@ export default function CaseStudy() {
 
   const host = (item.link_url || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
   const hero = item.feature_image_url || item.image_url || '';
+  const heroAbsolute = hero && !/^https?:\/\//.test(hero) ? `https://www.digiontop.com${hero.startsWith('/') ? '' : '/'}${hero}` : hero;
+  const summary = item.description || `How DigionTop designed and built ${item.title}${item.category ? ` — a ${item.category} project` : ''}.`;
 
   return (
     <main className="cs">
       <Seo
         title={`${item.title} Case Study`}
-        description={item.description || `How DigionTop designed and built ${item.title}${item.category ? ` — a ${item.category} project` : ''}.`}
+        description={summary}
         path={`/case-study/${item.slug}`}
         image={hero || undefined}
         type="article"
@@ -123,10 +125,10 @@ export default function CaseStudy() {
           '@context': 'https://schema.org',
           '@type': 'CreativeWork',
           name: item.title,
-          description: item.description || '',
+          description: summary,
           genre: item.category || 'Web Development',
           url: `https://www.digiontop.com/case-study/${item.slug}`,
-          image: hero || undefined,
+          image: heroAbsolute || undefined,
           creator: { '@type': 'Organization', name: 'DigionTop', url: 'https://www.digiontop.com/' },
         }}
       />

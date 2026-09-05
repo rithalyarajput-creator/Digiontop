@@ -86,8 +86,8 @@ export default function Portfolio() {
   return (
     <main className="pf">
       <Seo
-        title="Our Portfolio, Websites, Stores, Reels & Creatives"
-        description="Browse DigionTop's portfolio: e-commerce stores, business websites, social media reels and product creatives built for real Indian brands. See what we can build for you."
+        title="Our Portfolio: Websites, Stores & Creatives"
+        description="Browse DigionTop's portfolio: e-commerce stores, business websites, social media reels & product creatives built for real Indian brands."
         path="/portfolio"
       />
       {/* ── About / Hero ── */}
@@ -603,7 +603,7 @@ function Card({ item, section, fromLeft }) {
         <span className="pf-card__shine" />
       </div>
       <div className="pf-card__body">
-        {item.logo && <img src={item.logo} alt="" className="pf-card__logo" loading="lazy" decoding="async" />}
+        {item.logo && <img src={item.logo} alt={`${item.title} logo`} className="pf-card__logo" loading="lazy" decoding="async" />}
         <div className="pf-card__bodytext">
           <span className="pf-card__title">{item.title}</span>
           <span className="pf-card__tag" style={{ color: accent }}>{item.tag}</span>

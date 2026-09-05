@@ -42,7 +42,7 @@ export default function ProductImage() {
     <main className="pim">
       <Seo
         title="Product Photography & Infographics"
-        description="Studio product shots, lifestyle images, feature infographics and A+ content built to Amazon, Flipkart and Meesho specs so listings convert. See samples of our work."
+        description="Studio product shots, lifestyle images, feature infographics and A+ content built to Amazon, Flipkart and Meesho specs so listings convert."
         path="/services/ecom/product-image"
       />
       <section className="pim-hero pim-hero--light">

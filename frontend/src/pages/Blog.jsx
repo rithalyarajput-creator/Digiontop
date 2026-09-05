@@ -67,7 +67,7 @@ export default function Blog() {
   return (
     <main className="blog-page">
       <Seo
-        title="Digital Marketing Blog, SEO, Social & E-Commerce Tips"
+        title="Digital Marketing Blog | SEO & Social Tips"
         description="Practical digital marketing insights from DigionTop, SEO tactics, social media strategy, e-commerce growth tips and real case studies. Start reading today."
         path="/blog"
       />

@@ -42,7 +42,7 @@ export default function CloudSolutions() {
     <main className="cld">
       <Seo
         title="Cloud Migration & Hosting Solutions"
-        description="Zero-downtime cloud migration, auto-scaling and secure hosting on AWS, Azure and Google Cloud, with right-sizing that cuts your monthly bill. Book a free cloud audit."
+        description="Zero-downtime cloud migration, auto-scaling and secure hosting on AWS, Azure and Google Cloud, with right-sizing that cuts your monthly bill."
         path="/services/mobile/cloud"
       />
       <section className="cld-hero cld-hero--dark">

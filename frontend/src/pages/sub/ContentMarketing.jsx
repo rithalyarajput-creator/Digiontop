@@ -31,7 +31,7 @@ export default function ContentMarketing() {
     <main className="cm">
       <Seo
         title="Content Marketing Services in India"
-        description="SEO-driven blogs, pillar pages, lead magnets and video scripts that build authority and turn readers into leads month after month. Get your free content plan today."
+        description="SEO-driven blogs, pillar pages, lead magnets and video scripts that build authority and turn readers into leads month after month."
         path="/services/social/content-marketing"
       />
       <section className="cm-hero">

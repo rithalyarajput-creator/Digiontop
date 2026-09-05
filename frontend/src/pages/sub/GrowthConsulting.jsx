@@ -42,7 +42,7 @@ export default function GrowthConsulting() {
     <main className="grw">
       <Seo
         title="E-Commerce Growth Consulting Services"
-        description="Data-backed audits, pricing strategy and ad-spend optimisation that show online sellers exactly where the next rupee of revenue comes from. Book a free strategy call."
+        description="Data-backed audits, pricing strategy and ad-spend optimisation that show online sellers exactly where the next rupee of revenue comes from."
         path="/services/ecom/growth-consulting"
       />
       <section className="grw-hero grw-hero--dark">

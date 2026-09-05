@@ -42,7 +42,7 @@ export default function FlipkartListing() {
     <main className="flp">
       <Seo
         title="Flipkart Product Listing & Optimisation Services"
-        description="Flipkart listing setup, category and GTIN mapping, search-weighted titles, F-Assured compliance and Flipkart Ads. Get discovered by more buyers, book a free listing review."
+        description="Flipkart listing setup, category and GTIN mapping, search-weighted titles, F-Assured compliance and Flipkart Ads."
         path="/services/ecom/flipkart"
       />
       <section className="flp-hero flp-hero--dark">

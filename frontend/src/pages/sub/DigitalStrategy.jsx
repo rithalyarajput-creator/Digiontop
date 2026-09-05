@@ -54,7 +54,7 @@ export default function DigitalStrategy() {
     <main className="ss">
       <Seo
         title="Digital Marketing Strategy Consulting"
-        description="Competitor research, customer journey mapping and a 90-day growth roadmap with a KPI framework covering CAC, ROAS and revenue. Book a free strategy consultation."
+        description="Competitor research, customer journey mapping and a 90-day growth roadmap with a KPI framework covering CAC, ROAS and revenue."
         path="/services/digital-strategy"
       />
       <section className="ss-hero">

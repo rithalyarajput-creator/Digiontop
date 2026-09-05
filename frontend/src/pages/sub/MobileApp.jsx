@@ -53,7 +53,7 @@ export default function MobileApp() {
     <main className="mob">
       <Seo
         title="Mobile App Development Company"
-        description="Native and cross-platform apps for iOS and Android with secure APIs, push notifications and full App Store and Play Store launch support. Get your app blueprint free."
+        description="Native and cross-platform apps for iOS and Android with secure APIs, push notifications and full App Store and Play Store launch support."
         path="/services/mobile/mobile-app"
       />
       <section className="mob-hero mob-hero--dark">

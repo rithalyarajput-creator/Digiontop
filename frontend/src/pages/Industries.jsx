@@ -94,7 +94,7 @@ export default function Industries() {
   return (
     <main className="industries-page">
       <Seo
-        title="Industries We Serve | Digital Marketing Agency in India — DigionTop"
+        title="Industries We Serve | DigionTop Digital Marketing"
         description="DigionTop delivers industry-specific digital marketing for retail, real estate, healthcare, education, SaaS & more across India. See how we grow your sector."
         path="/industries"
       />

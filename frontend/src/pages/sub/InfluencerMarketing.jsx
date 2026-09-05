@@ -30,7 +30,7 @@ export default function InfluencerMarketing() {
     <main className="im">
       <Seo
         title="Influencer Marketing Agency in India"
-        description="We vet creators on real engagement, not follower counts, then run outreach, briefs, contracts and tracked links end to end. Get a free creator match for your brand."
+        description="We vet creators on real engagement, not follower counts, then run outreach, briefs, contracts and tracked links end to end."
         path="/services/social/influencer-marketing"
       />
       <section className="im-hero">

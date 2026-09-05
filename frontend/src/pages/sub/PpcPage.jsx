@@ -37,7 +37,7 @@ export default function PpcPage() {
     <main className="ss">
       <Seo
         title="PPC Management & Paid Advertising Agency"
-        description="Managed pay-per-click campaigns across Google, Meta, LinkedIn and YouTube, with retargeting and transparent reporting on spend, leads and ROAS. Get a free ad audit."
+        description="Managed pay-per-click campaigns across Google, Meta, LinkedIn and YouTube, with retargeting and transparent reporting on spend, leads and ROAS."
         path="/services/ppc"
       />
       <section className="ss-hero">

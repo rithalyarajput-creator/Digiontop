@@ -39,8 +39,15 @@ function breadcrumbJson(path) {
  */
 export default function Seo({ title = 'DigionTop', description = '', path = '', image = DEFAULT_IMG, type = 'website', noIndex = false }) {
   const url = `${SITE}${path}`;
-  const fullTitle = title.includes('DigionTop') ? title : `${title} | DigionTop`;
+  // Appending " | DigionTop" pushes some already-long titles (blog posts,
+  // mostly) past Google's ~60-char SERP cutoff. Only add it when it fits.
+  const withSuffix = `${title} | DigionTop`;
+  const fullTitle = title.includes('DigionTop') ? title : (withSuffix.length <= 60 ? withSuffix : title);
   const crumbs = noIndex ? null : breadcrumbJson(path);
+  // og:image/twitter:image must be absolute — some callers (case studies) pass
+  // a relative /api/... path, which social scrapers and rich-result parsers
+  // silently ignore.
+  const absoluteImage = /^https?:\/\//.test(image) ? image : `${SITE}${image.startsWith('/') ? '' : '/'}${image}`;
   return (
     <Helmet>
       <title>{fullTitle}</title>
@@ -54,12 +61,12 @@ export default function Seo({ title = 'DigionTop', description = '', path = '', 
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={absoluteImage} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={absoluteImage} />
     </Helmet>
   );
 }

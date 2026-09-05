@@ -42,7 +42,7 @@ export default function CatalogManagement() {
     <main className="cat">
       <Seo
         title="E-Commerce Catalog Management Services"
-        description="Bulk product uploads, variation mapping and real-time stock sync across Amazon, Flipkart and Meesho. We keep your catalogue accurate and error-free. Get a free consultation."
+        description="Bulk product uploads, variation mapping and real-time stock sync across Amazon, Flipkart and Meesho. We keep your catalogue accurate and error-free."
         path="/services/ecom/catalog-management"
       />
       <section className="cat-hero cat-hero--dark">

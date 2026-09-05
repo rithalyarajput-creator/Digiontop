@@ -48,7 +48,7 @@ export default function Testimonials() {
     <main className="testimonials-page">
       <Seo
         title="Google Reviews, What Our Clients Say About DigionTop"
-        description="Read the Google reviews left by DigionTop clients, Amazon sellers, restaurant owners, founders and consultants across India. Real, unedited feedback from the businesses we've grown."
+        description="Read Google reviews left by DigionTop clients, Amazon sellers, restaurant owners, founders and consultants across India."
         path="/testimonials"
       />
 

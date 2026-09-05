@@ -37,7 +37,7 @@ export default function LinkBuilding() {
     <main className="lb">
       <Seo
         title="White-Hat Link Building & Digital PR"
-        description="Editorial backlinks earned through guest posting, HARO pitching, broken-link reclamation and brand-mention outreach. No PBNs, full link reporting. See sample links."
+        description="Editorial backlinks earned through guest posting, HARO pitching, broken-link reclamation and brand-mention outreach. No PBNs, full link reporting."
         path="/services/link-building"
       />
       {/* HERO — network of nodes */}

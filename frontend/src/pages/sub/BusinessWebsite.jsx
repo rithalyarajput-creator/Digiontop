@@ -50,7 +50,7 @@ export default function BusinessWebsite() {
     <main className="biz">
       <Seo
         title="Business Website Development Services in India"
-        description="Professional business websites built to win enquiries, clear service pages, contact forms, WhatsApp and click-to-call, local SEO ready, live in 2 to 4 weeks. Get started."
+        description="Professional business websites built to win enquiries, clear service pages, contact forms, WhatsApp and click-to-call, local SEO ready, live in 2 to 4 weeks."
         path="/services/business-website"
       />
       <section className="biz-hero biz-hero--light">

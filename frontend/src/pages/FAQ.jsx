@@ -134,8 +134,8 @@ export default function FAQ() {
   return (
     <main className="faq-page">
       <Seo
-        title="Digital Marketing FAQs, Pricing, Timelines & Process"
-        description="Answers to common questions about our website, SEO, social media and Amazon/Flipkart services, pricing, delivery timelines, contracts and reporting. Still unsure? Ask us."
+        title="Digital Marketing FAQs: Pricing & Process"
+        description="Answers to common questions about our website, SEO, social media and Amazon/Flipkart services, pricing, timelines and contracts."
         path="/faq"
       />
       {/* Hero */}

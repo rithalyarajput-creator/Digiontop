@@ -79,7 +79,7 @@ export default function WhyUs() {
   return (
     <main className="whyus">
       <Seo
-        title="Why Choose DigionTop | Best Digital Marketing Agency in India"
+        title="Why Choose DigionTop | Digital Marketing Agency India"
         description="DigionTop is a results-driven digital marketing agency in India offering SEO, Ads & web dev with transparent reporting and no long-term lock-ins."
         path="/why-us"
       />

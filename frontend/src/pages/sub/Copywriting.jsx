@@ -31,7 +31,7 @@ export default function Copywriting() {
     <main className="cp">
       <Seo
         title="Conversion Copywriting Services"
-        description="Persuasive copy for landing pages, ads, emails and product descriptions, written in your brand voice to grab attention and drive action. Get a free copy review today."
+        description="Persuasive copy for landing pages, ads, emails and product descriptions, written in your brand voice to grab attention and drive action."
         path="/services/social/copywriting"
       />
       <section className="cp-hero">

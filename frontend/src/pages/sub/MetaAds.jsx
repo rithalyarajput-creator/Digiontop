@@ -31,7 +31,7 @@ export default function MetaAds() {
     <main className="meta">
       <Seo
         title="Facebook & Instagram Ads Management"
-        description="Creative-led Meta campaigns with reels, carousels and instant lead forms, plus Pixel retargeting and lookalikes optimised daily for cheaper leads. Get a free ad review."
+        description="Creative-led Meta campaigns with reels, carousels and instant lead forms, plus Pixel retargeting and lookalikes optimised daily for cheaper leads."
         path="/services/meta-ads"
       />
       {/* HERO */}
