@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   FiArrowUpRight, FiPlay, FiVideo, FiShoppingBag, FiTrendingUp,
   FiEdit3, FiMonitor, FiHeart, FiMessageCircle, FiSend, FiStar,
-  FiChevronUp, FiChevronDown, FiSearch,
+  FiChevronUp, FiChevronDown, FiChevronLeft, FiChevronRight, FiSearch,
 } from 'react-icons/fi';
 import { motion, useInView } from 'framer-motion';
 import SocialReelsSection from '../components/SocialReelsSection';
@@ -79,6 +79,25 @@ export default function Portfolio() {
           slug: r.slug || '',
         }));
         setSections((prev) => prev.map((s) => (s.id === 'landing' ? { ...s, items } : s)));
+      })
+      .catch(() => {});
+  }, []);
+
+  // The "Creative Posts That Convert" cards come from the database too
+  // (managed under Projects → Creatives). The hardcoded items above stay as
+  // a fallback while the API loads or if it has nothing yet.
+  useEffect(() => {
+    fetch('/api/cms?resource=creatives')
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((rows) => {
+        if (!Array.isArray(rows) || rows.length === 0) return;
+        const items = rows.map((r) => ({
+          id: 'db-' + r.id,
+          title: r.title,
+          tag: r.tag || 'Product Creative',
+          image: r.image_url || '',
+        }));
+        setSections((prev) => prev.map((s) => (s.id === 'posts' ? { ...s, items } : s)));
       })
       .catch(() => {});
   }, []);
@@ -239,6 +258,7 @@ export default function Portfolio() {
 function Section({ section }) {
   if (section.ratio === 'phone') return <ReelsSection section={section} />;
   if (section.ratio === 'logobrand') return <LogoSection section={section} />;
+  if (section.id === 'posts') return <CreativesSection section={section} />;
 
   return (
     <section className="pf-section" id={section.id}>
@@ -269,6 +289,92 @@ function Section({ section }) {
           />
         ))}
       </div>
+    </section>
+  );
+}
+
+/* ── CREATIVE POSTS: exactly 3 visible, arrows/swipe page through the rest ── */
+const CREATIVES_VISIBLE_COUNT = 3;
+
+function CreativesSection({ section }) {
+  const [index, setIndex] = useState(0);
+  const items = section.items;
+  const maxIndex = Math.max(0, items.length - CREATIVES_VISIBLE_COUNT);
+  const visible = items.slice(index, index + CREATIVES_VISIBLE_COUNT);
+
+  const go = (dir) => setIndex((i) => Math.min(maxIndex, Math.max(0, i + dir)));
+
+  // Mouse/touch swipe as an alternative to the nav buttons — index-based like
+  // the nav buttons, so a card is never left half-hidden mid-drag.
+  const dragRef = useRef({ x: 0, dragging: false });
+  const onDragStart = (e) => {
+    dragRef.current = { x: e.touches ? e.touches[0].clientX : e.clientX, dragging: true };
+  };
+  const onDragEnd = (e) => {
+    if (!dragRef.current.dragging) return;
+    dragRef.current.dragging = false;
+    const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+    const delta = endX - dragRef.current.x;
+    if (Math.abs(delta) < 40) return;
+    go(delta < 0 ? 1 : -1);
+  };
+
+  return (
+    <section className="pf-section" id={section.id}>
+      <motion.div
+        className="pf-section__head"
+        initial={{ opacity: 0, y: 26 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.55 }}
+      >
+        <span className="pf-section__eyebrow" style={{ color: section.accent }}>
+          <span className="pf-section__icon" style={{ background: `${section.accent}1a` }}>
+            <section.Icon />
+          </span>
+          {section.eyebrow}
+        </span>
+        <h2 className="pf-section__title">{section.title}</h2>
+        <p className="pf-section__text">{section.text}</p>
+      </motion.div>
+
+      <div
+        className="pf-creatives__row"
+        onMouseDown={onDragStart}
+        onMouseUp={onDragEnd}
+        onMouseLeave={() => { dragRef.current.dragging = false; }}
+        onTouchStart={onDragStart}
+        onTouchEnd={onDragEnd}
+      >
+        {visible.map((item, i) => (
+          <div className="pf-creatives__card" key={`${index}-${item.id}`}>
+            <Card item={item} section={section} fromLeft={i % 2 === 0} />
+          </div>
+        ))}
+      </div>
+
+      {items.length > CREATIVES_VISIBLE_COUNT && (
+        <div className="pf-creatives__nav">
+          <button
+            type="button"
+            className="pf-creatives__navbtn"
+            onClick={() => go(-1)}
+            disabled={index === 0}
+            aria-label="Previous creatives"
+          >
+            <FiChevronLeft />
+          </button>
+          <button
+            type="button"
+            className="pf-creatives__navbtn"
+            onClick={() => go(1)}
+            disabled={index >= maxIndex}
+            aria-label="Next creatives"
+          >
+            <FiChevronRight />
+          </button>
+        </div>
+      )}
     </section>
   );
 }

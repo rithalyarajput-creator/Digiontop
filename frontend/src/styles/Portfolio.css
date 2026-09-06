@@ -329,6 +329,62 @@
   .pf-grid--postgrid { grid-template-columns: 1fr; gap: 18px; }
 }
 
+/* Creative posts row — exactly 3 cards, arrows/swipe page through the rest */
+.pf-creatives__row {
+  display: flex;
+  align-items: stretch;
+  gap: 26px;
+  padding: 6px 0 0;
+  cursor: grab;
+  user-select: none;
+}
+.pf-creatives__row:active { cursor: grabbing; }
+.pf-creatives__card {
+  flex: 1 1 0;
+  min-width: 0;
+  animation: pf-creatives-fade 0.35s ease;
+}
+@keyframes pf-creatives-fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.pf-creatives__nav {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+.pf-creatives__navbtn {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.5px solid #ececf1;
+  background: #fff;
+  color: #14182b;
+  font-size: 28px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.pf-creatives__navbtn:hover:not(:disabled) {
+  background: #14182b;
+  color: #FFD874;
+  border-color: #14182b;
+  box-shadow: 0 12px 28px rgba(20, 24, 43, 0.22);
+  transform: translateY(-2px);
+}
+.pf-creatives__navbtn:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; }
+
+@media (max-width: 900px) {
+  .pf-creatives__row { flex-wrap: wrap; }
+  .pf-creatives__card { flex: 1 1 calc(50% - 13px); min-width: 220px; }
+}
+@media (max-width: 560px) {
+  .pf-creatives__row { flex-direction: column; }
+  .pf-creatives__card { flex: 1 1 auto; }
+}
+
 /* ── CARD ──────────────────────────────────────────────────── */
 .pf-card {
   position: relative;

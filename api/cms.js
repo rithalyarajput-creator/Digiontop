@@ -201,6 +201,52 @@ async function reels(req, res) {
   return res.status(405).json({ error: 'Method not allowed' });
 }
 
+/* ─────────── CREATIVES (social media post graphics on /portfolio) ─────────── */
+async function creatives(req, res) {
+  if (req.method === 'GET') {
+    // ?all=1 — the admin list, hidden creatives included. Not sensitive, so public.
+    const rows = req.query.all === '1'
+      ? await sql`SELECT * FROM creatives ORDER BY sort_order ASC, created_at DESC`
+      : await sql`SELECT * FROM creatives WHERE is_active = true ORDER BY sort_order ASC, created_at DESC`;
+    return res.status(200).json(rows);
+  }
+  // GET above is public — the site renders the "Creative Posts That Convert"
+  // row from it. Same content bucket as websites/reels → 'reviews'.
+  if (!allow(req, res, 'reviews')) return;
+
+  if (req.method === 'POST') {
+    const { title, tag, image_url, sort_order, is_active } = req.body || {};
+    if (!title || !title.trim()) return res.status(400).json({ error: 'title is required' });
+    if (!image_url) return res.status(400).json({ error: 'An image is required' });
+    const rows = await sql`
+      INSERT INTO creatives (title, tag, image_url, sort_order, is_active)
+      VALUES (${title.trim()}, ${tag || 'Product Creative'}, ${image_url}, ${sort_order ?? 0}, ${is_active ?? true})
+      RETURNING *`;
+    return res.status(201).json(rows[0]);
+  }
+  if (req.method === 'PUT') {
+    const { id, title, tag, image_url, sort_order, is_active } = req.body || {};
+    if (!id) return res.status(400).json({ error: 'id is required' });
+    const rows = await sql`
+      UPDATE creatives SET
+        title = COALESCE(${title ?? null}, title),
+        tag = COALESCE(${tag ?? null}, tag),
+        image_url = COALESCE(${image_url ?? null}, image_url),
+        sort_order = COALESCE(${sort_order ?? null}, sort_order),
+        is_active = COALESCE(${is_active ?? null}, is_active)
+      WHERE id = ${id} RETURNING *`;
+    if (rows.length === 0) return res.status(404).json({ error: 'Creative not found' });
+    return res.status(200).json(rows[0]);
+  }
+  if (req.method === 'DELETE') {
+    const { id } = req.query;
+    if (!id) return res.status(400).json({ error: 'id query parameter is required' });
+    await sql`DELETE FROM creatives WHERE id = ${id}`;
+    return res.status(200).json({ success: true });
+  }
+  return res.status(405).json({ error: 'Method not allowed' });
+}
+
 /* ─────────── MEDIA (uploaded images, stored in Postgres) ─────────── */
 async function media(req, res) {
   // GET ?resource=media&id=N — serve the stored image (public)
@@ -571,6 +617,7 @@ export default async function handler(req, res) {
     if (resource === 'categories') return await categories(req, res);
     if (resource === 'media') return await media(req, res);
     if (resource === 'reels') return await reels(req, res);
+    if (resource === 'creatives') return await creatives(req, res);
     if (resource === 'users') return await users(req, res);
     if (resource === 'docs') return await docs(req, res);
     return res.status(400).json({ error: 'Unknown resource' });

@@ -3,7 +3,7 @@ import { Routes, Route, NavLink, Navigate, Link } from 'react-router-dom';
 import {
   FiGrid, FiInbox, FiFileText, FiStar, FiHelpCircle,
   FiLogOut, FiMenu, FiUsers, FiTag, FiSettings, FiX, FiMail, FiLock, FiShield,
-  FiFolder, FiBarChart2, FiMonitor, FiVideo,
+  FiFolder, FiBarChart2, FiMonitor, FiVideo, FiImage,
 } from 'react-icons/fi';
 import { getToken, clearToken, getUser, can, isOwner } from './api';
 import AdminLogin from './AdminLogin';
@@ -23,6 +23,7 @@ import Documents from './pages/Documents';
 import Analytics from './pages/Analytics';
 import PortfolioAdmin from './pages/Portfolio';
 import ReelsAdmin from './pages/Reels';
+import CreativesAdmin from './pages/Creatives';
 import './admin.css';
 
 /* Shown when someone reaches a route they don't hold. The menu never links here,
@@ -142,6 +143,11 @@ export default function AdminApp() {
               <FiVideo /> <span>Reels</span>
             </NavLink>
           )}
+          {showReviews && (
+            <NavLink to="/admin/creatives" className={linkClass} onClick={close}>
+              <FiImage /> <span>Creatives</span>
+            </NavLink>
+          )}
 
           {showSiteGroup && <div className="admin-sidebar__label">Site</div>}
           {showReviews && (
@@ -212,6 +218,7 @@ export default function AdminApp() {
             <Route path="reviews" element={<Protected section="reviews"><TestimonialsAdmin /></Protected>} />
             <Route path="websites" element={<Protected section="reviews"><PortfolioAdmin /></Protected>} />
             <Route path="reels" element={<Protected section="reviews"><ReelsAdmin /></Protected>} />
+            <Route path="creatives" element={<Protected section="reviews"><CreativesAdmin /></Protected>} />
             <Route path="faq" element={<Protected section="faq"><FAQ /></Protected>} />
             <Route path="settings" element={<Protected section="settings"><Settings /></Protected>} />
             <Route path="documents" element={<Protected owner><Documents /></Protected>} />

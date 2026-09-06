@@ -326,6 +326,30 @@ export default async function handler(req, res) {
       `;
     }
 
+    // Social media post graphics shown in the "Creative Posts That Convert"
+    // row on /portfolio — fully managed from the admin panel.
+    await sql`
+      CREATE TABLE IF NOT EXISTS creatives (
+        id SERIAL PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        tag VARCHAR(100) DEFAULT 'Product Creative',
+        image_url VARCHAR(500) NOT NULL,
+        sort_order INTEGER DEFAULT 0,
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+    const creativeCount = await sql`SELECT COUNT(*)::int AS n FROM creatives`;
+    if (creativeCount[0].n === 0) {
+      await sql`
+        INSERT INTO creatives (title, tag, image_url, sort_order) VALUES
+        ('Jhumka Collection', 'Product Creative', '/images/work/creative-jhumka.webp', 1),
+        ('Microwave Bowl Set', 'Product Creative', '/images/work/creative-2.webp', 2),
+        ('Gold Hair Clips', 'Product Creative', '/images/work/creative-hairclip.webp', 3),
+        ('Traditional Jewellery', 'Product Creative', '/images/work/creative-tradition.webp', 4)
+      `;
+    }
+
     await sql`
       CREATE TABLE IF NOT EXISTS faqs (
         id SERIAL PRIMARY KEY,
