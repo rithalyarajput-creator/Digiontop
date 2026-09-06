@@ -72,7 +72,7 @@ const SocialReelsSection = () => {
             <div className="home-reels__phone-screen">
               <video
                 className="home-reels__phone-video"
-                src="/reel.mp4"
+                src="/reel5.mp4"
                 autoPlay
                 loop
                 muted
