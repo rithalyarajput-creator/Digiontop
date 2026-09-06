@@ -92,6 +92,16 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // The browser's own scroll-restoration races with this effect on
+    // lazy-loaded routes: it re-applies the previous page's scroll offset
+    // right after we set it, so the new page renders scrolled to wherever
+    // the last page left off. Taking manual control here stops that.
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
     // Instant, not smooth: a smooth scroll animates up from wherever the
     // previous page had scrolled to, so the new page briefly renders
     // mid-way down before sliding into view. Every navigation should land

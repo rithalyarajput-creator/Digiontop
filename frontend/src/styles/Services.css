@@ -652,6 +652,16 @@
 .svc-hero__centered .svc-hero__actions { justify-content: center; }
 .svc-hero__centered .svc-hero__stats { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee; gap: 48px; justify-content: center; }
 
+/* Text-based trust row (no fabricated numbers) */
+.svc-hero__trust { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; margin-top: 8px; }
+.svc-hero__trust span { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #5b5f6b; }
+.svc-hero__trust svg { color: #C78700; }
+
+/* Centered muted note with inline links, for "related/explore more" lines */
+.svc-note { margin: 36px 0 0; text-align: center; font-size: .85rem; color: #6b6f7b; line-height: 1.6; }
+.svc-note a { color: #C78700; font-weight: 700; text-decoration: none; }
+.svc-note a:hover { text-decoration: underline; }
+
 .svc-hero--split { background: #fff; padding: 80px 0 70px; position: relative; overflow: hidden; }
 .svc-hero__split { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 50px; align-items: center; }
 .svc-hero__left { text-align: left; }

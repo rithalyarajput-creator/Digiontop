@@ -21,8 +21,13 @@ const industries = [
   {
     icon: <FiShoppingCart size={32} />,
     title: 'Digital Marketing for Retail & E-Commerce Brands',
-    description:
-      'From Amazon and Flipkart listing optimization to full-stack Shopify store development, DigionTop helps retail and e-commerce brands in India stand out, convert more visitors, and scale profitably across every major platform.',
+    description: (
+      <>
+        From Amazon and Flipkart listing optimization to full-stack Shopify store development and{' '}
+        <Link to="/services/ecommerce-seo">ecommerce SEO services</Link>, DigionTop helps retail and e-commerce brands in
+        India stand out, convert more visitors, and scale profitably across every major platform.
+      </>
+    ),
   },
   {
     icon: <FiCoffee size={32} />,
@@ -63,8 +68,14 @@ const industries = [
   {
     icon: <FiCpu size={32} />,
     title: 'Digital Marketing for Technology & SaaS Companies',
-    description:
-      'Startups and SaaS companies rely on DigionTop for product-led content marketing, technical SEO, demo-driving paid campaigns, and growth-focused website builds that reduce CAC and improve trial conversions.',
+    description: (
+      <>
+        Startups and SaaS companies rely on DigionTop for product-led content marketing, technical SEO, demo-driving
+        paid campaigns, and growth-focused website builds that reduce CAC and improve trial conversions. Larger
+        platforms with complex sites can also lean on our{' '}
+        <Link to="/services/enterprise-seo">enterprise SEO services</Link> to manage SEO at scale.
+      </>
+    ),
   },
   {
     icon: <FiTool size={32} />,
