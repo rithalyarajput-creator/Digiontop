@@ -231,7 +231,9 @@ export default function EcommerceSeo() {
             ))}
           </div>
           <p className="eseo-note">
-            Explore our related services:{' '}
+            Building or setting up a Shopify store itself? See our{' '}
+            <Link to="/services/shopify-development">Shopify development service</Link> — this page covers the
+            ongoing SEO strategy for any ecommerce site. Explore our other related services:{' '}
             <Link to="/services/seo-services">SEO Services</Link>,{' '}
             <Link to="/services/seo-audit">Free SEO Audit</Link>,{' '}
             <Link to="/services/technical-seo">Technical SEO</Link>,{' '}

@@ -23,7 +23,8 @@ const industries = [
     title: 'Digital Marketing for Retail & E-Commerce Brands',
     description: (
       <>
-        From Amazon and Flipkart listing optimization to full-stack Shopify store development and{' '}
+        From Amazon and Flipkart listing optimization to full-stack{' '}
+        <Link to="/services/shopify-development">Shopify store development</Link> and{' '}
         <Link to="/services/ecommerce-seo">ecommerce SEO services</Link>, DigionTop helps retail and e-commerce brands in
         India stand out, convert more visitors, and scale profitably across every major platform.
       </>
@@ -50,8 +51,13 @@ const industries = [
   {
     icon: <FiStar size={32} />,
     title: 'Digital Marketing for Fashion & Beauty Brands',
-    description:
-      'DigionTop crafts compelling brand stories for fashion labels, beauty studios, and personal care brands, from Instagram-worthy content and influencer tie-ups to Myntra-optimised listings and D2C website design.',
+    description: (
+      <>
+        DigionTop crafts compelling brand stories for fashion labels, beauty studios, and personal care brands, from
+        Instagram-worthy content and influencer tie-ups to Myntra-optimised listings and{' '}
+        <Link to="/services/shopify-development">D2C Shopify store development</Link>.
+      </>
+    ),
   },
   {
     icon: <FiHome size={32} />,

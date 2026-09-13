@@ -110,6 +110,15 @@ export default function CustomWebsite() {
         </div>
       </section>
 
+      {/* Which service is the right fit — avoids this page and /business-website
+          competing for the same searches (see internal-linking note in the spec). */}
+      <div className="wd-container">
+        <p className="wd-fit">
+          Looking for a simpler, lead-focused website for your local business? See our{' '}
+          <Link to="/services/business-website">Business Website</Link> service.
+        </p>
+      </div>
+
       {/* EVERYTHING YOUR WEBSITE NEEDS */}
       <section className="wd-features">
         <div className="wd-container">
@@ -199,7 +208,8 @@ export default function CustomWebsite() {
             ))}
           </div>
           <p className="wd-note">
-            Explore our related services: <Link to="/services/website-development">Website Development</Link>,{' '}
+            Explore our related services: <Link to="/services/custom-web-application">Custom Web Application Development</Link>,{' '}
+            <Link to="/services/website-development">Website Development</Link>,{' '}
             <Link to="/services/website-redesign">Website Redesign</Link>,{' '}
             <Link to="/services/seo-services">SEO Services</Link>,{' '}
             <Link to="/services/local-seo">Local SEO</Link>,{' '}

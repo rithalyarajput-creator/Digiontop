@@ -39,6 +39,8 @@
 .sf-btn--ghost:hover { border-color: var(--gold); color: var(--gold-d); }
 .sf-btn--light { background: #fff; color: var(--gold-d); }
 .sf-btn--light:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
+.sf-btn--ghost-l { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.24); }
+.sf-btn--ghost-l:hover { border-color: var(--gold); color: var(--gold-l); }
 
 /* ── HERO ── */
 .sf-hero { position: relative; overflow: hidden; background: #fff; padding: 72px 0 84px; border-bottom: 1px solid var(--line); }
@@ -125,12 +127,39 @@
 
 /* ── WHY ── */
 .sf-why { padding: 84px 0; }
-.sf-why__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.sf-why__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .sf-why__card { padding: 28px 24px; border-radius: 18px; background: #FFFDF6; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
 .sf-why__card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(245,168,0,0.12); }
 .sf-why__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--gold-l), var(--gold)); color: var(--black); font-size: 20px; margin-bottom: 16px; }
 .sf-why__card h3 { font-size: 1.05rem; font-weight: 800; margin: 0 0 7px; }
 .sf-why__card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* compact icon-card grid (Who We Help) */
+.sf-mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.sf-mini { display: flex; gap: 14px; align-items: flex-start; padding: 20px; border-radius: 14px; background: #FFFDF6; border: 1px solid var(--line); }
+.sf-mini__icon { flex-shrink: 0; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: #FFF6E0; color: var(--gold-d); font-size: 17px; }
+.sf-mini h3 { font-size: .95rem; margin: 0 0 4px; }
+.sf-mini p { font-size: .85rem; color: var(--muted); line-height: 1.55; margin: 0; }
+
+/* ── PROCESS (dark timeline) ── */
+.sf-process { padding: 84px 0; background: radial-gradient(ellipse at 50% 0%, #1c2136, #14182b 60%, #0e1120); }
+.sf-head--light .sf-h2, .sf-head--light .sf-eyebrow { color: #fff; }
+.sf-head--light .sf-eyebrow--light { color: var(--gold-l); }
+.sf-process__track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.sf-step { position: relative; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 28px 22px; transition: background 0.3s, transform 0.3s; }
+.sf-step:hover { background: rgba(245,168,0,0.1); transform: translateY(-6px); }
+.sf-step__num { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, var(--gold-l), var(--gold)); color: var(--black); font-weight: 900; font-size: 14px; margin-bottom: 14px; }
+.sf-step h3 { color: #fff; font-size: 1.02rem; margin: 0 0 8px; }
+.sf-step p { color: #aeb2c0; font-size: 0.9rem; line-height: 1.6; margin: 0; }
+
+/* centered muted note with inline links */
+.sf-note { margin: 36px 0 0; text-align: center; font-size: .85rem; color: var(--muted); line-height: 1.6; }
+.sf-note a { color: var(--gold-d); font-weight: 700; text-decoration: none; }
+.sf-note a:hover { text-decoration: underline; }
+
+.sf-trustbox { max-width: 760px; margin: 0 auto 84px; text-align: center; padding: 44px 36px; border: 1px solid var(--line); border-radius: 20px; background: #FFFDF6; }
+.sf-trustbox h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 900; margin: 0 0 14px; }
+.sf-trustbox p { color: var(--muted); line-height: 1.75; margin: 0; }
 
 /* ── IDEAL FOR ── */
 .sf-ideal { padding: 30px 0 84px; }
@@ -153,12 +182,16 @@
   .sf-offer__grid { grid-template-columns: repeat(2, 1fr); }
   .sf-features__grid { grid-template-columns: repeat(2, 1fr); }
   .sf-why__grid { grid-template-columns: repeat(2, 1fr); }
+  .sf-process__track { grid-template-columns: repeat(2, 1fr); }
+  .sf-mini-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
   .sf-hero { padding: 50px 0 60px; }
   .sf-offer__grid { grid-template-columns: 1fr; }
   .sf-features__grid { grid-template-columns: 1fr; }
   .sf-why__grid { grid-template-columns: 1fr; }
+  .sf-process__track { grid-template-columns: 1fr; }
+  .sf-mini-grid { grid-template-columns: 1fr; }
   .sf-float { display: none; }
   .sf-cta__box { padding: 44px 22px; border-radius: 20px; }
 }

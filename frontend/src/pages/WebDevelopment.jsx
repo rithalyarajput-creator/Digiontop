@@ -15,13 +15,13 @@ import '../styles/WebDevelopment.css'
 
 const SERVICES = [
   { icon: <FiCode />, title: 'Custom Website Development', desc: 'Fully customized websites built around your business requirements, workflows, and goals.', path: '/services/custom-website' },
-  { icon: <FiBriefcase />, title: 'Business Website Development', desc: 'Professional business websites designed to build credibility, showcase services, and generate leads.' },
+  { icon: <FiBriefcase />, title: 'Business Website Development', desc: 'Professional business websites designed to build credibility, showcase services, and generate leads.', path: '/services/business-website' },
   { icon: <FiGlobe />, title: 'WordPress Development', desc: 'Flexible and easy-to-manage WordPress websites optimized for performance and scalability.' },
   { icon: <FiShoppingBag />, title: 'Shopify Store Development', desc: 'Conversion-focused Shopify stores designed to create better shopping experiences and increase online sales.' },
   { icon: <FiShoppingBag />, title: 'E-Commerce Website Development', desc: 'Powerful online stores with product management, payment integration, and user-friendly shopping experiences.' },
   { icon: <FiTarget />, title: 'Landing Page Development', desc: 'High-converting landing pages built specifically for lead generation and marketing campaigns.' },
-  { icon: <FiRefreshCw />, title: 'Website Redesign & Optimization', desc: 'Transform outdated websites into modern, faster, and more engaging digital experiences.' },
-  { icon: <FiLayers />, title: 'Custom Web Applications', desc: 'Custom-built web platforms, dashboards, and applications tailored to your business operations.' },
+  { icon: <FiRefreshCw />, title: 'Website Redesign & Optimization', desc: 'Transform outdated websites into modern, faster, and more engaging digital experiences.', path: '/services/website-redesign' },
+  { icon: <FiLayers />, title: 'Custom Web Applications', desc: 'Custom-built web platforms, dashboards, and applications tailored to your business operations.', path: '/services/custom-web-application' },
   { icon: <FiGrid />, title: 'Admin Panel Development', desc: 'Secure and user-friendly admin dashboards for managing products, customers, orders, and business data.' },
   { icon: <FiDatabase />, title: 'CRM & Business Management Systems', desc: 'Custom CRM and management systems designed to streamline workflows and improve business efficiency.' },
 ]
