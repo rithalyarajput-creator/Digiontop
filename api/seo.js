@@ -155,6 +155,7 @@ async function rss(req, res) {
       `    <pubDate>${pubDate}</pubDate>`,
       `    <description><![CDATA[${description}]]></description>`,
       image ? `    <enclosure url="${xmlEscape(image)}" type="image/webp" />` : '',
+      '  </item>',
     ].filter(Boolean).join('\n');
   });
 
