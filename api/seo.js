@@ -111,8 +111,73 @@ async function sitemap(req, res) {
   return res.status(200).send(xml);
 }
 
+/** Escape text for safe use inside XML elements. */
+function xmlEscape(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+/** Blog RSS feed — lets Pinterest (and any other reader) auto-publish new posts. */
+async function rss(req, res) {
+  const host = req.headers.host || 'digiontop.com';
+  const proto = (req.headers['x-forwarded-proto'] || 'https').split(',')[0];
+  const base = `${proto}://${host}`;
+
+  let posts = [];
+  try {
+    posts = await sql`
+      SELECT title, slug, excerpt, image_url, created_at FROM blog_posts
+      WHERE status = 'published' AND slug IS NOT NULL
+      ORDER BY created_at DESC
+      LIMIT 50
+    `;
+  } catch {}
+
+  const items = posts.map((p) => {
+    const link = `${base}/blog/${p.slug}`;
+    const image = p.image_url
+      ? (p.image_url.startsWith('http') ? p.image_url : `${base}${p.image_url}`)
+      : '';
+    // CDATA so the excerpt/img markup doesn't need manual entity-escaping,
+    // and RSS readers that expect HTML in <description> (Pinterest included)
+    // can find the <img> tag directly.
+    const description = `${(p.excerpt || '').replace(/]]>/g, ']]&gt;')}${image ? ` <img src="${image.replace(/"/g, '&quot;')}">` : ''}`;
+    const pubDate = p.created_at ? new Date(p.created_at).toUTCString() : new Date().toUTCString();
+    return [
+      '  <item>',
+      `    <title>${xmlEscape(p.title)}</title>`,
+      `    <link>${link}</link>`,
+      `    <guid isPermaLink="true">${link}</guid>`,
+      `    <pubDate>${pubDate}</pubDate>`,
+      `    <description><![CDATA[${description}]]></description>`,
+      image ? `    <enclosure url="${xmlEscape(image)}" type="image/webp" />` : '',
+    ].filter(Boolean).join('\n');
+  });
+
+  const xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0">',
+    '<channel>',
+    `  <title>${xmlEscape('DigionTop Blog')}</title>`,
+    `  <link>${base}/blog</link>`,
+    `  <description>${xmlEscape('Digital marketing, SEO and web insights from DigionTop.')}</description>`,
+    items.join('\n'),
+    '</channel>',
+    '</rss>',
+  ].join('\n');
+
+  res.setHeader('Content-Type', 'application/rss+xml; charset=utf-8');
+  res.setHeader('Cache-Control', 'public, max-age=1800');
+  return res.status(200).send(xml);
+}
+
 export default async function handler(req, res) {
   const type = req.query.type;
   if (type === 'sitemap') return sitemap(req, res);
+  if (type === 'rss') return rss(req, res);
   return robots(req, res);
 }

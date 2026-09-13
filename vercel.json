@@ -4,6 +4,7 @@
   "rewrites": [
     { "source": "/robots.txt", "destination": "/api/seo?type=robots" },
     { "source": "/sitemap.xml", "destination": "/api/seo?type=sitemap" },
+    { "source": "/rss.xml", "destination": "/api/seo?type=rss" },
     { "source": "/((?!api).*)", "destination": "/index.html" }
   ]
 }
