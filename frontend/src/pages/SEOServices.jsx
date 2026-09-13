@@ -140,16 +140,6 @@ const serviceSchema = {
   description: 'Complete SEO services including keyword research, on-page SEO, technical SEO, local SEO, content SEO, and off-page SEO for businesses of all sizes.',
 }
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: SEO_FAQS.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-}
-
 /* ── Component ── */
 export default function SEOServices() {
   useEffect(() => {
@@ -189,7 +179,6 @@ export default function SEOServices() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.digiontop.com/services/seo-services" />
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       {/* ── Hero — simple centered ─────────────────────────── */}

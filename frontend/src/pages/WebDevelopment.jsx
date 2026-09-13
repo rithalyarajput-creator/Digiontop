@@ -14,7 +14,7 @@ import RelatedServices from '../components/RelatedServices'
 import '../styles/WebDevelopment.css'
 
 const SERVICES = [
-  { icon: <FiCode />, title: 'Custom Website Development', desc: 'Fully customized websites built around your business requirements, workflows, and goals.' },
+  { icon: <FiCode />, title: 'Custom Website Development', desc: 'Fully customized websites built around your business requirements, workflows, and goals.', path: '/services/custom-website' },
   { icon: <FiBriefcase />, title: 'Business Website Development', desc: 'Professional business websites designed to build credibility, showcase services, and generate leads.' },
   { icon: <FiGlobe />, title: 'WordPress Development', desc: 'Flexible and easy-to-manage WordPress websites optimized for performance and scalability.' },
   { icon: <FiShoppingBag />, title: 'Shopify Store Development', desc: 'Conversion-focused Shopify stores designed to create better shopping experiences and increase online sales.' },
@@ -152,13 +152,17 @@ export default function WebDevelopment() {
             <h2 className="wd-h2">Everything You Need to Go Online & Grow</h2>
           </div>
           <div className="wd-services__grid">
-            {SERVICES.map((s, i) => (
-              <div className="wd-card" key={s.title} data-aos="fade-up" data-aos-delay={(i % 3) * 70}>
-                <span className="wd-card__icon">{s.icon}</span>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
-              </div>
-            ))}
+            {SERVICES.map((s, i) => {
+              const CardTag = s.path ? Link : 'div'
+              const cardProps = s.path ? { to: s.path } : {}
+              return (
+                <CardTag className="wd-card" key={s.title} data-aos="fade-up" data-aos-delay={(i % 3) * 70} {...cardProps}>
+                  <span className="wd-card__icon">{s.icon}</span>
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                </CardTag>
+              )
+            })}
           </div>
         </div>
       </section>
